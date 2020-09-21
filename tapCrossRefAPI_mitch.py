@@ -1,6 +1,5 @@
 # Mitch Fenner 9/17/20
 # You must have curl installed to use this script!
-import platform
 import os
 import time
 
@@ -12,30 +11,27 @@ def main():
     query = None
     keepGoing = True
 
-    if platform.system() == 'Windows':
-        while (keepGoing):
+    while (keepGoing):
             
-            # Get user email
-            email = input("Enter your email: ")
-            email = email + "&"
+        # Get user email
+        email = input("Enter your email: ")
+        email = email + "&"
 
-            # Get user desired sources
-            source = input("Enter the source (leave blank for all): ")
-            if (source != ""): source = "source=" + source + "&"
+        # Get user desired sources
+        source = input("Enter the source (leave blank for all): ")
+        if (source != ""): source = "source=" + source + "&"
 
-            # Get user desired rows
-            rows = input("Enter the number of rows: ")
-            rows = "rows=" + rows
+        # Get user desired rows
+        rows = input("Enter the number of rows: ")
+        rows = "rows=" + rows
             
-            # Ensure the user provided an email and row value, if not, loop again
-            if (email != "" and email != None and rows !="" and rows != None): 
-                keepGoing = False
+        # Ensure the user provided an email and row value, if not, loop again
+        if (email != "" and email != None and rows !="" and rows != None): 
+            keepGoing = False
         
-        # Call the fetch function now that we have valid user input
-        fetchData(fetchURL, email, source, rows)
+    # Call the fetch function now that we have valid user input
+    fetchData(fetchURL, email, source, rows)
 
-    elif platform.system() =='Linux':
-        print ("May need to change some things for Linux, not done yet.")
 
 # Assemble the query for CrossRef, sleep and retry if the server is busy
 def fetchData(fetchURL, email, source, rows):
