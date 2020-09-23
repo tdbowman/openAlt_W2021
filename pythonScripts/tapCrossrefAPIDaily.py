@@ -49,13 +49,13 @@ def fetchData():
         query = fetchURL + email + source + "&rows=" + rows
         print ("Downloading Data")
         response = requests.get(query)
-        # If the data was not grabbed successfully, then sleep 20s and retry.
+        # If the data was not grabbed successfully, then sleep 30s and retry.
         # We assume it was busy on the first pass - so the response is always checked.
         serverBusy = True
         while (serverBusy):
-            if (response.text == "Server is overloaded, please try later"):
-                print("Server overload, Retrying in 20s...")
-                time.sleep(20)
+            if ((response.text == "Server is overloaded, please try later") or (response.status_code not in (200, 201))):
+                print("Server is overloaded or down. Retrying in 30s...")
+                time.sleep(30)
                 response = requests.get(query)
             # TODO: Need to add a statement to catch the condition when "status failed" - server maintainence
             else:
