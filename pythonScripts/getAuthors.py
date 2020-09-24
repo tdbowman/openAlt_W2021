@@ -1,30 +1,29 @@
-''' TODO
-# This prints a lot of information but importantly it has: 'author': [ and then all the authors and an ending brace ]
-# Should be able to use regex or json to find the keywords 'given:' and 'family:'
-# Then we can send that to our database for the associated DOI
-'''
-import re
+# Pass this script a DOI and recieve a list of authors
+# python getAuthors.py 10.1016/j.ymthe.2019.04.002
 import json
-doi = '10.1016/j.ymthe.2019.04.002'
+import argparse
+
+parser = argparse.ArgumentParser()
+parser.add_argument("doi")
+args = parser.parse_args()
+
+#doi = '10.1016/j.ymthe.2019.04.002'
 
 try:
     from crossref.restful import Works
     works = Works()
     print ("Working...")
     # Request data from the crossref API, save json as x
-    x = works.doi(doi)
+    x = works.doi(args.doi)
     if (x['author']):
         authorList = x['author']
-        # Example of what the x (json object) now looks like:
-        # [{'given': 'Tushar H.', 'family': 'Ganjawala', 'sequence': 'first', 'affiliation': []}, {'given': 'Qi', 'family': 'Lu', 'sequence': 'additional', 'affiliation': []}, {'given': 'Mitchell D.', 'family': 'Fenner', 'sequence': 'additional', 'affiliation': []}, {'given': 'Gary W.', 'family': 'Abrams', 'sequence': 'additional', 'affiliation': []}, {'given': 'Zhuo-Hua', 'family': 'Pan', 'sequence': 'additional', 'affiliation': []}]
-
+        # Truncated example of what the x (json object) now looks like:
+        # [{'given': 'Tushar H.', 'family': 'Ganjawala', 'sequence': 'first', 'affiliation': []}, {'given': 'Qi', 'family': 'Lu', 'sequence': 'additional', 'affiliation': []}]
         for index, authorDetail in enumerate(authorList):
-            #print(index, authorDetail)
             first_name = authorDetail['given']
             last_name = authorDetail['family']
             print(first_name + ' ' + last_name)
             
-
 except ImportError:
     print("You need to install the crossref api with 'pip install crossrefapi' first")
 except:
