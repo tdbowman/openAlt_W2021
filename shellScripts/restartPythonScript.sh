@@ -1,2 +1,2 @@
 #!/bin/sh
-nohup python /home/fg7626/tapCrossrefAPIDaily.py &
+nohup python3 /home/fg7626/tapCrossrefAPIDaily.py &
