@@ -31,8 +31,8 @@ def main():
     # This allows us to get all the data for that day, while allowing some time for the server to be busy
     # Line 58 can be copied and provided with a different time, should we choose to run the script multiple times per day
     if (runOnSchedule == True):
-        #schedule.every().hour.do(fetchData)
-        schedule.every().minute.do(fetchData) # Use this one for debugging
+        schedule.every().hour.do(fetchData)
+        #schedule.every().minute.do(fetchData) # Use this one for debugging
         while True:
             schedule.run_pending()
             time.sleep(1)
