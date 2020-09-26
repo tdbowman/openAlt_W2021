@@ -1,0 +1,2611 @@
+{
+    "status": "ok",
+    "message-type": "event-list",
+    "message": {
+        "next-cursor": "1054e8a1-5e81-42a7-8a0c-fa242a43f210",
+        "total-results": 164317,
+        "items-per-page": 100,
+        "events": [
+            {
+                "license": "https://creativecommons.org/publicdomain/zero/1.0/",
+                "obj_id": "https://doi.org/10.1038/news070618-14",
+                "source_token": "8075957f-e0da-405f-9eee-7f35519d7c4c",
+                "occurred_at": "2017-04-11T15:11:07Z",
+                "subj_id": "https://hypothes.is/a/FuQeKh7JEee6cZfWbprA2g",
+                "id": "b9d14e87-0ebc-4332-af2e-f2970cdb131a",
+                "evidence_record": "https://evidence.eventdata.crossref.org/evidence/20170411-hypothesis-643f904d-8e87-4539-8330-903b5b03bdff",
+                "terms": "https://doi.org/10.13003/CED-terms-of-use",
+                "action": "add",
+                "subj": {
+                    "pid": "https://hypothes.is/a/FuQeKh7JEee6cZfWbprA2g",
+                    "json-url": "https://hypothes.is/api/annotations/FuQeKh7JEee6cZfWbprA2g",
+                    "url": "https://hyp.is/FuQeKh7JEee6cZfWbprA2g/www.nature.com/news/2007/070618/full/news070618-14.html",
+                    "type": "annotation",
+                    "title": "not first born",
+                    "issued": "2017-04-11T15:11:07Z"
+                },
+                "source_id": "hypothesis",
+                "obj": {
+                    "pid": "https://doi.org/10.1038/news070618-14",
+                    "url": "http://www.nature.com/news/2007/070618/full/news070618-14.html"
+                },
+                "timestamp": "2017-04-11T18:33:41Z",
+                "relation_type_id": "annotates"
+            },
+            {
+                "license": "https://creativecommons.org/publicdomain/zero/1.0/",
+                "obj_id": "https://doi.org/10.1002/ntlf.30110",
+                "source_token": "8075957f-e0da-405f-9eee-7f35519d7c4c",
+                "occurred_at": "2017-04-11T16:50:39Z",
+                "subj_id": "https://hypothes.is/a/_oo--h7WEeePmzNLGghzBA",
+                "id": "4721e2ad-5d3d-43bf-8773-b311aa3f69bb",
+                "evidence_record": "https://evidence.eventdata.crossref.org/evidence/20170411-hypothesis-643f904d-8e87-4539-8330-903b5b03bdff",
+                "terms": "https://doi.org/10.13003/CED-terms-of-use",
+                "action": "add",
+                "subj": {
+                    "pid": "https://hypothes.is/a/_oo--h7WEeePmzNLGghzBA",
+                    "json-url": "https://hypothes.is/api/annotations/_oo--h7WEeePmzNLGghzBA",
+                    "url": "https://hyp.is/_oo--h7WEeePmzNLGghzBA/onlinelibrary.wiley.com/doi/10.1002/ntlf.30110/full",
+                    "type": "annotation",
+                    "title": "diversity/includion of perspectives.",
+                    "issued": "2017-04-11T16:50:39Z"
+                },
+                "source_id": "hypothesis",
+                "obj": {
+                    "pid": "https://doi.org/10.1002/ntlf.30110",
+                    "url": "http://onlinelibrary.wiley.com/doi/10.1002/ntlf.30110/full"
+                },
+                "timestamp": "2017-04-11T18:33:41Z",
+                "relation_type_id": "annotates"
+            },
+            {
+                "license": "https://creativecommons.org/publicdomain/zero/1.0/",
+                "obj_id": "https://doi.org/10.1038/news070618-14",
+                "source_token": "8075957f-e0da-405f-9eee-7f35519d7c4c",
+                "occurred_at": "2017-04-11T15:05:36Z",
+                "subj_id": "https://hypothes.is/a/UbqRzh7IEeeFmUvYAK-tsQ",
+                "id": "25507c6b-67c6-40d9-884c-f0a11c108f3a",
+                "evidence_record": "https://evidence.eventdata.crossref.org/evidence/20170411-hypothesis-643f904d-8e87-4539-8330-903b5b03bdff",
+                "terms": "https://doi.org/10.13003/CED-terms-of-use",
+                "action": "add",
+                "subj": {
+                    "pid": "https://hypothes.is/a/UbqRzh7IEeeFmUvYAK-tsQ",
+                    "json-url": "https://hypothes.is/api/annotations/UbqRzh7IEeeFmUvYAK-tsQ",
+                    "url": "https://hyp.is/UbqRzh7IEeeFmUvYAK-tsQ/www.nature.com/news/2007/070618/full/news070618-14.html",
+                    "type": "annotation",
+                    "title": "2.3",
+                    "issued": "2017-04-11T15:05:36Z"
+                },
+                "source_id": "hypothesis",
+                "obj": {
+                    "pid": "https://doi.org/10.1038/news070618-14",
+                    "url": "http://www.nature.com/news/2007/070618/full/news070618-14.html"
+                },
+                "timestamp": "2017-04-11T18:33:42Z",
+                "relation_type_id": "annotates"
+            },
+            {
+                "license": "https://creativecommons.org/publicdomain/zero/1.0/",
+                "obj_id": "https://doi.org/10.1038/mp.2014.105",
+                "source_token": "8075957f-e0da-405f-9eee-7f35519d7c4c",
+                "occurred_at": "2017-04-06T06:38:07Z",
+                "subj_id": "https://hypothes.is/a/iac2PhqTEees209y66sh-A",
+                "id": "675c2a6c-4ad3-4ece-a1de-c12979ba2480",
+                "evidence_record": "https://evidence.eventdata.crossref.org/evidence/20170411-hypothesis-58fc1a20-b939-4380-8491-aaf692253cf3",
+                "terms": "https://doi.org/10.13003/CED-terms-of-use",
+                "action": "add",
+                "subj": {
+                    "pid": "https://hypothes.is/a/iac2PhqTEees209y66sh-A",
+                    "json-url": "https://hypothes.is/api/annotations/iac2PhqTEees209y66sh-A",
+                    "url": "https://hyp.is/iac2PhqTEees209y66sh-A/www.nature.com/mp/journal/v20/n1/full/mp2014105a.html",
+                    "type": "annotation",
+                    "title": "[Plomin wiki page](https://en.wikipedia.org/wiki/Robert_Plomin)",
+                    "issued": "2017-04-06T06:38:07Z"
+                },
+                "source_id": "hypothesis",
+                "obj": {
+                    "pid": "https://doi.org/10.1038/mp.2014.105",
+                    "url": "http://www.nature.com/mp/journal/v20/n1/full/mp2014105a.html"
+                },
+                "timestamp": "2017-04-11T18:38:58Z",
+                "relation_type_id": "annotates"
+            },
+            {
+                "license": "https://creativecommons.org/publicdomain/zero/1.0/",
+                "obj_id": "https://doi.org/10.1371/journal.pone.0172213",
+                "source_token": "8075957f-e0da-405f-9eee-7f35519d7c4c",
+                "occurred_at": "2017-03-22T18:31:24Z",
+                "subj_id": "https://hypothes.is/a/wPJ0Yg8tEeeE-L_MAjoq-A",
+                "id": "c419be19-676d-4d5a-aec2-4a0642a46502",
+                "evidence_record": "https://evidence.eventdata.crossref.org/evidence/20170411-hypothesis-8bcb15c2-b022-4614-9d41-d672d33f49ff",
+                "terms": "https://doi.org/10.13003/CED-terms-of-use",
+                "action": "add",
+                "subj": {
+                    "pid": "https://hypothes.is/a/wPJ0Yg8tEeeE-L_MAjoq-A",
+                    "json-url": "https://hypothes.is/api/annotations/wPJ0Yg8tEeeE-L_MAjoq-A",
+                    "url": "https://hyp.is/wPJ0Yg8tEeeE-L_MAjoq-A/journals.plos.org/plosone/article/file?id=10.1371/journal.pone.0172213&type=printable",
+                    "type": "annotation",
+                    "title": "Like so",
+                    "issued": "2017-03-22T18:31:24Z"
+                },
+                "source_id": "hypothesis",
+                "obj": {
+                    "pid": "https://doi.org/10.1371/journal.pone.0172213",
+                    "url": "http://journals.plos.org/plosone/article/file?id=10.1371/journal.pone.0172213&type=printable"
+                },
+                "timestamp": "2017-04-11T18:39:06Z",
+                "relation_type_id": "annotates"
+            },
+            {
+                "license": "https://creativecommons.org/publicdomain/zero/1.0/",
+                "obj_id": "https://doi.org/10.1371/journal.pone.0172213",
+                "source_token": "8075957f-e0da-405f-9eee-7f35519d7c4c",
+                "occurred_at": "2017-03-22T18:26:23Z",
+                "subj_id": "https://hypothes.is/a/DaI7hg8tEee9uu88YziuiQ",
+                "id": "8f68bc76-7391-4d38-8e48-6afc79d6fbdf",
+                "evidence_record": "https://evidence.eventdata.crossref.org/evidence/20170411-hypothesis-8bcb15c2-b022-4614-9d41-d672d33f49ff",
+                "terms": "https://doi.org/10.13003/CED-terms-of-use",
+                "action": "add",
+                "subj": {
+                    "pid": "https://hypothes.is/a/DaI7hg8tEee9uu88YziuiQ",
+                    "json-url": "https://hypothes.is/api/annotations/DaI7hg8tEee9uu88YziuiQ",
+                    "url": "https://hyp.is/_xztIg8sEeeQs3-JQNkgGw/journals.plos.org/plosone/article?id=10.1371/journal.pone.0172213",
+                    "type": "annotation",
+                    "title": "Reply",
+                    "issued": "2017-03-22T18:26:23Z"
+                },
+                "source_id": "hypothesis",
+                "obj": {
+                    "pid": "https://doi.org/10.1371/journal.pone.0172213",
+                    "url": "http://journals.plos.org/plosone/article?id=10.1371/journal.pone.0172213"
+                },
+                "timestamp": "2017-04-11T18:39:06Z",
+                "relation_type_id": "annotates"
+            },
+            {
+                "license": "https://creativecommons.org/publicdomain/zero/1.0/",
+                "obj_id": "https://doi.org/10.1002/leap.1087",
+                "source_token": "8075957f-e0da-405f-9eee-7f35519d7c4c",
+                "occurred_at": "2017-02-22T15:35:50Z",
+                "subj_id": "https://hypothes.is/a/lq3wNPkUEeafw2O8SQBIFQ",
+                "id": "9f711eb5-2ec7-495a-be5e-c04f77218274",
+                "evidence_record": "https://evidence.eventdata.crossref.org/evidence/20170411-hypothesis-e05cbeb6-296e-4e9b-9f70-36e7c35ff6f6",
+                "terms": "https://doi.org/10.13003/CED-terms-of-use",
+                "action": "add",
+                "subj": {
+                    "pid": "https://hypothes.is/a/lq3wNPkUEeafw2O8SQBIFQ",
+                    "json-url": "https://hypothes.is/api/annotations/lq3wNPkUEeafw2O8SQBIFQ",
+                    "url": "https://hyp.is/lq3wNPkUEeafw2O8SQBIFQ/onlinelibrary.wiley.com/doi/10.1002/leap.1087/full",
+                    "type": "annotation",
+                    "title": "the invisible library realized...",
+                    "issued": "2017-02-22T15:35:50Z"
+                },
+                "source_id": "hypothesis",
+                "obj": {
+                    "pid": "https://doi.org/10.1002/leap.1087",
+                    "url": "http://onlinelibrary.wiley.com/doi/10.1002/leap.1087/full"
+                },
+                "timestamp": "2017-04-11T18:39:37Z",
+                "relation_type_id": "annotates"
+            },
+            {
+                "license": "https://creativecommons.org/publicdomain/zero/1.0/",
+                "obj_id": "https://doi.org/10.1002/leap.1087",
+                "source_token": "8075957f-e0da-405f-9eee-7f35519d7c4c",
+                "occurred_at": "2017-02-22T15:40:56Z",
+                "subj_id": "https://hypothes.is/a/TXVwEvkVEeaQwRPCpHoKow",
+                "id": "544fbcee-d3e1-45fe-82a3-d33ee0a2b182",
+                "evidence_record": "https://evidence.eventdata.crossref.org/evidence/20170411-hypothesis-e05cbeb6-296e-4e9b-9f70-36e7c35ff6f6",
+                "terms": "https://doi.org/10.13003/CED-terms-of-use",
+                "action": "add",
+                "subj": {
+                    "pid": "https://hypothes.is/a/TXVwEvkVEeaQwRPCpHoKow",
+                    "json-url": "https://hypothes.is/api/annotations/TXVwEvkVEeaQwRPCpHoKow",
+                    "url": "https://hyp.is/TXVwEvkVEeaQwRPCpHoKow/onlinelibrary.wiley.com/doi/10.1002/leap.1087/full",
+                    "type": "annotation",
+                    "title": "So we need to feed the machine. right?",
+                    "issued": "2017-02-22T15:40:56Z"
+                },
+                "source_id": "hypothesis",
+                "obj": {
+                    "pid": "https://doi.org/10.1002/leap.1087",
+                    "url": "http://onlinelibrary.wiley.com/doi/10.1002/leap.1087/full"
+                },
+                "timestamp": "2017-04-11T18:39:37Z",
+                "relation_type_id": "annotates"
+            },
+            {
+                "license": "https://creativecommons.org/publicdomain/zero/1.0/",
+                "obj_id": "https://doi.org/10.1002/leap.1087",
+                "source_token": "8075957f-e0da-405f-9eee-7f35519d7c4c",
+                "occurred_at": "2017-02-22T15:38:31Z",
+                "subj_id": "https://hypothes.is/a/9v8uOvkUEeafxLMU-67T0A",
+                "id": "2208be44-45bb-45b5-94e0-a1531f452012",
+                "evidence_record": "https://evidence.eventdata.crossref.org/evidence/20170411-hypothesis-e05cbeb6-296e-4e9b-9f70-36e7c35ff6f6",
+                "terms": "https://doi.org/10.13003/CED-terms-of-use",
+                "action": "add",
+                "subj": {
+                    "pid": "https://hypothes.is/a/9v8uOvkUEeafxLMU-67T0A",
+                    "json-url": "https://hypothes.is/api/annotations/9v8uOvkUEeafxLMU-67T0A",
+                    "url": "https://hyp.is/9v8uOvkUEeafxLMU-67T0A/onlinelibrary.wiley.com/doi/10.1002/leap.1087/full",
+                    "type": "annotation",
+                    "title": "so the true value of an IR is its feed outward to google scholar",
+                    "issued": "2017-02-22T15:38:31Z"
+                },
+                "source_id": "hypothesis",
+                "obj": {
+                    "pid": "https://doi.org/10.1002/leap.1087",
+                    "url": "http://onlinelibrary.wiley.com/doi/10.1002/leap.1087/full"
+                },
+                "timestamp": "2017-04-11T18:39:37Z",
+                "relation_type_id": "annotates"
+            },
+            {
+                "license": "https://creativecommons.org/publicdomain/zero/1.0/",
+                "obj_id": "https://doi.org/10.1002/leap.1087",
+                "source_token": "8075957f-e0da-405f-9eee-7f35519d7c4c",
+                "occurred_at": "2017-02-22T15:42:00Z",
+                "subj_id": "https://hypothes.is/a/c1aXwPkVEeaC4UMnZKrkig",
+                "id": "11d68092-8d6e-4ac2-848b-c171ec58f01c",
+                "evidence_record": "https://evidence.eventdata.crossref.org/evidence/20170411-hypothesis-e05cbeb6-296e-4e9b-9f70-36e7c35ff6f6",
+                "terms": "https://doi.org/10.13003/CED-terms-of-use",
+                "action": "add",
+                "subj": {
+                    "pid": "https://hypothes.is/a/c1aXwPkVEeaC4UMnZKrkig",
+                    "json-url": "https://hypothes.is/api/annotations/c1aXwPkVEeaC4UMnZKrkig",
+                    "url": "https://hyp.is/c1aXwPkVEeaC4UMnZKrkig/onlinelibrary.wiley.com/doi/10.1002/leap.1087/full",
+                    "type": "annotation",
+                    "title": "does this mean we should shift away from discovery and toward access? what would that look like?",
+                    "issued": "2017-02-22T15:42:00Z"
+                },
+                "source_id": "hypothesis",
+                "obj": {
+                    "pid": "https://doi.org/10.1002/leap.1087",
+                    "url": "http://onlinelibrary.wiley.com/doi/10.1002/leap.1087/full"
+                },
+                "timestamp": "2017-04-11T18:39:37Z",
+                "relation_type_id": "annotates"
+            },
+            {
+                "license": "https://creativecommons.org/publicdomain/zero/1.0/",
+                "obj_id": "https://doi.org/10.1002/leap.1087",
+                "source_token": "8075957f-e0da-405f-9eee-7f35519d7c4c",
+                "occurred_at": "2017-02-22T15:29:47Z",
+                "subj_id": "https://hypothes.is/a/vnCmsvkTEeaM7xdfwslQ8A",
+                "id": "f65e60f1-448d-4c9d-a107-413bb4b721e2",
+                "evidence_record": "https://evidence.eventdata.crossref.org/evidence/20170411-hypothesis-e05cbeb6-296e-4e9b-9f70-36e7c35ff6f6",
+                "terms": "https://doi.org/10.13003/CED-terms-of-use",
+                "action": "add",
+                "subj": {
+                    "pid": "https://hypothes.is/a/vnCmsvkTEeaM7xdfwslQ8A",
+                    "json-url": "https://hypothes.is/api/annotations/vnCmsvkTEeaM7xdfwslQ8A",
+                    "url": "https://hyp.is/vnCmsvkTEeaM7xdfwslQ8A/onlinelibrary.wiley.com/doi/10.1002/leap.1087/full",
+                    "type": "annotation",
+                    "title": "Google scholar is a top source in the US.",
+                    "issued": "2017-02-22T15:29:47Z"
+                },
+                "source_id": "hypothesis",
+                "obj": {
+                    "pid": "https://doi.org/10.1002/leap.1087",
+                    "url": "http://onlinelibrary.wiley.com/doi/10.1002/leap.1087/full"
+                },
+                "timestamp": "2017-04-11T18:39:38Z",
+                "relation_type_id": "annotates"
+            },
+            {
+                "license": "https://creativecommons.org/publicdomain/zero/1.0/",
+                "obj_id": "https://doi.org/10.1002/leap.1087",
+                "source_token": "8075957f-e0da-405f-9eee-7f35519d7c4c",
+                "occurred_at": "2017-02-22T14:41:24Z",
+                "subj_id": "https://hypothes.is/a/-_7rHPkMEeaOOtsQqmhGpg",
+                "id": "d8c17b2d-4e20-4086-996c-7008e318f88d",
+                "evidence_record": "https://evidence.eventdata.crossref.org/evidence/20170411-hypothesis-e05cbeb6-296e-4e9b-9f70-36e7c35ff6f6",
+                "terms": "https://doi.org/10.13003/CED-terms-of-use",
+                "action": "add",
+                "subj": {
+                    "pid": "https://hypothes.is/a/-_7rHPkMEeaOOtsQqmhGpg",
+                    "json-url": "https://hypothes.is/api/annotations/-_7rHPkMEeaOOtsQqmhGpg",
+                    "url": "https://hyp.is/-_7rHPkMEeaOOtsQqmhGpg/onlinelibrary.wiley.com/doi/10.1002/leap.1087/full",
+                    "type": "annotation",
+                    "title": "so the focus on library resources/databases is constricting...?",
+                    "issued": "2017-02-22T14:41:24Z"
+                },
+                "source_id": "hypothesis",
+                "obj": {
+                    "pid": "https://doi.org/10.1002/leap.1087",
+                    "url": "http://onlinelibrary.wiley.com/doi/10.1002/leap.1087/full"
+                },
+                "timestamp": "2017-04-11T18:39:38Z",
+                "relation_type_id": "annotates"
+            },
+            {
+                "license": "https://creativecommons.org/publicdomain/zero/1.0/",
+                "obj_id": "https://doi.org/10.1002/leap.1087",
+                "source_token": "8075957f-e0da-405f-9eee-7f35519d7c4c",
+                "occurred_at": "2017-02-22T14:31:33Z",
+                "subj_id": "https://hypothes.is/a/m-Y3cvkLEeaoGfd8H5yGow",
+                "id": "ced3312d-6594-4cf4-b0cd-d58c0504b080",
+                "evidence_record": "https://evidence.eventdata.crossref.org/evidence/20170411-hypothesis-e05cbeb6-296e-4e9b-9f70-36e7c35ff6f6",
+                "terms": "https://doi.org/10.13003/CED-terms-of-use",
+                "action": "add",
+                "subj": {
+                    "pid": "https://hypothes.is/a/m-Y3cvkLEeaoGfd8H5yGow",
+                    "json-url": "https://hypothes.is/api/annotations/m-Y3cvkLEeaoGfd8H5yGow",
+                    "url": "https://hyp.is/m-Y3cvkLEeaoGfd8H5yGow/onlinelibrary.wiley.com/doi/10.1002/leap.1087/full",
+                    "type": "annotation",
+                    "title": "key questions that we could be asking our faculty too. ",
+                    "issued": "2017-02-22T14:31:33Z"
+                },
+                "source_id": "hypothesis",
+                "obj": {
+                    "pid": "https://doi.org/10.1002/leap.1087",
+                    "url": "http://onlinelibrary.wiley.com/doi/10.1002/leap.1087/full"
+                },
+                "timestamp": "2017-04-11T18:39:38Z",
+                "relation_type_id": "annotates"
+            },
+            {
+                "license": "https://creativecommons.org/publicdomain/zero/1.0/",
+                "obj_id": "https://doi.org/10.1002/leap.1087",
+                "source_token": "8075957f-e0da-405f-9eee-7f35519d7c4c",
+                "occurred_at": "2017-02-22T14:37:36Z",
+                "subj_id": "https://hypothes.is/a/dEIMwvkMEeafhW_Qo9QEsg",
+                "id": "c7abade8-1a1a-4bdf-b4c9-eb6ce63787f0",
+                "evidence_record": "https://evidence.eventdata.crossref.org/evidence/20170411-hypothesis-e05cbeb6-296e-4e9b-9f70-36e7c35ff6f6",
+                "terms": "https://doi.org/10.13003/CED-terms-of-use",
+                "action": "add",
+                "subj": {
+                    "pid": "https://hypothes.is/a/dEIMwvkMEeafhW_Qo9QEsg",
+                    "json-url": "https://hypothes.is/api/annotations/dEIMwvkMEeafhW_Qo9QEsg",
+                    "url": "https://hyp.is/dEIMwvkMEeafhW_Qo9QEsg/onlinelibrary.wiley.com/doi/10.1002/leap.1087/full",
+                    "type": "annotation",
+                    "title": "as trying to be a representative study, I get this. But I think the methodology might be more interesting if they researchers worked for balance. ",
+                    "issued": "2017-02-22T14:37:36Z"
+                },
+                "source_id": "hypothesis",
+                "obj": {
+                    "pid": "https://doi.org/10.1002/leap.1087",
+                    "url": "http://onlinelibrary.wiley.com/doi/10.1002/leap.1087/full"
+                },
+                "timestamp": "2017-04-11T18:39:38Z",
+                "relation_type_id": "annotates"
+            },
+            {
+                "license": "https://creativecommons.org/publicdomain/zero/1.0/",
+                "obj_id": "https://doi.org/10.1002/leap.1087",
+                "source_token": "8075957f-e0da-405f-9eee-7f35519d7c4c",
+                "occurred_at": "2017-02-22T15:33:23Z",
+                "subj_id": "https://hypothes.is/a/Pzl4jPkUEeaC3r9Jb81mbA",
+                "id": "91fb78bc-71aa-4291-a061-2d68ffb9862b",
+                "evidence_record": "https://evidence.eventdata.crossref.org/evidence/20170411-hypothesis-e05cbeb6-296e-4e9b-9f70-36e7c35ff6f6",
+                "terms": "https://doi.org/10.13003/CED-terms-of-use",
+                "action": "add",
+                "subj": {
+                    "pid": "https://hypothes.is/a/Pzl4jPkUEeaC3r9Jb81mbA",
+                    "json-url": "https://hypothes.is/api/annotations/Pzl4jPkUEeaC3r9Jb81mbA",
+                    "url": "https://hyp.is/Pzl4jPkUEeaC3r9Jb81mbA/onlinelibrary.wiley.com/doi/10.1002/leap.1087/full",
+                    "type": "annotation",
+                    "title": "Libraries are for undergrads to study in.",
+                    "issued": "2017-02-22T15:33:23Z"
+                },
+                "source_id": "hypothesis",
+                "obj": {
+                    "pid": "https://doi.org/10.1002/leap.1087",
+                    "url": "http://onlinelibrary.wiley.com/doi/10.1002/leap.1087/full"
+                },
+                "timestamp": "2017-04-11T18:39:38Z",
+                "relation_type_id": "annotates"
+            },
+            {
+                "license": "https://creativecommons.org/publicdomain/zero/1.0/",
+                "obj_id": "https://doi.org/10.1002/leap.1087",
+                "source_token": "8075957f-e0da-405f-9eee-7f35519d7c4c",
+                "occurred_at": "2017-02-22T15:32:50Z",
+                "subj_id": "https://hypothes.is/a/K5LNTPkUEea1cWtVCKTVEg",
+                "id": "7633b52d-bcf2-467b-a556-22d0bddae9f5",
+                "evidence_record": "https://evidence.eventdata.crossref.org/evidence/20170411-hypothesis-e05cbeb6-296e-4e9b-9f70-36e7c35ff6f6",
+                "terms": "https://doi.org/10.13003/CED-terms-of-use",
+                "action": "add",
+                "subj": {
+                    "pid": "https://hypothes.is/a/K5LNTPkUEea1cWtVCKTVEg",
+                    "json-url": "https://hypothes.is/api/annotations/K5LNTPkUEea1cWtVCKTVEg",
+                    "url": "https://hyp.is/K5LNTPkUEea1cWtVCKTVEg/onlinelibrary.wiley.com/doi/10.1002/leap.1087/full",
+                    "type": "annotation",
+                    "title": "TOC alerts are on the outs?",
+                    "issued": "2017-02-22T15:32:50Z"
+                },
+                "source_id": "hypothesis",
+                "obj": {
+                    "pid": "https://doi.org/10.1002/leap.1087",
+                    "url": "http://onlinelibrary.wiley.com/doi/10.1002/leap.1087/full"
+                },
+                "timestamp": "2017-04-11T18:39:38Z",
+                "relation_type_id": "annotates"
+            },
+            {
+                "license": "https://creativecommons.org/publicdomain/zero/1.0/",
+                "obj_id": "https://doi.org/10.1002/leap.1087",
+                "source_token": "8075957f-e0da-405f-9eee-7f35519d7c4c",
+                "occurred_at": "2017-02-22T14:20:33Z",
+                "subj_id": "https://hypothes.is/a/ElNxGvkKEeaT7G_JVO6jYQ",
+                "id": "593bd783-6eed-446e-8914-dc65ab97b992",
+                "evidence_record": "https://evidence.eventdata.crossref.org/evidence/20170411-hypothesis-e05cbeb6-296e-4e9b-9f70-36e7c35ff6f6",
+                "terms": "https://doi.org/10.13003/CED-terms-of-use",
+                "action": "add",
+                "subj": {
+                    "pid": "https://hypothes.is/a/ElNxGvkKEeaT7G_JVO6jYQ",
+                    "json-url": "https://hypothes.is/api/annotations/ElNxGvkKEeaT7G_JVO6jYQ",
+                    "url": "https://hyp.is/ElNxGvkKEeaT7G_JVO6jYQ/onlinelibrary.wiley.com/doi/10.1002/leap.1087/full",
+                    "type": "annotation",
+                    "title": "i like this characterization. Feels like we should have this posted on the front of the library. ",
+                    "issued": "2017-02-22T14:20:33Z"
+                },
+                "source_id": "hypothesis",
+                "obj": {
+                    "pid": "https://doi.org/10.1002/leap.1087",
+                    "url": "http://onlinelibrary.wiley.com/doi/10.1002/leap.1087/full"
+                },
+                "timestamp": "2017-04-11T18:39:39Z",
+                "relation_type_id": "annotates"
+            },
+            {
+                "license": "https://creativecommons.org/publicdomain/zero/1.0/",
+                "obj_id": "https://doi.org/10.1002/leap.1087",
+                "source_token": "8075957f-e0da-405f-9eee-7f35519d7c4c",
+                "occurred_at": "2017-02-22T14:19:32Z",
+                "subj_id": "https://hypothes.is/a/7fB1PvkJEea1aN9jTRnddw",
+                "id": "46d69320-9b5c-4b47-a27c-34e161f668ed",
+                "evidence_record": "https://evidence.eventdata.crossref.org/evidence/20170411-hypothesis-e05cbeb6-296e-4e9b-9f70-36e7c35ff6f6",
+                "terms": "https://doi.org/10.13003/CED-terms-of-use",
+                "action": "add",
+                "subj": {
+                    "pid": "https://hypothes.is/a/7fB1PvkJEea1aN9jTRnddw",
+                    "json-url": "https://hypothes.is/api/annotations/7fB1PvkJEea1aN9jTRnddw",
+                    "url": "https://hyp.is/7fB1PvkJEea1aN9jTRnddw/onlinelibrary.wiley.com/doi/10.1002/leap.1087/full",
+                    "type": "annotation",
+                    "title": "Small sample size",
+                    "issued": "2017-02-22T14:19:32Z"
+                },
+                "source_id": "hypothesis",
+                "obj": {
+                    "pid": "https://doi.org/10.1002/leap.1087",
+                    "url": "http://onlinelibrary.wiley.com/doi/10.1002/leap.1087/full"
+                },
+                "timestamp": "2017-04-11T18:39:39Z",
+                "relation_type_id": "annotates"
+            },
+            {
+                "license": "https://creativecommons.org/publicdomain/zero/1.0/",
+                "obj_id": "https://doi.org/10.1002/leap.1087",
+                "source_token": "8075957f-e0da-405f-9eee-7f35519d7c4c",
+                "occurred_at": "2017-02-22T14:25:35Z",
+                "subj_id": "https://hypothes.is/a/xr2LSvkKEeahC6NYc77XYQ",
+                "id": "4344acb7-2b2f-408f-a9e0-fb682c1a0009",
+                "evidence_record": "https://evidence.eventdata.crossref.org/evidence/20170411-hypothesis-e05cbeb6-296e-4e9b-9f70-36e7c35ff6f6",
+                "terms": "https://doi.org/10.13003/CED-terms-of-use",
+                "action": "add",
+                "subj": {
+                    "pid": "https://hypothes.is/a/xr2LSvkKEeahC6NYc77XYQ",
+                    "json-url": "https://hypothes.is/api/annotations/xr2LSvkKEeahC6NYc77XYQ",
+                    "url": "https://hyp.is/xr2LSvkKEeahC6NYc77XYQ/onlinelibrary.wiley.com/doi/10.1002/leap.1087/full",
+                    "type": "annotation",
+                    "title": "there are ECRs that are non-scientists too...",
+                    "issued": "2017-02-22T14:25:35Z"
+                },
+                "source_id": "hypothesis",
+                "obj": {
+                    "pid": "https://doi.org/10.1002/leap.1087",
+                    "url": "http://onlinelibrary.wiley.com/doi/10.1002/leap.1087/full"
+                },
+                "timestamp": "2017-04-11T18:39:39Z",
+                "relation_type_id": "annotates"
+            },
+            {
+                "license": "https://creativecommons.org/publicdomain/zero/1.0/",
+                "obj_id": "https://doi.org/10.1002/leap.1087",
+                "source_token": "8075957f-e0da-405f-9eee-7f35519d7c4c",
+                "occurred_at": "2017-02-22T14:26:39Z",
+                "subj_id": "https://hypothes.is/a/7OaquPkKEeaIdnuNewPptA",
+                "id": "30688ff0-d359-4fe3-8128-6b1f8eaa239f",
+                "evidence_record": "https://evidence.eventdata.crossref.org/evidence/20170411-hypothesis-e05cbeb6-296e-4e9b-9f70-36e7c35ff6f6",
+                "terms": "https://doi.org/10.13003/CED-terms-of-use",
+                "action": "add",
+                "subj": {
+                    "pid": "https://hypothes.is/a/7OaquPkKEeaIdnuNewPptA",
+                    "json-url": "https://hypothes.is/api/annotations/7OaquPkKEeaIdnuNewPptA",
+                    "url": "https://hyp.is/7OaquPkKEeaIdnuNewPptA/onlinelibrary.wiley.com/doi/10.1002/leap.1087/full",
+                    "type": "annotation",
+                    "title": "searching is digital breathing. interesting to think about how that might change information work that focuses on search.",
+                    "issued": "2017-02-22T14:26:39Z"
+                },
+                "source_id": "hypothesis",
+                "obj": {
+                    "pid": "https://doi.org/10.1002/leap.1087",
+                    "url": "http://onlinelibrary.wiley.com/doi/10.1002/leap.1087/full"
+                },
+                "timestamp": "2017-04-11T18:39:39Z",
+                "relation_type_id": "annotates"
+            },
+            {
+                "license": "https://creativecommons.org/publicdomain/zero/1.0/",
+                "obj_id": "https://doi.org/10.3998/dh.12230987.0001.001",
+                "source_token": "8075957f-e0da-405f-9eee-7f35519d7c4c",
+                "occurred_at": "2017-02-23T05:20:43Z",
+                "subj_id": "https://hypothes.is/a/0xpkxvmHEean1p-wIT16Zw",
+                "id": "0ed5d9a1-ad88-47f9-90ee-d59397bb3528",
+                "evidence_record": "https://evidence.eventdata.crossref.org/evidence/20170411-hypothesis-28b36773-3882-4ecb-a55d-436082f40a40",
+                "terms": "https://doi.org/10.13003/CED-terms-of-use",
+                "action": "add",
+                "subj": {
+                    "pid": "https://hypothes.is/a/0xpkxvmHEean1p-wIT16Zw",
+                    "json-url": "https://hypothes.is/api/annotations/0xpkxvmHEean1p-wIT16Zw",
+                    "url": "https://hyp.is/0xpkxvmHEean1p-wIT16Zw/quod.lib.umich.edu/d/dh/12230987.0001.001/1:10/--writing-history-in-the-digital-age?g=dculture;rgn=div1;view=fulltext;xc=1",
+                    "type": "annotation",
+                    "title": "Academics as curators.",
+                    "issued": "2017-02-23T05:20:43Z"
+                },
+                "source_id": "hypothesis",
+                "obj": {
+                    "pid": "https://doi.org/10.3998/dh.12230987.0001.001",
+                    "url": "http://quod.lib.umich.edu/d/dh/12230987.0001.001/1:10/--writing-history-in-the-digital-age?g=dculture;rgn=div1;view=fulltext;xc=1"
+                },
+                "timestamp": "2017-04-11T18:39:40Z",
+                "relation_type_id": "annotates"
+            },
+            {
+                "license": "https://creativecommons.org/publicdomain/zero/1.0/",
+                "obj_id": "https://doi.org/10.12688/f1000research.3-38.v2",
+                "source_token": "8075957f-e0da-405f-9eee-7f35519d7c4c",
+                "occurred_at": "2017-02-11T00:42:07Z",
+                "subj_id": "https://hypothes.is/a/1ZysAu_yEean88MoLLKWbg",
+                "id": "57f8a392-e784-414a-a119-bc42aef9c6b3",
+                "evidence_record": "https://evidence.eventdata.crossref.org/evidence/20170411-hypothesis-7f73d6aa-752c-40d0-8e2c-c17283af0418",
+                "terms": "https://doi.org/10.13003/CED-terms-of-use",
+                "action": "add",
+                "subj": {
+                    "pid": "https://hypothes.is/a/1ZysAu_yEean88MoLLKWbg",
+                    "json-url": "https://hypothes.is/api/annotations/1ZysAu_yEean88MoLLKWbg",
+                    "url": "https://hyp.is/1ZysAu_yEean88MoLLKWbg/f1000research.com/articles/3-38/v2",
+                    "type": "annotation",
+                    "title": "This brings up the question of generational use and regard for privacy: the 13-19 age group, the 20-26 age group and those in the older age sets all have a different regard for what is or should be private.  What could be an effective approach to a solution to this research and ethical challenge?  ",
+                    "issued": "2017-02-11T00:42:07Z"
+                },
+                "source_id": "hypothesis",
+                "obj": {
+                    "pid": "https://doi.org/10.12688/f1000research.3-38.v2",
+                    "url": "https://f1000research.com/articles/3-38/v2"
+                },
+                "timestamp": "2017-04-11T18:39:51Z",
+                "relation_type_id": "annotates"
+            },
+            {
+                "license": "https://creativecommons.org/publicdomain/zero/1.0/",
+                "obj_id": "https://doi.org/10.1371/journal.pone.0098756",
+                "source_token": "8075957f-e0da-405f-9eee-7f35519d7c4c",
+                "occurred_at": "2017-02-01T16:31:40Z",
+                "subj_id": "https://hypothes.is/a/z3T8FuibEeaQo_NrtCtuKw",
+                "id": "12cd28b5-7c89-41e2-92eb-5848cec9d4eb",
+                "evidence_record": "https://evidence.eventdata.crossref.org/evidence/20170411-hypothesis-d1fdd8fb-165b-4212-a632-0ba3428677a1",
+                "terms": "https://doi.org/10.13003/CED-terms-of-use",
+                "action": "add",
+                "subj": {
+                    "pid": "https://hypothes.is/a/z3T8FuibEeaQo_NrtCtuKw",
+                    "json-url": "https://hypothes.is/api/annotations/z3T8FuibEeaQo_NrtCtuKw",
+                    "url": "https://hyp.is/z3T8FuibEeaQo_NrtCtuKw/journals.plos.org/plosone/article/file?id=10.1371/journal.pone.0098756&type=printable",
+                    "type": "annotation",
+                    "title": "Need a figure presenting the regulation network.",
+                    "issued": "2017-02-01T16:31:40Z"
+                },
+                "source_id": "hypothesis",
+                "obj": {
+                    "pid": "https://doi.org/10.1371/journal.pone.0098756",
+                    "url": "http://journals.plos.org/plosone/article/file?id=10.1371/journal.pone.0098756&type=printable"
+                },
+                "timestamp": "2017-04-11T18:40:06Z",
+                "relation_type_id": "annotates"
+            },
+            {
+                "license": "https://creativecommons.org/publicdomain/zero/1.0/",
+                "obj_id": "https://doi.org/10.1109/tmc.2015.2418774",
+                "source_token": "8075957f-e0da-405f-9eee-7f35519d7c4c",
+                "occurred_at": "2017-01-26T16:59:41Z",
+                "subj_id": "https://hypothes.is/a/1C_U6uPoEeaxQX-FPHUZuQ",
+                "id": "6a2d389c-d114-4c32-817b-861aaf952974",
+                "evidence_record": "https://evidence.eventdata.crossref.org/evidence/20170411-hypothesis-e321bd85-b5ca-45dc-b784-c5633824d768",
+                "terms": "https://doi.org/10.13003/CED-terms-of-use",
+                "action": "add",
+                "subj": {
+                    "pid": "https://hypothes.is/a/1C_U6uPoEeaxQX-FPHUZuQ",
+                    "json-url": "https://hypothes.is/api/annotations/1C_U6uPoEeaxQX-FPHUZuQ",
+                    "url": "https://hyp.is/uD5JJuNLEeaLLWMYkKcWuw/firstmonday.org/article/view/6360/5460",
+                    "type": "annotation",
+                    "title": "I see an \"Open Food Network\" but not sure if that's the same thing.",
+                    "issued": "2017-01-26T16:59:41Z"
+                },
+                "source_id": "hypothesis",
+                "obj": {
+                    "pid": "https://doi.org/10.1109/tmc.2015.2418774",
+                    "url": "http://firstmonday.org/article/view/6360/5460"
+                },
+                "timestamp": "2017-04-11T18:40:12Z",
+                "relation_type_id": "annotates"
+            },
+            {
+                "license": "https://creativecommons.org/publicdomain/zero/1.0/",
+                "obj_id": "https://doi.org/10.1080/00438243.2016.1259582",
+                "source_token": "8075957f-e0da-405f-9eee-7f35519d7c4c",
+                "occurred_at": "2016-12-22T11:08:26Z",
+                "subj_id": "https://hypothes.is/a/9jPKdMg2Eeagy8f41jVHjg",
+                "id": "d69bb50a-ca45-4e5e-acdc-a15b7d3ef885",
+                "evidence_record": "https://evidence.eventdata.crossref.org/evidence/20170411-hypothesis-d58a0469-e350-40dc-8562-2461f6df1f90",
+                "terms": "https://doi.org/10.13003/CED-terms-of-use",
+                "action": "add",
+                "subj": {
+                    "pid": "https://hypothes.is/a/9jPKdMg2Eeagy8f41jVHjg",
+                    "json-url": "https://hypothes.is/api/annotations/9jPKdMg2Eeagy8f41jVHjg",
+                    "url": "https://hyp.is/9jPKdMg2Eeagy8f41jVHjg/www.tandfonline.com/doi/full/10.1080/00438243.2016.1259582",
+                    "type": "annotation",
+                    "title": "\n\nThe author of this paper is making an extended discussion of production and export of Cretan wine in the Roman period, based on the published amphora evidence from urban sites, with some further reflections on the consumption of this product mainly based on written sources.\n\nWhile this is by far one the best reflections on the amphora=content dilemma that haunts all studies on ancient trade, it seems a shortcoming not to consider all studies on residue analysis that can provide direct and unbiased data on amphora content.\n",
+                    "issued": "2016-12-22T11:08:26Z"
+                },
+                "source_id": "hypothesis",
+                "obj": {
+                    "pid": "https://doi.org/10.1080/00438243.2016.1259582",
+                    "url": "http://www.tandfonline.com/doi/full/10.1080/00438243.2016.1259582"
+                },
+                "timestamp": "2017-04-11T18:40:38Z",
+                "relation_type_id": "annotates"
+            },
+            {
+                "license": "https://creativecommons.org/publicdomain/zero/1.0/",
+                "obj_id": "https://doi.org/10.1534/genetics.116.194613",
+                "source_token": "8075957f-e0da-405f-9eee-7f35519d7c4c",
+                "occurred_at": "2016-12-22T01:19:10Z",
+                "subj_id": "https://hypothes.is/a/pMG-RsfkEeaTTXfpD2R4rQ",
+                "id": "9319133f-a910-4518-a0f0-87a04810b5db",
+                "evidence_record": "https://evidence.eventdata.crossref.org/evidence/20170411-hypothesis-d58a0469-e350-40dc-8562-2461f6df1f90",
+                "terms": "https://doi.org/10.13003/CED-terms-of-use",
+                "action": "add",
+                "subj": {
+                    "pid": "https://hypothes.is/a/pMG-RsfkEeaTTXfpD2R4rQ",
+                    "json-url": "https://hypothes.is/api/annotations/pMG-RsfkEeaTTXfpD2R4rQ",
+                    "url": "https://hyp.is/pMG-RsfkEeaTTXfpD2R4rQ/www.genetics.org/content/204/2/401",
+                    "type": "annotation",
+                    "title": "Mendel's marginalia allows us to read \"Experiments on Plant Hybrids\" in a new way.",
+                    "issued": "2016-12-22T01:19:10Z"
+                },
+                "source_id": "hypothesis",
+                "obj": {
+                    "pid": "https://doi.org/10.1534/genetics.116.194613",
+                    "url": "http://www.genetics.org/content/204/2/401"
+                },
+                "timestamp": "2017-04-11T18:40:38Z",
+                "relation_type_id": "annotates"
+            },
+            {
+                "license": "https://creativecommons.org/publicdomain/zero/1.0/",
+                "obj_id": "https://doi.org/10.1080/09505430120093586",
+                "source_token": "8075957f-e0da-405f-9eee-7f35519d7c4c",
+                "occurred_at": "2016-12-06T16:52:06Z",
+                "subj_id": "https://hypothes.is/a/UeMz2LvUEeajCSvxs2nOWQ",
+                "id": "5b0a098a-23b6-4e54-b315-35315349cbeb",
+                "evidence_record": "https://evidence.eventdata.crossref.org/evidence/20170411-hypothesis-c1f9e371-519d-4e5e-9c3a-95715b3e8657",
+                "terms": "https://doi.org/10.13003/CED-terms-of-use",
+                "action": "add",
+                "subj": {
+                    "pid": "https://hypothes.is/a/UeMz2LvUEeajCSvxs2nOWQ",
+                    "json-url": "https://hypothes.is/api/annotations/UeMz2LvUEeajCSvxs2nOWQ",
+                    "url": "https://hyp.is/UeMz2LvUEeajCSvxs2nOWQ/www.tandfonline.com/doi/pdf/10.1080/09505430120093586",
+                    "type": "annotation",
+                    "title": "Good one to cite for scientists showing how media is more influential than science. ",
+                    "issued": "2016-12-06T16:52:06Z"
+                },
+                "source_id": "hypothesis",
+                "obj": {
+                    "pid": "https://doi.org/10.1080/09505430120093586",
+                    "url": "http://www.tandfonline.com/doi/pdf/10.1080/09505430120093586"
+                },
+                "timestamp": "2017-04-11T18:40:46Z",
+                "relation_type_id": "annotates"
+            },
+            {
+                "license": "https://creativecommons.org/publicdomain/zero/1.0/",
+                "obj_id": "https://doi.org/10.1111/j.1471-6402.2006.00292.x",
+                "source_token": "8075957f-e0da-405f-9eee-7f35519d7c4c",
+                "occurred_at": "2017-02-09T18:53:29Z",
+                "subj_id": "https://hypothes.is/a/C91WzO75Eeab1Xc7ZWaiyQ",
+                "id": "daebc136-1217-4bf5-865e-771ced53df72",
+                "evidence_record": "https://evidence.eventdata.crossref.org/evidence/20170411-hypothesis-7b11e7fa-5b6a-4d91-b53b-f88a0d1fd502",
+                "terms": "https://doi.org/10.13003/CED-terms-of-use",
+                "action": "add",
+                "subj": {
+                    "pid": "https://hypothes.is/a/C91WzO75Eeab1Xc7ZWaiyQ",
+                    "json-url": "https://hypothes.is/api/annotations/C91WzO75Eeab1Xc7ZWaiyQ",
+                    "url": "https://hyp.is/C91WzO75Eeab1Xc7ZWaiyQ/onlinelibrary.wiley.com/doi/10.1111/j.1471-6402.2006.00292.x/full",
+                    "type": "annotation",
+                    "title": "That means (empirical's rule) that roughly 68% of the women in the study were between the ages of 16 and 21, which is mostly in my age group of teenagers",
+                    "issued": "2017-02-09T18:53:29Z"
+                },
+                "source_id": "hypothesis",
+                "obj": {
+                    "pid": "https://doi.org/10.1111/j.1471-6402.2006.00292.x",
+                    "url": "http://onlinelibrary.wiley.com/doi/10.1111/j.1471-6402.2006.00292.x/full"
+                },
+                "timestamp": "2017-04-11T18:40:54Z",
+                "relation_type_id": "annotates"
+            },
+            {
+                "license": "https://creativecommons.org/publicdomain/zero/1.0/",
+                "obj_id": "https://doi.org/10.1111/j.1471-6402.2006.00292.x",
+                "source_token": "8075957f-e0da-405f-9eee-7f35519d7c4c",
+                "occurred_at": "2017-02-09T18:48:41Z",
+                "subj_id": "https://hypothes.is/a/YCRinu74Eeaev3sejp7tWA",
+                "id": "c6bed250-0e27-4ee9-a026-ba61a2504cdc",
+                "evidence_record": "https://evidence.eventdata.crossref.org/evidence/20170411-hypothesis-7b11e7fa-5b6a-4d91-b53b-f88a0d1fd502",
+                "terms": "https://doi.org/10.13003/CED-terms-of-use",
+                "action": "add",
+                "subj": {
+                    "pid": "https://hypothes.is/a/YCRinu74Eeaev3sejp7tWA",
+                    "json-url": "https://hypothes.is/api/annotations/YCRinu74Eeaev3sejp7tWA",
+                    "url": "https://hyp.is/YCRinu74Eeaev3sejp7tWA/onlinelibrary.wiley.com/doi/10.1111/j.1471-6402.2006.00292.x/full",
+                    "type": "annotation",
+                    "title": "Social media has made us focus on ourselves and on creating an alter ego (book quote to support)",
+                    "issued": "2017-02-09T18:48:41Z"
+                },
+                "source_id": "hypothesis",
+                "obj": {
+                    "pid": "https://doi.org/10.1111/j.1471-6402.2006.00292.x",
+                    "url": "http://onlinelibrary.wiley.com/doi/10.1111/j.1471-6402.2006.00292.x/full"
+                },
+                "timestamp": "2017-04-11T18:40:54Z",
+                "relation_type_id": "annotates"
+            },
+            {
+                "license": "https://creativecommons.org/publicdomain/zero/1.0/",
+                "obj_id": "https://doi.org/10.1111/j.1471-6402.2006.00292.x",
+                "source_token": "8075957f-e0da-405f-9eee-7f35519d7c4c",
+                "occurred_at": "2017-02-09T18:58:56Z",
+                "subj_id": "https://hypothes.is/a/zrf7SO75Eeab1jNO7Z_FrA",
+                "id": "61866bc4-482c-4ade-8264-4100d8d8e906",
+                "evidence_record": "https://evidence.eventdata.crossref.org/evidence/20170411-hypothesis-7b11e7fa-5b6a-4d91-b53b-f88a0d1fd502",
+                "terms": "https://doi.org/10.13003/CED-terms-of-use",
+                "action": "add",
+                "subj": {
+                    "pid": "https://hypothes.is/a/zrf7SO75Eeab1jNO7Z_FrA",
+                    "json-url": "https://hypothes.is/api/annotations/zrf7SO75Eeab1jNO7Z_FrA",
+                    "url": "https://hyp.is/zrf7SO75Eeab1jNO7Z_FrA/onlinelibrary.wiley.com/doi/10.1111/j.1471-6402.2006.00292.x/full",
+                    "type": "annotation",
+                    "title": "exposure once during this study effected women... think about the constant exposure ",
+                    "issued": "2017-02-09T18:58:56Z"
+                },
+                "source_id": "hypothesis",
+                "obj": {
+                    "pid": "https://doi.org/10.1111/j.1471-6402.2006.00292.x",
+                    "url": "http://onlinelibrary.wiley.com/doi/10.1111/j.1471-6402.2006.00292.x/full"
+                },
+                "timestamp": "2017-04-11T18:40:54Z",
+                "relation_type_id": "annotates"
+            },
+            {
+                "license": "https://creativecommons.org/publicdomain/zero/1.0/",
+                "obj_id": "https://doi.org/10.1111/j.1471-6402.2006.00292.x",
+                "source_token": "8075957f-e0da-405f-9eee-7f35519d7c4c",
+                "occurred_at": "2017-02-09T18:46:39Z",
+                "subj_id": "https://hypothes.is/a/F8sdlO74EeagnFsfGE7y3w",
+                "id": "4e9e2924-e8c1-417a-b743-ea733aedf5c2",
+                "evidence_record": "https://evidence.eventdata.crossref.org/evidence/20170411-hypothesis-7b11e7fa-5b6a-4d91-b53b-f88a0d1fd502",
+                "terms": "https://doi.org/10.13003/CED-terms-of-use",
+                "action": "add",
+                "subj": {
+                    "pid": "https://hypothes.is/a/F8sdlO74EeagnFsfGE7y3w",
+                    "json-url": "https://hypothes.is/api/annotations/F8sdlO74EeagnFsfGE7y3w",
+                    "url": "https://hyp.is/F8sdlO74EeagnFsfGE7y3w/onlinelibrary.wiley.com/doi/10.1111/j.1471-6402.2006.00292.x/full",
+                    "type": "annotation",
+                    "title": "This could be used to explain why social media effects how we perceive ourselves. We seek to compare ourselves",
+                    "issued": "2017-02-09T18:46:39Z"
+                },
+                "source_id": "hypothesis",
+                "obj": {
+                    "pid": "https://doi.org/10.1111/j.1471-6402.2006.00292.x",
+                    "url": "http://onlinelibrary.wiley.com/doi/10.1111/j.1471-6402.2006.00292.x/full"
+                },
+                "timestamp": "2017-04-11T18:40:54Z",
+                "relation_type_id": "annotates"
+            },
+            {
+                "license": "https://creativecommons.org/publicdomain/zero/1.0/",
+                "obj_id": "https://doi.org/10.1371/journal.pone.0170224",
+                "source_token": "8075957f-e0da-405f-9eee-7f35519d7c4c",
+                "occurred_at": "2017-02-09T18:17:39Z",
+                "subj_id": "https://hypothes.is/a/_kQv_u7zEea7jD9_j8dEqg",
+                "id": "1903ba14-2fdb-450f-86ae-92712b5e0856",
+                "evidence_record": "https://evidence.eventdata.crossref.org/evidence/20170411-hypothesis-7b11e7fa-5b6a-4d91-b53b-f88a0d1fd502",
+                "terms": "https://doi.org/10.13003/CED-terms-of-use",
+                "action": "add",
+                "subj": {
+                    "pid": "https://hypothes.is/a/_kQv_u7zEea7jD9_j8dEqg",
+                    "json-url": "https://hypothes.is/api/annotations/_kQv_u7zEea7jD9_j8dEqg",
+                    "url": "https://hyp.is/99eBPu7zEeac1xcFuZXGUA/journals.plos.org/plosone/article/file?id=10.1371/journal.pone.0170224&type=printable",
+                    "type": "annotation",
+                    "title": "Threaded conversation.",
+                    "issued": "2017-02-09T18:17:39Z"
+                },
+                "source_id": "hypothesis",
+                "obj": {
+                    "pid": "https://doi.org/10.1371/journal.pone.0170224",
+                    "url": "http://journals.plos.org/plosone/article/file?id=10.1371/journal.pone.0170224&type=printable"
+                },
+                "timestamp": "2017-04-11T18:40:54Z",
+                "relation_type_id": "annotates"
+            },
+            {
+                "license": "https://creativecommons.org/publicdomain/zero/1.0/",
+                "obj_id": "https://doi.org/10.1111/j.1471-6402.2006.00292.x",
+                "source_token": "8075957f-e0da-405f-9eee-7f35519d7c4c",
+                "occurred_at": "2017-02-09T18:43:32Z",
+                "subj_id": "https://hypothes.is/a/qDVVbO73Eea1OGffrrW7pg",
+                "id": "162e12bc-a587-47b1-bd4e-f75ef8cab822",
+                "evidence_record": "https://evidence.eventdata.crossref.org/evidence/20170411-hypothesis-7b11e7fa-5b6a-4d91-b53b-f88a0d1fd502",
+                "terms": "https://doi.org/10.13003/CED-terms-of-use",
+                "action": "add",
+                "subj": {
+                    "pid": "https://hypothes.is/a/qDVVbO73Eea1OGffrrW7pg",
+                    "json-url": "https://hypothes.is/api/annotations/qDVVbO73Eea1OGffrrW7pg",
+                    "url": "https://hyp.is/qDVVbO73Eea1OGffrrW7pg/onlinelibrary.wiley.com/doi/10.1111/j.1471-6402.2006.00292.x/full",
+                    "type": "annotation",
+                    "title": "The studies with no correlation were before the internet really became popular (1991) and before social media took off. The studies after the internet are the ones that show a correlation between what we see and how we feel.",
+                    "issued": "2017-02-09T18:43:32Z"
+                },
+                "source_id": "hypothesis",
+                "obj": {
+                    "pid": "https://doi.org/10.1111/j.1471-6402.2006.00292.x",
+                    "url": "http://onlinelibrary.wiley.com/doi/10.1111/j.1471-6402.2006.00292.x/full"
+                },
+                "timestamp": "2017-04-11T18:40:54Z",
+                "relation_type_id": "annotates"
+            },
+            {
+                "license": "https://creativecommons.org/publicdomain/zero/1.0/",
+                "obj_id": "https://doi.org/10.1371/journal.pone.0170224",
+                "source_token": "8075957f-e0da-405f-9eee-7f35519d7c4c",
+                "occurred_at": "2017-02-09T18:17:08Z",
+                "subj_id": "https://hypothes.is/a/99eBPu7zEeac1xcFuZXGUA",
+                "id": "b290a8d6-24cf-47df-9040-f9cb86f136d2",
+                "evidence_record": "https://evidence.eventdata.crossref.org/evidence/20170411-hypothesis-7b11e7fa-5b6a-4d91-b53b-f88a0d1fd502",
+                "terms": "https://doi.org/10.13003/CED-terms-of-use",
+                "action": "add",
+                "subj": {
+                    "pid": "https://hypothes.is/a/99eBPu7zEeac1xcFuZXGUA",
+                    "json-url": "https://hypothes.is/api/annotations/99eBPu7zEeac1xcFuZXGUA",
+                    "url": "https://hyp.is/99eBPu7zEeac1xcFuZXGUA/journals.plos.org/plosone/article/file?id=10.1371/journal.pone.0170224&type=printable",
+                    "type": "annotation",
+                    "title": "Like so.",
+                    "issued": "2017-02-09T18:17:08Z"
+                },
+                "source_id": "hypothesis",
+                "obj": {
+                    "pid": "https://doi.org/10.1371/journal.pone.0170224",
+                    "url": "http://journals.plos.org/plosone/article/file?id=10.1371/journal.pone.0170224&type=printable"
+                },
+                "timestamp": "2017-04-11T18:40:55Z",
+                "relation_type_id": "annotates"
+            },
+            {
+                "license": "https://creativecommons.org/publicdomain/zero/1.0/",
+                "obj_id": "https://doi.org/10.1371/journal.pone.0170224",
+                "source_token": "8075957f-e0da-405f-9eee-7f35519d7c4c",
+                "occurred_at": "2017-02-09T18:16:51Z",
+                "subj_id": "https://hypothes.is/a/7YgCdu7zEeaXvoMfYc5f8g",
+                "id": "424fa221-82de-4783-a0bb-ee614eb3a0cc",
+                "evidence_record": "https://evidence.eventdata.crossref.org/evidence/20170411-hypothesis-7b11e7fa-5b6a-4d91-b53b-f88a0d1fd502",
+                "terms": "https://doi.org/10.13003/CED-terms-of-use",
+                "action": "add",
+                "subj": {
+                    "pid": "https://hypothes.is/a/7YgCdu7zEeaXvoMfYc5f8g",
+                    "json-url": "https://hypothes.is/api/annotations/7YgCdu7zEeaXvoMfYc5f8g",
+                    "url": "https://hyp.is/7YgCdu7zEeaXvoMfYc5f8g/journals.plos.org/plosone/article/file?id=10.1371/journal.pone.0170224&type=printable",
+                    "type": "annotation",
+                    "title": "Hello.",
+                    "issued": "2017-02-09T18:16:51Z"
+                },
+                "source_id": "hypothesis",
+                "obj": {
+                    "pid": "https://doi.org/10.1371/journal.pone.0170224",
+                    "url": "http://journals.plos.org/plosone/article/file?id=10.1371/journal.pone.0170224&type=printable"
+                },
+                "timestamp": "2017-04-11T18:40:55Z",
+                "relation_type_id": "annotates"
+            },
+            {
+                "license": "https://creativecommons.org/publicdomain/zero/1.0/",
+                "obj_id": "https://doi.org/10.3998/mjs.12333712.0004.002",
+                "source_token": "8075957f-e0da-405f-9eee-7f35519d7c4c",
+                "occurred_at": "2016-11-10T10:43:57Z",
+                "subj_id": "https://hypothes.is/a/lVxGJKcyEeap86eSuJIGqA",
+                "id": "96882ab1-8065-4bf9-bcf1-d7d1c8eff5a6",
+                "evidence_record": "https://evidence.eventdata.crossref.org/evidence/20170411-hypothesis-19e27c6e-b7a7-44c7-98eb-de29202145bb",
+                "terms": "https://doi.org/10.13003/CED-terms-of-use",
+                "action": "add",
+                "subj": {
+                    "pid": "https://hypothes.is/a/lVxGJKcyEeap86eSuJIGqA",
+                    "json-url": "https://hypothes.is/api/annotations/lVxGJKcyEeap86eSuJIGqA",
+                    "url": "https://hyp.is/lVxGJKcyEeap86eSuJIGqA/dx.doi.org/10.3998/mjs.12333712.0004.002",
+                    "type": "annotation",
+                    "title": "The challenge is that any students involved in this program will rotate regularly. How does Graham ensure that there is institutional memory and continuity?",
+                    "issued": "2016-11-10T10:43:57Z"
+                },
+                "source_id": "hypothesis",
+                "obj": {
+                    "pid": "https://doi.org/10.3998/mjs.12333712.0004.002",
+                    "url": "http://dx.doi.org/10.3998/mjs.12333712.0004.002"
+                },
+                "timestamp": "2017-04-11T18:41:11Z",
+                "relation_type_id": "annotates"
+            },
+            {
+                "license": "https://creativecommons.org/publicdomain/zero/1.0/",
+                "obj_id": "https://doi.org/10.3998/mjs.12333712.0004.002",
+                "source_token": "8075957f-e0da-405f-9eee-7f35519d7c4c",
+                "occurred_at": "2016-11-10T10:43:57Z",
+                "subj_id": "https://hypothes.is/a/lVxGJKcyEeap86eSuJIGqA",
+                "id": "3010048c-f593-4c9e-8b86-91f1bfb9148e",
+                "evidence_record": "https://evidence.eventdata.crossref.org/evidence/20170411-hypothesis-19e27c6e-b7a7-44c7-98eb-de29202145bb",
+                "terms": "https://doi.org/10.13003/CED-terms-of-use",
+                "action": "add",
+                "subj": {
+                    "pid": "https://hypothes.is/a/lVxGJKcyEeap86eSuJIGqA",
+                    "json-url": "https://hypothes.is/api/annotations/lVxGJKcyEeap86eSuJIGqA",
+                    "url": "https://hyp.is/lVxGJKcyEeap86eSuJIGqA/dx.doi.org/10.3998/mjs.12333712.0004.002",
+                    "type": "annotation",
+                    "title": "The challenge is that any students involved in this program will rotate regularly. How does Graham ensure that there is institutional memory and continuity?",
+                    "issued": "2016-11-10T10:43:57Z"
+                },
+                "source_id": "hypothesis",
+                "obj": {
+                    "pid": "https://doi.org/10.3998/mjs.12333712.0004.002",
+                    "url": "http://dx.doi.org/10.3998/mjs.12333712.0004.002"
+                },
+                "timestamp": "2017-04-11T18:41:11Z",
+                "relation_type_id": "annotates"
+            },
+            {
+                "license": "https://creativecommons.org/publicdomain/zero/1.0/",
+                "obj_id": "https://doi.org/10.3998/mjs.12333712.0004.002",
+                "source_token": "8075957f-e0da-405f-9eee-7f35519d7c4c",
+                "occurred_at": "2016-11-10T10:39:32Z",
+                "subj_id": "https://hypothes.is/a/91MIFKcxEea6sE-sZrzvYQ",
+                "id": "da26b5f3-3e7e-49e6-9a7f-53cee2098442",
+                "evidence_record": "https://evidence.eventdata.crossref.org/evidence/20170411-hypothesis-19e27c6e-b7a7-44c7-98eb-de29202145bb",
+                "terms": "https://doi.org/10.13003/CED-terms-of-use",
+                "action": "add",
+                "subj": {
+                    "pid": "https://hypothes.is/a/91MIFKcxEea6sE-sZrzvYQ",
+                    "json-url": "https://hypothes.is/api/annotations/91MIFKcxEea6sE-sZrzvYQ",
+                    "url": "https://hyp.is/AuVc9Jn0EeacVeMcx4TLLQ/dx.doi.org/10.3998/mjs.12333712.0004.002",
+                    "type": "annotation",
+                    "title": "And how does Graham integrate with other University initiatives around environmental sustainability like Planet Blue? There may be some interdepartmental territoriality getting in the way within the University, I suspect.",
+                    "issued": "2016-11-10T10:39:32Z"
+                },
+                "source_id": "hypothesis",
+                "obj": {
+                    "pid": "https://doi.org/10.3998/mjs.12333712.0004.002",
+                    "url": "http://dx.doi.org/10.3998/mjs.12333712.0004.002"
+                },
+                "timestamp": "2017-04-11T18:41:12Z",
+                "relation_type_id": "annotates"
+            },
+            {
+                "license": "https://creativecommons.org/publicdomain/zero/1.0/",
+                "obj_id": "https://doi.org/10.3998/mjs.12333712.0004.002",
+                "source_token": "8075957f-e0da-405f-9eee-7f35519d7c4c",
+                "occurred_at": "2016-11-10T10:39:32Z",
+                "subj_id": "https://hypothes.is/a/91MIFKcxEea6sE-sZrzvYQ",
+                "id": "c91c4a94-cde8-4861-bde1-728e0a7df29f",
+                "evidence_record": "https://evidence.eventdata.crossref.org/evidence/20170411-hypothesis-19e27c6e-b7a7-44c7-98eb-de29202145bb",
+                "terms": "https://doi.org/10.13003/CED-terms-of-use",
+                "action": "add",
+                "subj": {
+                    "pid": "https://hypothes.is/a/91MIFKcxEea6sE-sZrzvYQ",
+                    "json-url": "https://hypothes.is/api/annotations/91MIFKcxEea6sE-sZrzvYQ",
+                    "url": "https://hyp.is/AuVc9Jn0EeacVeMcx4TLLQ/dx.doi.org/10.3998/mjs.12333712.0004.002",
+                    "type": "annotation",
+                    "title": "And how does Graham integrate with other University initiatives around environmental sustainability like Planet Blue? There may be some interdepartmental territoriality getting in the way within the University, I suspect.",
+                    "issued": "2016-11-10T10:39:32Z"
+                },
+                "source_id": "hypothesis",
+                "obj": {
+                    "pid": "https://doi.org/10.3998/mjs.12333712.0004.002",
+                    "url": "http://dx.doi.org/10.3998/mjs.12333712.0004.002"
+                },
+                "timestamp": "2017-04-11T18:41:12Z",
+                "relation_type_id": "annotates"
+            },
+            {
+                "license": "https://creativecommons.org/publicdomain/zero/1.0/",
+                "obj_id": "https://doi.org/10.3998/mjs.12333712.0004.002",
+                "source_token": "8075957f-e0da-405f-9eee-7f35519d7c4c",
+                "occurred_at": "2016-11-10T10:34:29Z",
+                "subj_id": "https://hypothes.is/a/QwD2FKcxEeaDnmvXLhRX2w",
+                "id": "bc174f45-916c-4db3-8122-f96582c8c122",
+                "evidence_record": "https://evidence.eventdata.crossref.org/evidence/20170411-hypothesis-19e27c6e-b7a7-44c7-98eb-de29202145bb",
+                "terms": "https://doi.org/10.13003/CED-terms-of-use",
+                "action": "add",
+                "subj": {
+                    "pid": "https://hypothes.is/a/QwD2FKcxEeaDnmvXLhRX2w",
+                    "json-url": "https://hypothes.is/api/annotations/QwD2FKcxEeaDnmvXLhRX2w",
+                    "url": "https://hyp.is/QwD2FKcxEeaDnmvXLhRX2w/dx.doi.org/10.3998/mjs.12333712.0004.002",
+                    "type": "annotation",
+                    "title": "I'd like to know more about what tools Graham used to communicate technical information to city officials with a variety of backgrounds. Infographics? Videos? The lessons learned may help other scientists communicate effectively with policy makers.",
+                    "issued": "2016-11-10T10:34:29Z"
+                },
+                "source_id": "hypothesis",
+                "obj": {
+                    "pid": "https://doi.org/10.3998/mjs.12333712.0004.002",
+                    "url": "http://dx.doi.org/10.3998/mjs.12333712.0004.002"
+                },
+                "timestamp": "2017-04-11T18:41:12Z",
+                "relation_type_id": "annotates"
+            },
+            {
+                "license": "https://creativecommons.org/publicdomain/zero/1.0/",
+                "obj_id": "https://doi.org/10.3998/mjs.12333712.0004.002",
+                "source_token": "8075957f-e0da-405f-9eee-7f35519d7c4c",
+                "occurred_at": "2016-11-10T10:30:55Z",
+                "subj_id": "https://hypothes.is/a/w0oZ0qcwEea6rlNessebsg",
+                "id": "9725bf03-d116-41b1-93b1-f28610cc349b",
+                "evidence_record": "https://evidence.eventdata.crossref.org/evidence/20170411-hypothesis-19e27c6e-b7a7-44c7-98eb-de29202145bb",
+                "terms": "https://doi.org/10.13003/CED-terms-of-use",
+                "action": "add",
+                "subj": {
+                    "pid": "https://hypothes.is/a/w0oZ0qcwEea6rlNessebsg",
+                    "json-url": "https://hypothes.is/api/annotations/w0oZ0qcwEea6rlNessebsg",
+                    "url": "https://hyp.is/w0oZ0qcwEea6rlNessebsg/dx.doi.org/10.3998/mjs.12333712.0004.002",
+                    "type": "annotation",
+                    "title": "So what happens when some of the decision makers do not believe in climate change?[](http://huizenga.house.gov/)",
+                    "issued": "2016-11-10T10:30:55Z"
+                },
+                "source_id": "hypothesis",
+                "obj": {
+                    "pid": "https://doi.org/10.3998/mjs.12333712.0004.002",
+                    "url": "http://dx.doi.org/10.3998/mjs.12333712.0004.002"
+                },
+                "timestamp": "2017-04-11T18:41:12Z",
+                "relation_type_id": "annotates"
+            },
+            {
+                "license": "https://creativecommons.org/publicdomain/zero/1.0/",
+                "obj_id": "https://doi.org/10.3998/mjs.12333712.0004.002",
+                "source_token": "8075957f-e0da-405f-9eee-7f35519d7c4c",
+                "occurred_at": "2016-11-10T10:34:29Z",
+                "subj_id": "https://hypothes.is/a/QwD2FKcxEeaDnmvXLhRX2w",
+                "id": "87cd9205-df18-4f60-91a3-abbeb13def2e",
+                "evidence_record": "https://evidence.eventdata.crossref.org/evidence/20170411-hypothesis-19e27c6e-b7a7-44c7-98eb-de29202145bb",
+                "terms": "https://doi.org/10.13003/CED-terms-of-use",
+                "action": "add",
+                "subj": {
+                    "pid": "https://hypothes.is/a/QwD2FKcxEeaDnmvXLhRX2w",
+                    "json-url": "https://hypothes.is/api/annotations/QwD2FKcxEeaDnmvXLhRX2w",
+                    "url": "https://hyp.is/QwD2FKcxEeaDnmvXLhRX2w/dx.doi.org/10.3998/mjs.12333712.0004.002",
+                    "type": "annotation",
+                    "title": "I'd like to know more about what tools Graham used to communicate technical information to city officials with a variety of backgrounds. Infographics? Videos? The lessons learned may help other scientists communicate effectively with policy makers.",
+                    "issued": "2016-11-10T10:34:29Z"
+                },
+                "source_id": "hypothesis",
+                "obj": {
+                    "pid": "https://doi.org/10.3998/mjs.12333712.0004.002",
+                    "url": "http://dx.doi.org/10.3998/mjs.12333712.0004.002"
+                },
+                "timestamp": "2017-04-11T18:41:12Z",
+                "relation_type_id": "annotates"
+            },
+            {
+                "license": "https://creativecommons.org/publicdomain/zero/1.0/",
+                "obj_id": "https://doi.org/10.3998/mjs.12333712.0004.002",
+                "source_token": "8075957f-e0da-405f-9eee-7f35519d7c4c",
+                "occurred_at": "2016-11-10T10:30:55Z",
+                "subj_id": "https://hypothes.is/a/w0oZ0qcwEea6rlNessebsg",
+                "id": "b64ad57c-9e26-475b-b366-acd5ac57afb0",
+                "evidence_record": "https://evidence.eventdata.crossref.org/evidence/20170411-hypothesis-19e27c6e-b7a7-44c7-98eb-de29202145bb",
+                "terms": "https://doi.org/10.13003/CED-terms-of-use",
+                "action": "add",
+                "subj": {
+                    "pid": "https://hypothes.is/a/w0oZ0qcwEea6rlNessebsg",
+                    "json-url": "https://hypothes.is/api/annotations/w0oZ0qcwEea6rlNessebsg",
+                    "url": "https://hyp.is/w0oZ0qcwEea6rlNessebsg/dx.doi.org/10.3998/mjs.12333712.0004.002",
+                    "type": "annotation",
+                    "title": "So what happens when some of the decision makers do not believe in climate change?[](http://huizenga.house.gov/)",
+                    "issued": "2016-11-10T10:30:55Z"
+                },
+                "source_id": "hypothesis",
+                "obj": {
+                    "pid": "https://doi.org/10.3998/mjs.12333712.0004.002",
+                    "url": "http://dx.doi.org/10.3998/mjs.12333712.0004.002"
+                },
+                "timestamp": "2017-04-11T18:41:13Z",
+                "relation_type_id": "annotates"
+            },
+            {
+                "license": "https://creativecommons.org/publicdomain/zero/1.0/",
+                "obj_id": "https://doi.org/10.1038/528153a",
+                "source_token": "8075957f-e0da-405f-9eee-7f35519d7c4c",
+                "occurred_at": "2016-11-10T10:12:52Z",
+                "subj_id": "https://hypothes.is/a/PYDlbKcuEeaDnLc6Ew9zLA",
+                "id": "4e735bd4-8062-491f-8ac6-5504e578c49b",
+                "evidence_record": "https://evidence.eventdata.crossref.org/evidence/20170411-hypothesis-19e27c6e-b7a7-44c7-98eb-de29202145bb",
+                "terms": "https://doi.org/10.13003/CED-terms-of-use",
+                "action": "add",
+                "subj": {
+                    "pid": "https://hypothes.is/a/PYDlbKcuEeaDnLc6Ew9zLA",
+                    "json-url": "https://hypothes.is/api/annotations/PYDlbKcuEeaDnLc6Ew9zLA",
+                    "url": "https://hyp.is/PYDlbKcuEeaDnLc6Ew9zLA/www.nature.com/news/annotating-the-scholarly-web-1.18900",
+                    "type": "annotation",
+                    "title": "This is my 1st try of Hypothesis. And this article seems to sing high praise for this tool.",
+                    "issued": "2016-11-10T10:12:52Z"
+                },
+                "source_id": "hypothesis",
+                "obj": {
+                    "pid": "https://doi.org/10.1038/528153a",
+                    "url": "http://www.nature.com/news/annotating-the-scholarly-web-1.18900"
+                },
+                "timestamp": "2017-04-11T18:41:13Z",
+                "relation_type_id": "annotates"
+            },
+            {
+                "license": "https://creativecommons.org/publicdomain/zero/1.0/",
+                "obj_id": "https://doi.org/10.1523/jneurosci.3277-14.2015",
+                "source_token": "8075957f-e0da-405f-9eee-7f35519d7c4c",
+                "occurred_at": "2016-11-04T23:16:05Z",
+                "subj_id": "https://hypothes.is/a/qSUp6KLkEeaxLduIrOTj3A",
+                "id": "b6fe1e36-f0a4-4202-9dae-49389e1eabbd",
+                "evidence_record": "https://evidence.eventdata.crossref.org/evidence/20170411-hypothesis-e5a3ca50-c465-4f3f-8eea-7f6fadb20ca0",
+                "terms": "https://doi.org/10.13003/CED-terms-of-use",
+                "action": "add",
+                "subj": {
+                    "pid": "https://hypothes.is/a/qSUp6KLkEeaxLduIrOTj3A",
+                    "json-url": "https://hypothes.is/api/annotations/qSUp6KLkEeaxLduIrOTj3A",
+                    "url": "https://hyp.is/qSUp6KLkEeaxLduIrOTj3A/www.jneurosci.org/content/35/3/1211.long",
+                    "type": "annotation",
+                    "title": "Resolver lookup failed.<hr><p><a href=\"https://scicrunch.org/resolver/nlx.xml\">resolver lookup</a></p>",
+                    "issued": "2016-11-04T23:16:05Z"
+                },
+                "source_id": "hypothesis",
+                "obj": {
+                    "pid": "https://doi.org/10.1523/jneurosci.3277-14.2015",
+                    "url": "http://www.jneurosci.org/content/35/3/1211.long"
+                },
+                "timestamp": "2017-04-11T18:41:31Z",
+                "relation_type_id": "annotates"
+            },
+            {
+                "license": "https://creativecommons.org/publicdomain/zero/1.0/",
+                "obj_id": "https://doi.org/10.1523/jneurosci.3277-14.2015",
+                "source_token": "8075957f-e0da-405f-9eee-7f35519d7c4c",
+                "occurred_at": "2016-11-04T23:16:05Z",
+                "subj_id": "https://hypothes.is/a/qWzrjqLkEeaxwxdPEcWhCg",
+                "id": "26733420-a768-4ec7-8cd6-0fb6596e4d07",
+                "evidence_record": "https://evidence.eventdata.crossref.org/evidence/20170411-hypothesis-e5a3ca50-c465-4f3f-8eea-7f6fadb20ca0",
+                "terms": "https://doi.org/10.13003/CED-terms-of-use",
+                "action": "add",
+                "subj": {
+                    "pid": "https://hypothes.is/a/qWzrjqLkEeaxwxdPEcWhCg",
+                    "json-url": "https://hypothes.is/api/annotations/qWzrjqLkEeaxwxdPEcWhCg",
+                    "url": "https://hyp.is/qWzrjqLkEeaxwxdPEcWhCg/www.jneurosci.org/content/35/3/1211.long",
+                    "type": "annotation",
+                    "title": "Resolver lookup failed.<hr><p><a href=\"https://scicrunch.org/resolver/nlx.xml\">resolver lookup</a></p>",
+                    "issued": "2016-11-04T23:16:05Z"
+                },
+                "source_id": "hypothesis",
+                "obj": {
+                    "pid": "https://doi.org/10.1523/jneurosci.3277-14.2015",
+                    "url": "http://www.jneurosci.org/content/35/3/1211.long"
+                },
+                "timestamp": "2017-04-11T18:41:31Z",
+                "relation_type_id": "annotates"
+            },
+            {
+                "license": "https://creativecommons.org/publicdomain/zero/1.0/",
+                "obj_id": "https://doi.org/10.1523/jneurosci.3277-14.2015",
+                "source_token": "8075957f-e0da-405f-9eee-7f35519d7c4c",
+                "occurred_at": "2016-11-04T23:16:03Z",
+                "subj_id": "https://hypothes.is/a/qDzyLKLkEeal0VtfncFINg",
+                "id": "e4300a4d-690a-418b-a338-5f248ac081f5",
+                "evidence_record": "https://evidence.eventdata.crossref.org/evidence/20170411-hypothesis-e5a3ca50-c465-4f3f-8eea-7f6fadb20ca0",
+                "terms": "https://doi.org/10.13003/CED-terms-of-use",
+                "action": "add",
+                "subj": {
+                    "pid": "https://hypothes.is/a/qDzyLKLkEeal0VtfncFINg",
+                    "json-url": "https://hypothes.is/api/annotations/qDzyLKLkEeal0VtfncFINg",
+                    "url": "https://hyp.is/qDzyLKLkEeal0VtfncFINg/www.jneurosci.org/content/35/3/1211.long",
+                    "type": "annotation",
+                    "title": "<p>Proper Citation: (Millipore Cat# 05-532, RRID:AB_309787)</p><p>Antibody ID: <a class=\"external\" target=\"_blank\" href=\"http://antibodyregistry.org/AB_309787\">AB_309787</a></p><p>Cat Num: 05-532</p><p>Clonality: monoclonal antibody</p><p>Comments: manufacturer recommendations: IgG1; IgG1  Immunohistochemistry; Western Blot; IH, WB b, r</p><p>Host Organism: mouse</p><p>Proper Citation: (Millipore Cat# 05-532, RRID:AB_309787)</p><p>Reference: <a class=\"external\" target=\"_blank\" href=\"http://www.ncbi.nlm.nih.gov/pubmed/18335544, 24990924\">PMID:18335544,PMID:24990924</a></p><p>Reference: PMID:18335544</p><p>Target Antigen: CaM Kinase II alpha subunit clone 6G9 <a class=\"external\" target=\"_blank\" href=\"\"></a></p><p>Vendor: Millipore <a class=\"external\" target=\"_blank\" href=\"http://www.millipore.com/catalogue/item/05-532?cid=BIOS-A-BIOC-1225-1205-RC\">Go To Vendor</a></p><hr><p><a href=\"https://scicrunch.org/resolver/AB_309787.xml\">resolver lookup</a></p>",
+                    "issued": "2016-11-04T23:16:03Z"
+                },
+                "source_id": "hypothesis",
+                "obj": {
+                    "pid": "https://doi.org/10.1523/jneurosci.3277-14.2015",
+                    "url": "http://www.jneurosci.org/content/35/3/1211.long"
+                },
+                "timestamp": "2017-04-11T18:41:32Z",
+                "relation_type_id": "annotates"
+            },
+            {
+                "license": "https://creativecommons.org/publicdomain/zero/1.0/",
+                "obj_id": "https://doi.org/10.1002/cne.23953",
+                "source_token": "8075957f-e0da-405f-9eee-7f35519d7c4c",
+                "occurred_at": "2016-11-05T00:41:10Z",
+                "subj_id": "https://hypothes.is/a/i7tj3qLwEeax5scaC-MJyw",
+                "id": "dc866cd9-085f-4ab7-8644-a2526e67323d",
+                "evidence_record": "https://evidence.eventdata.crossref.org/evidence/20170411-hypothesis-3bb5e63a-023d-4d31-863c-1f3fa273d3db",
+                "terms": "https://doi.org/10.13003/CED-terms-of-use",
+                "action": "add",
+                "subj": {
+                    "pid": "https://hypothes.is/a/i7tj3qLwEeax5scaC-MJyw",
+                    "json-url": "https://hypothes.is/api/annotations/i7tj3qLwEeax5scaC-MJyw",
+                    "url": "https://hyp.is/i7tj3qLwEeax5scaC-MJyw/onlinelibrary.wiley.com/doi/10.1002/cne.23953/full",
+                    "type": "annotation",
+                    "title": "",
+                    "issued": "2016-11-05T00:41:10Z"
+                },
+                "source_id": "hypothesis",
+                "obj": {
+                    "pid": "https://doi.org/10.1002/cne.23953",
+                    "url": "http://onlinelibrary.wiley.com/doi/10.1002/cne.23953/full"
+                },
+                "timestamp": "2017-04-11T18:41:32Z",
+                "relation_type_id": "annotates"
+            },
+            {
+                "license": "https://creativecommons.org/publicdomain/zero/1.0/",
+                "obj_id": "https://doi.org/10.1523/jneurosci.3277-14.2015",
+                "source_token": "8075957f-e0da-405f-9eee-7f35519d7c4c",
+                "occurred_at": "2016-11-04T23:16:03Z",
+                "subj_id": "https://hypothes.is/a/p-hqVKLkEeaa33NdqK_l3Q",
+                "id": "dc2e3f99-446e-497b-bbac-ed04bb4ff039",
+                "evidence_record": "https://evidence.eventdata.crossref.org/evidence/20170411-hypothesis-e5a3ca50-c465-4f3f-8eea-7f6fadb20ca0",
+                "terms": "https://doi.org/10.13003/CED-terms-of-use",
+                "action": "add",
+                "subj": {
+                    "pid": "https://hypothes.is/a/p-hqVKLkEeaa33NdqK_l3Q",
+                    "json-url": "https://hypothes.is/api/annotations/p-hqVKLkEeaa33NdqK_l3Q",
+                    "url": "https://hyp.is/p-hqVKLkEeaa33NdqK_l3Q/www.jneurosci.org/content/35/3/1211.long",
+                    "type": "annotation",
+                    "title": "<p>Proper Citation: (Thermo Fisher Scientific Cat# A11007, RRID:AB_10561522)</p><p>Antibody ID: <a class=\"external\" target=\"_blank\" href=\"http://antibodyregistry.org/AB_10561522\">AB_10561522</a></p><p>Cat Num: A11007</p><p>Clonality: unknown</p><p>Comments: manufacturer recommendations: rat</p><p>Host Organism: goat</p><p>Proper Citation: (Thermo Fisher Scientific Cat# A11007, RRID:AB_10561522)</p><p>Reference: <a class=\"external\" target=\"_blank\" href=\"http://www.ncbi.nlm.nih.gov/pubmed/\"></a></p><p>Target Antigen: Goat Rat IgG (H+L)  Alexa Fluor? 594 <a class=\"external\" target=\"_blank\" href=\"\"></a></p><p>Vendor: Thermo Fisher Scientific <a class=\"external\" target=\"_blank\" href=\"https://products.invitrogen.com/ivgn/product/A11007?CID=AFLBC-PROBES-A11007\">Go To Vendor</a></p><hr><p><a href=\"https://scicrunch.org/resolver/AB_10561522.xml\">resolver lookup</a></p>",
+                    "issued": "2016-11-04T23:16:03Z"
+                },
+                "source_id": "hypothesis",
+                "obj": {
+                    "pid": "https://doi.org/10.1523/jneurosci.3277-14.2015",
+                    "url": "http://www.jneurosci.org/content/35/3/1211.long"
+                },
+                "timestamp": "2017-04-11T18:41:32Z",
+                "relation_type_id": "annotates"
+            },
+            {
+                "license": "https://creativecommons.org/publicdomain/zero/1.0/",
+                "obj_id": "https://doi.org/10.1523/jneurosci.3277-14.2015",
+                "source_token": "8075957f-e0da-405f-9eee-7f35519d7c4c",
+                "occurred_at": "2016-11-04T23:16:04Z",
+                "subj_id": "https://hypothes.is/a/qNaITKLkEeaxLMPGNORvgA",
+                "id": "d4a62156-d4a5-44c2-8e9b-8227df4e88ce",
+                "evidence_record": "https://evidence.eventdata.crossref.org/evidence/20170411-hypothesis-e5a3ca50-c465-4f3f-8eea-7f6fadb20ca0",
+                "terms": "https://doi.org/10.13003/CED-terms-of-use",
+                "action": "add",
+                "subj": {
+                    "pid": "https://hypothes.is/a/qNaITKLkEeaxLMPGNORvgA",
+                    "json-url": "https://hypothes.is/api/annotations/qNaITKLkEeaxLMPGNORvgA",
+                    "url": "https://hyp.is/qNaITKLkEeaxLMPGNORvgA/www.jneurosci.org/content/35/3/1211.long",
+                    "type": "annotation",
+                    "title": "<p>Proper Citation: (Chromotek Cat# rfp-antibody-5f8, RRID:AB_2336064)</p><p>Antibody ID: <a class=\"external\" target=\"_blank\" href=\"http://antibodyregistry.org/AB_2336064\">AB_2336064</a></p><p>Cat Num: rfp-antibody-5f8</p><p>Clonality: monoclonal antibody</p><p>Clone ID: 5F8</p><p>Comments: RFP antibody 5F8 shows no crossreactivity to any cellular protein. Detects a band of approximately 72 kDa (predicted molecular weight of RFP-PCNA: 72 kDa NULL</p><p>Host Organism: rat</p><p>Proper Citation: (Chromotek Cat# rfp-antibody-5f8, RRID:AB_2336064)</p><p>Reference: <a class=\"external\" target=\"_blank\" href=\"http://www.ncbi.nlm.nih.gov/pubmed/\"></a></p><p>Target Antigen: Red fluorescent protein <a class=\"external\" target=\"_blank\" href=\"\"></a></p><p>Vendor: Chromotek <a class=\"external\" target=\"_blank\" href=\"http://www.chromotek.com/products/conventional-antibodies/rfp-antibody-5f8/\">Go To Vendor</a></p><hr><p><a href=\"https://scicrunch.org/resolver/AB_2336064.xml\">resolver lookup</a></p>",
+                    "issued": "2016-11-04T23:16:04Z"
+                },
+                "source_id": "hypothesis",
+                "obj": {
+                    "pid": "https://doi.org/10.1523/jneurosci.3277-14.2015",
+                    "url": "http://www.jneurosci.org/content/35/3/1211.long"
+                },
+                "timestamp": "2017-04-11T18:41:32Z",
+                "relation_type_id": "annotates"
+            },
+            {
+                "license": "https://creativecommons.org/publicdomain/zero/1.0/",
+                "obj_id": "https://doi.org/10.1002/cne.23954",
+                "source_token": "8075957f-e0da-405f-9eee-7f35519d7c4c",
+                "occurred_at": "2016-11-05T00:41:09Z",
+                "subj_id": "https://hypothes.is/a/i2MQ2qLwEeam3itToJWHIA",
+                "id": "c622ae82-52aa-407d-8bfb-c115ef0443f9",
+                "evidence_record": "https://evidence.eventdata.crossref.org/evidence/20170411-hypothesis-3bb5e63a-023d-4d31-863c-1f3fa273d3db",
+                "terms": "https://doi.org/10.13003/CED-terms-of-use",
+                "action": "add",
+                "subj": {
+                    "pid": "https://hypothes.is/a/i2MQ2qLwEeam3itToJWHIA",
+                    "json-url": "https://hypothes.is/api/annotations/i2MQ2qLwEeam3itToJWHIA",
+                    "url": "https://hyp.is/i2MQ2qLwEeam3itToJWHIA/onlinelibrary.wiley.com/doi/10.1002/cne.23954/full",
+                    "type": "annotation",
+                    "title": "",
+                    "issued": "2016-11-05T00:41:09Z"
+                },
+                "source_id": "hypothesis",
+                "obj": {
+                    "pid": "https://doi.org/10.1002/cne.23954",
+                    "url": "http://onlinelibrary.wiley.com/doi/10.1002/cne.23954/full"
+                },
+                "timestamp": "2017-04-11T18:41:32Z",
+                "relation_type_id": "annotates"
+            },
+            {
+                "license": "https://creativecommons.org/publicdomain/zero/1.0/",
+                "obj_id": "https://doi.org/10.1007/s11064-015-1782-z",
+                "source_token": "8075957f-e0da-405f-9eee-7f35519d7c4c",
+                "occurred_at": "2016-11-05T00:41:08Z",
+                "subj_id": "https://hypothes.is/a/irvBXqLwEeazPKNtf90m4Q",
+                "id": "6174620b-064c-402d-8432-ce963b400cf8",
+                "evidence_record": "https://evidence.eventdata.crossref.org/evidence/20170411-hypothesis-3bb5e63a-023d-4d31-863c-1f3fa273d3db",
+                "terms": "https://doi.org/10.13003/CED-terms-of-use",
+                "action": "add",
+                "subj": {
+                    "pid": "https://hypothes.is/a/irvBXqLwEeazPKNtf90m4Q",
+                    "json-url": "https://hypothes.is/api/annotations/irvBXqLwEeazPKNtf90m4Q",
+                    "url": "https://hyp.is/irvBXqLwEeazPKNtf90m4Q/link.springer.com/article/10.1007/s11064-015-1782-z/fulltext.html",
+                    "type": "annotation",
+                    "title": "",
+                    "issued": "2016-11-05T00:41:08Z"
+                },
+                "source_id": "hypothesis",
+                "obj": {
+                    "pid": "https://doi.org/10.1007/s11064-015-1782-z",
+                    "url": "http://link.springer.com/article/10.1007/s11064-015-1782-z/fulltext.html"
+                },
+                "timestamp": "2017-04-11T18:41:32Z",
+                "relation_type_id": "annotates"
+            },
+            {
+                "license": "https://creativecommons.org/publicdomain/zero/1.0/",
+                "obj_id": "https://doi.org/10.1002/cne.23952",
+                "source_token": "8075957f-e0da-405f-9eee-7f35519d7c4c",
+                "occurred_at": "2016-11-05T00:41:09Z",
+                "subj_id": "https://hypothes.is/a/ixY1dqLwEeaK9X-cJcwQXw",
+                "id": "3e447a18-06ce-4588-b155-a6a747cc3824",
+                "evidence_record": "https://evidence.eventdata.crossref.org/evidence/20170411-hypothesis-3bb5e63a-023d-4d31-863c-1f3fa273d3db",
+                "terms": "https://doi.org/10.13003/CED-terms-of-use",
+                "action": "add",
+                "subj": {
+                    "pid": "https://hypothes.is/a/ixY1dqLwEeaK9X-cJcwQXw",
+                    "json-url": "https://hypothes.is/api/annotations/ixY1dqLwEeaK9X-cJcwQXw",
+                    "url": "https://hyp.is/ixY1dqLwEeaK9X-cJcwQXw/onlinelibrary.wiley.com/doi/10.1002/cne.23952/full",
+                    "type": "annotation",
+                    "title": "",
+                    "issued": "2016-11-05T00:41:09Z"
+                },
+                "source_id": "hypothesis",
+                "obj": {
+                    "pid": "https://doi.org/10.1002/cne.23952",
+                    "url": "http://onlinelibrary.wiley.com/doi/10.1002/cne.23952/full"
+                },
+                "timestamp": "2017-04-11T18:41:32Z",
+                "relation_type_id": "annotates"
+            },
+            {
+                "license": "https://creativecommons.org/publicdomain/zero/1.0/",
+                "obj_id": "https://doi.org/10.1523/jneurosci.3277-14.2015",
+                "source_token": "8075957f-e0da-405f-9eee-7f35519d7c4c",
+                "occurred_at": "2016-11-04T23:16:02Z",
+                "subj_id": "https://hypothes.is/a/p5TanKLkEeaa3h-9uvsQTw",
+                "id": "327fe495-02c2-4333-9288-8ceb9bdc0e45",
+                "evidence_record": "https://evidence.eventdata.crossref.org/evidence/20170411-hypothesis-e5a3ca50-c465-4f3f-8eea-7f6fadb20ca0",
+                "terms": "https://doi.org/10.13003/CED-terms-of-use",
+                "action": "add",
+                "subj": {
+                    "pid": "https://hypothes.is/a/p5TanKLkEeaa3h-9uvsQTw",
+                    "json-url": "https://hypothes.is/api/annotations/p5TanKLkEeaa3h-9uvsQTw",
+                    "url": "https://hyp.is/p5TanKLkEeaa3h-9uvsQTw/www.jneurosci.org/content/35/3/1211.long",
+                    "type": "annotation",
+                    "title": "<p>Proper Citation: (Molecular Probes Cat# A11029, RRID:AB_138404)</p><p>Antibody ID: <a class=\"external\" target=\"_blank\" href=\"http://antibodyregistry.org/AB_138404\">AB_138404</a></p><p>Cat Num: A11029</p><p>Clonality: unknown</p><p>Comments: manufacturer recommendations: mouse</p><p>Host Organism: goat</p><p>Proper Citation: (Molecular Probes Cat# A11029, RRID:AB_138404)</p><p>Reference: <a class=\"external\" target=\"_blank\" href=\"http://www.ncbi.nlm.nih.gov/pubmed/19844996, 21674494\">PMID:19844996,PMID:21674494</a></p><p>Reference: PMID:19844996</p><p>Target Antigen: Mouse IgG (H+L) <a class=\"external\" target=\"_blank\" href=\"\"></a></p><p>Vendor: Molecular Probes <a class=\"external\" target=\"_blank\" href=\"\"></a></p><hr><p><a href=\"https://scicrunch.org/resolver/AB_138404.xml\">resolver lookup</a></p>",
+                    "issued": "2016-11-04T23:16:02Z"
+                },
+                "source_id": "hypothesis",
+                "obj": {
+                    "pid": "https://doi.org/10.1523/jneurosci.3277-14.2015",
+                    "url": "http://www.jneurosci.org/content/35/3/1211.long"
+                },
+                "timestamp": "2017-04-11T18:41:32Z",
+                "relation_type_id": "annotates"
+            },
+            {
+                "license": "https://creativecommons.org/publicdomain/zero/1.0/",
+                "obj_id": "https://doi.org/10.1007/s12021-015-9287-0",
+                "source_token": "8075957f-e0da-405f-9eee-7f35519d7c4c",
+                "occurred_at": "2016-11-05T00:41:06Z",
+                "subj_id": "https://hypothes.is/a/icNgSqLwEeazO7_jj3C6RA",
+                "id": "2e37d59c-0fd7-4749-a947-82c5a8fc56a7",
+                "evidence_record": "https://evidence.eventdata.crossref.org/evidence/20170411-hypothesis-3bb5e63a-023d-4d31-863c-1f3fa273d3db",
+                "terms": "https://doi.org/10.13003/CED-terms-of-use",
+                "action": "add",
+                "subj": {
+                    "pid": "https://hypothes.is/a/icNgSqLwEeazO7_jj3C6RA",
+                    "json-url": "https://hypothes.is/api/annotations/icNgSqLwEeazO7_jj3C6RA",
+                    "url": "https://hyp.is/icNgSqLwEeazO7_jj3C6RA/link.springer.com/article/10.1007/s12021-015-9287-0/fulltext.html",
+                    "type": "annotation",
+                    "title": "",
+                    "issued": "2016-11-05T00:41:06Z"
+                },
+                "source_id": "hypothesis",
+                "obj": {
+                    "pid": "https://doi.org/10.1007/s12021-015-9287-0",
+                    "url": "http://link.springer.com/article/10.1007/s12021-015-9287-0/fulltext.html"
+                },
+                "timestamp": "2017-04-11T18:41:32Z",
+                "relation_type_id": "annotates"
+            },
+            {
+                "license": "https://creativecommons.org/publicdomain/zero/1.0/",
+                "obj_id": "https://doi.org/10.1523/jneurosci.3277-14.2015",
+                "source_token": "8075957f-e0da-405f-9eee-7f35519d7c4c",
+                "occurred_at": "2016-11-04T23:16:04Z",
+                "subj_id": "https://hypothes.is/a/qIsrhqLkEeaYE9fbMxzZ8w",
+                "id": "0ed1a2e7-219a-482d-aeba-51431099d5ff",
+                "evidence_record": "https://evidence.eventdata.crossref.org/evidence/20170411-hypothesis-e5a3ca50-c465-4f3f-8eea-7f6fadb20ca0",
+                "terms": "https://doi.org/10.13003/CED-terms-of-use",
+                "action": "add",
+                "subj": {
+                    "pid": "https://hypothes.is/a/qIsrhqLkEeaYE9fbMxzZ8w",
+                    "json-url": "https://hypothes.is/api/annotations/qIsrhqLkEeaYE9fbMxzZ8w",
+                    "url": "https://hyp.is/qIsrhqLkEeaYE9fbMxzZ8w/www.jneurosci.org/content/35/3/1211.long",
+                    "type": "annotation",
+                    "title": "<p>Proper Citation: (Millipore Cat# MAB5406, RRID:AB_2278725)</p><p>Antibody ID: <a class=\"external\" target=\"_blank\" href=\"http://antibodyregistry.org/AB_2278725\">AB_2278725</a></p><p>Cat Num: MAB5406</p><p>Clonality: monoclonal antibody</p><p>Comments: manufacturer recommendations: IgG2a; IgG2a  Immunohistochemistry; Western Blot; IH, IH(P), WB h, r, m</p><p>Host Organism: mouse</p><p>Proper Citation: (Millipore Cat# MAB5406, RRID:AB_2278725)</p><p>Reference: PMID:16856139</p><p>Target Antigen: GAD67 clone 1G10.2 <a class=\"external\" target=\"_blank\" href=\"\"></a></p><p>Vendor: Millipore <a class=\"external\" target=\"_blank\" href=\"http://www.millipore.com/catalogue/item/MAB5406?cid=BIOS-A-BIOC-1232-1205-RC\">Go To Vendor</a></p><hr><p><a href=\"https://scicrunch.org/resolver/AB_2278725.xml\">resolver lookup</a></p>",
+                    "issued": "2016-11-04T23:16:04Z"
+                },
+                "source_id": "hypothesis",
+                "obj": {
+                    "pid": "https://doi.org/10.1523/jneurosci.3277-14.2015",
+                    "url": "http://www.jneurosci.org/content/35/3/1211.long"
+                },
+                "timestamp": "2017-04-11T18:41:32Z",
+                "relation_type_id": "annotates"
+            },
+            {
+                "license": "https://creativecommons.org/publicdomain/zero/1.0/",
+                "obj_id": "https://doi.org/10.1002/cne.23746",
+                "source_token": "8075957f-e0da-405f-9eee-7f35519d7c4c",
+                "occurred_at": "2016-11-04T23:16:02Z",
+                "subj_id": "https://hypothes.is/a/p0LEPKLkEeaoAz_n643-zQ",
+                "id": "fc13f34c-fa1e-4bc8-aaa0-480fa8941ab7",
+                "evidence_record": "https://evidence.eventdata.crossref.org/evidence/20170411-hypothesis-e5a3ca50-c465-4f3f-8eea-7f6fadb20ca0",
+                "terms": "https://doi.org/10.13003/CED-terms-of-use",
+                "action": "add",
+                "subj": {
+                    "pid": "https://hypothes.is/a/p0LEPKLkEeaoAz_n643-zQ",
+                    "json-url": "https://hypothes.is/api/annotations/p0LEPKLkEeaoAz_n643-zQ",
+                    "url": "https://hyp.is/p0LEPKLkEeaoAz_n643-zQ/onlinelibrary.wiley.com/doi/10.1002/cne.23746/full",
+                    "type": "annotation",
+                    "title": "Resolver lookup failed.<hr><p><a href=\"https://scicrunch.org/resolver/2DB-GENO-030619-2.xml\">resolver lookup</a></p>",
+                    "issued": "2016-11-04T23:16:02Z"
+                },
+                "source_id": "hypothesis",
+                "obj": {
+                    "pid": "https://doi.org/10.1002/cne.23746",
+                    "url": "http://onlinelibrary.wiley.com/doi/10.1002/cne.23746/full"
+                },
+                "timestamp": "2017-04-11T18:41:33Z",
+                "relation_type_id": "annotates"
+            },
+            {
+                "license": "https://creativecommons.org/publicdomain/zero/1.0/",
+                "obj_id": "https://doi.org/10.1002/jnr.23699",
+                "source_token": "8075957f-e0da-405f-9eee-7f35519d7c4c",
+                "occurred_at": "2016-11-05T00:40:58Z",
+                "subj_id": "https://hypothes.is/a/hQHaoKLwEeae0K_nww533g",
+                "id": "c4a9a116-2e60-4714-94d9-d84baba9143a",
+                "evidence_record": "https://evidence.eventdata.crossref.org/evidence/20170411-hypothesis-3bb5e63a-023d-4d31-863c-1f3fa273d3db",
+                "terms": "https://doi.org/10.13003/CED-terms-of-use",
+                "action": "add",
+                "subj": {
+                    "pid": "https://hypothes.is/a/hQHaoKLwEeae0K_nww533g",
+                    "json-url": "https://hypothes.is/api/annotations/hQHaoKLwEeae0K_nww533g",
+                    "url": "https://hyp.is/hQHaoKLwEeae0K_nww533g/onlinelibrary.wiley.com/doi/10.1002/jnr.23699/full",
+                    "type": "annotation",
+                    "title": "",
+                    "issued": "2016-11-05T00:40:58Z"
+                },
+                "source_id": "hypothesis",
+                "obj": {
+                    "pid": "https://doi.org/10.1002/jnr.23699",
+                    "url": "http://onlinelibrary.wiley.com/doi/10.1002/jnr.23699/full"
+                },
+                "timestamp": "2017-04-11T18:41:33Z",
+                "relation_type_id": "annotates"
+            },
+            {
+                "license": "https://creativecommons.org/publicdomain/zero/1.0/",
+                "obj_id": "https://doi.org/10.1002/cne.23746",
+                "source_token": "8075957f-e0da-405f-9eee-7f35519d7c4c",
+                "occurred_at": "2016-11-04T23:16:01Z",
+                "subj_id": "https://hypothes.is/a/pqJF1KLkEeai-jNlUxRIyA",
+                "id": "7e0d74b7-6700-416e-9a4d-5cc0bb485dad",
+                "evidence_record": "https://evidence.eventdata.crossref.org/evidence/20170411-hypothesis-e5a3ca50-c465-4f3f-8eea-7f6fadb20ca0",
+                "terms": "https://doi.org/10.13003/CED-terms-of-use",
+                "action": "add",
+                "subj": {
+                    "pid": "https://hypothes.is/a/pqJF1KLkEeai-jNlUxRIyA",
+                    "json-url": "https://hypothes.is/api/annotations/pqJF1KLkEeai-jNlUxRIyA",
+                    "url": "https://hyp.is/pqJF1KLkEeai-jNlUxRIyA/onlinelibrary.wiley.com/doi/10.1002/cne.23746/full",
+                    "type": "annotation",
+                    "title": "Resolver lookup failed.<hr><p><a href=\"https://scicrunch.org/resolver/BC_129243.xml\">resolver lookup</a></p>",
+                    "issued": "2016-11-04T23:16:01Z"
+                },
+                "source_id": "hypothesis",
+                "obj": {
+                    "pid": "https://doi.org/10.1002/cne.23746",
+                    "url": "http://onlinelibrary.wiley.com/doi/10.1002/cne.23746/full"
+                },
+                "timestamp": "2017-04-11T18:41:33Z",
+                "relation_type_id": "annotates"
+            },
+            {
+                "license": "https://creativecommons.org/publicdomain/zero/1.0/",
+                "obj_id": "https://doi.org/10.1002/cne.23746",
+                "source_token": "8075957f-e0da-405f-9eee-7f35519d7c4c",
+                "occurred_at": "2016-11-04T23:16:01Z",
+                "subj_id": "https://hypothes.is/a/pvHTVqLkEeaYEq-BFxkcRg",
+                "id": "6c7f8f4e-f9a9-4f62-afb0-55ae77663024",
+                "evidence_record": "https://evidence.eventdata.crossref.org/evidence/20170411-hypothesis-e5a3ca50-c465-4f3f-8eea-7f6fadb20ca0",
+                "terms": "https://doi.org/10.13003/CED-terms-of-use",
+                "action": "add",
+                "subj": {
+                    "pid": "https://hypothes.is/a/pvHTVqLkEeaYEq-BFxkcRg",
+                    "json-url": "https://hypothes.is/api/annotations/pvHTVqLkEeaYEq-BFxkcRg",
+                    "url": "https://hyp.is/pvHTVqLkEeaYEq-BFxkcRg/onlinelibrary.wiley.com/doi/10.1002/cne.23746/full",
+                    "type": "annotation",
+                    "title": "Resolver lookup failed.<hr><p><a href=\"https://scicrunch.org/resolver/AB_193290.xml\">resolver lookup</a></p>",
+                    "issued": "2016-11-04T23:16:01Z"
+                },
+                "source_id": "hypothesis",
+                "obj": {
+                    "pid": "https://doi.org/10.1002/cne.23746",
+                    "url": "http://onlinelibrary.wiley.com/doi/10.1002/cne.23746/full"
+                },
+                "timestamp": "2017-04-11T18:41:33Z",
+                "relation_type_id": "annotates"
+            },
+            {
+                "license": "https://creativecommons.org/publicdomain/zero/1.0/",
+                "obj_id": "https://doi.org/10.1007/s12021-015-9286-1",
+                "source_token": "8075957f-e0da-405f-9eee-7f35519d7c4c",
+                "occurred_at": "2016-11-05T00:41:05Z",
+                "subj_id": "https://hypothes.is/a/iSHCxqLwEeadI_uzScbFLQ",
+                "id": "5c5770bc-9c9e-4dcd-8d38-f3839c6d432d",
+                "evidence_record": "https://evidence.eventdata.crossref.org/evidence/20170411-hypothesis-3bb5e63a-023d-4d31-863c-1f3fa273d3db",
+                "terms": "https://doi.org/10.13003/CED-terms-of-use",
+                "action": "add",
+                "subj": {
+                    "pid": "https://hypothes.is/a/iSHCxqLwEeadI_uzScbFLQ",
+                    "json-url": "https://hypothes.is/api/annotations/iSHCxqLwEeadI_uzScbFLQ",
+                    "url": "https://hyp.is/iSHCxqLwEeadI_uzScbFLQ/link.springer.com/article/10.1007/s12021-015-9286-1/fulltext.html",
+                    "type": "annotation",
+                    "title": "",
+                    "issued": "2016-11-05T00:41:05Z"
+                },
+                "source_id": "hypothesis",
+                "obj": {
+                    "pid": "https://doi.org/10.1007/s12021-015-9286-1",
+                    "url": "http://link.springer.com/article/10.1007/s12021-015-9286-1/fulltext.html"
+                },
+                "timestamp": "2017-04-11T18:41:33Z",
+                "relation_type_id": "annotates"
+            },
+            {
+                "license": "https://creativecommons.org/publicdomain/zero/1.0/",
+                "obj_id": "https://doi.org/10.1002/cne.23940",
+                "source_token": "8075957f-e0da-405f-9eee-7f35519d7c4c",
+                "occurred_at": "2016-11-05T00:40:57Z",
+                "subj_id": "https://hypothes.is/a/hAeb-KLwEeam3V-IHfvvKw",
+                "id": "52c50878-23a2-4c0b-a8a9-88f359b891fc",
+                "evidence_record": "https://evidence.eventdata.crossref.org/evidence/20170411-hypothesis-3bb5e63a-023d-4d31-863c-1f3fa273d3db",
+                "terms": "https://doi.org/10.13003/CED-terms-of-use",
+                "action": "add",
+                "subj": {
+                    "pid": "https://hypothes.is/a/hAeb-KLwEeam3V-IHfvvKw",
+                    "json-url": "https://hypothes.is/api/annotations/hAeb-KLwEeam3V-IHfvvKw",
+                    "url": "https://hyp.is/hAeb-KLwEeam3V-IHfvvKw/onlinelibrary.wiley.com/doi/10.1002/cne.23940/full",
+                    "type": "annotation",
+                    "title": "",
+                    "issued": "2016-11-05T00:40:57Z"
+                },
+                "source_id": "hypothesis",
+                "obj": {
+                    "pid": "https://doi.org/10.1002/cne.23940",
+                    "url": "http://onlinelibrary.wiley.com/doi/10.1002/cne.23940/full"
+                },
+                "timestamp": "2017-04-11T18:41:33Z",
+                "relation_type_id": "annotates"
+            },
+            {
+                "license": "https://creativecommons.org/publicdomain/zero/1.0/",
+                "obj_id": "https://doi.org/10.1002/cne.23942",
+                "source_token": "8075957f-e0da-405f-9eee-7f35519d7c4c",
+                "occurred_at": "2016-11-05T00:40:59Z",
+                "subj_id": "https://hypothes.is/a/haSwrqLwEeazObPZ_2cFPA",
+                "id": "47398e5b-db93-460b-ab2f-2c5225e8e910",
+                "evidence_record": "https://evidence.eventdata.crossref.org/evidence/20170411-hypothesis-3bb5e63a-023d-4d31-863c-1f3fa273d3db",
+                "terms": "https://doi.org/10.13003/CED-terms-of-use",
+                "action": "add",
+                "subj": {
+                    "pid": "https://hypothes.is/a/haSwrqLwEeazObPZ_2cFPA",
+                    "json-url": "https://hypothes.is/api/annotations/haSwrqLwEeazObPZ_2cFPA",
+                    "url": "https://hyp.is/haSwrqLwEeazObPZ_2cFPA/onlinelibrary.wiley.com/doi/10.1002/cne.23942/full",
+                    "type": "annotation",
+                    "title": "",
+                    "issued": "2016-11-05T00:40:59Z"
+                },
+                "source_id": "hypothesis",
+                "obj": {
+                    "pid": "https://doi.org/10.1002/cne.23942",
+                    "url": "http://onlinelibrary.wiley.com/doi/10.1002/cne.23942/full"
+                },
+                "timestamp": "2017-04-11T18:41:33Z",
+                "relation_type_id": "annotates"
+            },
+            {
+                "license": "https://creativecommons.org/publicdomain/zero/1.0/",
+                "obj_id": "https://doi.org/10.1007/s12021-014-9253-2",
+                "source_token": "8075957f-e0da-405f-9eee-7f35519d7c4c",
+                "occurred_at": "2016-11-04T23:15:58Z",
+                "subj_id": "https://hypothes.is/a/pSK1fKLkEeacEaMwLC6UYQ",
+                "id": "45764384-9e47-437e-b27b-b9b5548a48c2",
+                "evidence_record": "https://evidence.eventdata.crossref.org/evidence/20170411-hypothesis-e5a3ca50-c465-4f3f-8eea-7f6fadb20ca0",
+                "terms": "https://doi.org/10.13003/CED-terms-of-use",
+                "action": "add",
+                "subj": {
+                    "pid": "https://hypothes.is/a/pSK1fKLkEeacEaMwLC6UYQ",
+                    "json-url": "https://hypothes.is/api/annotations/pSK1fKLkEeacEaMwLC6UYQ",
+                    "url": "https://hyp.is/pSK1fKLkEeacEaMwLC6UYQ/link.springer.com/article/10.1007/s12021-014-9253-2/fulltext.html",
+                    "type": "annotation",
+                    "title": "<p>Proper Citation: ORION, http://cbl.uh.edu/ORION/research/overview, RRID:SCR_010621</p><p>Alternate IDs: nlx_56302</p><p>Keywords: structural imaging, reconstruction, simulation, functional imaging, multiphoton, confocal</p><p>Mentioned In Literature: <a class=\"external\" target=\"_blank\" href=\"http://www.ncbi.nlm.nih.gov/pubmed?term=\"></a></p><p>Parent Organization: University of Houston; Texas; USA</p><p>Proper Citation: ORION, http://cbl.uh.edu/ORION/research/overview, RRID:SCR_010621</p><p>Resource ID: <a class=\"external\" target=\"_blank\" href=\"https://scicrunch.org/browse/resources/SCR_010621\">SCR_010621</a></p><p>Website Status: Last checked up;</p><hr><p><a href=\"https://scicrunch.org/resolver/nlx_56302.xml\">resolver lookup</a></p>",
+                    "issued": "2016-11-04T23:15:58Z"
+                },
+                "source_id": "hypothesis",
+                "obj": {
+                    "pid": "https://doi.org/10.1007/s12021-014-9253-2",
+                    "url": "http://link.springer.com/article/10.1007/s12021-014-9253-2/fulltext.html"
+                },
+                "timestamp": "2017-04-11T18:41:33Z",
+                "relation_type_id": "annotates"
+            },
+            {
+                "license": "https://creativecommons.org/publicdomain/zero/1.0/",
+                "obj_id": "https://doi.org/10.1002/cne.23749",
+                "source_token": "8075957f-e0da-405f-9eee-7f35519d7c4c",
+                "occurred_at": "2016-11-04T23:15:57Z",
+                "subj_id": "https://hypothes.is/a/pI9_jKLkEeaxwu81y6SXMg",
+                "id": "2052d4e3-cbf9-4108-a49e-3228eb2a4595",
+                "evidence_record": "https://evidence.eventdata.crossref.org/evidence/20170411-hypothesis-e5a3ca50-c465-4f3f-8eea-7f6fadb20ca0",
+                "terms": "https://doi.org/10.13003/CED-terms-of-use",
+                "action": "add",
+                "subj": {
+                    "pid": "https://hypothes.is/a/pI9_jKLkEeaxwu81y6SXMg",
+                    "json-url": "https://hypothes.is/api/annotations/pI9_jKLkEeaxwu81y6SXMg",
+                    "url": "https://hyp.is/pI9_jKLkEeaxwu81y6SXMg/onlinelibrary.wiley.com/doi/10.1002/cne.23749/full",
+                    "type": "annotation",
+                    "title": "<p>Proper Citation: (Atlas Antibodies Cat# HPA008213, RRID:AB_1233654)</p><p>Antibody ID: <a class=\"external\" target=\"_blank\" href=\"http://antibodyregistry.org/AB_1233654\">AB_1233654</a></p><p>Cat Num: HPA008213</p><p>Clonality: polyclonal antibody</p><p>Comments: manufacturer recommendations: IgG  Other; Immunohistochemistry; Immunohistochemistry human</p><p>Host Organism: rabbit</p><p>Proper Citation: (Atlas Antibodies Cat# HPA008213, RRID:AB_1233654)</p><p>Reference: <a class=\"external\" target=\"_blank\" href=\"http://www.ncbi.nlm.nih.gov/pubmed/\"></a></p><p>Target Antigen: Rabbit Human CACNA2D1 <a class=\"external\" target=\"_blank\" href=\"\"></a></p><p>Vendor: Atlas Antibodies <a class=\"external\" target=\"_blank\" href=\"http://www.atlasantibodies.com/product_datasheet/HPA008213\">Go To Vendor</a></p><hr><p><a href=\"https://scicrunch.org/resolver/AB_1233654.xml\">resolver lookup</a></p>",
+                    "issued": "2016-11-04T23:15:57Z"
+                },
+                "source_id": "hypothesis",
+                "obj": {
+                    "pid": "https://doi.org/10.1002/cne.23749",
+                    "url": "http://onlinelibrary.wiley.com/doi/10.1002/cne.23749/full"
+                },
+                "timestamp": "2017-04-11T18:41:33Z",
+                "relation_type_id": "annotates"
+            },
+            {
+                "license": "https://creativecommons.org/publicdomain/zero/1.0/",
+                "obj_id": "https://doi.org/10.1002/cne.23946",
+                "source_token": "8075957f-e0da-405f-9eee-7f35519d7c4c",
+                "occurred_at": "2016-11-05T00:40:59Z",
+                "subj_id": "https://hypothes.is/a/hVBIKqLwEeabpYf55IE-Sw",
+                "id": "1a10989c-cce4-46da-b910-4427374896a7",
+                "evidence_record": "https://evidence.eventdata.crossref.org/evidence/20170411-hypothesis-3bb5e63a-023d-4d31-863c-1f3fa273d3db",
+                "terms": "https://doi.org/10.13003/CED-terms-of-use",
+                "action": "add",
+                "subj": {
+                    "pid": "https://hypothes.is/a/hVBIKqLwEeabpYf55IE-Sw",
+                    "json-url": "https://hypothes.is/api/annotations/hVBIKqLwEeabpYf55IE-Sw",
+                    "url": "https://hyp.is/hVBIKqLwEeabpYf55IE-Sw/onlinelibrary.wiley.com/doi/10.1002/cne.23946/full",
+                    "type": "annotation",
+                    "title": "",
+                    "issued": "2016-11-05T00:40:59Z"
+                },
+                "source_id": "hypothesis",
+                "obj": {
+                    "pid": "https://doi.org/10.1002/cne.23946",
+                    "url": "http://onlinelibrary.wiley.com/doi/10.1002/cne.23946/full"
+                },
+                "timestamp": "2017-04-11T18:41:33Z",
+                "relation_type_id": "annotates"
+            },
+            {
+                "license": "https://creativecommons.org/publicdomain/zero/1.0/",
+                "obj_id": "https://doi.org/10.1002/cne.23948",
+                "source_token": "8075957f-e0da-405f-9eee-7f35519d7c4c",
+                "occurred_at": "2016-11-05T00:41:01Z",
+                "subj_id": "https://hypothes.is/a/hlDCcqLwEeazOiMH9VsifA",
+                "id": "0de6f72c-4abc-40fa-be1e-10f616a88fa7",
+                "evidence_record": "https://evidence.eventdata.crossref.org/evidence/20170411-hypothesis-3bb5e63a-023d-4d31-863c-1f3fa273d3db",
+                "terms": "https://doi.org/10.13003/CED-terms-of-use",
+                "action": "add",
+                "subj": {
+                    "pid": "https://hypothes.is/a/hlDCcqLwEeazOiMH9VsifA",
+                    "json-url": "https://hypothes.is/api/annotations/hlDCcqLwEeazOiMH9VsifA",
+                    "url": "https://hyp.is/hlDCcqLwEeazOiMH9VsifA/onlinelibrary.wiley.com/doi/10.1002/cne.23948/full",
+                    "type": "annotation",
+                    "title": "",
+                    "issued": "2016-11-05T00:41:01Z"
+                },
+                "source_id": "hypothesis",
+                "obj": {
+                    "pid": "https://doi.org/10.1002/cne.23948",
+                    "url": "http://onlinelibrary.wiley.com/doi/10.1002/cne.23948/full"
+                },
+                "timestamp": "2017-04-11T18:41:33Z",
+                "relation_type_id": "annotates"
+            },
+            {
+                "license": "https://creativecommons.org/publicdomain/zero/1.0/",
+                "obj_id": "https://doi.org/10.1007/s12021-014-9253-2",
+                "source_token": "8075957f-e0da-405f-9eee-7f35519d7c4c",
+                "occurred_at": "2016-11-04T23:15:58Z",
+                "subj_id": "https://hypothes.is/a/pNggIKLkEea0U3M-no4PIQ",
+                "id": "091a28b2-78ca-47ad-813a-b6f5e34a71ca",
+                "evidence_record": "https://evidence.eventdata.crossref.org/evidence/20170411-hypothesis-e5a3ca50-c465-4f3f-8eea-7f6fadb20ca0",
+                "terms": "https://doi.org/10.13003/CED-terms-of-use",
+                "action": "add",
+                "subj": {
+                    "pid": "https://hypothes.is/a/pNggIKLkEea0U3M-no4PIQ",
+                    "json-url": "https://hypothes.is/api/annotations/pNggIKLkEea0U3M-no4PIQ",
+                    "url": "https://hyp.is/pNggIKLkEea0U3M-no4PIQ/link.springer.com/article/10.1007/s12021-014-9253-2/fulltext.html",
+                    "type": "annotation",
+                    "title": "<p>Proper Citation: DIADEM Challenge: DIgital reconstruction of Axonal and DEndritic Morphology (DIADEM) Software Development Competition, http://diademchallenge.org/data_sets.html, RRID:SCR_008262</p><p>Alternate IDs: nif-0000-23194</p><p>Keywords: fiber, animal, automating, axon, axonal, brain, cerebellar, challenge, competition, computational, conference, data set, dendritic, development, hippocampal, interneuron, morphology, neocortical, neuromuscular, neuronal, neuroscientist, non-human, olfactory, program, reconstruction, scientific conference, scientist, software, three-dimensional, image</p><p>Mentioned In Literature: <a class=\"external\" target=\"_blank\" href=\"http://www.ncbi.nlm.nih.gov/pubmed?term=\"></a></p><p>Parent Organization: Howard Hughes Medical Institute</p><p>Proper Citation: DIADEM Challenge: DIgital reconstruction of Axonal and DEndritic Morphology (DIADEM) Software Development Competition, http://diademchallenge.org/data_sets.html, RRID:SCR_008262</p><p>Resource ID: <a class=\"external\" target=\"_blank\" href=\"https://scicrunch.org/browse/resources/SCR_008262\">SCR_008262</a></p><p>Website Status: Last checked up;</p><hr><p><a href=\"https://scicrunch.org/resolver/nif-0000-23194.xml\">resolver lookup</a></p>",
+                    "issued": "2016-11-04T23:15:58Z"
+                },
+                "source_id": "hypothesis",
+                "obj": {
+                    "pid": "https://doi.org/10.1007/s12021-014-9253-2",
+                    "url": "http://link.springer.com/article/10.1007/s12021-014-9253-2/fulltext.html"
+                },
+                "timestamp": "2017-04-11T18:41:33Z",
+                "relation_type_id": "annotates"
+            },
+            {
+                "license": "https://creativecommons.org/publicdomain/zero/1.0/",
+                "obj_id": "https://doi.org/10.1002/cne.23945",
+                "source_token": "8075957f-e0da-405f-9eee-7f35519d7c4c",
+                "occurred_at": "2016-11-05T00:40:58Z",
+                "subj_id": "https://hypothes.is/a/hK-etqLwEeadIk8TWRwzSg",
+                "id": "02eedc8e-305b-4087-8d48-99321dc8902b",
+                "evidence_record": "https://evidence.eventdata.crossref.org/evidence/20170411-hypothesis-3bb5e63a-023d-4d31-863c-1f3fa273d3db",
+                "terms": "https://doi.org/10.13003/CED-terms-of-use",
+                "action": "add",
+                "subj": {
+                    "pid": "https://hypothes.is/a/hK-etqLwEeadIk8TWRwzSg",
+                    "json-url": "https://hypothes.is/api/annotations/hK-etqLwEeadIk8TWRwzSg",
+                    "url": "https://hyp.is/hK-etqLwEeadIk8TWRwzSg/onlinelibrary.wiley.com/doi/10.1002/cne.23945/full",
+                    "type": "annotation",
+                    "title": "",
+                    "issued": "2016-11-05T00:40:58Z"
+                },
+                "source_id": "hypothesis",
+                "obj": {
+                    "pid": "https://doi.org/10.1002/cne.23945",
+                    "url": "http://onlinelibrary.wiley.com/doi/10.1002/cne.23945/full"
+                },
+                "timestamp": "2017-04-11T18:41:33Z",
+                "relation_type_id": "annotates"
+            },
+            {
+                "license": "https://creativecommons.org/publicdomain/zero/1.0/",
+                "obj_id": "https://doi.org/10.1002/cne.23939",
+                "source_token": "8075957f-e0da-405f-9eee-7f35519d7c4c",
+                "occurred_at": "2016-11-05T00:40:55Z",
+                "subj_id": "https://hypothes.is/a/gxPREqLwEeaYfEsYE3rjiA",
+                "id": "a7c4e981-8b0f-4c29-bd25-2e885c337b00",
+                "evidence_record": "https://evidence.eventdata.crossref.org/evidence/20170411-hypothesis-3bb5e63a-023d-4d31-863c-1f3fa273d3db",
+                "terms": "https://doi.org/10.13003/CED-terms-of-use",
+                "action": "add",
+                "subj": {
+                    "pid": "https://hypothes.is/a/gxPREqLwEeaYfEsYE3rjiA",
+                    "json-url": "https://hypothes.is/api/annotations/gxPREqLwEeaYfEsYE3rjiA",
+                    "url": "https://hyp.is/gxPREqLwEeaYfEsYE3rjiA/onlinelibrary.wiley.com/doi/10.1002/cne.23939/full",
+                    "type": "annotation",
+                    "title": "",
+                    "issued": "2016-11-05T00:40:55Z"
+                },
+                "source_id": "hypothesis",
+                "obj": {
+                    "pid": "https://doi.org/10.1002/cne.23939",
+                    "url": "http://onlinelibrary.wiley.com/doi/10.1002/cne.23939/full"
+                },
+                "timestamp": "2017-04-11T18:41:34Z",
+                "relation_type_id": "annotates"
+            },
+            {
+                "license": "https://creativecommons.org/publicdomain/zero/1.0/",
+                "obj_id": "https://doi.org/10.1002/cne.23624",
+                "source_token": "8075957f-e0da-405f-9eee-7f35519d7c4c",
+                "occurred_at": "2016-11-05T00:40:42Z",
+                "subj_id": "https://hypothes.is/a/e1hAZqLwEeam3FcfQr-zxg",
+                "id": "9f610d0c-93ef-4ffa-815e-452ac1ad3db0",
+                "evidence_record": "https://evidence.eventdata.crossref.org/evidence/20170411-hypothesis-3bb5e63a-023d-4d31-863c-1f3fa273d3db",
+                "terms": "https://doi.org/10.13003/CED-terms-of-use",
+                "action": "add",
+                "subj": {
+                    "pid": "https://hypothes.is/a/e1hAZqLwEeam3FcfQr-zxg",
+                    "json-url": "https://hypothes.is/api/annotations/e1hAZqLwEeam3FcfQr-zxg",
+                    "url": "https://hyp.is/e1hAZqLwEeam3FcfQr-zxg/onlinelibrary.wiley.com/doi/10.1002/cne.23624/full",
+                    "type": "annotation",
+                    "title": "",
+                    "issued": "2016-11-05T00:40:42Z"
+                },
+                "source_id": "hypothesis",
+                "obj": {
+                    "pid": "https://doi.org/10.1002/cne.23624",
+                    "url": "http://onlinelibrary.wiley.com/doi/10.1002/cne.23624/full"
+                },
+                "timestamp": "2017-04-11T18:41:34Z",
+                "relation_type_id": "annotates"
+            },
+            {
+                "license": "https://creativecommons.org/publicdomain/zero/1.0/",
+                "obj_id": "https://doi.org/10.1002/cne.23751",
+                "source_token": "8075957f-e0da-405f-9eee-7f35519d7c4c",
+                "occurred_at": "2016-11-04T23:15:56Z",
+                "subj_id": "https://hypothes.is/a/o4fkOqLkEeaxwVPiJip1ug",
+                "id": "873b4b3c-05a6-4dc3-a468-44000d9b2403",
+                "evidence_record": "https://evidence.eventdata.crossref.org/evidence/20170411-hypothesis-e5a3ca50-c465-4f3f-8eea-7f6fadb20ca0",
+                "terms": "https://doi.org/10.13003/CED-terms-of-use",
+                "action": "add",
+                "subj": {
+                    "pid": "https://hypothes.is/a/o4fkOqLkEeaxwVPiJip1ug",
+                    "json-url": "https://hypothes.is/api/annotations/o4fkOqLkEeaxwVPiJip1ug",
+                    "url": "https://hyp.is/o4fkOqLkEeaxwVPiJip1ug/onlinelibrary.wiley.com/doi/10.1002/cne.23751/full",
+                    "type": "annotation",
+                    "title": "<p>Proper Citation: RRID:RGD_734476</p><p>Name: Crl:CD(SD)</p><p>Availability: live</p><p>Background: outbred</p><p>Catalog ID: 734476</p><p>Database: <a class=\"external\" target=\"_blank\" href=\"http://rgd.mcw.edu/tools/strains/strains_view.cgi?id=734476\">RGD</a></p><p>Name: Crl:CD(SD)</p><p>Notes: Originated in 1925 by Robert W. Dawley from a hybrid hooded male and a female Wistar rat. To CRL in 1950 from Sprague Dawley, Inc. Caesarean rederived in 1955 from original Charles River Sprague Dawley. colonies. In 1991, 8 colonies were selected to form the IGS Foundation Colony. Rederived into isolator foundation colony in 1997. IGS refers to animals bred using the CRL International Genetic Standard system. Charles River Laboratories International, Inc.</p><p>Proper Citation: RRID:RGD_734476</p><p>Reference: <a class=\"external\" target=\"_blank\" href=\"http://www.ncbi.nlm.nih.gov/pubmed/\"></a></p><p>Species: Rat</p><hr><p><a href=\"https://scicrunch.org/resolver/RGD_734476.xml\">resolver lookup</a></p>",
+                    "issued": "2016-11-04T23:15:56Z"
+                },
+                "source_id": "hypothesis",
+                "obj": {
+                    "pid": "https://doi.org/10.1002/cne.23751",
+                    "url": "http://onlinelibrary.wiley.com/doi/10.1002/cne.23751/full"
+                },
+                "timestamp": "2017-04-11T18:41:34Z",
+                "relation_type_id": "annotates"
+            },
+            {
+                "license": "https://creativecommons.org/publicdomain/zero/1.0/",
+                "obj_id": "https://doi.org/10.1002/cne.23944",
+                "source_token": "8075957f-e0da-405f-9eee-7f35519d7c4c",
+                "occurred_at": "2016-11-05T00:40:56Z",
+                "subj_id": "https://hypothes.is/a/g7wtRKLwEeaYfRMZVtpQsw",
+                "id": "7fd1c954-2135-4156-81ed-852326708654",
+                "evidence_record": "https://evidence.eventdata.crossref.org/evidence/20170411-hypothesis-3bb5e63a-023d-4d31-863c-1f3fa273d3db",
+                "terms": "https://doi.org/10.13003/CED-terms-of-use",
+                "action": "add",
+                "subj": {
+                    "pid": "https://hypothes.is/a/g7wtRKLwEeaYfRMZVtpQsw",
+                    "json-url": "https://hypothes.is/api/annotations/g7wtRKLwEeaYfRMZVtpQsw",
+                    "url": "https://hyp.is/g7wtRKLwEeaYfRMZVtpQsw/onlinelibrary.wiley.com/doi/10.1002/cne.23944/full",
+                    "type": "annotation",
+                    "title": "",
+                    "issued": "2016-11-05T00:40:56Z"
+                },
+                "source_id": "hypothesis",
+                "obj": {
+                    "pid": "https://doi.org/10.1002/cne.23944",
+                    "url": "http://onlinelibrary.wiley.com/doi/10.1002/cne.23944/full"
+                },
+                "timestamp": "2017-04-11T18:41:34Z",
+                "relation_type_id": "annotates"
+            },
+            {
+                "license": "https://creativecommons.org/publicdomain/zero/1.0/",
+                "obj_id": "https://doi.org/10.1002/cne.23749",
+                "source_token": "8075957f-e0da-405f-9eee-7f35519d7c4c",
+                "occurred_at": "2016-11-04T23:15:56Z",
+                "subj_id": "https://hypothes.is/a/o9MhcKLkEeaoAu8dKJZD7w",
+                "id": "597c3e8d-39e3-4f74-b664-7763c513c4ad",
+                "evidence_record": "https://evidence.eventdata.crossref.org/evidence/20170411-hypothesis-e5a3ca50-c465-4f3f-8eea-7f6fadb20ca0",
+                "terms": "https://doi.org/10.13003/CED-terms-of-use",
+                "action": "add",
+                "subj": {
+                    "pid": "https://hypothes.is/a/o9MhcKLkEeaoAu8dKJZD7w",
+                    "json-url": "https://hypothes.is/api/annotations/o9MhcKLkEeaoAu8dKJZD7w",
+                    "url": "https://hyp.is/o9MhcKLkEeaoAu8dKJZD7w/onlinelibrary.wiley.com/doi/10.1002/cne.23749/full",
+                    "type": "annotation",
+                    "title": "<p>Proper Citation: (Santa Cruz Biotechnology Cat# sc-188, RRID:AB_2258513)</p><p>Antibody ID: <a class=\"external\" target=\"_blank\" href=\"http://antibodyregistry.org/AB_2258513\">AB_2258513</a></p><p>Cat Num: sc-188</p><p>Clonality: polyclonal antibody</p><p>Comments: manufacturer recommendations:   WB, IP, IF, ELISA; ELISA; Western Blot; Immunoprecipitation; Immunofluorescence mouse, rat, human, mouse, rat, human</p><p>Host Organism: rabbit</p><p>Proper Citation: (Santa Cruz Biotechnology Cat# sc-188, RRID:AB_2258513)</p><p>Reference: <a class=\"external\" target=\"_blank\" href=\"http://www.ncbi.nlm.nih.gov/pubmed/19107756, 21452236\">PMID:19107756,PMID:21452236</a></p><p>Reference: PMID:19107756</p><p>Target Antigen: ATF-3 (C-19) <a class=\"external\" target=\"_blank\" href=\"\"></a></p><p>Vendor: Santa Cruz Biotechnology <a class=\"external\" target=\"_blank\" href=\"http://www.scbt.com/datasheet-188-atf-3-c-19-antibody.html\">Go To Vendor</a></p><hr><p><a href=\"https://scicrunch.org/resolver/AB_2258513.xml\">resolver lookup</a></p>",
+                    "issued": "2016-11-04T23:15:56Z"
+                },
+                "source_id": "hypothesis",
+                "obj": {
+                    "pid": "https://doi.org/10.1002/cne.23749",
+                    "url": "http://onlinelibrary.wiley.com/doi/10.1002/cne.23749/full"
+                },
+                "timestamp": "2017-04-11T18:41:34Z",
+                "relation_type_id": "annotates"
+            },
+            {
+                "license": "https://creativecommons.org/publicdomain/zero/1.0/",
+                "obj_id": "https://doi.org/10.1002/cne.23749",
+                "source_token": "8075957f-e0da-405f-9eee-7f35519d7c4c",
+                "occurred_at": "2016-11-04T23:15:57Z",
+                "subj_id": "https://hypothes.is/a/pEGWZKLkEeaYEd_igZOjlw",
+                "id": "572a76f3-33b2-450f-88e5-84b27cc8ecee",
+                "evidence_record": "https://evidence.eventdata.crossref.org/evidence/20170411-hypothesis-e5a3ca50-c465-4f3f-8eea-7f6fadb20ca0",
+                "terms": "https://doi.org/10.13003/CED-terms-of-use",
+                "action": "add",
+                "subj": {
+                    "pid": "https://hypothes.is/a/pEGWZKLkEeaYEd_igZOjlw",
+                    "json-url": "https://hypothes.is/api/annotations/pEGWZKLkEeaYEd_igZOjlw",
+                    "url": "https://hyp.is/pEGWZKLkEeaYEd_igZOjlw/onlinelibrary.wiley.com/doi/10.1002/cne.23749/full",
+                    "type": "annotation",
+                    "title": "<p>Proper Citation: (Millipore Cat# AB5220, RRID:AB_2107282)</p><p>Antibody ID: <a class=\"external\" target=\"_blank\" href=\"http://antibodyregistry.org/AB_2107282\">AB_2107282</a></p><p>Cat Num: AB5220</p><p>Clonality: polyclonal antibody</p><p>Comments: manufacturer recommendations:   Western Blot; Immunocytochemistry; Immunohistochemistry; Immunoprecipitation; ELISA; ELISA, IC, IH, IP, WB chicken/bird, h, m, r, ch, b</p><p>Host Organism: rabbit</p><p>Proper Citation: (Millipore Cat# AB5220, RRID:AB_2107282)</p><p>Reference: <a class=\"external\" target=\"_blank\" href=\"http://www.ncbi.nlm.nih.gov/pubmed/17347997, 20575060, 21456011, 22252456\">PMID:17347997,PMID:20575060,PMID:21456011,PMID:22252456</a></p><p>Reference: PMID:17347997</p><p>Target Antigen: Growth Associated Protein-43 (GAP-43) <a class=\"external\" target=\"_blank\" href=\"\"></a></p><p>Vendor: Millipore <a class=\"external\" target=\"_blank\" href=\"http://www.millipore.com/catalogue/item/AB5220?cid=BIOS-A-BIOC-1232-1205-RC\">Go To Vendor</a></p><hr><p><a href=\"https://scicrunch.org/resolver/AB_2107282.xml\">resolver lookup</a></p>",
+                    "issued": "2016-11-04T23:15:57Z"
+                },
+                "source_id": "hypothesis",
+                "obj": {
+                    "pid": "https://doi.org/10.1002/cne.23749",
+                    "url": "http://onlinelibrary.wiley.com/doi/10.1002/cne.23749/full"
+                },
+                "timestamp": "2017-04-11T18:41:34Z",
+                "relation_type_id": "annotates"
+            },
+            {
+                "license": "https://creativecommons.org/publicdomain/zero/1.0/",
+                "obj_id": "https://doi.org/10.1002/cne.23938",
+                "source_token": "8075957f-e0da-405f-9eee-7f35519d7c4c",
+                "occurred_at": "2016-11-05T00:40:56Z",
+                "subj_id": "https://hypothes.is/a/g2hOaKLwEea4eTucOvyGfQ",
+                "id": "3760027f-ed81-4960-9699-da85edb530a8",
+                "evidence_record": "https://evidence.eventdata.crossref.org/evidence/20170411-hypothesis-3bb5e63a-023d-4d31-863c-1f3fa273d3db",
+                "terms": "https://doi.org/10.13003/CED-terms-of-use",
+                "action": "add",
+                "subj": {
+                    "pid": "https://hypothes.is/a/g2hOaKLwEea4eTucOvyGfQ",
+                    "json-url": "https://hypothes.is/api/annotations/g2hOaKLwEea4eTucOvyGfQ",
+                    "url": "https://hyp.is/g2hOaKLwEea4eTucOvyGfQ/onlinelibrary.wiley.com/doi/10.1002/cne.23938/full",
+                    "type": "annotation",
+                    "title": "",
+                    "issued": "2016-11-05T00:40:56Z"
+                },
+                "source_id": "hypothesis",
+                "obj": {
+                    "pid": "https://doi.org/10.1002/cne.23938",
+                    "url": "http://onlinelibrary.wiley.com/doi/10.1002/cne.23938/full"
+                },
+                "timestamp": "2017-04-11T18:41:34Z",
+                "relation_type_id": "annotates"
+            },
+            {
+                "license": "https://creativecommons.org/publicdomain/zero/1.0/",
+                "obj_id": "https://doi.org/10.1002/cne.23751",
+                "source_token": "8075957f-e0da-405f-9eee-7f35519d7c4c",
+                "occurred_at": "2016-11-04T23:15:54Z",
+                "subj_id": "https://hypothes.is/a/osYFhqLkEeaxK_dIKYZ8hA",
+                "id": "255e7211-3c36-4950-9ea0-ba90c1a56a30",
+                "evidence_record": "https://evidence.eventdata.crossref.org/evidence/20170411-hypothesis-e5a3ca50-c465-4f3f-8eea-7f6fadb20ca0",
+                "terms": "https://doi.org/10.13003/CED-terms-of-use",
+                "action": "add",
+                "subj": {
+                    "pid": "https://hypothes.is/a/osYFhqLkEeaxK_dIKYZ8hA",
+                    "json-url": "https://hypothes.is/api/annotations/osYFhqLkEeaxK_dIKYZ8hA",
+                    "url": "https://hyp.is/osYFhqLkEeaxK_dIKYZ8hA/onlinelibrary.wiley.com/doi/10.1002/cne.23751/full",
+                    "type": "annotation",
+                    "title": "<p>Proper Citation: (Sigma-Aldrich Cat# HPA030850, RRID:AB_10600764)</p><p>Antibody ID: <a class=\"external\" target=\"_blank\" href=\"http://antibodyregistry.org/AB_10600764\">AB_10600764</a></p><p>Cat Num: HPA030850</p><p>Clonality: polyclonal antibody</p><p>Comments: manufacturer recommendations:   Immunohistochemistry; Western Blot; Other; protein array: suitable, immunohistochemistry (formalin-fixed, paraffin-embedded sections): suitable human</p><p>Host Organism: rabbit</p><p>Proper Citation: (Sigma-Aldrich Cat# HPA030850, RRID:AB_10600764)</p><p>Reference: <a class=\"external\" target=\"_blank\" href=\"http://www.ncbi.nlm.nih.gov/pubmed/\"></a></p><p>Target Antigen: CACNA2D3 antibody produced in rabbit <a class=\"external\" target=\"_blank\" href=\"\"></a></p><p>Vendor: Sigma-Aldrich <a class=\"external\" target=\"_blank\" href=\"http://www.sigmaaldrich.com/catalog/ProductDetail.do?&N5=SEARCH_CONCAT_PNO|BRAND_KEY&F=SPEC&N4=HPA030850|SIGMA&cm_mmc=affiliate-_-Biocompare-_-CS-_-HPA030850\">Go To Vendor</a></p><hr><p><a href=\"https://scicrunch.org/resolver/AB_10600764.xml\">resolver lookup</a></p>",
+                    "issued": "2016-11-04T23:15:54Z"
+                },
+                "source_id": "hypothesis",
+                "obj": {
+                    "pid": "https://doi.org/10.1002/cne.23751",
+                    "url": "http://onlinelibrary.wiley.com/doi/10.1002/cne.23751/full"
+                },
+                "timestamp": "2017-04-11T18:41:34Z",
+                "relation_type_id": "annotates"
+            },
+            {
+                "license": "https://creativecommons.org/publicdomain/zero/1.0/",
+                "obj_id": "https://doi.org/10.1002/cne.23751",
+                "source_token": "8075957f-e0da-405f-9eee-7f35519d7c4c",
+                "occurred_at": "2016-11-04T23:15:55Z",
+                "subj_id": "https://hypothes.is/a/ozQgeqLkEeaa3RPUV2dvrg",
+                "id": "1ec4359f-8c8d-4a41-bfc9-0c129ea3b157",
+                "evidence_record": "https://evidence.eventdata.crossref.org/evidence/20170411-hypothesis-e5a3ca50-c465-4f3f-8eea-7f6fadb20ca0",
+                "terms": "https://doi.org/10.13003/CED-terms-of-use",
+                "action": "add",
+                "subj": {
+                    "pid": "https://hypothes.is/a/ozQgeqLkEeaa3RPUV2dvrg",
+                    "json-url": "https://hypothes.is/api/annotations/ozQgeqLkEeaa3RPUV2dvrg",
+                    "url": "https://hyp.is/ozQgeqLkEeaa3RPUV2dvrg/onlinelibrary.wiley.com/doi/10.1002/cne.23751/full",
+                    "type": "annotation",
+                    "title": "<p>Proper Citation: RRID:IMSR_JAX:000664</p><p>Name: C57BL/6J</p><p>Affected Gene: Gluchos3</p><p>Availability: live mouse</p><p>Catalog ID: JAX:000664</p><p>Database: <a class=\"external\" target=\"_blank\" href=\"http://www.findmice.org/summary?query=C57BL/6J\">IMSR</a></p><p>Genomic Alteration: C57BL/6J</p><p>Name: C57BL/6J</p><p>Notes: gene symbol note: glucose homeostasis QTL 3 inbred strain, mutant strain C57BL/6J</p><p>Proper Citation: RRID:IMSR_JAX:000664</p><p>Reference: <a class=\"external\" target=\"_blank\" href=\"\"></a></p><p>Species: Mouse</p><hr><p><a href=\"https://scicrunch.org/resolver/IMSR_JAX:000664.xml\">resolver lookup</a></p>",
+                    "issued": "2016-11-04T23:15:55Z"
+                },
+                "source_id": "hypothesis",
+                "obj": {
+                    "pid": "https://doi.org/10.1002/cne.23751",
+                    "url": "http://onlinelibrary.wiley.com/doi/10.1002/cne.23751/full"
+                },
+                "timestamp": "2017-04-11T18:41:34Z",
+                "relation_type_id": "annotates"
+            },
+            {
+                "license": "https://creativecommons.org/publicdomain/zero/1.0/",
+                "obj_id": "https://doi.org/10.1002/cne.23604",
+                "source_token": "8075957f-e0da-405f-9eee-7f35519d7c4c",
+                "occurred_at": "2016-11-05T00:40:48Z",
+                "subj_id": "https://hypothes.is/a/fyEaBqLwEeamiZMyqxzrlw",
+                "id": "0bf6694e-26ae-4fa4-aaf4-d9704956f0bd",
+                "evidence_record": "https://evidence.eventdata.crossref.org/evidence/20170411-hypothesis-3bb5e63a-023d-4d31-863c-1f3fa273d3db",
+                "terms": "https://doi.org/10.13003/CED-terms-of-use",
+                "action": "add",
+                "subj": {
+                    "pid": "https://hypothes.is/a/fyEaBqLwEeamiZMyqxzrlw",
+                    "json-url": "https://hypothes.is/api/annotations/fyEaBqLwEeamiZMyqxzrlw",
+                    "url": "https://hyp.is/fyEaBqLwEeamiZMyqxzrlw/onlinelibrary.wiley.com/doi/10.1002/cne.23604/full",
+                    "type": "annotation",
+                    "title": "correct\nRRID:AB_10807945",
+                    "issued": "2016-11-05T00:40:48Z"
+                },
+                "source_id": "hypothesis",
+                "obj": {
+                    "pid": "https://doi.org/10.1002/cne.23604",
+                    "url": "http://onlinelibrary.wiley.com/doi/10.1002/cne.23604/full"
+                },
+                "timestamp": "2017-04-11T18:41:34Z",
+                "relation_type_id": "annotates"
+            },
+            {
+                "license": "https://creativecommons.org/publicdomain/zero/1.0/",
+                "obj_id": "https://doi.org/10.1002/cne.23605",
+                "source_token": "8075957f-e0da-405f-9eee-7f35519d7c4c",
+                "occurred_at": "2016-11-05T00:40:34Z",
+                "subj_id": "https://hypothes.is/a/djxumqLwEeagtU_kQPQdBw",
+                "id": "d8aa996b-fe5b-4e0c-a654-ae6660b5eb36",
+                "evidence_record": "https://evidence.eventdata.crossref.org/evidence/20170411-hypothesis-3bb5e63a-023d-4d31-863c-1f3fa273d3db",
+                "terms": "https://doi.org/10.13003/CED-terms-of-use",
+                "action": "add",
+                "subj": {
+                    "pid": "https://hypothes.is/a/djxumqLwEeagtU_kQPQdBw",
+                    "json-url": "https://hypothes.is/api/annotations/djxumqLwEeagtU_kQPQdBw",
+                    "url": "https://hyp.is/djxumqLwEeagtU_kQPQdBw/onlinelibrary.wiley.com/doi/10.1002/cne.23605/full",
+                    "type": "annotation",
+                    "title": "",
+                    "issued": "2016-11-05T00:40:34Z"
+                },
+                "source_id": "hypothesis",
+                "obj": {
+                    "pid": "https://doi.org/10.1002/cne.23605",
+                    "url": "http://onlinelibrary.wiley.com/doi/10.1002/cne.23605/full"
+                },
+                "timestamp": "2017-04-11T18:41:35Z",
+                "relation_type_id": "annotates"
+            },
+            {
+                "license": "https://creativecommons.org/publicdomain/zero/1.0/",
+                "obj_id": "https://doi.org/10.1002/cne.23605",
+                "source_token": "8075957f-e0da-405f-9eee-7f35519d7c4c",
+                "occurred_at": "2016-11-05T00:40:34Z",
+                "subj_id": "https://hypothes.is/a/dojaWqLwEeabpN-dmqi7-g",
+                "id": "d7b7663b-15dc-437c-91e1-6bf4aeeca63d",
+                "evidence_record": "https://evidence.eventdata.crossref.org/evidence/20170411-hypothesis-3bb5e63a-023d-4d31-863c-1f3fa273d3db",
+                "terms": "https://doi.org/10.13003/CED-terms-of-use",
+                "action": "add",
+                "subj": {
+                    "pid": "https://hypothes.is/a/dojaWqLwEeabpN-dmqi7-g",
+                    "json-url": "https://hypothes.is/api/annotations/dojaWqLwEeabpN-dmqi7-g",
+                    "url": "https://hyp.is/dojaWqLwEeabpN-dmqi7-g/onlinelibrary.wiley.com/doi/10.1002/cne.23605/full",
+                    "type": "annotation",
+                    "title": "",
+                    "issued": "2016-11-05T00:40:34Z"
+                },
+                "source_id": "hypothesis",
+                "obj": {
+                    "pid": "https://doi.org/10.1002/cne.23605",
+                    "url": "http://onlinelibrary.wiley.com/doi/10.1002/cne.23605/full"
+                },
+                "timestamp": "2017-04-11T18:41:35Z",
+                "relation_type_id": "annotates"
+            },
+            {
+                "license": "https://creativecommons.org/publicdomain/zero/1.0/",
+                "obj_id": "https://doi.org/10.1002/hipo.22298",
+                "source_token": "8075957f-e0da-405f-9eee-7f35519d7c4c",
+                "occurred_at": "2016-11-05T00:40:35Z",
+                "subj_id": "https://hypothes.is/a/d0DkaqLwEea1XOPG9X5ATQ",
+                "id": "b8a243e5-63b0-443a-9785-0abdcd2f6c55",
+                "evidence_record": "https://evidence.eventdata.crossref.org/evidence/20170411-hypothesis-3bb5e63a-023d-4d31-863c-1f3fa273d3db",
+                "terms": "https://doi.org/10.13003/CED-terms-of-use",
+                "action": "add",
+                "subj": {
+                    "pid": "https://hypothes.is/a/d0DkaqLwEea1XOPG9X5ATQ",
+                    "json-url": "https://hypothes.is/api/annotations/d0DkaqLwEea1XOPG9X5ATQ",
+                    "url": "https://hyp.is/d0DkaqLwEea1XOPG9X5ATQ/onlinelibrary.wiley.com/doi/10.1002/hipo.22298/full",
+                    "type": "annotation",
+                    "title": "",
+                    "issued": "2016-11-05T00:40:35Z"
+                },
+                "source_id": "hypothesis",
+                "obj": {
+                    "pid": "https://doi.org/10.1002/hipo.22298",
+                    "url": "http://onlinelibrary.wiley.com/doi/10.1002/hipo.22298/full"
+                },
+                "timestamp": "2017-04-11T18:41:35Z",
+                "relation_type_id": "annotates"
+            },
+            {
+                "license": "https://creativecommons.org/publicdomain/zero/1.0/",
+                "obj_id": "https://doi.org/10.1002/cne.23605",
+                "source_token": "8075957f-e0da-405f-9eee-7f35519d7c4c",
+                "occurred_at": "2016-11-05T00:40:33Z",
+                "subj_id": "https://hypothes.is/a/dd8N1qLwEeazNfP7HNMImg",
+                "id": "b77dfc8f-ebad-4156-8443-eb17f1f7416d",
+                "evidence_record": "https://evidence.eventdata.crossref.org/evidence/20170411-hypothesis-3bb5e63a-023d-4d31-863c-1f3fa273d3db",
+                "terms": "https://doi.org/10.13003/CED-terms-of-use",
+                "action": "add",
+                "subj": {
+                    "pid": "https://hypothes.is/a/dd8N1qLwEeazNfP7HNMImg",
+                    "json-url": "https://hypothes.is/api/annotations/dd8N1qLwEeazNfP7HNMImg",
+                    "url": "https://hyp.is/dd8N1qLwEeazNfP7HNMImg/onlinelibrary.wiley.com/doi/10.1002/cne.23605/full",
+                    "type": "annotation",
+                    "title": "",
+                    "issued": "2016-11-05T00:40:33Z"
+                },
+                "source_id": "hypothesis",
+                "obj": {
+                    "pid": "https://doi.org/10.1002/cne.23605",
+                    "url": "http://onlinelibrary.wiley.com/doi/10.1002/cne.23605/full"
+                },
+                "timestamp": "2017-04-11T18:41:35Z",
+                "relation_type_id": "annotates"
+            },
+            {
+                "license": "https://creativecommons.org/publicdomain/zero/1.0/",
+                "obj_id": "https://doi.org/10.1002/hipo.22298",
+                "source_token": "8075957f-e0da-405f-9eee-7f35519d7c4c",
+                "occurred_at": "2016-11-05T00:40:35Z",
+                "subj_id": "https://hypothes.is/a/duE92qLwEeax5ONQVKJFeQ",
+                "id": "ab7dc7dc-f3b8-4849-b426-d71f06b3412d",
+                "evidence_record": "https://evidence.eventdata.crossref.org/evidence/20170411-hypothesis-3bb5e63a-023d-4d31-863c-1f3fa273d3db",
+                "terms": "https://doi.org/10.13003/CED-terms-of-use",
+                "action": "add",
+                "subj": {
+                    "pid": "https://hypothes.is/a/duE92qLwEeax5ONQVKJFeQ",
+                    "json-url": "https://hypothes.is/api/annotations/duE92qLwEeax5ONQVKJFeQ",
+                    "url": "https://hyp.is/duE92qLwEeax5ONQVKJFeQ/onlinelibrary.wiley.com/doi/10.1002/hipo.22298/full",
+                    "type": "annotation",
+                    "title": "",
+                    "issued": "2016-11-05T00:40:35Z"
+                },
+                "source_id": "hypothesis",
+                "obj": {
+                    "pid": "https://doi.org/10.1002/hipo.22298",
+                    "url": "http://onlinelibrary.wiley.com/doi/10.1002/hipo.22298/full"
+                },
+                "timestamp": "2017-04-11T18:41:35Z",
+                "relation_type_id": "annotates"
+            },
+            {
+                "license": "https://creativecommons.org/publicdomain/zero/1.0/",
+                "obj_id": "https://doi.org/10.1002/cne.23751",
+                "source_token": "8075957f-e0da-405f-9eee-7f35519d7c4c",
+                "occurred_at": "2016-11-04T23:15:52Z",
+                "subj_id": "https://hypothes.is/a/oTTYCqLkEealz4s-ChkxYw",
+                "id": "798f73b5-3842-4f46-8248-a486c12955d4",
+                "evidence_record": "https://evidence.eventdata.crossref.org/evidence/20170411-hypothesis-e5a3ca50-c465-4f3f-8eea-7f6fadb20ca0",
+                "terms": "https://doi.org/10.13003/CED-terms-of-use",
+                "action": "add",
+                "subj": {
+                    "pid": "https://hypothes.is/a/oTTYCqLkEealz4s-ChkxYw",
+                    "json-url": "https://hypothes.is/api/annotations/oTTYCqLkEealz4s-ChkxYw",
+                    "url": "https://hyp.is/oTTYCqLkEealz4s-ChkxYw/onlinelibrary.wiley.com/doi/10.1002/cne.23751/full",
+                    "type": "annotation",
+                    "title": "<p>Proper Citation: (Millipore Cat# MAB5406, RRID:AB_2278725)</p><p>Antibody ID: <a class=\"external\" target=\"_blank\" href=\"http://antibodyregistry.org/AB_2278725\">AB_2278725</a></p><p>Cat Num: MAB5406</p><p>Clonality: monoclonal antibody</p><p>Comments: manufacturer recommendations: IgG2a; IgG2a  Immunohistochemistry; Western Blot; IH, IH(P), WB h, r, m</p><p>Host Organism: mouse</p><p>Proper Citation: (Millipore Cat# MAB5406, RRID:AB_2278725)</p><p>Reference: PMID:16856139</p><p>Target Antigen: GAD67 clone 1G10.2 <a class=\"external\" target=\"_blank\" href=\"\"></a></p><p>Vendor: Millipore <a class=\"external\" target=\"_blank\" href=\"http://www.millipore.com/catalogue/item/MAB5406?cid=BIOS-A-BIOC-1232-1205-RC\">Go To Vendor</a></p><hr><p><a href=\"https://scicrunch.org/resolver/AB_2278725.xml\">resolver lookup</a></p>",
+                    "issued": "2016-11-04T23:15:52Z"
+                },
+                "source_id": "hypothesis",
+                "obj": {
+                    "pid": "https://doi.org/10.1002/cne.23751",
+                    "url": "http://onlinelibrary.wiley.com/doi/10.1002/cne.23751/full"
+                },
+                "timestamp": "2017-04-11T18:41:35Z",
+                "relation_type_id": "annotates"
+            },
+            {
+                "license": "https://creativecommons.org/publicdomain/zero/1.0/",
+                "obj_id": "https://doi.org/10.1002/cne.23751",
+                "source_token": "8075957f-e0da-405f-9eee-7f35519d7c4c",
+                "occurred_at": "2016-11-04T23:15:53Z",
+                "subj_id": "https://hypothes.is/a/odvHKKLkEeaecpuX2t7Iaw",
+                "id": "76a47ac4-bbc5-4078-9eac-3d75cd4033fb",
+                "evidence_record": "https://evidence.eventdata.crossref.org/evidence/20170411-hypothesis-e5a3ca50-c465-4f3f-8eea-7f6fadb20ca0",
+                "terms": "https://doi.org/10.13003/CED-terms-of-use",
+                "action": "add",
+                "subj": {
+                    "pid": "https://hypothes.is/a/odvHKKLkEeaecpuX2t7Iaw",
+                    "json-url": "https://hypothes.is/api/annotations/odvHKKLkEeaecpuX2t7Iaw",
+                    "url": "https://hyp.is/odvHKKLkEeaecpuX2t7Iaw/onlinelibrary.wiley.com/doi/10.1002/cne.23751/full",
+                    "type": "annotation",
+                    "title": "<p>Proper Citation: (Santa Cruz Biotechnology Cat# sc-21690, RRID:AB_2216006)</p><p>Antibody ID: <a class=\"external\" target=\"_blank\" href=\"http://antibodyregistry.org/AB_2216006\">AB_2216006</a></p><p>Cat Num: sc-21690</p><p>Clonality: polyclonal antibody</p><p>Comments: manufacturer recommendations:   WB, IP, IF, ELISA; Immunoprecipitation; Other; Western Blot; ELISA; Immunofluorescence mouse, rat, human, human, rat, mouse</p><p>Host Organism: human</p><p>Proper Citation: (Santa Cruz Biotechnology Cat# sc-21690, RRID:AB_2216006)</p><p>Reference: <a class=\"external\" target=\"_blank\" href=\"http://www.ncbi.nlm.nih.gov/pubmed/18839410\">PMID:18839410</a></p><p>Reference: PMID:18839410</p><p>Target Antigen: Chx10 (N-18) <a class=\"external\" target=\"_blank\" href=\"\"></a></p><p>Vendor: Santa Cruz Biotechnology <a class=\"external\" target=\"_blank\" href=\"http://www.scbt.com/datasheet-21690-chx10-n-18-antibody.html\">Go To Vendor</a></p><hr><p><a href=\"https://scicrunch.org/resolver/AB_2216006.xml\">resolver lookup</a></p>",
+                    "issued": "2016-11-04T23:15:53Z"
+                },
+                "source_id": "hypothesis",
+                "obj": {
+                    "pid": "https://doi.org/10.1002/cne.23751",
+                    "url": "http://onlinelibrary.wiley.com/doi/10.1002/cne.23751/full"
+                },
+                "timestamp": "2017-04-11T18:41:35Z",
+                "relation_type_id": "annotates"
+            },
+            {
+                "license": "https://creativecommons.org/publicdomain/zero/1.0/",
+                "obj_id": "https://doi.org/10.1002/cne.23751",
+                "source_token": "8075957f-e0da-405f-9eee-7f35519d7c4c",
+                "occurred_at": "2016-11-04T23:15:53Z",
+                "subj_id": "https://hypothes.is/a/oiqpGqLkEeag4Xui0hqvdA",
+                "id": "73ca9115-b460-46ea-9082-f68d693013b2",
+                "evidence_record": "https://evidence.eventdata.crossref.org/evidence/20170411-hypothesis-e5a3ca50-c465-4f3f-8eea-7f6fadb20ca0",
+                "terms": "https://doi.org/10.13003/CED-terms-of-use",
+                "action": "add",
+                "subj": {
+                    "pid": "https://hypothes.is/a/oiqpGqLkEeag4Xui0hqvdA",
+                    "json-url": "https://hypothes.is/api/annotations/oiqpGqLkEeag4Xui0hqvdA",
+                    "url": "https://hyp.is/oiqpGqLkEeag4Xui0hqvdA/onlinelibrary.wiley.com/doi/10.1002/cne.23751/full",
+                    "type": "annotation",
+                    "title": "<p>Proper Citation: (Sigma-Aldrich Cat# C94848, RRID:AB_2314065)</p><p>Antibody ID: <a class=\"external\" target=\"_blank\" href=\"http://antibodyregistry.org/AB_2314065\">AB_2314065</a></p><p>Cat Num: C94848</p><p>Clonality: unknown</p><p>Comments:  </p><p>Proper Citation: (Sigma-Aldrich Cat# C94848, RRID:AB_2314065)</p><p>Reference: <a class=\"external\" target=\"_blank\" href=\"http://www.ncbi.nlm.nih.gov/pubmed/22592770\">PMID:22592770</a></p><p>Reference: PMID:22592770</p><p>Target Antigen:  <a class=\"external\" target=\"_blank\" href=\"\"></a></p><p>Vendor: Sigma-Aldrich <a class=\"external\" target=\"_blank\" href=\"\"></a></p><hr><p><a href=\"https://scicrunch.org/resolver/AB_2314065.xml\">resolver lookup</a></p>",
+                    "issued": "2016-11-04T23:15:53Z"
+                },
+                "source_id": "hypothesis",
+                "obj": {
+                    "pid": "https://doi.org/10.1002/cne.23751",
+                    "url": "http://onlinelibrary.wiley.com/doi/10.1002/cne.23751/full"
+                },
+                "timestamp": "2017-04-11T18:41:35Z",
+                "relation_type_id": "annotates"
+            },
+            {
+                "license": "https://creativecommons.org/publicdomain/zero/1.0/",
+                "obj_id": "https://doi.org/10.1002/cne.23751",
+                "source_token": "8075957f-e0da-405f-9eee-7f35519d7c4c",
+                "occurred_at": "2016-11-04T23:15:51Z",
+                "subj_id": "https://hypothes.is/a/oOqtSKLkEeaxwIMOf6TLsw",
+                "id": "71a9102b-7a2a-4a17-8fe8-050fbe725d49",
+                "evidence_record": "https://evidence.eventdata.crossref.org/evidence/20170411-hypothesis-e5a3ca50-c465-4f3f-8eea-7f6fadb20ca0",
+                "terms": "https://doi.org/10.13003/CED-terms-of-use",
+                "action": "add",
+                "subj": {
+                    "pid": "https://hypothes.is/a/oOqtSKLkEeaxwIMOf6TLsw",
+                    "json-url": "https://hypothes.is/api/annotations/oOqtSKLkEeaxwIMOf6TLsw",
+                    "url": "https://hyp.is/oOqtSKLkEeaxwIMOf6TLsw/onlinelibrary.wiley.com/doi/10.1002/cne.23751/full",
+                    "type": "annotation",
+                    "title": "<p>Proper Citation: (Immunosolution Cat# IG1002, RRID:AB_10013222)</p><p>Antibody ID: <a class=\"external\" target=\"_blank\" href=\"http://antibodyregistry.org/AB_10013222\">AB_10013222</a></p><p>Cat Num: IG1002</p><p>Clonality: unknown</p><p>Comments:  </p><p>Host Organism: rat</p><p>Proper Citation: (Immunosolution Cat# IG1002, RRID:AB_10013222)</p><p>Reference: <a class=\"external\" target=\"_blank\" href=\"http://www.ncbi.nlm.nih.gov/pubmed/18241050, 19731323, 21800300, 23296739\">PMID:18241050,PMID:19731323,PMID:21800300,PMID:23296739</a></p><p>Reference: PMID:18241050</p><p>Target Antigen: glycine <a class=\"external\" target=\"_blank\" href=\"http://www.ncbi.nlm.nih.gov/gene?term=glycine\">See NCBI gene</a></p><p>Vendor: Immunosolution <a class=\"external\" target=\"_blank\" href=\"http://immunosolution.com/productsUSD.html\">Go To Vendor</a></p><hr><p><a href=\"https://scicrunch.org/resolver/AB_10013222.xml\">resolver lookup</a></p>",
+                    "issued": "2016-11-04T23:15:51Z"
+                },
+                "source_id": "hypothesis",
+                "obj": {
+                    "pid": "https://doi.org/10.1002/cne.23751",
+                    "url": "http://onlinelibrary.wiley.com/doi/10.1002/cne.23751/full"
+                },
+                "timestamp": "2017-04-11T18:41:35Z",
+                "relation_type_id": "annotates"
+            },
+            {
+                "license": "https://creativecommons.org/publicdomain/zero/1.0/",
+                "obj_id": "https://doi.org/10.1002/cne.23751",
+                "source_token": "8075957f-e0da-405f-9eee-7f35519d7c4c",
+                "occurred_at": "2016-11-04T23:15:52Z",
+                "subj_id": "https://hypothes.is/a/oY38-qLkEeaYEGs0PvRxww",
+                "id": "3bb2a6d2-4432-4d8f-8eeb-cc0a074c597f",
+                "evidence_record": "https://evidence.eventdata.crossref.org/evidence/20170411-hypothesis-e5a3ca50-c465-4f3f-8eea-7f6fadb20ca0",
+                "terms": "https://doi.org/10.13003/CED-terms-of-use",
+                "action": "add",
+                "subj": {
+                    "pid": "https://hypothes.is/a/oY38-qLkEeaYEGs0PvRxww",
+                    "json-url": "https://hypothes.is/api/annotations/oY38-qLkEeaYEGs0PvRxww",
+                    "url": "https://hyp.is/oY38-qLkEeaYEGs0PvRxww/onlinelibrary.wiley.com/doi/10.1002/cne.23751/full",
+                    "type": "annotation",
+                    "title": "<p>Proper Citation: (BD Biosciences Cat# 612044, RRID:AB_399431)</p><p>Antibody ID: <a class=\"external\" target=\"_blank\" href=\"http://antibodyregistry.org/AB_399431\">AB_399431</a></p><p>Cat Num: 612044</p><p>Clonality: monoclonal antibody</p><p>Comments: manufacturer recommendations: IgG1; IgG1  Immunofluorescence; Western Blot; Western Blot, Immunofluorescence human, canine, mouse, rat, dog, human, mouse, rat</p><p>Host Organism: mouse</p><p>Proper Citation: (BD Biosciences Cat# 612044, RRID:AB_399431)</p><p>Reference: PMID:17111373</p><p>Target Antigen: CtBP2 <a class=\"external\" target=\"_blank\" href=\"\"></a></p><p>Vendor: BD Biosciences <a class=\"external\" target=\"_blank\" href=\"http://www.bdbiosciences.com/ptProduct.jsp?prodId=229326\">Go To Vendor</a></p><hr><p><a href=\"https://scicrunch.org/resolver/AB_399431.xml\">resolver lookup</a></p>",
+                    "issued": "2016-11-04T23:15:52Z"
+                },
+                "source_id": "hypothesis",
+                "obj": {
+                    "pid": "https://doi.org/10.1002/cne.23751",
+                    "url": "http://onlinelibrary.wiley.com/doi/10.1002/cne.23751/full"
+                },
+                "timestamp": "2017-04-11T18:41:35Z",
+                "relation_type_id": "annotates"
+            },
+            {
+                "license": "https://creativecommons.org/publicdomain/zero/1.0/",
+                "obj_id": "https://doi.org/10.1002/cne.23751",
+                "source_token": "8075957f-e0da-405f-9eee-7f35519d7c4c",
+                "occurred_at": "2016-11-04T23:15:54Z",
+                "subj_id": "https://hypothes.is/a/ondXdKLkEeal0Ns09QYlBw",
+                "id": "2b6bda60-25e9-49d5-8dac-869d24cca40c",
+                "evidence_record": "https://evidence.eventdata.crossref.org/evidence/20170411-hypothesis-e5a3ca50-c465-4f3f-8eea-7f6fadb20ca0",
+                "terms": "https://doi.org/10.13003/CED-terms-of-use",
+                "action": "add",
+                "subj": {
+                    "pid": "https://hypothes.is/a/ondXdKLkEeal0Ns09QYlBw",
+                    "json-url": "https://hypothes.is/api/annotations/ondXdKLkEeal0Ns09QYlBw",
+                    "url": "https://hyp.is/ondXdKLkEeal0Ns09QYlBw/onlinelibrary.wiley.com/doi/10.1002/cne.23751/full",
+                    "type": "annotation",
+                    "title": "<p>Proper Citation: (Enzo Life Sciences Cat# ADI-VAM-PS003, RRID:AB_10618753)</p><p>Antibody ID: <a class=\"external\" target=\"_blank\" href=\"http://antibodyregistry.org/AB_10618753\">AB_10618753</a></p><p>Cat Num: ADI-VAM-PS003</p><p>Clonality: monoclonal antibody</p><p>Comments: manufacturer recommendations: IgG2a  Immunoprecipitation; Western Blot; Immunocytochemistry; Immunocytochemistry (1:400), Immunofluorescence, Immunohistochemistry, Immunoprecipitation (2.5&micro;g), Western Blot (1:500 ECL, 1:1000 colorimetric), Optimal conditions must be determined individually for each application. mouse and rat bassoon detects a band of ~ kda by western blot, rat, mouse</p><p>Host Organism: mouse</p><p>Proper Citation: (Enzo Life Sciences Cat# ADI-VAM-PS003, RRID:AB_10618753)</p><p>Reference: <a class=\"external\" target=\"_blank\" href=\"http://www.ncbi.nlm.nih.gov/pubmed/21935939, 23508745\">PMID:21935939,PMID:23508745</a></p><p>Reference: PMID:21935939</p><p>Target Antigen: Bassoon mAb (SAP7F407) <a class=\"external\" target=\"_blank\" href=\"\"></a></p><p>Vendor: Enzo Life Sciences <a class=\"external\" target=\"_blank\" href=\"http://www.enzolifesciences.com/product.php?pid=ADI-VAM-PS003\">Go To Vendor</a></p><hr><p><a href=\"https://scicrunch.org/resolver/AB_10618753.xml\">resolver lookup</a></p>",
+                    "issued": "2016-11-04T23:15:54Z"
+                },
+                "source_id": "hypothesis",
+                "obj": {
+                    "pid": "https://doi.org/10.1002/cne.23751",
+                    "url": "http://onlinelibrary.wiley.com/doi/10.1002/cne.23751/full"
+                },
+                "timestamp": "2017-04-11T18:41:35Z",
+                "relation_type_id": "annotates"
+            },
+            {
+                "license": "https://creativecommons.org/publicdomain/zero/1.0/",
+                "obj_id": "https://doi.org/10.1002/cne.23751",
+                "source_token": "8075957f-e0da-405f-9eee-7f35519d7c4c",
+                "occurred_at": "2016-11-04T23:15:50Z",
+                "subj_id": "https://hypothes.is/a/oDLr_qLkEeaoAEcal1FTEQ",
+                "id": "f8c41d2d-c9d7-4410-afcc-008a732feb9e",
+                "evidence_record": "https://evidence.eventdata.crossref.org/evidence/20170411-hypothesis-e5a3ca50-c465-4f3f-8eea-7f6fadb20ca0",
+                "terms": "https://doi.org/10.13003/CED-terms-of-use",
+                "action": "add",
+                "subj": {
+                    "pid": "https://hypothes.is/a/oDLr_qLkEeaoAEcal1FTEQ",
+                    "json-url": "https://hypothes.is/api/annotations/oDLr_qLkEeaoAEcal1FTEQ",
+                    "url": "https://hyp.is/oDLr_qLkEeaoAEcal1FTEQ/onlinelibrary.wiley.com/doi/10.1002/cne.23751/full",
+                    "type": "annotation",
+                    "title": "<p>Proper Citation: (Neuromics Cat# GP13105, RRID:AB_2341540)</p><p>Antibody ID: <a class=\"external\" target=\"_blank\" href=\"http://antibodyregistry.org/AB_2341540\">AB_2341540</a></p><p>Cat Num: GP13105</p><p>Clonality: polyclonal antibody</p><p>Comments: Manufacturer recommendations: Specificity: Stained positive for IHC in mouse retinal tissue. Immunogen: AAPPQNENAEDAK Corresponding to the carboxy-terminus of rat mGluR6 NULL</p><p>Host Organism: guinea pig</p><p>Proper Citation: (Neuromics Cat# GP13105, RRID:AB_2341540)</p><p>Reference: <a class=\"external\" target=\"_blank\" href=\"http://www.ncbi.nlm.nih.gov/pubmed/\"></a></p><p>Target Antigen: Rat; Mouse <a class=\"external\" target=\"_blank\" href=\"\"></a></p><p>Vendor: Neuromics <a class=\"external\" target=\"_blank\" href=\"http://www.neuromics.com/site/special/A8x75bex8x1.pdf\">Go To Vendor</a></p><hr><p><a href=\"https://scicrunch.org/resolver/AB_2341540.xml\">resolver lookup</a></p>",
+                    "issued": "2016-11-04T23:15:50Z"
+                },
+                "source_id": "hypothesis",
+                "obj": {
+                    "pid": "https://doi.org/10.1002/cne.23751",
+                    "url": "http://onlinelibrary.wiley.com/doi/10.1002/cne.23751/full"
+                },
+                "timestamp": "2017-04-11T18:41:36Z",
+                "relation_type_id": "annotates"
+            },
+            {
+                "license": "https://creativecommons.org/publicdomain/zero/1.0/",
+                "obj_id": "https://doi.org/10.1002/cne.23751",
+                "source_token": "8075957f-e0da-405f-9eee-7f35519d7c4c",
+                "occurred_at": "2016-11-04T23:15:49Z",
+                "subj_id": "https://hypothes.is/a/n02HxqLkEean_jsSrw04Pg",
+                "id": "eb8a6fed-4056-4f1d-8e25-8fd7be54e9e5",
+                "evidence_record": "https://evidence.eventdata.crossref.org/evidence/20170411-hypothesis-e5a3ca50-c465-4f3f-8eea-7f6fadb20ca0",
+                "terms": "https://doi.org/10.13003/CED-terms-of-use",
+                "action": "add",
+                "subj": {
+                    "pid": "https://hypothes.is/a/n02HxqLkEean_jsSrw04Pg",
+                    "json-url": "https://hypothes.is/api/annotations/n02HxqLkEean_jsSrw04Pg",
+                    "url": "https://hyp.is/n02HxqLkEean_jsSrw04Pg/onlinelibrary.wiley.com/doi/10.1002/cne.23751/full",
+                    "type": "annotation",
+                    "title": "<p>Proper Citation: (Millipore Cat# MAB1596, RRID:AB_2092365)</p><p>Antibody ID: <a class=\"external\" target=\"_blank\" href=\"http://antibodyregistry.org/AB_2092365\">AB_2092365</a></p><p>Cat Num: MAB1596</p><p>Clonality: monoclonal antibody</p><p>Comments: manufacturer recommendations: IgG2a; IgG2a  Immunocytochemistry; Immunohistochemistry; Western Blot; IC, IH, WB b, m, r</p><p>Host Organism: mouse</p><p>Proper Citation: (Millipore Cat# MAB1596, RRID:AB_2092365)</p><p>Reference: <a class=\"external\" target=\"_blank\" href=\"http://www.ncbi.nlm.nih.gov/pubmed/20589908, 22778007, 23296739, 23787772, 24966368\">PMID:20589908,PMID:22778007,PMID:23296739,PMID:23787772,PMID:24966368</a></p><p>Reference: PMID:20589908</p><p>Target Antigen: Post Synaptic Density Protein 95 clone 6G6-1C9 <a class=\"external\" target=\"_blank\" href=\"\"></a></p><p>Vendor: Millipore <a class=\"external\" target=\"_blank\" href=\"http://www.millipore.com/catalogue/item/MAB1596?cid=BIOS-A-BIOC-1232-1205-RC\">Go To Vendor</a></p><hr><p><a href=\"https://scicrunch.org/resolver/AB_2092365.xml\">resolver lookup</a></p>",
+                    "issued": "2016-11-04T23:15:49Z"
+                },
+                "source_id": "hypothesis",
+                "obj": {
+                    "pid": "https://doi.org/10.1002/cne.23751",
+                    "url": "http://onlinelibrary.wiley.com/doi/10.1002/cne.23751/full"
+                },
+                "timestamp": "2017-04-11T18:41:36Z",
+                "relation_type_id": "annotates"
+            },
+            {
+                "license": "https://creativecommons.org/publicdomain/zero/1.0/",
+                "obj_id": "https://doi.org/10.1002/cne.23604",
+                "source_token": "8075957f-e0da-405f-9eee-7f35519d7c4c",
+                "occurred_at": "2016-11-05T00:40:31Z",
+                "subj_id": "https://hypothes.is/a/dPIZcqLwEea1W3cQpcY6DQ",
+                "id": "a8c94cc3-815f-4adb-86bb-2d4e16a4715e",
+                "evidence_record": "https://evidence.eventdata.crossref.org/evidence/20170411-hypothesis-3bb5e63a-023d-4d31-863c-1f3fa273d3db",
+                "terms": "https://doi.org/10.13003/CED-terms-of-use",
+                "action": "add",
+                "subj": {
+                    "pid": "https://hypothes.is/a/dPIZcqLwEea1W3cQpcY6DQ",
+                    "json-url": "https://hypothes.is/api/annotations/dPIZcqLwEea1W3cQpcY6DQ",
+                    "url": "https://hyp.is/dPIZcqLwEea1W3cQpcY6DQ/onlinelibrary.wiley.com/doi/10.1002/cne.23604/full",
+                    "type": "annotation",
+                    "title": "",
+                    "issued": "2016-11-05T00:40:31Z"
+                },
+                "source_id": "hypothesis",
+                "obj": {
+                    "pid": "https://doi.org/10.1002/cne.23604",
+                    "url": "http://onlinelibrary.wiley.com/doi/10.1002/cne.23604/full"
+                },
+                "timestamp": "2017-04-11T18:41:36Z",
+                "relation_type_id": "annotates"
+            },
+            {
+                "license": "https://creativecommons.org/publicdomain/zero/1.0/",
+                "obj_id": "https://doi.org/10.1002/cne.23596",
+                "source_token": "8075957f-e0da-405f-9eee-7f35519d7c4c",
+                "occurred_at": "2016-11-05T00:40:29Z",
+                "subj_id": "https://hypothes.is/a/c7wInKLwEeabowsTv9OdsQ",
+                "id": "897bfe79-90ce-4436-8583-71499ea0791c",
+                "evidence_record": "https://evidence.eventdata.crossref.org/evidence/20170411-hypothesis-3bb5e63a-023d-4d31-863c-1f3fa273d3db",
+                "terms": "https://doi.org/10.13003/CED-terms-of-use",
+                "action": "add",
+                "subj": {
+                    "pid": "https://hypothes.is/a/c7wInKLwEeabowsTv9OdsQ",
+                    "json-url": "https://hypothes.is/api/annotations/c7wInKLwEeabowsTv9OdsQ",
+                    "url": "https://hyp.is/c7wInKLwEeabowsTv9OdsQ/onlinelibrary.wiley.com/doi/10.1002/cne.23596/full",
+                    "type": "annotation",
+                    "title": "",
+                    "issued": "2016-11-05T00:40:29Z"
+                },
+                "source_id": "hypothesis",
+                "obj": {
+                    "pid": "https://doi.org/10.1002/cne.23596",
+                    "url": "http://onlinelibrary.wiley.com/doi/10.1002/cne.23596/full"
+                },
+                "timestamp": "2017-04-11T18:41:36Z",
+                "relation_type_id": "annotates"
+            },
+            {
+                "license": "https://creativecommons.org/publicdomain/zero/1.0/",
+                "obj_id": "https://doi.org/10.1002/cne.23751",
+                "source_token": "8075957f-e0da-405f-9eee-7f35519d7c4c",
+                "occurred_at": "2016-11-04T23:15:49Z",
+                "subj_id": "https://hypothes.is/a/n5eVjKLkEealztcei26tLw",
+                "id": "779f21d9-b5e7-469a-881f-8232d56821a5",
+                "evidence_record": "https://evidence.eventdata.crossref.org/evidence/20170411-hypothesis-e5a3ca50-c465-4f3f-8eea-7f6fadb20ca0",
+                "terms": "https://doi.org/10.13003/CED-terms-of-use",
+                "action": "add",
+                "subj": {
+                    "pid": "https://hypothes.is/a/n5eVjKLkEealztcei26tLw",
+                    "json-url": "https://hypothes.is/api/annotations/n5eVjKLkEealztcei26tLw",
+                    "url": "https://hyp.is/n5eVjKLkEealztcei26tLw/onlinelibrary.wiley.com/doi/10.1002/cne.23751/full",
+                    "type": "annotation",
+                    "title": "<p>Proper Citation: (Santa Cruz Biotechnology Cat# sc-80, RRID:AB_628141)</p><p>Antibody ID: <a class=\"external\" target=\"_blank\" href=\"http://antibodyregistry.org/AB_628141\">AB_628141</a></p><p>Cat Num: sc-80</p><p>Clonality: monoclonal antibody</p><p>Comments: manufacturer recommendations:   WB, IP, IF, IHC(P); Western Blot; Immunoprecipitation bovine, human, mouse, rat, mouse, rat, human, cow</p><p>Host Organism: mouse</p><p>Proper Citation: (Santa Cruz Biotechnology Cat# sc-80, RRID:AB_628141)</p><p>Reference: <a class=\"external\" target=\"_blank\" href=\"http://www.ncbi.nlm.nih.gov/pubmed/18839410\">PMID:18839410</a></p><p>Reference: PMID:18839410</p><p>Target Antigen: PKC (MC5) <a class=\"external\" target=\"_blank\" href=\"\"></a></p><p>Vendor: Santa Cruz Biotechnology <a class=\"external\" target=\"_blank\" href=\"http://www.scbt.com/datasheet-80-pkc-mc5-antibody.html\">Go To Vendor</a></p><hr><p><a href=\"https://scicrunch.org/resolver/AB_628141.xml\">resolver lookup</a></p>",
+                    "issued": "2016-11-04T23:15:49Z"
+                },
+                "source_id": "hypothesis",
+                "obj": {
+                    "pid": "https://doi.org/10.1002/cne.23751",
+                    "url": "http://onlinelibrary.wiley.com/doi/10.1002/cne.23751/full"
+                },
+                "timestamp": "2017-04-11T18:41:36Z",
+                "relation_type_id": "annotates"
+            },
+            {
+                "license": "https://creativecommons.org/publicdomain/zero/1.0/",
+                "obj_id": "https://doi.org/10.1002/cne.23605",
+                "source_token": "8075957f-e0da-405f-9eee-7f35519d7c4c",
+                "occurred_at": "2016-11-05T00:40:32Z",
+                "subj_id": "https://hypothes.is/a/dTadpKLwEeazNIuJtTrMxg",
+                "id": "717c515d-9816-42f2-8982-539d3e9722f6",
+                "evidence_record": "https://evidence.eventdata.crossref.org/evidence/20170411-hypothesis-3bb5e63a-023d-4d31-863c-1f3fa273d3db",
+                "terms": "https://doi.org/10.13003/CED-terms-of-use",
+                "action": "add",
+                "subj": {
+                    "pid": "https://hypothes.is/a/dTadpKLwEeazNIuJtTrMxg",
+                    "json-url": "https://hypothes.is/api/annotations/dTadpKLwEeazNIuJtTrMxg",
+                    "url": "https://hyp.is/dTadpKLwEeazNIuJtTrMxg/onlinelibrary.wiley.com/doi/10.1002/cne.23605/full",
+                    "type": "annotation",
+                    "title": "",
+                    "issued": "2016-11-05T00:40:32Z"
+                },
+                "source_id": "hypothesis",
+                "obj": {
+                    "pid": "https://doi.org/10.1002/cne.23605",
+                    "url": "http://onlinelibrary.wiley.com/doi/10.1002/cne.23605/full"
+                },
+                "timestamp": "2017-04-11T18:41:36Z",
+                "relation_type_id": "annotates"
+            },
+            {
+                "license": "https://creativecommons.org/publicdomain/zero/1.0/",
+                "obj_id": "https://doi.org/10.1002/cne.23751",
+                "source_token": "8075957f-e0da-405f-9eee-7f35519d7c4c",
+                "occurred_at": "2016-11-04T23:15:50Z",
+                "subj_id": "https://hypothes.is/a/oH1G6qLkEeaoAas47yWgZw",
+                "id": "59333754-431d-4f6a-8026-213a66bc5ec3",
+                "evidence_record": "https://evidence.eventdata.crossref.org/evidence/20170411-hypothesis-e5a3ca50-c465-4f3f-8eea-7f6fadb20ca0",
+                "terms": "https://doi.org/10.13003/CED-terms-of-use",
+                "action": "add",
+                "subj": {
+                    "pid": "https://hypothes.is/a/oH1G6qLkEeaoAas47yWgZw",
+                    "json-url": "https://hypothes.is/api/annotations/oH1G6qLkEeaoAas47yWgZw",
+                    "url": "https://hyp.is/oH1G6qLkEeaoAas47yWgZw/onlinelibrary.wiley.com/doi/10.1002/cne.23751/full",
+                    "type": "annotation",
+                    "title": "<p>Proper Citation: (Millipore Cat# MAB3073, RRID:AB_94671)</p><p>Antibody ID: <a class=\"external\" target=\"_blank\" href=\"http://antibodyregistry.org/AB_94671\">AB_94671</a></p><p>Cat Num: MAB3073</p><p>Clonality: monoclonal antibody</p><p>Comments: manufacturer recommendations: IgG1; IgG1  Western Blot; WB b, gp, h, m, r, guinea pig</p><p>Host Organism: mouse</p><p>Proper Citation: (Millipore Cat# MAB3073, RRID:AB_94671)</p><p>Reference: <a class=\"external\" target=\"_blank\" href=\"http://www.ncbi.nlm.nih.gov/pubmed/17111372, 17335043, 18076080, 18399542, 18613120, 21618228, 22020534, 22965528, 23296739, 24771457\">PMID:17111372,PMID:17335043,PMID:18076080,PMID:18399542,PMID:18613120,PMID:21618228,PMID:22020534,PMID:22965528,PMID:23296739,PMID:24771457</a></p><p>Reference: PMID:17111372</p><p>Target Antigen: G Protein Goalpha clone 2A <a class=\"external\" target=\"_blank\" href=\"\"></a></p><p>Vendor: Millipore <a class=\"external\" target=\"_blank\" href=\"http://www.millipore.com/catalogue/item/MAB3073?cid=BIOS-A-BIOC-1225-1205-RC\">Go To Vendor</a></p><hr><p><a href=\"https://scicrunch.org/resolver/AB_94671.xml\">resolver lookup</a></p>",
+                    "issued": "2016-11-04T23:15:50Z"
+                },
+                "source_id": "hypothesis",
+                "obj": {
+                    "pid": "https://doi.org/10.1002/cne.23751",
+                    "url": "http://onlinelibrary.wiley.com/doi/10.1002/cne.23751/full"
+                },
+                "timestamp": "2017-04-11T18:41:36Z",
+                "relation_type_id": "annotates"
+            },
+            {
+                "license": "https://creativecommons.org/publicdomain/zero/1.0/",
+                "obj_id": "https://doi.org/10.1002/cne.23605",
+                "source_token": "8075957f-e0da-405f-9eee-7f35519d7c4c",
+                "occurred_at": "2016-11-05T00:40:32Z",
+                "subj_id": "https://hypothes.is/a/dZXsoKLwEeam2o_HSJN_Dw",
+                "id": "2cd6bdd7-2f97-4712-8132-5da24b3c8c67",
+                "evidence_record": "https://evidence.eventdata.crossref.org/evidence/20170411-hypothesis-3bb5e63a-023d-4d31-863c-1f3fa273d3db",
+                "terms": "https://doi.org/10.13003/CED-terms-of-use",
+                "action": "add",
+                "subj": {
+                    "pid": "https://hypothes.is/a/dZXsoKLwEeam2o_HSJN_Dw",
+                    "json-url": "https://hypothes.is/api/annotations/dZXsoKLwEeam2o_HSJN_Dw",
+                    "url": "https://hyp.is/dZXsoKLwEeam2o_HSJN_Dw/onlinelibrary.wiley.com/doi/10.1002/cne.23605/full",
+                    "type": "annotation",
+                    "title": "",
+                    "issued": "2016-11-05T00:40:32Z"
+                },
+                "source_id": "hypothesis",
+                "obj": {
+                    "pid": "https://doi.org/10.1002/cne.23605",
+                    "url": "http://onlinelibrary.wiley.com/doi/10.1002/cne.23605/full"
+                },
+                "timestamp": "2017-04-11T18:41:36Z",
+                "relation_type_id": "annotates"
+            },
+            {
+                "license": "https://creativecommons.org/publicdomain/zero/1.0/",
+                "obj_id": "https://doi.org/10.1002/cne.23596",
+                "source_token": "8075957f-e0da-405f-9eee-7f35519d7c4c",
+                "occurred_at": "2016-11-05T00:40:29Z",
+                "subj_id": "https://hypothes.is/a/c2TQBKLwEea1WlO3P_9Sjg",
+                "id": "2b6b8029-05a5-4705-b64c-6fea8a6b1831",
+                "evidence_record": "https://evidence.eventdata.crossref.org/evidence/20170411-hypothesis-3bb5e63a-023d-4d31-863c-1f3fa273d3db",
+                "terms": "https://doi.org/10.13003/CED-terms-of-use",
+                "action": "add",
+                "subj": {
+                    "pid": "https://hypothes.is/a/c2TQBKLwEea1WlO3P_9Sjg",
+                    "json-url": "https://hypothes.is/api/annotations/c2TQBKLwEea1WlO3P_9Sjg",
+                    "url": "https://hyp.is/c2TQBKLwEea1WlO3P_9Sjg/onlinelibrary.wiley.com/doi/10.1002/cne.23596/full",
+                    "type": "annotation",
+                    "title": "",
+                    "issued": "2016-11-05T00:40:29Z"
+                },
+                "source_id": "hypothesis",
+                "obj": {
+                    "pid": "https://doi.org/10.1002/cne.23596",
+                    "url": "http://onlinelibrary.wiley.com/doi/10.1002/cne.23596/full"
+                },
+                "timestamp": "2017-04-11T18:41:36Z",
+                "relation_type_id": "annotates"
+            },
+            {
+                "license": "https://creativecommons.org/publicdomain/zero/1.0/",
+                "obj_id": "https://doi.org/10.1002/cne.23751",
+                "source_token": "8075957f-e0da-405f-9eee-7f35519d7c4c",
+                "occurred_at": "2016-11-04T23:15:49Z",
+                "subj_id": "https://hypothes.is/a/n-P6gKLkEean_y-RLtCPdA",
+                "id": "1054e8a1-5e81-42a7-8a0c-fa242a43f210",
+                "evidence_record": "https://evidence.eventdata.crossref.org/evidence/20170411-hypothesis-e5a3ca50-c465-4f3f-8eea-7f6fadb20ca0",
+                "terms": "https://doi.org/10.13003/CED-terms-of-use",
+                "action": "add",
+                "subj": {
+                    "pid": "https://hypothes.is/a/n-P6gKLkEean_y-RLtCPdA",
+                    "json-url": "https://hypothes.is/api/annotations/n-P6gKLkEean_y-RLtCPdA",
+                    "url": "https://hyp.is/n-P6gKLkEean_y-RLtCPdA/onlinelibrary.wiley.com/doi/10.1002/cne.23751/full",
+                    "type": "annotation",
+                    "title": "<p>Proper Citation: (Biodesign International Cat# K01107M, RRID:AB_2313750)</p><p>Antibody ID: <a class=\"external\" target=\"_blank\" href=\"http://antibodyregistry.org/AB_2313750\">AB_2313750</a></p><p>Cat Num: K01107M</p><p>Clonality: unknown</p><p>Comments:  </p><p>Proper Citation: (Biodesign International Cat# K01107M, RRID:AB_2313750)</p><p>Reference: <a class=\"external\" target=\"_blank\" href=\"http://www.ncbi.nlm.nih.gov/pubmed/18975268, 20653038\">PMID:18975268,PMID:20653038</a></p><p>Reference: PMID:18975268</p><p>Target Antigen:  <a class=\"external\" target=\"_blank\" href=\"\"></a></p><p>Vendor: Biodesign International <a class=\"external\" target=\"_blank\" href=\"\"></a></p><hr><p><a href=\"https://scicrunch.org/resolver/AB_2313750.xml\">resolver lookup</a></p>",
+                    "issued": "2016-11-04T23:15:49Z"
+                },
+                "source_id": "hypothesis",
+                "obj": {
+                    "pid": "https://doi.org/10.1002/cne.23751",
+                    "url": "http://onlinelibrary.wiley.com/doi/10.1002/cne.23751/full"
+                },
+                "timestamp": "2017-04-11T18:41:36Z",
+                "relation_type_id": "annotates"
+            }
+        ]
+    }
+}
