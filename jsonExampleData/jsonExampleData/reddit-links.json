@@ -1,0 +1,2511 @@
+{
+    "status": "ok",
+    "message-type": "event-list",
+    "message": {
+        "next-cursor": "8dfc546f-f238-4847-9921-92b3d1d01f66",
+        "total-results": 296118,
+        "items-per-page": 100,
+        "events": [
+            {
+                "license": "https://creativecommons.org/publicdomain/zero/1.0/",
+                "terms": "https://doi.org/10.13003/CED-terms-of-use",
+                "updated_reason": "https://evidence.eventdata.crossref.org/announcements/2017-10-06T00-00-00Z-ED-12.json",
+                "updated": "edited",
+                "obj_id": "https://doi.org/10.1038/422259a",
+                "source_token": "93df90e8-1881-40fc-b19d-49d78cc9ee24",
+                "occurred_at": "2016-03-07T01:04:54Z",
+                "subj_id": "http://blogs.lse.ac.uk/impactofsocialsciences/2015/04/09/academic-promotion-scholars-popular-media/",
+                "id": "a3c07086-13bf-417c-98f0-cf73e6b34eda",
+                "evidence_record": "https://evidence.eventdata.crossref.org/evidence/20170410-reddit-links-75f8e42a-bc8b-4e01-aecc-5355aaccc5ca",
+                "action": "add",
+                "subj": {
+                    "pid": "http://blogs.lse.ac.uk/impactofsocialsciences/2015/04/09/academic-promotion-scholars-popular-media/",
+                    "url": "http://blogs.lse.ac.uk/impactofsocialsciences/2015/04/09/academic-promotion-scholars-popular-media/"
+                },
+                "source_id": "reddit-links",
+                "obj": {
+                    "pid": "https://doi.org/10.1038/422259a",
+                    "url": "http://www.nature.com/nature/journal/v422/n6929/full/422259a.html"
+                },
+                "timestamp": "2017-04-10T15:27:16Z",
+                "updated_date": "2017-10-13T12:38:07.041Z",
+                "relation_type_id": "discusses"
+            },
+            {
+                "license": "https://creativecommons.org/publicdomain/zero/1.0/",
+                "terms": "https://doi.org/10.13003/CED-terms-of-use",
+                "updated_reason": "https://evidence.eventdata.crossref.org/announcements/2017-10-06T00-00-00Z-ED-12.json",
+                "updated": "edited",
+                "obj_id": "https://doi.org/10.1080/00438243.2012.743259",
+                "source_token": "93df90e8-1881-40fc-b19d-49d78cc9ee24",
+                "occurred_at": "2016-02-16T19:00:50Z",
+                "subj_id": "http://isaacullah.github.io/List-of-FOSS-tools-for-academics/",
+                "id": "8205b37c-3dc0-4086-b675-8a282f7f0bc3",
+                "evidence_record": "https://evidence.eventdata.crossref.org/evidence/20170410-reddit-links-75f8e42a-bc8b-4e01-aecc-5355aaccc5ca",
+                "action": "add",
+                "subj": {
+                    "pid": "http://isaacullah.github.io/List-of-FOSS-tools-for-academics/",
+                    "url": "http://isaacullah.github.io/List-of-FOSS-tools-for-academics/"
+                },
+                "source_id": "reddit-links",
+                "obj": {
+                    "pid": "https://doi.org/10.1080/00438243.2012.743259",
+                    "url": "http://www.tandfonline.com/doi/full/10.1080/00438243.2012.743259"
+                },
+                "timestamp": "2017-04-10T15:27:16Z",
+                "updated_date": "2017-10-13T12:38:07.122Z",
+                "relation_type_id": "discusses"
+            },
+            {
+                "license": "https://creativecommons.org/publicdomain/zero/1.0/",
+                "terms": "https://doi.org/10.13003/CED-terms-of-use",
+                "updated_reason": "https://evidence.eventdata.crossref.org/announcements/2017-10-06T00-00-00Z-ED-12.json",
+                "updated": "edited",
+                "obj_id": "https://doi.org/10.1038/426217a",
+                "source_token": "93df90e8-1881-40fc-b19d-49d78cc9ee24",
+                "occurred_at": "2016-02-17T17:40:17Z",
+                "subj_id": "http://www.sciencealert.com/this-woman-has-illegally-uploaded-millions-of-journal-articles-in-an-attempt-to-open-up-science",
+                "id": "35f12381-1500-41f4-9ebc-a0802fde5ed6",
+                "evidence_record": "https://evidence.eventdata.crossref.org/evidence/20170410-reddit-links-75f8e42a-bc8b-4e01-aecc-5355aaccc5ca",
+                "action": "add",
+                "subj": {
+                    "pid": "http://www.sciencealert.com/this-woman-has-illegally-uploaded-millions-of-journal-articles-in-an-attempt-to-open-up-science",
+                    "url": "http://www.sciencealert.com/this-woman-has-illegally-uploaded-millions-of-journal-articles-in-an-attempt-to-open-up-science"
+                },
+                "source_id": "reddit-links",
+                "obj": {
+                    "pid": "https://doi.org/10.1038/426217a",
+                    "url": "http://www.nature.com/nature/journal/v426/n6964/full/426217a.html"
+                },
+                "timestamp": "2017-04-10T15:27:16Z",
+                "updated_date": "2017-10-13T12:38:07.614Z",
+                "relation_type_id": "discusses"
+            },
+            {
+                "license": "https://creativecommons.org/publicdomain/zero/1.0/",
+                "terms": "https://doi.org/10.13003/CED-terms-of-use",
+                "updated_reason": "https://evidence.eventdata.crossref.org/announcements/2017-10-06T00-00-00Z-ED-12.json",
+                "updated": "edited",
+                "obj_id": "https://doi.org/10.1080/0158037x.2011.585151",
+                "source_token": "93df90e8-1881-40fc-b19d-49d78cc9ee24",
+                "occurred_at": "2016-03-12T23:10:16Z",
+                "subj_id": "https://sasconfidential.com/2016/01/25/valley/",
+                "id": "31ba68f7-d1b7-46a4-8479-3d3cd83f8a9d",
+                "evidence_record": "https://evidence.eventdata.crossref.org/evidence/20170410-reddit-links-75f8e42a-bc8b-4e01-aecc-5355aaccc5ca",
+                "action": "add",
+                "subj": {
+                    "pid": "https://sasconfidential.com/2016/01/25/valley/",
+                    "url": "http://sasconfidential.com/2016/01/25/valley/"
+                },
+                "source_id": "reddit-links",
+                "obj": {
+                    "pid": "https://doi.org/10.1080/0158037x.2011.585151",
+                    "url": "http://www.tandfonline.com/doi/abs/10.1080/0158037X.2011.585151"
+                },
+                "timestamp": "2017-04-10T15:27:16Z",
+                "updated_date": "2017-10-13T12:38:08.020Z",
+                "relation_type_id": "discusses"
+            },
+            {
+                "license": "https://creativecommons.org/publicdomain/zero/1.0/",
+                "terms": "https://doi.org/10.13003/CED-terms-of-use",
+                "updated_reason": "https://evidence.eventdata.crossref.org/announcements/2017-10-06T00-00-00Z-ED-12.json",
+                "updated": "edited",
+                "obj_id": "https://doi.org/10.1038/nature.2015.18876",
+                "source_token": "93df90e8-1881-40fc-b19d-49d78cc9ee24",
+                "occurred_at": "2016-02-17T17:40:17Z",
+                "subj_id": "http://www.sciencealert.com/this-woman-has-illegally-uploaded-millions-of-journal-articles-in-an-attempt-to-open-up-science",
+                "id": "2f6e084d-5d98-414e-b19c-298f8207fc3d",
+                "evidence_record": "https://evidence.eventdata.crossref.org/evidence/20170410-reddit-links-75f8e42a-bc8b-4e01-aecc-5355aaccc5ca",
+                "action": "add",
+                "subj": {
+                    "pid": "http://www.sciencealert.com/this-woman-has-illegally-uploaded-millions-of-journal-articles-in-an-attempt-to-open-up-science",
+                    "url": "http://www.sciencealert.com/this-woman-has-illegally-uploaded-millions-of-journal-articles-in-an-attempt-to-open-up-science"
+                },
+                "source_id": "reddit-links",
+                "obj": {
+                    "pid": "https://doi.org/10.1038/nature.2015.18876",
+                    "url": "http://www.nature.com/news/pirate-research-paper-sites-play-hide-and-seek-with-publishers-1.18876"
+                },
+                "timestamp": "2017-04-10T15:27:16Z",
+                "updated_date": "2017-10-13T12:38:07.614Z",
+                "relation_type_id": "discusses"
+            },
+            {
+                "license": "https://creativecommons.org/publicdomain/zero/1.0/",
+                "terms": "https://doi.org/10.13003/CED-terms-of-use",
+                "updated_reason": "https://evidence.eventdata.crossref.org/announcements/2017-10-06T00-00-00Z-ED-12.json",
+                "updated": "edited",
+                "obj_id": "https://doi.org/10.12688/f1000research.6894.1",
+                "source_token": "93df90e8-1881-40fc-b19d-49d78cc9ee24",
+                "occurred_at": "2015-12-01T18:24:29Z",
+                "subj_id": "http://bjoern.brembs.net/2015/12/why-cutting-down-on-peer-review-will-improve-it/",
+                "id": "87d8de6c-f6c3-4c97-b3d2-7790705e5bb5",
+                "evidence_record": "https://evidence.eventdata.crossref.org/evidence/20170410-reddit-links-75f8e42a-bc8b-4e01-aecc-5355aaccc5ca",
+                "action": "add",
+                "subj": {
+                    "pid": "http://bjoern.brembs.net/2015/12/why-cutting-down-on-peer-review-will-improve-it/",
+                    "url": "http://bjoern.brembs.net/2015/12/why-cutting-down-on-peer-review-will-improve-it/"
+                },
+                "source_id": "reddit-links",
+                "obj": {
+                    "pid": "https://doi.org/10.12688/f1000research.6894.1",
+                    "url": "http://f1000research.com/articles/4-691/v1"
+                },
+                "timestamp": "2017-04-10T15:27:17Z",
+                "updated_date": "2017-10-13T12:38:08.296Z",
+                "relation_type_id": "discusses"
+            },
+            {
+                "license": "https://creativecommons.org/publicdomain/zero/1.0/",
+                "terms": "https://doi.org/10.13003/CED-terms-of-use",
+                "updated_reason": "https://evidence.eventdata.crossref.org/announcements/2017-10-06T00-00-00Z-ED-12.json",
+                "updated": "edited",
+                "obj_id": "https://doi.org/10.1038/518027a",
+                "source_token": "93df90e8-1881-40fc-b19d-49d78cc9ee24",
+                "occurred_at": "2015-12-01T18:24:29Z",
+                "subj_id": "http://bjoern.brembs.net/2015/12/why-cutting-down-on-peer-review-will-improve-it/",
+                "id": "4b313fe0-035d-49da-a133-e831309a0b7f",
+                "evidence_record": "https://evidence.eventdata.crossref.org/evidence/20170410-reddit-links-75f8e42a-bc8b-4e01-aecc-5355aaccc5ca",
+                "action": "add",
+                "subj": {
+                    "pid": "http://bjoern.brembs.net/2015/12/why-cutting-down-on-peer-review-will-improve-it/",
+                    "url": "http://bjoern.brembs.net/2015/12/why-cutting-down-on-peer-review-will-improve-it/"
+                },
+                "source_id": "reddit-links",
+                "obj": {
+                    "pid": "https://doi.org/10.1038/518027a",
+                    "url": "http://www.nature.com/news/reproducibility-standardize-antibodies-used-in-research-1.16827"
+                },
+                "timestamp": "2017-04-10T15:27:17Z",
+                "updated_date": "2017-10-13T12:38:08.296Z",
+                "relation_type_id": "discusses"
+            },
+            {
+                "license": "https://creativecommons.org/publicdomain/zero/1.0/",
+                "terms": "https://doi.org/10.13003/CED-terms-of-use",
+                "updated_reason": "https://evidence.eventdata.crossref.org/announcements/2017-10-06T00-00-00Z-ED-12.json",
+                "updated": "edited",
+                "obj_id": "https://doi.org/10.1038/s41562-017-0082",
+                "source_token": "93df90e8-1881-40fc-b19d-49d78cc9ee24",
+                "occurred_at": "2016-01-28T20:02:53Z",
+                "subj_id": "http://dailynous.com/2016/01/28/pay-to-be-recommended-at-academia-edu/",
+                "id": "408b7567-04f4-486e-b334-1b53189a866c",
+                "evidence_record": "https://evidence.eventdata.crossref.org/evidence/20170410-reddit-links-75f8e42a-bc8b-4e01-aecc-5355aaccc5ca",
+                "action": "add",
+                "subj": {
+                    "pid": "http://dailynous.com/2016/01/28/pay-to-be-recommended-at-academia-edu/",
+                    "url": "http://dailynous.com/2016/01/28/pay-to-be-recommended-at-academia-edu/"
+                },
+                "source_id": "reddit-links",
+                "obj": {
+                    "pid": "https://doi.org/10.1038/s41562-017-0082",
+                    "url": "http://www.nature.com/articles/s41562-017-0082"
+                },
+                "timestamp": "2017-04-10T15:27:17Z",
+                "updated_date": "2017-10-13T12:38:07.885Z",
+                "relation_type_id": "discusses"
+            },
+            {
+                "license": "https://creativecommons.org/publicdomain/zero/1.0/",
+                "terms": "https://doi.org/10.13003/CED-terms-of-use",
+                "updated_reason": "https://evidence.eventdata.crossref.org/announcements/2017-10-06T00-00-00Z-ED-12.json",
+                "updated": "edited",
+                "obj_id": "https://doi.org/10.1038/527545a",
+                "source_token": "93df90e8-1881-40fc-b19d-49d78cc9ee24",
+                "occurred_at": "2015-12-01T18:24:29Z",
+                "subj_id": "http://bjoern.brembs.net/2015/12/why-cutting-down-on-peer-review-will-improve-it/",
+                "id": "2ce328a4-2d9b-47d9-bba2-09909d044423",
+                "evidence_record": "https://evidence.eventdata.crossref.org/evidence/20170410-reddit-links-75f8e42a-bc8b-4e01-aecc-5355aaccc5ca",
+                "action": "add",
+                "subj": {
+                    "pid": "http://bjoern.brembs.net/2015/12/why-cutting-down-on-peer-review-will-improve-it/",
+                    "url": "http://bjoern.brembs.net/2015/12/why-cutting-down-on-peer-review-will-improve-it/"
+                },
+                "source_id": "reddit-links",
+                "obj": {
+                    "pid": "https://doi.org/10.1038/527545a",
+                    "url": "http://www.nature.com/nature/journal/v527/n7579/full/527545a.html"
+                },
+                "timestamp": "2017-04-10T15:27:17Z",
+                "updated_date": "2017-10-13T12:38:08.296Z",
+                "relation_type_id": "discusses"
+            },
+            {
+                "license": "https://creativecommons.org/publicdomain/zero/1.0/",
+                "terms": "https://doi.org/10.13003/CED-terms-of-use",
+                "updated_reason": "https://evidence.eventdata.crossref.org/announcements/2017-10-06T00-00-00Z-ED-12.json",
+                "updated": "edited",
+                "obj_id": "https://doi.org/10.1111/japp.12109",
+                "source_token": "93df90e8-1881-40fc-b19d-49d78cc9ee24",
+                "occurred_at": "2016-01-28T20:02:53Z",
+                "subj_id": "http://dailynous.com/2016/01/28/pay-to-be-recommended-at-academia-edu/",
+                "id": "07b92595-4cb0-4940-abd8-6aff787d7b79",
+                "evidence_record": "https://evidence.eventdata.crossref.org/evidence/20170410-reddit-links-75f8e42a-bc8b-4e01-aecc-5355aaccc5ca",
+                "action": "add",
+                "subj": {
+                    "pid": "http://dailynous.com/2016/01/28/pay-to-be-recommended-at-academia-edu/",
+                    "url": "http://dailynous.com/2016/01/28/pay-to-be-recommended-at-academia-edu/"
+                },
+                "source_id": "reddit-links",
+                "obj": {
+                    "pid": "https://doi.org/10.1111/japp.12109",
+                    "url": "http://onlinelibrary.wiley.com/doi/10.1111/japp.12109/full"
+                },
+                "timestamp": "2017-04-10T15:27:17Z",
+                "updated_date": "2017-10-13T12:38:07.885Z",
+                "relation_type_id": "discusses"
+            },
+            {
+                "license": "https://creativecommons.org/publicdomain/zero/1.0/",
+                "terms": "https://doi.org/10.13003/CED-terms-of-use",
+                "updated_reason": "https://evidence.eventdata.crossref.org/announcements/2017-10-06T00-00-00Z-ED-12.json",
+                "updated": "edited",
+                "obj_id": "https://doi.org/10.1038/521274a",
+                "source_token": "93df90e8-1881-40fc-b19d-49d78cc9ee24",
+                "occurred_at": "2015-12-01T18:24:29Z",
+                "subj_id": "http://bjoern.brembs.net/2015/12/why-cutting-down-on-peer-review-will-improve-it/",
+                "id": "bb65e3e0-25d5-4bfe-9f2d-1ec753502727",
+                "evidence_record": "https://evidence.eventdata.crossref.org/evidence/20170410-reddit-links-75f8e42a-bc8b-4e01-aecc-5355aaccc5ca",
+                "action": "add",
+                "subj": {
+                    "pid": "http://bjoern.brembs.net/2015/12/why-cutting-down-on-peer-review-will-improve-it/",
+                    "url": "http://bjoern.brembs.net/2015/12/why-cutting-down-on-peer-review-will-improve-it/"
+                },
+                "source_id": "reddit-links",
+                "obj": {
+                    "pid": "https://doi.org/10.1038/521274a",
+                    "url": "http://www.nature.com/news/reproducibility-crisis-blame-it-on-the-antibodies-1.17586"
+                },
+                "timestamp": "2017-04-10T15:27:18Z",
+                "updated_date": "2017-10-13T12:38:08.296Z",
+                "relation_type_id": "discusses"
+            },
+            {
+                "license": "https://creativecommons.org/publicdomain/zero/1.0/",
+                "terms": "https://doi.org/10.13003/CED-terms-of-use",
+                "updated_reason": "https://evidence.eventdata.crossref.org/announcements/2017-10-06T00-00-00Z-ED-12.json",
+                "updated": "edited",
+                "obj_id": "https://doi.org/10.1534/g3.114.013979",
+                "source_token": "93df90e8-1881-40fc-b19d-49d78cc9ee24",
+                "occurred_at": "2015-12-01T18:24:29Z",
+                "subj_id": "http://bjoern.brembs.net/2015/12/why-cutting-down-on-peer-review-will-improve-it/",
+                "id": "b9c09c86-853c-495b-b78b-289dfe075442",
+                "evidence_record": "https://evidence.eventdata.crossref.org/evidence/20170410-reddit-links-75f8e42a-bc8b-4e01-aecc-5355aaccc5ca",
+                "action": "add",
+                "subj": {
+                    "pid": "http://bjoern.brembs.net/2015/12/why-cutting-down-on-peer-review-will-improve-it/",
+                    "url": "http://bjoern.brembs.net/2015/12/why-cutting-down-on-peer-review-will-improve-it/"
+                },
+                "source_id": "reddit-links",
+                "obj": {
+                    "pid": "https://doi.org/10.1534/g3.114.013979",
+                    "url": "http://doi.org/10.1534/g3.114.013979"
+                },
+                "timestamp": "2017-04-10T15:27:18Z",
+                "updated_date": "2017-10-13T12:38:08.296Z",
+                "relation_type_id": "discusses"
+            },
+            {
+                "license": "https://creativecommons.org/publicdomain/zero/1.0/",
+                "terms": "https://doi.org/10.13003/CED-terms-of-use",
+                "updated_reason": "https://evidence.eventdata.crossref.org/announcements/2017-10-06T00-00-00Z-ED-12.json",
+                "updated": "edited",
+                "obj_id": "https://doi.org/10.1534/g3.114.013979",
+                "source_token": "93df90e8-1881-40fc-b19d-49d78cc9ee24",
+                "occurred_at": "2015-12-01T18:24:29Z",
+                "subj_id": "http://bjoern.brembs.net/2015/12/why-cutting-down-on-peer-review-will-improve-it/",
+                "id": "a71654f2-1e08-45eb-ae92-b1f1a8485db8",
+                "evidence_record": "https://evidence.eventdata.crossref.org/evidence/20170410-reddit-links-75f8e42a-bc8b-4e01-aecc-5355aaccc5ca",
+                "action": "add",
+                "subj": {
+                    "pid": "http://bjoern.brembs.net/2015/12/why-cutting-down-on-peer-review-will-improve-it/",
+                    "url": "http://bjoern.brembs.net/2015/12/why-cutting-down-on-peer-review-will-improve-it/"
+                },
+                "source_id": "reddit-links",
+                "obj": {
+                    "pid": "https://doi.org/10.1534/g3.114.013979",
+                    "url": "http://doi.org/10.1534/g3.114.013979"
+                },
+                "timestamp": "2017-04-10T15:27:18Z",
+                "updated_date": "2017-10-13T12:38:08.296Z",
+                "relation_type_id": "discusses"
+            },
+            {
+                "license": "https://creativecommons.org/publicdomain/zero/1.0/",
+                "terms": "https://doi.org/10.13003/CED-terms-of-use",
+                "updated_reason": "https://evidence.eventdata.crossref.org/announcements/2017-10-06T00-00-00Z-ED-12.json",
+                "updated": "edited",
+                "obj_id": "https://doi.org/10.1534/g3.114.014803",
+                "source_token": "93df90e8-1881-40fc-b19d-49d78cc9ee24",
+                "occurred_at": "2015-12-01T18:24:29Z",
+                "subj_id": "http://bjoern.brembs.net/2015/12/why-cutting-down-on-peer-review-will-improve-it/",
+                "id": "a0e6462a-8b6e-41da-8372-8262ddcc948a",
+                "evidence_record": "https://evidence.eventdata.crossref.org/evidence/20170410-reddit-links-75f8e42a-bc8b-4e01-aecc-5355aaccc5ca",
+                "action": "add",
+                "subj": {
+                    "pid": "http://bjoern.brembs.net/2015/12/why-cutting-down-on-peer-review-will-improve-it/",
+                    "url": "http://bjoern.brembs.net/2015/12/why-cutting-down-on-peer-review-will-improve-it/"
+                },
+                "source_id": "reddit-links",
+                "obj": {
+                    "pid": "https://doi.org/10.1534/g3.114.014803",
+                    "url": "http://doi.org/10.1534/g3.114.014803"
+                },
+                "timestamp": "2017-04-10T15:27:18Z",
+                "updated_date": "2017-10-13T12:38:08.296Z",
+                "relation_type_id": "discusses"
+            },
+            {
+                "license": "https://creativecommons.org/publicdomain/zero/1.0/",
+                "terms": "https://doi.org/10.13003/CED-terms-of-use",
+                "updated_reason": "https://evidence.eventdata.crossref.org/announcements/2017-10-06T00-00-00Z-ED-12.json",
+                "updated": "edited",
+                "obj_id": "https://doi.org/10.1371/journal.pone.0100648",
+                "source_token": "93df90e8-1881-40fc-b19d-49d78cc9ee24",
+                "occurred_at": "2015-12-01T18:24:29Z",
+                "subj_id": "http://bjoern.brembs.net/2015/12/why-cutting-down-on-peer-review-will-improve-it/",
+                "id": "4c578074-750f-4129-8548-3d665ccc3222",
+                "evidence_record": "https://evidence.eventdata.crossref.org/evidence/20170410-reddit-links-75f8e42a-bc8b-4e01-aecc-5355aaccc5ca",
+                "action": "add",
+                "subj": {
+                    "pid": "http://bjoern.brembs.net/2015/12/why-cutting-down-on-peer-review-will-improve-it/",
+                    "url": "http://bjoern.brembs.net/2015/12/why-cutting-down-on-peer-review-will-improve-it/"
+                },
+                "source_id": "reddit-links",
+                "obj": {
+                    "pid": "https://doi.org/10.1371/journal.pone.0100648",
+                    "url": "http://dx.doi.org/10.1371/journal.pone.0100648"
+                },
+                "timestamp": "2017-04-10T15:27:18Z",
+                "updated_date": "2017-10-13T12:38:08.296Z",
+                "relation_type_id": "discusses"
+            },
+            {
+                "license": "https://creativecommons.org/publicdomain/zero/1.0/",
+                "terms": "https://doi.org/10.13003/CED-terms-of-use",
+                "updated_reason": "https://evidence.eventdata.crossref.org/announcements/2017-10-06T00-00-00Z-ED-12.json",
+                "updated": "edited",
+                "obj_id": "https://doi.org/10.1371/journal.pone.0100648",
+                "source_token": "93df90e8-1881-40fc-b19d-49d78cc9ee24",
+                "occurred_at": "2015-12-01T18:24:29Z",
+                "subj_id": "http://bjoern.brembs.net/2015/12/why-cutting-down-on-peer-review-will-improve-it/",
+                "id": "45f88ad8-0e29-48d1-85ed-c33893bbe49f",
+                "evidence_record": "https://evidence.eventdata.crossref.org/evidence/20170410-reddit-links-75f8e42a-bc8b-4e01-aecc-5355aaccc5ca",
+                "action": "add",
+                "subj": {
+                    "pid": "http://bjoern.brembs.net/2015/12/why-cutting-down-on-peer-review-will-improve-it/",
+                    "url": "http://bjoern.brembs.net/2015/12/why-cutting-down-on-peer-review-will-improve-it/"
+                },
+                "source_id": "reddit-links",
+                "obj": {
+                    "pid": "https://doi.org/10.1371/journal.pone.0100648",
+                    "url": "http://dx.doi.org/10.1371/journal.pone.0100648"
+                },
+                "timestamp": "2017-04-10T15:27:18Z",
+                "updated_date": "2017-10-13T12:38:08.296Z",
+                "relation_type_id": "discusses"
+            },
+            {
+                "license": "https://creativecommons.org/publicdomain/zero/1.0/",
+                "terms": "https://doi.org/10.13003/CED-terms-of-use",
+                "updated_reason": "https://evidence.eventdata.crossref.org/announcements/2017-10-06T00-00-00Z-ED-12.json",
+                "updated": "edited",
+                "obj_id": "https://doi.org/10.1002/acp.1178",
+                "source_token": "93df90e8-1881-40fc-b19d-49d78cc9ee24",
+                "occurred_at": "2015-10-26T23:36:28Z",
+                "subj_id": "https://www.theatlantic.com/education/archive/2015/10/complex-academic-writing/412255/",
+                "id": "f8e1cdd4-2952-4471-a65c-a9f377691420",
+                "evidence_record": "https://evidence.eventdata.crossref.org/evidence/20170410-reddit-links-75f8e42a-bc8b-4e01-aecc-5355aaccc5ca",
+                "action": "add",
+                "subj": {
+                    "pid": "https://www.theatlantic.com/education/archive/2015/10/complex-academic-writing/412255/",
+                    "url": "http://www.theatlantic.com/education/archive/2015/10/complex-academic-writing/412255/"
+                },
+                "source_id": "reddit-links",
+                "obj": {
+                    "pid": "https://doi.org/10.1002/acp.1178",
+                    "url": "http://onlinelibrary.wiley.com/doi/10.1002/acp.1178/abstract"
+                },
+                "timestamp": "2017-04-10T15:27:19Z",
+                "updated_date": "2017-10-13T12:38:07.910Z",
+                "relation_type_id": "discusses"
+            },
+            {
+                "license": "https://creativecommons.org/publicdomain/zero/1.0/",
+                "terms": "https://doi.org/10.13003/CED-terms-of-use",
+                "updated_reason": "https://evidence.eventdata.crossref.org/announcements/2017-10-06T00-00-00Z-ED-12.json",
+                "updated": "edited",
+                "obj_id": "https://doi.org/10.1186/s12916-015-0469-2",
+                "source_token": "93df90e8-1881-40fc-b19d-49d78cc9ee24",
+                "occurred_at": "2015-10-05T05:40:00Z",
+                "subj_id": "https://scholarlykitchen.sspnet.org/2015/10/01/think-check-submit-how-to-have-trust-in-your-publisher/",
+                "id": "c2947565-b8dd-4c1c-86f0-a752a467bc91",
+                "evidence_record": "https://evidence.eventdata.crossref.org/evidence/20170410-reddit-links-75f8e42a-bc8b-4e01-aecc-5355aaccc5ca",
+                "action": "add",
+                "subj": {
+                    "pid": "https://scholarlykitchen.sspnet.org/2015/10/01/think-check-submit-how-to-have-trust-in-your-publisher/",
+                    "url": "http://scholarlykitchen.sspnet.org/2015/10/01/think-check-submit-how-to-have-trust-in-your-publisher/"
+                },
+                "source_id": "reddit-links",
+                "obj": {
+                    "pid": "https://doi.org/10.1186/s12916-015-0469-2",
+                    "url": "https://doi.org/10.1186/s12916-015-0469-2"
+                },
+                "timestamp": "2017-04-10T15:27:19Z",
+                "updated_date": "2017-10-13T12:38:09.364Z",
+                "relation_type_id": "discusses"
+            },
+            {
+                "license": "https://creativecommons.org/publicdomain/zero/1.0/",
+                "terms": "https://doi.org/10.13003/CED-terms-of-use",
+                "updated_reason": "https://evidence.eventdata.crossref.org/announcements/2017-10-06T00-00-00Z-ED-12.json",
+                "updated": "edited",
+                "obj_id": "https://doi.org/10.1534/g3.114.014803",
+                "source_token": "93df90e8-1881-40fc-b19d-49d78cc9ee24",
+                "occurred_at": "2015-12-01T18:24:29Z",
+                "subj_id": "http://bjoern.brembs.net/2015/12/why-cutting-down-on-peer-review-will-improve-it/",
+                "id": "bd3b285a-8e27-47f0-9170-22b9e447b21d",
+                "evidence_record": "https://evidence.eventdata.crossref.org/evidence/20170410-reddit-links-75f8e42a-bc8b-4e01-aecc-5355aaccc5ca",
+                "action": "add",
+                "subj": {
+                    "pid": "http://bjoern.brembs.net/2015/12/why-cutting-down-on-peer-review-will-improve-it/",
+                    "url": "http://bjoern.brembs.net/2015/12/why-cutting-down-on-peer-review-will-improve-it/"
+                },
+                "source_id": "reddit-links",
+                "obj": {
+                    "pid": "https://doi.org/10.1534/g3.114.014803",
+                    "url": "http://doi.org/10.1534/g3.114.014803"
+                },
+                "timestamp": "2017-04-10T15:27:19Z",
+                "updated_date": "2017-10-13T12:38:08.296Z",
+                "relation_type_id": "discusses"
+            },
+            {
+                "license": "https://creativecommons.org/publicdomain/zero/1.0/",
+                "terms": "https://doi.org/10.13003/CED-terms-of-use",
+                "updated_reason": "https://evidence.eventdata.crossref.org/announcements/2017-10-06T00-00-00Z-ED-12.json",
+                "updated": "edited",
+                "obj_id": "https://doi.org/10.1002/acp.1178",
+                "source_token": "93df90e8-1881-40fc-b19d-49d78cc9ee24",
+                "occurred_at": "2015-10-26T22:50:28Z",
+                "subj_id": "https://www.theatlantic.com/education/archive/2015/10/complex-academic-writing/412255/",
+                "id": "40899b00-4ead-4167-9494-c14f0239f86d",
+                "evidence_record": "https://evidence.eventdata.crossref.org/evidence/20170410-reddit-links-75f8e42a-bc8b-4e01-aecc-5355aaccc5ca",
+                "action": "add",
+                "subj": {
+                    "pid": "https://www.theatlantic.com/education/archive/2015/10/complex-academic-writing/412255/",
+                    "url": "http://www.theatlantic.com/education/archive/2015/10/complex-academic-writing/412255/"
+                },
+                "source_id": "reddit-links",
+                "obj": {
+                    "pid": "https://doi.org/10.1002/acp.1178",
+                    "url": "http://onlinelibrary.wiley.com/doi/10.1002/acp.1178/abstract"
+                },
+                "timestamp": "2017-04-10T15:27:19Z",
+                "updated_date": "2017-10-13T12:38:07.910Z",
+                "relation_type_id": "discusses"
+            },
+            {
+                "license": "https://creativecommons.org/publicdomain/zero/1.0/",
+                "terms": "https://doi.org/10.13003/CED-terms-of-use",
+                "updated_reason": "https://evidence.eventdata.crossref.org/announcements/2017-10-06T00-00-00Z-ED-12.json",
+                "updated": "edited",
+                "obj_id": "https://doi.org/10.1080/01443410120090849",
+                "source_token": "93df90e8-1881-40fc-b19d-49d78cc9ee24",
+                "occurred_at": "2015-11-17T05:34:00Z",
+                "subj_id": "https://qz.com/547641/theres-an-awful-cost-to-getting-a-phd-that-no-one-talks-about/",
+                "id": "30908332-27ac-4054-9ada-d10517c4be91",
+                "evidence_record": "https://evidence.eventdata.crossref.org/evidence/20170410-reddit-links-75f8e42a-bc8b-4e01-aecc-5355aaccc5ca",
+                "action": "add",
+                "subj": {
+                    "pid": "https://qz.com/547641/theres-an-awful-cost-to-getting-a-phd-that-no-one-talks-about/",
+                    "url": "http://qz.com/547641/theres-an-awful-cost-to-getting-a-phd-that-no-one-talks-about/"
+                },
+                "source_id": "reddit-links",
+                "obj": {
+                    "pid": "https://doi.org/10.1080/01443410120090849",
+                    "url": "http://www.tandfonline.com/doi/abs/10.1080/01443410120090849#.Vj3u3hNVikp"
+                },
+                "timestamp": "2017-04-10T15:27:19Z",
+                "updated_date": "2017-10-13T12:38:09.192Z",
+                "relation_type_id": "discusses"
+            },
+            {
+                "license": "https://creativecommons.org/publicdomain/zero/1.0/",
+                "terms": "https://doi.org/10.13003/CED-terms-of-use",
+                "updated_reason": "https://evidence.eventdata.crossref.org/announcements/2017-10-06T00-00-00Z-ED-12.json",
+                "updated": "edited",
+                "obj_id": "https://doi.org/10.1007/s10755-014-9313-4",
+                "source_token": "93df90e8-1881-40fc-b19d-49d78cc9ee24",
+                "occurred_at": "2015-06-25T13:01:02Z",
+                "subj_id": "http://theconversation.com/should-female-faculty-get-bonus-points-to-correct-for-gender-bias-in-student-evaluations-43166",
+                "id": "bedc4db3-c7d6-40c3-bf38-dbffd5e90197",
+                "evidence_record": "https://evidence.eventdata.crossref.org/evidence/20170410-reddit-links-75f8e42a-bc8b-4e01-aecc-5355aaccc5ca",
+                "action": "add",
+                "subj": {
+                    "pid": "http://theconversation.com/should-female-faculty-get-bonus-points-to-correct-for-gender-bias-in-student-evaluations-43166",
+                    "url": "https://theconversation.com/should-female-faculty-get-bonus-points-to-correct-for-gender-bias-in-student-evaluations-43166"
+                },
+                "source_id": "reddit-links",
+                "obj": {
+                    "pid": "https://doi.org/10.1007/s10755-014-9313-4",
+                    "url": "http://link.springer.com/article/10.1007/s10755-014-9313-4"
+                },
+                "timestamp": "2017-04-10T15:27:20Z",
+                "updated_date": "2017-10-13T12:38:08.799Z",
+                "relation_type_id": "discusses"
+            },
+            {
+                "license": "https://creativecommons.org/publicdomain/zero/1.0/",
+                "terms": "https://doi.org/10.13003/CED-terms-of-use",
+                "updated_reason": "https://evidence.eventdata.crossref.org/announcements/2017-10-06T00-00-00Z-ED-12.json",
+                "updated": "edited",
+                "obj_id": "https://doi.org/10.1186/s12916-015-0469-2",
+                "source_token": "93df90e8-1881-40fc-b19d-49d78cc9ee24",
+                "occurred_at": "2015-10-05T05:40:00Z",
+                "subj_id": "https://scholarlykitchen.sspnet.org/2015/10/01/think-check-submit-how-to-have-trust-in-your-publisher/",
+                "id": "af44296d-9782-4857-b52b-26e0a1b82c7c",
+                "evidence_record": "https://evidence.eventdata.crossref.org/evidence/20170410-reddit-links-75f8e42a-bc8b-4e01-aecc-5355aaccc5ca",
+                "action": "add",
+                "subj": {
+                    "pid": "https://scholarlykitchen.sspnet.org/2015/10/01/think-check-submit-how-to-have-trust-in-your-publisher/",
+                    "url": "http://scholarlykitchen.sspnet.org/2015/10/01/think-check-submit-how-to-have-trust-in-your-publisher/"
+                },
+                "source_id": "reddit-links",
+                "obj": {
+                    "pid": "https://doi.org/10.1186/s12916-015-0469-2",
+                    "url": "http://www.biomedcentral.com/1741-7015/13/230"
+                },
+                "timestamp": "2017-04-10T15:27:20Z",
+                "updated_date": "2017-10-13T12:38:09.364Z",
+                "relation_type_id": "discusses"
+            },
+            {
+                "license": "https://creativecommons.org/publicdomain/zero/1.0/",
+                "terms": "https://doi.org/10.13003/CED-terms-of-use",
+                "updated_reason": "https://evidence.eventdata.crossref.org/announcements/2017-10-06T00-00-00Z-ED-12.json",
+                "updated": "edited",
+                "obj_id": "https://doi.org/10.1007/s002650050627",
+                "source_token": "93df90e8-1881-40fc-b19d-49d78cc9ee24",
+                "occurred_at": "2014-11-13T15:38:28Z",
+                "subj_id": "http://retractionwatch.com/2014/11/11/overly-honest-references-should-we-cite-the-crappy-gabor-paper-here/",
+                "id": "9c9da559-b1d7-49bd-b6d1-782450d4762e",
+                "evidence_record": "https://evidence.eventdata.crossref.org/evidence/20170410-reddit-links-75f8e42a-bc8b-4e01-aecc-5355aaccc5ca",
+                "action": "add",
+                "subj": {
+                    "pid": "http://retractionwatch.com/2014/11/11/overly-honest-references-should-we-cite-the-crappy-gabor-paper-here/",
+                    "url": "http://retractionwatch.com/2014/11/11/overly-honest-references-should-we-cite-the-crappy-gabor-paper-here/"
+                },
+                "source_id": "reddit-links",
+                "obj": {
+                    "pid": "https://doi.org/10.1007/s002650050627",
+                    "url": "https://doi.org/10.1007/s002650050627"
+                },
+                "timestamp": "2017-04-10T15:27:20Z",
+                "updated_date": "2017-10-13T12:38:12.429Z",
+                "relation_type_id": "discusses"
+            },
+            {
+                "license": "https://creativecommons.org/publicdomain/zero/1.0/",
+                "terms": "https://doi.org/10.13003/CED-terms-of-use",
+                "updated_reason": "https://evidence.eventdata.crossref.org/announcements/2017-10-06T00-00-00Z-ED-12.json",
+                "updated": "edited",
+                "obj_id": "https://doi.org/10.1086/681934",
+                "source_token": "93df90e8-1881-40fc-b19d-49d78cc9ee24",
+                "occurred_at": "2015-06-17T22:30:23Z",
+                "subj_id": "http://www.chronicle.com/article/Conflict-Over-Sociologists/230883",
+                "id": "2cf2b081-135c-486f-8730-b704a5e74e94",
+                "evidence_record": "https://evidence.eventdata.crossref.org/evidence/20170410-reddit-links-75f8e42a-bc8b-4e01-aecc-5355aaccc5ca",
+                "action": "add",
+                "subj": {
+                    "pid": "http://www.chronicle.com/article/Conflict-Over-Sociologists/230883",
+                    "url": "http://chronicle.com/article/Conflict-Over-Sociologists/230883/"
+                },
+                "source_id": "reddit-links",
+                "obj": {
+                    "pid": "https://doi.org/10.1086/681934",
+                    "url": "http://www.jstor.org/stable/10.1086/681934?seq=1#page_scan_tab_contents"
+                },
+                "timestamp": "2017-04-10T15:27:20Z",
+                "updated_date": "2017-10-13T12:38:09.577Z",
+                "relation_type_id": "discusses"
+            },
+            {
+                "license": "https://creativecommons.org/publicdomain/zero/1.0/",
+                "terms": "https://doi.org/10.13003/CED-terms-of-use",
+                "updated_reason": "https://evidence.eventdata.crossref.org/announcements/2017-10-06T00-00-00Z-ED-12.json",
+                "updated": "edited",
+                "obj_id": "https://doi.org/10.1007/s002650050627",
+                "source_token": "93df90e8-1881-40fc-b19d-49d78cc9ee24",
+                "occurred_at": "2014-11-13T15:38:28Z",
+                "subj_id": "http://retractionwatch.com/2014/11/11/overly-honest-references-should-we-cite-the-crappy-gabor-paper-here/",
+                "id": "1181c61d-5360-4c99-91dd-f35b5d547437",
+                "evidence_record": "https://evidence.eventdata.crossref.org/evidence/20170410-reddit-links-75f8e42a-bc8b-4e01-aecc-5355aaccc5ca",
+                "action": "add",
+                "subj": {
+                    "pid": "http://retractionwatch.com/2014/11/11/overly-honest-references-should-we-cite-the-crappy-gabor-paper-here/",
+                    "url": "http://retractionwatch.com/2014/11/11/overly-honest-references-should-we-cite-the-crappy-gabor-paper-here/"
+                },
+                "source_id": "reddit-links",
+                "obj": {
+                    "pid": "https://doi.org/10.1007/s002650050627",
+                    "url": "http://link.springer.com/article/10.1007%2Fs002650050627)"
+                },
+                "timestamp": "2017-04-10T15:27:20Z",
+                "updated_date": "2017-10-13T12:38:12.429Z",
+                "relation_type_id": "discusses"
+            },
+            {
+                "license": "https://creativecommons.org/publicdomain/zero/1.0/",
+                "terms": "https://doi.org/10.13003/CED-terms-of-use",
+                "updated_reason": "https://evidence.eventdata.crossref.org/announcements/2017-10-06T00-00-00Z-ED-12.json",
+                "updated": "edited",
+                "obj_id": "https://doi.org/10.1126/science.1256151",
+                "source_token": "93df90e8-1881-40fc-b19d-49d78cc9ee24",
+                "occurred_at": "2015-05-29T19:22:28Z",
+                "subj_id": "http://nymag.com/scienceofus/2015/05/how-a-grad-student-uncovered-a-huge-fraud.html",
+                "id": "03e443f0-ed74-42d8-92d8-883807c36839",
+                "evidence_record": "https://evidence.eventdata.crossref.org/evidence/20170410-reddit-links-75f8e42a-bc8b-4e01-aecc-5355aaccc5ca",
+                "action": "add",
+                "subj": {
+                    "pid": "http://nymag.com/scienceofus/2015/05/how-a-grad-student-uncovered-a-huge-fraud.html",
+                    "url": "http://nymag.com/scienceofus/2015/05/how-a-grad-student-uncovered-a-huge-fraud.html"
+                },
+                "source_id": "reddit-links",
+                "obj": {
+                    "pid": "https://doi.org/10.1126/science.1256151",
+                    "url": "http://www.sciencemag.org/content/346/6215/1366"
+                },
+                "timestamp": "2017-04-10T15:27:20Z",
+                "updated_date": "2017-10-13T12:38:09.694Z",
+                "relation_type_id": "discusses"
+            },
+            {
+                "license": "https://creativecommons.org/publicdomain/zero/1.0/",
+                "terms": "https://doi.org/10.13003/CED-terms-of-use",
+                "updated_reason": "https://evidence.eventdata.crossref.org/announcements/2017-10-06T00-00-00Z-ED-12.json",
+                "updated": "edited",
+                "obj_id": "https://doi.org/10.1111/eth.12282",
+                "source_token": "93df90e8-1881-40fc-b19d-49d78cc9ee24",
+                "occurred_at": "2014-11-13T15:38:28Z",
+                "subj_id": "http://retractionwatch.com/2014/11/11/overly-honest-references-should-we-cite-the-crappy-gabor-paper-here/",
+                "id": "d9e18449-8b18-4138-861a-0d9355d72dec",
+                "evidence_record": "https://evidence.eventdata.crossref.org/evidence/20170410-reddit-links-75f8e42a-bc8b-4e01-aecc-5355aaccc5ca",
+                "action": "add",
+                "subj": {
+                    "pid": "http://retractionwatch.com/2014/11/11/overly-honest-references-should-we-cite-the-crappy-gabor-paper-here/",
+                    "url": "http://retractionwatch.com/2014/11/11/overly-honest-references-should-we-cite-the-crappy-gabor-paper-here/"
+                },
+                "source_id": "reddit-links",
+                "obj": {
+                    "pid": "https://doi.org/10.1111/eth.12282",
+                    "url": "http://onlinelibrary.wiley.com/doi/10.1111/eth.12282/abstract"
+                },
+                "timestamp": "2017-04-10T15:27:21Z",
+                "updated_date": "2017-10-13T12:38:12.429Z",
+                "relation_type_id": "discusses"
+            },
+            {
+                "license": "https://creativecommons.org/publicdomain/zero/1.0/",
+                "terms": "https://doi.org/10.13003/CED-terms-of-use",
+                "updated_reason": "https://evidence.eventdata.crossref.org/announcements/2017-10-06T00-00-00Z-ED-12.json",
+                "updated": "edited",
+                "obj_id": "https://doi.org/10.1007/s11615-004-0002-2",
+                "source_token": "93df90e8-1881-40fc-b19d-49d78cc9ee24",
+                "occurred_at": "2014-11-03T18:33:57Z",
+                "subj_id": "http://blogs.lse.ac.uk/impactofsocialsciences/2013/12/11/how-academia-resembles-a-drug-gang/",
+                "id": "b36b6657-6508-4bfb-a576-0e7c1035c772",
+                "evidence_record": "https://evidence.eventdata.crossref.org/evidence/20170410-reddit-links-75f8e42a-bc8b-4e01-aecc-5355aaccc5ca",
+                "action": "add",
+                "subj": {
+                    "pid": "http://blogs.lse.ac.uk/impactofsocialsciences/2013/12/11/how-academia-resembles-a-drug-gang/",
+                    "url": "http://blogs.lse.ac.uk/impactofsocialsciences/2013/12/11/how-academia-resembles-a-drug-gang/"
+                },
+                "source_id": "reddit-links",
+                "obj": {
+                    "pid": "https://doi.org/10.1007/s11615-004-0002-2",
+                    "url": "http://link.springer.com/article/10.1007%2Fs11615-004-0002-2#page-1"
+                },
+                "timestamp": "2017-04-10T15:27:21Z",
+                "updated_date": "2017-10-13T12:38:09.307Z",
+                "relation_type_id": "discusses"
+            },
+            {
+                "license": "https://creativecommons.org/publicdomain/zero/1.0/",
+                "terms": "https://doi.org/10.13003/CED-terms-of-use",
+                "updated_reason": "https://evidence.eventdata.crossref.org/announcements/2017-10-06T00-00-00Z-ED-12.json",
+                "updated": "edited",
+                "obj_id": "https://doi.org/10.1002/j.1662-6370.1997.tb00206.x",
+                "source_token": "93df90e8-1881-40fc-b19d-49d78cc9ee24",
+                "occurred_at": "2014-11-03T18:33:57Z",
+                "subj_id": "http://blogs.lse.ac.uk/impactofsocialsciences/2013/12/11/how-academia-resembles-a-drug-gang/",
+                "id": "a66813ca-087c-4b0e-aa2a-7f3d89739876",
+                "evidence_record": "https://evidence.eventdata.crossref.org/evidence/20170410-reddit-links-75f8e42a-bc8b-4e01-aecc-5355aaccc5ca",
+                "action": "add",
+                "subj": {
+                    "pid": "http://blogs.lse.ac.uk/impactofsocialsciences/2013/12/11/how-academia-resembles-a-drug-gang/",
+                    "url": "http://blogs.lse.ac.uk/impactofsocialsciences/2013/12/11/how-academia-resembles-a-drug-gang/"
+                },
+                "source_id": "reddit-links",
+                "obj": {
+                    "pid": "https://doi.org/10.1002/j.1662-6370.1997.tb00206.x",
+                    "url": "http://onlinelibrary.wiley.com/doi/10.1002/j.1662-6370.1997.tb00206.x/abstract"
+                },
+                "timestamp": "2017-04-10T15:27:21Z",
+                "updated_date": "2017-10-13T12:38:09.307Z",
+                "relation_type_id": "discusses"
+            },
+            {
+                "license": "https://creativecommons.org/publicdomain/zero/1.0/",
+                "terms": "https://doi.org/10.13003/CED-terms-of-use",
+                "updated_reason": "https://evidence.eventdata.crossref.org/announcements/2017-10-06T00-00-00Z-ED-12.json",
+                "updated": "edited",
+                "obj_id": "https://doi.org/10.1111/eth.12282",
+                "source_token": "93df90e8-1881-40fc-b19d-49d78cc9ee24",
+                "occurred_at": "2014-11-13T15:38:28Z",
+                "subj_id": "http://retractionwatch.com/2014/11/11/overly-honest-references-should-we-cite-the-crappy-gabor-paper-here/",
+                "id": "2f843277-b7bd-4472-9437-0638f96fc90b",
+                "evidence_record": "https://evidence.eventdata.crossref.org/evidence/20170410-reddit-links-75f8e42a-bc8b-4e01-aecc-5355aaccc5ca",
+                "action": "add",
+                "subj": {
+                    "pid": "http://retractionwatch.com/2014/11/11/overly-honest-references-should-we-cite-the-crappy-gabor-paper-here/",
+                    "url": "http://retractionwatch.com/2014/11/11/overly-honest-references-should-we-cite-the-crappy-gabor-paper-here/"
+                },
+                "source_id": "reddit-links",
+                "obj": {
+                    "pid": "https://doi.org/10.1111/eth.12282",
+                    "url": "http://dx.doi.org/10.1111/eth.12282/"
+                },
+                "timestamp": "2017-04-10T15:27:21Z",
+                "updated_date": "2017-10-13T12:38:12.429Z",
+                "relation_type_id": "discusses"
+            },
+            {
+                "license": "https://creativecommons.org/publicdomain/zero/1.0/",
+                "terms": "https://doi.org/10.13003/CED-terms-of-use",
+                "updated_reason": "https://evidence.eventdata.crossref.org/announcements/2017-10-06T00-00-00Z-ED-12.json",
+                "updated": "edited",
+                "obj_id": "https://doi.org/10.1007/s002650050627",
+                "source_token": "93df90e8-1881-40fc-b19d-49d78cc9ee24",
+                "occurred_at": "2014-11-13T15:38:28Z",
+                "subj_id": "http://retractionwatch.com/2014/11/11/overly-honest-references-should-we-cite-the-crappy-gabor-paper-here/",
+                "id": "2386c2df-180c-40ab-94c9-dc01bb3078fa",
+                "evidence_record": "https://evidence.eventdata.crossref.org/evidence/20170410-reddit-links-75f8e42a-bc8b-4e01-aecc-5355aaccc5ca",
+                "action": "add",
+                "subj": {
+                    "pid": "http://retractionwatch.com/2014/11/11/overly-honest-references-should-we-cite-the-crappy-gabor-paper-here/",
+                    "url": "http://retractionwatch.com/2014/11/11/overly-honest-references-should-we-cite-the-crappy-gabor-paper-here/"
+                },
+                "source_id": "reddit-links",
+                "obj": {
+                    "pid": "https://doi.org/10.1007/s002650050627",
+                    "url": "http://link.springer.com/article/10.1007%2Fs002650050627"
+                },
+                "timestamp": "2017-04-10T15:27:21Z",
+                "updated_date": "2017-10-13T12:38:12.429Z",
+                "relation_type_id": "discusses"
+            },
+            {
+                "license": "https://creativecommons.org/publicdomain/zero/1.0/",
+                "terms": "https://doi.org/10.13003/CED-terms-of-use",
+                "updated_reason": "https://evidence.eventdata.crossref.org/announcements/2017-10-06T00-00-00Z-ED-12.json",
+                "updated": "edited",
+                "obj_id": "https://doi.org/10.1111/eth.12282",
+                "source_token": "93df90e8-1881-40fc-b19d-49d78cc9ee24",
+                "occurred_at": "2014-11-13T15:38:28Z",
+                "subj_id": "http://retractionwatch.com/2014/11/11/overly-honest-references-should-we-cite-the-crappy-gabor-paper-here/",
+                "id": "19400db8-97f2-468b-9f32-e43518f0241a",
+                "evidence_record": "https://evidence.eventdata.crossref.org/evidence/20170410-reddit-links-75f8e42a-bc8b-4e01-aecc-5355aaccc5ca",
+                "action": "add",
+                "subj": {
+                    "pid": "http://retractionwatch.com/2014/11/11/overly-honest-references-should-we-cite-the-crappy-gabor-paper-here/",
+                    "url": "http://retractionwatch.com/2014/11/11/overly-honest-references-should-we-cite-the-crappy-gabor-paper-here/"
+                },
+                "source_id": "reddit-links",
+                "obj": {
+                    "pid": "https://doi.org/10.1111/eth.12282",
+                    "url": "http://dx.doi.org/10.1111/eth.12282/"
+                },
+                "timestamp": "2017-04-10T15:27:21Z",
+                "updated_date": "2017-10-13T12:38:15.551Z",
+                "relation_type_id": "discusses"
+            },
+            {
+                "license": "https://creativecommons.org/publicdomain/zero/1.0/",
+                "terms": "https://doi.org/10.13003/CED-terms-of-use",
+                "updated_reason": "https://evidence.eventdata.crossref.org/announcements/2017-10-06T00-00-00Z-ED-12.json",
+                "updated": "edited",
+                "obj_id": "https://doi.org/10.1080/21567689.2013.768816",
+                "source_token": "93df90e8-1881-40fc-b19d-49d78cc9ee24",
+                "occurred_at": "2014-09-07T23:16:32Z",
+                "subj_id": "https://alochonaa.com/2014/09/07/the-neoliberal-fiction-religion-and-politics-in-international-relations/",
+                "id": "d3682d8e-d921-4900-a53e-ac6da5e7122f",
+                "evidence_record": "https://evidence.eventdata.crossref.org/evidence/20170410-reddit-links-75f8e42a-bc8b-4e01-aecc-5355aaccc5ca",
+                "action": "add",
+                "subj": {
+                    "pid": "https://alochonaa.com/2014/09/07/the-neoliberal-fiction-religion-and-politics-in-international-relations/",
+                    "url": "http://alochonaa.com/2014/09/07/the-neoliberal-fiction-religion-and-politics-in-international-relations/"
+                },
+                "source_id": "reddit-links",
+                "obj": {
+                    "pid": "https://doi.org/10.1080/21567689.2013.768816",
+                    "url": "http://www.tandfonline.com/doi/full/10.1080/21567689.2013.768816#.VAzgY7hAM1c"
+                },
+                "timestamp": "2017-04-10T15:27:22Z",
+                "updated_date": "2017-10-13T12:38:15.985Z",
+                "relation_type_id": "discusses"
+            },
+            {
+                "license": "https://creativecommons.org/publicdomain/zero/1.0/",
+                "terms": "https://doi.org/10.13003/CED-terms-of-use",
+                "updated_reason": "https://evidence.eventdata.crossref.org/announcements/2017-10-06T00-00-00Z-ED-12.json",
+                "updated": "edited",
+                "obj_id": "https://doi.org/10.1111/(issn)1911-3846",
+                "source_token": "93df90e8-1881-40fc-b19d-49d78cc9ee24",
+                "occurred_at": "2014-07-29T17:40:29Z",
+                "subj_id": "https://www.washingtonpost.com/news/morning-mix/wp/2014/07/29/academias-seamier-side-lying-cheating-and-fraud/",
+                "id": "ba4caf8c-97c9-4456-b861-5c441281d97a",
+                "evidence_record": "https://evidence.eventdata.crossref.org/evidence/20170410-reddit-links-75f8e42a-bc8b-4e01-aecc-5355aaccc5ca",
+                "action": "add",
+                "subj": {
+                    "pid": "https://www.washingtonpost.com/news/morning-mix/wp/2014/07/29/academias-seamier-side-lying-cheating-and-fraud/",
+                    "url": "http://www.washingtonpost.com/news/morning-mix/wp/2014/07/29/academias-seamier-side-lying-cheating-and-fraud/"
+                },
+                "source_id": "reddit-links",
+                "obj": {
+                    "pid": "https://doi.org/10.1111/(issn)1911-3846",
+                    "url": "http://onlinelibrary.wiley.com/journal/10.1111/%28ISSN%291911-3846"
+                },
+                "timestamp": "2017-04-10T15:27:22Z",
+                "updated_date": "2017-10-13T12:38:16.519Z",
+                "relation_type_id": "discusses"
+            },
+            {
+                "license": "https://creativecommons.org/publicdomain/zero/1.0/",
+                "terms": "https://doi.org/10.13003/CED-terms-of-use",
+                "updated_reason": "https://evidence.eventdata.crossref.org/announcements/2017-10-06T00-00-00Z-ED-12.json",
+                "updated": "edited",
+                "obj_id": "https://doi.org/10.1038/nbt.2706",
+                "source_token": "93df90e8-1881-40fc-b19d-49d78cc9ee24",
+                "occurred_at": "2014-09-18T17:06:48Z",
+                "subj_id": "http://www.slate.com/articles/life/education/2014/09/a_changing_view_of_alt_ac_jobs_in_which_ph_d_s_work_outside_of_academia.html",
+                "id": "749c57b8-8cec-41aa-9c8d-23e2d071cdd9",
+                "evidence_record": "https://evidence.eventdata.crossref.org/evidence/20170410-reddit-links-75f8e42a-bc8b-4e01-aecc-5355aaccc5ca",
+                "action": "add",
+                "subj": {
+                    "pid": "http://www.slate.com/articles/life/education/2014/09/a_changing_view_of_alt_ac_jobs_in_which_ph_d_s_work_outside_of_academia.html",
+                    "url": "http://www.slate.com/articles/life/education/2014/09/a_changing_view_of_alt_ac_jobs_in_which_ph_d_s_work_outside_of_academia.html"
+                },
+                "source_id": "reddit-links",
+                "obj": {
+                    "pid": "https://doi.org/10.1038/nbt.2706",
+                    "url": "http://www.nature.com/nbt/journal/v31/n10/full/nbt.2706.html"
+                },
+                "timestamp": "2017-04-10T15:27:22Z",
+                "updated_date": "2017-10-13T12:38:16.992Z",
+                "relation_type_id": "discusses"
+            },
+            {
+                "license": "https://creativecommons.org/publicdomain/zero/1.0/",
+                "terms": "https://doi.org/10.13003/CED-terms-of-use",
+                "updated_reason": "https://evidence.eventdata.crossref.org/announcements/2017-10-06T00-00-00Z-ED-12.json",
+                "updated": "edited",
+                "obj_id": "https://doi.org/10.2308/accr-10326",
+                "source_token": "93df90e8-1881-40fc-b19d-49d78cc9ee24",
+                "occurred_at": "2014-07-29T17:40:29Z",
+                "subj_id": "https://www.washingtonpost.com/news/morning-mix/wp/2014/07/29/academias-seamier-side-lying-cheating-and-fraud/",
+                "id": "5d836e7e-e1f1-4407-bac3-287b21e211e4",
+                "evidence_record": "https://evidence.eventdata.crossref.org/evidence/20170410-reddit-links-75f8e42a-bc8b-4e01-aecc-5355aaccc5ca",
+                "action": "add",
+                "subj": {
+                    "pid": "https://www.washingtonpost.com/news/morning-mix/wp/2014/07/29/academias-seamier-side-lying-cheating-and-fraud/",
+                    "url": "http://www.washingtonpost.com/news/morning-mix/wp/2014/07/29/academias-seamier-side-lying-cheating-and-fraud/"
+                },
+                "source_id": "reddit-links",
+                "obj": {
+                    "pid": "https://doi.org/10.2308/accr-10326",
+                    "url": "http://aaajournals.org/doi/abs/10.2308/accr-10326?queryHash="
+                },
+                "timestamp": "2017-04-10T15:27:22Z",
+                "updated_date": "2017-10-13T12:38:16.519Z",
+                "relation_type_id": "discusses"
+            },
+            {
+                "license": "https://creativecommons.org/publicdomain/zero/1.0/",
+                "terms": "https://doi.org/10.13003/CED-terms-of-use",
+                "updated_reason": "https://evidence.eventdata.crossref.org/announcements/2017-10-06T00-00-00Z-ED-12.json",
+                "updated": "edited",
+                "obj_id": "https://doi.org/10.1002/asi.22673",
+                "source_token": "93df90e8-1881-40fc-b19d-49d78cc9ee24",
+                "occurred_at": "2014-09-17T19:42:26Z",
+                "subj_id": "https://openquaternary.wordpress.com/2014/09/02/how-to-start-an-open-access-journal/",
+                "id": "1e5cf328-8efe-4af7-99c4-6636e9c0ca12",
+                "evidence_record": "https://evidence.eventdata.crossref.org/evidence/20170410-reddit-links-75f8e42a-bc8b-4e01-aecc-5355aaccc5ca",
+                "action": "add",
+                "subj": {
+                    "pid": "https://openquaternary.wordpress.com/2014/09/02/how-to-start-an-open-access-journal/",
+                    "url": "http://openquaternary.wordpress.com/2014/09/02/how-to-start-an-open-access-journal/"
+                },
+                "source_id": "reddit-links",
+                "obj": {
+                    "pid": "https://doi.org/10.1002/asi.22673",
+                    "url": "http://onlinelibrary.wiley.com/doi/10.1002/asi.22673/abstract"
+                },
+                "timestamp": "2017-04-10T15:27:22Z",
+                "updated_date": "2017-10-13T12:38:16.655Z",
+                "relation_type_id": "discusses"
+            },
+            {
+                "license": "https://creativecommons.org/publicdomain/zero/1.0/",
+                "terms": "https://doi.org/10.13003/CED-terms-of-use",
+                "updated_reason": "https://evidence.eventdata.crossref.org/announcements/2017-10-06T00-00-00Z-ED-12.json",
+                "updated": "edited",
+                "obj_id": "https://doi.org/10.1126/science.342.6154.60",
+                "source_token": "93df90e8-1881-40fc-b19d-49d78cc9ee24",
+                "occurred_at": "2014-07-21T15:43:08Z",
+                "subj_id": "https://underthecblog.org/2013/10/16/the-bastardization-of-open-access-publication-2/",
+                "id": "e3d5466e-c6eb-42ba-99a7-14be953b50b6",
+                "evidence_record": "https://evidence.eventdata.crossref.org/evidence/20170410-reddit-links-75f8e42a-bc8b-4e01-aecc-5355aaccc5ca",
+                "action": "add",
+                "subj": {
+                    "pid": "https://underthecblog.org/2013/10/16/the-bastardization-of-open-access-publication-2/",
+                    "url": "http://underthecblog.wordpress.com/2013/10/16/the-bastardization-of-open-access-publication-2/"
+                },
+                "source_id": "reddit-links",
+                "obj": {
+                    "pid": "https://doi.org/10.1126/science.342.6154.60",
+                    "url": "http://www.sciencemag.org/content/342/6154/60.full"
+                },
+                "timestamp": "2017-04-10T15:27:23Z",
+                "updated_date": "2017-10-13T12:38:17.466Z",
+                "relation_type_id": "discusses"
+            },
+            {
+                "license": "https://creativecommons.org/publicdomain/zero/1.0/",
+                "terms": "https://doi.org/10.13003/CED-terms-of-use",
+                "updated_reason": "https://evidence.eventdata.crossref.org/announcements/2017-10-06T00-00-00Z-ED-12.json",
+                "updated": "edited",
+                "obj_id": "https://doi.org/10.1186/1472-6785-14-11",
+                "source_token": "93df90e8-1881-40fc-b19d-49d78cc9ee24",
+                "occurred_at": "2014-07-29T11:55:04Z",
+                "subj_id": "http://blogs.biomedcentral.com/bmcseriesblog/2014/07/28/the-new-impact-factors-are-coming/",
+                "id": "c182f384-f214-4cfe-bdbe-82a764832738",
+                "evidence_record": "https://evidence.eventdata.crossref.org/evidence/20170410-reddit-links-75f8e42a-bc8b-4e01-aecc-5355aaccc5ca",
+                "action": "add",
+                "subj": {
+                    "pid": "http://blogs.biomedcentral.com/bmcseriesblog/2014/07/28/the-new-impact-factors-are-coming/",
+                    "url": "http://blogs.biomedcentral.com/bmcseriesblog/2014/07/28/the-new-impact-factors-are-coming/"
+                },
+                "source_id": "reddit-links",
+                "obj": {
+                    "pid": "https://doi.org/10.1186/1472-6785-14-11",
+                    "url": "http://www.biomedcentral.com/1472-6785/14/11/about"
+                },
+                "timestamp": "2017-04-10T15:27:23Z",
+                "updated_date": "2017-10-13T12:38:17.290Z",
+                "relation_type_id": "discusses"
+            },
+            {
+                "license": "https://creativecommons.org/publicdomain/zero/1.0/",
+                "terms": "https://doi.org/10.13003/CED-terms-of-use",
+                "updated_reason": "https://evidence.eventdata.crossref.org/announcements/2017-10-06T00-00-00Z-ED-12.json",
+                "updated": "edited",
+                "obj_id": "https://doi.org/10.1186/2050-7283-1-18",
+                "source_token": "93df90e8-1881-40fc-b19d-49d78cc9ee24",
+                "occurred_at": "2014-07-29T11:55:04Z",
+                "subj_id": "http://blogs.biomedcentral.com/bmcseriesblog/2014/07/28/the-new-impact-factors-are-coming/",
+                "id": "ad3805a4-2ef4-4f29-a8e1-88d4b9bc1346",
+                "evidence_record": "https://evidence.eventdata.crossref.org/evidence/20170410-reddit-links-75f8e42a-bc8b-4e01-aecc-5355aaccc5ca",
+                "action": "add",
+                "subj": {
+                    "pid": "http://blogs.biomedcentral.com/bmcseriesblog/2014/07/28/the-new-impact-factors-are-coming/",
+                    "url": "http://blogs.biomedcentral.com/bmcseriesblog/2014/07/28/the-new-impact-factors-are-coming/"
+                },
+                "source_id": "reddit-links",
+                "obj": {
+                    "pid": "https://doi.org/10.1186/2050-7283-1-18",
+                    "url": "http://www.biomedcentral.com/2050-7283/1/18/about"
+                },
+                "timestamp": "2017-04-10T15:27:23Z",
+                "updated_date": "2017-10-13T12:38:17.290Z",
+                "relation_type_id": "discusses"
+            },
+            {
+                "license": "https://creativecommons.org/publicdomain/zero/1.0/",
+                "terms": "https://doi.org/10.13003/CED-terms-of-use",
+                "updated_reason": "https://evidence.eventdata.crossref.org/announcements/2017-10-06T00-00-00Z-ED-12.json",
+                "updated": "edited",
+                "obj_id": "https://doi.org/10.1371/journal.pone.0075046",
+                "source_token": "93df90e8-1881-40fc-b19d-49d78cc9ee24",
+                "occurred_at": "2014-07-29T17:40:29Z",
+                "subj_id": "https://www.washingtonpost.com/news/morning-mix/wp/2014/07/29/academias-seamier-side-lying-cheating-and-fraud/",
+                "id": "7db4167e-9728-485a-9a0a-a2f0d490aff0",
+                "evidence_record": "https://evidence.eventdata.crossref.org/evidence/20170410-reddit-links-75f8e42a-bc8b-4e01-aecc-5355aaccc5ca",
+                "action": "add",
+                "subj": {
+                    "pid": "https://www.washingtonpost.com/news/morning-mix/wp/2014/07/29/academias-seamier-side-lying-cheating-and-fraud/",
+                    "url": "http://www.washingtonpost.com/news/morning-mix/wp/2014/07/29/academias-seamier-side-lying-cheating-and-fraud/"
+                },
+                "source_id": "reddit-links",
+                "obj": {
+                    "pid": "https://doi.org/10.1371/journal.pone.0075046",
+                    "url": "http://www.plosone.org/article/info%3Adoi%2F10.1371%2Fjournal.pone.0075046"
+                },
+                "timestamp": "2017-04-10T15:27:23Z",
+                "updated_date": "2017-10-13T12:38:16.519Z",
+                "relation_type_id": "discusses"
+            },
+            {
+                "license": "https://creativecommons.org/publicdomain/zero/1.0/",
+                "terms": "https://doi.org/10.13003/CED-terms-of-use",
+                "updated_reason": "https://evidence.eventdata.crossref.org/announcements/2017-10-06T00-00-00Z-ED-12.json",
+                "updated": "edited",
+                "obj_id": "https://doi.org/10.1038/nbt.1837",
+                "source_token": "93df90e8-1881-40fc-b19d-49d78cc9ee24",
+                "occurred_at": "2014-07-25T09:06:58Z",
+                "subj_id": "http://www.evidentlycochrane.net/open-access-social-media-can-help-science-move-forwards/",
+                "id": "62724747-a91b-44c1-bcb6-39c39b37b814",
+                "evidence_record": "https://evidence.eventdata.crossref.org/evidence/20170410-reddit-links-75f8e42a-bc8b-4e01-aecc-5355aaccc5ca",
+                "action": "add",
+                "subj": {
+                    "pid": "http://www.evidentlycochrane.net/open-access-social-media-can-help-science-move-forwards/",
+                    "url": "http://www.evidentlycochrane.net/open-access-social-media-can-help-science-move-forwards/"
+                },
+                "source_id": "reddit-links",
+                "obj": {
+                    "pid": "https://doi.org/10.1038/nbt.1837",
+                    "url": "http://www.nature.com/nbt/journal/v29/n5/abs/nbt.1837.html"
+                },
+                "timestamp": "2017-04-10T15:27:23Z",
+                "updated_date": "2017-10-13T12:38:18.018Z",
+                "relation_type_id": "discusses"
+            },
+            {
+                "license": "https://creativecommons.org/publicdomain/zero/1.0/",
+                "terms": "https://doi.org/10.13003/CED-terms-of-use",
+                "updated_reason": "https://evidence.eventdata.crossref.org/announcements/2017-10-06T00-00-00Z-ED-12.json",
+                "updated": "edited",
+                "obj_id": "https://doi.org/10.1080/08109028.2014.891710",
+                "source_token": "93df90e8-1881-40fc-b19d-49d78cc9ee24",
+                "occurred_at": "2014-06-19T10:59:34Z",
+                "subj_id": "https://www.timeshighereducation.com/news/taylor-and-francis-apologises-after-censorship-debate/2014017.article",
+                "id": "5b85cd34-7350-4de0-a360-10851d0b2f34",
+                "evidence_record": "https://evidence.eventdata.crossref.org/evidence/20170410-reddit-links-75f8e42a-bc8b-4e01-aecc-5355aaccc5ca",
+                "action": "add",
+                "subj": {
+                    "pid": "https://www.timeshighereducation.com/news/taylor-and-francis-apologises-after-censorship-debate/2014017.article",
+                    "url": "http://www.timeshighereducation.co.uk/news/taylor-and-francis-apologises-after-censorship-debate/2014017.article"
+                },
+                "source_id": "reddit-links",
+                "obj": {
+                    "pid": "https://doi.org/10.1080/08109028.2014.891710",
+                    "url": "http://www.tandfonline.com/doi/full/10.1080/08109028.2014.891710"
+                },
+                "timestamp": "2017-04-10T15:27:23Z",
+                "updated_date": "2017-10-13T12:38:17.598Z",
+                "relation_type_id": "discusses"
+            },
+            {
+                "license": "https://creativecommons.org/publicdomain/zero/1.0/",
+                "terms": "https://doi.org/10.13003/CED-terms-of-use",
+                "updated_reason": "https://evidence.eventdata.crossref.org/announcements/2017-10-06T00-00-00Z-ED-12.json",
+                "updated": "edited",
+                "obj_id": "https://doi.org/10.3389/fpsyg.2013.00626",
+                "source_token": "93df90e8-1881-40fc-b19d-49d78cc9ee24",
+                "occurred_at": "2017-04-09T09:49:05Z",
+                "subj_id": "http://nymag.com/scienceofus/2016/04/why-does-running-help-clear-your-mind.html",
+                "id": "d95ae454-c232-4aea-bea5-cbd4a36f7d08",
+                "evidence_record": "https://evidence.eventdata.crossref.org/evidence/20170410-reddit-links-61c6fdf1-f11b-49cf-ae04-68b163aec830",
+                "action": "add",
+                "subj": {
+                    "pid": "http://nymag.com/scienceofus/2016/04/why-does-running-help-clear-your-mind.html",
+                    "url": "http://nymag.com/scienceofus/2016/04/how-neuroscientists-explain-the-mind-clearing-magic-of-running.html"
+                },
+                "source_id": "reddit-links",
+                "obj": {
+                    "pid": "https://doi.org/10.3389/fpsyg.2013.00626",
+                    "url": "http://journal.frontiersin.org/article/10.3389/fpsyg.2013.00626/full"
+                },
+                "timestamp": "2017-04-10T15:28:20Z",
+                "updated_date": "2017-10-13T12:38:21.583Z",
+                "relation_type_id": "discusses"
+            },
+            {
+                "license": "https://creativecommons.org/publicdomain/zero/1.0/",
+                "terms": "https://doi.org/10.13003/CED-terms-of-use",
+                "updated_reason": "https://evidence.eventdata.crossref.org/announcements/2017-10-06T00-00-00Z-ED-12.json",
+                "updated": "edited",
+                "obj_id": "https://doi.org/10.3390/ijms161126065",
+                "source_token": "93df90e8-1881-40fc-b19d-49d78cc9ee24",
+                "occurred_at": "2017-04-10T00:07:35Z",
+                "subj_id": "http://now.tufts.edu/news-releases/biologists-induce-flatworms-grow-heads-and-brains-other-species",
+                "id": "51b8ace0-b4ab-42b7-aa06-f80d66e71d74",
+                "evidence_record": "https://evidence.eventdata.crossref.org/evidence/20170410-reddit-links-61c6fdf1-f11b-49cf-ae04-68b163aec830",
+                "action": "add",
+                "subj": {
+                    "pid": "http://now.tufts.edu/news-releases/biologists-induce-flatworms-grow-heads-and-brains-other-species",
+                    "url": "http://now.tufts.edu/news-releases/biologists-induce-flatworms-grow-heads-and-brains-other-species"
+                },
+                "source_id": "reddit-links",
+                "obj": {
+                    "pid": "https://doi.org/10.3390/ijms161126065",
+                    "url": "http://www.mdpi.com/1422-0067/16/11/26065/html"
+                },
+                "timestamp": "2017-04-10T15:28:20Z",
+                "updated_date": "2017-10-13T12:38:17.905Z",
+                "relation_type_id": "discusses"
+            },
+            {
+                "license": "https://creativecommons.org/publicdomain/zero/1.0/",
+                "terms": "https://doi.org/10.13003/CED-terms-of-use",
+                "updated_reason": "https://evidence.eventdata.crossref.org/announcements/2017-10-06T00-00-00Z-ED-12.json",
+                "updated": "edited",
+                "obj_id": "https://doi.org/10.1080/02699931.2016.1168284",
+                "source_token": "93df90e8-1881-40fc-b19d-49d78cc9ee24",
+                "occurred_at": "2017-04-09T09:49:05Z",
+                "subj_id": "http://nymag.com/scienceofus/2016/04/why-does-running-help-clear-your-mind.html",
+                "id": "30625d88-e115-455d-82a6-a7c2eef1a6cd",
+                "evidence_record": "https://evidence.eventdata.crossref.org/evidence/20170410-reddit-links-61c6fdf1-f11b-49cf-ae04-68b163aec830",
+                "action": "add",
+                "subj": {
+                    "pid": "http://nymag.com/scienceofus/2016/04/why-does-running-help-clear-your-mind.html",
+                    "url": "http://nymag.com/scienceofus/2016/04/how-neuroscientists-explain-the-mind-clearing-magic-of-running.html"
+                },
+                "source_id": "reddit-links",
+                "obj": {
+                    "pid": "https://doi.org/10.1080/02699931.2016.1168284",
+                    "url": "http://www.tandfonline.com/doi/full/10.1080/02699931.2016.1168284"
+                },
+                "timestamp": "2017-04-10T15:28:20Z",
+                "updated_date": "2017-10-13T12:38:21.583Z",
+                "relation_type_id": "discusses"
+            },
+            {
+                "license": "https://creativecommons.org/publicdomain/zero/1.0/",
+                "terms": "https://doi.org/10.13003/CED-terms-of-use",
+                "updated_reason": "https://evidence.eventdata.crossref.org/announcements/2017-10-06T00-00-00Z-ED-12.json",
+                "updated": "edited",
+                "obj_id": "https://doi.org/10.1111/gbb.12109",
+                "source_token": "93df90e8-1881-40fc-b19d-49d78cc9ee24",
+                "occurred_at": "2017-04-07T09:44:19Z",
+                "subj_id": "https://www.theatlantic.com/health/archive/2015/06/gut-bacteria-on-the-brain/395918/",
+                "id": "e393ac3f-1b2f-4670-b33b-a24a068484ba",
+                "evidence_record": "https://evidence.eventdata.crossref.org/evidence/20170410-reddit-links-61c6fdf1-f11b-49cf-ae04-68b163aec830",
+                "action": "add",
+                "subj": {
+                    "pid": "https://www.theatlantic.com/health/archive/2015/06/gut-bacteria-on-the-brain/395918/",
+                    "url": "https://www.theatlantic.com/health/archive/2015/06/gut-bacteria-on-the-brain/395918/"
+                },
+                "source_id": "reddit-links",
+                "obj": {
+                    "pid": "https://doi.org/10.1111/gbb.12109",
+                    "url": "http://onlinelibrary.wiley.com/doi/10.1111/gbb.12109/abstract;jsessionid=F9A259194D111B1544816067055A05B7.f04t02"
+                },
+                "timestamp": "2017-04-10T15:28:21Z",
+                "updated_date": "2017-10-13T12:38:17.639Z",
+                "relation_type_id": "discusses"
+            },
+            {
+                "license": "https://creativecommons.org/publicdomain/zero/1.0/",
+                "terms": "https://doi.org/10.13003/CED-terms-of-use",
+                "updated_reason": "https://evidence.eventdata.crossref.org/announcements/2017-10-06T00-00-00Z-ED-12.json",
+                "updated": "edited",
+                "obj_id": "https://doi.org/10.1038/nrn3346",
+                "source_token": "93df90e8-1881-40fc-b19d-49d78cc9ee24",
+                "occurred_at": "2017-04-07T09:44:19Z",
+                "subj_id": "https://www.theatlantic.com/health/archive/2015/06/gut-bacteria-on-the-brain/395918/",
+                "id": "e07f1739-b2ff-40d6-96ed-593175db8ebe",
+                "evidence_record": "https://evidence.eventdata.crossref.org/evidence/20170410-reddit-links-61c6fdf1-f11b-49cf-ae04-68b163aec830",
+                "action": "add",
+                "subj": {
+                    "pid": "https://www.theatlantic.com/health/archive/2015/06/gut-bacteria-on-the-brain/395918/",
+                    "url": "https://www.theatlantic.com/health/archive/2015/06/gut-bacteria-on-the-brain/395918/"
+                },
+                "source_id": "reddit-links",
+                "obj": {
+                    "pid": "https://doi.org/10.1038/nrn3346",
+                    "url": "http://www.nature.com/nrn/journal/v13/n10/full/nrn3346.html"
+                },
+                "timestamp": "2017-04-10T15:28:21Z",
+                "updated_date": "2017-10-13T12:38:17.639Z",
+                "relation_type_id": "discusses"
+            },
+            {
+                "license": "https://creativecommons.org/publicdomain/zero/1.0/",
+                "terms": "https://doi.org/10.13003/CED-terms-of-use",
+                "updated_reason": "https://evidence.eventdata.crossref.org/announcements/2017-10-06T00-00-00Z-ED-12.json",
+                "updated": "edited",
+                "obj_id": "https://doi.org/10.1371/journal.ppat.1003726",
+                "source_token": "93df90e8-1881-40fc-b19d-49d78cc9ee24",
+                "occurred_at": "2017-04-07T09:44:19Z",
+                "subj_id": "https://www.theatlantic.com/health/archive/2015/06/gut-bacteria-on-the-brain/395918/",
+                "id": "a66c0474-ca3c-4fcb-acd4-ec7955e29a8c",
+                "evidence_record": "https://evidence.eventdata.crossref.org/evidence/20170410-reddit-links-61c6fdf1-f11b-49cf-ae04-68b163aec830",
+                "action": "add",
+                "subj": {
+                    "pid": "https://www.theatlantic.com/health/archive/2015/06/gut-bacteria-on-the-brain/395918/",
+                    "url": "https://www.theatlantic.com/health/archive/2015/06/gut-bacteria-on-the-brain/395918/"
+                },
+                "source_id": "reddit-links",
+                "obj": {
+                    "pid": "https://doi.org/10.1371/journal.ppat.1003726",
+                    "url": "http://journals.plos.org/plospathogens/article?id=10.1371/journal.ppat.1003726"
+                },
+                "timestamp": "2017-04-10T15:28:21Z",
+                "updated_date": "2017-10-13T12:38:17.639Z",
+                "relation_type_id": "discusses"
+            },
+            {
+                "license": "https://creativecommons.org/publicdomain/zero/1.0/",
+                "terms": "https://doi.org/10.13003/CED-terms-of-use",
+                "updated_reason": "https://evidence.eventdata.crossref.org/announcements/2017-10-06T00-00-00Z-ED-12.json",
+                "updated": "edited",
+                "obj_id": "https://doi.org/10.4161/cib.18624",
+                "source_token": "93df90e8-1881-40fc-b19d-49d78cc9ee24",
+                "occurred_at": "2017-04-07T13:21:15Z",
+                "subj_id": "http://www.npr.org/sections/health-shots/2017/04/06/522478901/in-giant-virus-genes-hints-about-their-mysterious-origin",
+                "id": "604753fd-4098-472e-92d9-11e8c296dfe5",
+                "evidence_record": "https://evidence.eventdata.crossref.org/evidence/20170410-reddit-links-61c6fdf1-f11b-49cf-ae04-68b163aec830",
+                "action": "add",
+                "subj": {
+                    "pid": "http://www.npr.org/sections/health-shots/2017/04/06/522478901/in-giant-virus-genes-hints-about-their-mysterious-origin",
+                    "url": "http://www.npr.org/sections/health-shots/2017/04/06/522478901/in-giant-virus-genes-hints-about-their-mysterious-origin"
+                },
+                "source_id": "reddit-links",
+                "obj": {
+                    "pid": "https://doi.org/10.4161/cib.18624",
+                    "url": "http://www.tandfonline.com/doi/abs/10.4161/cib.18624"
+                },
+                "timestamp": "2017-04-10T15:28:21Z",
+                "updated_date": "2017-10-13T12:38:18.079Z",
+                "relation_type_id": "discusses"
+            },
+            {
+                "license": "https://creativecommons.org/publicdomain/zero/1.0/",
+                "terms": "https://doi.org/10.13003/CED-terms-of-use",
+                "updated_reason": "https://evidence.eventdata.crossref.org/announcements/2017-10-06T00-00-00Z-ED-12.json",
+                "updated": "edited",
+                "obj_id": "https://doi.org/10.3389/fmicb.2014.00146",
+                "source_token": "93df90e8-1881-40fc-b19d-49d78cc9ee24",
+                "occurred_at": "2017-04-07T09:44:19Z",
+                "subj_id": "https://www.theatlantic.com/health/archive/2015/06/gut-bacteria-on-the-brain/395918/",
+                "id": "3b4e2d79-c4e2-48e8-a8ce-e1a4010b64cb",
+                "evidence_record": "https://evidence.eventdata.crossref.org/evidence/20170410-reddit-links-61c6fdf1-f11b-49cf-ae04-68b163aec830",
+                "action": "add",
+                "subj": {
+                    "pid": "https://www.theatlantic.com/health/archive/2015/06/gut-bacteria-on-the-brain/395918/",
+                    "url": "https://www.theatlantic.com/health/archive/2015/06/gut-bacteria-on-the-brain/395918/"
+                },
+                "source_id": "reddit-links",
+                "obj": {
+                    "pid": "https://doi.org/10.3389/fmicb.2014.00146",
+                    "url": "http://journal.frontiersin.org/article/10.3389/fmicb.2014.00146/full"
+                },
+                "timestamp": "2017-04-10T15:28:21Z",
+                "updated_date": "2017-10-13T12:38:17.639Z",
+                "relation_type_id": "discusses"
+            },
+            {
+                "license": "https://creativecommons.org/publicdomain/zero/1.0/",
+                "terms": "https://doi.org/10.13003/CED-terms-of-use",
+                "updated_reason": "https://evidence.eventdata.crossref.org/announcements/2017-10-06T00-00-00Z-ED-12.json",
+                "updated": "edited",
+                "obj_id": "https://doi.org/10.15252/msb.20167416",
+                "source_token": "93df90e8-1881-40fc-b19d-49d78cc9ee24",
+                "occurred_at": "2017-04-07T00:58:18Z",
+                "subj_id": "http://bioscriptionblog.com/2017/04/06/inflammation-bacteria-synthetic-biology/",
+                "id": "32cfd2b8-9e58-428d-b267-276776cb165b",
+                "evidence_record": "https://evidence.eventdata.crossref.org/evidence/20170410-reddit-links-61c6fdf1-f11b-49cf-ae04-68b163aec830",
+                "action": "add",
+                "subj": {
+                    "pid": "http://bioscriptionblog.com/2017/04/06/inflammation-bacteria-synthetic-biology/",
+                    "url": "http://bioscriptionblog.com/2017/04/06/inflammation-bacteria-synthetic-biology/"
+                },
+                "source_id": "reddit-links",
+                "obj": {
+                    "pid": "https://doi.org/10.15252/msb.20167416",
+                    "url": "http://msb.embopress.org/content/13/4/923"
+                },
+                "timestamp": "2017-04-10T15:28:21Z",
+                "updated_date": "2017-10-13T12:38:19.396Z",
+                "relation_type_id": "discusses"
+            },
+            {
+                "license": "https://creativecommons.org/publicdomain/zero/1.0/",
+                "terms": "https://doi.org/10.13003/CED-terms-of-use",
+                "updated_reason": "https://evidence.eventdata.crossref.org/announcements/2017-10-06T00-00-00Z-ED-12.json",
+                "updated": "edited",
+                "obj_id": "https://doi.org/10.1021/acs.jpclett.7b00267",
+                "source_token": "93df90e8-1881-40fc-b19d-49d78cc9ee24",
+                "occurred_at": "2017-04-06T13:39:04Z",
+                "subj_id": "https://sciencebulletin.org/archives/11988.html",
+                "id": "df28c34d-6c15-4538-bac3-ed41340cc5b2",
+                "evidence_record": "https://evidence.eventdata.crossref.org/evidence/20170410-reddit-links-61c6fdf1-f11b-49cf-ae04-68b163aec830",
+                "action": "add",
+                "subj": {
+                    "pid": "https://sciencebulletin.org/archives/11988.html",
+                    "url": "http://www.b2s.pm/1gX6x5"
+                },
+                "source_id": "reddit-links",
+                "obj": {
+                    "pid": "https://doi.org/10.1021/acs.jpclett.7b00267",
+                    "url": "http://dx.doi.org/10.1021/acs.jpclett.7b00267"
+                },
+                "timestamp": "2017-04-10T15:28:22Z",
+                "updated_date": "2017-10-13T12:38:20.973Z",
+                "relation_type_id": "discusses"
+            },
+            {
+                "license": "https://creativecommons.org/publicdomain/zero/1.0/",
+                "terms": "https://doi.org/10.13003/CED-terms-of-use",
+                "updated_reason": "https://evidence.eventdata.crossref.org/announcements/2017-10-06T00-00-00Z-ED-12.json",
+                "updated": "edited",
+                "obj_id": "https://doi.org/10.1073/pnas.1620410114",
+                "source_token": "93df90e8-1881-40fc-b19d-49d78cc9ee24",
+                "occurred_at": "2017-04-06T13:39:04Z",
+                "subj_id": "https://sciencebulletin.org/archives/11988.html",
+                "id": "3592b0d6-6dbb-4dd9-b6a0-01304b6ea682",
+                "evidence_record": "https://evidence.eventdata.crossref.org/evidence/20170410-reddit-links-61c6fdf1-f11b-49cf-ae04-68b163aec830",
+                "action": "add",
+                "subj": {
+                    "pid": "https://sciencebulletin.org/archives/11988.html",
+                    "url": "http://www.b2s.pm/1gX6x5"
+                },
+                "source_id": "reddit-links",
+                "obj": {
+                    "pid": "https://doi.org/10.1073/pnas.1620410114",
+                    "url": "https://doi.org/10.1073/pnas.1620410114"
+                },
+                "timestamp": "2017-04-10T15:28:22Z",
+                "updated_date": "2017-10-13T12:38:20.973Z",
+                "relation_type_id": "discusses"
+            },
+            {
+                "license": "https://creativecommons.org/publicdomain/zero/1.0/",
+                "terms": "https://doi.org/10.13003/CED-terms-of-use",
+                "updated_reason": "https://evidence.eventdata.crossref.org/announcements/2017-10-06T00-00-00Z-ED-12.json",
+                "updated": "edited",
+                "obj_id": "https://doi.org/10.1021/acs.jpclett.7b00267",
+                "source_token": "93df90e8-1881-40fc-b19d-49d78cc9ee24",
+                "occurred_at": "2017-04-06T13:39:04Z",
+                "subj_id": "https://sciencebulletin.org/archives/11988.html",
+                "id": "3532f2e4-0128-4314-876e-1dafb017fa04",
+                "evidence_record": "https://evidence.eventdata.crossref.org/evidence/20170410-reddit-links-61c6fdf1-f11b-49cf-ae04-68b163aec830",
+                "action": "add",
+                "subj": {
+                    "pid": "https://sciencebulletin.org/archives/11988.html",
+                    "url": "http://www.b2s.pm/1gX6x5"
+                },
+                "source_id": "reddit-links",
+                "obj": {
+                    "pid": "https://doi.org/10.1021/acs.jpclett.7b00267",
+                    "url": "http://dx.doi.org/10.1021/acs.jpclett.7b00267"
+                },
+                "timestamp": "2017-04-10T15:28:22Z",
+                "updated_date": "2017-10-13T12:38:20.973Z",
+                "relation_type_id": "discusses"
+            },
+            {
+                "license": "https://creativecommons.org/publicdomain/zero/1.0/",
+                "terms": "https://doi.org/10.13003/CED-terms-of-use",
+                "updated_reason": "https://evidence.eventdata.crossref.org/announcements/2017-10-06T00-00-00Z-ED-12.json",
+                "updated": "edited",
+                "obj_id": "https://doi.org/10.1021/acs.jpclett.7b00267",
+                "source_token": "93df90e8-1881-40fc-b19d-49d78cc9ee24",
+                "occurred_at": "2017-04-06T13:39:04Z",
+                "subj_id": "https://sciencebulletin.org/archives/11988.html",
+                "id": "15c5a7a1-b1fd-49e2-b54e-22f78cfcff4a",
+                "evidence_record": "https://evidence.eventdata.crossref.org/evidence/20170410-reddit-links-61c6fdf1-f11b-49cf-ae04-68b163aec830",
+                "action": "add",
+                "subj": {
+                    "pid": "https://sciencebulletin.org/archives/11988.html",
+                    "url": "http://www.b2s.pm/1gX6x5"
+                },
+                "source_id": "reddit-links",
+                "obj": {
+                    "pid": "https://doi.org/10.1021/acs.jpclett.7b00267",
+                    "url": "https://doi.org/10.1021/acs.jpclett.7b00267"
+                },
+                "timestamp": "2017-04-10T15:28:22Z",
+                "updated_date": "2017-10-13T12:38:20.973Z",
+                "relation_type_id": "discusses"
+            },
+            {
+                "license": "https://creativecommons.org/publicdomain/zero/1.0/",
+                "terms": "https://doi.org/10.13003/CED-terms-of-use",
+                "updated_reason": "https://evidence.eventdata.crossref.org/announcements/2017-10-06T00-00-00Z-ED-12.json",
+                "updated": "edited",
+                "obj_id": "https://doi.org/10.1038/530390a",
+                "source_token": "93df90e8-1881-40fc-b19d-49d78cc9ee24",
+                "occurred_at": "2017-04-05T12:12:46Z",
+                "subj_id": "http://www.slate.com/articles/technology/future_tense/2017/04/what_exactly_is_synthetic_biology.html",
+                "id": "0fb85b34-dc04-4c16-8d3f-22a1a2e31cf0",
+                "evidence_record": "https://evidence.eventdata.crossref.org/evidence/20170410-reddit-links-61c6fdf1-f11b-49cf-ae04-68b163aec830",
+                "action": "add",
+                "subj": {
+                    "pid": "http://www.slate.com/articles/technology/future_tense/2017/04/what_exactly_is_synthetic_biology.html",
+                    "url": "http://www.slate.com/articles/technology/future_tense/2017/04/what_exactly_is_synthetic_biology.html"
+                },
+                "source_id": "reddit-links",
+                "obj": {
+                    "pid": "https://doi.org/10.1038/530390a",
+                    "url": "http://www.nature.com/news/synthetic-biology-s-first-malaria-drug-meets-market-resistance-1.19426"
+                },
+                "timestamp": "2017-04-10T15:28:22Z",
+                "updated_date": "2017-10-13T12:38:19.425Z",
+                "relation_type_id": "discusses"
+            },
+            {
+                "license": "https://creativecommons.org/publicdomain/zero/1.0/",
+                "terms": "https://doi.org/10.13003/CED-terms-of-use",
+                "updated_reason": "https://evidence.eventdata.crossref.org/announcements/2017-10-06T00-00-00Z-ED-12.json",
+                "updated": "edited",
+                "obj_id": "https://doi.org/10.1038/531557a",
+                "source_token": "93df90e8-1881-40fc-b19d-49d78cc9ee24",
+                "occurred_at": "2017-04-05T12:12:46Z",
+                "subj_id": "http://www.slate.com/articles/technology/future_tense/2017/04/what_exactly_is_synthetic_biology.html",
+                "id": "d86e282b-9c8a-4133-aab3-953a1b995154",
+                "evidence_record": "https://evidence.eventdata.crossref.org/evidence/20170410-reddit-links-61c6fdf1-f11b-49cf-ae04-68b163aec830",
+                "action": "add",
+                "subj": {
+                    "pid": "http://www.slate.com/articles/technology/future_tense/2017/04/what_exactly_is_synthetic_biology.html",
+                    "url": "http://www.slate.com/articles/technology/future_tense/2017/04/what_exactly_is_synthetic_biology.html"
+                },
+                "source_id": "reddit-links",
+                "obj": {
+                    "pid": "https://doi.org/10.1038/531557a",
+                    "url": "http://www.nature.com/news/minimal-cell-raises-stakes-in-race-to-harness-synthetic-life-1.19633"
+                },
+                "timestamp": "2017-04-10T15:28:23Z",
+                "updated_date": "2017-10-13T12:38:19.425Z",
+                "relation_type_id": "discusses"
+            },
+            {
+                "license": "https://creativecommons.org/publicdomain/zero/1.0/",
+                "terms": "https://doi.org/10.13003/CED-terms-of-use",
+                "updated_reason": "https://evidence.eventdata.crossref.org/announcements/2017-10-06T00-00-00Z-ED-12.json",
+                "updated": "edited",
+                "obj_id": "https://doi.org/10.1126/science.aal3794",
+                "source_token": "93df90e8-1881-40fc-b19d-49d78cc9ee24",
+                "occurred_at": "2017-04-03T20:09:40Z",
+                "subj_id": "https://sciencebulletin.org/archives/11874.html",
+                "id": "87065fe0-1372-4a9f-9806-ea43a055113d",
+                "evidence_record": "https://evidence.eventdata.crossref.org/evidence/20170410-reddit-links-61c6fdf1-f11b-49cf-ae04-68b163aec830",
+                "action": "add",
+                "subj": {
+                    "pid": "https://sciencebulletin.org/archives/11874.html",
+                    "url": "http://www.b2s.pm/EGJpuL"
+                },
+                "source_id": "reddit-links",
+                "obj": {
+                    "pid": "https://doi.org/10.1126/science.aal3794",
+                    "url": "http://dx.doi.org/10.1126/science.aal3794"
+                },
+                "timestamp": "2017-04-10T15:28:23Z",
+                "updated_date": "2017-10-13T12:38:21.117Z",
+                "relation_type_id": "discusses"
+            },
+            {
+                "license": "https://creativecommons.org/publicdomain/zero/1.0/",
+                "terms": "https://doi.org/10.13003/CED-terms-of-use",
+                "updated_reason": "https://evidence.eventdata.crossref.org/announcements/2017-10-06T00-00-00Z-ED-12.json",
+                "updated": "edited",
+                "obj_id": "https://doi.org/10.1126/science.aal3794",
+                "source_token": "93df90e8-1881-40fc-b19d-49d78cc9ee24",
+                "occurred_at": "2017-04-03T20:09:40Z",
+                "subj_id": "https://sciencebulletin.org/archives/11874.html",
+                "id": "53b40353-ddc8-4c76-9996-14854d4565af",
+                "evidence_record": "https://evidence.eventdata.crossref.org/evidence/20170410-reddit-links-61c6fdf1-f11b-49cf-ae04-68b163aec830",
+                "action": "add",
+                "subj": {
+                    "pid": "https://sciencebulletin.org/archives/11874.html",
+                    "url": "http://www.b2s.pm/EGJpuL"
+                },
+                "source_id": "reddit-links",
+                "obj": {
+                    "pid": "https://doi.org/10.1126/science.aal3794",
+                    "url": "https://doi.org/10.1126/science.aal3794"
+                },
+                "timestamp": "2017-04-10T15:28:23Z",
+                "updated_date": "2017-10-13T12:38:21.117Z",
+                "relation_type_id": "discusses"
+            },
+            {
+                "license": "https://creativecommons.org/publicdomain/zero/1.0/",
+                "terms": "https://doi.org/10.13003/CED-terms-of-use",
+                "updated_reason": "https://evidence.eventdata.crossref.org/announcements/2017-10-06T00-00-00Z-ED-12.json",
+                "updated": "edited",
+                "obj_id": "https://doi.org/10.1038/540319d",
+                "source_token": "93df90e8-1881-40fc-b19d-49d78cc9ee24",
+                "occurred_at": "2017-04-05T12:12:46Z",
+                "subj_id": "http://www.slate.com/articles/technology/future_tense/2017/04/what_exactly_is_synthetic_biology.html",
+                "id": "50f0e4ba-a6d4-4c3f-9fb4-87ff95c8195e",
+                "evidence_record": "https://evidence.eventdata.crossref.org/evidence/20170410-reddit-links-61c6fdf1-f11b-49cf-ae04-68b163aec830",
+                "action": "add",
+                "subj": {
+                    "pid": "http://www.slate.com/articles/technology/future_tense/2017/04/what_exactly_is_synthetic_biology.html",
+                    "url": "http://www.slate.com/articles/technology/future_tense/2017/04/what_exactly_is_synthetic_biology.html"
+                },
+                "source_id": "reddit-links",
+                "obj": {
+                    "pid": "https://doi.org/10.1038/540319d",
+                    "url": "http://www.nature.com/nature/journal/v540/n7633/full/540319d.html"
+                },
+                "timestamp": "2017-04-10T15:28:23Z",
+                "updated_date": "2017-10-13T12:38:19.425Z",
+                "relation_type_id": "discusses"
+            },
+            {
+                "license": "https://creativecommons.org/publicdomain/zero/1.0/",
+                "terms": "https://doi.org/10.13003/CED-terms-of-use",
+                "updated_reason": "https://evidence.eventdata.crossref.org/announcements/2017-10-06T00-00-00Z-ED-12.json",
+                "updated": "edited",
+                "obj_id": "https://doi.org/10.1038/463288a",
+                "source_token": "93df90e8-1881-40fc-b19d-49d78cc9ee24",
+                "occurred_at": "2017-04-05T12:12:46Z",
+                "subj_id": "http://www.slate.com/articles/technology/future_tense/2017/04/what_exactly_is_synthetic_biology.html",
+                "id": "454d77df-340e-4e6e-aaf4-3f18d1eadb3f",
+                "evidence_record": "https://evidence.eventdata.crossref.org/evidence/20170410-reddit-links-61c6fdf1-f11b-49cf-ae04-68b163aec830",
+                "action": "add",
+                "subj": {
+                    "pid": "http://www.slate.com/articles/technology/future_tense/2017/04/what_exactly_is_synthetic_biology.html",
+                    "url": "http://www.slate.com/articles/technology/future_tense/2017/04/what_exactly_is_synthetic_biology.html"
+                },
+                "source_id": "reddit-links",
+                "obj": {
+                    "pid": "https://doi.org/10.1038/463288a",
+                    "url": "http://www.nature.com/news/2010/100120/full/463288a.html"
+                },
+                "timestamp": "2017-04-10T15:28:23Z",
+                "updated_date": "2017-10-13T12:38:19.425Z",
+                "relation_type_id": "discusses"
+            },
+            {
+                "license": "https://creativecommons.org/publicdomain/zero/1.0/",
+                "terms": "https://doi.org/10.13003/CED-terms-of-use",
+                "updated_reason": "https://evidence.eventdata.crossref.org/announcements/2017-10-06T00-00-00Z-ED-12.json",
+                "updated": "edited",
+                "obj_id": "https://doi.org/10.1126/science.aal3794",
+                "source_token": "93df90e8-1881-40fc-b19d-49d78cc9ee24",
+                "occurred_at": "2017-04-03T20:09:40Z",
+                "subj_id": "https://sciencebulletin.org/archives/11874.html",
+                "id": "b26f2c7a-d1d7-4edc-9e5b-953dd0f626de",
+                "evidence_record": "https://evidence.eventdata.crossref.org/evidence/20170410-reddit-links-61c6fdf1-f11b-49cf-ae04-68b163aec830",
+                "action": "add",
+                "subj": {
+                    "pid": "https://sciencebulletin.org/archives/11874.html",
+                    "url": "http://www.b2s.pm/EGJpuL"
+                },
+                "source_id": "reddit-links",
+                "obj": {
+                    "pid": "https://doi.org/10.1126/science.aal3794",
+                    "url": "http://dx.doi.org/10.1126/science.aal3794"
+                },
+                "timestamp": "2017-04-10T15:28:24Z",
+                "updated_date": "2017-10-13T12:38:21.117Z",
+                "relation_type_id": "discusses"
+            },
+            {
+                "license": "https://creativecommons.org/publicdomain/zero/1.0/",
+                "terms": "https://doi.org/10.13003/CED-terms-of-use",
+                "updated_reason": "https://evidence.eventdata.crossref.org/announcements/2017-10-06T00-00-00Z-ED-12.json",
+                "updated": "edited",
+                "obj_id": "https://doi.org/10.1038/nrg2749",
+                "source_token": "93df90e8-1881-40fc-b19d-49d78cc9ee24",
+                "occurred_at": "2017-03-30T00:45:58Z",
+                "subj_id": "http://bioscriptionblog.com/2017/03/29/crispr-primer-varieties/",
+                "id": "4226e5dc-d949-4bc7-8f9e-501d680abf75",
+                "evidence_record": "https://evidence.eventdata.crossref.org/evidence/20170410-reddit-links-61c6fdf1-f11b-49cf-ae04-68b163aec830",
+                "action": "add",
+                "subj": {
+                    "pid": "http://bioscriptionblog.com/2017/03/29/crispr-primer-varieties/",
+                    "url": "http://bioscriptionblog.com/2017/03/29/crispr-primer-varieties/"
+                },
+                "source_id": "reddit-links",
+                "obj": {
+                    "pid": "https://doi.org/10.1038/nrg2749",
+                    "url": "https://doi.org/10.1038/nrg2749"
+                },
+                "timestamp": "2017-04-10T15:28:24Z",
+                "updated_date": "2017-10-13T12:38:25.541Z",
+                "relation_type_id": "discusses"
+            },
+            {
+                "license": "https://creativecommons.org/publicdomain/zero/1.0/",
+                "terms": "https://doi.org/10.13003/CED-terms-of-use",
+                "updated_reason": "https://evidence.eventdata.crossref.org/announcements/2017-10-06T00-00-00Z-ED-12.json",
+                "updated": "edited",
+                "obj_id": "https://doi.org/10.1126/science.1225829",
+                "source_token": "93df90e8-1881-40fc-b19d-49d78cc9ee24",
+                "occurred_at": "2017-03-30T00:45:58Z",
+                "subj_id": "http://bioscriptionblog.com/2017/03/29/crispr-primer-varieties/",
+                "id": "3cb2e2c2-ba72-4c8b-a566-7a10553ba4d6",
+                "evidence_record": "https://evidence.eventdata.crossref.org/evidence/20170410-reddit-links-61c6fdf1-f11b-49cf-ae04-68b163aec830",
+                "action": "add",
+                "subj": {
+                    "pid": "http://bioscriptionblog.com/2017/03/29/crispr-primer-varieties/",
+                    "url": "http://bioscriptionblog.com/2017/03/29/crispr-primer-varieties/"
+                },
+                "source_id": "reddit-links",
+                "obj": {
+                    "pid": "https://doi.org/10.1126/science.1225829",
+                    "url": "https://doi.org/10.1126/science.1225829"
+                },
+                "timestamp": "2017-04-10T15:28:24Z",
+                "updated_date": "2017-10-13T12:38:25.541Z",
+                "relation_type_id": "discusses"
+            },
+            {
+                "license": "https://creativecommons.org/publicdomain/zero/1.0/",
+                "terms": "https://doi.org/10.13003/CED-terms-of-use",
+                "updated_reason": "https://evidence.eventdata.crossref.org/announcements/2017-10-06T00-00-00Z-ED-12.json",
+                "updated": "edited",
+                "obj_id": "https://doi.org/10.1038/518292a",
+                "source_token": "93df90e8-1881-40fc-b19d-49d78cc9ee24",
+                "occurred_at": "2017-04-01T21:13:32Z",
+                "subj_id": "https://www.washingtonpost.com/news/speaking-of-science/wp/2017/03/29/a-university-is-eliminating-its-science-collection-to-expand-a-running-track/",
+                "id": "2d7424f3-0eff-4b45-be84-73d17aa77a34",
+                "evidence_record": "https://evidence.eventdata.crossref.org/evidence/20170410-reddit-links-61c6fdf1-f11b-49cf-ae04-68b163aec830",
+                "action": "add",
+                "subj": {
+                    "pid": "https://www.washingtonpost.com/news/speaking-of-science/wp/2017/03/29/a-university-is-eliminating-its-science-collection-to-expand-a-running-track/",
+                    "url": "https://www.washingtonpost.com/news/speaking-of-science/wp/2017/03/29/a-university-is-eliminating-its-science-collection-to-expand-a-running-track/"
+                },
+                "source_id": "reddit-links",
+                "obj": {
+                    "pid": "https://doi.org/10.1038/518292a",
+                    "url": "http://www.nature.com/news/museums-the-endangered-dead-1.16942"
+                },
+                "timestamp": "2017-04-10T15:28:24Z",
+                "updated_date": "2017-10-13T12:38:25.852Z",
+                "relation_type_id": "discusses"
+            },
+            {
+                "license": "https://creativecommons.org/publicdomain/zero/1.0/",
+                "terms": "https://doi.org/10.13003/CED-terms-of-use",
+                "updated_reason": "https://evidence.eventdata.crossref.org/announcements/2017-10-06T00-00-00Z-ED-12.json",
+                "updated": "edited",
+                "obj_id": "https://doi.org/10.1038/523016a",
+                "source_token": "93df90e8-1881-40fc-b19d-49d78cc9ee24",
+                "occurred_at": "2017-04-01T21:13:32Z",
+                "subj_id": "https://www.washingtonpost.com/news/speaking-of-science/wp/2017/03/29/a-university-is-eliminating-its-science-collection-to-expand-a-running-track/",
+                "id": "116666c2-7fd2-4eb0-bdf1-c27a5f18cbde",
+                "evidence_record": "https://evidence.eventdata.crossref.org/evidence/20170410-reddit-links-61c6fdf1-f11b-49cf-ae04-68b163aec830",
+                "action": "add",
+                "subj": {
+                    "pid": "https://www.washingtonpost.com/news/speaking-of-science/wp/2017/03/29/a-university-is-eliminating-its-science-collection-to-expand-a-running-track/",
+                    "url": "https://www.washingtonpost.com/news/speaking-of-science/wp/2017/03/29/a-university-is-eliminating-its-science-collection-to-expand-a-running-track/"
+                },
+                "source_id": "reddit-links",
+                "obj": {
+                    "pid": "https://doi.org/10.1038/523016a",
+                    "url": "http://www.nature.com/news/plant-collections-left-in-the-cold-by-cuts-1.17875"
+                },
+                "timestamp": "2017-04-10T15:28:24Z",
+                "updated_date": "2017-10-13T12:38:25.852Z",
+                "relation_type_id": "discusses"
+            },
+            {
+                "license": "https://creativecommons.org/publicdomain/zero/1.0/",
+                "terms": "https://doi.org/10.13003/CED-terms-of-use",
+                "updated_reason": "https://evidence.eventdata.crossref.org/announcements/2017-10-06T00-00-00Z-ED-12.json",
+                "updated": "edited",
+                "obj_id": "https://doi.org/10.1016/j.molcel.2009.12.033",
+                "source_token": "93df90e8-1881-40fc-b19d-49d78cc9ee24",
+                "occurred_at": "2017-03-30T00:45:58Z",
+                "subj_id": "http://bioscriptionblog.com/2017/03/29/crispr-primer-varieties/",
+                "id": "f563483d-496d-42f0-886b-01ade42a4d73",
+                "evidence_record": "https://evidence.eventdata.crossref.org/evidence/20170410-reddit-links-61c6fdf1-f11b-49cf-ae04-68b163aec830",
+                "action": "add",
+                "subj": {
+                    "pid": "http://bioscriptionblog.com/2017/03/29/crispr-primer-varieties/",
+                    "url": "http://bioscriptionblog.com/2017/03/29/crispr-primer-varieties/"
+                },
+                "source_id": "reddit-links",
+                "obj": {
+                    "pid": "https://doi.org/10.1016/j.molcel.2009.12.033",
+                    "url": "https://doi.org/10.1016/j.molcel.2009.12.033"
+                },
+                "timestamp": "2017-04-10T15:28:25Z",
+                "updated_date": "2017-10-13T12:38:25.541Z",
+                "relation_type_id": "discusses"
+            },
+            {
+                "license": "https://creativecommons.org/publicdomain/zero/1.0/",
+                "terms": "https://doi.org/10.13003/CED-terms-of-use",
+                "updated_reason": "https://evidence.eventdata.crossref.org/announcements/2017-10-06T00-00-00Z-ED-12.json",
+                "updated": "edited",
+                "obj_id": "https://doi.org/10.1186/s13059-015-0816-9",
+                "source_token": "93df90e8-1881-40fc-b19d-49d78cc9ee24",
+                "occurred_at": "2017-03-30T00:45:58Z",
+                "subj_id": "http://bioscriptionblog.com/2017/03/29/crispr-primer-varieties/",
+                "id": "473fcf7b-d924-4399-8819-942b198d13c7",
+                "evidence_record": "https://evidence.eventdata.crossref.org/evidence/20170410-reddit-links-61c6fdf1-f11b-49cf-ae04-68b163aec830",
+                "action": "add",
+                "subj": {
+                    "pid": "http://bioscriptionblog.com/2017/03/29/crispr-primer-varieties/",
+                    "url": "http://bioscriptionblog.com/2017/03/29/crispr-primer-varieties/"
+                },
+                "source_id": "reddit-links",
+                "obj": {
+                    "pid": "https://doi.org/10.1186/s13059-015-0816-9",
+                    "url": "https://doi.org/10.1186/s13059-015-0816-9"
+                },
+                "timestamp": "2017-04-10T15:28:25Z",
+                "updated_date": "2017-10-13T12:38:25.541Z",
+                "relation_type_id": "discusses"
+            },
+            {
+                "license": "https://creativecommons.org/publicdomain/zero/1.0/",
+                "terms": "https://doi.org/10.13003/CED-terms-of-use",
+                "updated_reason": "https://evidence.eventdata.crossref.org/announcements/2017-10-06T00-00-00Z-ED-12.json",
+                "updated": "edited",
+                "obj_id": "https://doi.org/10.1126/science.aaf5573",
+                "source_token": "93df90e8-1881-40fc-b19d-49d78cc9ee24",
+                "occurred_at": "2017-03-30T00:45:58Z",
+                "subj_id": "http://bioscriptionblog.com/2017/03/29/crispr-primer-varieties/",
+                "id": "2c611937-8a87-4ba2-ba6a-997864a4c061",
+                "evidence_record": "https://evidence.eventdata.crossref.org/evidence/20170410-reddit-links-61c6fdf1-f11b-49cf-ae04-68b163aec830",
+                "action": "add",
+                "subj": {
+                    "pid": "http://bioscriptionblog.com/2017/03/29/crispr-primer-varieties/",
+                    "url": "http://bioscriptionblog.com/2017/03/29/crispr-primer-varieties/"
+                },
+                "source_id": "reddit-links",
+                "obj": {
+                    "pid": "https://doi.org/10.1126/science.aaf5573",
+                    "url": "https://doi.org/10.1126/science.aaf5573"
+                },
+                "timestamp": "2017-04-10T15:28:25Z",
+                "updated_date": "2017-10-13T12:38:25.541Z",
+                "relation_type_id": "discusses"
+            },
+            {
+                "license": "https://creativecommons.org/publicdomain/zero/1.0/",
+                "terms": "https://doi.org/10.13003/CED-terms-of-use",
+                "updated_reason": "https://evidence.eventdata.crossref.org/announcements/2017-10-06T00-00-00Z-ED-12.json",
+                "updated": "edited",
+                "obj_id": "https://doi.org/10.1016/j.molcel.2014.10.005",
+                "source_token": "93df90e8-1881-40fc-b19d-49d78cc9ee24",
+                "occurred_at": "2017-03-30T00:45:58Z",
+                "subj_id": "http://bioscriptionblog.com/2017/03/29/crispr-primer-varieties/",
+                "id": "20b60cb5-f141-4fa4-9ac3-edfe6e6445a4",
+                "evidence_record": "https://evidence.eventdata.crossref.org/evidence/20170410-reddit-links-61c6fdf1-f11b-49cf-ae04-68b163aec830",
+                "action": "add",
+                "subj": {
+                    "pid": "http://bioscriptionblog.com/2017/03/29/crispr-primer-varieties/",
+                    "url": "http://bioscriptionblog.com/2017/03/29/crispr-primer-varieties/"
+                },
+                "source_id": "reddit-links",
+                "obj": {
+                    "pid": "https://doi.org/10.1016/j.molcel.2014.10.005",
+                    "url": "https://doi.org/10.1016/j.molcel.2014.10.005"
+                },
+                "timestamp": "2017-04-10T15:28:25Z",
+                "updated_date": "2017-10-13T12:38:25.541Z",
+                "relation_type_id": "discusses"
+            },
+            {
+                "license": "https://creativecommons.org/publicdomain/zero/1.0/",
+                "terms": "https://doi.org/10.13003/CED-terms-of-use",
+                "updated_reason": "https://evidence.eventdata.crossref.org/announcements/2017-10-06T00-00-00Z-ED-12.json",
+                "updated": "edited",
+                "obj_id": "https://doi.org/10.1126/science.aaa4535",
+                "source_token": "93df90e8-1881-40fc-b19d-49d78cc9ee24",
+                "occurred_at": "2017-03-30T00:45:58Z",
+                "subj_id": "http://bioscriptionblog.com/2017/03/29/crispr-primer-varieties/",
+                "id": "09f76646-99ec-4486-b293-a2b8bae82086",
+                "evidence_record": "https://evidence.eventdata.crossref.org/evidence/20170410-reddit-links-61c6fdf1-f11b-49cf-ae04-68b163aec830",
+                "action": "add",
+                "subj": {
+                    "pid": "http://bioscriptionblog.com/2017/03/29/crispr-primer-varieties/",
+                    "url": "http://bioscriptionblog.com/2017/03/29/crispr-primer-varieties/"
+                },
+                "source_id": "reddit-links",
+                "obj": {
+                    "pid": "https://doi.org/10.1126/science.aaa4535",
+                    "url": "https://doi.org/10.1126/science.aaa4535"
+                },
+                "timestamp": "2017-04-10T15:28:25Z",
+                "updated_date": "2017-10-13T12:38:25.541Z",
+                "relation_type_id": "discusses"
+            },
+            {
+                "license": "https://creativecommons.org/publicdomain/zero/1.0/",
+                "terms": "https://doi.org/10.13003/CED-terms-of-use",
+                "updated_reason": "https://evidence.eventdata.crossref.org/announcements/2017-10-06T00-00-00Z-ED-12.json",
+                "updated": "edited",
+                "obj_id": "https://doi.org/10.1038/nature.2015.18432",
+                "source_token": "93df90e8-1881-40fc-b19d-49d78cc9ee24",
+                "occurred_at": "2017-03-30T00:45:58Z",
+                "subj_id": "http://bioscriptionblog.com/2017/03/29/crispr-primer-varieties/",
+                "id": "f346219e-0498-47aa-ae4a-88b0209e95a1",
+                "evidence_record": "https://evidence.eventdata.crossref.org/evidence/20170410-reddit-links-61c6fdf1-f11b-49cf-ae04-68b163aec830",
+                "action": "add",
+                "subj": {
+                    "pid": "http://bioscriptionblog.com/2017/03/29/crispr-primer-varieties/",
+                    "url": "http://bioscriptionblog.com/2017/03/29/crispr-primer-varieties/"
+                },
+                "source_id": "reddit-links",
+                "obj": {
+                    "pid": "https://doi.org/10.1038/nature.2015.18432",
+                    "url": "https://doi.org/10.1038/nature.2015.18432"
+                },
+                "timestamp": "2017-04-10T15:28:26Z",
+                "updated_date": "2017-10-13T12:38:25.541Z",
+                "relation_type_id": "discusses"
+            },
+            {
+                "license": "https://creativecommons.org/publicdomain/zero/1.0/",
+                "terms": "https://doi.org/10.13003/CED-terms-of-use",
+                "updated_reason": "https://evidence.eventdata.crossref.org/announcements/2017-10-06T00-00-00Z-ED-12.json",
+                "updated": "edited",
+                "obj_id": "https://doi.org/10.1038/ncomms14690",
+                "source_token": "93df90e8-1881-40fc-b19d-49d78cc9ee24",
+                "occurred_at": "2017-03-25T23:31:09Z",
+                "subj_id": "http://bioscriptionblog.com/2017/03/25/gmo-plants-breath-underwater/",
+                "id": "b121c4a7-5eef-4b99-92c0-dcd1ff126d81",
+                "evidence_record": "https://evidence.eventdata.crossref.org/evidence/20170410-reddit-links-61c6fdf1-f11b-49cf-ae04-68b163aec830",
+                "action": "add",
+                "subj": {
+                    "pid": "http://bioscriptionblog.com/2017/03/25/gmo-plants-breath-underwater/",
+                    "url": "http://bioscriptionblog.com/2017/03/25/gmo-plants-breath-underwater/"
+                },
+                "source_id": "reddit-links",
+                "obj": {
+                    "pid": "https://doi.org/10.1038/ncomms14690",
+                    "url": "http://www.nature.com/articles/ncomms14690"
+                },
+                "timestamp": "2017-04-10T15:28:26Z",
+                "updated_date": "2017-10-13T12:38:25.654Z",
+                "relation_type_id": "discusses"
+            },
+            {
+                "license": "https://creativecommons.org/publicdomain/zero/1.0/",
+                "terms": "https://doi.org/10.13003/CED-terms-of-use",
+                "updated_reason": "https://evidence.eventdata.crossref.org/announcements/2017-10-06T00-00-00Z-ED-12.json",
+                "updated": "edited",
+                "obj_id": "https://doi.org/10.1371/journal.pbio.2001861",
+                "source_token": "93df90e8-1881-40fc-b19d-49d78cc9ee24",
+                "occurred_at": "2017-03-24T11:14:52Z",
+                "subj_id": "http://blog.pnas.org/2017/03/journal-club-antibiotics-alter-the-honeybee-microbiome-and-increase-bee-death/",
+                "id": "88f48d5e-9eb7-4ea9-a706-e27d2d834839",
+                "evidence_record": "https://evidence.eventdata.crossref.org/evidence/20170410-reddit-links-61c6fdf1-f11b-49cf-ae04-68b163aec830",
+                "action": "add",
+                "subj": {
+                    "pid": "http://blog.pnas.org/2017/03/journal-club-antibiotics-alter-the-honeybee-microbiome-and-increase-bee-death/",
+                    "url": "http://blog.pnas.org/2017/03/journal-club-antibiotics-alter-the-honeybee-microbiome-and-increase-bee-death/"
+                },
+                "source_id": "reddit-links",
+                "obj": {
+                    "pid": "https://doi.org/10.1371/journal.pbio.2001861",
+                    "url": "http://journals.plos.org/plosbiology/article?id=10.1371/journal.pbio.2001861"
+                },
+                "timestamp": "2017-04-10T15:28:26Z",
+                "updated_date": "2017-10-13T12:38:25.842Z",
+                "relation_type_id": "discusses"
+            },
+            {
+                "license": "https://creativecommons.org/publicdomain/zero/1.0/",
+                "terms": "https://doi.org/10.13003/CED-terms-of-use",
+                "updated_reason": "https://evidence.eventdata.crossref.org/announcements/2017-10-06T00-00-00Z-ED-12.json",
+                "updated": "edited",
+                "obj_id": "https://doi.org/10.1038/nrmicro3569",
+                "source_token": "93df90e8-1881-40fc-b19d-49d78cc9ee24",
+                "occurred_at": "2017-03-30T00:45:58Z",
+                "subj_id": "http://bioscriptionblog.com/2017/03/29/crispr-primer-varieties/",
+                "id": "42eb9bb4-fbf3-407c-9509-9541218a8907",
+                "evidence_record": "https://evidence.eventdata.crossref.org/evidence/20170410-reddit-links-61c6fdf1-f11b-49cf-ae04-68b163aec830",
+                "action": "add",
+                "subj": {
+                    "pid": "http://bioscriptionblog.com/2017/03/29/crispr-primer-varieties/",
+                    "url": "http://bioscriptionblog.com/2017/03/29/crispr-primer-varieties/"
+                },
+                "source_id": "reddit-links",
+                "obj": {
+                    "pid": "https://doi.org/10.1038/nrmicro3569",
+                    "url": "https://doi.org/10.1038/nrmicro3569"
+                },
+                "timestamp": "2017-04-10T15:28:26Z",
+                "updated_date": "2017-10-13T12:38:25.541Z",
+                "relation_type_id": "discusses"
+            },
+            {
+                "license": "https://creativecommons.org/publicdomain/zero/1.0/",
+                "terms": "https://doi.org/10.13003/CED-terms-of-use",
+                "updated_reason": "https://evidence.eventdata.crossref.org/announcements/2017-10-06T00-00-00Z-ED-12.json",
+                "updated": "edited",
+                "obj_id": "https://doi.org/10.1016/j.cub.2017.02.020",
+                "source_token": "93df90e8-1881-40fc-b19d-49d78cc9ee24",
+                "occurred_at": "2017-03-21T04:39:36Z",
+                "subj_id": "https://www.newscientist.com/article/2125261-parrots-find-laughter-contagious-and-high-five-in-mid-air/",
+                "id": "231d7d83-267e-4083-ab00-f49d2944f635",
+                "evidence_record": "https://evidence.eventdata.crossref.org/evidence/20170410-reddit-links-61c6fdf1-f11b-49cf-ae04-68b163aec830",
+                "action": "add",
+                "subj": {
+                    "pid": "https://www.newscientist.com/article/2125261-parrots-find-laughter-contagious-and-high-five-in-mid-air/",
+                    "url": "https://www.newscientist.com/article/2125261-parrots-find-laughter-contagious-and-high-five-in-mid-air/"
+                },
+                "source_id": "reddit-links",
+                "obj": {
+                    "pid": "https://doi.org/10.1016/j.cub.2017.02.020",
+                    "url": "https://doi.org/10.1016/j.cub.2017.02.020"
+                },
+                "timestamp": "2017-04-10T15:28:26Z",
+                "updated_date": "2017-10-13T12:38:25.950Z",
+                "relation_type_id": "discusses"
+            },
+            {
+                "license": "https://creativecommons.org/publicdomain/zero/1.0/",
+                "terms": "https://doi.org/10.13003/CED-terms-of-use",
+                "updated_reason": "https://evidence.eventdata.crossref.org/announcements/2017-10-06T00-00-00Z-ED-12.json",
+                "updated": "edited",
+                "obj_id": "https://doi.org/10.1093/nar/gku241",
+                "source_token": "93df90e8-1881-40fc-b19d-49d78cc9ee24",
+                "occurred_at": "2017-03-30T00:45:58Z",
+                "subj_id": "http://bioscriptionblog.com/2017/03/29/crispr-primer-varieties/",
+                "id": "1da8247b-a3ac-4dd0-b35e-831df53dd31d",
+                "evidence_record": "https://evidence.eventdata.crossref.org/evidence/20170410-reddit-links-61c6fdf1-f11b-49cf-ae04-68b163aec830",
+                "action": "add",
+                "subj": {
+                    "pid": "http://bioscriptionblog.com/2017/03/29/crispr-primer-varieties/",
+                    "url": "http://bioscriptionblog.com/2017/03/29/crispr-primer-varieties/"
+                },
+                "source_id": "reddit-links",
+                "obj": {
+                    "pid": "https://doi.org/10.1093/nar/gku241",
+                    "url": "https://doi.org/10.1093/nar/gku241"
+                },
+                "timestamp": "2017-04-10T15:28:26Z",
+                "updated_date": "2017-10-13T12:38:25.541Z",
+                "relation_type_id": "discusses"
+            },
+            {
+                "license": "https://creativecommons.org/publicdomain/zero/1.0/",
+                "terms": "https://doi.org/10.13003/CED-terms-of-use",
+                "updated_reason": "https://evidence.eventdata.crossref.org/announcements/2017-10-06T00-00-00Z-ED-12.json",
+                "updated": "edited",
+                "obj_id": "https://doi.org/10.7717/peerj.2955",
+                "source_token": "93df90e8-1881-40fc-b19d-49d78cc9ee24",
+                "occurred_at": "2017-03-17T14:47:13Z",
+                "subj_id": "https://www.sciencenews.org/article/detachable-scales-turn-gecko-escape-artist",
+                "id": "be139510-6c46-48eb-b1e8-0b33e544d733",
+                "evidence_record": "https://evidence.eventdata.crossref.org/evidence/20170410-reddit-links-61c6fdf1-f11b-49cf-ae04-68b163aec830",
+                "action": "add",
+                "subj": {
+                    "pid": "https://www.sciencenews.org/article/detachable-scales-turn-gecko-escape-artist",
+                    "url": "https://www.sciencenews.org/article/detachable-scales-turn-gecko-escape-artist?tgt=nr"
+                },
+                "source_id": "reddit-links",
+                "obj": {
+                    "pid": "https://doi.org/10.7717/peerj.2955",
+                    "url": "https://peerj.com/articles/2955/"
+                },
+                "timestamp": "2017-04-10T15:28:27Z",
+                "updated_date": "2017-10-13T12:38:27.926Z",
+                "relation_type_id": "discusses"
+            },
+            {
+                "license": "https://creativecommons.org/publicdomain/zero/1.0/",
+                "terms": "https://doi.org/10.13003/CED-terms-of-use",
+                "updated_reason": "https://evidence.eventdata.crossref.org/announcements/2017-10-06T00-00-00Z-ED-12.json",
+                "updated": "edited",
+                "obj_id": "https://doi.org/10.1016/j.cub.2017.02.020",
+                "source_token": "93df90e8-1881-40fc-b19d-49d78cc9ee24",
+                "occurred_at": "2017-03-21T04:39:36Z",
+                "subj_id": "https://www.newscientist.com/article/2125261-parrots-find-laughter-contagious-and-high-five-in-mid-air/",
+                "id": "7752b69c-3e9d-484d-a622-fdb18113ec8b",
+                "evidence_record": "https://evidence.eventdata.crossref.org/evidence/20170410-reddit-links-61c6fdf1-f11b-49cf-ae04-68b163aec830",
+                "action": "add",
+                "subj": {
+                    "pid": "https://www.newscientist.com/article/2125261-parrots-find-laughter-contagious-and-high-five-in-mid-air/",
+                    "url": "https://www.newscientist.com/article/2125261-parrots-find-laughter-contagious-and-high-five-in-mid-air/"
+                },
+                "source_id": "reddit-links",
+                "obj": {
+                    "pid": "https://doi.org/10.1016/j.cub.2017.02.020",
+                    "url": "http://dx.doi.org/10.1016/j.cub.2017.02.020"
+                },
+                "timestamp": "2017-04-10T15:28:27Z",
+                "updated_date": "2017-10-13T12:38:26.133Z",
+                "relation_type_id": "discusses"
+            },
+            {
+                "license": "https://creativecommons.org/publicdomain/zero/1.0/",
+                "terms": "https://doi.org/10.13003/CED-terms-of-use",
+                "updated_reason": "https://evidence.eventdata.crossref.org/announcements/2017-10-06T00-00-00Z-ED-12.json",
+                "updated": "edited",
+                "obj_id": "https://doi.org/10.7717/peerj.2955",
+                "source_token": "93df90e8-1881-40fc-b19d-49d78cc9ee24",
+                "occurred_at": "2017-03-17T14:47:13Z",
+                "subj_id": "https://www.sciencenews.org/article/detachable-scales-turn-gecko-escape-artist",
+                "id": "6e76604a-4bfb-416c-a2a6-d24b467b577a",
+                "evidence_record": "https://evidence.eventdata.crossref.org/evidence/20170410-reddit-links-61c6fdf1-f11b-49cf-ae04-68b163aec830",
+                "action": "add",
+                "subj": {
+                    "pid": "https://www.sciencenews.org/article/detachable-scales-turn-gecko-escape-artist",
+                    "url": "https://www.sciencenews.org/article/detachable-scales-turn-gecko-escape-artist?tgt=nr"
+                },
+                "source_id": "reddit-links",
+                "obj": {
+                    "pid": "https://doi.org/10.7717/peerj.2955",
+                    "url": "https://doi.org/10.7717/peerj.2955"
+                },
+                "timestamp": "2017-04-10T15:28:27Z",
+                "updated_date": "2017-10-13T12:38:27.926Z",
+                "relation_type_id": "discusses"
+            },
+            {
+                "license": "https://creativecommons.org/publicdomain/zero/1.0/",
+                "terms": "https://doi.org/10.13003/CED-terms-of-use",
+                "updated_reason": "https://evidence.eventdata.crossref.org/announcements/2017-10-06T00-00-00Z-ED-12.json",
+                "updated": "edited",
+                "obj_id": "https://doi.org/10.1016/j.cub.2017.02.020",
+                "source_token": "93df90e8-1881-40fc-b19d-49d78cc9ee24",
+                "occurred_at": "2017-03-21T04:39:36Z",
+                "subj_id": "https://www.newscientist.com/article/2125261-parrots-find-laughter-contagious-and-high-five-in-mid-air/",
+                "id": "2d60a5cf-f73a-454a-be85-3024894030e3",
+                "evidence_record": "https://evidence.eventdata.crossref.org/evidence/20170410-reddit-links-61c6fdf1-f11b-49cf-ae04-68b163aec830",
+                "action": "add",
+                "subj": {
+                    "pid": "https://www.newscientist.com/article/2125261-parrots-find-laughter-contagious-and-high-five-in-mid-air/",
+                    "url": "https://www.newscientist.com/article/2125261-parrots-find-laughter-contagious-and-high-five-in-mid-air/"
+                },
+                "source_id": "reddit-links",
+                "obj": {
+                    "pid": "https://doi.org/10.1016/j.cub.2017.02.020",
+                    "url": "http://dx.doi.org/10.1016/j.cub.2017.02.020"
+                },
+                "timestamp": "2017-04-10T15:28:27Z",
+                "updated_date": "2017-10-13T12:38:26.133Z",
+                "relation_type_id": "discusses"
+            },
+            {
+                "license": "https://creativecommons.org/publicdomain/zero/1.0/",
+                "terms": "https://doi.org/10.13003/CED-terms-of-use",
+                "updated_reason": "https://evidence.eventdata.crossref.org/announcements/2017-10-06T00-00-00Z-ED-12.json",
+                "updated": "edited",
+                "obj_id": "https://doi.org/10.1038/ncomms14171",
+                "source_token": "93df90e8-1881-40fc-b19d-49d78cc9ee24",
+                "occurred_at": "2017-03-16T03:22:20Z",
+                "subj_id": "https://phys.org/news/2017-03-dawkins-fabled-cooperative-gene-microbes.html",
+                "id": "1427c9f0-d270-40ec-908c-755afa63de4e",
+                "evidence_record": "https://evidence.eventdata.crossref.org/evidence/20170410-reddit-links-61c6fdf1-f11b-49cf-ae04-68b163aec830",
+                "action": "add",
+                "subj": {
+                    "pid": "https://phys.org/news/2017-03-dawkins-fabled-cooperative-gene-microbes.html",
+                    "url": "https://phys.org/news/2017-03-dawkins-fabled-cooperative-gene-microbes.html"
+                },
+                "source_id": "reddit-links",
+                "obj": {
+                    "pid": "https://doi.org/10.1038/ncomms14171",
+                    "url": "https://doi.org/10.1038/ncomms14171"
+                },
+                "timestamp": "2017-04-10T15:28:27Z",
+                "updated_date": "2017-10-13T12:38:26.975Z",
+                "relation_type_id": "discusses"
+            },
+            {
+                "license": "https://creativecommons.org/publicdomain/zero/1.0/",
+                "terms": "https://doi.org/10.13003/CED-terms-of-use",
+                "updated_reason": "https://evidence.eventdata.crossref.org/announcements/2017-10-06T00-00-00Z-ED-12.json",
+                "updated": "edited",
+                "obj_id": "https://doi.org/10.1056/nejmoa1609677",
+                "source_token": "93df90e8-1881-40fc-b19d-49d78cc9ee24",
+                "occurred_at": "2017-03-09T21:40:08Z",
+                "subj_id": "http://scientifist.com/gene-therapy-reverses-sickle-cell/",
+                "id": "cc13ee00-e85d-456e-8971-39bcc2baa560",
+                "evidence_record": "https://evidence.eventdata.crossref.org/evidence/20170410-reddit-links-61c6fdf1-f11b-49cf-ae04-68b163aec830",
+                "action": "add",
+                "subj": {
+                    "pid": "http://scientifist.com/gene-therapy-reverses-sickle-cell/",
+                    "url": "http://scientifist.com/gene-therapy-reverses-sickle-cell/"
+                },
+                "source_id": "reddit-links",
+                "obj": {
+                    "pid": "https://doi.org/10.1056/nejmoa1609677",
+                    "url": "http://www.nejm.org/doi/10.1056/NEJMoa1609677#t=articleTop"
+                },
+                "timestamp": "2017-04-10T15:28:28Z",
+                "updated_date": "2017-10-13T12:38:27.929Z",
+                "relation_type_id": "discusses"
+            },
+            {
+                "license": "https://creativecommons.org/publicdomain/zero/1.0/",
+                "terms": "https://doi.org/10.13003/CED-terms-of-use",
+                "updated_reason": "https://evidence.eventdata.crossref.org/announcements/2017-10-06T00-00-00Z-ED-12.json",
+                "updated": "edited",
+                "obj_id": "https://doi.org/10.1007/s00438-017-1299-z",
+                "source_token": "93df90e8-1881-40fc-b19d-49d78cc9ee24",
+                "occurred_at": "2017-03-10T01:04:08Z",
+                "subj_id": "https://www.newscientist.com/article/2123973-first-results-of-crispr-gene-editing-of-normal-embryos-released/",
+                "id": "6a6b7bba-61e6-4ea6-b368-0db09295f4c6",
+                "evidence_record": "https://evidence.eventdata.crossref.org/evidence/20170410-reddit-links-61c6fdf1-f11b-49cf-ae04-68b163aec830",
+                "action": "add",
+                "subj": {
+                    "pid": "https://www.newscientist.com/article/2123973-first-results-of-crispr-gene-editing-of-normal-embryos-released/",
+                    "url": "https://www.newscientist.com/article/2123973-first-results-of-crispr-gene-editing-of-normal-embryos-released/#.WMHP4tD7hIh.facebook"
+                },
+                "source_id": "reddit-links",
+                "obj": {
+                    "pid": "https://doi.org/10.1007/s00438-017-1299-z",
+                    "url": "https://link.springer.com/article/10.1007%2Fs00438-017-1299-z"
+                },
+                "timestamp": "2017-04-10T15:28:28Z",
+                "updated_date": "2017-10-13T12:38:26.759Z",
+                "relation_type_id": "discusses"
+            },
+            {
+                "license": "https://creativecommons.org/publicdomain/zero/1.0/",
+                "terms": "https://doi.org/10.13003/CED-terms-of-use",
+                "updated_reason": "https://evidence.eventdata.crossref.org/announcements/2017-10-06T00-00-00Z-ED-12.json",
+                "updated": "edited",
+                "obj_id": "https://doi.org/10.1038/ncomms14781",
+                "source_token": "93df90e8-1881-40fc-b19d-49d78cc9ee24",
+                "occurred_at": "2017-03-15T21:38:18Z",
+                "subj_id": "http://bioscriptionblog.com/2017/03/14/technique-vaccines-yellow-fever/",
+                "id": "51dde072-eeee-4492-8b9a-b5f510be6358",
+                "evidence_record": "https://evidence.eventdata.crossref.org/evidence/20170410-reddit-links-61c6fdf1-f11b-49cf-ae04-68b163aec830",
+                "action": "add",
+                "subj": {
+                    "pid": "http://bioscriptionblog.com/2017/03/14/technique-vaccines-yellow-fever/",
+                    "url": "http://bioscriptionblog.com/2017/03/14/technique-vaccines-yellow-fever/"
+                },
+                "source_id": "reddit-links",
+                "obj": {
+                    "pid": "https://doi.org/10.1038/ncomms14781",
+                    "url": "http://www.nature.com/articles/ncomms14781"
+                },
+                "timestamp": "2017-04-10T15:28:28Z",
+                "updated_date": "2017-10-13T12:38:27.153Z",
+                "relation_type_id": "discusses"
+            },
+            {
+                "license": "https://creativecommons.org/publicdomain/zero/1.0/",
+                "terms": "https://doi.org/10.13003/CED-terms-of-use",
+                "updated_reason": "https://evidence.eventdata.crossref.org/announcements/2017-10-06T00-00-00Z-ED-12.json",
+                "updated": "edited",
+                "obj_id": "https://doi.org/10.1007/s00438-017-1299-z",
+                "source_token": "93df90e8-1881-40fc-b19d-49d78cc9ee24",
+                "occurred_at": "2017-03-10T01:04:08Z",
+                "subj_id": "https://www.newscientist.com/article/2123973-first-results-of-crispr-gene-editing-of-normal-embryos-released/",
+                "id": "4f858a9c-feb2-4d2c-943a-1b9a8d13de36",
+                "evidence_record": "https://evidence.eventdata.crossref.org/evidence/20170410-reddit-links-61c6fdf1-f11b-49cf-ae04-68b163aec830",
+                "action": "add",
+                "subj": {
+                    "pid": "https://www.newscientist.com/article/2123973-first-results-of-crispr-gene-editing-of-normal-embryos-released/",
+                    "url": "https://www.newscientist.com/article/2123973-first-results-of-crispr-gene-editing-of-normal-embryos-released/#.WMHP4tD7hIh.facebook"
+                },
+                "source_id": "reddit-links",
+                "obj": {
+                    "pid": "https://doi.org/10.1007/s00438-017-1299-z",
+                    "url": "https://doi.org/10.1007/s00438-017-1299-z"
+                },
+                "timestamp": "2017-04-10T15:28:28Z",
+                "updated_date": "2017-10-13T12:38:27.166Z",
+                "relation_type_id": "discusses"
+            },
+            {
+                "license": "https://creativecommons.org/publicdomain/zero/1.0/",
+                "terms": "https://doi.org/10.13003/CED-terms-of-use",
+                "updated_reason": "https://evidence.eventdata.crossref.org/announcements/2017-10-06T00-00-00Z-ED-12.json",
+                "updated": "edited",
+                "obj_id": "https://doi.org/10.1038/ncomms14171",
+                "source_token": "93df90e8-1881-40fc-b19d-49d78cc9ee24",
+                "occurred_at": "2017-03-16T03:22:20Z",
+                "subj_id": "https://phys.org/news/2017-03-dawkins-fabled-cooperative-gene-microbes.html",
+                "id": "4756df5b-8062-4e75-a481-7ec0a0b00c58",
+                "evidence_record": "https://evidence.eventdata.crossref.org/evidence/20170410-reddit-links-61c6fdf1-f11b-49cf-ae04-68b163aec830",
+                "action": "add",
+                "subj": {
+                    "pid": "https://phys.org/news/2017-03-dawkins-fabled-cooperative-gene-microbes.html",
+                    "url": "https://phys.org/news/2017-03-dawkins-fabled-cooperative-gene-microbes.html"
+                },
+                "source_id": "reddit-links",
+                "obj": {
+                    "pid": "https://doi.org/10.1038/ncomms14171",
+                    "url": "http://dx.doi.org/10.1038/ncomms14171"
+                },
+                "timestamp": "2017-04-10T15:28:28Z",
+                "updated_date": "2017-10-13T12:38:26.975Z",
+                "relation_type_id": "discusses"
+            },
+            {
+                "license": "https://creativecommons.org/publicdomain/zero/1.0/",
+                "terms": "https://doi.org/10.13003/CED-terms-of-use",
+                "updated_reason": "https://evidence.eventdata.crossref.org/announcements/2017-10-06T00-00-00Z-ED-12.json",
+                "updated": "edited",
+                "obj_id": "https://doi.org/10.1038/ncomms14171",
+                "source_token": "93df90e8-1881-40fc-b19d-49d78cc9ee24",
+                "occurred_at": "2017-03-16T03:22:20Z",
+                "subj_id": "https://phys.org/news/2017-03-dawkins-fabled-cooperative-gene-microbes.html",
+                "id": "1e77f683-4850-4574-b331-3ca3fda9769a",
+                "evidence_record": "https://evidence.eventdata.crossref.org/evidence/20170410-reddit-links-61c6fdf1-f11b-49cf-ae04-68b163aec830",
+                "action": "add",
+                "subj": {
+                    "pid": "https://phys.org/news/2017-03-dawkins-fabled-cooperative-gene-microbes.html",
+                    "url": "https://phys.org/news/2017-03-dawkins-fabled-cooperative-gene-microbes.html"
+                },
+                "source_id": "reddit-links",
+                "obj": {
+                    "pid": "https://doi.org/10.1038/ncomms14171",
+                    "url": "http://dx.doi.org/10.1038/ncomms14171"
+                },
+                "timestamp": "2017-04-10T15:28:28Z",
+                "updated_date": "2017-10-13T12:38:26.975Z",
+                "relation_type_id": "discusses"
+            },
+            {
+                "license": "https://creativecommons.org/publicdomain/zero/1.0/",
+                "terms": "https://doi.org/10.13003/CED-terms-of-use",
+                "updated_reason": "https://evidence.eventdata.crossref.org/announcements/2017-10-06T00-00-00Z-ED-12.json",
+                "updated": "edited",
+                "obj_id": "https://doi.org/10.1038/nature21056",
+                "source_token": "93df90e8-1881-40fc-b19d-49d78cc9ee24",
+                "occurred_at": "2017-03-10T21:38:27Z",
+                "subj_id": "http://scientifist.com/can-machine-learning-assist-oncologists/",
+                "id": "07c88b59-a0a6-4b92-a15b-3e139d7e3576",
+                "evidence_record": "https://evidence.eventdata.crossref.org/evidence/20170410-reddit-links-61c6fdf1-f11b-49cf-ae04-68b163aec830",
+                "action": "add",
+                "subj": {
+                    "pid": "http://scientifist.com/can-machine-learning-assist-oncologists/",
+                    "url": "http://scientifist.com/can-machine-learning-assist-oncologists/"
+                },
+                "source_id": "reddit-links",
+                "obj": {
+                    "pid": "https://doi.org/10.1038/nature21056",
+                    "url": "http://www.nature.com/nature/journal/v542/n7639/full/nature21056.html"
+                },
+                "timestamp": "2017-04-10T15:28:28Z",
+                "updated_date": "2017-10-13T12:38:28.526Z",
+                "relation_type_id": "discusses"
+            },
+            {
+                "license": "https://creativecommons.org/publicdomain/zero/1.0/",
+                "terms": "https://doi.org/10.13003/CED-terms-of-use",
+                "updated_reason": "https://evidence.eventdata.crossref.org/announcements/2017-10-06T00-00-00Z-ED-12.json",
+                "updated": "edited",
+                "obj_id": "https://doi.org/10.1016/j.tree.2015.11.009",
+                "source_token": "93df90e8-1881-40fc-b19d-49d78cc9ee24",
+                "occurred_at": "2017-03-04T11:02:17Z",
+                "subj_id": "http://www.bbc.com/earth/story/20170301-life-may-actually-be-getting-better-at-evolving",
+                "id": "d2720322-75c9-44a0-befa-3e9fcd639f1e",
+                "evidence_record": "https://evidence.eventdata.crossref.org/evidence/20170410-reddit-links-61c6fdf1-f11b-49cf-ae04-68b163aec830",
+                "action": "add",
+                "subj": {
+                    "pid": "http://www.bbc.com/earth/story/20170301-life-may-actually-be-getting-better-at-evolving",
+                    "url": "http://www.bbc.com/earth/story/20170301-life-may-actually-be-getting-better-at-evolving"
+                },
+                "source_id": "reddit-links",
+                "obj": {
+                    "pid": "https://doi.org/10.1016/j.tree.2015.11.009",
+                    "url": "http://dx.doi.org/10.1016/j.tree.2015.11.009"
+                },
+                "timestamp": "2017-04-10T15:28:29Z",
+                "updated_date": "2017-10-13T12:38:28.336Z",
+                "relation_type_id": "discusses"
+            },
+            {
+                "license": "https://creativecommons.org/publicdomain/zero/1.0/",
+                "terms": "https://doi.org/10.13003/CED-terms-of-use",
+                "updated_reason": "https://evidence.eventdata.crossref.org/announcements/2017-10-06T00-00-00Z-ED-12.json",
+                "updated": "edited",
+                "obj_id": "https://doi.org/10.1016/j.anbehav.2016.11.025",
+                "source_token": "93df90e8-1881-40fc-b19d-49d78cc9ee24",
+                "occurred_at": "2017-03-03T19:52:17Z",
+                "subj_id": "https://www.newscientist.com/article/2123435-stubborn-wasp-queens-pass-their-personality-on-to-their-colony/",
+                "id": "d24e511c-a4bd-42ba-8651-a68404b8fbd4",
+                "evidence_record": "https://evidence.eventdata.crossref.org/evidence/20170410-reddit-links-61c6fdf1-f11b-49cf-ae04-68b163aec830",
+                "action": "add",
+                "subj": {
+                    "pid": "https://www.newscientist.com/article/2123435-stubborn-wasp-queens-pass-their-personality-on-to-their-colony/",
+                    "url": "https://www.newscientist.com/article/2123435-stubborn-wasp-queens-pass-their-personality-on-to-their-colony/"
+                },
+                "source_id": "reddit-links",
+                "obj": {
+                    "pid": "https://doi.org/10.1016/j.anbehav.2016.11.025",
+                    "url": "https://doi.org/10.1016/j.anbehav.2016.11.025"
+                },
+                "timestamp": "2017-04-10T15:28:29Z",
+                "updated_date": "2017-10-13T12:38:27.760Z",
+                "relation_type_id": "discusses"
+            },
+            {
+                "license": "https://creativecommons.org/publicdomain/zero/1.0/",
+                "terms": "https://doi.org/10.13003/CED-terms-of-use",
+                "updated_reason": "https://evidence.eventdata.crossref.org/announcements/2017-10-06T00-00-00Z-ED-12.json",
+                "updated": "edited",
+                "obj_id": "https://doi.org/10.1371/journal.ppat.1006185",
+                "source_token": "93df90e8-1881-40fc-b19d-49d78cc9ee24",
+                "occurred_at": "2017-03-05T23:39:29Z",
+                "subj_id": "http://bioscriptionblog.com/2017/03/04/lifestyles-behaviors-parasitic-worms/",
+                "id": "482d40fd-10fb-410b-b3af-7b998bc858b3",
+                "evidence_record": "https://evidence.eventdata.crossref.org/evidence/20170410-reddit-links-61c6fdf1-f11b-49cf-ae04-68b163aec830",
+                "action": "add",
+                "subj": {
+                    "pid": "http://bioscriptionblog.com/2017/03/04/lifestyles-behaviors-parasitic-worms/",
+                    "url": "http://bioscriptionblog.com/2017/03/04/lifestyles-behaviors-parasitic-worms/"
+                },
+                "source_id": "reddit-links",
+                "obj": {
+                    "pid": "https://doi.org/10.1371/journal.ppat.1006185",
+                    "url": "http://journals.plos.org/plospathogens/article?id=10.1371/journal.ppat.1006185"
+                },
+                "timestamp": "2017-04-10T15:28:29Z",
+                "updated_date": "2017-10-13T12:38:28.162Z",
+                "relation_type_id": "discusses"
+            },
+            {
+                "license": "https://creativecommons.org/publicdomain/zero/1.0/",
+                "terms": "https://doi.org/10.13003/CED-terms-of-use",
+                "updated_reason": "https://evidence.eventdata.crossref.org/announcements/2017-10-06T00-00-00Z-ED-12.json",
+                "updated": "edited",
+                "obj_id": "https://doi.org/10.1016/j.anbehav.2016.11.025",
+                "source_token": "93df90e8-1881-40fc-b19d-49d78cc9ee24",
+                "occurred_at": "2017-03-03T19:52:17Z",
+                "subj_id": "https://www.newscientist.com/article/2123435-stubborn-wasp-queens-pass-their-personality-on-to-their-colony/",
+                "id": "46f6fd30-f664-4f8b-b420-644fcd3c43cb",
+                "evidence_record": "https://evidence.eventdata.crossref.org/evidence/20170410-reddit-links-61c6fdf1-f11b-49cf-ae04-68b163aec830",
+                "action": "add",
+                "subj": {
+                    "pid": "https://www.newscientist.com/article/2123435-stubborn-wasp-queens-pass-their-personality-on-to-their-colony/",
+                    "url": "https://www.newscientist.com/article/2123435-stubborn-wasp-queens-pass-their-personality-on-to-their-colony/"
+                },
+                "source_id": "reddit-links",
+                "obj": {
+                    "pid": "https://doi.org/10.1016/j.anbehav.2016.11.025",
+                    "url": "http://dx.doi.org/10.1016/j.anbehav.2016.11.025"
+                },
+                "timestamp": "2017-04-10T15:28:29Z",
+                "updated_date": "2017-10-13T12:38:28.166Z",
+                "relation_type_id": "discusses"
+            },
+            {
+                "license": "https://creativecommons.org/publicdomain/zero/1.0/",
+                "terms": "https://doi.org/10.13003/CED-terms-of-use",
+                "updated_reason": "https://evidence.eventdata.crossref.org/announcements/2017-10-06T00-00-00Z-ED-12.json",
+                "updated": "edited",
+                "obj_id": "https://doi.org/10.1016/j.anbehav.2016.11.025",
+                "source_token": "93df90e8-1881-40fc-b19d-49d78cc9ee24",
+                "occurred_at": "2017-03-03T19:52:17Z",
+                "subj_id": "https://www.newscientist.com/article/2123435-stubborn-wasp-queens-pass-their-personality-on-to-their-colony/",
+                "id": "200348c5-4051-4e4c-b323-497c2cd890fd",
+                "evidence_record": "https://evidence.eventdata.crossref.org/evidence/20170410-reddit-links-61c6fdf1-f11b-49cf-ae04-68b163aec830",
+                "action": "add",
+                "subj": {
+                    "pid": "https://www.newscientist.com/article/2123435-stubborn-wasp-queens-pass-their-personality-on-to-their-colony/",
+                    "url": "https://www.newscientist.com/article/2123435-stubborn-wasp-queens-pass-their-personality-on-to-their-colony/"
+                },
+                "source_id": "reddit-links",
+                "obj": {
+                    "pid": "https://doi.org/10.1016/j.anbehav.2016.11.025",
+                    "url": "http://dx.doi.org/10.1016/j.anbehav.2016.11.025"
+                },
+                "timestamp": "2017-04-10T15:28:29Z",
+                "updated_date": "2017-10-13T12:38:28.166Z",
+                "relation_type_id": "discusses"
+            },
+            {
+                "license": "https://creativecommons.org/publicdomain/zero/1.0/",
+                "terms": "https://doi.org/10.13003/CED-terms-of-use",
+                "updated_reason": "https://evidence.eventdata.crossref.org/announcements/2017-10-06T00-00-00Z-ED-12.json",
+                "updated": "edited",
+                "obj_id": "https://doi.org/10.1016/j.tree.2015.11.009",
+                "source_token": "93df90e8-1881-40fc-b19d-49d78cc9ee24",
+                "occurred_at": "2017-03-04T11:02:17Z",
+                "subj_id": "http://www.bbc.com/earth/story/20170301-life-may-actually-be-getting-better-at-evolving",
+                "id": "02e4fcd3-22ee-42ec-b8f1-99fb0f023d8a",
+                "evidence_record": "https://evidence.eventdata.crossref.org/evidence/20170410-reddit-links-61c6fdf1-f11b-49cf-ae04-68b163aec830",
+                "action": "add",
+                "subj": {
+                    "pid": "http://www.bbc.com/earth/story/20170301-life-may-actually-be-getting-better-at-evolving",
+                    "url": "http://www.bbc.com/earth/story/20170301-life-may-actually-be-getting-better-at-evolving"
+                },
+                "source_id": "reddit-links",
+                "obj": {
+                    "pid": "https://doi.org/10.1016/j.tree.2015.11.009",
+                    "url": "http://dx.doi.org/10.1016/j.tree.2015.11.009"
+                },
+                "timestamp": "2017-04-10T15:28:29Z",
+                "updated_date": "2017-10-13T12:38:33.474Z",
+                "relation_type_id": "discusses"
+            },
+            {
+                "license": "https://creativecommons.org/publicdomain/zero/1.0/",
+                "terms": "https://doi.org/10.13003/CED-terms-of-use",
+                "updated_reason": "https://evidence.eventdata.crossref.org/announcements/2017-10-06T00-00-00Z-ED-12.json",
+                "updated": "edited",
+                "obj_id": "https://doi.org/10.1093/dnares/dsw064",
+                "source_token": "93df90e8-1881-40fc-b19d-49d78cc9ee24",
+                "occurred_at": "2017-02-20T13:00:42Z",
+                "subj_id": "https://academic.oup.com/dnaresearch/article/24/3/279/2972857/Comparative-analyses-of-the-major-royal-jelly",
+                "id": "d39bb451-6806-4f72-91de-673102b91dd6",
+                "evidence_record": "https://evidence.eventdata.crossref.org/evidence/20170410-reddit-links-61c6fdf1-f11b-49cf-ae04-68b163aec830",
+                "action": "add",
+                "subj": {
+                    "pid": "https://academic.oup.com/dnaresearch/article/24/3/279/2972857/Comparative-analyses-of-the-major-royal-jelly",
+                    "url": "https://academic.oup.com/dnaresearch/article/2972857/Comparative-analyses-of-the-major-royal-jelly"
+                },
+                "source_id": "reddit-links",
+                "obj": {
+                    "pid": "https://doi.org/10.1093/dnares/dsw064",
+                    "url": "https://doi.org/10.1093/dnares/dsw064"
+                },
+                "timestamp": "2017-04-10T15:28:30Z",
+                "updated_date": "2017-10-13T12:38:36.475Z",
+                "relation_type_id": "discusses"
+            },
+            {
+                "license": "https://creativecommons.org/publicdomain/zero/1.0/",
+                "terms": "https://doi.org/10.13003/CED-terms-of-use",
+                "updated_reason": "https://evidence.eventdata.crossref.org/announcements/2017-10-06T00-00-00Z-ED-12.json",
+                "updated": "edited",
+                "obj_id": "https://doi.org/10.1073/pnas.1103457108",
+                "source_token": "93df90e8-1881-40fc-b19d-49d78cc9ee24",
+                "occurred_at": "2017-02-20T13:00:42Z",
+                "subj_id": "https://academic.oup.com/dnaresearch/article/24/3/279/2972857/Comparative-analyses-of-the-major-royal-jelly",
+                "id": "b2ebe10a-8cd5-4810-aa56-0726c52bf102",
+                "evidence_record": "https://evidence.eventdata.crossref.org/evidence/20170410-reddit-links-61c6fdf1-f11b-49cf-ae04-68b163aec830",
+                "action": "add",
+                "subj": {
+                    "pid": "https://academic.oup.com/dnaresearch/article/24/3/279/2972857/Comparative-analyses-of-the-major-royal-jelly",
+                    "url": "https://academic.oup.com/dnaresearch/article/2972857/Comparative-analyses-of-the-major-royal-jelly"
+                },
+                "source_id": "reddit-links",
+                "obj": {
+                    "pid": "https://doi.org/10.1073/pnas.1103457108",
+                    "url": "https://doi.org/10.1073/pnas.1103457108"
+                },
+                "timestamp": "2017-04-10T15:28:30Z",
+                "updated_date": "2017-10-13T12:38:36.475Z",
+                "relation_type_id": "discusses"
+            },
+            {
+                "license": "https://creativecommons.org/publicdomain/zero/1.0/",
+                "terms": "https://doi.org/10.13003/CED-terms-of-use",
+                "updated_reason": "https://evidence.eventdata.crossref.org/announcements/2017-10-06T00-00-00Z-ED-12.json",
+                "updated": "edited",
+                "obj_id": "https://doi.org/10.1093/dnares/dsw064",
+                "source_token": "93df90e8-1881-40fc-b19d-49d78cc9ee24",
+                "occurred_at": "2017-02-20T13:00:42Z",
+                "subj_id": "https://academic.oup.com/dnaresearch/article/24/3/279/2972857/Comparative-analyses-of-the-major-royal-jelly",
+                "id": "8dfc546f-f238-4847-9921-92b3d1d01f66",
+                "evidence_record": "https://evidence.eventdata.crossref.org/evidence/20170410-reddit-links-61c6fdf1-f11b-49cf-ae04-68b163aec830",
+                "action": "add",
+                "subj": {
+                    "pid": "https://academic.oup.com/dnaresearch/article/24/3/279/2972857/Comparative-analyses-of-the-major-royal-jelly",
+                    "url": "https://academic.oup.com/dnaresearch/article/2972857/Comparative-analyses-of-the-major-royal-jelly"
+                },
+                "source_id": "reddit-links",
+                "obj": {
+                    "pid": "https://doi.org/10.1093/dnares/dsw064",
+                    "url": "https://doi.org/10.1093/dnares/dsw064"
+                },
+                "timestamp": "2017-04-10T15:28:30Z",
+                "updated_date": "2017-10-13T12:38:36.475Z",
+                "relation_type_id": "discusses"
+            }
+        ]
+    }
+}
