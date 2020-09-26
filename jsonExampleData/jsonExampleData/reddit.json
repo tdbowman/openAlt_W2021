@@ -1,0 +1,3134 @@
+{
+    "status": "ok",
+    "message-type": "event-list",
+    "message": {
+        "next-cursor": "94763547-2ddd-4e4e-82b8-20f7553cf2bd",
+        "total-results": 30637137,
+        "items-per-page": 100,
+        "events": [
+            {
+                "license": "https://creativecommons.org/publicdomain/zero/1.0/",
+                "terms": "https://doi.org/10.13003/CED-terms-of-use",
+                "updated_reason": "https://evidence.eventdata.crossref.org/announcements/2018-04-26T00-00-00Z-ED-16.json",
+                "updated": "edited",
+                "obj_id": "https://doi.org/10.1098/rspb.2016.0792",
+                "source_token": "45a1ef76-4f43-4cdc-9ba8-5a6ad01cc231",
+                "occurred_at": "2017-02-17T09:17:34Z",
+                "subj_id": "http://twitter.com/PaulKiem/statuses/832519346811310080",
+                "id": "90dd1736-e4cc-4955-a9b4-6f5e18421348",
+                "evidence_record": "https://evidence.eventdata.crossref.org/evidence/20170217f49152d6-b592-4320-a927-ee514d41600a",
+                "action": "add",
+                "subj": {
+                    "pid": "http://twitter.com/PaulKiem/statuses/832519346811310080",
+                    "title": "Tweet 832519346811310080",
+                    "issued": "2017-02-17T09:17:34.000Z",
+                    "author": {
+                        "url": "http://www.twitter.com/PaulKiem"
+                    },
+                    "original-tweet-url": "http://twitter.com/ScholarsLeague/statuses/832196260924841989",
+                    "original-tweet-author": "http://www.twitter.com/ScholarsLeague",
+                    "alternative-id": "832519346811310080"
+                },
+                "source_id": "twitter",
+                "obj": {
+                    "pid": "https://doi.org/10.1098/rspb.2016.0792",
+                    "url": "https://doi.org/10.1098/rspb.2016.0792"
+                },
+                "timestamp": "2017-02-17T12:20:02Z",
+                "updated_date": "2018-05-02T17:15:40Z",
+                "relation_type_id": "discusses"
+            },
+            {
+                "license": "https://creativecommons.org/publicdomain/zero/1.0/",
+                "terms": "https://doi.org/10.13003/CED-terms-of-use",
+                "updated_reason": "https://evidence.eventdata.crossref.org/announcements/2018-04-26T00-00-00Z-ED-16.json",
+                "updated": "edited",
+                "obj_id": "https://doi.org/10.1136/bmj.j456",
+                "source_token": "45a1ef76-4f43-4cdc-9ba8-5a6ad01cc231",
+                "occurred_at": "2017-02-17T09:17:08Z",
+                "subj_id": "http://twitter.com",
+                "id": "2af8b4de-76c6-44b5-baad-a358f1d915fc",
+                "evidence_record": "https://evidence.eventdata.crossref.org/evidence/20170217a22ec0a8-e5eb-47e5-ba6f-f24bdd9ea7d8",
+                "action": "add",
+                "source_id": "twitter",
+                "obj": {
+                    "pid": "https://doi.org/10.1136/bmj.j456",
+                    "url": "https://doi.org/10.1136/bmj.j456"
+                },
+                "timestamp": "2017-02-17T12:20:03Z",
+                "updated_date": "2018-05-09T17:41:23Z",
+                "relation_type_id": "discusses"
+            },
+            {
+                "license": "https://creativecommons.org/publicdomain/zero/1.0/",
+                "terms": "https://doi.org/10.13003/CED-terms-of-use",
+                "updated_reason": "https://evidence.eventdata.crossref.org/announcements/2018-04-26T00-00-00Z-ED-16.json",
+                "updated": "edited",
+                "obj_id": "https://doi.org/10.1038/nbt.3722",
+                "source_token": "45a1ef76-4f43-4cdc-9ba8-5a6ad01cc231",
+                "occurred_at": "2017-02-17T09:17:05Z",
+                "subj_id": "http://twitter.com/DocSchueller/statuses/832519226959224833",
+                "id": "68fb09a4-fb4b-492c-bce2-71f3e8880e4c",
+                "evidence_record": "https://evidence.eventdata.crossref.org/evidence/2017021752bcaf0b-b467-4839-9ea2-ece749bf98c0",
+                "action": "add",
+                "subj": {
+                    "pid": "http://twitter.com/DocSchueller/statuses/832519226959224833",
+                    "title": "Tweet 832519226959224833",
+                    "issued": "2017-02-17T09:17:05.000Z",
+                    "author": {
+                        "url": "http://www.twitter.com/DocSchueller"
+                    },
+                    "original-tweet-url": "http://twitter.com/NatureBiotech/statuses/806728988227842048",
+                    "original-tweet-author": "http://www.twitter.com/NatureBiotech",
+                    "alternative-id": "832519226959224833"
+                },
+                "source_id": "twitter",
+                "obj": {
+                    "pid": "https://doi.org/10.1038/nbt.3722",
+                    "url": "https://doi.org/10.1038/nbt.3722"
+                },
+                "timestamp": "2017-02-17T12:20:04Z",
+                "updated_date": "2018-05-03T09:18:54Z",
+                "relation_type_id": "discusses"
+            },
+            {
+                "license": "https://creativecommons.org/publicdomain/zero/1.0/",
+                "terms": "https://doi.org/10.13003/CED-terms-of-use",
+                "updated_reason": "https://evidence.eventdata.crossref.org/announcements/2018-04-26T00-00-00Z-ED-16.json",
+                "updated": "edited",
+                "obj_id": "https://doi.org/10.1136/bmj.i6583",
+                "source_token": "45a1ef76-4f43-4cdc-9ba8-5a6ad01cc231",
+                "occurred_at": "2017-02-17T09:17:13Z",
+                "subj_id": "http://twitter.com/UKMyositis/statuses/832519259280535552",
+                "id": "6273a5f1-c714-49c0-84c6-ebc9f77f9a2b",
+                "evidence_record": "https://evidence.eventdata.crossref.org/evidence/20170217da3b9abd-8d37-499f-bc24-114fa2ec0084",
+                "action": "add",
+                "subj": {
+                    "pid": "http://twitter.com/UKMyositis/statuses/832519259280535552",
+                    "title": "Tweet 832519259280535552",
+                    "issued": "2017-02-17T09:17:13.000Z",
+                    "author": {
+                        "url": "http://www.twitter.com/UKMyositis"
+                    },
+                    "original-tweet-url": "http://twitter.com/rheumi_/statuses/832255511827460097",
+                    "original-tweet-author": "http://www.twitter.com/rheumi_",
+                    "alternative-id": "832519259280535552"
+                },
+                "source_id": "twitter",
+                "obj": {
+                    "pid": "https://doi.org/10.1136/bmj.i6583",
+                    "url": "https://doi.org/10.1136/bmj.i6583"
+                },
+                "timestamp": "2017-02-17T12:20:04Z",
+                "updated_date": "2018-05-03T09:32:23Z",
+                "relation_type_id": "discusses"
+            },
+            {
+                "license": "https://creativecommons.org/publicdomain/zero/1.0/",
+                "terms": "https://doi.org/10.13003/CED-terms-of-use",
+                "updated_reason": "https://evidence.eventdata.crossref.org/announcements/2018-04-26T00-00-00Z-ED-16.json",
+                "updated": "edited",
+                "obj_id": "https://doi.org/10.1044/2016_ajslp-16-0018",
+                "source_token": "45a1ef76-4f43-4cdc-9ba8-5a6ad01cc231",
+                "occurred_at": "2017-02-17T09:16:59Z",
+                "subj_id": "http://twitter.com/uranus_2/statuses/832519200757264384",
+                "id": "4a4103dd-b9ee-43a5-85a8-a215a03550c2",
+                "evidence_record": "https://evidence.eventdata.crossref.org/evidence/20170217e66cdf76-271c-4767-8b59-b4fa9e203249",
+                "action": "add",
+                "subj": {
+                    "pid": "http://twitter.com/uranus_2/statuses/832519200757264384",
+                    "title": "Tweet 832519200757264384",
+                    "issued": "2017-02-17T09:16:59.000Z",
+                    "author": {
+                        "url": "http://www.twitter.com/uranus_2"
+                    },
+                    "original-tweet-url": "http://twitter.com/uranus_2/statuses/832519200757264384",
+                    "original-tweet-author": null,
+                    "alternative-id": "832519200757264384"
+                },
+                "source_id": "twitter",
+                "obj": {
+                    "pid": "https://doi.org/10.1044/2016_ajslp-16-0018",
+                    "url": "https://doi.org/10.1044/2016_ajslp-16-0018"
+                },
+                "timestamp": "2017-02-17T12:20:04Z",
+                "updated_date": "2018-05-03T09:32:23Z",
+                "relation_type_id": "discusses"
+            },
+            {
+                "license": "https://creativecommons.org/publicdomain/zero/1.0/",
+                "terms": "https://doi.org/10.13003/CED-terms-of-use",
+                "updated_reason": "https://evidence.eventdata.crossref.org/announcements/2018-04-26T00-00-00Z-ED-16.json",
+                "updated": "edited",
+                "obj_id": "https://doi.org/10.12659/msm.899461",
+                "source_token": "45a1ef76-4f43-4cdc-9ba8-5a6ad01cc231",
+                "occurred_at": "2017-02-17T09:17:26Z",
+                "subj_id": "http://twitter.com/ElectroTim/statuses/832519314716688384",
+                "id": "3bb6cf4b-f7c5-42a6-8db4-28460a8ae86a",
+                "evidence_record": "https://evidence.eventdata.crossref.org/evidence/201702174fe61127-5a25-4b78-aa59-68af37a0f09b",
+                "action": "add",
+                "subj": {
+                    "pid": "http://twitter.com/ElectroTim/statuses/832519314716688384",
+                    "title": "Tweet 832519314716688384",
+                    "issued": "2017-02-17T09:17:26.000Z",
+                    "author": {
+                        "url": "http://www.twitter.com/ElectroTim"
+                    },
+                    "original-tweet-url": "http://twitter.com/ElectroTim/statuses/832519314716688384",
+                    "original-tweet-author": null,
+                    "alternative-id": "832519314716688384"
+                },
+                "source_id": "twitter",
+                "obj": {
+                    "pid": "https://doi.org/10.12659/msm.899461",
+                    "url": "https://doi.org/10.12659/msm.899461"
+                },
+                "timestamp": "2017-02-17T12:20:04Z",
+                "updated_date": "2018-05-03T09:32:23Z",
+                "relation_type_id": "discusses"
+            },
+            {
+                "license": "https://creativecommons.org/publicdomain/zero/1.0/",
+                "terms": "https://doi.org/10.13003/CED-terms-of-use",
+                "updated_reason": "https://evidence.eventdata.crossref.org/announcements/2018-04-26T00-00-00Z-ED-16.json",
+                "updated": "edited",
+                "obj_id": "https://doi.org/10.1038/nature.2017.21485",
+                "source_token": "45a1ef76-4f43-4cdc-9ba8-5a6ad01cc231",
+                "occurred_at": "2017-02-17T09:17:02Z",
+                "subj_id": "http://twitter.com",
+                "id": "8ecb1c8a-d390-4b5c-9ee5-c703f260536a",
+                "evidence_record": "https://evidence.eventdata.crossref.org/evidence/20170217f37b76b4-48d5-49a3-95aa-899e14cfb467",
+                "action": "add",
+                "source_id": "twitter",
+                "obj": {
+                    "pid": "https://doi.org/10.1038/nature.2017.21485",
+                    "url": "https://doi.org/10.1038/nature.2017.21485"
+                },
+                "timestamp": "2017-02-17T12:20:05Z",
+                "updated_date": "2018-05-09T17:41:23Z",
+                "relation_type_id": "discusses"
+            },
+            {
+                "license": "https://creativecommons.org/publicdomain/zero/1.0/",
+                "terms": "https://doi.org/10.13003/CED-terms-of-use",
+                "updated_reason": "https://evidence.eventdata.crossref.org/announcements/2018-04-26T00-00-00Z-ED-16.json",
+                "updated": "edited",
+                "obj_id": "https://doi.org/10.1038/nature.2017.21485",
+                "source_token": "45a1ef76-4f43-4cdc-9ba8-5a6ad01cc231",
+                "occurred_at": "2017-02-17T09:17:32Z",
+                "subj_id": "http://twitter.com/jurbanr/statuses/832519340822036480",
+                "id": "1156d4e0-a736-4c5e-8889-5d3c9b28d060",
+                "evidence_record": "https://evidence.eventdata.crossref.org/evidence/20170217d8734502-dc56-42ba-b7d2-caeddd994df5",
+                "action": "add",
+                "subj": {
+                    "pid": "http://twitter.com/jurbanr/statuses/832519340822036480",
+                    "title": "Tweet 832519340822036480",
+                    "issued": "2017-02-17T09:17:32.000Z",
+                    "author": {
+                        "url": "http://www.twitter.com/jurbanr"
+                    },
+                    "original-tweet-url": "http://twitter.com/jurbanr/statuses/832519340822036480",
+                    "original-tweet-author": null,
+                    "alternative-id": "832519340822036480"
+                },
+                "source_id": "twitter",
+                "obj": {
+                    "pid": "https://doi.org/10.1038/nature.2017.21485",
+                    "url": "https://doi.org/10.1038/nature.2017.21485"
+                },
+                "timestamp": "2017-02-17T12:20:05Z",
+                "updated_date": "2018-05-03T09:32:23Z",
+                "relation_type_id": "discusses"
+            },
+            {
+                "license": "https://creativecommons.org/publicdomain/zero/1.0/",
+                "terms": "https://doi.org/10.13003/CED-terms-of-use",
+                "updated_reason": "https://evidence.eventdata.crossref.org/announcements/2018-04-26T00-00-00Z-ED-16.json",
+                "updated": "edited",
+                "obj_id": "https://doi.org/10.15252/emmm.201607336",
+                "source_token": "45a1ef76-4f43-4cdc-9ba8-5a6ad01cc231",
+                "occurred_at": "2017-02-17T12:27:23Z",
+                "subj_id": "http://twitter.com/morey_pau/statuses/832567114410184704",
+                "id": "d5a81b14-2b9f-4f70-9399-4acb14afc081",
+                "evidence_record": "https://evidence.eventdata.crossref.org/evidence/20170217a8120fae-f39a-4f3b-ae98-4c612956d1b0",
+                "action": "add",
+                "subj": {
+                    "pid": "http://twitter.com/morey_pau/statuses/832567114410184704",
+                    "title": "Tweet 832567114410184704",
+                    "issued": "2017-02-17T12:27:23.000Z",
+                    "author": {
+                        "url": "http://www.twitter.com/morey_pau"
+                    },
+                    "original-tweet-url": "http://twitter.com/morey_pau/statuses/832567114410184704",
+                    "original-tweet-author": null,
+                    "alternative-id": "832567114410184704"
+                },
+                "source_id": "twitter",
+                "obj": {
+                    "pid": "https://doi.org/10.15252/emmm.201607336",
+                    "url": "https://doi.org/10.15252/emmm.201607336"
+                },
+                "timestamp": "2017-02-17T12:27:34Z",
+                "updated_date": "2018-05-03T09:32:23Z",
+                "relation_type_id": "discusses"
+            },
+            {
+                "license": "https://creativecommons.org/publicdomain/zero/1.0/",
+                "terms": "https://doi.org/10.13003/CED-terms-of-use",
+                "updated_reason": "https://evidence.eventdata.crossref.org/announcements/2018-04-26T00-00-00Z-ED-16.json",
+                "updated": "edited",
+                "obj_id": "https://doi.org/",
+                "source_token": "45a1ef76-4f43-4cdc-9ba8-5a6ad01cc231",
+                "occurred_at": "2017-02-17T12:27:24Z",
+                "subj_id": "http://twitter.com/WernerErhardIs/statuses/832567120424796160",
+                "id": "7956fb94-9edb-4106-9e57-ac15eec67b60",
+                "evidence_record": "https://evidence.eventdata.crossref.org/evidence/20170217c6c72d37-12c5-4ba0-b106-56844f9df7d9",
+                "action": "add",
+                "subj": {
+                    "pid": "http://twitter.com/WernerErhardIs/statuses/832567120424796160",
+                    "title": "Tweet 832567120424796160",
+                    "issued": "2017-02-17T12:27:24.000Z",
+                    "author": {
+                        "url": "http://www.twitter.com/WernerErhardIs"
+                    },
+                    "original-tweet-url": "http://twitter.com/WernerErhardIs/statuses/832567120424796160",
+                    "original-tweet-author": null,
+                    "alternative-id": "832567120424796160"
+                },
+                "source_id": "twitter",
+                "obj": {
+                    "pid": "https://doi.org/",
+                    "url": "https://doi.org/"
+                },
+                "timestamp": "2017-02-17T12:27:37Z",
+                "updated_date": "2018-05-09T17:41:23Z",
+                "relation_type_id": "discusses"
+            },
+            {
+                "license": "https://creativecommons.org/publicdomain/zero/1.0/",
+                "terms": "https://doi.org/10.13003/CED-terms-of-use",
+                "updated_reason": "https://evidence.eventdata.crossref.org/announcements/2018-04-26T00-00-00Z-ED-16.json",
+                "updated": "edited",
+                "obj_id": "https://doi.org/10.1111/1467-923x.12338",
+                "source_token": "45a1ef76-4f43-4cdc-9ba8-5a6ad01cc231",
+                "occurred_at": "2017-02-17T12:27:32Z",
+                "subj_id": "http://twitter.com/po_qu/statuses/832567152754491394",
+                "id": "48a50bde-0991-400c-b94f-2a40a1e97c2c",
+                "evidence_record": "https://evidence.eventdata.crossref.org/evidence/201702170d3e985f-a020-40f7-9c5e-03faea3a349f",
+                "action": "add",
+                "subj": {
+                    "pid": "http://twitter.com/po_qu/statuses/832567152754491394",
+                    "title": "Tweet 832567152754491394",
+                    "issued": "2017-02-17T12:27:32.000Z",
+                    "author": {
+                        "url": "http://www.twitter.com/po_qu"
+                    },
+                    "original-tweet-url": "http://twitter.com/RichardKirkham7/statuses/832536502026518528",
+                    "original-tweet-author": "http://www.twitter.com/RichardKirkham7",
+                    "alternative-id": "832567152754491394"
+                },
+                "source_id": "twitter",
+                "obj": {
+                    "pid": "https://doi.org/10.1111/1467-923x.12338",
+                    "url": "https://doi.org/10.1111/1467-923x.12338"
+                },
+                "timestamp": "2017-02-17T12:27:43Z",
+                "updated_date": "2018-05-03T09:32:23Z",
+                "relation_type_id": "discusses"
+            },
+            {
+                "license": "https://creativecommons.org/publicdomain/zero/1.0/",
+                "terms": "https://doi.org/10.13003/CED-terms-of-use",
+                "updated_reason": "https://evidence.eventdata.crossref.org/announcements/2018-04-26T00-00-00Z-ED-16.json",
+                "updated": "edited",
+                "obj_id": "https://doi.org/10.1136/bmj.c5347",
+                "source_token": "45a1ef76-4f43-4cdc-9ba8-5a6ad01cc231",
+                "occurred_at": "2017-02-17T12:27:31Z",
+                "subj_id": "http://twitter.com/hjreid/statuses/832567149638123521",
+                "id": "49a6cff4-9d9e-461f-9fd4-ecdd7ec22a7f",
+                "evidence_record": "https://evidence.eventdata.crossref.org/evidence/201702177467cbfe-60f1-4c99-91f8-eb831ecf17b4",
+                "action": "add",
+                "subj": {
+                    "pid": "http://twitter.com/hjreid/statuses/832567149638123521",
+                    "title": "Tweet 832567149638123521",
+                    "issued": "2017-02-17T12:27:31.000Z",
+                    "author": {
+                        "url": "http://www.twitter.com/hjreid"
+                    },
+                    "original-tweet-url": "http://twitter.com/AzureMedia/statuses/832564841562959876",
+                    "original-tweet-author": "http://www.twitter.com/AzureMedia",
+                    "alternative-id": "832567149638123521"
+                },
+                "source_id": "twitter",
+                "obj": {
+                    "pid": "https://doi.org/10.1136/bmj.c5347",
+                    "url": "https://doi.org/10.1136/bmj.c5347"
+                },
+                "timestamp": "2017-02-17T12:27:44Z",
+                "updated_date": "2018-05-03T09:32:23Z",
+                "relation_type_id": "discusses"
+            },
+            {
+                "license": "https://creativecommons.org/publicdomain/zero/1.0/",
+                "terms": "https://doi.org/10.13003/CED-terms-of-use",
+                "updated_reason": "https://evidence.eventdata.crossref.org/announcements/2018-04-26T00-00-00Z-ED-16.json",
+                "updated": "edited",
+                "obj_id": "https://doi.org/10.1007/s10531-017-1320-1",
+                "source_token": "45a1ef76-4f43-4cdc-9ba8-5a6ad01cc231",
+                "occurred_at": "2017-02-17T12:27:34Z",
+                "subj_id": "http://twitter.com/Stuart_Harker/statuses/832567162405527552",
+                "id": "355eb688-f526-46a6-9396-993c12cc313c",
+                "evidence_record": "https://evidence.eventdata.crossref.org/evidence/20170217be1dded0-fff8-42cf-95ad-7ee9472858a8",
+                "action": "add",
+                "subj": {
+                    "pid": "http://twitter.com/Stuart_Harker/statuses/832567162405527552",
+                    "title": "Tweet 832567162405527552",
+                    "issued": "2017-02-17T12:27:34.000Z",
+                    "author": {
+                        "url": "http://www.twitter.com/Stuart_Harker"
+                    },
+                    "original-tweet-url": "http://twitter.com/holland_tom/statuses/832565929544450048",
+                    "original-tweet-author": "http://www.twitter.com/holland_tom",
+                    "alternative-id": "832567162405527552"
+                },
+                "source_id": "twitter",
+                "obj": {
+                    "pid": "https://doi.org/10.1007/s10531-017-1320-1",
+                    "url": "https://doi.org/10.1007/s10531-017-1320-1"
+                },
+                "timestamp": "2017-02-17T12:27:45Z",
+                "updated_date": "2018-05-03T09:32:23Z",
+                "relation_type_id": "discusses"
+            },
+            {
+                "license": "https://creativecommons.org/publicdomain/zero/1.0/",
+                "terms": "https://doi.org/10.13003/CED-terms-of-use",
+                "updated_reason": "https://evidence.eventdata.crossref.org/announcements/2018-04-26T00-00-00Z-ED-16.json",
+                "updated": "edited",
+                "obj_id": "https://doi.org/10.1038/nrn.2017.7",
+                "source_token": "45a1ef76-4f43-4cdc-9ba8-5a6ad01cc231",
+                "occurred_at": "2017-02-17T12:27:35Z",
+                "subj_id": "http://twitter.com/vishnusreekr/statuses/832567166306230272",
+                "id": "328f8a59-d625-4356-886e-daef2e038d5c",
+                "evidence_record": "https://evidence.eventdata.crossref.org/evidence/201702175de34d6f-5f61-4d94-bc11-3fce44f3bc96",
+                "action": "add",
+                "subj": {
+                    "pid": "http://twitter.com/vishnusreekr/statuses/832567166306230272",
+                    "title": "Tweet 832567166306230272",
+                    "issued": "2017-02-17T12:27:35.000Z",
+                    "author": {
+                        "url": "http://www.twitter.com/vishnusreekr"
+                    },
+                    "original-tweet-url": "http://twitter.com/LHuntNeuro/statuses/832528432605065216",
+                    "original-tweet-author": "http://www.twitter.com/LHuntNeuro",
+                    "alternative-id": "832567166306230272"
+                },
+                "source_id": "twitter",
+                "obj": {
+                    "pid": "https://doi.org/10.1038/nrn.2017.7",
+                    "url": "https://doi.org/10.1038/nrn.2017.7"
+                },
+                "timestamp": "2017-02-17T12:27:47Z",
+                "updated_date": "2018-05-03T09:32:23Z",
+                "relation_type_id": "discusses"
+            },
+            {
+                "license": "https://creativecommons.org/publicdomain/zero/1.0/",
+                "terms": "https://doi.org/10.13003/CED-terms-of-use",
+                "updated_reason": "https://evidence.eventdata.crossref.org/announcements/2018-04-26T00-00-00Z-ED-16.json",
+                "updated": "edited",
+                "obj_id": "https://doi.org/10.1002/anie.201611409",
+                "source_token": "45a1ef76-4f43-4cdc-9ba8-5a6ad01cc231",
+                "occurred_at": "2017-02-17T12:27:26Z",
+                "subj_id": "http://twitter.com/borylation/statuses/832567130059005952",
+                "id": "073ed7b4-149f-4627-923d-a3bb8846d9d7",
+                "evidence_record": "https://evidence.eventdata.crossref.org/evidence/201702175beca7b0-9b3e-4b48-8074-d4a19881f730",
+                "action": "add",
+                "subj": {
+                    "pid": "http://twitter.com/borylation/statuses/832567130059005952",
+                    "title": "Tweet 832567130059005952",
+                    "issued": "2017-02-17T12:27:26.000Z",
+                    "author": {
+                        "url": "http://www.twitter.com/borylation"
+                    },
+                    "original-tweet-url": "http://twitter.com/angew_chem/statuses/832564459830964224",
+                    "original-tweet-author": "http://www.twitter.com/angew_chem",
+                    "alternative-id": "832567130059005952"
+                },
+                "source_id": "twitter",
+                "obj": {
+                    "pid": "https://doi.org/10.1002/anie.201611409",
+                    "url": "https://doi.org/10.1002/anie.201611409"
+                },
+                "timestamp": "2017-02-17T12:27:47Z",
+                "updated_date": "2018-05-03T09:32:23Z",
+                "relation_type_id": "discusses"
+            },
+            {
+                "license": "https://creativecommons.org/publicdomain/zero/1.0/",
+                "terms": "https://doi.org/10.13003/CED-terms-of-use",
+                "updated_reason": "https://evidence.eventdata.crossref.org/announcements/2018-04-26T00-00-00Z-ED-16.json",
+                "updated": "edited",
+                "obj_id": "https://doi.org/",
+                "source_token": "45a1ef76-4f43-4cdc-9ba8-5a6ad01cc231",
+                "occurred_at": "2017-02-17T12:27:36Z",
+                "subj_id": "http://twitter.com/igaxes3/statuses/832567172715147264",
+                "id": "de4e40f2-be32-42bb-b9ac-53868148d94e",
+                "evidence_record": "https://evidence.eventdata.crossref.org/evidence/201702178febce97-678e-4f55-98da-de55d34b0d9f",
+                "action": "add",
+                "subj": {
+                    "pid": "http://twitter.com/igaxes3/statuses/832567172715147264",
+                    "title": "Tweet 832567172715147264",
+                    "issued": "2017-02-17T12:27:36.000Z",
+                    "author": {
+                        "url": "http://www.twitter.com/igaxes3"
+                    },
+                    "original-tweet-url": "http://twitter.com/igaxes3/statuses/832567172715147264",
+                    "original-tweet-author": null,
+                    "alternative-id": "832567172715147264"
+                },
+                "source_id": "twitter",
+                "obj": {
+                    "pid": "https://doi.org/",
+                    "url": "https://doi.org/"
+                },
+                "timestamp": "2017-02-17T12:27:49Z",
+                "updated_date": "2018-05-09T17:41:23Z",
+                "relation_type_id": "discusses"
+            },
+            {
+                "license": "https://creativecommons.org/publicdomain/zero/1.0/",
+                "terms": "https://doi.org/10.13003/CED-terms-of-use",
+                "updated_reason": "https://evidence.eventdata.crossref.org/announcements/2018-04-26T00-00-00Z-ED-16.json",
+                "updated": "edited",
+                "obj_id": "https://doi.org/10.1136/bmj.j801",
+                "source_token": "45a1ef76-4f43-4cdc-9ba8-5a6ad01cc231",
+                "occurred_at": "2017-02-17T12:27:38Z",
+                "subj_id": "http://twitter.com/nikt50/statuses/832567179778207744",
+                "id": "6fbc61a0-e922-42b8-9228-a8d2377f1909",
+                "evidence_record": "https://evidence.eventdata.crossref.org/evidence/20170217856d1241-3f73-4f5a-a785-2dacab399c9b",
+                "action": "add",
+                "subj": {
+                    "pid": "http://twitter.com/nikt50/statuses/832567179778207744",
+                    "title": "Tweet 832567179778207744",
+                    "issued": "2017-02-17T12:27:38.000Z",
+                    "author": {
+                        "url": "http://www.twitter.com/nikt50"
+                    },
+                    "original-tweet-url": "http://twitter.com/_HSMCentre/statuses/832554801145724930",
+                    "original-tweet-author": "http://www.twitter.com/_HSMCentre",
+                    "alternative-id": "832567179778207744"
+                },
+                "source_id": "twitter",
+                "obj": {
+                    "pid": "https://doi.org/10.1136/bmj.j801",
+                    "url": "https://doi.org/10.1136/bmj.j801"
+                },
+                "timestamp": "2017-02-17T12:27:51Z",
+                "updated_date": "2018-05-03T09:32:23Z",
+                "relation_type_id": "discusses"
+            },
+            {
+                "license": "https://creativecommons.org/publicdomain/zero/1.0/",
+                "terms": "https://doi.org/10.13003/CED-terms-of-use",
+                "updated_reason": "https://evidence.eventdata.crossref.org/announcements/2018-04-26T00-00-00Z-ED-16.json",
+                "updated": "edited",
+                "obj_id": "https://doi.org/10.1136/thoraxjnl-2016-208649",
+                "source_token": "45a1ef76-4f43-4cdc-9ba8-5a6ad01cc231",
+                "occurred_at": "2017-02-17T12:27:44Z",
+                "subj_id": "http://twitter.com/HumaneScientist/statuses/832567202754732033",
+                "id": "d36683d9-4764-4462-8483-39ece8c2216c",
+                "evidence_record": "https://evidence.eventdata.crossref.org/evidence/20170217d339e39a-0fb7-4630-b9eb-0a81b4c4394f",
+                "action": "add",
+                "subj": {
+                    "pid": "http://twitter.com/HumaneScientist/statuses/832567202754732033",
+                    "title": "Tweet 832567202754732033",
+                    "issued": "2017-02-17T12:27:44.000Z",
+                    "author": {
+                        "url": "http://www.twitter.com/HumaneScientist"
+                    },
+                    "original-tweet-url": "http://twitter.com/ThoraxBMJ/statuses/832565331365416960",
+                    "original-tweet-author": "http://www.twitter.com/ThoraxBMJ",
+                    "alternative-id": "832567202754732033"
+                },
+                "source_id": "twitter",
+                "obj": {
+                    "pid": "https://doi.org/10.1136/thoraxjnl-2016-208649",
+                    "url": "https://doi.org/10.1136/thoraxjnl-2016-208649"
+                },
+                "timestamp": "2017-02-17T12:27:57Z",
+                "updated_date": "2018-05-03T09:32:23Z",
+                "relation_type_id": "discusses"
+            },
+            {
+                "license": "https://creativecommons.org/publicdomain/zero/1.0/",
+                "terms": "https://doi.org/10.13003/CED-terms-of-use",
+                "updated_reason": "https://evidence.eventdata.crossref.org/announcements/2018-04-26T00-00-00Z-ED-16.json",
+                "updated": "edited",
+                "obj_id": "https://doi.org/10.4172/1522-4821.1000266",
+                "source_token": "45a1ef76-4f43-4cdc-9ba8-5a6ad01cc231",
+                "occurred_at": "2017-02-17T12:27:44Z",
+                "subj_id": "http://twitter.com/buddhacanvas/statuses/832567202528296960",
+                "id": "1ee9d74a-7f0a-45e2-b24d-4dbc8043810f",
+                "evidence_record": "https://evidence.eventdata.crossref.org/evidence/20170217e0d05692-8d4d-453c-a980-a5314609ca03",
+                "action": "add",
+                "subj": {
+                    "pid": "http://twitter.com/buddhacanvas/statuses/832567202528296960",
+                    "title": "Tweet 832567202528296960",
+                    "issued": "2017-02-17T12:27:44.000Z",
+                    "author": {
+                        "url": "http://www.twitter.com/buddhacanvas"
+                    },
+                    "original-tweet-url": "http://twitter.com/kelseyhardin_/statuses/832356178550218753",
+                    "original-tweet-author": "http://www.twitter.com/kelseyhardin_",
+                    "alternative-id": "832567202528296960"
+                },
+                "source_id": "twitter",
+                "obj": {
+                    "pid": "https://doi.org/10.4172/1522-4821.1000266",
+                    "url": "https://doi.org/10.4172/1522-4821.1000266"
+                },
+                "timestamp": "2017-02-17T12:27:57Z",
+                "updated_date": "2018-05-03T09:32:23Z",
+                "relation_type_id": "discusses"
+            },
+            {
+                "license": "https://creativecommons.org/publicdomain/zero/1.0/",
+                "terms": "https://doi.org/10.13003/CED-terms-of-use",
+                "updated_reason": "https://evidence.eventdata.crossref.org/announcements/2018-04-26T00-00-00Z-ED-16.json",
+                "updated": "edited",
+                "obj_id": "https://doi.org/10.1038/s41550-016-0026",
+                "source_token": "45a1ef76-4f43-4cdc-9ba8-5a6ad01cc231",
+                "occurred_at": "2017-02-17T12:28:04Z",
+                "subj_id": "http://twitter.com/astronomy_stars/statuses/832567288012304384",
+                "id": "f0f36a68-c5df-4e6a-92be-7da1f865d2e5",
+                "evidence_record": "https://evidence.eventdata.crossref.org/evidence/2017021793c72207-80f3-4c6f-8097-96259ff05418",
+                "action": "add",
+                "subj": {
+                    "pid": "http://twitter.com/astronomy_stars/statuses/832567288012304384",
+                    "title": "Tweet 832567288012304384",
+                    "issued": "2017-02-17T12:28:04.000Z",
+                    "author": {
+                        "url": "http://www.twitter.com/astronomy_stars"
+                    },
+                    "original-tweet-url": "http://twitter.com/nresearchnews/statuses/832289724928761857",
+                    "original-tweet-author": "http://www.twitter.com/nresearchnews",
+                    "alternative-id": "832567288012304384"
+                },
+                "source_id": "twitter",
+                "obj": {
+                    "pid": "https://doi.org/10.1038/s41550-016-0026",
+                    "url": "https://doi.org/10.1038/s41550-016-0026"
+                },
+                "timestamp": "2017-02-17T12:28:16Z",
+                "updated_date": "2018-05-03T09:32:23Z",
+                "relation_type_id": "discusses"
+            },
+            {
+                "license": "https://creativecommons.org/publicdomain/zero/1.0/",
+                "terms": "https://doi.org/10.13003/CED-terms-of-use",
+                "updated_reason": "https://evidence.eventdata.crossref.org/announcements/2018-04-26T00-00-00Z-ED-16.json",
+                "updated": "edited",
+                "obj_id": "https://doi.org/10.1111/spc3.12302",
+                "source_token": "45a1ef76-4f43-4cdc-9ba8-5a6ad01cc231",
+                "occurred_at": "2017-02-17T12:28:06Z",
+                "subj_id": "http://twitter.com/JayMan471/statuses/832567294815563776",
+                "id": "fd50e10b-148f-4e33-bada-5131cbdbb835",
+                "evidence_record": "https://evidence.eventdata.crossref.org/evidence/20170217e3ff97a3-c7d3-44b3-8386-6b16d9a951e2",
+                "action": "add",
+                "subj": {
+                    "pid": "http://twitter.com/JayMan471/statuses/832567294815563776",
+                    "title": "Tweet 832567294815563776",
+                    "issued": "2017-02-17T12:28:06.000Z",
+                    "author": {
+                        "url": "http://www.twitter.com/JayMan471"
+                    },
+                    "original-tweet-url": "http://twitter.com/DegenRolf/statuses/832470453478240256",
+                    "original-tweet-author": "http://www.twitter.com/DegenRolf",
+                    "alternative-id": "832567294815563776"
+                },
+                "source_id": "twitter",
+                "obj": {
+                    "pid": "https://doi.org/10.1111/spc3.12302",
+                    "url": "https://doi.org/10.1111/spc3.12302"
+                },
+                "timestamp": "2017-02-17T12:28:17Z",
+                "updated_date": "2018-05-03T09:32:23Z",
+                "relation_type_id": "discusses"
+            },
+            {
+                "license": "https://creativecommons.org/publicdomain/zero/1.0/",
+                "terms": "https://doi.org/10.13003/CED-terms-of-use",
+                "updated_reason": "https://evidence.eventdata.crossref.org/announcements/2018-04-26T00-00-00Z-ED-16.json",
+                "updated": "edited",
+                "obj_id": "https://doi.org/10.1038/nature.2017.21485",
+                "source_token": "45a1ef76-4f43-4cdc-9ba8-5a6ad01cc231",
+                "occurred_at": "2017-02-17T12:28:06Z",
+                "subj_id": "http://twitter.com/alfhidalgom/statuses/832567298481348610",
+                "id": "1ab22102-4c57-482b-b540-0771510e148e",
+                "evidence_record": "https://evidence.eventdata.crossref.org/evidence/201702177d8faa2c-ab86-4d87-9176-f8719608af05",
+                "action": "add",
+                "subj": {
+                    "pid": "http://twitter.com/alfhidalgom/statuses/832567298481348610",
+                    "title": "Tweet 832567298481348610",
+                    "issued": "2017-02-17T12:28:06.000Z",
+                    "author": {
+                        "url": "http://www.twitter.com/alfhidalgom"
+                    },
+                    "original-tweet-url": "http://twitter.com/alfhidalgom/statuses/832567298481348610",
+                    "original-tweet-author": null,
+                    "alternative-id": "832567298481348610"
+                },
+                "source_id": "twitter",
+                "obj": {
+                    "pid": "https://doi.org/10.1038/nature.2017.21485",
+                    "url": "https://doi.org/10.1038/nature.2017.21485"
+                },
+                "timestamp": "2017-02-17T12:28:18Z",
+                "updated_date": "2018-05-03T09:32:23Z",
+                "relation_type_id": "discusses"
+            },
+            {
+                "license": "https://creativecommons.org/publicdomain/zero/1.0/",
+                "terms": "https://doi.org/10.13003/CED-terms-of-use",
+                "updated_reason": "https://evidence.eventdata.crossref.org/announcements/2018-04-26T00-00-00Z-ED-16.json",
+                "updated": "edited",
+                "obj_id": "https://doi.org/10.1111/add.13668",
+                "source_token": "45a1ef76-4f43-4cdc-9ba8-5a6ad01cc231",
+                "occurred_at": "2017-02-17T12:28:16Z",
+                "subj_id": "http://twitter.com/nnadal2013/statuses/832567337404551168",
+                "id": "b4b7bae2-4ad1-42ce-90e4-68ade99750bf",
+                "evidence_record": "https://evidence.eventdata.crossref.org/evidence/201702170a8dce34-c867-4ded-8727-881e7b0b81c2",
+                "action": "add",
+                "subj": {
+                    "pid": "http://twitter.com/nnadal2013/statuses/832567337404551168",
+                    "title": "Tweet 832567337404551168",
+                    "issued": "2017-02-17T12:28:16.000Z",
+                    "author": {
+                        "url": "http://www.twitter.com/nnadal2013"
+                    },
+                    "original-tweet-url": "http://twitter.com/AddictionJrnl/statuses/832530314354421760",
+                    "original-tweet-author": "http://www.twitter.com/AddictionJrnl",
+                    "alternative-id": "832567337404551168"
+                },
+                "source_id": "twitter",
+                "obj": {
+                    "pid": "https://doi.org/10.1111/add.13668",
+                    "url": "https://doi.org/10.1111/add.13668"
+                },
+                "timestamp": "2017-02-17T12:28:26Z",
+                "updated_date": "2018-05-03T09:32:23Z",
+                "relation_type_id": "discusses"
+            },
+            {
+                "license": "https://creativecommons.org/publicdomain/zero/1.0/",
+                "terms": "https://doi.org/10.13003/CED-terms-of-use",
+                "updated_reason": "https://evidence.eventdata.crossref.org/announcements/2018-04-26T00-00-00Z-ED-16.json",
+                "updated": "edited",
+                "obj_id": "https://doi.org/10.1111/cobi.12896",
+                "source_token": "45a1ef76-4f43-4cdc-9ba8-5a6ad01cc231",
+                "occurred_at": "2017-02-17T12:28:22Z",
+                "subj_id": "http://twitter.com/OliVerderol/statuses/832567362327080960",
+                "id": "de846696-025c-460e-a29d-7867cc61d2b1",
+                "evidence_record": "https://evidence.eventdata.crossref.org/evidence/20170217fa887f8e-06f2-44a7-834e-8bfa4188fc5a",
+                "action": "add",
+                "subj": {
+                    "pid": "http://twitter.com/OliVerderol/statuses/832567362327080960",
+                    "title": "Tweet 832567362327080960",
+                    "issued": "2017-02-17T12:28:22.000Z",
+                    "author": {
+                        "url": "http://www.twitter.com/OliVerderol"
+                    },
+                    "original-tweet-url": "http://twitter.com/OliVerderol/statuses/832567362327080960",
+                    "original-tweet-author": null,
+                    "alternative-id": "832567362327080960"
+                },
+                "source_id": "twitter",
+                "obj": {
+                    "pid": "https://doi.org/10.1111/cobi.12896",
+                    "url": "https://doi.org/10.1111/cobi.12896"
+                },
+                "timestamp": "2017-02-17T12:28:33Z",
+                "updated_date": "2018-05-03T09:32:23Z",
+                "relation_type_id": "discusses"
+            },
+            {
+                "license": "https://creativecommons.org/publicdomain/zero/1.0/",
+                "terms": "https://doi.org/10.13003/CED-terms-of-use",
+                "updated_reason": "https://evidence.eventdata.crossref.org/announcements/2018-04-26T00-00-00Z-ED-16.json",
+                "updated": "edited",
+                "obj_id": "https://doi.org/10.1371/journal.pone.0172113",
+                "source_token": "45a1ef76-4f43-4cdc-9ba8-5a6ad01cc231",
+                "occurred_at": "2017-02-17T12:28:25Z",
+                "subj_id": "http://twitter.com",
+                "id": "1909d5c8-7000-43fa-9e61-cdd7c03cdf79",
+                "evidence_record": "https://evidence.eventdata.crossref.org/evidence/201702179e2d85e9-0bfb-4b0e-be9a-0d23c07d3a9c",
+                "action": "add",
+                "source_id": "twitter",
+                "obj": {
+                    "pid": "https://doi.org/10.1371/journal.pone.0172113",
+                    "url": "https://doi.org/10.1371/journal.pone.0172113"
+                },
+                "timestamp": "2017-02-17T12:28:36Z",
+                "updated_date": "2018-05-09T17:41:23Z",
+                "relation_type_id": "discusses"
+            },
+            {
+                "license": "https://creativecommons.org/publicdomain/zero/1.0/",
+                "terms": "https://doi.org/10.13003/CED-terms-of-use",
+                "updated_reason": "https://evidence.eventdata.crossref.org/announcements/2018-04-26T00-00-00Z-ED-16.json",
+                "updated": "edited",
+                "obj_id": "https://doi.org/10.1371/journal.pone.0172426",
+                "source_token": "45a1ef76-4f43-4cdc-9ba8-5a6ad01cc231",
+                "occurred_at": "2017-02-17T12:28:33Z",
+                "subj_id": "http://twitter.com/uranus_2/statuses/832567408393007104",
+                "id": "c47936dd-1a81-4d20-9c31-0bbc50a12521",
+                "evidence_record": "https://evidence.eventdata.crossref.org/evidence/20170217d12ac4a6-c3e4-4d45-a44d-f30a68804bd2",
+                "action": "add",
+                "subj": {
+                    "pid": "http://twitter.com/uranus_2/statuses/832567408393007104",
+                    "title": "Tweet 832567408393007104",
+                    "issued": "2017-02-17T12:28:33.000Z",
+                    "author": {
+                        "url": "http://www.twitter.com/uranus_2"
+                    },
+                    "original-tweet-url": "http://twitter.com/uranus_2/statuses/832567408393007104",
+                    "original-tweet-author": null,
+                    "alternative-id": "832567408393007104"
+                },
+                "source_id": "twitter",
+                "obj": {
+                    "pid": "https://doi.org/10.1371/journal.pone.0172426",
+                    "url": "https://doi.org/10.1371/journal.pone.0172426"
+                },
+                "timestamp": "2017-02-17T12:28:44Z",
+                "updated_date": "2018-05-03T09:32:23Z",
+                "relation_type_id": "discusses"
+            },
+            {
+                "license": "https://creativecommons.org/publicdomain/zero/1.0/",
+                "terms": "https://doi.org/10.13003/CED-terms-of-use",
+                "updated_reason": "https://evidence.eventdata.crossref.org/announcements/2018-04-26T00-00-00Z-ED-16.json",
+                "updated": "edited",
+                "obj_id": "https://doi.org/10.1007/s00766-015-0238-y",
+                "source_token": "45a1ef76-4f43-4cdc-9ba8-5a6ad01cc231",
+                "occurred_at": "2017-02-17T12:28:40Z",
+                "subj_id": "http://twitter.com/jcspl/statuses/832567438067826688",
+                "id": "be1c0cc0-b045-4cfa-9677-9daf4c22a8a4",
+                "evidence_record": "https://evidence.eventdata.crossref.org/evidence/201702176d08be4f-285d-43b6-bacd-49b52d3d748d",
+                "action": "add",
+                "subj": {
+                    "pid": "http://twitter.com/jcspl/statuses/832567438067826688",
+                    "title": "Tweet 832567438067826688",
+                    "issued": "2017-02-17T12:28:40.000Z",
+                    "author": {
+                        "url": "http://www.twitter.com/jcspl"
+                    },
+                    "original-tweet-url": "http://twitter.com/jcspl/statuses/832567438067826688",
+                    "original-tweet-author": null,
+                    "alternative-id": "832567438067826688"
+                },
+                "source_id": "twitter",
+                "obj": {
+                    "pid": "https://doi.org/10.1007/s00766-015-0238-y",
+                    "url": "https://doi.org/10.1007/s00766-015-0238-y"
+                },
+                "timestamp": "2017-02-17T12:28:51Z",
+                "updated_date": "2018-05-03T09:32:23Z",
+                "relation_type_id": "discusses"
+            },
+            {
+                "license": "https://creativecommons.org/publicdomain/zero/1.0/",
+                "terms": "https://doi.org/10.13003/CED-terms-of-use",
+                "updated_reason": "https://evidence.eventdata.crossref.org/announcements/2018-04-26T00-00-00Z-ED-16.json",
+                "updated": "edited",
+                "obj_id": "https://doi.org/10.1136/bmj.c5347",
+                "source_token": "45a1ef76-4f43-4cdc-9ba8-5a6ad01cc231",
+                "occurred_at": "2017-02-17T12:28:38Z",
+                "subj_id": "http://twitter.com/ljndawson/statuses/832567432606801920",
+                "id": "96afdd58-9dc7-45da-91e1-cfd9224993a0",
+                "evidence_record": "https://evidence.eventdata.crossref.org/evidence/20170217df816248-e2b8-428d-adbc-c4d6eda80661",
+                "action": "add",
+                "subj": {
+                    "pid": "http://twitter.com/ljndawson/statuses/832567432606801920",
+                    "title": "Tweet 832567432606801920",
+                    "issued": "2017-02-17T12:28:38.000Z",
+                    "author": {
+                        "url": "http://www.twitter.com/ljndawson"
+                    },
+                    "original-tweet-url": "http://twitter.com/AzureMedia/statuses/832564841562959876",
+                    "original-tweet-author": "http://www.twitter.com/AzureMedia",
+                    "alternative-id": "832567432606801920"
+                },
+                "source_id": "twitter",
+                "obj": {
+                    "pid": "https://doi.org/10.1136/bmj.c5347",
+                    "url": "https://doi.org/10.1136/bmj.c5347"
+                },
+                "timestamp": "2017-02-17T12:28:51Z",
+                "updated_date": "2018-05-03T09:32:23Z",
+                "relation_type_id": "discusses"
+            },
+            {
+                "license": "https://creativecommons.org/publicdomain/zero/1.0/",
+                "terms": "https://doi.org/10.13003/CED-terms-of-use",
+                "updated_reason": "https://evidence.eventdata.crossref.org/announcements/2018-04-26T00-00-00Z-ED-16.json",
+                "updated": "edited",
+                "obj_id": "https://doi.org/10.1007/s10531-017-1320-1",
+                "source_token": "45a1ef76-4f43-4cdc-9ba8-5a6ad01cc231",
+                "occurred_at": "2017-02-17T12:28:45Z",
+                "subj_id": "http://twitter.com",
+                "id": "2aebb282-ac1b-4bf1-9b6f-ca35b3eb4852",
+                "evidence_record": "https://evidence.eventdata.crossref.org/evidence/20170217154b49e4-4db2-4fbd-8a9d-0e19e860091f",
+                "action": "add",
+                "source_id": "twitter",
+                "obj": {
+                    "pid": "https://doi.org/10.1007/s10531-017-1320-1",
+                    "url": "https://doi.org/10.1007/s10531-017-1320-1"
+                },
+                "timestamp": "2017-02-17T12:28:56Z",
+                "updated_date": "2018-05-09T17:41:23Z",
+                "relation_type_id": "discusses"
+            },
+            {
+                "license": "https://creativecommons.org/publicdomain/zero/1.0/",
+                "terms": "https://doi.org/10.13003/CED-terms-of-use",
+                "updated_reason": "https://evidence.eventdata.crossref.org/announcements/2018-04-26T00-00-00Z-ED-16.json",
+                "updated": "edited",
+                "obj_id": "https://doi.org/10.2972/hesperia.86.1.0129",
+                "source_token": "45a1ef76-4f43-4cdc-9ba8-5a6ad01cc231",
+                "occurred_at": "2017-02-17T12:28:44Z",
+                "subj_id": "http://twitter.com/guerrist/statuses/832567457785200640",
+                "id": "00aac49c-5074-4b70-bd6d-da5b6af68ace",
+                "evidence_record": "https://evidence.eventdata.crossref.org/evidence/2017021764990c1b-e773-4a3b-b0bb-2fda7dc864d1",
+                "action": "add",
+                "subj": {
+                    "pid": "http://twitter.com/guerrist/statuses/832567457785200640",
+                    "title": "Tweet 832567457785200640",
+                    "issued": "2017-02-17T12:28:44.000Z",
+                    "author": {
+                        "url": "http://www.twitter.com/guerrist"
+                    },
+                    "original-tweet-url": "http://twitter.com/ascsapubs/statuses/832558985693761536",
+                    "original-tweet-author": "http://www.twitter.com/ascsapubs",
+                    "alternative-id": "832567457785200640"
+                },
+                "source_id": "twitter",
+                "obj": {
+                    "pid": "https://doi.org/10.2972/hesperia.86.1.0129",
+                    "url": "https://doi.org/10.2972/hesperia.86.1.0129"
+                },
+                "timestamp": "2017-02-17T12:28:56Z",
+                "updated_date": "2018-05-03T09:32:23Z",
+                "relation_type_id": "discusses"
+            },
+            {
+                "license": "https://creativecommons.org/publicdomain/zero/1.0/",
+                "terms": "https://doi.org/10.13003/CED-terms-of-use",
+                "updated_reason": "https://evidence.eventdata.crossref.org/announcements/2018-04-26T00-00-00Z-ED-16.json",
+                "updated": "edited",
+                "obj_id": "https://doi.org/10.1038/hdy.2016.92",
+                "source_token": "45a1ef76-4f43-4cdc-9ba8-5a6ad01cc231",
+                "occurred_at": "2017-02-17T12:28:54Z",
+                "subj_id": "http://twitter.com/HeredityJournal/statuses/832567495852699648",
+                "id": "a5004876-ead7-4136-980d-1f394b40b428",
+                "evidence_record": "https://evidence.eventdata.crossref.org/evidence/20170217f7834ff5-71e3-4219-b756-89a19b713fde",
+                "action": "add",
+                "subj": {
+                    "pid": "http://twitter.com/HeredityJournal/statuses/832567495852699648",
+                    "title": "Tweet 832567495852699648",
+                    "issued": "2017-02-17T12:28:54.000Z",
+                    "author": {
+                        "url": "http://www.twitter.com/HeredityJournal"
+                    },
+                    "original-tweet-url": "http://twitter.com/HeredityJournal/statuses/832567495852699648",
+                    "original-tweet-author": null,
+                    "alternative-id": "832567495852699648"
+                },
+                "source_id": "twitter",
+                "obj": {
+                    "pid": "https://doi.org/10.1038/hdy.2016.92",
+                    "url": "https://doi.org/10.1038/hdy.2016.92"
+                },
+                "timestamp": "2017-02-17T12:29:05Z",
+                "updated_date": "2018-05-03T09:32:23Z",
+                "relation_type_id": "discusses"
+            },
+            {
+                "license": "https://creativecommons.org/publicdomain/zero/1.0/",
+                "terms": "https://doi.org/10.13003/CED-terms-of-use",
+                "updated_reason": "https://evidence.eventdata.crossref.org/announcements/2018-04-26T00-00-00Z-ED-16.json",
+                "updated": "edited",
+                "obj_id": "https://doi.org/10.4049/jimmunol.1601641",
+                "source_token": "45a1ef76-4f43-4cdc-9ba8-5a6ad01cc231",
+                "occurred_at": "2017-02-17T12:28:52Z",
+                "subj_id": "http://twitter.com/cjblondel/statuses/832567491243233282",
+                "id": "13301a06-9295-4745-bce5-1f4becdcdad1",
+                "evidence_record": "https://evidence.eventdata.crossref.org/evidence/201702170253b7f1-60d9-4857-800b-008bd33ce42a",
+                "action": "add",
+                "subj": {
+                    "pid": "http://twitter.com/cjblondel/statuses/832567491243233282",
+                    "title": "Tweet 832567491243233282",
+                    "issued": "2017-02-17T12:28:52.000Z",
+                    "author": {
+                        "url": "http://www.twitter.com/cjblondel"
+                    },
+                    "original-tweet-url": "http://twitter.com/EvolvedBiofilm/statuses/832566864022818816",
+                    "original-tweet-author": "http://www.twitter.com/EvolvedBiofilm",
+                    "alternative-id": "832567491243233282"
+                },
+                "source_id": "twitter",
+                "obj": {
+                    "pid": "https://doi.org/10.4049/jimmunol.1601641",
+                    "url": "https://doi.org/10.4049/jimmunol.1601641"
+                },
+                "timestamp": "2017-02-17T12:29:05Z",
+                "updated_date": "2018-05-03T09:32:23Z",
+                "relation_type_id": "discusses"
+            },
+            {
+                "license": "https://creativecommons.org/publicdomain/zero/1.0/",
+                "terms": "https://doi.org/10.13003/CED-terms-of-use",
+                "updated_reason": "https://evidence.eventdata.crossref.org/announcements/2018-04-26T00-00-00Z-ED-16.json",
+                "updated": "edited",
+                "obj_id": "https://doi.org/10.1002/anie.201611409",
+                "source_token": "45a1ef76-4f43-4cdc-9ba8-5a6ad01cc231",
+                "occurred_at": "2017-02-17T12:28:59Z",
+                "subj_id": "http://twitter.com/miraihack/statuses/832567518812262400",
+                "id": "e7d960e9-7229-4ee9-95e0-af83e75505d8",
+                "evidence_record": "https://evidence.eventdata.crossref.org/evidence/20170217c2a173d4-1231-4b70-ac9a-c7941f6df5c5",
+                "action": "add",
+                "subj": {
+                    "pid": "http://twitter.com/miraihack/statuses/832567518812262400",
+                    "title": "Tweet 832567518812262400",
+                    "issued": "2017-02-17T12:28:59.000Z",
+                    "author": {
+                        "url": "http://www.twitter.com/miraihack"
+                    },
+                    "original-tweet-url": "http://twitter.com/angew_chem/statuses/832564459830964224",
+                    "original-tweet-author": "http://www.twitter.com/angew_chem",
+                    "alternative-id": "832567518812262400"
+                },
+                "source_id": "twitter",
+                "obj": {
+                    "pid": "https://doi.org/10.1002/anie.201611409",
+                    "url": "https://doi.org/10.1002/anie.201611409"
+                },
+                "timestamp": "2017-02-17T12:29:10Z",
+                "updated_date": "2018-05-03T09:32:23Z",
+                "relation_type_id": "discusses"
+            },
+            {
+                "license": "https://creativecommons.org/publicdomain/zero/1.0/",
+                "terms": "https://doi.org/10.13003/CED-terms-of-use",
+                "updated_reason": "https://evidence.eventdata.crossref.org/announcements/2018-04-26T00-00-00Z-ED-16.json",
+                "updated": "edited",
+                "obj_id": "https://doi.org/10.1038/nature21349",
+                "source_token": "45a1ef76-4f43-4cdc-9ba8-5a6ad01cc231",
+                "occurred_at": "2017-02-17T12:29:05Z",
+                "subj_id": "http://twitter.com/ESMO_Open/statuses/832567542552096769",
+                "id": "e3cba80d-a8e1-4fe1-a1ca-797cc86fc1a7",
+                "evidence_record": "https://evidence.eventdata.crossref.org/evidence/201702175be49ee6-348e-46ef-a5a9-f42d8a7f5b28",
+                "action": "add",
+                "subj": {
+                    "pid": "http://twitter.com/ESMO_Open/statuses/832567542552096769",
+                    "title": "Tweet 832567542552096769",
+                    "issued": "2017-02-17T12:29:05.000Z",
+                    "author": {
+                        "url": "http://www.twitter.com/ESMO_Open"
+                    },
+                    "original-tweet-url": "http://twitter.com/jsoriamd/statuses/832160095597379585",
+                    "original-tweet-author": "http://www.twitter.com/jsoriamd",
+                    "alternative-id": "832567542552096769"
+                },
+                "source_id": "twitter",
+                "obj": {
+                    "pid": "https://doi.org/10.1038/nature21349",
+                    "url": "https://doi.org/10.1038/nature21349"
+                },
+                "timestamp": "2017-02-17T12:29:17Z",
+                "updated_date": "2018-05-03T09:32:23Z",
+                "relation_type_id": "discusses"
+            },
+            {
+                "license": "https://creativecommons.org/publicdomain/zero/1.0/",
+                "terms": "https://doi.org/10.13003/CED-terms-of-use",
+                "updated_reason": "https://evidence.eventdata.crossref.org/announcements/2018-04-26T00-00-00Z-ED-16.json",
+                "updated": "edited",
+                "obj_id": "https://doi.org/10.1371/journal.pcbi.1005313",
+                "source_token": "45a1ef76-4f43-4cdc-9ba8-5a6ad01cc231",
+                "occurred_at": "2017-02-17T12:29:11Z",
+                "subj_id": "http://twitter.com/rnomics/statuses/832567570742046720",
+                "id": "d9f1e613-467c-4714-86ed-309c1908aaa5",
+                "evidence_record": "https://evidence.eventdata.crossref.org/evidence/201702176958486d-13fd-4b15-84e9-0012c95fe88a",
+                "action": "add",
+                "subj": {
+                    "pid": "http://twitter.com/rnomics/statuses/832567570742046720",
+                    "title": "Tweet 832567570742046720",
+                    "issued": "2017-02-17T12:29:11.000Z",
+                    "author": {
+                        "url": "http://www.twitter.com/rnomics"
+                    },
+                    "original-tweet-url": "http://twitter.com/rnomics/statuses/832567570742046720",
+                    "original-tweet-author": null,
+                    "alternative-id": "832567570742046720"
+                },
+                "source_id": "twitter",
+                "obj": {
+                    "pid": "https://doi.org/10.1371/journal.pcbi.1005313",
+                    "url": "https://doi.org/10.1371/journal.pcbi.1005313"
+                },
+                "timestamp": "2017-02-17T12:29:22Z",
+                "updated_date": "2018-05-03T09:32:23Z",
+                "relation_type_id": "discusses"
+            },
+            {
+                "license": "https://creativecommons.org/publicdomain/zero/1.0/",
+                "terms": "https://doi.org/10.13003/CED-terms-of-use",
+                "updated_reason": "https://evidence.eventdata.crossref.org/announcements/2018-04-26T00-00-00Z-ED-16.json",
+                "updated": "edited",
+                "obj_id": "https://doi.org/10.1038/ncomms10506",
+                "source_token": "45a1ef76-4f43-4cdc-9ba8-5a6ad01cc231",
+                "occurred_at": "2017-02-17T12:29:08Z",
+                "subj_id": "http://twitter.com/blackgull/statuses/832567555810328579",
+                "id": "b265de78-da78-44fb-9e75-e1c27a976172",
+                "evidence_record": "https://evidence.eventdata.crossref.org/evidence/20170217e3db92a8-0a26-49e8-848a-6c85e7fb3d55",
+                "action": "add",
+                "subj": {
+                    "pid": "http://twitter.com/blackgull/statuses/832567555810328579",
+                    "title": "Tweet 832567555810328579",
+                    "issued": "2017-02-17T12:29:08.000Z",
+                    "author": {
+                        "url": "http://www.twitter.com/blackgull"
+                    },
+                    "original-tweet-url": "http://twitter.com/blackgull/statuses/832567555810328579",
+                    "original-tweet-author": null,
+                    "alternative-id": "832567555810328579"
+                },
+                "source_id": "twitter",
+                "obj": {
+                    "pid": "https://doi.org/10.1038/ncomms10506",
+                    "url": "https://doi.org/10.1038/ncomms10506"
+                },
+                "timestamp": "2017-02-17T12:29:23Z",
+                "updated_date": "2018-05-03T09:32:23Z",
+                "relation_type_id": "discusses"
+            },
+            {
+                "license": "https://creativecommons.org/publicdomain/zero/1.0/",
+                "terms": "https://doi.org/10.13003/CED-terms-of-use",
+                "updated_reason": "https://evidence.eventdata.crossref.org/announcements/2018-04-26T00-00-00Z-ED-16.json",
+                "updated": "edited",
+                "obj_id": "https://doi.org/10.1002/anie.201611409",
+                "source_token": "45a1ef76-4f43-4cdc-9ba8-5a6ad01cc231",
+                "occurred_at": "2017-02-17T12:29:12Z",
+                "subj_id": "http://twitter.com/C_X_/statuses/832567574068027393",
+                "id": "6596e406-269a-4c78-8525-ba84d6f4e08f",
+                "evidence_record": "https://evidence.eventdata.crossref.org/evidence/2017021700ccf8c3-b211-45fe-beee-e68740b6967c",
+                "action": "add",
+                "subj": {
+                    "pid": "http://twitter.com/C_X_/statuses/832567574068027393",
+                    "title": "Tweet 832567574068027393",
+                    "issued": "2017-02-17T12:29:12.000Z",
+                    "author": {
+                        "url": "http://www.twitter.com/C_X_"
+                    },
+                    "original-tweet-url": "http://twitter.com/angew_chem/statuses/832564459830964224",
+                    "original-tweet-author": "http://www.twitter.com/angew_chem",
+                    "alternative-id": "832567574068027393"
+                },
+                "source_id": "twitter",
+                "obj": {
+                    "pid": "https://doi.org/10.1002/anie.201611409",
+                    "url": "https://doi.org/10.1002/anie.201611409"
+                },
+                "timestamp": "2017-02-17T12:29:23Z",
+                "updated_date": "2018-05-03T09:32:23Z",
+                "relation_type_id": "discusses"
+            },
+            {
+                "license": "https://creativecommons.org/publicdomain/zero/1.0/",
+                "terms": "https://doi.org/10.13003/CED-terms-of-use",
+                "updated_reason": "https://evidence.eventdata.crossref.org/announcements/2018-04-26T00-00-00Z-ED-16.json",
+                "updated": "edited",
+                "obj_id": "https://doi.org/10.1038/541435a",
+                "source_token": "45a1ef76-4f43-4cdc-9ba8-5a6ad01cc231",
+                "occurred_at": "2017-02-17T12:29:16Z",
+                "subj_id": "http://twitter.com",
+                "id": "2f81aeaf-973f-4332-8e1a-93bb6e3aeb80",
+                "evidence_record": "https://evidence.eventdata.crossref.org/evidence/201702177b134622-d441-4202-b80e-077e8013071c",
+                "action": "add",
+                "source_id": "twitter",
+                "obj": {
+                    "pid": "https://doi.org/10.1038/541435a",
+                    "url": "https://doi.org/10.1038/541435a"
+                },
+                "timestamp": "2017-02-17T12:29:28Z",
+                "updated_date": "2018-05-09T17:41:23Z",
+                "relation_type_id": "discusses"
+            },
+            {
+                "license": "https://creativecommons.org/publicdomain/zero/1.0/",
+                "terms": "https://doi.org/10.13003/CED-terms-of-use",
+                "updated_reason": "https://evidence.eventdata.crossref.org/announcements/2018-04-26T00-00-00Z-ED-16.json",
+                "updated": "edited",
+                "obj_id": "https://doi.org/10.1007/s00401-017-1679-9",
+                "source_token": "45a1ef76-4f43-4cdc-9ba8-5a6ad01cc231",
+                "occurred_at": "2017-02-17T12:29:33Z",
+                "subj_id": "http://twitter.com/mlage/statuses/832567659690594304",
+                "id": "bb6b391c-bbcb-41f2-b0d0-e4493f09ae27",
+                "evidence_record": "https://evidence.eventdata.crossref.org/evidence/20170217f37a4bb6-dce7-4168-a006-0eea877853f4",
+                "action": "add",
+                "subj": {
+                    "pid": "http://twitter.com/mlage/statuses/832567659690594304",
+                    "title": "Tweet 832567659690594304",
+                    "issued": "2017-02-17T12:29:33.000Z",
+                    "author": {
+                        "url": "http://www.twitter.com/mlage"
+                    },
+                    "original-tweet-url": "http://twitter.com/mlage/statuses/832567659690594304",
+                    "original-tweet-author": null,
+                    "alternative-id": "832567659690594304"
+                },
+                "source_id": "twitter",
+                "obj": {
+                    "pid": "https://doi.org/10.1007/s00401-017-1679-9",
+                    "url": "https://doi.org/10.1007/s00401-017-1679-9"
+                },
+                "timestamp": "2017-02-17T12:29:44Z",
+                "updated_date": "2018-05-03T09:32:23Z",
+                "relation_type_id": "discusses"
+            },
+            {
+                "license": "https://creativecommons.org/publicdomain/zero/1.0/",
+                "terms": "https://doi.org/10.13003/CED-terms-of-use",
+                "updated_reason": "https://evidence.eventdata.crossref.org/announcements/2018-04-26T00-00-00Z-ED-16.json",
+                "updated": "edited",
+                "obj_id": "https://doi.org/10.1038/541438b",
+                "source_token": "45a1ef76-4f43-4cdc-9ba8-5a6ad01cc231",
+                "occurred_at": "2017-02-17T12:29:38Z",
+                "subj_id": "http://twitter.com/LetsFishSmarter/statuses/832567684424400898",
+                "id": "d4c96e0c-6608-4b5c-b43a-91c53770d920",
+                "evidence_record": "https://evidence.eventdata.crossref.org/evidence/2017021780d1857e-d3f0-4eaf-966d-4dc765efbbfd",
+                "action": "add",
+                "subj": {
+                    "pid": "http://twitter.com/LetsFishSmarter/statuses/832567684424400898",
+                    "title": "Tweet 832567684424400898",
+                    "issued": "2017-02-17T12:29:38.000Z",
+                    "author": {
+                        "url": "http://www.twitter.com/LetsFishSmarter"
+                    },
+                    "original-tweet-url": "http://twitter.com/LetsFishSmarter/statuses/832567684424400898",
+                    "original-tweet-author": null,
+                    "alternative-id": "832567684424400898"
+                },
+                "source_id": "twitter",
+                "obj": {
+                    "pid": "https://doi.org/10.1038/541438b",
+                    "url": "https://doi.org/10.1038/541438b"
+                },
+                "timestamp": "2017-02-17T12:29:50Z",
+                "updated_date": "2018-05-03T09:32:24Z",
+                "relation_type_id": "discusses"
+            },
+            {
+                "license": "https://creativecommons.org/publicdomain/zero/1.0/",
+                "terms": "https://doi.org/10.13003/CED-terms-of-use",
+                "updated_reason": "https://evidence.eventdata.crossref.org/announcements/2018-04-26T00-00-00Z-ED-16.json",
+                "updated": "edited",
+                "obj_id": "https://doi.org/10.1007/s13199-016-0464-1",
+                "source_token": "45a1ef76-4f43-4cdc-9ba8-5a6ad01cc231",
+                "occurred_at": "2017-02-17T12:29:48Z",
+                "subj_id": "http://twitter.com/palaeoheda/statuses/832567722403909634",
+                "id": "c2966128-8afb-4f46-ade0-80b649a2c864",
+                "evidence_record": "https://evidence.eventdata.crossref.org/evidence/20170217d7055e87-1026-46d9-8b9c-b9a37380114e",
+                "action": "add",
+                "subj": {
+                    "pid": "http://twitter.com/palaeoheda/statuses/832567722403909634",
+                    "title": "Tweet 832567722403909634",
+                    "issued": "2017-02-17T12:29:48.000Z",
+                    "author": {
+                        "url": "http://www.twitter.com/palaeoheda"
+                    },
+                    "original-tweet-url": "http://twitter.com/fleliaer/statuses/832501943478149120",
+                    "original-tweet-author": "http://www.twitter.com/fleliaer",
+                    "alternative-id": "832567722403909634"
+                },
+                "source_id": "twitter",
+                "obj": {
+                    "pid": "https://doi.org/10.1007/s13199-016-0464-1",
+                    "url": "https://doi.org/10.1007/s13199-016-0464-1"
+                },
+                "timestamp": "2017-02-17T12:29:59Z",
+                "updated_date": "2018-05-03T09:32:24Z",
+                "relation_type_id": "discusses"
+            },
+            {
+                "license": "https://creativecommons.org/publicdomain/zero/1.0/",
+                "terms": "https://doi.org/10.13003/CED-terms-of-use",
+                "updated_reason": "https://evidence.eventdata.crossref.org/announcements/2018-04-26T00-00-00Z-ED-16.json",
+                "updated": "edited",
+                "obj_id": "https://doi.org/10.1038/542271b",
+                "source_token": "45a1ef76-4f43-4cdc-9ba8-5a6ad01cc231",
+                "occurred_at": "2017-02-17T12:29:47Z",
+                "subj_id": "http://twitter.com/rpancost/statuses/832567719597846528",
+                "id": "8bb19493-fea4-4513-8d06-a8f71c1382e5",
+                "evidence_record": "https://evidence.eventdata.crossref.org/evidence/2017021765675c8a-f381-4d33-a11f-c2f33dedcfff",
+                "action": "add",
+                "subj": {
+                    "pid": "http://twitter.com/rpancost/statuses/832567719597846528",
+                    "title": "Tweet 832567719597846528",
+                    "issued": "2017-02-17T12:29:47.000Z",
+                    "author": {
+                        "url": "http://www.twitter.com/rpancost"
+                    },
+                    "original-tweet-url": "http://twitter.com/twilamoon/statuses/832566962706333697",
+                    "original-tweet-author": "http://www.twitter.com/twilamoon",
+                    "alternative-id": "832567719597846528"
+                },
+                "source_id": "twitter",
+                "obj": {
+                    "pid": "https://doi.org/10.1038/542271b",
+                    "url": "https://doi.org/10.1038/542271b"
+                },
+                "timestamp": "2017-02-17T12:29:59Z",
+                "updated_date": "2018-05-03T09:32:24Z",
+                "relation_type_id": "discusses"
+            },
+            {
+                "license": "https://creativecommons.org/publicdomain/zero/1.0/",
+                "terms": "https://doi.org/10.13003/CED-terms-of-use",
+                "updated_reason": "https://evidence.eventdata.crossref.org/announcements/2018-04-26T00-00-00Z-ED-16.json",
+                "updated": "edited",
+                "obj_id": "https://doi.org/10.1136/bmj.j801",
+                "source_token": "45a1ef76-4f43-4cdc-9ba8-5a6ad01cc231",
+                "occurred_at": "2017-02-17T12:29:52Z",
+                "subj_id": "http://twitter.com/CoyneoftheRealm/statuses/832567742209388544",
+                "id": "8a10e031-43cb-4d73-a126-51ff4b359d74",
+                "evidence_record": "https://evidence.eventdata.crossref.org/evidence/2017021708d8263d-2f0f-4e6d-abdf-4176cafc1dfd",
+                "action": "add",
+                "subj": {
+                    "pid": "http://twitter.com/CoyneoftheRealm/statuses/832567742209388544",
+                    "title": "Tweet 832567742209388544",
+                    "issued": "2017-02-17T12:29:52.000Z",
+                    "author": {
+                        "url": "http://www.twitter.com/CoyneoftheRealm"
+                    },
+                    "original-tweet-url": "http://twitter.com/CoyneoftheRealm/statuses/832567742209388544",
+                    "original-tweet-author": null,
+                    "alternative-id": "832567742209388544"
+                },
+                "source_id": "twitter",
+                "obj": {
+                    "pid": "https://doi.org/10.1136/bmj.j801",
+                    "url": "https://doi.org/10.1136/bmj.j801"
+                },
+                "timestamp": "2017-02-17T12:30:05Z",
+                "updated_date": "2018-05-03T09:32:24Z",
+                "relation_type_id": "discusses"
+            },
+            {
+                "license": "https://creativecommons.org/publicdomain/zero/1.0/",
+                "terms": "https://doi.org/10.13003/CED-terms-of-use",
+                "updated_reason": "https://evidence.eventdata.crossref.org/announcements/2018-04-26T00-00-00Z-ED-16.json",
+                "updated": "edited",
+                "obj_id": "https://doi.org/10.1371/journal.pone.0172022",
+                "source_token": "45a1ef76-4f43-4cdc-9ba8-5a6ad01cc231",
+                "occurred_at": "2017-02-17T12:29:59Z",
+                "subj_id": "http://twitter.com/mutopsy/statuses/832567770768216064",
+                "id": "bc4da7ee-d14c-47f2-a46e-18125b84bda6",
+                "evidence_record": "https://evidence.eventdata.crossref.org/evidence/201702172fa281a3-0ff1-4c31-9c9a-cb60cec20008",
+                "action": "add",
+                "subj": {
+                    "pid": "http://twitter.com/mutopsy/statuses/832567770768216064",
+                    "title": "Tweet 832567770768216064",
+                    "issued": "2017-02-17T12:29:59.000Z",
+                    "author": {
+                        "url": "http://www.twitter.com/mutopsy"
+                    },
+                    "original-tweet-url": "http://twitter.com/uranus_2/statuses/832565510768242688",
+                    "original-tweet-author": "http://www.twitter.com/uranus_2",
+                    "alternative-id": "832567770768216064"
+                },
+                "source_id": "twitter",
+                "obj": {
+                    "pid": "https://doi.org/10.1371/journal.pone.0172022",
+                    "url": "https://doi.org/10.1371/journal.pone.0172022"
+                },
+                "timestamp": "2017-02-17T12:30:10Z",
+                "updated_date": "2018-05-03T09:32:24Z",
+                "relation_type_id": "discusses"
+            },
+            {
+                "license": "https://creativecommons.org/publicdomain/zero/1.0/",
+                "terms": "https://doi.org/10.13003/CED-terms-of-use",
+                "updated_reason": "https://evidence.eventdata.crossref.org/announcements/2018-04-26T00-00-00Z-ED-16.json",
+                "updated": "edited",
+                "obj_id": "https://doi.org/10.15585/mmwr.mm6606a2",
+                "source_token": "45a1ef76-4f43-4cdc-9ba8-5a6ad01cc231",
+                "occurred_at": "2017-02-17T12:29:58Z",
+                "subj_id": "http://twitter.com/PabloRichly/statuses/832567767547125760",
+                "id": "070b5475-f070-4e69-8897-2ccdadfccd9e",
+                "evidence_record": "https://evidence.eventdata.crossref.org/evidence/20170217b898fe91-3e26-4df6-9bf6-496b20e4a5e4",
+                "action": "add",
+                "subj": {
+                    "pid": "http://twitter.com/PabloRichly/statuses/832567767547125760",
+                    "title": "Tweet 832567767547125760",
+                    "issued": "2017-02-17T12:29:58.000Z",
+                    "author": {
+                        "url": "http://www.twitter.com/PabloRichly"
+                    },
+                    "original-tweet-url": "http://twitter.com/PabloRichly/statuses/832567767547125760",
+                    "original-tweet-author": null,
+                    "alternative-id": "832567767547125760"
+                },
+                "source_id": "twitter",
+                "obj": {
+                    "pid": "https://doi.org/10.15585/mmwr.mm6606a2",
+                    "url": "https://doi.org/10.15585/mmwr.mm6606a2"
+                },
+                "timestamp": "2017-02-17T12:30:10Z",
+                "updated_date": "2018-05-03T09:32:24Z",
+                "relation_type_id": "discusses"
+            },
+            {
+                "license": "https://creativecommons.org/publicdomain/zero/1.0/",
+                "terms": "https://doi.org/10.13003/CED-terms-of-use",
+                "updated_reason": "https://evidence.eventdata.crossref.org/announcements/2018-04-26T00-00-00Z-ED-16.json",
+                "updated": "edited",
+                "obj_id": "https://doi.org/10.1371/journal.pone.0171108",
+                "source_token": "45a1ef76-4f43-4cdc-9ba8-5a6ad01cc231",
+                "occurred_at": "2017-02-17T12:29:59Z",
+                "subj_id": "http://twitter.com/FlorKeynes/statuses/832567771099758595",
+                "id": "b7c69ba9-67b3-4dfb-9f18-2cee069714a7",
+                "evidence_record": "https://evidence.eventdata.crossref.org/evidence/20170217f0a387b5-fe0a-4ee8-bef7-d6f99b03a353",
+                "action": "add",
+                "subj": {
+                    "pid": "http://twitter.com/FlorKeynes/statuses/832567771099758595",
+                    "title": "Tweet 832567771099758595",
+                    "issued": "2017-02-17T12:29:59.000Z",
+                    "author": {
+                        "url": "http://www.twitter.com/FlorKeynes"
+                    },
+                    "original-tweet-url": "http://twitter.com/DegenRolf/statuses/831774753446846464",
+                    "original-tweet-author": "http://www.twitter.com/DegenRolf",
+                    "alternative-id": "832567771099758595"
+                },
+                "source_id": "twitter",
+                "obj": {
+                    "pid": "https://doi.org/10.1371/journal.pone.0171108",
+                    "url": "https://doi.org/10.1371/journal.pone.0171108"
+                },
+                "timestamp": "2017-02-17T12:30:11Z",
+                "updated_date": "2018-05-03T09:32:24Z",
+                "relation_type_id": "discusses"
+            },
+            {
+                "license": "https://creativecommons.org/publicdomain/zero/1.0/",
+                "terms": "https://doi.org/10.13003/CED-terms-of-use",
+                "updated_reason": "https://evidence.eventdata.crossref.org/announcements/2018-04-26T00-00-00Z-ED-16.json",
+                "updated": "edited",
+                "obj_id": "https://doi.org/10.1038/nature21399",
+                "source_token": "45a1ef76-4f43-4cdc-9ba8-5a6ad01cc231",
+                "occurred_at": "2017-02-17T12:30:02Z",
+                "subj_id": "http://twitter.com/criordor/statuses/832567781216370688",
+                "id": "c74eeed3-4400-4c42-bf39-b9171f9bda0b",
+                "evidence_record": "https://evidence.eventdata.crossref.org/evidence/20170217fbc9799e-1dbd-4af3-bf52-ef85ab119d55",
+                "action": "add",
+                "subj": {
+                    "pid": "http://twitter.com/criordor/statuses/832567781216370688",
+                    "title": "Tweet 832567781216370688",
+                    "issued": "2017-02-17T12:30:02.000Z",
+                    "author": {
+                        "url": "http://www.twitter.com/criordor"
+                    },
+                    "original-tweet-url": "http://twitter.com/nature/statuses/832560293821739008",
+                    "original-tweet-author": "http://www.twitter.com/nature",
+                    "alternative-id": "832567781216370688"
+                },
+                "source_id": "twitter",
+                "obj": {
+                    "pid": "https://doi.org/10.1038/nature21399",
+                    "url": "https://doi.org/10.1038/nature21399"
+                },
+                "timestamp": "2017-02-17T12:30:13Z",
+                "updated_date": "2018-05-03T09:32:24Z",
+                "relation_type_id": "discusses"
+            },
+            {
+                "license": "https://creativecommons.org/publicdomain/zero/1.0/",
+                "terms": "https://doi.org/10.13003/CED-terms-of-use",
+                "updated_reason": "https://evidence.eventdata.crossref.org/announcements/2018-04-26T00-00-00Z-ED-16.json",
+                "updated": "edited",
+                "obj_id": "https://doi.org/10.1080/17430437.2017.1284803",
+                "source_token": "45a1ef76-4f43-4cdc-9ba8-5a6ad01cc231",
+                "occurred_at": "2017-02-17T12:30:01Z",
+                "subj_id": "http://twitter.com/AdEvansSport/statuses/832567777940602880",
+                "id": "f9c9594d-6400-40a0-bf6a-18cdfff9e66d",
+                "evidence_record": "https://evidence.eventdata.crossref.org/evidence/20170217de37b8d7-0719-4db5-af68-20f126057eb5",
+                "action": "add",
+                "subj": {
+                    "pid": "http://twitter.com/AdEvansSport/statuses/832567777940602880",
+                    "title": "Tweet 832567777940602880",
+                    "issued": "2017-02-17T12:30:01.000Z",
+                    "author": {
+                        "url": "http://www.twitter.com/AdEvansSport"
+                    },
+                    "original-tweet-url": "http://twitter.com/AdEvansSport/statuses/832567777940602880",
+                    "original-tweet-author": null,
+                    "alternative-id": "832567777940602880"
+                },
+                "source_id": "twitter",
+                "obj": {
+                    "pid": "https://doi.org/10.1080/17430437.2017.1284803",
+                    "url": "https://doi.org/10.1080/17430437.2017.1284803"
+                },
+                "timestamp": "2017-02-17T12:30:14Z",
+                "updated_date": "2018-05-03T09:32:24Z",
+                "relation_type_id": "discusses"
+            },
+            {
+                "license": "https://creativecommons.org/publicdomain/zero/1.0/",
+                "terms": "https://doi.org/10.13003/CED-terms-of-use",
+                "updated_reason": "https://evidence.eventdata.crossref.org/announcements/2018-04-26T00-00-00Z-ED-16.json",
+                "updated": "edited",
+                "obj_id": "https://doi.org/10.1073/pnas.1616132114",
+                "source_token": "45a1ef76-4f43-4cdc-9ba8-5a6ad01cc231",
+                "occurred_at": "2017-02-17T12:29:41Z",
+                "subj_id": "http://twitter.com/BrianPardy/statuses/832567693089841152",
+                "id": "099686f5-678c-4b6b-b11d-6da26f00706f",
+                "evidence_record": "https://evidence.eventdata.crossref.org/evidence/20170217d782a82c-7d31-4620-bd37-abb9caebb920",
+                "action": "add",
+                "subj": {
+                    "pid": "http://twitter.com/BrianPardy/statuses/832567693089841152",
+                    "title": "Tweet 832567693089841152",
+                    "issued": "2017-02-17T12:29:41.000Z",
+                    "author": {
+                        "url": "http://www.twitter.com/BrianPardy"
+                    },
+                    "original-tweet-url": "http://twitter.com/gedankenstuecke/statuses/832310767357657088",
+                    "original-tweet-author": "http://www.twitter.com/gedankenstuecke",
+                    "alternative-id": "832567693089841152"
+                },
+                "source_id": "twitter",
+                "obj": {
+                    "pid": "https://doi.org/10.1073/pnas.1616132114",
+                    "url": "https://doi.org/10.1073/pnas.1616132114"
+                },
+                "timestamp": "2017-02-17T12:30:14Z",
+                "updated_date": "2018-05-03T09:32:24Z",
+                "relation_type_id": "discusses"
+            },
+            {
+                "license": "https://creativecommons.org/publicdomain/zero/1.0/",
+                "terms": "https://doi.org/10.13003/CED-terms-of-use",
+                "updated_reason": "https://evidence.eventdata.crossref.org/announcements/2018-04-26T00-00-00Z-ED-16.json",
+                "updated": "edited",
+                "obj_id": "https://doi.org/10.1038/nature11128",
+                "source_token": "45a1ef76-4f43-4cdc-9ba8-5a6ad01cc231",
+                "occurred_at": "2017-02-17T12:30:05Z",
+                "subj_id": "http://twitter.com/goCMNH/statuses/832567796856999937",
+                "id": "57d591c9-331f-4e47-a801-93cf180d9969",
+                "evidence_record": "https://evidence.eventdata.crossref.org/evidence/20170217ce3d079b-888a-4340-a814-0ffb03724478",
+                "action": "add",
+                "subj": {
+                    "pid": "http://twitter.com/goCMNH/statuses/832567796856999937",
+                    "title": "Tweet 832567796856999937",
+                    "issued": "2017-02-17T12:30:05.000Z",
+                    "author": {
+                        "url": "http://www.twitter.com/goCMNH"
+                    },
+                    "original-tweet-url": "http://twitter.com/goCMNH/statuses/832567796856999937",
+                    "original-tweet-author": null,
+                    "alternative-id": "832567796856999937"
+                },
+                "source_id": "twitter",
+                "obj": {
+                    "pid": "https://doi.org/10.1038/nature11128",
+                    "url": "https://doi.org/10.1038/nature11128"
+                },
+                "timestamp": "2017-02-17T12:30:18Z",
+                "updated_date": "2018-05-03T09:32:24Z",
+                "relation_type_id": "discusses"
+            },
+            {
+                "license": "https://creativecommons.org/publicdomain/zero/1.0/",
+                "terms": "https://doi.org/10.13003/CED-terms-of-use",
+                "updated_reason": "https://evidence.eventdata.crossref.org/announcements/2018-04-26T00-00-00Z-ED-16.json",
+                "updated": "edited",
+                "obj_id": "https://doi.org/10.1128/mbio.02298-16",
+                "source_token": "45a1ef76-4f43-4cdc-9ba8-5a6ad01cc231",
+                "occurred_at": "2017-02-17T12:30:06Z",
+                "subj_id": "http://twitter.com/mbiojournal/statuses/832567799017066496",
+                "id": "4ce33a1f-80fc-48a3-b8b0-863aa580a0b8",
+                "evidence_record": "https://evidence.eventdata.crossref.org/evidence/2017021730f2be1c-25ee-4915-ae47-f85e00d3bfb6",
+                "action": "add",
+                "subj": {
+                    "pid": "http://twitter.com/mbiojournal/statuses/832567799017066496",
+                    "title": "Tweet 832567799017066496",
+                    "issued": "2017-02-17T12:30:06.000Z",
+                    "author": {
+                        "url": "http://www.twitter.com/mbiojournal"
+                    },
+                    "original-tweet-url": "http://twitter.com/mbiojournal/statuses/832567799017066496",
+                    "original-tweet-author": null,
+                    "alternative-id": "832567799017066496"
+                },
+                "source_id": "twitter",
+                "obj": {
+                    "pid": "https://doi.org/10.1128/mbio.02298-16",
+                    "url": "https://doi.org/10.1128/mbio.02298-16"
+                },
+                "timestamp": "2017-02-17T12:30:20Z",
+                "updated_date": "2018-05-03T09:32:24Z",
+                "relation_type_id": "discusses"
+            },
+            {
+                "license": "https://creativecommons.org/publicdomain/zero/1.0/",
+                "terms": "https://doi.org/10.13003/CED-terms-of-use",
+                "updated_reason": "https://evidence.eventdata.crossref.org/announcements/2018-04-26T00-00-00Z-ED-16.json",
+                "updated": "edited",
+                "obj_id": "https://doi.org/10.1371/journal.pone.0171091",
+                "source_token": "45a1ef76-4f43-4cdc-9ba8-5a6ad01cc231",
+                "occurred_at": "2017-02-17T12:30:12Z",
+                "subj_id": "http://twitter.com/BladderCancerCA/statuses/832567823838875648",
+                "id": "f0343fa2-cfd6-43bc-85c9-ad925fd44001",
+                "evidence_record": "https://evidence.eventdata.crossref.org/evidence/20170217d5d72dfb-b4d4-43c0-8536-35f2cb339a72",
+                "action": "add",
+                "subj": {
+                    "pid": "http://twitter.com/BladderCancerCA/statuses/832567823838875648",
+                    "title": "Tweet 832567823838875648",
+                    "issued": "2017-02-17T12:30:12.000Z",
+                    "author": {
+                        "url": "http://www.twitter.com/BladderCancerCA"
+                    },
+                    "original-tweet-url": "http://twitter.com/BladderCancerCA/statuses/832567823838875648",
+                    "original-tweet-author": null,
+                    "alternative-id": "832567823838875648"
+                },
+                "source_id": "twitter",
+                "obj": {
+                    "pid": "https://doi.org/10.1371/journal.pone.0171091",
+                    "url": "https://doi.org/10.1371/journal.pone.0171091"
+                },
+                "timestamp": "2017-02-17T12:30:22Z",
+                "updated_date": "2018-05-03T09:32:24Z",
+                "relation_type_id": "discusses"
+            },
+            {
+                "license": "https://creativecommons.org/publicdomain/zero/1.0/",
+                "terms": "https://doi.org/10.13003/CED-terms-of-use",
+                "updated_reason": "https://evidence.eventdata.crossref.org/announcements/2018-04-26T00-00-00Z-ED-16.json",
+                "updated": "edited",
+                "obj_id": "https://doi.org/10.5194/tc-11-553-2017",
+                "source_token": "45a1ef76-4f43-4cdc-9ba8-5a6ad01cc231",
+                "occurred_at": "2017-02-17T12:30:10Z",
+                "subj_id": "http://twitter.com/AGWobserver/statuses/832567818600194049",
+                "id": "ea78d62b-b017-48c9-8d89-3ebbe57302b3",
+                "evidence_record": "https://evidence.eventdata.crossref.org/evidence/201702175a3eaf6a-9736-4f92-9449-70b5887a1e9c",
+                "action": "add",
+                "subj": {
+                    "pid": "http://twitter.com/AGWobserver/statuses/832567818600194049",
+                    "title": "Tweet 832567818600194049",
+                    "issued": "2017-02-17T12:30:10.000Z",
+                    "author": {
+                        "url": "http://www.twitter.com/AGWobserver"
+                    },
+                    "original-tweet-url": "http://twitter.com/AGWobserver/statuses/832567818600194049",
+                    "original-tweet-author": null,
+                    "alternative-id": "832567818600194049"
+                },
+                "source_id": "twitter",
+                "obj": {
+                    "pid": "https://doi.org/10.5194/tc-11-553-2017",
+                    "url": "https://doi.org/10.5194/tc-11-553-2017"
+                },
+                "timestamp": "2017-02-17T12:30:22Z",
+                "updated_date": "2018-05-03T09:32:24Z",
+                "relation_type_id": "discusses"
+            },
+            {
+                "license": "https://creativecommons.org/publicdomain/zero/1.0/",
+                "terms": "https://doi.org/10.13003/CED-terms-of-use",
+                "updated_reason": "https://evidence.eventdata.crossref.org/announcements/2018-04-26T00-00-00Z-ED-16.json",
+                "updated": "edited",
+                "obj_id": "https://doi.org/10.1542/peds.2017-0254",
+                "source_token": "45a1ef76-4f43-4cdc-9ba8-5a6ad01cc231",
+                "occurred_at": "2017-02-17T12:30:13Z",
+                "subj_id": "http://twitter.com/AmandaThienTu/statuses/832567828448440320",
+                "id": "14e1af2a-9bb9-4a47-b3b2-d61bc5e98021",
+                "evidence_record": "https://evidence.eventdata.crossref.org/evidence/20170217d08c245e-1789-4d9b-977b-e9821c05e607",
+                "action": "add",
+                "subj": {
+                    "pid": "http://twitter.com/AmandaThienTu/statuses/832567828448440320",
+                    "title": "Tweet 832567828448440320",
+                    "issued": "2017-02-17T12:30:13.000Z",
+                    "author": {
+                        "url": "http://www.twitter.com/AmandaThienTu"
+                    },
+                    "original-tweet-url": "http://twitter.com/AmandaThienTu/statuses/832567828448440320",
+                    "original-tweet-author": null,
+                    "alternative-id": "832567828448440320"
+                },
+                "source_id": "twitter",
+                "obj": {
+                    "pid": "https://doi.org/10.1542/peds.2017-0254",
+                    "url": "https://doi.org/10.1542/peds.2017-0254"
+                },
+                "timestamp": "2017-02-17T12:30:25Z",
+                "updated_date": "2018-05-03T09:32:24Z",
+                "relation_type_id": "discusses"
+            },
+            {
+                "license": "https://creativecommons.org/publicdomain/zero/1.0/",
+                "terms": "https://doi.org/10.13003/CED-terms-of-use",
+                "updated_reason": "https://evidence.eventdata.crossref.org/announcements/2018-04-26T00-00-00Z-ED-16.json",
+                "updated": "edited",
+                "obj_id": "https://doi.org/10.1161/circulationaha.116.025140",
+                "source_token": "45a1ef76-4f43-4cdc-9ba8-5a6ad01cc231",
+                "occurred_at": "2017-02-17T12:30:12Z",
+                "subj_id": "http://twitter.com/DFrizelle/statuses/832567825646632960",
+                "id": "227c0de8-0114-44b9-a813-ff89c9923a23",
+                "evidence_record": "https://evidence.eventdata.crossref.org/evidence/2017021785aa4e94-3dae-4418-8850-72cb2ece8496",
+                "action": "add",
+                "subj": {
+                    "pid": "http://twitter.com/DFrizelle/statuses/832567825646632960",
+                    "title": "Tweet 832567825646632960",
+                    "issued": "2017-02-17T12:30:12.000Z",
+                    "author": {
+                        "url": "http://www.twitter.com/DFrizelle"
+                    },
+                    "original-tweet-url": "http://twitter.com/DFrizelle/statuses/832567825646632960",
+                    "original-tweet-author": null,
+                    "alternative-id": "832567825646632960"
+                },
+                "source_id": "twitter",
+                "obj": {
+                    "pid": "https://doi.org/10.1161/circulationaha.116.025140",
+                    "url": "https://doi.org/10.1161/circulationaha.116.025140"
+                },
+                "timestamp": "2017-02-17T12:30:26Z",
+                "updated_date": "2018-05-03T09:32:24Z",
+                "relation_type_id": "discusses"
+            },
+            {
+                "license": "https://creativecommons.org/publicdomain/zero/1.0/",
+                "terms": "https://doi.org/10.13003/CED-terms-of-use",
+                "updated_reason": "https://evidence.eventdata.crossref.org/announcements/2018-04-26T00-00-00Z-ED-16.json",
+                "updated": "edited",
+                "obj_id": "https://doi.org/10.1007/s40806-015-0022-8",
+                "source_token": "45a1ef76-4f43-4cdc-9ba8-5a6ad01cc231",
+                "occurred_at": "2017-02-17T12:30:16Z",
+                "subj_id": "http://twitter.com/karthiks_/statuses/832567843803766785",
+                "id": "346fff5c-893a-43e8-ac2e-a3e86bcf7b5b",
+                "evidence_record": "https://evidence.eventdata.crossref.org/evidence/20170217267f82db-7533-47d0-8dd2-5761b8ea77e4",
+                "action": "add",
+                "subj": {
+                    "pid": "http://twitter.com/karthiks_/statuses/832567843803766785",
+                    "title": "Tweet 832567843803766785",
+                    "issued": "2017-02-17T12:30:16.000Z",
+                    "author": {
+                        "url": "http://www.twitter.com/karthiks_"
+                    },
+                    "original-tweet-url": "http://twitter.com/karthiks_/statuses/832567843803766785",
+                    "original-tweet-author": null,
+                    "alternative-id": "832567843803766785"
+                },
+                "source_id": "twitter",
+                "obj": {
+                    "pid": "https://doi.org/10.1007/s40806-015-0022-8",
+                    "url": "https://doi.org/10.1007/s40806-015-0022-8"
+                },
+                "timestamp": "2017-02-17T12:30:28Z",
+                "updated_date": "2018-05-03T09:32:24Z",
+                "relation_type_id": "discusses"
+            },
+            {
+                "license": "https://creativecommons.org/publicdomain/zero/1.0/",
+                "terms": "https://doi.org/10.13003/CED-terms-of-use",
+                "updated_reason": "https://evidence.eventdata.crossref.org/announcements/2018-04-26T00-00-00Z-ED-16.json",
+                "updated": "edited",
+                "obj_id": "https://doi.org/10.1111/dpr.2017.35.issue-2",
+                "source_token": "45a1ef76-4f43-4cdc-9ba8-5a6ad01cc231",
+                "occurred_at": "2017-02-17T12:30:21Z",
+                "subj_id": "http://twitter.com/WileyPolicyNet/statuses/832567863978389504",
+                "id": "f120a54b-0b97-4583-b473-6d0983a8a9c4",
+                "evidence_record": "https://evidence.eventdata.crossref.org/evidence/20170217d29ec841-2959-42ca-87b4-ec37c59281e7",
+                "action": "add",
+                "subj": {
+                    "pid": "http://twitter.com/WileyPolicyNet/statuses/832567863978389504",
+                    "title": "Tweet 832567863978389504",
+                    "issued": "2017-02-17T12:30:21.000Z",
+                    "author": {
+                        "url": "http://www.twitter.com/WileyPolicyNet"
+                    },
+                    "original-tweet-url": "http://twitter.com/WileyPolicyNet/statuses/832567863978389504",
+                    "original-tweet-author": null,
+                    "alternative-id": "832567863978389504"
+                },
+                "source_id": "twitter",
+                "obj": {
+                    "pid": "https://doi.org/10.1111/dpr.2017.35.issue-2",
+                    "url": "https://doi.org/10.1111/dpr.2017.35.issue-2"
+                },
+                "timestamp": "2017-02-17T12:30:32Z",
+                "updated_date": "2018-05-03T09:32:24Z",
+                "relation_type_id": "discusses"
+            },
+            {
+                "license": "https://creativecommons.org/publicdomain/zero/1.0/",
+                "terms": "https://doi.org/10.13003/CED-terms-of-use",
+                "updated_reason": "https://evidence.eventdata.crossref.org/announcements/2018-04-26T00-00-00Z-ED-16.json",
+                "updated": "edited",
+                "obj_id": "https://doi.org/10.1038/nature21370",
+                "source_token": "45a1ef76-4f43-4cdc-9ba8-5a6ad01cc231",
+                "occurred_at": "2017-02-17T12:30:21Z",
+                "subj_id": "http://twitter.com/EIVertebrates/statuses/832567863219191808",
+                "id": "35106fb0-2ff7-40a7-92cd-d839fe68ff55",
+                "evidence_record": "https://evidence.eventdata.crossref.org/evidence/2017021759a904ff-86fd-45ff-a4fd-b5ac668abb95",
+                "action": "add",
+                "subj": {
+                    "pid": "http://twitter.com/EIVertebrates/statuses/832567863219191808",
+                    "title": "Tweet 832567863219191808",
+                    "issued": "2017-02-17T12:30:21.000Z",
+                    "author": {
+                        "url": "http://www.twitter.com/EIVertebrates"
+                    },
+                    "original-tweet-url": "http://twitter.com/obahcall/statuses/832240562724040704",
+                    "original-tweet-author": "http://www.twitter.com/obahcall",
+                    "alternative-id": "832567863219191808"
+                },
+                "source_id": "twitter",
+                "obj": {
+                    "pid": "https://doi.org/10.1038/nature21370",
+                    "url": "https://doi.org/10.1038/nature21370"
+                },
+                "timestamp": "2017-02-17T12:30:33Z",
+                "updated_date": "2018-05-03T09:32:24Z",
+                "relation_type_id": "discusses"
+            },
+            {
+                "license": "https://creativecommons.org/publicdomain/zero/1.0/",
+                "terms": "https://doi.org/10.13003/CED-terms-of-use",
+                "updated_reason": "https://evidence.eventdata.crossref.org/announcements/2018-04-26T00-00-00Z-ED-16.json",
+                "updated": "edited",
+                "obj_id": "https://doi.org/10.1136/bmjopen-2016-014524",
+                "source_token": "45a1ef76-4f43-4cdc-9ba8-5a6ad01cc231",
+                "occurred_at": "2017-02-17T12:30:21Z",
+                "subj_id": "http://twitter.com/BMJ_Open/statuses/832567862757883905",
+                "id": "dce1f6c9-15eb-4e5c-bf24-347771c4a0ec",
+                "evidence_record": "https://evidence.eventdata.crossref.org/evidence/20170217bfc3e3b7-9aee-4ea6-8e39-379c1f4f4c2d",
+                "action": "add",
+                "subj": {
+                    "pid": "http://twitter.com/BMJ_Open/statuses/832567862757883905",
+                    "title": "Tweet 832567862757883905",
+                    "issued": "2017-02-17T12:30:21.000Z",
+                    "author": {
+                        "url": "http://www.twitter.com/BMJ_Open"
+                    },
+                    "original-tweet-url": "http://twitter.com/BMJ_Open/statuses/832567862757883905",
+                    "original-tweet-author": null,
+                    "alternative-id": "832567862757883905"
+                },
+                "source_id": "twitter",
+                "obj": {
+                    "pid": "https://doi.org/10.1136/bmjopen-2016-014524",
+                    "url": "https://doi.org/10.1136/bmjopen-2016-014524"
+                },
+                "timestamp": "2017-02-17T12:30:34Z",
+                "updated_date": "2018-05-03T09:32:24Z",
+                "relation_type_id": "discusses"
+            },
+            {
+                "license": "https://creativecommons.org/publicdomain/zero/1.0/",
+                "terms": "https://doi.org/10.13003/CED-terms-of-use",
+                "updated_reason": "https://evidence.eventdata.crossref.org/announcements/2018-04-26T00-00-00Z-ED-16.json",
+                "updated": "edited",
+                "obj_id": "https://doi.org/10.1088/1361-6463/aa56fe",
+                "source_token": "45a1ef76-4f43-4cdc-9ba8-5a6ad01cc231",
+                "occurred_at": "2017-02-17T12:30:23Z",
+                "subj_id": "http://twitter.com/GaelleLtrt/statuses/832567872530571264",
+                "id": "5bee13d8-94f5-4039-9ad7-b87e90867e86",
+                "evidence_record": "https://evidence.eventdata.crossref.org/evidence/2017021759976d69-265e-4aa4-aabe-7aa0e775719b",
+                "action": "add",
+                "subj": {
+                    "pid": "http://twitter.com/GaelleLtrt/statuses/832567872530571264",
+                    "title": "Tweet 832567872530571264",
+                    "issued": "2017-02-17T12:30:23.000Z",
+                    "author": {
+                        "url": "http://www.twitter.com/GaelleLtrt"
+                    },
+                    "original-tweet-url": "http://twitter.com/diffusiveblob/statuses/831990997601054722",
+                    "original-tweet-author": "http://www.twitter.com/diffusiveblob",
+                    "alternative-id": "832567872530571264"
+                },
+                "source_id": "twitter",
+                "obj": {
+                    "pid": "https://doi.org/10.1088/1361-6463/aa56fe",
+                    "url": "https://doi.org/10.1088/1361-6463/aa56fe"
+                },
+                "timestamp": "2017-02-17T12:30:34Z",
+                "updated_date": "2018-05-03T09:32:24Z",
+                "relation_type_id": "discusses"
+            },
+            {
+                "license": "https://creativecommons.org/publicdomain/zero/1.0/",
+                "terms": "https://doi.org/10.13003/CED-terms-of-use",
+                "updated_reason": "https://evidence.eventdata.crossref.org/announcements/2018-04-26T00-00-00Z-ED-16.json",
+                "updated": "edited",
+                "obj_id": "https://doi.org/10.1038/542031e",
+                "source_token": "45a1ef76-4f43-4cdc-9ba8-5a6ad01cc231",
+                "occurred_at": "2017-02-17T12:30:24Z",
+                "subj_id": "http://twitter.com/jimrperkins/statuses/832567873717551104",
+                "id": "4a032530-1ea7-4ffb-b051-f3e28a8bf53c",
+                "evidence_record": "https://evidence.eventdata.crossref.org/evidence/2017021775411f80-6207-4a7a-bf87-6c83990ce8be",
+                "action": "add",
+                "subj": {
+                    "pid": "http://twitter.com/jimrperkins/statuses/832567873717551104",
+                    "title": "Tweet 832567873717551104",
+                    "issued": "2017-02-17T12:30:24.000Z",
+                    "author": {
+                        "url": "http://www.twitter.com/jimrperkins"
+                    },
+                    "original-tweet-url": "http://twitter.com/jimrperkins/statuses/832567873717551104",
+                    "original-tweet-author": null,
+                    "alternative-id": "832567873717551104"
+                },
+                "source_id": "twitter",
+                "obj": {
+                    "pid": "https://doi.org/10.1038/542031e",
+                    "url": "https://doi.org/10.1038/542031e"
+                },
+                "timestamp": "2017-02-17T12:30:35Z",
+                "updated_date": "2018-05-03T09:32:24Z",
+                "relation_type_id": "discusses"
+            },
+            {
+                "license": "https://creativecommons.org/publicdomain/zero/1.0/",
+                "terms": "https://doi.org/10.13003/CED-terms-of-use",
+                "updated_reason": "https://evidence.eventdata.crossref.org/announcements/2018-04-26T00-00-00Z-ED-16.json",
+                "updated": "edited",
+                "obj_id": "https://doi.org/10.1136/bmj.i4938",
+                "source_token": "45a1ef76-4f43-4cdc-9ba8-5a6ad01cc231",
+                "occurred_at": "2017-02-17T12:30:24Z",
+                "subj_id": "http://twitter.com/tvctu/statuses/832567877286903808",
+                "id": "ea4e7fc0-3cb0-49d8-a6f1-36f944d06ba1",
+                "evidence_record": "https://evidence.eventdata.crossref.org/evidence/201702178bdf8354-b3fd-4a19-ac98-73b7aeb5289a",
+                "action": "add",
+                "subj": {
+                    "pid": "http://twitter.com/tvctu/statuses/832567877286903808",
+                    "title": "Tweet 832567877286903808",
+                    "issued": "2017-02-17T12:30:24.000Z",
+                    "author": {
+                        "url": "http://www.twitter.com/tvctu"
+                    },
+                    "original-tweet-url": "http://twitter.com/Cathy_Creswell/statuses/832537466976481280",
+                    "original-tweet-author": "http://www.twitter.com/Cathy_Creswell",
+                    "alternative-id": "832567877286903808"
+                },
+                "source_id": "twitter",
+                "obj": {
+                    "pid": "https://doi.org/10.1136/bmj.i4938",
+                    "url": "https://doi.org/10.1136/bmj.i4938"
+                },
+                "timestamp": "2017-02-17T12:30:38Z",
+                "updated_date": "2018-05-03T09:32:24Z",
+                "relation_type_id": "discusses"
+            },
+            {
+                "license": "https://creativecommons.org/publicdomain/zero/1.0/",
+                "terms": "https://doi.org/10.13003/CED-terms-of-use",
+                "updated_reason": "https://evidence.eventdata.crossref.org/announcements/2018-04-26T00-00-00Z-ED-16.json",
+                "updated": "edited",
+                "obj_id": "https://doi.org/10.1371/journal.pone.0172370",
+                "source_token": "45a1ef76-4f43-4cdc-9ba8-5a6ad01cc231",
+                "occurred_at": "2017-02-17T12:30:27Z",
+                "subj_id": "http://twitter.com/OllieShipley/statuses/832567889194602497",
+                "id": "ad73986f-adbb-4998-ac0a-ebb14e5548ac",
+                "evidence_record": "https://evidence.eventdata.crossref.org/evidence/2017021769728ea6-caf2-4ab3-a769-81bfd9f0fd7f",
+                "action": "add",
+                "subj": {
+                    "pid": "http://twitter.com/OllieShipley/statuses/832567889194602497",
+                    "title": "Tweet 832567889194602497",
+                    "issued": "2017-02-17T12:30:27.000Z",
+                    "author": {
+                        "url": "http://www.twitter.com/OllieShipley"
+                    },
+                    "original-tweet-url": "http://twitter.com/Dr_Yannis/statuses/832558506268094464",
+                    "original-tweet-author": "http://www.twitter.com/Dr_Yannis",
+                    "alternative-id": "832567889194602497"
+                },
+                "source_id": "twitter",
+                "obj": {
+                    "pid": "https://doi.org/10.1371/journal.pone.0172370",
+                    "url": "https://doi.org/10.1371/journal.pone.0172370"
+                },
+                "timestamp": "2017-02-17T12:30:38Z",
+                "updated_date": "2018-05-03T09:32:24Z",
+                "relation_type_id": "discusses"
+            },
+            {
+                "license": "https://creativecommons.org/publicdomain/zero/1.0/",
+                "terms": "https://doi.org/10.13003/CED-terms-of-use",
+                "updated_reason": "https://evidence.eventdata.crossref.org/announcements/2018-04-26T00-00-00Z-ED-16.json",
+                "updated": "edited",
+                "obj_id": "https://doi.org/10.1136/bmj.j730",
+                "source_token": "45a1ef76-4f43-4cdc-9ba8-5a6ad01cc231",
+                "occurred_at": "2017-02-17T12:30:31Z",
+                "subj_id": "http://twitter.com/chaitoo154/statuses/832567902909952003",
+                "id": "192b2286-ec22-40b6-b807-219adfc86c76",
+                "evidence_record": "https://evidence.eventdata.crossref.org/evidence/20170217d298ff99-487d-40a9-8c4a-d611cf2d7be4",
+                "action": "add",
+                "subj": {
+                    "pid": "http://twitter.com/chaitoo154/statuses/832567902909952003",
+                    "title": "Tweet 832567902909952003",
+                    "issued": "2017-02-17T12:30:31.000Z",
+                    "author": {
+                        "url": "http://www.twitter.com/chaitoo154"
+                    },
+                    "original-tweet-url": "http://twitter.com/CHPIthinktank/statuses/832558923383263232",
+                    "original-tweet-author": "http://www.twitter.com/CHPIthinktank",
+                    "alternative-id": "832567902909952003"
+                },
+                "source_id": "twitter",
+                "obj": {
+                    "pid": "https://doi.org/10.1136/bmj.j730",
+                    "url": "https://doi.org/10.1136/bmj.j730"
+                },
+                "timestamp": "2017-02-17T12:30:43Z",
+                "updated_date": "2018-05-03T09:32:24Z",
+                "relation_type_id": "discusses"
+            },
+            {
+                "license": "https://creativecommons.org/publicdomain/zero/1.0/",
+                "terms": "https://doi.org/10.13003/CED-terms-of-use",
+                "updated_reason": "https://evidence.eventdata.crossref.org/announcements/2018-04-26T00-00-00Z-ED-16.json",
+                "updated": "edited",
+                "obj_id": "https://doi.org/10.1007/s10531-017-1320-1",
+                "source_token": "45a1ef76-4f43-4cdc-9ba8-5a6ad01cc231",
+                "occurred_at": "2017-02-17T12:30:34Z",
+                "subj_id": "http://twitter.com/shayruldawn/statuses/832567917359276039",
+                "id": "8369c4f1-0b6f-46dd-afc6-4ff94f514b38",
+                "evidence_record": "https://evidence.eventdata.crossref.org/evidence/2017021708589984-c6c7-420a-bd6e-5ddc8a66e109",
+                "action": "add",
+                "subj": {
+                    "pid": "http://twitter.com/shayruldawn/statuses/832567917359276039",
+                    "title": "Tweet 832567917359276039",
+                    "issued": "2017-02-17T12:30:34.000Z",
+                    "author": {
+                        "url": "http://www.twitter.com/shayruldawn"
+                    },
+                    "original-tweet-url": "http://twitter.com/_BCT_/statuses/832565428169883648",
+                    "original-tweet-author": "http://www.twitter.com/_BCT_",
+                    "alternative-id": "832567917359276039"
+                },
+                "source_id": "twitter",
+                "obj": {
+                    "pid": "https://doi.org/10.1007/s10531-017-1320-1",
+                    "url": "https://doi.org/10.1007/s10531-017-1320-1"
+                },
+                "timestamp": "2017-02-17T12:30:45Z",
+                "updated_date": "2018-05-03T09:32:24Z",
+                "relation_type_id": "discusses"
+            },
+            {
+                "license": "https://creativecommons.org/publicdomain/zero/1.0/",
+                "terms": "https://doi.org/10.13003/CED-terms-of-use",
+                "updated_reason": "https://evidence.eventdata.crossref.org/announcements/2018-04-26T00-00-00Z-ED-16.json",
+                "updated": "edited",
+                "obj_id": "https://doi.org/",
+                "source_token": "45a1ef76-4f43-4cdc-9ba8-5a6ad01cc231",
+                "occurred_at": "2017-02-17T12:30:35Z",
+                "subj_id": "http://twitter.com/victorricciardi/statuses/832567919410294784",
+                "id": "6222bc26-42b2-46f1-81ac-6bd408076e15",
+                "evidence_record": "https://evidence.eventdata.crossref.org/evidence/2017021702a9d0bf-df9d-43a5-83ff-de3c010d3897",
+                "action": "add",
+                "subj": {
+                    "pid": "http://twitter.com/victorricciardi/statuses/832567919410294784",
+                    "title": "Tweet 832567919410294784",
+                    "issued": "2017-02-17T12:30:35.000Z",
+                    "author": {
+                        "url": "http://www.twitter.com/victorricciardi"
+                    },
+                    "original-tweet-url": "http://twitter.com/victorricciardi/statuses/832567919410294784",
+                    "original-tweet-author": null,
+                    "alternative-id": "832567919410294784"
+                },
+                "source_id": "twitter",
+                "obj": {
+                    "pid": "https://doi.org/",
+                    "url": "https://doi.org/"
+                },
+                "timestamp": "2017-02-17T12:30:49Z",
+                "updated_date": "2018-05-09T17:41:24Z",
+                "relation_type_id": "discusses"
+            },
+            {
+                "license": "https://creativecommons.org/publicdomain/zero/1.0/",
+                "terms": "https://doi.org/10.13003/CED-terms-of-use",
+                "updated_reason": "https://evidence.eventdata.crossref.org/announcements/2018-04-26T00-00-00Z-ED-16.json",
+                "updated": "edited",
+                "obj_id": "https://doi.org/10.1136/bmj.j801",
+                "source_token": "45a1ef76-4f43-4cdc-9ba8-5a6ad01cc231",
+                "occurred_at": "2017-02-17T12:30:40Z",
+                "subj_id": "http://twitter.com/TypologyCentral/statuses/832567941350711296",
+                "id": "635d2462-c20e-4fb3-afab-7fbc27da4012",
+                "evidence_record": "https://evidence.eventdata.crossref.org/evidence/20170217d8843968-e865-47b6-94ee-e0c5da636c2d",
+                "action": "add",
+                "subj": {
+                    "pid": "http://twitter.com/TypologyCentral/statuses/832567941350711296",
+                    "title": "Tweet 832567941350711296",
+                    "issued": "2017-02-17T12:30:40.000Z",
+                    "author": {
+                        "url": "http://www.twitter.com/TypologyCentral"
+                    },
+                    "original-tweet-url": "http://twitter.com/CoyneoftheRealm/statuses/832567742209388544",
+                    "original-tweet-author": "http://www.twitter.com/CoyneoftheRealm",
+                    "alternative-id": "832567941350711296"
+                },
+                "source_id": "twitter",
+                "obj": {
+                    "pid": "https://doi.org/10.1136/bmj.j801",
+                    "url": "https://doi.org/10.1136/bmj.j801"
+                },
+                "timestamp": "2017-02-17T12:30:51Z",
+                "updated_date": "2018-05-03T09:32:24Z",
+                "relation_type_id": "discusses"
+            },
+            {
+                "license": "https://creativecommons.org/publicdomain/zero/1.0/",
+                "terms": "https://doi.org/10.13003/CED-terms-of-use",
+                "updated_reason": "https://evidence.eventdata.crossref.org/announcements/2018-04-26T00-00-00Z-ED-16.json",
+                "updated": "edited",
+                "obj_id": "https://doi.org/10.1007/s10531-017-1320-1",
+                "source_token": "45a1ef76-4f43-4cdc-9ba8-5a6ad01cc231",
+                "occurred_at": "2017-02-17T12:30:41Z",
+                "subj_id": "http://twitter.com/plantagenets70/statuses/832567944949485568",
+                "id": "46e7169c-9e0f-44ee-ae2b-7440aa0e693c",
+                "evidence_record": "https://evidence.eventdata.crossref.org/evidence/20170217f7da98c9-6ddb-4842-adf7-8caa625a098e",
+                "action": "add",
+                "subj": {
+                    "pid": "http://twitter.com/plantagenets70/statuses/832567944949485568",
+                    "title": "Tweet 832567944949485568",
+                    "issued": "2017-02-17T12:30:41.000Z",
+                    "author": {
+                        "url": "http://www.twitter.com/plantagenets70"
+                    },
+                    "original-tweet-url": "http://twitter.com/_BCT_/statuses/832565428169883648",
+                    "original-tweet-author": "http://www.twitter.com/_BCT_",
+                    "alternative-id": "832567944949485568"
+                },
+                "source_id": "twitter",
+                "obj": {
+                    "pid": "https://doi.org/10.1007/s10531-017-1320-1",
+                    "url": "https://doi.org/10.1007/s10531-017-1320-1"
+                },
+                "timestamp": "2017-02-17T12:30:51Z",
+                "updated_date": "2018-05-03T09:32:24Z",
+                "relation_type_id": "discusses"
+            },
+            {
+                "license": "https://creativecommons.org/publicdomain/zero/1.0/",
+                "terms": "https://doi.org/10.13003/CED-terms-of-use",
+                "updated_reason": "https://evidence.eventdata.crossref.org/announcements/2018-04-26T00-00-00Z-ED-16.json",
+                "updated": "edited",
+                "obj_id": "https://doi.org/10.1371/journal.pbio.2000756",
+                "source_token": "45a1ef76-4f43-4cdc-9ba8-5a6ad01cc231",
+                "occurred_at": "2017-02-17T12:30:41Z",
+                "subj_id": "http://twitter.com/vrpaixaocortes/statuses/832567947390570499",
+                "id": "e08130d8-8cf9-4575-8afb-4a00dfa3762b",
+                "evidence_record": "https://evidence.eventdata.crossref.org/evidence/2017021733624c19-3afc-4def-a1cd-74ad29d1513b",
+                "action": "add",
+                "subj": {
+                    "pid": "http://twitter.com/vrpaixaocortes/statuses/832567947390570499",
+                    "title": "Tweet 832567947390570499",
+                    "issued": "2017-02-17T12:30:41.000Z",
+                    "author": {
+                        "url": "http://www.twitter.com/vrpaixaocortes"
+                    },
+                    "original-tweet-url": "http://twitter.com/vrpaixaocortes/statuses/832567947390570499",
+                    "original-tweet-author": null,
+                    "alternative-id": "832567947390570499"
+                },
+                "source_id": "twitter",
+                "obj": {
+                    "pid": "https://doi.org/10.1371/journal.pbio.2000756",
+                    "url": "https://doi.org/10.1371/journal.pbio.2000756"
+                },
+                "timestamp": "2017-02-17T12:30:52Z",
+                "updated_date": "2018-05-03T09:32:24Z",
+                "relation_type_id": "discusses"
+            },
+            {
+                "license": "https://creativecommons.org/publicdomain/zero/1.0/",
+                "terms": "https://doi.org/10.13003/CED-terms-of-use",
+                "updated_reason": "https://evidence.eventdata.crossref.org/announcements/2018-04-26T00-00-00Z-ED-16.json",
+                "updated": "edited",
+                "obj_id": "https://doi.org/10.1111/nbu.12250",
+                "source_token": "45a1ef76-4f43-4cdc-9ba8-5a6ad01cc231",
+                "occurred_at": "2017-02-17T12:30:42Z",
+                "subj_id": "http://twitter.com/NICHE_ULSTER/statuses/832567950112673794",
+                "id": "ec59bcf1-e535-471c-a04e-af673253f2a6",
+                "evidence_record": "https://evidence.eventdata.crossref.org/evidence/2017021734668b83-19b1-41e8-b191-7ac3a8fcac62",
+                "action": "add",
+                "subj": {
+                    "pid": "http://twitter.com/NICHE_ULSTER/statuses/832567950112673794",
+                    "title": "Tweet 832567950112673794",
+                    "issued": "2017-02-17T12:30:42.000Z",
+                    "author": {
+                        "url": "http://www.twitter.com/NICHE_ULSTER"
+                    },
+                    "original-tweet-url": "http://twitter.com/NICHE_ULSTER/statuses/832567950112673794",
+                    "original-tweet-author": null,
+                    "alternative-id": "832567950112673794"
+                },
+                "source_id": "twitter",
+                "obj": {
+                    "pid": "https://doi.org/10.1111/nbu.12250",
+                    "url": "https://doi.org/10.1111/nbu.12250"
+                },
+                "timestamp": "2017-02-17T12:30:54Z",
+                "updated_date": "2018-05-03T09:32:24Z",
+                "relation_type_id": "discusses"
+            },
+            {
+                "license": "https://creativecommons.org/publicdomain/zero/1.0/",
+                "terms": "https://doi.org/10.13003/CED-terms-of-use",
+                "updated_reason": "https://evidence.eventdata.crossref.org/announcements/2018-04-26T00-00-00Z-ED-16.json",
+                "updated": "edited",
+                "obj_id": "https://doi.org/10.1038/nature.2017.21504",
+                "source_token": "45a1ef76-4f43-4cdc-9ba8-5a6ad01cc231",
+                "occurred_at": "2017-02-17T12:30:46Z",
+                "subj_id": "http://twitter.com/OrdrKitchen/statuses/832567966055137281",
+                "id": "c4c0cbb9-b9a6-42a5-9f57-7c3ea33551d8",
+                "evidence_record": "https://evidence.eventdata.crossref.org/evidence/2017021725f0966c-be97-4173-b8e2-cc12e5fa6f1f",
+                "action": "add",
+                "subj": {
+                    "pid": "http://twitter.com/OrdrKitchen/statuses/832567966055137281",
+                    "title": "Tweet 832567966055137281",
+                    "issued": "2017-02-17T12:30:46.000Z",
+                    "author": {
+                        "url": "http://www.twitter.com/OrdrKitchen"
+                    },
+                    "original-tweet-url": "http://twitter.com/NatureNews/statuses/832561507368058884",
+                    "original-tweet-author": "http://www.twitter.com/NatureNews",
+                    "alternative-id": "832567966055137281"
+                },
+                "source_id": "twitter",
+                "obj": {
+                    "pid": "https://doi.org/10.1038/nature.2017.21504",
+                    "url": "https://doi.org/10.1038/nature.2017.21504"
+                },
+                "timestamp": "2017-02-17T12:30:57Z",
+                "updated_date": "2018-05-03T09:32:24Z",
+                "relation_type_id": "discusses"
+            },
+            {
+                "license": "https://creativecommons.org/publicdomain/zero/1.0/",
+                "terms": "https://doi.org/10.13003/CED-terms-of-use",
+                "updated_reason": "https://evidence.eventdata.crossref.org/announcements/2018-04-26T00-00-00Z-ED-16.json",
+                "updated": "edited",
+                "obj_id": "https://doi.org/www.sciencepublishinggroup.com",
+                "source_token": "45a1ef76-4f43-4cdc-9ba8-5a6ad01cc231",
+                "occurred_at": "2017-02-17T12:30:43Z",
+                "subj_id": "http://twitter.com/profzakiur/statuses/832567953686163456",
+                "id": "beec5281-8017-4ee7-9be9-19a3edf54885",
+                "evidence_record": "https://evidence.eventdata.crossref.org/evidence/2017021751ed3bf1-1248-40c9-b5bb-d8c0a7c5ffa0",
+                "action": "add",
+                "subj": {
+                    "pid": "http://twitter.com/profzakiur/statuses/832567953686163456",
+                    "title": "Tweet 832567953686163456",
+                    "issued": "2017-02-17T12:30:43.000Z",
+                    "author": {
+                        "url": "http://www.twitter.com/profzakiur"
+                    },
+                    "original-tweet-url": "http://twitter.com/DrPratyush/statuses/832551201526910976",
+                    "original-tweet-author": "http://www.twitter.com/DrPratyush",
+                    "alternative-id": "832567953686163456"
+                },
+                "source_id": "twitter",
+                "obj": {
+                    "pid": "https://doi.org/www.sciencepublishinggroup.com",
+                    "url": "https://doi.org/www.sciencepublishinggroup.com"
+                },
+                "timestamp": "2017-02-17T12:30:58Z",
+                "updated_date": "2018-05-09T17:41:24Z",
+                "relation_type_id": "discusses"
+            },
+            {
+                "license": "https://creativecommons.org/publicdomain/zero/1.0/",
+                "terms": "https://doi.org/10.13003/CED-terms-of-use",
+                "updated_reason": "https://evidence.eventdata.crossref.org/announcements/2018-04-26T00-00-00Z-ED-16.json",
+                "updated": "edited",
+                "obj_id": "https://doi.org/10.1371/journal.pone.0171591",
+                "source_token": "45a1ef76-4f43-4cdc-9ba8-5a6ad01cc231",
+                "occurred_at": "2017-02-17T12:30:56Z",
+                "subj_id": "http://twitter.com",
+                "id": "776e26d6-d7de-4102-a5bb-f23b0c309046",
+                "evidence_record": "https://evidence.eventdata.crossref.org/evidence/201702178baf074e-79bd-43df-8046-582d21ade602",
+                "action": "add",
+                "source_id": "twitter",
+                "obj": {
+                    "pid": "https://doi.org/10.1371/journal.pone.0171591",
+                    "url": "https://doi.org/10.1371/journal.pone.0171591"
+                },
+                "timestamp": "2017-02-17T12:31:07Z",
+                "updated_date": "2018-05-09T17:41:24Z",
+                "relation_type_id": "discusses"
+            },
+            {
+                "license": "https://creativecommons.org/publicdomain/zero/1.0/",
+                "terms": "https://doi.org/10.13003/CED-terms-of-use",
+                "updated_reason": "https://evidence.eventdata.crossref.org/announcements/2018-04-26T00-00-00Z-ED-16.json",
+                "updated": "edited",
+                "obj_id": "https://doi.org/10.1038/ncomms14301",
+                "source_token": "45a1ef76-4f43-4cdc-9ba8-5a6ad01cc231",
+                "occurred_at": "2017-02-17T12:31:03Z",
+                "subj_id": "http://twitter.com/neuromeditate/statuses/832568037769351168",
+                "id": "958d74e1-f380-4c58-86e7-2e656e8ad693",
+                "evidence_record": "https://evidence.eventdata.crossref.org/evidence/201702175ca63108-20cb-4344-b176-258363cb313c",
+                "action": "add",
+                "subj": {
+                    "pid": "http://twitter.com/neuromeditate/statuses/832568037769351168",
+                    "title": "Tweet 832568037769351168",
+                    "issued": "2017-02-17T12:31:03.000Z",
+                    "author": {
+                        "url": "http://www.twitter.com/neuromeditate"
+                    },
+                    "original-tweet-url": "http://twitter.com/danjlurie/statuses/832529410439868417",
+                    "original-tweet-author": "http://www.twitter.com/danjlurie",
+                    "alternative-id": "832568037769351168"
+                },
+                "source_id": "twitter",
+                "obj": {
+                    "pid": "https://doi.org/10.1038/ncomms14301",
+                    "url": "https://doi.org/10.1038/ncomms14301"
+                },
+                "timestamp": "2017-02-17T12:31:15Z",
+                "updated_date": "2018-05-03T09:32:24Z",
+                "relation_type_id": "discusses"
+            },
+            {
+                "license": "https://creativecommons.org/publicdomain/zero/1.0/",
+                "terms": "https://doi.org/10.13003/CED-terms-of-use",
+                "updated_reason": "https://evidence.eventdata.crossref.org/announcements/2018-04-26T00-00-00Z-ED-16.json",
+                "updated": "edited",
+                "obj_id": "https://doi.org/10.5194/acp-17-2509-2017",
+                "source_token": "45a1ef76-4f43-4cdc-9ba8-5a6ad01cc231",
+                "occurred_at": "2017-02-17T12:31:05Z",
+                "subj_id": "http://twitter.com/ACPunofficial/statuses/832568047672053761",
+                "id": "e33d37eb-6fbd-4f5b-b8a3-051bebd91b24",
+                "evidence_record": "https://evidence.eventdata.crossref.org/evidence/20170217ff48fd1b-9ceb-436c-a860-501e38e9ad19",
+                "action": "add",
+                "subj": {
+                    "pid": "http://twitter.com/ACPunofficial/statuses/832568047672053761",
+                    "title": "Tweet 832568047672053761",
+                    "issued": "2017-02-17T12:31:05.000Z",
+                    "author": {
+                        "url": "http://www.twitter.com/ACPunofficial"
+                    },
+                    "original-tweet-url": "http://twitter.com/ACPunofficial/statuses/832568047672053761",
+                    "original-tweet-author": null,
+                    "alternative-id": "832568047672053761"
+                },
+                "source_id": "twitter",
+                "obj": {
+                    "pid": "https://doi.org/10.5194/acp-17-2509-2017",
+                    "url": "https://doi.org/10.5194/acp-17-2509-2017"
+                },
+                "timestamp": "2017-02-17T12:31:16Z",
+                "updated_date": "2018-05-03T09:32:24Z",
+                "relation_type_id": "discusses"
+            },
+            {
+                "license": "https://creativecommons.org/publicdomain/zero/1.0/",
+                "terms": "https://doi.org/10.13003/CED-terms-of-use",
+                "updated_reason": "https://evidence.eventdata.crossref.org/announcements/2018-04-26T00-00-00Z-ED-16.json",
+                "updated": "edited",
+                "obj_id": "https://doi.org/10.5194/acp-17-2509-2017",
+                "source_token": "45a1ef76-4f43-4cdc-9ba8-5a6ad01cc231",
+                "occurred_at": "2017-02-17T12:31:05Z",
+                "subj_id": "http://twitter.com/EGU_Atmos/statuses/832568047961468930",
+                "id": "5e639df8-a04c-4d1c-82db-1d20ab0eb86c",
+                "evidence_record": "https://evidence.eventdata.crossref.org/evidence/2017021734d84d2a-c5ea-4831-99d2-34dbc7d45901",
+                "action": "add",
+                "subj": {
+                    "pid": "http://twitter.com/EGU_Atmos/statuses/832568047961468930",
+                    "title": "Tweet 832568047961468930",
+                    "issued": "2017-02-17T12:31:05.000Z",
+                    "author": {
+                        "url": "http://www.twitter.com/EGU_Atmos"
+                    },
+                    "original-tweet-url": "http://twitter.com/EGU_Atmos/statuses/832568047961468930",
+                    "original-tweet-author": null,
+                    "alternative-id": "832568047961468930"
+                },
+                "source_id": "twitter",
+                "obj": {
+                    "pid": "https://doi.org/10.5194/acp-17-2509-2017",
+                    "url": "https://doi.org/10.5194/acp-17-2509-2017"
+                },
+                "timestamp": "2017-02-17T12:31:16Z",
+                "updated_date": "2018-05-03T09:32:24Z",
+                "relation_type_id": "discusses"
+            },
+            {
+                "license": "https://creativecommons.org/publicdomain/zero/1.0/",
+                "terms": "https://doi.org/10.13003/CED-terms-of-use",
+                "updated_reason": "https://evidence.eventdata.crossref.org/announcements/2018-04-26T00-00-00Z-ED-16.json",
+                "updated": "edited",
+                "obj_id": "https://doi.org/10.1101/106062",
+                "source_token": "45a1ef76-4f43-4cdc-9ba8-5a6ad01cc231",
+                "occurred_at": "2017-02-17T12:31:09Z",
+                "subj_id": "http://twitter.com/cathrynlewis/statuses/832568065539850241",
+                "id": "e3928781-d11b-40af-b129-cdb02330c9bf",
+                "evidence_record": "https://evidence.eventdata.crossref.org/evidence/20170217c5d14659-84bf-4b03-a80d-8eec1a4316e1",
+                "action": "add",
+                "subj": {
+                    "pid": "http://twitter.com/cathrynlewis/statuses/832568065539850241",
+                    "title": "Tweet 832568065539850241",
+                    "issued": "2017-02-17T12:31:09.000Z",
+                    "author": {
+                        "url": "http://www.twitter.com/cathrynlewis"
+                    },
+                    "original-tweet-url": "http://twitter.com/cathrynlewis/statuses/832568065539850241",
+                    "original-tweet-author": null,
+                    "alternative-id": "832568065539850241"
+                },
+                "source_id": "twitter",
+                "obj": {
+                    "pid": "https://doi.org/10.1101/106062",
+                    "url": "https://doi.org/10.1101/106062"
+                },
+                "timestamp": "2017-02-17T12:31:21Z",
+                "updated_date": "2018-05-03T09:32:24Z",
+                "relation_type_id": "discusses"
+            },
+            {
+                "license": "https://creativecommons.org/publicdomain/zero/1.0/",
+                "terms": "https://doi.org/10.13003/CED-terms-of-use",
+                "updated_reason": "https://evidence.eventdata.crossref.org/announcements/2018-04-26T00-00-00Z-ED-16.json",
+                "updated": "edited",
+                "obj_id": "https://doi.org/10.1161/cir.0000000000000476",
+                "source_token": "45a1ef76-4f43-4cdc-9ba8-5a6ad01cc231",
+                "occurred_at": "2017-02-17T12:31:31Z",
+                "subj_id": "http://twitter.com/Afhealthychoice/statuses/832568157961228288",
+                "id": "751c3288-49e4-4989-b32b-12d7b4f59413",
+                "evidence_record": "https://evidence.eventdata.crossref.org/evidence/201702171e5e5065-d6e9-48ca-b454-c37f3ca90a64",
+                "action": "add",
+                "subj": {
+                    "pid": "http://twitter.com/Afhealthychoice/statuses/832568157961228288",
+                    "title": "Tweet 832568157961228288",
+                    "issued": "2017-02-17T12:31:31.000Z",
+                    "author": {
+                        "url": "http://www.twitter.com/Afhealthychoice"
+                    },
+                    "original-tweet-url": "http://twitter.com/Afhealthychoice/statuses/832568157961228288",
+                    "original-tweet-author": null,
+                    "alternative-id": "832568157961228288"
+                },
+                "source_id": "twitter",
+                "obj": {
+                    "pid": "https://doi.org/10.1161/cir.0000000000000476",
+                    "url": "https://doi.org/10.1161/cir.0000000000000476"
+                },
+                "timestamp": "2017-02-17T12:31:46Z",
+                "updated_date": "2018-05-03T09:32:24Z",
+                "relation_type_id": "discusses"
+            },
+            {
+                "license": "https://creativecommons.org/publicdomain/zero/1.0/",
+                "terms": "https://doi.org/10.13003/CED-terms-of-use",
+                "updated_reason": "https://evidence.eventdata.crossref.org/announcements/2018-04-26T00-00-00Z-ED-16.json",
+                "updated": "edited",
+                "obj_id": "https://doi.org/10.1007/s00125-016-4184-0",
+                "source_token": "45a1ef76-4f43-4cdc-9ba8-5a6ad01cc231",
+                "occurred_at": "2017-02-17T12:31:37Z",
+                "subj_id": "http://twitter.com/Selinka__/statuses/832568181415870465",
+                "id": "c52db435-b4e4-42ae-b988-fa531692afb5",
+                "evidence_record": "https://evidence.eventdata.crossref.org/evidence/2017021763eeeee4-1688-43ae-b0f1-34821e78d05e",
+                "action": "add",
+                "subj": {
+                    "pid": "http://twitter.com/Selinka__/statuses/832568181415870465",
+                    "title": "Tweet 832568181415870465",
+                    "issued": "2017-02-17T12:31:37.000Z",
+                    "author": {
+                        "url": "http://www.twitter.com/Selinka__"
+                    },
+                    "original-tweet-url": "http://twitter.com/DiabetologiaJnl/statuses/832318652737269762",
+                    "original-tweet-author": "http://www.twitter.com/DiabetologiaJnl",
+                    "alternative-id": "832568181415870465"
+                },
+                "source_id": "twitter",
+                "obj": {
+                    "pid": "https://doi.org/10.1007/s00125-016-4184-0",
+                    "url": "https://doi.org/10.1007/s00125-016-4184-0"
+                },
+                "timestamp": "2017-02-17T12:31:48Z",
+                "updated_date": "2018-05-03T09:32:24Z",
+                "relation_type_id": "discusses"
+            },
+            {
+                "license": "https://creativecommons.org/publicdomain/zero/1.0/",
+                "terms": "https://doi.org/10.13003/CED-terms-of-use",
+                "updated_reason": "https://evidence.eventdata.crossref.org/announcements/2018-04-26T00-00-00Z-ED-16.json",
+                "updated": "edited",
+                "obj_id": "https://doi.org/10.1038/nature.2017.21504",
+                "source_token": "45a1ef76-4f43-4cdc-9ba8-5a6ad01cc231",
+                "occurred_at": "2017-02-17T12:31:39Z",
+                "subj_id": "http://twitter.com/amytownend_MDR/statuses/832568188986675200",
+                "id": "7082f032-e7bd-4a27-a76b-56c751e5e15c",
+                "evidence_record": "https://evidence.eventdata.crossref.org/evidence/20170217257e60f8-1f19-498f-ab2b-3c5b2a07cb64",
+                "action": "add",
+                "subj": {
+                    "pid": "http://twitter.com/amytownend_MDR/statuses/832568188986675200",
+                    "title": "Tweet 832568188986675200",
+                    "issued": "2017-02-17T12:31:39.000Z",
+                    "author": {
+                        "url": "http://www.twitter.com/amytownend_MDR"
+                    },
+                    "original-tweet-url": "http://twitter.com/amytownend_MDR/statuses/832568188986675200",
+                    "original-tweet-author": null,
+                    "alternative-id": "832568188986675200"
+                },
+                "source_id": "twitter",
+                "obj": {
+                    "pid": "https://doi.org/10.1038/nature.2017.21504",
+                    "url": "https://doi.org/10.1038/nature.2017.21504"
+                },
+                "timestamp": "2017-02-17T12:31:50Z",
+                "updated_date": "2018-05-03T09:32:24Z",
+                "relation_type_id": "discusses"
+            },
+            {
+                "license": "https://creativecommons.org/publicdomain/zero/1.0/",
+                "terms": "https://doi.org/10.13003/CED-terms-of-use",
+                "updated_reason": "https://evidence.eventdata.crossref.org/announcements/2018-04-26T00-00-00Z-ED-16.json",
+                "updated": "edited",
+                "obj_id": "https://doi.org/10.1371/journal.pbio.2000756",
+                "source_token": "45a1ef76-4f43-4cdc-9ba8-5a6ad01cc231",
+                "occurred_at": "2017-02-17T12:31:30Z",
+                "subj_id": "http://twitter.com/RSprackland/statuses/832568150684213248",
+                "id": "190a820e-2597-4cf1-84df-f0954edea60d",
+                "evidence_record": "https://evidence.eventdata.crossref.org/evidence/2017021733319f28-e167-4b90-bdab-e6d2aae75cba",
+                "action": "add",
+                "subj": {
+                    "pid": "http://twitter.com/RSprackland/statuses/832568150684213248",
+                    "title": "Tweet 832568150684213248",
+                    "issued": "2017-02-17T12:31:30.000Z",
+                    "author": {
+                        "url": "http://www.twitter.com/RSprackland"
+                    },
+                    "original-tweet-url": "http://twitter.com/PLOSBiology/statuses/832555552857284608",
+                    "original-tweet-author": "http://www.twitter.com/PLOSBiology",
+                    "alternative-id": "832568150684213248"
+                },
+                "source_id": "twitter",
+                "obj": {
+                    "pid": "https://doi.org/10.1371/journal.pbio.2000756",
+                    "url": "https://doi.org/10.1371/journal.pbio.2000756"
+                },
+                "timestamp": "2017-02-17T12:31:51Z",
+                "updated_date": "2018-05-03T09:32:24Z",
+                "relation_type_id": "discusses"
+            },
+            {
+                "license": "https://creativecommons.org/publicdomain/zero/1.0/",
+                "terms": "https://doi.org/10.13003/CED-terms-of-use",
+                "updated_reason": "https://evidence.eventdata.crossref.org/announcements/2018-04-26T00-00-00Z-ED-16.json",
+                "updated": "edited",
+                "obj_id": "https://doi.org/10.1038/nature21399",
+                "source_token": "45a1ef76-4f43-4cdc-9ba8-5a6ad01cc231",
+                "occurred_at": "2017-02-17T12:31:13Z",
+                "subj_id": "http://twitter.com/AytonJen/statuses/832568081306181634",
+                "id": "a6d61a8a-0e27-405b-8fff-12dd298303ae",
+                "evidence_record": "https://evidence.eventdata.crossref.org/evidence/20170217ae803ba9-9f93-48a3-a2dd-c193ae98cd5e",
+                "action": "add",
+                "subj": {
+                    "pid": "http://twitter.com/AytonJen/statuses/832568081306181634",
+                    "title": "Tweet 832568081306181634",
+                    "issued": "2017-02-17T12:31:13.000Z",
+                    "author": {
+                        "url": "http://www.twitter.com/AytonJen"
+                    },
+                    "original-tweet-url": "http://twitter.com/nature/statuses/832560293821739008",
+                    "original-tweet-author": "http://www.twitter.com/nature",
+                    "alternative-id": "832568081306181634"
+                },
+                "source_id": "twitter",
+                "obj": {
+                    "pid": "https://doi.org/10.1038/nature21399",
+                    "url": "https://doi.org/10.1038/nature21399"
+                },
+                "timestamp": "2017-02-17T12:31:54Z",
+                "updated_date": "2018-05-03T09:32:24Z",
+                "relation_type_id": "discusses"
+            },
+            {
+                "license": "https://creativecommons.org/publicdomain/zero/1.0/",
+                "terms": "https://doi.org/10.13003/CED-terms-of-use",
+                "updated_reason": "https://evidence.eventdata.crossref.org/announcements/2018-04-26T00-00-00Z-ED-16.json",
+                "updated": "edited",
+                "obj_id": "https://doi.org/10.1111/(issn)1460-9568",
+                "source_token": "45a1ef76-4f43-4cdc-9ba8-5a6ad01cc231",
+                "occurred_at": "2017-02-17T12:31:43Z",
+                "subj_id": "http://twitter.com/ColginLab/statuses/832568205382127616",
+                "id": "517013a0-1215-4edd-a6b2-28950e318c78",
+                "evidence_record": "https://evidence.eventdata.crossref.org/evidence/20170217b46aefe5-b7cd-4e1e-9c50-d354877542de",
+                "action": "add",
+                "subj": {
+                    "pid": "http://twitter.com/ColginLab/statuses/832568205382127616",
+                    "title": "Tweet 832568205382127616",
+                    "issued": "2017-02-17T12:31:43.000Z",
+                    "author": {
+                        "url": "http://www.twitter.com/ColginLab"
+                    },
+                    "original-tweet-url": "http://twitter.com/EJNeuroscience/statuses/831930495088939009",
+                    "original-tweet-author": "http://www.twitter.com/EJNeuroscience",
+                    "alternative-id": "832568205382127616"
+                },
+                "source_id": "twitter",
+                "obj": {
+                    "pid": "https://doi.org/10.1111/(issn)1460-9568",
+                    "url": "https://doi.org/10.1111/(issn)1460-9568"
+                },
+                "timestamp": "2017-02-17T12:31:54Z",
+                "updated_date": "2018-05-03T09:32:24Z",
+                "relation_type_id": "discusses"
+            },
+            {
+                "license": "https://creativecommons.org/publicdomain/zero/1.0/",
+                "terms": "https://doi.org/10.13003/CED-terms-of-use",
+                "updated_reason": "https://evidence.eventdata.crossref.org/announcements/2018-04-26T00-00-00Z-ED-16.json",
+                "updated": "edited",
+                "obj_id": "https://doi.org/10.1038/nature21399",
+                "source_token": "45a1ef76-4f43-4cdc-9ba8-5a6ad01cc231",
+                "occurred_at": "2017-02-17T12:31:13Z",
+                "subj_id": "http://twitter.com/JanineKirkCEO/statuses/832568080790282240",
+                "id": "ed40e2c8-ac90-42ff-a0ff-2ec8204092ef",
+                "evidence_record": "https://evidence.eventdata.crossref.org/evidence/20170217be69c93c-c515-435a-b2b0-8c071f248bac",
+                "action": "add",
+                "subj": {
+                    "pid": "http://twitter.com/JanineKirkCEO/statuses/832568080790282240",
+                    "title": "Tweet 832568080790282240",
+                    "issued": "2017-02-17T12:31:13.000Z",
+                    "author": {
+                        "url": "http://www.twitter.com/JanineKirkCEO"
+                    },
+                    "original-tweet-url": "http://twitter.com/nature/statuses/832560293821739008",
+                    "original-tweet-author": "http://www.twitter.com/nature",
+                    "alternative-id": "832568080790282240"
+                },
+                "source_id": "twitter",
+                "obj": {
+                    "pid": "https://doi.org/10.1038/nature21399",
+                    "url": "https://doi.org/10.1038/nature21399"
+                },
+                "timestamp": "2017-02-17T12:31:55Z",
+                "updated_date": "2018-05-03T09:32:24Z",
+                "relation_type_id": "discusses"
+            },
+            {
+                "license": "https://creativecommons.org/publicdomain/zero/1.0/",
+                "terms": "https://doi.org/10.13003/CED-terms-of-use",
+                "updated_reason": "https://evidence.eventdata.crossref.org/announcements/2018-04-26T00-00-00Z-ED-16.json",
+                "updated": "edited",
+                "obj_id": "https://doi.org/10.3389/fnhum.2017.00041",
+                "source_token": "45a1ef76-4f43-4cdc-9ba8-5a6ad01cc231",
+                "occurred_at": "2017-02-17T12:31:44Z",
+                "subj_id": "http://twitter.com/bttyeo/statuses/832568209781846016",
+                "id": "a9b655d7-6a96-45d4-ac3e-53b999345f48",
+                "evidence_record": "https://evidence.eventdata.crossref.org/evidence/20170217b5a0f9d5-cb11-43b0-9fcf-b0a0956b1413",
+                "action": "add",
+                "subj": {
+                    "pid": "http://twitter.com/bttyeo/statuses/832568209781846016",
+                    "title": "Tweet 832568209781846016",
+                    "issued": "2017-02-17T12:31:44.000Z",
+                    "author": {
+                        "url": "http://www.twitter.com/bttyeo"
+                    },
+                    "original-tweet-url": "http://twitter.com/Neuro_Skeptic/statuses/832543623765950464",
+                    "original-tweet-author": "http://www.twitter.com/Neuro_Skeptic",
+                    "alternative-id": "832568209781846016"
+                },
+                "source_id": "twitter",
+                "obj": {
+                    "pid": "https://doi.org/10.3389/fnhum.2017.00041",
+                    "url": "https://doi.org/10.3389/fnhum.2017.00041"
+                },
+                "timestamp": "2017-02-17T12:31:55Z",
+                "updated_date": "2018-05-03T09:32:24Z",
+                "relation_type_id": "discusses"
+            },
+            {
+                "license": "https://creativecommons.org/publicdomain/zero/1.0/",
+                "terms": "https://doi.org/10.13003/CED-terms-of-use",
+                "updated_reason": "https://evidence.eventdata.crossref.org/announcements/2018-04-26T00-00-00Z-ED-16.json",
+                "updated": "edited",
+                "obj_id": "https://doi.org/10.1136/bmj.h3692",
+                "source_token": "45a1ef76-4f43-4cdc-9ba8-5a6ad01cc231",
+                "occurred_at": "2017-02-17T12:31:45Z",
+                "subj_id": "http://twitter.com/DrGeraintPreest/statuses/832568213607112705",
+                "id": "6059e95a-de21-4cad-9f31-ad6fdaf60cd8",
+                "evidence_record": "https://evidence.eventdata.crossref.org/evidence/20170217f1bcc681-185f-45fc-ad7a-33d61c3d158f",
+                "action": "add",
+                "subj": {
+                    "pid": "http://twitter.com/DrGeraintPreest/statuses/832568213607112705",
+                    "title": "Tweet 832568213607112705",
+                    "issued": "2017-02-17T12:31:45.000Z",
+                    "author": {
+                        "url": "http://www.twitter.com/DrGeraintPreest"
+                    },
+                    "original-tweet-url": "http://twitter.com/DrGeraintPreest/statuses/832568213607112705",
+                    "original-tweet-author": null,
+                    "alternative-id": "832568213607112705"
+                },
+                "source_id": "twitter",
+                "obj": {
+                    "pid": "https://doi.org/10.1136/bmj.h3692",
+                    "url": "https://doi.org/10.1136/bmj.h3692"
+                },
+                "timestamp": "2017-02-17T12:31:57Z",
+                "updated_date": "2018-05-03T09:32:24Z",
+                "relation_type_id": "discusses"
+            },
+            {
+                "license": "https://creativecommons.org/publicdomain/zero/1.0/",
+                "terms": "https://doi.org/10.13003/CED-terms-of-use",
+                "updated_reason": "https://evidence.eventdata.crossref.org/announcements/2018-04-26T00-00-00Z-ED-16.json",
+                "updated": "edited",
+                "obj_id": "https://doi.org/10.1056/nejmoa1612674",
+                "source_token": "45a1ef76-4f43-4cdc-9ba8-5a6ad01cc231",
+                "occurred_at": "2017-02-17T12:31:48Z",
+                "subj_id": "http://twitter.com/DrTonja/statuses/832568228459184128",
+                "id": "2197f495-7859-4df5-b2f7-678e5e29a9e8",
+                "evidence_record": "https://evidence.eventdata.crossref.org/evidence/2017021748f0298a-e9be-4dc9-a273-76c5599b7b05",
+                "action": "add",
+                "subj": {
+                    "pid": "http://twitter.com/DrTonja/statuses/832568228459184128",
+                    "title": "Tweet 832568228459184128",
+                    "issued": "2017-02-17T12:31:48.000Z",
+                    "author": {
+                        "url": "http://www.twitter.com/DrTonja"
+                    },
+                    "original-tweet-url": "http://twitter.com/NEJM/statuses/832304865653186560",
+                    "original-tweet-author": "http://www.twitter.com/NEJM",
+                    "alternative-id": "832568228459184128"
+                },
+                "source_id": "twitter",
+                "obj": {
+                    "pid": "https://doi.org/10.1056/nejmoa1612674",
+                    "url": "https://doi.org/10.1056/nejmoa1612674"
+                },
+                "timestamp": "2017-02-17T12:31:59Z",
+                "updated_date": "2018-05-03T09:32:24Z",
+                "relation_type_id": "discusses"
+            },
+            {
+                "license": "https://creativecommons.org/publicdomain/zero/1.0/",
+                "terms": "https://doi.org/10.13003/CED-terms-of-use",
+                "updated_reason": "https://evidence.eventdata.crossref.org/announcements/2018-04-26T00-00-00Z-ED-16.json",
+                "updated": "edited",
+                "obj_id": "https://doi.org/10.1002/anie.201609394",
+                "source_token": "45a1ef76-4f43-4cdc-9ba8-5a6ad01cc231",
+                "occurred_at": "2017-02-17T12:31:51Z",
+                "subj_id": "http://twitter.com/angew_chem/statuses/832568241117679616",
+                "id": "7082a5ca-39a4-479f-b703-3d743413e671",
+                "evidence_record": "https://evidence.eventdata.crossref.org/evidence/20170217fdc509f4-9d0a-4ef0-8209-9c79c6110722",
+                "action": "add",
+                "subj": {
+                    "pid": "http://twitter.com/angew_chem/statuses/832568241117679616",
+                    "title": "Tweet 832568241117679616",
+                    "issued": "2017-02-17T12:31:51.000Z",
+                    "author": {
+                        "url": "http://www.twitter.com/angew_chem"
+                    },
+                    "original-tweet-url": "http://twitter.com/angew_chem/statuses/832568241117679616",
+                    "original-tweet-author": null,
+                    "alternative-id": "832568241117679616"
+                },
+                "source_id": "twitter",
+                "obj": {
+                    "pid": "https://doi.org/10.1002/anie.201609394",
+                    "url": "https://doi.org/10.1002/anie.201609394"
+                },
+                "timestamp": "2017-02-17T12:32:03Z",
+                "updated_date": "2018-05-03T09:32:24Z",
+                "relation_type_id": "discusses"
+            },
+            {
+                "license": "https://creativecommons.org/publicdomain/zero/1.0/",
+                "terms": "https://doi.org/10.13003/CED-terms-of-use",
+                "updated_reason": "https://evidence.eventdata.crossref.org/announcements/2018-04-26T00-00-00Z-ED-16.json",
+                "updated": "edited",
+                "obj_id": "https://doi.org/10.1038/nature21399",
+                "source_token": "45a1ef76-4f43-4cdc-9ba8-5a6ad01cc231",
+                "occurred_at": "2017-02-17T12:31:52Z",
+                "subj_id": "http://twitter.com/VergaraLautaro/statuses/832568243185397761",
+                "id": "b3191219-42f8-43da-8eda-f6306de33ab4",
+                "evidence_record": "https://evidence.eventdata.crossref.org/evidence/2017021710f45874-e427-4fd6-9bdf-8f0bc88d162d",
+                "action": "add",
+                "subj": {
+                    "pid": "http://twitter.com/VergaraLautaro/statuses/832568243185397761",
+                    "title": "Tweet 832568243185397761",
+                    "issued": "2017-02-17T12:31:52.000Z",
+                    "author": {
+                        "url": "http://www.twitter.com/VergaraLautaro"
+                    },
+                    "original-tweet-url": "http://twitter.com/VergaraLautaro/statuses/832568243185397761",
+                    "original-tweet-author": null,
+                    "alternative-id": "832568243185397761"
+                },
+                "source_id": "twitter",
+                "obj": {
+                    "pid": "https://doi.org/10.1038/nature21399",
+                    "url": "https://doi.org/10.1038/nature21399"
+                },
+                "timestamp": "2017-02-17T12:32:04Z",
+                "updated_date": "2018-05-03T09:32:24Z",
+                "relation_type_id": "discusses"
+            },
+            {
+                "license": "https://creativecommons.org/publicdomain/zero/1.0/",
+                "terms": "https://doi.org/10.13003/CED-terms-of-use",
+                "updated_reason": "https://evidence.eventdata.crossref.org/announcements/2018-04-26T00-00-00Z-ED-16.json",
+                "updated": "edited",
+                "obj_id": "https://doi.org/10.1007/s10508-016-0904-2",
+                "source_token": "45a1ef76-4f43-4cdc-9ba8-5a6ad01cc231",
+                "occurred_at": "2017-02-17T12:31:56Z",
+                "subj_id": "http://twitter.com/TV0lRComHpwNEun/statuses/832568263032893444",
+                "id": "f16cd217-bfd4-4569-a729-560adc35dd84",
+                "evidence_record": "https://evidence.eventdata.crossref.org/evidence/20170217f22b3348-4849-4988-800c-52b92c834026",
+                "action": "add",
+                "subj": {
+                    "pid": "http://twitter.com/TV0lRComHpwNEun/statuses/832568263032893444",
+                    "title": "Tweet 832568263032893444",
+                    "issued": "2017-02-17T12:31:56.000Z",
+                    "author": {
+                        "url": "http://www.twitter.com/TV0lRComHpwNEun"
+                    },
+                    "original-tweet-url": "http://twitter.com/SteveStuWill/statuses/830067141843968000",
+                    "original-tweet-author": "http://www.twitter.com/SteveStuWill",
+                    "alternative-id": "832568263032893444"
+                },
+                "source_id": "twitter",
+                "obj": {
+                    "pid": "https://doi.org/10.1007/s10508-016-0904-2",
+                    "url": "https://doi.org/10.1007/s10508-016-0904-2"
+                },
+                "timestamp": "2017-02-17T12:32:11Z",
+                "updated_date": "2018-05-03T09:32:24Z",
+                "relation_type_id": "discusses"
+            },
+            {
+                "license": "https://creativecommons.org/publicdomain/zero/1.0/",
+                "terms": "https://doi.org/10.13003/CED-terms-of-use",
+                "updated_reason": "https://evidence.eventdata.crossref.org/announcements/2018-04-26T00-00-00Z-ED-16.json",
+                "updated": "edited",
+                "obj_id": "https://doi.org/10.1007/s10531-017-1320-1",
+                "source_token": "45a1ef76-4f43-4cdc-9ba8-5a6ad01cc231",
+                "occurred_at": "2017-02-17T12:32:01Z",
+                "subj_id": "http://twitter.com/GailGailpickett/statuses/832568283379425280",
+                "id": "010c3053-9417-4ec2-ae78-ecba0814e138",
+                "evidence_record": "https://evidence.eventdata.crossref.org/evidence/201702176d3617ae-6cb3-4cba-a8c1-acf5cc3a62fb",
+                "action": "add",
+                "subj": {
+                    "pid": "http://twitter.com/GailGailpickett/statuses/832568283379425280",
+                    "title": "Tweet 832568283379425280",
+                    "issued": "2017-02-17T12:32:01.000Z",
+                    "author": {
+                        "url": "http://www.twitter.com/GailGailpickett"
+                    },
+                    "original-tweet-url": "http://twitter.com/holland_tom/statuses/832565929544450048",
+                    "original-tweet-author": "http://www.twitter.com/holland_tom",
+                    "alternative-id": "832568283379425280"
+                },
+                "source_id": "twitter",
+                "obj": {
+                    "pid": "https://doi.org/10.1007/s10531-017-1320-1",
+                    "url": "https://doi.org/10.1007/s10531-017-1320-1"
+                },
+                "timestamp": "2017-02-17T12:32:12Z",
+                "updated_date": "2018-05-03T09:32:24Z",
+                "relation_type_id": "discusses"
+            },
+            {
+                "license": "https://creativecommons.org/publicdomain/zero/1.0/",
+                "terms": "https://doi.org/10.13003/CED-terms-of-use",
+                "updated_reason": "https://evidence.eventdata.crossref.org/announcements/2018-04-26T00-00-00Z-ED-16.json",
+                "updated": "edited",
+                "obj_id": "https://doi.org/10.1080/00324728.2016.1271140",
+                "source_token": "45a1ef76-4f43-4cdc-9ba8-5a6ad01cc231",
+                "occurred_at": "2017-02-17T12:32:04Z",
+                "subj_id": "http://twitter.com/RebeccaSear/statuses/832568296566296576",
+                "id": "4181e0aa-8ba9-430f-881d-e94ccce3e2e8",
+                "evidence_record": "https://evidence.eventdata.crossref.org/evidence/20170217f9a27b74-afc2-48a8-b2cb-fd3e27e1970c",
+                "action": "add",
+                "subj": {
+                    "pid": "http://twitter.com/RebeccaSear/statuses/832568296566296576",
+                    "title": "Tweet 832568296566296576",
+                    "issued": "2017-02-17T12:32:04.000Z",
+                    "author": {
+                        "url": "http://www.twitter.com/RebeccaSear"
+                    },
+                    "original-tweet-url": "http://twitter.com/RebeccaSear/statuses/832568296566296576",
+                    "original-tweet-author": null,
+                    "alternative-id": "832568296566296576"
+                },
+                "source_id": "twitter",
+                "obj": {
+                    "pid": "https://doi.org/10.1080/00324728.2016.1271140",
+                    "url": "https://doi.org/10.1080/00324728.2016.1271140"
+                },
+                "timestamp": "2017-02-17T12:32:16Z",
+                "updated_date": "2018-05-03T09:32:24Z",
+                "relation_type_id": "discusses"
+            },
+            {
+                "license": "https://creativecommons.org/publicdomain/zero/1.0/",
+                "terms": "https://doi.org/10.13003/CED-terms-of-use",
+                "updated_reason": "https://evidence.eventdata.crossref.org/announcements/2018-04-26T00-00-00Z-ED-16.json",
+                "updated": "edited",
+                "obj_id": "https://doi.org/10.1073/pnas.1617037114",
+                "source_token": "45a1ef76-4f43-4cdc-9ba8-5a6ad01cc231",
+                "occurred_at": "2017-02-17T12:32:06Z",
+                "subj_id": "http://twitter.com/ahcells/statuses/832568303348490241",
+                "id": "de6d42bc-b2bf-4810-96ad-6ee297957767",
+                "evidence_record": "https://evidence.eventdata.crossref.org/evidence/2017021772c42e22-a8ba-43db-a1d4-86d92a86cfe7",
+                "action": "add",
+                "subj": {
+                    "pid": "http://twitter.com/ahcells/statuses/832568303348490241",
+                    "title": "Tweet 832568303348490241",
+                    "issued": "2017-02-17T12:32:06.000Z",
+                    "author": {
+                        "url": "http://www.twitter.com/ahcells"
+                    },
+                    "original-tweet-url": "http://twitter.com/ExtracellMatrix/statuses/832436927261450240",
+                    "original-tweet-author": "http://www.twitter.com/ExtracellMatrix",
+                    "alternative-id": "832568303348490241"
+                },
+                "source_id": "twitter",
+                "obj": {
+                    "pid": "https://doi.org/10.1073/pnas.1617037114",
+                    "url": "https://doi.org/10.1073/pnas.1617037114"
+                },
+                "timestamp": "2017-02-17T12:32:18Z",
+                "updated_date": "2018-05-03T09:32:24Z",
+                "relation_type_id": "discusses"
+            },
+            {
+                "license": "https://creativecommons.org/publicdomain/zero/1.0/",
+                "terms": "https://doi.org/10.13003/CED-terms-of-use",
+                "updated_reason": "https://evidence.eventdata.crossref.org/announcements/2018-04-26T00-00-00Z-ED-16.json",
+                "updated": "edited",
+                "obj_id": "https://doi.org/10.1136/bmj.j861",
+                "source_token": "45a1ef76-4f43-4cdc-9ba8-5a6ad01cc231",
+                "occurred_at": "2017-02-17T12:32:06Z",
+                "subj_id": "http://twitter.com/NunoRodriguesPH/statuses/832568302199267328",
+                "id": "291f3e7d-838e-4dcf-b16b-7e3dd17b7247",
+                "evidence_record": "https://evidence.eventdata.crossref.org/evidence/20170217c79ca64c-1366-4eb4-b00b-380a316e3c3c",
+                "action": "add",
+                "subj": {
+                    "pid": "http://twitter.com/NunoRodriguesPH/statuses/832568302199267328",
+                    "title": "Tweet 832568302199267328",
+                    "issued": "2017-02-17T12:32:06.000Z",
+                    "author": {
+                        "url": "http://www.twitter.com/NunoRodriguesPH"
+                    },
+                    "original-tweet-url": "http://twitter.com/bmj_latest/statuses/832557189952860160",
+                    "original-tweet-author": "http://www.twitter.com/bmj_latest",
+                    "alternative-id": "832568302199267328"
+                },
+                "source_id": "twitter",
+                "obj": {
+                    "pid": "https://doi.org/10.1136/bmj.j861",
+                    "url": "https://doi.org/10.1136/bmj.j861"
+                },
+                "timestamp": "2017-02-17T12:32:19Z",
+                "updated_date": "2018-05-03T09:32:24Z",
+                "relation_type_id": "discusses"
+            },
+            {
+                "license": "https://creativecommons.org/publicdomain/zero/1.0/",
+                "terms": "https://doi.org/10.13003/CED-terms-of-use",
+                "updated_reason": "https://evidence.eventdata.crossref.org/announcements/2018-04-26T00-00-00Z-ED-16.json",
+                "updated": "edited",
+                "obj_id": "https://doi.org/10.15585/mmwr.mm6606a3",
+                "source_token": "45a1ef76-4f43-4cdc-9ba8-5a6ad01cc231",
+                "occurred_at": "2017-02-17T12:32:08Z",
+                "subj_id": "http://twitter.com",
+                "id": "c34a9ddf-8159-45ce-8c7c-ae4efc707b7a",
+                "evidence_record": "https://evidence.eventdata.crossref.org/evidence/201702172f83cc84-7a44-46ec-bfb9-fc791d78e8e7",
+                "action": "add",
+                "source_id": "twitter",
+                "obj": {
+                    "pid": "https://doi.org/10.15585/mmwr.mm6606a3",
+                    "url": "https://doi.org/10.15585/mmwr.mm6606a3"
+                },
+                "timestamp": "2017-02-17T12:32:20Z",
+                "updated_date": "2018-05-09T17:41:24Z",
+                "relation_type_id": "discusses"
+            },
+            {
+                "license": "https://creativecommons.org/publicdomain/zero/1.0/",
+                "terms": "https://doi.org/10.13003/CED-terms-of-use",
+                "updated_reason": "https://evidence.eventdata.crossref.org/announcements/2018-04-26T00-00-00Z-ED-16.json",
+                "updated": "edited",
+                "obj_id": "https://doi.org/10.1038/nature21399",
+                "source_token": "45a1ef76-4f43-4cdc-9ba8-5a6ad01cc231",
+                "occurred_at": "2017-02-17T12:32:08Z",
+                "subj_id": "http://twitter.com/GClugo/statuses/832568312789946368",
+                "id": "3e664c0c-3a73-4e19-80b7-d3f52896a1bf",
+                "evidence_record": "https://evidence.eventdata.crossref.org/evidence/20170217f00ec3a5-b27f-440f-9a1a-aafe96806b89",
+                "action": "add",
+                "subj": {
+                    "pid": "http://twitter.com/GClugo/statuses/832568312789946368",
+                    "title": "Tweet 832568312789946368",
+                    "issued": "2017-02-17T12:32:08.000Z",
+                    "author": {
+                        "url": "http://www.twitter.com/GClugo"
+                    },
+                    "original-tweet-url": "http://twitter.com/nature/statuses/832560293821739008",
+                    "original-tweet-author": "http://www.twitter.com/nature",
+                    "alternative-id": "832568312789946368"
+                },
+                "source_id": "twitter",
+                "obj": {
+                    "pid": "https://doi.org/10.1038/nature21399",
+                    "url": "https://doi.org/10.1038/nature21399"
+                },
+                "timestamp": "2017-02-17T12:32:20Z",
+                "updated_date": "2018-05-03T09:32:24Z",
+                "relation_type_id": "discusses"
+            },
+            {
+                "license": "https://creativecommons.org/publicdomain/zero/1.0/",
+                "terms": "https://doi.org/10.13003/CED-terms-of-use",
+                "updated_reason": "https://evidence.eventdata.crossref.org/announcements/2018-04-26T00-00-00Z-ED-16.json",
+                "updated": "edited",
+                "obj_id": "https://doi.org/10.15585/mmwr.mm6606a3",
+                "source_token": "45a1ef76-4f43-4cdc-9ba8-5a6ad01cc231",
+                "occurred_at": "2017-02-17T12:32:10Z",
+                "subj_id": "http://twitter.com/tipssovetorax/statuses/832568317839867906",
+                "id": "3a03a6e5-7702-45ee-9540-26870b3da423",
+                "evidence_record": "https://evidence.eventdata.crossref.org/evidence/20170217119ff828-ffec-4969-ac96-e41c094b8af4",
+                "action": "add",
+                "subj": {
+                    "pid": "http://twitter.com/tipssovetorax/statuses/832568317839867906",
+                    "title": "Tweet 832568317839867906",
+                    "issued": "2017-02-17T12:32:10.000Z",
+                    "author": {
+                        "url": "http://www.twitter.com/tipssovetorax"
+                    },
+                    "original-tweet-url": "http://twitter.com/tipssovetorax/statuses/832568317839867906",
+                    "original-tweet-author": null,
+                    "alternative-id": "832568317839867906"
+                },
+                "source_id": "twitter",
+                "obj": {
+                    "pid": "https://doi.org/10.15585/mmwr.mm6606a3",
+                    "url": "https://doi.org/10.15585/mmwr.mm6606a3"
+                },
+                "timestamp": "2017-02-17T12:32:20Z",
+                "updated_date": "2018-05-03T09:32:24Z",
+                "relation_type_id": "discusses"
+            },
+            {
+                "license": "https://creativecommons.org/publicdomain/zero/1.0/",
+                "terms": "https://doi.org/10.13003/CED-terms-of-use",
+                "updated_reason": "https://evidence.eventdata.crossref.org/announcements/2018-04-26T00-00-00Z-ED-16.json",
+                "updated": "edited",
+                "obj_id": "https://doi.org/10.1080/20566093.2016.1181378",
+                "source_token": "45a1ef76-4f43-4cdc-9ba8-5a6ad01cc231",
+                "occurred_at": "2017-02-17T12:32:15Z",
+                "subj_id": "http://twitter.com/leonsaviour/statuses/832568341827055617",
+                "id": "4c6d62bb-2978-48f8-a3c6-473c47ec8947",
+                "evidence_record": "https://evidence.eventdata.crossref.org/evidence/20170217df3ea610-32f8-4003-84cd-ea7478a2663e",
+                "action": "add",
+                "subj": {
+                    "pid": "http://twitter.com/leonsaviour/statuses/832568341827055617",
+                    "title": "Tweet 832568341827055617",
+                    "issued": "2017-02-17T12:32:15.000Z",
+                    "author": {
+                        "url": "http://www.twitter.com/leonsaviour"
+                    },
+                    "original-tweet-url": "http://twitter.com/leonsaviour/statuses/832568341827055617",
+                    "original-tweet-author": null,
+                    "alternative-id": "832568341827055617"
+                },
+                "source_id": "twitter",
+                "obj": {
+                    "pid": "https://doi.org/10.1080/20566093.2016.1181378#.wkbtsxke0wi.twitter",
+                    "url": "https://doi.org/10.1080/20566093.2016.1181378#.wkbtsxke0wi.twitter"
+                },
+                "timestamp": "2017-02-17T12:32:26Z",
+                "updated_date": "2018-05-03T09:32:24Z",
+                "relation_type_id": "discusses"
+            },
+            {
+                "license": "https://creativecommons.org/publicdomain/zero/1.0/",
+                "terms": "https://doi.org/10.13003/CED-terms-of-use",
+                "updated_reason": "https://evidence.eventdata.crossref.org/announcements/2018-04-26T00-00-00Z-ED-16.json",
+                "updated": "edited",
+                "obj_id": "https://doi.org/10.2337/db06-0263",
+                "source_token": "45a1ef76-4f43-4cdc-9ba8-5a6ad01cc231",
+                "occurred_at": "2017-02-17T12:32:17Z",
+                "subj_id": "http://twitter.com/DiabeticCare2/statuses/832568347707502592",
+                "id": "bc55952d-4b76-46d7-97d3-bd42a1a510ac",
+                "evidence_record": "https://evidence.eventdata.crossref.org/evidence/2017021755c96de8-0463-48d0-b553-a03a74d547b7",
+                "action": "add",
+                "subj": {
+                    "pid": "http://twitter.com/DiabeticCare2/statuses/832568347707502592",
+                    "title": "Tweet 832568347707502592",
+                    "issued": "2017-02-17T12:32:17.000Z",
+                    "author": {
+                        "url": "http://www.twitter.com/DiabeticCare2"
+                    },
+                    "original-tweet-url": "http://twitter.com/DiabeticCare2/statuses/832568347707502592",
+                    "original-tweet-author": null,
+                    "alternative-id": "832568347707502592"
+                },
+                "source_id": "twitter",
+                "obj": {
+                    "pid": "https://doi.org/10.2337/db06-0263",
+                    "url": "https://doi.org/10.2337/db06-0263"
+                },
+                "timestamp": "2017-02-17T12:32:30Z",
+                "updated_date": "2018-05-03T09:32:24Z",
+                "relation_type_id": "discusses"
+            },
+            {
+                "license": "https://creativecommons.org/publicdomain/zero/1.0/",
+                "terms": "https://doi.org/10.13003/CED-terms-of-use",
+                "updated_reason": "https://evidence.eventdata.crossref.org/announcements/2018-04-26T00-00-00Z-ED-16.json",
+                "updated": "edited",
+                "obj_id": "https://doi.org/10.1007/s10531-017-1320-1",
+                "source_token": "45a1ef76-4f43-4cdc-9ba8-5a6ad01cc231",
+                "occurred_at": "2017-02-17T12:32:27Z",
+                "subj_id": "http://twitter.com/mtchknght8/statuses/832568389495291904",
+                "id": "94763547-2ddd-4e4e-82b8-20f7553cf2bd",
+                "evidence_record": "https://evidence.eventdata.crossref.org/evidence/20170217b72f431c-64f0-444b-a45e-0eafae631460",
+                "action": "add",
+                "subj": {
+                    "pid": "http://twitter.com/mtchknght8/statuses/832568389495291904",
+                    "title": "Tweet 832568389495291904",
+                    "issued": "2017-02-17T12:32:27.000Z",
+                    "author": {
+                        "url": "http://www.twitter.com/mtchknght8"
+                    },
+                    "original-tweet-url": "http://twitter.com/holland_tom/statuses/832565929544450048",
+                    "original-tweet-author": "http://www.twitter.com/holland_tom",
+                    "alternative-id": "832568389495291904"
+                },
+                "source_id": "twitter",
+                "obj": {
+                    "pid": "https://doi.org/10.1007/s10531-017-1320-1",
+                    "url": "https://doi.org/10.1007/s10531-017-1320-1"
+                },
+                "timestamp": "2017-02-17T12:32:38Z",
+                "updated_date": "2018-05-03T09:32:24Z",
+                "relation_type_id": "discusses"
+            }
+        ]
+    }
+}
