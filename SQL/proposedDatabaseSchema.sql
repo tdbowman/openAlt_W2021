@@ -306,7 +306,7 @@ CREATE TABLE Hypothesis_Event(
     event_creation_time     TIMESTAMP NOT NULL,
     -- Type of relation between subject and object.
     relation_type_id        VARCHAR(15) NOT NULL,
-    -- HypothesisAuthor      VARCHAR(36),
+    HypothesisAuthor      VARCHAR(36),
     PRIMARY KEY (hypothesis_increment),
     FOREIGN KEY (event_id) REFERENCES Main(event_id) ON DELETE CASCADE,
     FOREIGN KEY (DOI) REFERENCES Main(DOI) ON DELETE CASCADE
