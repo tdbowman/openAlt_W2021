@@ -1,0 +1,84 @@
+body {
+  background-color: lightblue;
+}
+
+h1 {
+    position: relative;
+    font-size: 40px;
+    z-index: 1;
+    overflow: hidden;
+    text-align: center;
+}
+h1:before, h1:after {
+    position: absolute;
+    top: 50%;
+    overflow: hidden;
+    width: 50%;
+    height: 1px;
+    content: '\a0';
+    background-color: red;
+}
+h1:before {
+    margin-left: -50%;
+    text-align: right;
+}
+.color {
+    background-color: #ccc;
+}
+div {
+  width: 400px;
+  border: 15px red;
+  padding: 30px;
+  margin: 20px;
+}
+.boxed {
+  border: 5px solid green ;
+  font-family: "Lucida Console", Monaco, monospace;
+  font-size: 15px;
+  font-style: normal;
+  font-variant: normal;
+  font-weight: bold;
+  margin: 20px auto;
+  display: block;
+  width: 500px;
+}
+body {
+  text-align: center;
+}
+
+.box{
+	position: absolute;
+	width: 100%;
+	text-align: center; }
+
+form.search input[type=text] {
+  padding: 10px;
+  font-size: 17px;
+  border: 1px solid grey;
+  float: left;
+  width: 50%;
+  background: #f1f1f1;
+}
+
+form.search button {
+  float: left;
+  width: 20%;
+  padding: 10px;
+  background: #2196F3;
+  color: white;
+  font-size: 17px;
+  border: 1px solid grey;
+  border-left: none;
+  cursor: pointer;
+}
+
+form.search button:hover {
+  background: #0b7dda;
+}
+
+form.search::after {
+  content: "";
+  clear: both;
+  display: table;
+}
+</style>
