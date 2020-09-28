@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+<!--<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">-->
+<link type = "text/css" rel="stylesheet" href="{{ url_for('static', filename = 'css/homepage.css')}}">
+<title>Page Title</title>
+</head>
+<body>
+<h1>CrossRef Event Data</h1>
+
+<div class="boxed">
+<p1>Welcome to CrossRef Event Data, an interactive dashboard that allows users to search for
+scholarly articles via DOI (Document Object Identifier), author name, journal name, or institution.
+Your results will show you instances of social media activity of the article you have selected<br> <br>
+Enter your search below to get started.</p1></div>
+
+<div class = "box">
+
+ <form action="{{ url_for("cr_search")}}" method="post">
+    <label for="DOI">Enter a DOI:</label>
+    <input type="text" id="search" name="search" placeholder="DOI HERE">
+    <button type="submit">Search Authors</button>
+
+</div>
+
+</body>
+</html>
