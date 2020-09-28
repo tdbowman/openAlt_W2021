@@ -1,174 +1,169 @@
 --   ##########     WORK IN PROGRESS     ##########     
-
-
---  Incomplete: we will need to carefully go over the varchar lengths, what can and cannot be null, unique, etc.
---  NOTE: If we do it this way, maybe we can create 12 python scripts, one for each type of event.
-        -- That would allow us to break up the work more effectively.
 CREATE DATABASE crossRefEventData;
 USE crossRefEventData;
 
 
-
 CREATE TABLE Main(
-    -- Document Object Identifier or the content that was registered at CrossRef. This field was obj_id.
-    DOI                     VARCHAR(70),
+    -- A link that contains the Document Object Identifier(DOI) or the scholary content that was registered at CrossRef.
+    objectID               VARCHAR(70),
     -- Unique ID of each event.
-    UniqueEventID           VARCHAR(36) NOT NULL UNIQUE,
-    Article_ID              INTEGER AUTO_INCREMENT UNIQUE,   
-    Article_Title           VARCHAR(120),
-    Journal_Name            VARCHAR(40),
-    Article_Date            DATE,
-    Article_URL             VARCHAR(100),
-    PRIMARY KEY(DOI)
+    uniqueEventID          VARCHAR(36) NOT NULL UNIQUE,
+    articleID              INTEGER AUTO_INCREMENT UNIQUE,   
+    articleTitle           VARCHAR(120),
+    journalName            VARCHAR(40),
+    articleDate            DATE,
+    articleURL             VARCHAR(100),
+    PRIMARY KEY(objectID)
 );
 -- Journal Table has been removed and merged with Main Table
 -- We can use Python to parse the JSON author lists into Given_Name and Family_Name over time'
 -- Are ORCIDs worth considering?'
 CREATE TABLE Author(
     -- Given by us, increments automatically
-    Author_ID               INTEGER AUTO_INCREMENT, 
-    Given_Name              VARCHAR(30),
-    Family_Name             VARCHAR(30),
-    PRIMARY KEY (Author_ID)
+    authorID               INTEGER AUTO_INCREMENT, 
+    givenName              VARCHAR(30),
+    familyName             VARCHAR(30),
+    PRIMARY KEY (authorID)
 );
 
 CREATE TABLE Article_to_Author(
-    ArticleAuthorID         INTEGER,
-    Article_ID              INTEGER,
-    Author_ID               INTEGER,
-    FOREIGN KEY (Article_ID) REFERENCES Main(Article_ID),
-    FOREIGN KEY (Author_ID) REFERENCES Author(Author_ID)
+    articleAuthorID        INTEGER AUTO_INCREMENT,
+    articleID              INTEGER,
+    authorID               INTEGER,
+    PRIMARY KEY(articleAuthorID),
+    FOREIGN KEY (articleID) REFERENCES Main(articleID),
+    FOREIGN KEY (authorID) REFERENCES Author(authorID)
 );
 
 CREATE TABLE CrossRefEvent
 (
 
     -- Auto increment for easy primary keys
-    crossRefIncrement INTEGER AUTO_INCREMENT PRIMARY KEY,
+    crossRefIncrement       INTEGER AUTO_INCREMENT PRIMARY KEY,
 
     --  Foreign key to reference the doi
-    FOREIGN KEY (eventID) REFERENCES Main(UniqueEventID),
+    FOREIGN KEY (eventID) REFERENCES Main(uniqueEventID),
 
     --  --  -############################--  --  -COLUMNS--  ###############################--  --  -
     
     --  Author
-    DOIAuthor VARCHAR(36),
+    DOIAuthor               VARCHAR(36),
 
     --  License provided by each service (CrossRef, DataCite, etc). Could be null(?)
-    crossrefLicense VARCHAR(60),
+    crossrefLicense         VARCHAR(60),
 
-    --  Link to the scholarly writing
-    objectID VARCHAR(100),
+    --  Link to the scholarly writing.
+    objectID                VARCHAR(100),
 
-    --  The source token identifies the Agent that processed the data to produce an Event
-    sourceToken VARCHAR(36),
+    --  The source token identifies the Agent that processed the data to produce an Event.
+    sourceToken             VARCHAR(36),
 
-    --  The date and time the event was "REPORTED" to have been published by users. CONFORMS TO ISO8601
-    occurredAt TIMESTAMP,
+    --  The date and time the event was "REPORTED" to have been published by users. CONFORMS TO ISO8601.
+    occurredAt              TIMESTAMP,
 
-    --  Subject ID is similar to the object ID, since most events have a URL as a subject ID and the DOI as object ID. The agent that processes the data decides on each event
-    subjectID VARCHAR(100),
+    --  Subject ID is similar to the object ID, since most events have a URL as a subject ID and the DOI as object ID. The agent that processes the data decides on each event.
+    subjectID               VARCHAR(100),
 
     --  Every event is assigned a unique ID. Used for reference.
-    eventID VARCHAR(36),
+    eventID                 VARCHAR(36),
 
     --  Terms of use for the CROSSREF EVENT DATA QUERY API.
-    crossrefTermsOfUse VARCHAR(45),
+    crossrefTermsOfUse      VARCHAR(45),
 
-    --  The status of the message containing a list of events (message created, updated, deleted, etc.)
-    messageAction VARCHAR(15),
+    --  The status of the message containing a list of events (message created, updated, deleted, etc.).
+    messageAction           VARCHAR(15),
 
     --  The original source of the input data. Source could be any of the 12 sources listed in CrossRef's guide.
-    sourceID VARCHAR (20),
+    sourceID                VARCHAR(20),
 
-    --  Timestamp shortly after the event was observed, CONFORMS TO ISO8601
-    timeObserved TIMESTAMP,
+    --  Timestamp shortly after the event was observed, CONFORMS TO ISO8601.
+    timeObserved            TIMESTAMP,
 
-    --  Type of relationship between the subject and the object. String (varchar)
-    relationType VARCHAR (20)
+    --  Type of relationship between the subject and the object. String (varchar).
+    relationType            VARCHAR (20)
 
 );
 
 CREATE TABLE IF NOT EXISTS RedditEvent(   
 
-    --  Auto increment for easy primary keys
-    redditIncrement INTEGER AUTO_INCREMENT PRIMARY KEY,
+    --  Auto increment for easy primary keys.
+    redditIncrement         INTEGER AUTO_INCREMENT PRIMARY KEY,
 
-    --  Foreign key to reference the doi
-    FOREIGN KEY (eventID) REFERENCES Main(UniqueEventID),
+    --  Foreign key to reference the doi.
+    FOREIGN KEY (eventID) REFERENCES Main(uniqueEventID),
 
     --  --  -############################--  --  -COLUMNS--  ###############################--  --  -
     --  Author
-    DOIAuthor VARCHAR(36),
+    DOIAuthor               VARCHAR(36),
 
-    --  License provided by service
-    license VARCHAR(70),
+    --  License provided by service.
+    license                 VARCHAR(70),
 
     --  Terms of use for the CROSSREF EVENT DATA QUERY API.
-    termsOfUse VARCHAR (45),
+    termsOfUse              VARCHAR (45),
 
     --  Reason for updating an event. Optional, may point to an announcement page explaining the edit
-    updatedReason VARCHAR (100),
+    updatedReason           VARCHAR (100),
 
-    --  Updated (Kind of boolean) states whether the event was edited or deleted 
-    updated VARCHAR(10),
+    --  Updated (Kind of boolean) states whether the event was edited or deleted. 
+    updated                 VARCHAR(10),
 
-    --  Updated date
-    updatedDate TIMESTAMP,
+    --  Updated date.
+    updatedDate             TIMESTAMP,
 
-    --  ID of the scholarly writing
-    objectID VARCHAR(100),
+    --  ID of the scholarly writing.
+    objectID                VARCHAR(100),
 
-    --  URL of the scholarly writing
-    objectURL VARCHAR (100),
+    --  URL of the scholarly writing.
+    objectURL               VARCHAR (100),
 
-    --  The source token identifies the Agent that processed the data to produce an Event
-    sourceToken VARCHAR(36),
+    --  The source token identifies the Agent that processed the data to produce an Event.
+    sourceToken             VARCHAR(36),
 
-    --  The date and time the event was "REPORTED" to have been published by users. CONFORMS TO ISO8601
-    occurredAt TIMESTAMP,
+    --  The date and time the event was "REPORTED" to have been published by users. CONFORMS TO ISO8601.
+    occurredAt              TIMESTAMP,
 
     --  Subject ID is similar to the object ID, since most events have a URL as a subject ID and the DOI as object ID. The agent that processes the data decides on each event
-    subjectID VARCHAR(100),
+    subjectID               VARCHAR(100),
 
     --  Every event is assigned a unique ID. Used for reference.
-    eventID VARCHAR(36) NOT NULL,
+    eventID                 VARCHAR(36) NOT NULL,
 
     --  Evidence record contains all of the information used to create an event.
-    evidenceRecord VARCHAR(100),
+    evidenceRecord          VARCHAR(100),
 
-    --  Action is the nature of the event, such as adding a comment, in which case the action is "add"
-    eventAction VARCHAR(15),
+    --  Action is the nature of the event, such as adding a comment, in which case the action is "add".
+    eventAction             VARCHAR(15),
 
      --  The original source of the input data. Source could be any of the 12 sources listed in CrossRef's guide.
-    sourceID VARCHAR (20),
+    sourceID                VARCHAR(20),
 
-    --  The ID of the entity mentioning the DOI
-    subjectPID VARCHAR (80),
+    --  The ID of the entity mentioning the DOI.
+    subjectPID              VARCHAR(80),
 
-    --  The title of the subject
-    subjectTitle VARCHAR(60),
+    --  The title of the subject.
+    subjectTitle            VARCHAR(60),
 
-    --  Date the subject issued the mention
-    subjectIssuedDate TIMESTAMP,
+    --  Date the subject issued the mention.
+    subjectIssuedDate       TIMESTAMP,
 
-    --  Author of the event
-    subjectAuthorURL VARCHAR(50),
+    --  Author of the event.
+    subjectAuthorURL        VARCHAR(50),
 
-    --  Original tweet (if retweeted)
-    subjectOriginalTweetURL VARCHAR (80),
+    --  Original tweet (if retweeted).
+    subjectOriginalTweetURL VARCHAR(80),
 
-    --  Author of the original tweet (if retweeted)
+    --  Author of the original tweet (if retweeted).
     subjectOriginalTweetAuthor VARCHAR(50),
 
-    --  ID of the original tweet (if retweeted)
-    alternativeID VARCHAR(20),
+    --  ID of the original tweet (if retweeted).
+    alternativeID           VARCHAR(20),
 
-    --  Timestamp shortly after the event was observed, CONFORMS TO ISO8601
-    timeObserved TIMESTAMP,
+    --  Timestamp shortly after the event was observed, CONFORMS TO ISO8601.
+    timeObserved            TIMESTAMP,
 
-    --  Type of relationship between the subject and the object. String (varchar)
-    relationType VARCHAR (20)
+    --  Type of relationship between the subject and the object. String (varchar).
+    relationType            VARCHAR (20)
     
     );
 
@@ -176,560 +171,710 @@ CREATE TABLE IF NOT EXISTS RedditEvent(
 
     CREATE TABLE IF NOT EXISTS StackexchangeEvent(
 
-    --  Auto increment for easy primary keys
-    stackExchangeIncrement INTEGER AUTO_INCREMENT PRIMARY KEY,
+    --  Auto increment for easy primary keys.
+    stackExchangeIncrement  INTEGER AUTO_INCREMENT PRIMARY KEY,
 
-    --  Foreign key to reference the doi
-    FOREIGN KEY (eventID) REFERENCES Main(UniqueEventID),
+    --  Foreign key to reference the doi.
+    FOREIGN KEY (eventID) REFERENCES Main(uniqueEventID),
 
 
 
     --  --  -############################--  --  -COLUMNS--  ###############################--  --  -
     
     --  Author
-    DOIAuthor VARCHAR(36),
+    DOIAuthor               VARCHAR(36),
 
     --  License provided by each service (CrossRef, DataCite, etc). Could be null(?)
-    license VARCHAR(60),
+    license                 VARCHAR(60),
 
     --  Terms of use for the CROSSREF EVENT DATA QUERY API.
-    termsOfUse VARCHAR (45),
+    termsOfUse              VARCHAR (45),
 
-    --  Link to the scholarly writing
-    objectID VARCHAR(100),
+    --  Link to the scholarly writing.
+    objectID                VARCHAR(100),
 
-    --  The source token identifies the Agent that processed the data to produce an Event
-    sourceToken VARCHAR(36),
+    --  The source token identifies the Agent that processed the data to produce an Event.
+    sourceToken             VARCHAR(36),
 
-    --  The date and time the event was "REPORTED" to have been published by users. CONFORMS TO ISO8601
-    occurredAt TIMESTAMP,
+    --  The date and time the event was "REPORTED" to have been published by users. CONFORMS TO ISO8601.
+    occurredAt              TIMESTAMP,
 
-    --  Subject ID is similar to the object ID, since most events have a URL as a subject ID and the DOI as object ID. The agent that processes the data decides on each event
-    subjectID VARCHAR(100),
+    --  Subject ID is similar to the object ID, since most events have a URL as a subject ID and the DOI as object ID. The agent that processes the data decides on each event.
+    subjectID               VARCHAR(100),
 
     --  Every event is assigned a unique ID. Used for reference.
-    eventID VARCHAR(36) NOT NULL,
+    eventID                 VARCHAR(36) NOT NULL,
 
     --  Evidence record contains all of the information used to create an event.
-    evidenceRecord VARCHAR(150),
+    evidenceRecord          VARCHAR(150),
 
-    --  The ID of the entity mentioning the DOI
-    subjectPID VARCHAR (80),
+    --  The ID of the entity mentioning the DOI.
+    subjectPID              VARCHAR (80),
 
-    --  The title of the subject
-    subjectTitle VARCHAR(60),
+    --  The title of the subject.
+    subjectTitle            VARCHAR(60),
 
-    --  Date the subject issued the mention
-    subjectIssuedDate TIMESTAMP,
+    --  Date the subject issued the mention.
+    subjectIssuedDate       TIMESTAMP,
 
-    --  Type of the subject (post, comment, etc.)
-    subjectType VARCHAR(20),
+    --  Type of the subject (post, comment, etc.).
+    subjectType             VARCHAR(20),
 
-    --  Subject author's URL
-    subjectAuthorURL VARCHAR(50),
+    --  Subject author's URL.
+    subjectAuthorURL        VARCHAR(50),
 
-    --  Subject author's name
-    subjectAuthorName VARCHAR(30),
+    --  Subject author's name.
+    subjectAuthorName       VARCHAR(30),
 
-    --  Subject author's ID
-    subjectAuthorID INTEGER,
+    --  Subject author's ID.
+    subjectAuthorID         INTEGER,
 
     --  The original source of the input data. Source could be any of the 12 sources listed in CrossRef's guide.
-    sourceID VARCHAR (20),
+    sourceID                VARCHAR (20),
 
-    --  PID of the object (DOI being discussed)
-    objectPID VARCHAR(80),
+    --  PID of the object (DOI being discussed).
+    objectPID               VARCHAR(80),
 
-    --  URL of the doi being discussed
-    objectURL VARCHAR(80),
+    --  URL of the doi being discussed.
+    objectURL               VARCHAR(80),
 
-    --  Timestamp shortly after the event was spotted
-    timeObserved TIMESTAMP,
+    --  Timestamp shortly after the event was spotted.
+    timeObserved            TIMESTAMP,
 
-    --  Nature of the discussion on the doi (discusses, mentions, etc.)
-    relationType VARCHAR(20)
+    --  Nature of the discussion on the doi (discusses, mentions, etc.).
+    relationType            VARCHAR(20)
 
     );
 
     CREATE TABLE IF NOT EXISTS WikipediaEvent(
 
     --  Auto increment for easy primary keys
-    wikipediaIncrement INTEGER AUTO_INCREMENT PRIMARY KEY,
+    wikipediaIncrement      INTEGER AUTO_INCREMENT PRIMARY KEY,
 
     --  Foreign key to reference the doi
-    FOREIGN KEY (eventID) REFERENCES Main(UniqueEventID),
+    FOREIGN KEY (eventID) REFERENCES Main(uniqueEventID),
 
     --  --  -############################--  --  -COLUMNS--  ###############################--  --  -
     
-    --  Author
-    DOIAuthor VARCHAR(36),
+    --  Author.
+    DOIAuthor               VARCHAR(36),
 
     --  License provided by each service (CrossRef, DataCite, etc). Could be null(?)
-    license VARCHAR(60),
+    license                 VARCHAR(60),
 
     --  Terms of use for the CROSSREF EVENT DATA QUERY API.
-    termsOfUse VARCHAR (45),
+    termsOfUse              VARCHAR(45),
 
-    --  Updated date
-    updatedDate TIMESTAMP,
+    --  Updated date.
+    updatedDate             TIMESTAMP,
 
-    --  Reason for updating an event. Optional, may point to an announcement page explaining the edit
-    updatedReason VARCHAR (100),
+    --  Reason for updating an event. Optional, may point to an announcement page explaining the edit.
+    updatedReason           VARCHAR(100),
 
-    --  Link to the scholarly writing
-    objectID VARCHAR(100),
+    --  Link to the scholarly writing.
+    objectID                VARCHAR(100),
 
-    --  The source token identifies the Agent that processed the data to produce an Event
-    sourceToken VARCHAR(36),
+    --  The source token identifies the Agent that processed the data to produce an Event.
+    sourceToken             VARCHAR(36),
 
-    --  The date and time the event was "REPORTED" to have been published by users. CONFORMS TO ISO8601
-    occurredAt TIMESTAMP,
+    --  The date and time the event was "REPORTED" to have been published by users. CONFORMS TO ISO8601.
+    occurredAt              TIMESTAMP,
 
-    --  Subject ID is similar to the object ID, since most events have a URL as a subject ID and the DOI as object ID. The agent that processes the data decides on each event
-    subjectID VARCHAR(100),
+    --  Subject ID is similar to the object ID, since most events have a URL as a subject ID and the DOI as object ID. The agent that processes the data decides on each event.
+    subjectID               VARCHAR(100),
 
     --  Every event is assigned a unique ID. Used for reference.
-    eventID VARCHAR(36) NOT NULL,
+    eventID                 VARCHAR(36) NOT NULL,
 
     --  Evidence record contains all of the information used to create an event.
-    evidenceRecord VARCHAR(150),
+    evidenceRecord          VARCHAR(150),
 
-    --  Action is the nature of the event, such as adding a comment, in which case the action is "add"
-    eventAction VARCHAR(15),
+    --  Action is the nature of the event, such as adding a comment, in which case the action is "add".
+    eventAction             VARCHAR(15),
 
-    --  The ID of the entity mentioning the DOI
-    subjectPID VARCHAR (80),
+    --  The ID of the entity mentioning the DOI.
+    subjectPID              VARCHAR (80),
 
-    --  The title of the subject
-    subjectTitle VARCHAR(60),
+    --  The title of the subject.
+    subjectTitle            VARCHAR(60),
 
-    --  Author of the event
-    subjectURL VARCHAR(100),
+    --  Author of the event.
+    subjectURL              VARCHAR(100),
 
-    --  Type of the subject (post, comment, etc.)
-    subjectAPIURL VARCHAR(70),
+    --  Type of the subject (post, comment, etc.).
+    subjectAPIURL           VARCHAR(70),
 
     --  The original source of the input data. Source could be any of the 12 sources listed in CrossRef's guide.
-    sourceID VARCHAR (20),
+    sourceID                VARCHAR(20),
 
-    --  PID of the object (DOI being discussed)
-    objectPID VARCHAR(80),
+    --  PID of the object (DOI being discussed).
+    objectPID               VARCHAR(80),
 
-    --  URL of the doi being discussed
-    objectURL VARCHAR(80),
+    --  URL of the doi being discussed.
+    objectURL               VARCHAR(80),
 
-    --  Timestamp shortly after the event was spotted
-    timeObserved TIMESTAMP,
+    --  Timestamp shortly after the event was spotted.
+    timeObserved            TIMESTAMP,
 
-    --  Nature of the discussion on the doi (discusses, mentions, etc.)
-    relationType VARCHAR(20)
+    --  Nature of the discussion on the doi (discusses, mentions, etc.).
+    relationType            VARCHAR(20)
 
     );
 
     CREATE TABLE IF NOT EXISTS WordPressEvent(
 
-    --  Auto increment for easy primary keys
-    wordPressIncrement INTEGER AUTO_INCREMENT PRIMARY KEY,
+    --  Auto increment for easy primary keys.
+    wordPressIncrement      INTEGER AUTO_INCREMENT PRIMARY KEY,
 
-    --  Foreign key to reference the doi
-    FOREIGN KEY (eventID) REFERENCES Main(UniqueEventID),
+    --  Foreign key to reference the doi.
+    FOREIGN KEY (eventID) REFERENCES Main(uniqueEventID),
 
     --  --  -############################--  --  -COLUMNS--  ###############################--  --  -
     
-    --  Author
-    DOIAuthor VARCHAR(36),
+    --  Author.
+    DOIAuthor               VARCHAR(36),
 
     --  License provided by each service (CrossRef, DataCite, etc). Could be null(?)
-    license VARCHAR(60),
+    license                 VARCHAR(60),
 
     --  Terms of use for the CROSSREF EVENT DATA QUERY API.
-    termsOfUse VARCHAR (45),
+    termsOfUse              VARCHAR (45),
 
-    --  Updated date
-    updatedDate TIMESTAMP,
+    --  Updated date.
+    updatedDate             TIMESTAMP,
 
-    --  Reason for updating an event. Optional, may point to an announcement page explaining the edit
-    updatedReason VARCHAR (100),
+    --  Reason for updating an event. Optional, may point to an announcement page explaining the edit.
+    updatedReason           VARCHAR(100),
 
-    --  Link to the scholarly writing
-    objectID VARCHAR(100),
+    --  Link to the scholarly writing.
+    objectID                VARCHAR(100),
 
-    --  The source token identifies the Agent that processed the data to produce an Event
-    sourceToken VARCHAR(36),
+    --  The source token identifies the Agent that processed the data to produce an Event.
+    sourceToken             VARCHAR(36),
 
-    --  The date and time the event was "REPORTED" to have been published by users. CONFORMS TO ISO8601
-    occurredAt TIMESTAMP,
+    --  The date and time the event was "REPORTED" to have been published by users. CONFORMS TO ISO8601.
+    occurredAt              TIMESTAMP,
 
-    --  Subject ID is similar to the object ID, since most events have a URL as a subject ID and the DOI as object ID. The agent that processes the data decides on each event
-    subjectID VARCHAR(100),
+    --  Subject ID is similar to the object ID, since most events have a URL as a subject ID and the DOI as object ID. The agent that processes the data decides on each event.
+    subjectID               VARCHAR(100),
 
     --  Every event is assigned a unique ID. Used for reference.
-    eventID VARCHAR(36) NOT NULL,
+    eventID                 VARCHAR(36) NOT NULL,
 
     --  Evidence record contains all of the information used to create an event.
-    evidenceRecord VARCHAR(150),
+    evidenceRecord          VARCHAR(150),
 
-    --  Action is the nature of the event, such as adding a comment, in which case the action is "add"
-    eventAction VARCHAR(15),
+    --  Action is the nature of the event, such as adding a comment, in which case the action is "add".
+    eventAction             VARCHAR(15),
 
-    --  The ID of the entity mentioning the DOI
-    subjectPID VARCHAR (80),
+    --  The ID of the entity mentioning the DOI.
+    subjectPID              VARCHAR(80),
 
-    --  The title of the subject
-    subjectTitle VARCHAR(60),
+    --  The title of the subject.
+    subjectTitle            VARCHAR(60),
 
-    --  Author of the event
-    subjectType VARCHAR(100),
+    --  Author of the event.
+    subjectType             VARCHAR(100),
 
     --  The original source of the input data. Source could be any of the 12 sources listed in CrossRef's guide.
-    sourceID VARCHAR (20),
+    sourceID                VARCHAR(20),
 
-    --  PID of the object (DOI being discussed)
-    objectPID VARCHAR(80),
+    --  PID of the object (DOI being discussed).
+    objectPID               VARCHAR(80),
 
-    --  URL of the doi being discussed
-    objectURL VARCHAR(80),
+    --  URL of the doi being discussed.
+    objectURL               VARCHAR(80),
 
-    --  Timestamp shortly after the event was spotted
-    timeObserved TIMESTAMP,
+    --  Timestamp shortly after the event was spotted.
+    timeObserved            TIMESTAMP,
 
-    --  Nature of the discussion on the doi (discusses, mentions, etc.)
-    relationType VARCHAR(20)
+    --  Nature of the discussion on the doi (discusses, mentions, etc.).
+    relationType            VARCHAR(20)
 
     );
 
     CREATE TABLE IF NOT EXISTS DataCiteEvent(
 
-    --   Auto increment for easy primary keys
-    dataCiteIncrement INTEGER AUTO_INCREMENT PRIMARY KEY,
+    --   Auto increment for easy primary keys.
+    dataCiteIncrement       INTEGER AUTO_INCREMENT PRIMARY KEY,
 
-    --   Foreign key to reference the doi
-    FOREIGN KEY (eventID) REFERENCES Main(UniqueEventID),
+    --   Foreign key to reference the doi.
+    FOREIGN KEY (eventID) REFERENCES Main(uniqueEventID),
 
     --  --  -############################--  --  -COLUMNS--  ###############################--  --  -
     
-    --  Author
-    DOIAuthor VARCHAR(36),
+    --  Author.
+    DOIAuthor               VARCHAR(36),
 
     --  License provided by each service (CrossRef, DataCite, etc). Could be null(?)
-    license VARCHAR(60),
+    license                 VARCHAR(60),
 
     --  Terms of use for the CROSSREF EVENT DATA QUERY API.
-    termsOfUse VARCHAR (45),
+    termsOfUse              VARCHAR (45),
 
-    --  Link to the scholarly writing
-    objectID VARCHAR(100),
+    --  Link to the scholarly writing.
+    objectID                VARCHAR(100),
 
-    --  The source token identifies the Agent that processed the data to produce an Event
-    sourceToken VARCHAR(36),
+    --  The source token identifies the Agent that processed the data to produce an Event.
+    sourceToken             VARCHAR(36),
 
-    --  The date and time the event was "REPORTED" to have been published by users. CONFORMS TO ISO8601
-    occurredAt TIMESTAMP,
+    --  The date and time the event was "REPORTED" to have been published by users. CONFORMS TO ISO8601.
+    occurredAt              TIMESTAMP,
 
-    --  Subject ID is similar to the object ID, since most events have a URL as a subject ID and the DOI as object ID. The agent that processes the data decides on each event
-    subjectID VARCHAR(100),
+    --  Subject ID is similar to the object ID, since most events have a URL as a subject ID and the DOI as object ID. The agent that processes the data decides on each event.
+    subjectID               VARCHAR(100),
 
     --  Every event is assigned a unique ID. Used for reference.
-    eventID VARCHAR(36) NOT NULL,
+    eventID                 VARCHAR(36) NOT NULL,
 
-    --  Timestamp shortly after the event was spotted
-    timeObserved TIMESTAMP,
+    --  Timestamp shortly after the event was spotted.
+    timeObserved            TIMESTAMP,
 
-    --  Nature of the discussion on the doi (discusses, mentions, etc.)
-    relationType VARCHAR(20),
+    --  Nature of the discussion on the doi (discusses, mentions, etc.).
+    relationType            VARCHAR(20),
 
     --  The original source of the input data. Source could be any of the 12 sources listed in CrossRef's guide.
-    sourceID VARCHAR (20)
+    sourceID                VARCHAR (20)
 
     );
 
-    --  Begin tables for 12 events -- 
--- Research documentation for comments on some fields
 CREATE TABLE Twitter_Event(
     -- Uniquely identify each row.
-    twitter_increment        INTEGER AUTO_INCREMENT,
+    twitterIncrement        INTEGER AUTO_INCREMENT,
+
     -- Unique ID of each event.
-    event_id                VARCHAR(36) NOT NULL UNIQUE,
-    -- Document Object Identifier or the content that was registered at CrossRef. This field was obj_id.
-    DOI                     VARCHAR(50),
+    eventID                 VARCHAR(36) NOT NULL UNIQUE,
+
+    -- A link that contains the Document Object Identifier(DOI) or the scholarly content that was registered at CrossRef.
+    objectID                VARCHAR(50),
+
+    -- Author of the DOI.
+    DOIAuthor               VARCHAR(36),
+
     -- Retweet author. If there isn't a retweet, this becomes the tweet author. Can be null.
-    twitter_author          VARCHAR(75),
-    -- If not null, the tweet author is twitterAuthor. Can be null.
-    original_tweet_author   VARCHAR(75),
-    -- Timestamp of when the Event was reported to have occurred. This field was 'occurred_at'.
-    time_occurred           TIMESTAMP NOT NULL,
+    tweetAuthor             VARCHAR(75),
+
+    -- If not null, the tweet author is tweetAuthor. Can be null.
+    originalTweetAuthor     VARCHAR(75),
+
+    -- Timestamp of when the Event was reported to have occurred.
+    occurredAt              TIMESTAMP NOT NULL,
+
     -- A license under which the Event is made available.
     license                 VARCHAR(70) NOT NULL,
+
     -- Terms of using the API at the point that you acquire the Event.
     terms                   VARCHAR(70) NOT NULL,
+
     -- Link to URL to changes made to the data.
-    updated_reason          VARCHAR(100) NOT NULL,
+    updatedReason           VARCHAR(100) NOT NULL,
+
     -- If an Event is updated, it will have the value of deleted or edited.
     updated                 VARCHAR(10) NOT NULL,
+
     -- An id that identifies the Agent that made the Event.
-    source_token            VARCHAR(40) NOT NULL,
+    sourceToken             VARCHAR(40) NOT NULL,
+
     -- Includes a link to an Evidence Record for this Event. This is used to generate an Event and contains all of the information used to create the Event. 
-    evidence_record         VARCHAR(100) NOT NULL,
-    -- An action performed by the Agent.
-    action_by_agent           VARCHAR(10) NOT NULL,
-    -- Captures retweet. If there is no retweet, captures tweet. If value is just 'http://twitter.com', everything within subject is NULL.
-    subj_id                 VARCHAR(80) NOT NULL,
-    -- Same value as subj_id.If no tweet or retweet exists, turns into NULL. Can be NULL. This field is within subject.
-    subj_pid                VARCHAR(80),
+    evidenceRecord          VARCHAR(100) NOT NULL,
+
+    -- Action is the nature of the event, such as adding a comment, in which case the action is "add".
+    eventAction             VARCHAR(10) NOT NULL,
+
+    -- Captures URL of retweet. If there is no retweet, captures URL of tweet. If value is just 'http://twitter.com', everything within subject is NULL.
+    subjectID               VARCHAR(80) NOT NULL,
+
+    -- Same value as subjectID. If no tweet or retweet exists, turns into NULL. Can be NULL. This field is within subject.
+    subjectPID              VARCHAR(80),
+
     -- Original Tweet URL. If tweet doesn't exist but retweet does, stores retweet URL.  Can be NULL. This field is within subject.
     originalTweetURL        VARCHAR(80),
+
     -- id given to each tweet or retweet by Twitter. Can be NULL. This field is within subject.
-    alternative_id          VARCHAR(20),
-    -- Contains the value "tweet" and an alternative_id. Can be NULL. This field originally was title field. This field is within subject. 
-    tweet_label             VARCHAR(25),
+    alternativeID           VARCHAR(20),
+
+    -- Contains the value "tweet" and an alternative_id. Can be NULL. This field is within subject. 
+    title                   VARCHAR(25),
+
     -- Same value as time_occurred. Can be NULL. This field is within subject.
     issued                  TIMESTAMP,
+
     -- Name of source that event came from.
-    source_id               VARCHAR(25) NOT NULL,
+    sourceID                VARCHAR(25) NOT NULL,
+
     -- Same value as the DOI.
-    obj_pid                 VARCHAR(50) NOT NULL,
-    -- Same as the DOI.
-    obj_url                 VARCHAR(50) NOT NULL,
+    objectPID               VARCHAR(50) NOT NULL,
+
+    -- URL of the doi being discussed.
+    objectURL               VARCHAR(50) NOT NULL,
+
     -- Timestamp of when the Event was created. This field was originally called timestamp.
-    event_creation_time     TIMESTAMP NOT NULL,
+    timeObserved            TIMESTAMP NOT NULL,
+
     -- Date and time of when the Event was updated. **DATE AND TIME different from updated_reason for some reason?**
-    updated_date            DATETIME NOT NULL,
+    updatedDate             DATETIME NOT NULL,
+
     -- Type of relation between subject and object.
-    relation_type_id        VARCHAR(10) NOT NULL,
-    PRIMARY KEY(twitter_increment),
-    FOREIGN KEY (event_id) REFERENCES Main(UniqueEventID) ON DELETE CASCADE,
-    FOREIGN KEY (DOI) REFERENCES Main(DOI) ON DELETE CASCADE
+    relationType            VARCHAR(10) NOT NULL,
+
+    PRIMARY KEY(twitterIncrement),
+    FOREIGN KEY (eventID) REFERENCES Main(uniqueEventID) ON DELETE CASCADE,
+    FOREIGN KEY (objectID) REFERENCES Main(objectID) ON DELETE CASCADE
 );
 
--- Research documentation for comments on some fields
 CREATE TABLE RedditLinks_Event(
     -- To uniquely identify each row.
-    reddit_links_increment  INTEGER AUTO_INCREMENT,
+    redditLinksIncrement    INTEGER AUTO_INCREMENT,
+
     -- Unique ID of each event.
-    event_id                VARCHAR(36) NOT NULL UNIQUE,
-    -- Document Object Identifier or the content that was registered at CrossRef. This field was obj_id.
-    DOI                     VARCHAR(70),
-    -- Timestamp of when the Event was reported to have occurred. This field was 'occurred_at'.
-    time_occurred           TIMESTAMP NOT NULL,
+    eventID                 VARCHAR(36) NOT NULL UNIQUE,
+
+    -- A link that contains the Document Object Identifier(DOI) or the scholary content that was registered at CrossRef.
+    objectID                VARCHAR(50),
+
+    -- Author of the DOI.
+    DOIAuthor               VARCHAR(36),
+
+    -- Timestamp of when the Event was reported to have occurred.
+    occurredAt              TIMESTAMP NOT NULL,
+
     -- A license under which the Event is made available.
     license                 VARCHAR(60) NOT NULL,
+
     -- Terms of using the API at the point that you acquire the Event.
     terms                   VARCHAR(50) NOT NULL,
+
     -- Link to URL to changes made to the data.
-    updated_reason          VARCHAR(90) NOT NULL,
+    updatedReason           VARCHAR(100) NOT NULL,
+
     -- If an Event is updated, it will have the value of deleted or edited.
     updated                 VARCHAR(10) NOT NULL,
-    -- An id that identifies the Agent that made the Event.
-    source_token            VARCHAR(40) NOT NULL,
-    -- The Canonical URL of a webpage, if one is available. If not, then it's a URL of a webpage.
-    subj_id                 VARCHAR(200) NOT NULL,
-    -- Includes a link to an Evidence Record for this Event. This is used to generate an Event and contains all of the information used to create the Event.
-    evidence_record         VARCHAR(110) NOT NULL,
-    -- An action performed by the Agent.
-    action_by_agent         VARCHAR(10) NOT NULL,
-    -- Same as subj_id
-    subj_pid                VARCHAR(200) NOT NULL,
-    -- Sometimes the same as subj_id, sometimes not...
-    subj_url                VARCHAR(200) NOT NULL,
-    -- Name of source that event came from.
-    source_id               VARCHAR(20) NOT NULL,
-    -- Same as obj_id
-    obj_pid                 VARCHAR(70) NOT NULL,
-    -- Sometimes the same as subj_id, sometimes not...
-    obj_url                 VARCHAR(120) NOT NULL,
-    -- Timestamp of when the Event was created. This field was originally called timestamp.
-    event_creation_time     TIMESTAMP NOT NULL,
-    -- **TIMESTAMP OR DATETIME**
-    updated_date            DATETIME NOT NULL,
-    -- Type of relation between subject and object.
-    relation_type_id        VARCHAR(15) NOT NULL,
-    -- redditLinksAuthor     VARCHAR(36),
 
-    PRIMARY KEY (reddit_links_increment),
-    FOREIGN KEY (event_id) REFERENCES Main(UniqueEventID) ON DELETE CASCADE,
-    FOREIGN KEY (DOI) REFERENCES Main(DOI) ON DELETE CASCADE
+    -- An id that identifies the Agent that made the Event.
+    sourceToken             VARCHAR(40) NOT NULL,
+
+    -- Subject ID is similar to the object ID, since most events have a URL as a subject ID and the DOI as object ID. The agent that processes the data decides on each event. As for the type of URL, it's usually the Canonical URL of a webpage, if one is available. If not, then it's a URL of a webpage.
+    subjectID               VARCHAR(200) NOT NULL,
+
+    -- Includes a link to an Evidence Record for this Event. This is used to generate an Event and contains all of the information used to create the Event.
+    evidenceRecord          VARCHAR(110) NOT NULL,
+
+    -- Action is the nature of the event, such as adding a comment, in which case the action is "add".
+    eventAction             VARCHAR(10) NOT NULL,
+
+    -- The ID of the entity mentioning the DOI.
+    subjectPID              VARCHAR(200) NOT NULL,
+
+    --  Author of the event.
+    subjectURL              VARCHAR(200) NOT NULL,
+
+    -- Name of source that event came from.
+    sourceID                VARCHAR(20) NOT NULL,
+
+    -- Persistent Identifer(PID) of the object (DOI being discussed).
+    objectPID               VARCHAR(70) NOT NULL,
+
+    -- URL of the doi being discussed.
+    objectURL               VARCHAR(120) NOT NULL,
+
+    -- Timestamp of when the Event was created.
+    timeObserved            TIMESTAMP NOT NULL,
+
+    -- Updated date.
+    updatedDate             TIMESTAMP NOT NULL,
+
+    -- Type of relation between subject and object.
+    relationType            VARCHAR(15) NOT NULL,
+
+
+    PRIMARY KEY (redditLinksIncrement),
+    FOREIGN KEY (eventID) REFERENCES Main(uniqueEventID) ON DELETE CASCADE,
+    FOREIGN KEY (objectID) REFERENCES Main(objectID) ON DELETE CASCADE
 );
 
 
 
 CREATE TABLE Newsfeed_Event(
     -- To uniquely identify each row.
-    newsfeed_increment      INTEGER AUTO_INCREMENT,
+    newsfeedIncrement       INTEGER AUTO_INCREMENT,
+
     -- Unique ID of each event.
-    event_id                VARCHAR(36) UNIQUE NOT NULL,
-    -- Document Object Identifier or the content that was registered at CrossRef. This field was obj_id.
-    DOI                     VARCHAR(70),
-    -- Timestamp of when the Event was reported to have occurred. This field was 'occurred_at'.
-    time_occurred           TIMESTAMP NOT NULL,
+    eventID                 VARCHAR(36) NOT NULL UNIQUE,
+
+    -- A link that contains the Document Object Identifier(DOI) or the scholarly content that was registered at CrossRef.
+    objectID                VARCHAR(50),
+
+    -- Author of the DOI.
+    DOIAuthor               VARCHAR(36),
+
+    -- Timestamp of when the Event was reported to have occurred.
+    occurredAt              TIMESTAMP NOT NULL,
+
     -- A license under which the Event is made available.
     license                 VARCHAR(60) NOT NULL,
+
     -- Terms of using the API at the point that you acquire the Event.
     terms                   VARCHAR(50) NOT NULL,
-    -- Link to URL to changes made to the data.Can be NULL.
-    updated_reason          VARCHAR(90),
+
+    -- Link to URL to changes made to the data.
+    updatedReason           VARCHAR(100) NOT NULL,
+
     -- If an Event is updated, it will have the value of deleted or edited.
     updated                 VARCHAR(10) NOT NULL,
-    -- An id that identifies the Agent that made the Event.
-    source_token            VARCHAR(40) NOT NULL,
-    subj_id                 VARCHAR(200),
-    -- Includes a link to an Evidence Record for this Event. This is used to generate an Event and contains all of the information used to create the Event.
-    evidence_record         VARCHAR(110) NOT NULL,
-    -- An action performed by the Agent.
-    action_by_agent         VARCHAR(10) NOT NULL,
-    -- Same value as subj_id.
-    subj_pid                VARCHAR(200) NOT NULL,
-    subj_type               VARCHAR(12) NOT NULL,
-    subj_title              VARCHAR(125) NOT NULL,
-    -- Same value as subj_id.
-    subj_url                VARCHAR(200) NOT NULL,
-    -- Name of source that event came from.
-    source_id               VARCHAR(10) NOT NULL,
-    -- Same as DOI.
-    obj_pid                 VARCHAR(70) NOT NULL,
-    -- Sometimes same as DOI.
-    obj_url                 VARCHAR(200) NOT NULL,
-    -- Timestamp of when the Event was created. This field was originally called timestamp.
-    event_creation_time     TIMESTAMP NOT NULL,
-    -- Can be null.
-    updated_date            DATETIME,
-    -- Type of relation between subject and object.
-    relation_type_id        VARCHAR(10) NOT NULL,
 
-    -- NewsFeedAuthor        VARCHAR(36),
-    PRIMARY KEY (newsfeed_increment),
-    FOREIGN KEY (event_id) REFERENCES Main(UniqueEventID),
-    FOREIGN KEY (DOI) REFERENCES Main(DOI)
+    -- An id that identifies the Agent that made the Event.
+    sourceToken             VARCHAR(40) NOT NULL,
+
+    -- Subject ID is similar to the object ID, since most events have a URL as a subject ID and the DOI as object ID. The agent that processes the data decides on each event. As for the type of URL, it's usually the Canonical URL of a webpage, if one is available. If not, then it's a URL of a webpage.
+    subjectID               VARCHAR(200) NOT NULL,
+
+    -- Includes a link to an Evidence Record for this Event. This is used to generate an Event and contains all of the information used to create the Event.
+    evidenceRecord          VARCHAR(110) NOT NULL,
+
+    -- Action is the nature of the event, such as adding a comment, in which case the action is "add".
+    eventAction             VARCHAR(10) NOT NULL,
+
+    -- The ID of the entity mentioning the DOI.
+    subjectPID              VARCHAR(200) NOT NULL,
+
+    --  Type of the subject (post, comment, etc.).
+    subjectType             VARCHAR(12) NOT NULL,
+
+    -- The title of the subject.
+    subjectTitle            VARCHAR(125) NOT NULL,
+
+    -- Author of the event.
+    subjectURL              VARCHAR(200) NOT NULL,
+
+    -- Name of source that event came from.
+    sourceID                VARCHAR(20) NOT NULL,
+
+    -- Persistent Identifer(PID) of the object (DOI being discussed).
+    objectPID               VARCHAR(70) NOT NULL,
+
+    -- URL of the doi being discussed.
+    objectURL               VARCHAR(200) NOT NULL,
+
+    -- Timestamp of when the Event was created.
+    timeObserved            TIMESTAMP NOT NULL,
+
+    -- Updated date.
+    updatedDate             TIMESTAMP NOT NULL,
+
+    -- Nature of the discussion on the doi (discusses, mentions, etc.).
+    relationType            VARCHAR(10) NOT NULL,
+
+    PRIMARY KEY (newsfeedIncrement),
+    FOREIGN KEY (eventID) REFERENCES Main(uniqueEventID),
+    FOREIGN KEY (objectID) REFERENCES Main(objectID)
 );
 
 
--- Research documentation for comments on some fields
 CREATE TABLE Hypothesis_Event(
     -- To uniquely identify each row.
-    hypothesis_increment    INTEGER AUTO_INCREMENT,
+    hypothesisIncrement     INTEGER AUTO_INCREMENT,
+
     -- Unique ID of each event.
-    event_id                VARCHAR(36) UNIQUE NOT NULL,
-    -- Document Object Identifier or the content that was registered at CrossRef. This field was obj_id.
-    DOI                     VARCHAR(60),
-    -- Timestamp of when the Event was reported to have occurred. This field was 'occurred_at'.
-    time_occurred           TIMESTAMP NOT NULL,
+    eventID                 VARCHAR(36) NOT NULL UNIQUE,
+
+    -- A link that contains the Document Object Identifier(DOI) or the scholarly content that was registered at CrossRef.
+    objectID                VARCHAR(50),
+
+    -- Author of the DOI.
+    DOIAuthor               VARCHAR(36),
+
+    -- Timestamp of when the Event was reported to have occurred.
+    occurredAt              TIMESTAMP NOT NULL,
+
     -- A license under which the Event is made available.
     license                 VARCHAR(60) NOT NULL,
+
     -- An id that identifies the Agent that made the Event.
-    source_token            VARCHAR(40) NOT NULL,
-    -- The Canonical URL of a webpage, if one is available. If not, then it's a URL of a webpage.
-    subj_id                 VARCHAR(50) NOT NULL,
+    sourceToken            VARCHAR(40) NOT NULL,
+
+    -- Subject ID is similar to the object ID, since most events have a URL as a subject ID and the DOI as object ID. The agent that processes the data decides on each event. As for the type of URL, it's usually the Canonical URL of a webpage, if one is available. If not, then it's a URL of a webpage.
+    subjectID               VARCHAR(200) NOT NULL,
+
     -- Includes a link to an Evidence Record for this Event. This is used to generate an Event and contains all of the information used to create the Event.
-    evidence_record         VARCHAR(120) NOT NULL,
+    evidenceRecord          VARCHAR(120) NOT NULL,
+
     -- Terms of using the API at the point that you acquire the Event.
     terms                   VARCHAR(50) NOT NULL,
-    -- An action performed by the Agent.
-    action_by_agent         VARCHAR(10) NOT NULL,
-    -- Same value as subj_id
-    subj_pid                VARCHAR(50) NOT NULL,
+
+    -- Action is the nature of the event, such as adding a comment, in which case the action is "add".
+    eventAction             VARCHAR(10) NOT NULL,
+
+    -- The ID of the entity mentioning the DOI.
+    subjectPID              VARCHAR(50) NOT NULL,
+
+    -- URL link of the JSON.
     subj_json_url           VARCHAR(70) NOT NULL,
-    subj_url                VARCHAR(150) NOT NULL,
-    subj_type               VARCHAR(15) NOT NULL,
-    -- Can be NULL/empty string.
-    subj_title              VARCHAR(1030),
-    subj_issued             TIMESTAMP NOT NULL,
+
+    -- Author of the event.
+    subjectURL              VARCHAR(200) NOT NULL,
+
+    --  Type of the subject (post, comment, etc.).
+    subjectType             VARCHAR(12) NOT NULL,
+
+    -- The title of the subject. Can be NULL/empty string.
+    subjectTitle            VARCHAR(1030),
+
+    -- Date the subject issued the mention.
+    subjectIssued           TIMESTAMP NOT NULL,
+
     -- Name of source that event came from.
-    source_id               VARCHAR(15) NOT NULL,
-    -- Same value as obj_id
-    obj_pid                 VARCHAR(60) NOT NULL,
-    obj_url                 VARCHAR(100) NOT NULL,
-    -- Timestamp of when the Event was created. This field was originally called timestamp.
-    event_creation_time     TIMESTAMP NOT NULL,
-    -- Type of relation between subject and object.
-    relation_type_id        VARCHAR(15) NOT NULL,
-    -- HypothesisAuthor      VARCHAR(36),
-    PRIMARY KEY (hypothesis_increment),
-    FOREIGN KEY (event_id) REFERENCES Main(UniqueEventID) ON DELETE CASCADE,
-    FOREIGN KEY (DOI) REFERENCES Main(DOI) ON DELETE CASCADE
-);
--- Research documentation for comments on some fields
-CREATE TABLE Cambia_Event(
-    -- To uniquely identify each row.
-    cambia_increment        INTEGER AUTO_INCREMENT,
-    -- Unique ID of each event.
-    event_id                VARCHAR(36) UNIQUE NOT NULL,
-    -- Document Object Identifier or the content that was registered at CrossRef. This field was obj_id.
-    DOI                     VARCHAR(60) NOT NULL,
-    -- A license under which the Event is made available.
-    license                 VARCHAR(55) NOT NULL,
-    -- Link to URL to changes made to the data.
-    updated_reason          VARCHAR(100) NOT NULL,
-    -- If an Event is updated, it will have the value of deleted or edited.
-    updated                 VARCHAR(10) NOT NULL,
-    -- An id that identifies the Agent that made the Event.
-    source_token            VARCHAR(40) NOT NULL,
-    -- Timestamp of when the Event was reported to have occurred. This field was 'occurred_at'.
-    time_occurred           TIMESTAMP NOT NULL,
-    -- The Canonical URL of a webpage, if one is available. If not, then it's a URL of a webpage.
-    subj_id                 VARCHAR(40) NOT NULL,
-    -- Terms of using the API at the point that you acquire the Event.
-    terms                   VARCHAR(50) NOT NULL,
-    -- An action performed by the Agent.
-    action_by_agent         VARCHAR(10) NOT NULL,
-    work_subtype_id         VARCHAR(25) NOT NULL,
-    work_type_id            VARCHAR(10) NOT NULL,
-    subj_title              VARCHAR(140) NOT NULL,
-    -- Same value as subj_id.
-    subj_pid                VARCHAR(40) NOT NULL,
-    jurisdiction            VARCHAR(5) NOT NULL,
-    -- Name of source that event came from.
-    source_id               VARCHAR(15) NOT NULL,
-    -- Timestamp of when the Event was created. This field was originally called timestamp.
-    event_creation_time     TIMESTAMP NOT NULL,
-    updated_date            TIMESTAMP NOT NULL,
-    -- Type of relation between subject and object.
-    relation_type_id        VARCHAR(10) NOT NULL,        
-    -- cambiaAuthor          VARCHAR(36),
-    PRIMARY KEY (cambia_increment),
-    FOREIGN KEY (event_id) REFERENCES Main(UniqueEventID) ON DELETE CASCADE,
-    FOREIGN KEY (DOI) REFERENCES Main(DOI) ON DELETE CASCADE
+    sourceID                VARCHAR(20) NOT NULL,
+
+    -- Persistent Identifer(PID) of the object (DOI being discussed).
+    objectPID               VARCHAR(70) NOT NULL,
+
+    -- URL of the doi being discussed.
+    objectURL               VARCHAR(100) NOT NULL,
+
+    -- Timestamp of when the Event was created.
+    timeObserved            TIMESTAMP NOT NULL,
+
+    -- Nature of the discussion on the doi (discusses, mentions, etc.).
+    relationType            VARCHAR(10) NOT NULL,
+
+    PRIMARY KEY (hypothesisIncrement),
+    FOREIGN KEY (eventID) REFERENCES Main(uniqueEventID) ON DELETE CASCADE,
+    FOREIGN KEY (objectID) REFERENCES Main(objectID) ON DELETE CASCADE
 );
 
--- Research documentation for comments on some fields
-CREATE TABLE Web_Event(
+
+CREATE TABLE Cambia_Event(
     -- To uniquely identify each row.
-    web_increment           INTEGER AUTO_INCREMENT,
+    cambiaIncrement         INTEGER AUTO_INCREMENT,
+
     -- Unique ID of each event.
-    event_id                VARCHAR(36) UNIQUE NOT NULL,
-    -- Document Object Identifier or the content that was registered at CrossRef. This field was obj_id.
-    DOI                     VARCHAR(60) NOT NULL,
-    -- Timestamp of when the Event was reported to have occurred. This field was 'occurred_at'.
-    time_occurred           TIMESTAMP NOT NULL,
-    -- Terms of using the API at the point that you acquire the Event.
-    terms                   VARCHAR(50) NOT NULL,
+    eventID                 VARCHAR(36) NOT NULL UNIQUE,
+
+    -- A link that contains the Document Object Identifier(DOI) or the scholarly content that was registered at CrossRef.
+    objectID                VARCHAR(50),
+
+    -- Author of the DOI.
+    DOIAuthor               VARCHAR(36),
+
+    -- A license under which the Event is made available.
+    license                 VARCHAR(55) NOT NULL,
+
     -- Link to URL to changes made to the data.
-    updated_reason          VARCHAR(100) NOT NULL,
+    updatedReason           VARCHAR(100) NOT NULL,
+
     -- If an Event is updated, it will have the value of deleted or edited.
     updated                 VARCHAR(10) NOT NULL,
+
     -- An id that identifies the Agent that made the Event.
-    source_token            VARCHAR(40) NOT NULL,
-    -- The Canonical URL of a webpage, if one is available. If not, then it's a URL of a webpage.
-    subj_id                 VARCHAR(50) NOT NULL,
-    -- Includes a link to an Evidence Record for this Event. This is used to generate an Event and contains all of the information used to create the Event.
-    evidence_record         VARCHAR(100) NOT NULL,
-    -- An action performed by the Agent.
-    action_by_agent         VARCHAR(10) NOT NULL,
-    -- Same value as subj_id
-    subj_pid                VARCHAR(50) NOT NULL,
-    -- Same value as subj_id
-    subj_url                VARCHAR(50) NOT NULL,
+    sourceToken             VARCHAR(40) NOT NULL,
+
+    -- Timestamp of when the Event was reported to have occurred.
+    occurredAt              TIMESTAMP NOT NULL,
+
+    -- Subject ID is similar to the object ID, since most events have a URL as a subject ID and the DOI as object ID. The agent that processes the data decides on each event. As for the type of URL, it's usually the Canonical URL of a webpage, if one is available. If not, then it's a URL of a webpage.
+    subjectID               VARCHAR(200) NOT NULL,
+
+    -- Terms of using the API at the point that you acquire the Event.
+    terms                   VARCHAR(50) NOT NULL,
+
+    -- Action is the nature of the event, such as adding a comment, in which case the action is "add".
+    eventAction             VARCHAR(10) NOT NULL,
+
+    -- Type of patent.
+    workSubtypeID           VARCHAR(25) NOT NULL,
+
+    -- 'patent'.
+    workTypeID              VARCHAR(10) NOT NULL,
+
+    -- The title of the subject.
+    subjectTitle            VARCHAR(140) NOT NULL,
+
+    -- The ID of the entity mentioning the DOI.
+    subjectPID              VARCHAR(50) NOT NULL,
+
+    -- Patent groups distributing patents.
+    jurisdiction            VARCHAR(5) NOT NULL,
+
     -- Name of source that event came from.
-    source_id               VARCHAR(10) NOT NULL,
-    -- Same value as DOI
-    obj_pid                 VARCHAR(60) NOT NULL,
-    -- Same value as DOI
-    obj_url                 VARCHAR(60) NOT NULL,
-    -- Timestamp of when the Event was created. This field was originally called timestamp.
-    event_creation_time     TIMESTAMP NOT NULL,
-    updated_date            DATETIME NOT NULL,
-    -- Type of relation between subject and object.
-    relation_type_id        VARCHAR(10) NOT NULL,
-    -- web_author            VARCHAR(36),
-    PRIMARY KEY (web_increment),
-    FOREIGN KEY (event_id) REFERENCES Main(UniqueEventID) ON DELETE CASCADE,
-    FOREIGN KEY (DOI) REFERENCES Main(DOI) ON DELETE CASCADE
+    sourceID                VARCHAR(20) NOT NULL,
+
+    -- Timestamp of when the Event was created.
+    timeObserved            TIMESTAMP NOT NULL,
+
+    -- Updated date.
+    updatedDate             TIMESTAMP NOT NULL,
+
+    -- Nature of the discussion on the doi (discusses, mentions, etc.).
+    relationType            VARCHAR(10) NOT NULL,
+
+    PRIMARY KEY (cambiaIncrement),
+    FOREIGN KEY (eventID) REFERENCES Main(uniqueEventID) ON DELETE CASCADE,
+    FOREIGN KEY (objectID) REFERENCES Main(objectID) ON DELETE CASCADE
+);
+
+
+CREATE TABLE Web_Event(
+    -- To uniquely identify each row.
+    webIncrement            INTEGER AUTO_INCREMENT,
+
+    -- Unique ID of each event.
+    eventID                 VARCHAR(36) NOT NULL UNIQUE,
+
+    -- A link that contains the Document Object Identifier(DOI) or the scholarly content that was registered at CrossRef.
+    objectID                VARCHAR(50),
+
+    -- Author of the DOI.
+    DOIAuthor               VARCHAR(36),
+
+    -- Timestamp of when the Event was reported to have occurred.
+    occurredAt              TIMESTAMP NOT NULL,
+
+    -- Terms of using the API at the point that you acquire the Event.
+    Terms                   VARCHAR(50) NOT NULL,
+
+    -- Link to URL to changes made to the data.
+    updatedReason           VARCHAR(100) NOT NULL,
+
+    -- If an Event is updated, it will have the value of deleted or edited.
+    updated                 VARCHAR(10) NOT NULL,
+
+    -- An id that identifies the Agent that made the Event.
+    sourceToken             VARCHAR(40) NOT NULL,
+
+    -- Subject ID is similar to the object ID, since most events have a URL as a subject ID and the DOI as object ID. The agent that processes the data decides on each event. As for the type of URL, it's usually the Canonical URL of a webpage, if one is available. If not, then it's a URL of a webpage.
+    subjectID               VARCHAR(200) NOT NULL,
+
+    -- Includes a link to an Evidence Record for this Event. This is used to generate an Event and contains all of the information used to create the Event.
+    evidenceRecord          VARCHAR(110) NOT NULL,
+
+    -- Action is the nature of the event, such as adding a comment, in which case the action is "add".
+    eventAction             VARCHAR(10) NOT NULL,
+
+    -- The ID of the entity mentioning the DOI.
+    subjectPID              VARCHAR(50) NOT NULL,
+
+    -- Author of the event.
+    subjectURL              VARCHAR(200) NOT NULL,
+
+    -- Name of source that event came from.
+    sourceID                VARCHAR(20) NOT NULL,
+
+    -- Persistent Identifer(PID) of the object (DOI being discussed).
+    objectPID               VARCHAR(70) NOT NULL,
+
+    -- URL of the doi being discussed.
+    objectURL               VARCHAR(60) NOT NULL,
+
+    -- Timestamp of when the Event was created.
+    timeObserved            TIMESTAMP NOT NULL,
+
+    -- Updated date.
+    updatedDate             TIMESTAMP NOT NULL,
+
+    -- Nature of the discussion on the doi (discusses, mentions, etc.).
+    relationType            VARCHAR(10) NOT NULL,
+
+    PRIMARY KEY (webIncrement),
+    FOREIGN KEY (eventID) REFERENCES Main(uniqueEventID) ON DELETE CASCADE,
+    FOREIGN KEY (objectID) REFERENCES Main(objectID) ON DELETE CASCADE
 );
