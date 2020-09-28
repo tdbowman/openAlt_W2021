@@ -18,3 +18,4 @@ Python Modules (These may be installed with `pip install <name of module>`
 We would like to thank:  
 * Dr. Timothy Bowman for the project idea and guidance! 💡  
 * Minh Nguyen for assisting us with technical questions 💬 
+* Seyed Ziae Mousavi Mojab for teaching the class, of which this project was a part 🍎
