@@ -71,7 +71,6 @@ def fetchData():
 def beautifyJSON(response):
     try:
         todaysDate = dt.today().strftime("%m-%d-%y--%I-%M") # Semicolons are allowed in Linux, not in Windows Paths
-        
         # This lets us save a file in the same directory as the script if we are debugging
         if (runOnSchedule == True):
             fileName = "/home/fg7626/crossrefDataDumps/" + todaysDate + ".json"
