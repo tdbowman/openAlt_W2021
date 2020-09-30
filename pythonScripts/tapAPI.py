@@ -13,19 +13,20 @@ try:
     import schedule
 except ImportError:
     logging.info("You need to install the schedule module using \"pip install schedule\" before proceeding")
-    exit
+    sys.exit("exit")
+
+# CHANGE THESE IF RESTARTING - CHECK THE LOG
+cursor = "" # Always the first cursor, but you can change it if starting the script from a later point
+fileNameIncrement = 0 # used to save the data files, so that when we sort them for data ingestion, we can restore our progress more easily
 
 # DO NOT CHANGE THESE
 email = "mitchfen@protonmail.com"
-source = "" # An empty string will cause it to pull from all sources
+source = "twitter" # An empty string will cause it to pull from all sources
 rows = "10000" # number of Events to pull for today
 fetchURL = "https://api.eventdata.crossref.org/v1/events?mailto="
 tempFileName = "tempFile.json" # file which it writes data to before formatting. Overwritten on each fetchData call
-logging.basicConfig(filename='tapAPI.log', filemode='a', level=logging.INFO, format='%(asctime)s - %(message)s', datefmt='%d-%b-%y %H:%M:%S') # Set the logging parameters
-
-# THESE MAY BE CHANGED
 runOnSchedule = True # False if you want to run it right now, or True if you want it to run on the regular schedule
-cursor = "" # Always the first cursor, but you can change it if starting the script from a later point
+logging.basicConfig(filename='tapAPI.log', filemode='a', level=logging.INFO, format='%(asctime)s - %(message)s', datefmt='%d-%b-%y %H:%M:%S') # Set the logging parameters
 
 def main():
 
@@ -73,19 +74,21 @@ def fetchData():
 def beautifyJSON():
     try:
         global cursor # so that we modify the global version, not this functions copy
+        global fileNameIncrement
         todaysDate = dt.today().strftime("%m-%d-%y--%I-%M") # Semicolons are allowed in Linux, not in Windows Paths
         # This lets us save a file in the same directory as the script if we are debugging
         if (runOnSchedule == True):
-            fileName = "/home/fg7626/crossrefDataDumps/" + todaysDate + ".json"
+            fileName = "/home/fg7626/crossrefDataDumps/" + fileNameIncrement + "_" + todaysDate + ".json"
             #fileName = todaysDate + ".json" # Use this so it writes to the same directory as script when debugging
         else:
-            fileName = todaysDate + ".json" # Use this so it writes to the same directory as script when debugging
-        logging.info(" - Beginning JSON formatting")
+            fileName = fileNameIncrement + "_" + todaysDate + ".json" # Use this so it writes to the same directory as script when debugging
+        fileNameIncrement = fileNameIncrement + 1 # Increment the file number see top of file for description
+        logging.info(" - Beginning JSON formatting - File increment is:" + fileNameIncrement)
         with open(tempFileName) as json_file:
-            data = json.load(json_file)
+            data = json.load(json_file) # this is a dict
             cursor = data.get("message").get("next-cursor")
         os.system("cat " + tempFileName + " | python3 -mjson.tool > " + fileName)
-        logging.info(" - Cursor for this retrieval was " + str(cursor))
+        logging.info(" - Cursor for next retrieval is: " + str(cursor))
         if (cursor == "" or cursor == None):
             logging.info(" - Null cursor - done collecting data - check log for last cursor used")
             sys.exit("exit")
