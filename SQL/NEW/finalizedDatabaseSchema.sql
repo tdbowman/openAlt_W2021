@@ -100,7 +100,7 @@ CREATE TABLE IF NOT EXISTS RedditEvent(
     license                 VARCHAR(70),
 
     --  Terms of use for the CROSSREF EVENT DATA QUERY API.
-    termsOfUse              VARCHAR (45),
+    termsOfUse              VARCHAR (50),
 
     --  Reason for updating an event. Optional, may point to an announcement page explaining the edit
     updatedReason           VARCHAR (100),
@@ -114,8 +114,11 @@ CREATE TABLE IF NOT EXISTS RedditEvent(
     --  ID of the scholarly writing.
     objectID                VARCHAR(100),
 
+    --  PID of the object (DOI being discussed).
+    objectPID               VARCHAR(200),
+
     --  URL of the scholarly writing.
-    objectURL               VARCHAR (100),
+    objectURL               VARCHAR (200),
 
     --  The source token identifies the Agent that processed the data to produce an Event.
     sourceToken             VARCHAR(36),
@@ -139,25 +142,16 @@ CREATE TABLE IF NOT EXISTS RedditEvent(
     sourceID                VARCHAR(20),
 
     --  The ID of the entity mentioning the DOI.
-    subjectPID              VARCHAR(80),
+    subjectPID              VARCHAR(100),
+
+    -- Type of discussion about DOI
+    subjectType             VARCHAR(10),
 
     --  The title of the subject.
-    subjectTitle            VARCHAR(60),
+    subjectTitle            VARCHAR(200),
 
     --  Date the subject issued the mention.
     subjectIssuedDate       TIMESTAMP,
-
-    --  Author of the event.
-    subjectAuthorURL        VARCHAR(50),
-
-    --  Original tweet (if retweeted).
-    subjectOriginalTweetURL VARCHAR(80),
-
-    --  Author of the original tweet (if retweeted).
-    subjectOriginalTweetAuthor VARCHAR(50),
-
-    --  ID of the original tweet (if retweeted).
-    alternativeID           VARCHAR(20),
 
     --  Timestamp shortly after the event was observed, CONFORMS TO ISO8601.
     timeObserved            TIMESTAMP,
