@@ -2,7 +2,6 @@
 CREATE DATABASE crossRefEventData;
 USE crossRefEventData;
 
-
 CREATE TABLE Main(
     -- A link that contains the Document Object Identifier(DOI) or the scholary content that was registered at CrossRef.
     objectID               VARCHAR(70),
@@ -403,14 +402,8 @@ CREATE TABLE IF NOT EXISTS RedditEvent(
     --  License provided by each service (CrossRef, DataCite, etc). Could be null(?)
     license                 VARCHAR(60),
 
-    --  Terms of use for the CROSSREF EVENT DATA QUERY API.
-    termsOfUse              VARCHAR (45),
-
     --  Link to the scholarly writing.
     objectID                VARCHAR(100),
-
-    --  The source token identifies the Agent that processed the data to produce an Event.
-    sourceToken             VARCHAR(36),
 
     --  The date and time the event was "REPORTED" to have been published by users. CONFORMS TO ISO8601.
     occurredAt              TIMESTAMP,
@@ -421,14 +414,20 @@ CREATE TABLE IF NOT EXISTS RedditEvent(
     --  Every event is assigned a unique ID. Used for reference.
     eventID                 VARCHAR(36) ,
 
+    --  Terms of use for the CROSSREF EVENT DATA QUERY API.
+    termsOfUse              VARCHAR (45),
+
+    --  The status of the message containing a list of events (message created, updated, deleted, etc.).
+    messageAction           VARCHAR(15),
+
+    --  The original source of the input data. Source could be any of the 12 sources listed in CrossRef's guide.
+    sourceID                VARCHAR (20),
+
     --  Timestamp shortly after the event was spotted.
     timeObserved            TIMESTAMP,
 
     --  Nature of the discussion on the doi (discusses, mentions, etc.).
-    relationType            VARCHAR(20),
-
-    --  The original source of the input data. Source could be any of the 12 sources listed in CrossRef's guide.
-    sourceID                VARCHAR (20)
+    relationType            VARCHAR(20)
 
     );
 
