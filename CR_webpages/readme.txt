@@ -11,3 +11,5 @@ now go into testingFlask, and
 It will open a command promt. Leave it.
 
 Go to http://127.0.0.1:5000/
+
+For connecting to DB: pip install mysql-connector-python

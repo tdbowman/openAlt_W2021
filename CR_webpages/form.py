@@ -3,6 +3,9 @@
 from flask import Flask, request, render_template  
 import json
 from crossref.restful import Works
+import connect_mysql
+from pandas import DataFrame
+
 works = Works()
 
 
@@ -18,7 +21,10 @@ def cr_home():
 def cr_search():
    print ( 'Hi I am in cr_search')
    if request.method == "POST": 
-      search = str(request.form.get("search"))   
+      search = str(request.form.get("search"))
+      print(search)
+      input = str(request.form.get("inputChoice"))
+      print(input)
       x = works.doi(search)
       if (x['author']):
          authorList = x['author']
@@ -28,8 +34,31 @@ def cr_search():
          for index, authorDetail in enumerate(authorList):
             templist.append(authorDetail['given'])
             templist.append(authorDetail['family'])
-      #return str(templist)
-   return render_template('cross_ref.html', authorList=str(templist))
+
+
+         #print(article_df)
+
+      if (input == '1'):
+            article_df = connect_mysql.get_articles()
+            article_list = []
+            for row in article_df.index:
+               print( '----3->', article_df.loc[row][3])
+               #article_list[row][1] = article_df.loc[row][3]
+               print('--5--->', article_df.loc[row][5])
+               #article_list[row][2] = article_df.loc[row][5]
+               print('--4--->', article_df.loc[row][4])
+               #article_list[row][3] = article_df.loc[row][4]
+
+               article_list = article_df.values.tolist()
+               print (article_list)
+
+            return render_template('cross_ref_DOIsearch.html', article_list=article_list)
+      if (input=='2'):
+            return render_template('cross_ref.html', authorList=str(templist))
+      if (input=='3'):
+            return render_template('cross_ref.html', authorList=str(templist))
+
+   #return render_template('cross_ref.html', authorList=str(templist))
   
 if __name__=='__main__': 
    app.run() 
