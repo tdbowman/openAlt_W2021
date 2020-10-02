@@ -99,6 +99,8 @@ def main():
                         if (key == "source_id" and value == "datacite"):
                             datacite.dataciteIngest(uniqueEvent, cursor, connection)
                         '''
+                        elif (key == "source_id" and value == "wikipedia"):
+                            wikipedia.wikipediaIngest(uniqueEvent, cursor, connection))
                         elif (key == "source_id" and value == "wordpressdotcom"):
                             wordPress.wordPressIngest(uniqueEvent, cursor, connection))
                         elif (key == "source_id" and value == "stackexchange"):
