@@ -21,9 +21,9 @@ def dataciteIngest(uniqueEvent, cursor, connection):
         elif (key == "relation_type_id"):
             t_relation_type_id = value
 
-    # SQL which inserts into dataciteevent table  - LEAVE OUT THE OBJECT ID
+    # SQL which inserts into dataciteevent table
     add_event = ("INSERT IGNORE INTO DataCiteEvent " "(license, objectID, occurredAt, subjectID, eventID, termsOfUse, messageAction, sourceID, timeObserved, relationType) " "VALUES(%s,%s,%s,%s,%s,%s,%s,%s,%s, %s)")
-    # Values to insert into dataciteevent tabls  - LEAVE OUT THE OBJECT ID
+    # Values to insert into dataciteevent tabls
     data_event = (t_license, t_obj_id, t_occurred_at, t_subj_id, t_id, t_terms, t_message_action, t_source_id, t_timestamp, t_relation_type_id)
 
     add_to_main =("INSERT IGNORE INTO main (objectID) VALUES (\'" + t_obj_id + "\');")
