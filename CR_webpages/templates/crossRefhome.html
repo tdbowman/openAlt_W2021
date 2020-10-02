@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <html>
 <head>
-<!--<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">-->
 <link type = "text/css" rel="stylesheet" href="{{ url_for('static', filename = 'css/homepage.css')}}">
 <title>Page Title</title>
 </head>
@@ -14,12 +13,31 @@ scholarly articles via DOI (Document Object Identifier), author name, journal na
 Your results will show you instances of social media activity of the article you have selected<br> <br>
 Enter your search below to get started.</p1></div>
 
+
+
+
 <div class = "box">
 
  <form action="{{ url_for("cr_search")}}" method="post">
-    <label for="DOI">Enter a DOI:</label>
-    <input type="text" id="search" name="search" placeholder="DOI HERE">
+    <label for="DOI">Search:</label>
+    <input type="text" id="search_input" name="search" placeholder="Enter search...">
     <button type="submit">Search Authors</button>
+
+<div>
+  <input type="radio" name= "inputChoice" value="1" id="doi">
+  <label for="doi">DOI</label>
+</div>
+
+<div>
+  <input type="radio" name= "inputChoice" value="2" id="author">
+  <label for="author">Author</label>
+</div>
+
+<div>
+  <input type="radio" name= "inputChoice" value="3" id="journal">
+  <label for="journal">Journal</label>
+</div>
+</form>
 
 </div>
 

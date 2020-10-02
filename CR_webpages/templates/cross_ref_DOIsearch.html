@@ -7,11 +7,25 @@
 </head>
 <body>
 <h1>CrossRef Event Data</h1>
+<h2>Search Results:</h2>
 
 <div class = "box">
-
 <p>
-  {{authorList }}
+  <div>
+
+  {% for article in article_list %}
+  <table class = "a">
+      <tr class = "x">
+        <td>Title : {{ article[3] }} </td></tr>
+      <tr>
+        <td>Date :  {{ article[5] }} </td> </tr>
+      <tr>
+        <td>Journal : {{ article[4] }}</td> </tr>
+      <tr> -----------------------------</tr>
+  </table>
+  {% endfor %}
+
+</div>
 </p>
 </div>
 

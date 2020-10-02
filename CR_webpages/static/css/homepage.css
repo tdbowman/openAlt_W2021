@@ -49,7 +49,32 @@ body {
 .box{
 	position: absolute;
 	width: 100%;
-	text-align: center; }
+	text-align: center;
+}
+
+.wrapper .search_box{
+    width: 300px;
+    height: 65px;
+    border-radius: 5px;
+    display: flex;
+    padding: 10px;
+    box-shadow: 0 8px;
+}
+
+p,
+label {
+    font: 1rem 'Fira Sans', sans-serif;
+}
+
+input {
+    width: 10px;
+    margin: 0;
+}
+
+table{
+    border-collapse:collapse;
+    border: 1px solid black;
+}
 /*
 form.search input[type=text] {
   padding: 10px;
