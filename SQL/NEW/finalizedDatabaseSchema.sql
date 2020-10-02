@@ -6,12 +6,10 @@ CREATE TABLE Main(
     -- A link that contains the Document Object Identifier(DOI) or the scholary content that was registered at CrossRef.
     objectID               VARCHAR(70),
     -- Unique ID of each event.
-    uniqueEventID          VARCHAR(36) UNIQUE,
-    articleID              INTEGER AUTO_INCREMENT UNIQUE,   
+    autoArticleID          INTEGER AUTO_INCREMENT UNIQUE,   
     articleTitle           VARCHAR(120),
     journalName            VARCHAR(40),
     articleDate            DATE,
-    articleURL             VARCHAR(100),
     PRIMARY KEY(objectID)
 );
 -- Journal Table has been removed and merged with Main Table
@@ -30,7 +28,7 @@ CREATE TABLE Article_to_Author(
     articleID              INTEGER,
     authorID               INTEGER,
     PRIMARY KEY(articleAuthorID),
-    FOREIGN KEY (articleID) REFERENCES Main(articleID),
+    FOREIGN KEY (articleID) REFERENCES Main(autoArticleID),
     FOREIGN KEY (authorID) REFERENCES Author(authorID)
 );
 
@@ -49,7 +47,7 @@ CREATE TABLE CrossRefEvent
     -- DOIAuthor               VARCHAR(36),
 
     --  License provided by each service (CrossRef, DataCite, etc). Could be null(?)
-    crossrefLicense         VARCHAR(60),
+    license         VARCHAR(60),
 
     --  Link to the scholarly writing.
     objectID                VARCHAR(100),
