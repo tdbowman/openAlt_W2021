@@ -1,35 +1,33 @@
-def dataciteIngest(uniqueEvent, cursor):
+def dataciteIngest(uniqueEvent, cursor, connection):
     for key, value in uniqueEvent.items():
         if key == "license":
             t_license = value
-            print(t_license)
         elif key == "obj_id":
             t_obj_id = value
-            print(t_obj_id)
-        elif (key == "source_token"):
-            t_source_token = value
-            print(t_source_token)
         elif (key == "occurred_at"):
             t_occurred_at = value
-            print(t_occurred_at)
         elif (key == "subj_id"):
             t_subj_id = value
-            print(t_subj_id)
         elif (key == "id"):
             t_id = value
-            print(t_id)
         elif (key == "terms"):
             t_terms = value
-            print(t_terms)
         elif (key == "message_action"):
             t_message_action = value
-            print(t_message_action)
         elif (key == "source_id"):
             t_source_id = value
-            print(t_source_id)
         elif (key == "timestamp"):
             t_timestamp = value
-            print(t_timestamp)
         elif (key == "relation_type_id"):
             t_relation_type_id = value
-            print(t_relation_type_id)
+
+    # SQL which inserts into dataciteevent table  - LEAVE OUT THE OBJECT ID
+    add_event = ("INSERT IGNORE INTO DataCiteEvent " "(license, objectID, occurredAt, subjectID, eventID, termsOfUse, messageAction, sourceID, timeObserved, relationType) " "VALUES(%s,%s,%s,%s,%s,%s,%s,%s,%s, %s)")
+    # Values to insert into dataciteevent tabls  - LEAVE OUT THE OBJECT ID
+    data_event = (t_license, t_obj_id, t_occurred_at, t_subj_id, t_id, t_terms, t_message_action, t_source_id, t_timestamp, t_relation_type_id)
+
+    add_to_main =("INSERT IGNORE INTO main (objectID) VALUES (\'" + t_obj_id + "\');")
+
+    cursor.execute(add_to_main)
+    cursor.execute(add_event, data_event) # add information to dataciteevent table
+    connection.commit()
