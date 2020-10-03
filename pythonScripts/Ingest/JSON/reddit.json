@@ -1,0 +1,2331 @@
+{
+    "status": "ok",
+    "message-type": "event-list",
+    "message": {
+      "next-cursor": "486e5c19-ad5f-4d85-97d9-c921aa657bca",
+      "total-results": 82236,
+      "items-per-page": 100,
+      "events": [{
+        "license": "https:\/\/creativecommons.org\/publicdomain\/zero\/1.0\/",
+        "obj_id": "https:\/\/doi.org\/10.1370\/afm.1885",
+        "source_token": "a6c9d511-9239-4de8-a266-b013f5bd8764",
+        "occurred_at": "2016-01-16T01:20:49Z",
+        "subj_id": "https:\/\/reddit.com\/r\/psychology\/comments\/4166g7\/long_term_prescription_opioid_use_associated_with\/",
+        "id": "e37eaea3-003b-414e-822e-3fcbd61090a4",
+        "evidence_record": "https:\/\/evidence.eventdata.crossref.org\/evidence\/201702226e03dbb4-bc2e-46e3-8c1e-d27f2d7fc1e4",
+        "terms": "https:\/\/doi.org\/10.13003\/CED-terms-of-use",
+        "action": "add",
+        "subj": {
+          "pid": "https:\/\/reddit.com\/r\/psychology\/comments\/4166g7\/long_term_prescription_opioid_use_associated_with\/",
+          "type": "post",
+          "title": "Long term prescription opioid use associated with increased risk of new-onset depression, independent of the known contribution of pain to depression.",
+          "issued": "2016-01-16T01:20:49.000Z"
+        },
+        "source_id": "reddit",
+        "obj": {
+          "pid": "https:\/\/doi.org\/10.1370\/afm.1885",
+          "url": "http:\/\/www.annfammed.org\/content\/14\/1\/54"
+        },
+        "timestamp": "2017-02-22T16:15:50Z",
+        "relation_type_id": "discusses"
+      }, {
+        "license": "https:\/\/creativecommons.org\/publicdomain\/zero\/1.0\/",
+        "obj_id": "https:\/\/doi.org\/10.1370\/afm.1970",
+        "source_token": "a6c9d511-9239-4de8-a266-b013f5bd8764",
+        "occurred_at": "2016-09-13T14:16:37Z",
+        "subj_id": "https:\/\/reddit.com\/r\/UPFORFUN\/comments\/52koe6\/science_recommending_oral_probiotics_to_reduce\/",
+        "id": "c831d209-a955-4e61-903d-40ef35b0e454",
+        "evidence_record": "https:\/\/evidence.eventdata.crossref.org\/evidence\/201702226e03dbb4-bc2e-46e3-8c1e-d27f2d7fc1e4",
+        "terms": "https:\/\/doi.org\/10.13003\/CED-terms-of-use",
+        "action": "add",
+        "subj": {
+          "pid": "https:\/\/reddit.com\/r\/UPFORFUN\/comments\/52koe6\/science_recommending_oral_probiotics_to_reduce\/",
+          "type": "post",
+          "title": "[Science] Recommending Oral Probiotics to Reduce Winter Antibiotic Prescriptions in People With Asthma: A Pragmatic Randomized Controlled Trial",
+          "issued": "2016-09-13T14:16:37.000Z"
+        },
+        "source_id": "reddit",
+        "obj": {
+          "pid": "https:\/\/doi.org\/10.1370\/afm.1970",
+          "url": "http:\/\/www.annfammed.org\/content\/14\/5\/422.full"
+        },
+        "timestamp": "2017-02-22T16:15:50Z",
+        "relation_type_id": "discusses"
+      }, {
+        "license": "https:\/\/creativecommons.org\/publicdomain\/zero\/1.0\/",
+        "obj_id": "https:\/\/doi.org\/10.1370\/afm.1885",
+        "source_token": "a6c9d511-9239-4de8-a266-b013f5bd8764",
+        "occurred_at": "2016-01-14T02:06:01Z",
+        "subj_id": "https:\/\/reddit.com\/r\/Health\/comments\/40vg66\/prescription_opioid_duration_dose_and_increased\/",
+        "id": "783b02a4-8562-453f-a8a1-56bdb0e46b81",
+        "evidence_record": "https:\/\/evidence.eventdata.crossref.org\/evidence\/201702226e03dbb4-bc2e-46e3-8c1e-d27f2d7fc1e4",
+        "terms": "https:\/\/doi.org\/10.13003\/CED-terms-of-use",
+        "action": "add",
+        "subj": {
+          "pid": "https:\/\/reddit.com\/r\/Health\/comments\/40vg66\/prescription_opioid_duration_dose_and_increased\/",
+          "type": "post",
+          "title": "Prescription Opioid Duration, Dose, and Increased Risk of Depression in 3 Large Patient Populations",
+          "issued": "2016-01-14T02:06:01.000Z"
+        },
+        "source_id": "reddit",
+        "obj": {
+          "pid": "https:\/\/doi.org\/10.1370\/afm.1885",
+          "url": "http:\/\/www.annfammed.org\/content\/14\/1\/54.full"
+        },
+        "timestamp": "2017-02-22T16:15:50Z",
+        "relation_type_id": "discusses"
+      }, {
+        "license": "https:\/\/creativecommons.org\/publicdomain\/zero\/1.0\/",
+        "obj_id": "https:\/\/doi.org\/10.1370\/afm.1970",
+        "source_token": "a6c9d511-9239-4de8-a266-b013f5bd8764",
+        "occurred_at": "2016-09-13T14:08:32Z",
+        "subj_id": "https:\/\/reddit.com\/r\/science\/comments\/52kmvx\/recommending_oral_probiotics_to_reduce_winter\/",
+        "id": "61ce85d0-8f90-404c-94a1-968ae72bf4a6",
+        "evidence_record": "https:\/\/evidence.eventdata.crossref.org\/evidence\/201702226e03dbb4-bc2e-46e3-8c1e-d27f2d7fc1e4",
+        "terms": "https:\/\/doi.org\/10.13003\/CED-terms-of-use",
+        "action": "add",
+        "subj": {
+          "pid": "https:\/\/reddit.com\/r\/science\/comments\/52kmvx\/recommending_oral_probiotics_to_reduce_winter\/",
+          "type": "post",
+          "title": "Recommending Oral Probiotics to Reduce Winter Antibiotic Prescriptions in People With Asthma: A Pragmatic Randomized Controlled Trial",
+          "issued": "2016-09-13T14:08:32.000Z"
+        },
+        "source_id": "reddit",
+        "obj": {
+          "pid": "https:\/\/doi.org\/10.1370\/afm.1970",
+          "url": "http:\/\/www.annfammed.org\/content\/14\/5\/422.full"
+        },
+        "timestamp": "2017-02-22T16:15:50Z",
+        "relation_type_id": "discusses"
+      }, {
+        "license": "https:\/\/creativecommons.org\/publicdomain\/zero\/1.0\/",
+        "obj_id": "https:\/\/doi.org\/10.1370\/afm.1676",
+        "source_token": "a6c9d511-9239-4de8-a266-b013f5bd8764",
+        "occurred_at": "2014-09-14T12:44:23Z",
+        "subj_id": "https:\/\/reddit.com\/r\/POLITIC\/comments\/2gd5bh\/a_tale_of_2_countries_the_cost_of_my_mothers\/",
+        "id": "f0aaeb23-f7f6-487d-b934-802a74e89113",
+        "evidence_record": "https:\/\/evidence.eventdata.crossref.org\/evidence\/201702226e03dbb4-bc2e-46e3-8c1e-d27f2d7fc1e4",
+        "terms": "https:\/\/doi.org\/10.13003\/CED-terms-of-use",
+        "action": "add",
+        "subj": {
+          "pid": "https:\/\/reddit.com\/r\/POLITIC\/comments\/2gd5bh\/a_tale_of_2_countries_the_cost_of_my_mothers\/",
+          "type": "post",
+          "title": "A Tale of 2 Countries: The Cost of My Mother\u2019s Cardiac Care in the United States and India",
+          "issued": "2014-09-14T12:44:23.000Z"
+        },
+        "source_id": "reddit",
+        "obj": {
+          "pid": "https:\/\/doi.org\/10.1370\/afm.1676",
+          "url": "http:\/\/www.annfammed.org\/content\/12\/5\/470.long?q"
+        },
+        "timestamp": "2017-02-22T16:15:51Z",
+        "relation_type_id": "discusses"
+      }, {
+        "license": "https:\/\/creativecommons.org\/publicdomain\/zero\/1.0\/",
+        "obj_id": "https:\/\/doi.org\/10.1370\/afm.1676",
+        "source_token": "a6c9d511-9239-4de8-a266-b013f5bd8764",
+        "occurred_at": "2014-09-12T07:54:38Z",
+        "subj_id": "https:\/\/reddit.com\/r\/medicine\/comments\/2g6lvh\/a_tale_of_2_countries_the_cost_of_my_mothers\/",
+        "id": "ca49505a-c80a-44af-8795-5eee83edd8ef",
+        "evidence_record": "https:\/\/evidence.eventdata.crossref.org\/evidence\/201702226e03dbb4-bc2e-46e3-8c1e-d27f2d7fc1e4",
+        "terms": "https:\/\/doi.org\/10.13003\/CED-terms-of-use",
+        "action": "add",
+        "subj": {
+          "pid": "https:\/\/reddit.com\/r\/medicine\/comments\/2g6lvh\/a_tale_of_2_countries_the_cost_of_my_mothers\/",
+          "type": "post",
+          "title": "A Tale of 2 Countries: The Cost of My Mother\u2019s Cardiac Care in the United States and India",
+          "issued": "2014-09-12T07:54:38.000Z"
+        },
+        "source_id": "reddit",
+        "obj": {
+          "pid": "https:\/\/doi.org\/10.1370\/afm.1676",
+          "url": "http:\/\/www.annfammed.org\/content\/12\/5\/470.long"
+        },
+        "timestamp": "2017-02-22T16:15:51Z",
+        "relation_type_id": "discusses"
+      }, {
+        "license": "https:\/\/creativecommons.org\/publicdomain\/zero\/1.0\/",
+        "obj_id": "https:\/\/doi.org\/10.1370\/afm.1713",
+        "source_token": "a6c9d511-9239-4de8-a266-b013f5bd8764",
+        "occurred_at": "2014-11-26T20:39:10Z",
+        "subj_id": "https:\/\/reddit.com\/r\/medicine\/comments\/2nife0\/from_triple_to_quadruple_aim_care_of_the_patient\/",
+        "id": "c8094926-6fca-44fc-a6e1-214aa27e7c1b",
+        "evidence_record": "https:\/\/evidence.eventdata.crossref.org\/evidence\/201702226e03dbb4-bc2e-46e3-8c1e-d27f2d7fc1e4",
+        "terms": "https:\/\/doi.org\/10.13003\/CED-terms-of-use",
+        "action": "add",
+        "subj": {
+          "pid": "https:\/\/reddit.com\/r\/medicine\/comments\/2nife0\/from_triple_to_quadruple_aim_care_of_the_patient\/",
+          "type": "post",
+          "title": "From Triple to Quadruple Aim: Care of the Patient Requires Care of the Provider",
+          "issued": "2014-11-26T20:39:10.000Z"
+        },
+        "source_id": "reddit",
+        "obj": {
+          "pid": "https:\/\/doi.org\/10.1370\/afm.1713",
+          "url": "http:\/\/www.annfammed.org\/content\/12\/6\/573.short"
+        },
+        "timestamp": "2017-02-22T16:15:51Z",
+        "relation_type_id": "discusses"
+      }, {
+        "license": "https:\/\/creativecommons.org\/publicdomain\/zero\/1.0\/",
+        "obj_id": "https:\/\/doi.org\/10.1370\/afm.1676",
+        "source_token": "a6c9d511-9239-4de8-a266-b013f5bd8764",
+        "occurred_at": "2014-09-11T22:02:58Z",
+        "subj_id": "https:\/\/reddit.com\/r\/politics\/comments\/2g58c3\/a_tale_of_2_countries_the_cost_of_my_mothers\/",
+        "id": "bdfe775e-ad8b-49cb-876d-ed1e296c1b4c",
+        "evidence_record": "https:\/\/evidence.eventdata.crossref.org\/evidence\/201702226e03dbb4-bc2e-46e3-8c1e-d27f2d7fc1e4",
+        "terms": "https:\/\/doi.org\/10.13003\/CED-terms-of-use",
+        "action": "add",
+        "subj": {
+          "pid": "https:\/\/reddit.com\/r\/politics\/comments\/2g58c3\/a_tale_of_2_countries_the_cost_of_my_mothers\/",
+          "type": "post",
+          "title": "A Tale of 2 Countries: The Cost of My Mother\u2019s Cardiac Care in the United States and India",
+          "issued": "2014-09-11T22:02:58.000Z"
+        },
+        "source_id": "reddit",
+        "obj": {
+          "pid": "https:\/\/doi.org\/10.1370\/afm.1676",
+          "url": "http:\/\/www.annfammed.org\/content\/12\/5\/470.long?q"
+        },
+        "timestamp": "2017-02-22T16:15:51Z",
+        "relation_type_id": "discusses"
+      }, {
+        "license": "https:\/\/creativecommons.org\/publicdomain\/zero\/1.0\/",
+        "obj_id": "https:\/\/doi.org\/10.1370\/afm.1676",
+        "source_token": "a6c9d511-9239-4de8-a266-b013f5bd8764",
+        "occurred_at": "2014-09-14T11:12:22Z",
+        "subj_id": "https:\/\/reddit.com\/r\/POLITIC\/comments\/2gd0k9\/a_tale_of_2_countries_the_cost_of_my_mothers\/",
+        "id": "8412e483-cd80-46a9-a0f1-0158e33c3dfd",
+        "evidence_record": "https:\/\/evidence.eventdata.crossref.org\/evidence\/201702226e03dbb4-bc2e-46e3-8c1e-d27f2d7fc1e4",
+        "terms": "https:\/\/doi.org\/10.13003\/CED-terms-of-use",
+        "action": "add",
+        "subj": {
+          "pid": "https:\/\/reddit.com\/r\/POLITIC\/comments\/2gd0k9\/a_tale_of_2_countries_the_cost_of_my_mothers\/",
+          "type": "post",
+          "title": "A Tale of 2 Countries: The Cost of My Mother\u2019s Cardiac Care in the United States and India",
+          "issued": "2014-09-14T11:12:22.000Z"
+        },
+        "source_id": "reddit",
+        "obj": {
+          "pid": "https:\/\/doi.org\/10.1370\/afm.1676",
+          "url": "http:\/\/www.annfammed.org\/content\/12\/5\/470.long"
+        },
+        "timestamp": "2017-02-22T16:15:51Z",
+        "relation_type_id": "discusses"
+      }, {
+        "license": "https:\/\/creativecommons.org\/publicdomain\/zero\/1.0\/",
+        "obj_id": "https:\/\/doi.org\/10.1370\/afm.1885",
+        "source_token": "a6c9d511-9239-4de8-a266-b013f5bd8764",
+        "occurred_at": "2016-01-13T16:17:21Z",
+        "subj_id": "https:\/\/reddit.com\/r\/science\/comments\/40sp2z\/long_term_prescription_opioid_use_associated_with\/",
+        "id": "3c496d95-3c9c-4d92-98fc-2316d50927df",
+        "evidence_record": "https:\/\/evidence.eventdata.crossref.org\/evidence\/201702226e03dbb4-bc2e-46e3-8c1e-d27f2d7fc1e4",
+        "terms": "https:\/\/doi.org\/10.13003\/CED-terms-of-use",
+        "action": "add",
+        "subj": {
+          "pid": "https:\/\/reddit.com\/r\/science\/comments\/40sp2z\/long_term_prescription_opioid_use_associated_with\/",
+          "type": "post",
+          "title": "Long term prescription opioid use associated with increased risk of new-onset depression, independent of the known contribution of pain to depression.",
+          "issued": "2016-01-13T16:17:21.000Z"
+        },
+        "source_id": "reddit",
+        "obj": {
+          "pid": "https:\/\/doi.org\/10.1370\/afm.1885",
+          "url": "http:\/\/www.annfammed.org\/content\/14\/1\/54"
+        },
+        "timestamp": "2017-02-22T16:15:51Z",
+        "relation_type_id": "discusses"
+      }, {
+        "license": "https:\/\/creativecommons.org\/publicdomain\/zero\/1.0\/",
+        "obj_id": "https:\/\/doi.org\/10.1370\/afm.1676",
+        "source_token": "a6c9d511-9239-4de8-a266-b013f5bd8764",
+        "occurred_at": "2014-09-16T05:57:32Z",
+        "subj_id": "https:\/\/reddit.com\/r\/Anarcho_Capitalism\/comments\/2gjb80\/a_tale_of_2_countries_the_cost_of_my_mothers\/",
+        "id": "103612b4-fc5a-45dc-963a-a99d2ec4fa28",
+        "evidence_record": "https:\/\/evidence.eventdata.crossref.org\/evidence\/201702226e03dbb4-bc2e-46e3-8c1e-d27f2d7fc1e4",
+        "terms": "https:\/\/doi.org\/10.13003\/CED-terms-of-use",
+        "action": "add",
+        "subj": {
+          "pid": "https:\/\/reddit.com\/r\/Anarcho_Capitalism\/comments\/2gjb80\/a_tale_of_2_countries_the_cost_of_my_mothers\/",
+          "type": "post",
+          "title": "A Tale of 2 Countries: The Cost of My Mother\u2019s Cardiac Care in the United States and India",
+          "issued": "2014-09-16T05:57:32.000Z"
+        },
+        "source_id": "reddit",
+        "obj": {
+          "pid": "https:\/\/doi.org\/10.1370\/afm.1676",
+          "url": "http:\/\/www.annfammed.org\/content\/12\/5\/470.long"
+        },
+        "timestamp": "2017-02-22T16:15:51Z",
+        "relation_type_id": "discusses"
+      }, {
+        "license": "https:\/\/creativecommons.org\/publicdomain\/zero\/1.0\/",
+        "obj_id": "https:\/\/doi.org\/10.1370\/afm.1676",
+        "source_token": "a6c9d511-9239-4de8-a266-b013f5bd8764",
+        "occurred_at": "2014-09-11T18:36:47Z",
+        "subj_id": "https:\/\/reddit.com\/r\/hackernews\/comments\/2g4kqz\/the_cost_of_my_mothers_cardiac_care_in_the_united\/",
+        "id": "ffedc6ab-6c02-4c9f-a552-90093ac8f9b5",
+        "evidence_record": "https:\/\/evidence.eventdata.crossref.org\/evidence\/201702226e03dbb4-bc2e-46e3-8c1e-d27f2d7fc1e4",
+        "terms": "https:\/\/doi.org\/10.13003\/CED-terms-of-use",
+        "action": "add",
+        "subj": {
+          "pid": "https:\/\/reddit.com\/r\/hackernews\/comments\/2g4kqz\/the_cost_of_my_mothers_cardiac_care_in_the_united\/",
+          "type": "post",
+          "title": "The Cost of My Mother\u2019s Cardiac Care in the United States and India",
+          "issued": "2014-09-11T18:36:47.000Z"
+        },
+        "source_id": "reddit",
+        "obj": {
+          "pid": "https:\/\/doi.org\/10.1370\/afm.1676",
+          "url": "http:\/\/www.annfammed.org\/content\/12\/5\/470.long"
+        },
+        "timestamp": "2017-02-22T16:15:52Z",
+        "relation_type_id": "discusses"
+      }, {
+        "license": "https:\/\/creativecommons.org\/publicdomain\/zero\/1.0\/",
+        "obj_id": "https:\/\/doi.org\/10.1370\/afm.1676",
+        "source_token": "a6c9d511-9239-4de8-a266-b013f5bd8764",
+        "occurred_at": "2014-09-11T18:42:21Z",
+        "subj_id": "https:\/\/reddit.com\/r\/TrueReddit\/comments\/2g4lde\/a_tale_of_2_countries_the_cost_of_my_mothers\/",
+        "id": "fb6e6af0-173f-4bbe-a624-1e12312c74f2",
+        "evidence_record": "https:\/\/evidence.eventdata.crossref.org\/evidence\/201702226e03dbb4-bc2e-46e3-8c1e-d27f2d7fc1e4",
+        "terms": "https:\/\/doi.org\/10.13003\/CED-terms-of-use",
+        "action": "add",
+        "subj": {
+          "pid": "https:\/\/reddit.com\/r\/TrueReddit\/comments\/2g4lde\/a_tale_of_2_countries_the_cost_of_my_mothers\/",
+          "type": "post",
+          "title": "A Tale of 2 Countries: The Cost of My Mother\u2019s Cardiac Care in the United States and India",
+          "issued": "2014-09-11T18:42:21.000Z"
+        },
+        "source_id": "reddit",
+        "obj": {
+          "pid": "https:\/\/doi.org\/10.1370\/afm.1676",
+          "url": "http:\/\/www.annfammed.org\/content\/12\/5\/470.long"
+        },
+        "timestamp": "2017-02-22T16:15:52Z",
+        "relation_type_id": "discusses"
+      }, {
+        "license": "https:\/\/creativecommons.org\/publicdomain\/zero\/1.0\/",
+        "obj_id": "https:\/\/doi.org\/10.1370\/afm.1608",
+        "source_token": "a6c9d511-9239-4de8-a266-b013f5bd8764",
+        "occurred_at": "2014-01-27T15:42:20Z",
+        "subj_id": "https:\/\/reddit.com\/r\/medicine\/comments\/1wa96b\/the_four_pillars_for_primary_care_physician\/",
+        "id": "d1baa381-977f-4ee6-aa8b-1767f8b98cc0",
+        "evidence_record": "https:\/\/evidence.eventdata.crossref.org\/evidence\/201702226e03dbb4-bc2e-46e3-8c1e-d27f2d7fc1e4",
+        "terms": "https:\/\/doi.org\/10.13003\/CED-terms-of-use",
+        "action": "add",
+        "subj": {
+          "pid": "https:\/\/reddit.com\/r\/medicine\/comments\/1wa96b\/the_four_pillars_for_primary_care_physician\/",
+          "type": "post",
+          "title": "THE FOUR PILLARS FOR PRIMARY CARE PHYSICIAN WORKFORCE REFORM: A BLUEPRINT FOR FUTURE ACTIVITY -- 12 (1): 83 --",
+          "issued": "2014-01-27T15:42:20.000Z"
+        },
+        "source_id": "reddit",
+        "obj": {
+          "pid": "https:\/\/doi.org\/10.1370\/afm.1608",
+          "url": "http:\/\/www.annfammed.org\/cgi\/content\/long\/12\/1\/83"
+        },
+        "timestamp": "2017-02-22T16:15:52Z",
+        "relation_type_id": "discusses"
+      }, {
+        "license": "https:\/\/creativecommons.org\/publicdomain\/zero\/1.0\/",
+        "obj_id": "https:\/\/doi.org\/10.1370\/afm.1676",
+        "source_token": "a6c9d511-9239-4de8-a266-b013f5bd8764",
+        "occurred_at": "2014-09-11T19:09:50Z",
+        "subj_id": "https:\/\/reddit.com\/r\/india\/comments\/2g4olu\/a_tale_of_2_countries_the_cost_of_my_mothers\/",
+        "id": "c364f696-b97d-48c4-9708-325c5306de52",
+        "evidence_record": "https:\/\/evidence.eventdata.crossref.org\/evidence\/201702226e03dbb4-bc2e-46e3-8c1e-d27f2d7fc1e4",
+        "terms": "https:\/\/doi.org\/10.13003\/CED-terms-of-use",
+        "action": "add",
+        "subj": {
+          "pid": "https:\/\/reddit.com\/r\/india\/comments\/2g4olu\/a_tale_of_2_countries_the_cost_of_my_mothers\/",
+          "type": "post",
+          "title": "A Tale of 2 Countries: The Cost of My Mother\u2019s Cardiac Care in the United States and India",
+          "issued": "2014-09-11T19:09:50.000Z"
+        },
+        "source_id": "reddit",
+        "obj": {
+          "pid": "https:\/\/doi.org\/10.1370\/afm.1676",
+          "url": "http:\/\/www.annfammed.org\/content\/12\/5\/470.long"
+        },
+        "timestamp": "2017-02-22T16:15:52Z",
+        "relation_type_id": "discusses"
+      }, {
+        "license": "https:\/\/creativecommons.org\/publicdomain\/zero\/1.0\/",
+        "obj_id": "https:\/\/doi.org\/10.1370\/afm.1228",
+        "source_token": "a6c9d511-9239-4de8-a266-b013f5bd8764",
+        "occurred_at": "2014-05-02T14:06:39Z",
+        "subj_id": "https:\/\/reddit.com\/r\/medicine\/comments\/24jixt\/progress_of_ontarios_family_health_team_model_a\/",
+        "id": "ae5f1f43-93fd-464d-9276-2ab25b88c8d9",
+        "evidence_record": "https:\/\/evidence.eventdata.crossref.org\/evidence\/201702226e03dbb4-bc2e-46e3-8c1e-d27f2d7fc1e4",
+        "terms": "https:\/\/doi.org\/10.13003\/CED-terms-of-use",
+        "action": "add",
+        "subj": {
+          "pid": "https:\/\/reddit.com\/r\/medicine\/comments\/24jixt\/progress_of_ontarios_family_health_team_model_a\/",
+          "type": "post",
+          "title": "Progress of Ontario\u2019s Family Health Team Model: A Patient-Centered Medical Home",
+          "issued": "2014-05-02T14:06:39.000Z"
+        },
+        "source_id": "reddit",
+        "obj": {
+          "pid": "https:\/\/doi.org\/10.1370\/afm.1228",
+          "url": "http:\/\/www.annfammed.org\/content\/9\/2\/165.full"
+        },
+        "timestamp": "2017-02-22T16:15:52Z",
+        "relation_type_id": "discusses"
+      }, {
+        "license": "https:\/\/creativecommons.org\/publicdomain\/zero\/1.0\/",
+        "obj_id": "https:\/\/doi.org\/10.1370\/afm.1676",
+        "source_token": "a6c9d511-9239-4de8-a266-b013f5bd8764",
+        "occurred_at": "2014-09-11T18:42:50Z",
+        "subj_id": "https:\/\/reddit.com\/r\/Foodforthought\/comments\/2g4lfi\/a_tale_of_2_countries_the_cost_of_my_mothers\/",
+        "id": "91c8b3fc-5c4a-4c57-88d9-31d2d7b4d964",
+        "evidence_record": "https:\/\/evidence.eventdata.crossref.org\/evidence\/201702226e03dbb4-bc2e-46e3-8c1e-d27f2d7fc1e4",
+        "terms": "https:\/\/doi.org\/10.13003\/CED-terms-of-use",
+        "action": "add",
+        "subj": {
+          "pid": "https:\/\/reddit.com\/r\/Foodforthought\/comments\/2g4lfi\/a_tale_of_2_countries_the_cost_of_my_mothers\/",
+          "type": "post",
+          "title": "A Tale of 2 Countries: The Cost of My Mother\u2019s Cardiac Care in the United States and India",
+          "issued": "2014-09-11T18:42:50.000Z"
+        },
+        "source_id": "reddit",
+        "obj": {
+          "pid": "https:\/\/doi.org\/10.1370\/afm.1676",
+          "url": "http:\/\/www.annfammed.org\/content\/12\/5\/470.long"
+        },
+        "timestamp": "2017-02-22T16:15:52Z",
+        "relation_type_id": "discusses"
+      }, {
+        "license": "https:\/\/creativecommons.org\/publicdomain\/zero\/1.0\/",
+        "obj_id": "https:\/\/doi.org\/10.1370\/afm.1250",
+        "source_token": "a6c9d511-9239-4de8-a266-b013f5bd8764",
+        "occurred_at": "2011-07-12T02:51:37Z",
+        "subj_id": "https:\/\/reddit.com\/r\/reddit.com\/comments\/in0zg\/a_real_study_on_the_placebo_effect_placebo\/",
+        "id": "f51b5ad1-0035-479b-9cda-bed46b56e332",
+        "evidence_record": "https:\/\/evidence.eventdata.crossref.org\/evidence\/201702226e03dbb4-bc2e-46e3-8c1e-d27f2d7fc1e4",
+        "terms": "https:\/\/doi.org\/10.13003\/CED-terms-of-use",
+        "action": "add",
+        "subj": {
+          "pid": "https:\/\/reddit.com\/r\/reddit.com\/comments\/in0zg\/a_real_study_on_the_placebo_effect_placebo\/",
+          "type": "post",
+          "title": "A REAL study on the \"Placebo Effect\" - Placebo Effects and the Common Cold: A Randomized Controlled Trial",
+          "issued": "2011-07-12T02:51:37.000Z"
+        },
+        "source_id": "reddit",
+        "obj": {
+          "pid": "https:\/\/doi.org\/10.1370\/afm.1250",
+          "url": "http:\/\/www.annfammed.org\/cgi\/content\/full\/9\/4\/312"
+        },
+        "timestamp": "2017-02-22T16:15:53Z",
+        "relation_type_id": "discusses"
+      }, {
+        "license": "https:\/\/creativecommons.org\/publicdomain\/zero\/1.0\/",
+        "obj_id": "https:\/\/doi.org\/10.1370\/afm.693",
+        "source_token": "a6c9d511-9239-4de8-a266-b013f5bd8764",
+        "occurred_at": "2007-03-28T19:14:44Z",
+        "subj_id": "https:\/\/reddit.com\/r\/reddit.com\/comments\/1dk30\/time_to_ban_directtoconsumer_prescription\/",
+        "id": "7180c2e4-a522-4d4a-b3dd-b4cf8b393759",
+        "evidence_record": "https:\/\/evidence.eventdata.crossref.org\/evidence\/201702226e03dbb4-bc2e-46e3-8c1e-d27f2d7fc1e4",
+        "terms": "https:\/\/doi.org\/10.13003\/CED-terms-of-use",
+        "action": "add",
+        "subj": {
+          "pid": "https:\/\/reddit.com\/r\/reddit.com\/comments\/1dk30\/time_to_ban_directtoconsumer_prescription\/",
+          "type": "post",
+          "title": "Time to Ban Direct-to-Consumer Prescription Advertising",
+          "issued": "2007-03-28T19:14:44.000Z"
+        },
+        "source_id": "reddit",
+        "obj": {
+          "pid": "https:\/\/doi.org\/10.1370\/afm.693",
+          "url": "http:\/\/www.annfammed.org\/cgi\/content\/full\/5\/2\/101"
+        },
+        "timestamp": "2017-02-22T16:15:53Z",
+        "relation_type_id": "discusses"
+      }, {
+        "license": "https:\/\/creativecommons.org\/publicdomain\/zero\/1.0\/",
+        "obj_id": "https:\/\/doi.org\/10.1370\/afm.1348",
+        "source_token": "a6c9d511-9239-4de8-a266-b013f5bd8764",
+        "occurred_at": "2012-03-13T22:36:43Z",
+        "subj_id": "https:\/\/reddit.com\/r\/news\/comments\/qv8in\/who_will_have_health_insurance_in_the_future_an\/",
+        "id": "310e70f5-edc6-475f-acdb-a5cc12b76993",
+        "evidence_record": "https:\/\/evidence.eventdata.crossref.org\/evidence\/201702226e03dbb4-bc2e-46e3-8c1e-d27f2d7fc1e4",
+        "terms": "https:\/\/doi.org\/10.13003\/CED-terms-of-use",
+        "action": "add",
+        "subj": {
+          "pid": "https:\/\/reddit.com\/r\/news\/comments\/qv8in\/who_will_have_health_insurance_in_the_future_an\/",
+          "type": "post",
+          "title": "Who Will Have Health Insurance in the Future? An Updated Projection",
+          "issued": "2012-03-13T22:36:43.000Z"
+        },
+        "source_id": "reddit",
+        "obj": {
+          "pid": "https:\/\/doi.org\/10.1370\/afm.1348",
+          "url": "http:\/\/www.annfammed.org\/content\/10\/2\/156.full.pdf+html"
+        },
+        "timestamp": "2017-02-22T16:15:53Z",
+        "relation_type_id": "discusses"
+      }, {
+        "license": "https:\/\/creativecommons.org\/publicdomain\/zero\/1.0\/",
+        "obj_id": "https:\/\/doi.org\/10.1016\/j.chest.2016.08.1473",
+        "source_token": "a6c9d511-9239-4de8-a266-b013f5bd8764",
+        "occurred_at": "2017-02-01T03:56:58Z",
+        "subj_id": "https:\/\/reddit.com\/r\/pulmcrit\/comments\/5rdazp\/macitentan_improves_health_related_quality_of\/",
+        "id": "c94895e9-ca1d-445c-b457-47591b2fdd57",
+        "evidence_record": "https:\/\/evidence.eventdata.crossref.org\/evidence\/2017022214e8d2e9-5da9-428a-a256-c59ed9e696ee",
+        "terms": "https:\/\/doi.org\/10.13003\/CED-terms-of-use",
+        "action": "add",
+        "subj": {
+          "pid": "https:\/\/reddit.com\/r\/pulmcrit\/comments\/5rdazp\/macitentan_improves_health_related_quality_of\/",
+          "type": "post",
+          "title": "Macitentan Improves Health Related Quality of Life in patients with Pulmonary Arterial Hypertension",
+          "issued": "2017-02-01T03:56:58.000Z"
+        },
+        "source_id": "reddit",
+        "obj": {
+          "pid": "https:\/\/doi.org\/10.1016\/j.chest.2016.08.1473",
+          "url": "http:\/\/journal.publications.chestnet.org\/article.aspx?articleid=2564471&amp;resultClick=3"
+        },
+        "timestamp": "2017-02-22T16:16:52Z",
+        "relation_type_id": "discusses"
+      }, {
+        "license": "https:\/\/creativecommons.org\/publicdomain\/zero\/1.0\/",
+        "obj_id": "https:\/\/doi.org\/10.1016\/j.chest.2016.08.829",
+        "source_token": "a6c9d511-9239-4de8-a266-b013f5bd8764",
+        "occurred_at": "2016-10-26T07:34:03Z",
+        "subj_id": "https:\/\/reddit.com\/r\/nsclc\/comments\/59gb01\/a_blood_based_nonsmall_cell_lung_cancer_diagnostic\/",
+        "id": "be7b4460-f344-4f01-92a6-026729466a7c",
+        "evidence_record": "https:\/\/evidence.eventdata.crossref.org\/evidence\/2017022214e8d2e9-5da9-428a-a256-c59ed9e696ee",
+        "terms": "https:\/\/doi.org\/10.13003\/CED-terms-of-use",
+        "action": "add",
+        "subj": {
+          "pid": "https:\/\/reddit.com\/r\/nsclc\/comments\/59gb01\/a_blood_based_nonsmall_cell_lung_cancer_diagnostic\/",
+          "type": "post",
+          "title": "A Blood Based Non-small Cell Lung Cancer Diagnostic",
+          "issued": "2016-10-26T07:34:03.000Z"
+        },
+        "source_id": "reddit",
+        "obj": {
+          "pid": "https:\/\/doi.org\/10.1016\/j.chest.2016.08.829",
+          "url": "http:\/\/journal.publications.chestnet.org\/article.aspx?articleid=2568449"
+        },
+        "timestamp": "2017-02-22T16:16:53Z",
+        "relation_type_id": "discusses"
+      }, {
+        "license": "https:\/\/creativecommons.org\/publicdomain\/zero\/1.0\/",
+        "obj_id": "https:\/\/doi.org\/10.1016\/j.chest.2016.08.1083",
+        "source_token": "a6c9d511-9239-4de8-a266-b013f5bd8764",
+        "occurred_at": "2016-10-26T07:16:56Z",
+        "subj_id": "https:\/\/reddit.com\/r\/nsclc\/comments\/59g93x\/pulmonary_fellows_and_the_2tube_approach_for\/",
+        "id": "b6ce32c1-8553-404d-82ec-6d5e5a794ca3",
+        "evidence_record": "https:\/\/evidence.eventdata.crossref.org\/evidence\/2017022214e8d2e9-5da9-428a-a256-c59ed9e696ee",
+        "terms": "https:\/\/doi.org\/10.13003\/CED-terms-of-use",
+        "action": "add",
+        "subj": {
+          "pid": "https:\/\/reddit.com\/r\/nsclc\/comments\/59g93x\/pulmonary_fellows_and_the_2tube_approach_for\/",
+          "type": "post",
+          "title": "Pulmonary Fellows and the 2-Tube Approach for Mediasinal Staging of Non-small Cell Lung Cancer",
+          "issued": "2016-10-26T07:16:56.000Z"
+        },
+        "source_id": "reddit",
+        "obj": {
+          "pid": "https:\/\/doi.org\/10.1016\/j.chest.2016.08.1083",
+          "url": "http:\/\/journal.publications.chestnet.org\/article.aspx?articleid=2568692"
+        },
+        "timestamp": "2017-02-22T16:16:53Z",
+        "relation_type_id": "discusses"
+      }, {
+        "license": "https:\/\/creativecommons.org\/publicdomain\/zero\/1.0\/",
+        "obj_id": "https:\/\/doi.org\/10.1016\/j.chest.2016.08.800",
+        "source_token": "a6c9d511-9239-4de8-a266-b013f5bd8764",
+        "occurred_at": "2016-10-26T07:18:00Z",
+        "subj_id": "https:\/\/reddit.com\/r\/nsclc\/comments\/59g983\/the_impact_of_preoperative_diffusing_capacity_on\/",
+        "id": "91e7986f-850d-4ce8-b509-7aac9b3303f1",
+        "evidence_record": "https:\/\/evidence.eventdata.crossref.org\/evidence\/2017022214e8d2e9-5da9-428a-a256-c59ed9e696ee",
+        "terms": "https:\/\/doi.org\/10.13003\/CED-terms-of-use",
+        "action": "add",
+        "subj": {
+          "pid": "https:\/\/reddit.com\/r\/nsclc\/comments\/59g983\/the_impact_of_preoperative_diffusing_capacity_on\/",
+          "type": "post",
+          "title": "The Impact of Preoperative Diffusing Capacity on Prediction of Postoperative Life-Threatening Complications and Long-term Survival in Clinical Stage I Non-small Cell Lung Cancer",
+          "issued": "2016-10-26T07:18:00.000Z"
+        },
+        "source_id": "reddit",
+        "obj": {
+          "pid": "https:\/\/doi.org\/10.1016\/j.chest.2016.08.800",
+          "url": "http:\/\/journal.publications.chestnet.org\/article.aspx?articleid=2568420"
+        },
+        "timestamp": "2017-02-22T16:16:53Z",
+        "relation_type_id": "discusses"
+      }, {
+        "license": "https:\/\/creativecommons.org\/publicdomain\/zero\/1.0\/",
+        "obj_id": "https:\/\/doi.org\/10.1016\/j.chest.2016.01.032",
+        "source_token": "a6c9d511-9239-4de8-a266-b013f5bd8764",
+        "occurred_at": "2017-01-26T06:44:11Z",
+        "subj_id": "https:\/\/reddit.com\/r\/nsclc\/comments\/5q8uk5\/adjuvant_epithelial_growth_factor_receptor\/",
+        "id": "345b3799-f5e7-48f8-a0a8-2f68e8bcfb4a",
+        "evidence_record": "https:\/\/evidence.eventdata.crossref.org\/evidence\/2017022214e8d2e9-5da9-428a-a256-c59ed9e696ee",
+        "terms": "https:\/\/doi.org\/10.13003\/CED-terms-of-use",
+        "action": "add",
+        "subj": {
+          "pid": "https:\/\/reddit.com\/r\/nsclc\/comments\/5q8uk5\/adjuvant_epithelial_growth_factor_receptor\/",
+          "type": "post",
+          "title": "Adjuvant Epithelial Growth Factor Receptor Tyrosine Kinase Inhibitors in Lung Cancer: Yes, No, Maybe So?",
+          "issued": "2017-01-26T06:44:11.000Z"
+        },
+        "source_id": "reddit",
+        "obj": {
+          "pid": "https:\/\/doi.org\/10.1016\/j.chest.2016.01.032",
+          "url": "http:\/\/journal.publications.chestnet.org\/article.aspx?articleid=2526884"
+        },
+        "timestamp": "2017-02-22T16:16:53Z",
+        "relation_type_id": "discusses"
+      }, {
+        "license": "https:\/\/creativecommons.org\/publicdomain\/zero\/1.0\/",
+        "obj_id": "https:\/\/doi.org\/10.1016\/j.chest.2016.10.039",
+        "source_token": "a6c9d511-9239-4de8-a266-b013f5bd8764",
+        "occurred_at": "2016-12-13T01:15:14Z",
+        "subj_id": "https:\/\/reddit.com\/r\/emergencymedicine\/comments\/5i0n5d\/ultrasound_to_diagnose_pneumonia_mounting\/",
+        "id": "2ad15a3f-b3a8-479c-951b-16bfe476e873",
+        "evidence_record": "https:\/\/evidence.eventdata.crossref.org\/evidence\/2017022214e8d2e9-5da9-428a-a256-c59ed9e696ee",
+        "terms": "https:\/\/doi.org\/10.13003\/CED-terms-of-use",
+        "action": "add",
+        "subj": {
+          "pid": "https:\/\/reddit.com\/r\/emergencymedicine\/comments\/5i0n5d\/ultrasound_to_diagnose_pneumonia_mounting\/",
+          "type": "post",
+          "title": "Ultrasound to diagnose pneumonia. Mounting Evidence!!! Published in CHEST",
+          "issued": "2016-12-13T01:15:14.000Z"
+        },
+        "source_id": "reddit",
+        "obj": {
+          "pid": "https:\/\/doi.org\/10.1016\/j.chest.2016.10.039",
+          "url": "http:\/\/journal.publications.chestnet.org\/article.aspx?articleid=2583280#.WE85Reqx1IM.twitter"
+        },
+        "timestamp": "2017-02-22T16:16:53Z",
+        "relation_type_id": "discusses"
+      }, {
+        "license": "https:\/\/creativecommons.org\/publicdomain\/zero\/1.0\/",
+        "obj_id": "https:\/\/doi.org\/10.1016\/j.chest.2016.08.808",
+        "source_token": "a6c9d511-9239-4de8-a266-b013f5bd8764",
+        "occurred_at": "2016-10-26T07:25:13Z",
+        "subj_id": "https:\/\/reddit.com\/r\/nsclc\/comments\/59g9zh\/time_to_followup_treatment_of_photodynamic\/",
+        "id": "22c99d28-252d-4a17-baec-cc2102c3b3a9",
+        "evidence_record": "https:\/\/evidence.eventdata.crossref.org\/evidence\/2017022214e8d2e9-5da9-428a-a256-c59ed9e696ee",
+        "terms": "https:\/\/doi.org\/10.13003\/CED-terms-of-use",
+        "action": "add",
+        "subj": {
+          "pid": "https:\/\/reddit.com\/r\/nsclc\/comments\/59g9zh\/time_to_followup_treatment_of_photodynamic\/",
+          "type": "post",
+          "title": "Time to Follow-up Treatment of Photodynamic Therapy in Patients With Non-small Cell Lung Cancer",
+          "issued": "2016-10-26T07:25:13.000Z"
+        },
+        "source_id": "reddit",
+        "obj": {
+          "pid": "https:\/\/doi.org\/10.1016\/j.chest.2016.08.808",
+          "url": "http:\/\/journal.publications.chestnet.org\/article.aspx?articleid=2568428#"
+        },
+        "timestamp": "2017-02-22T16:16:53Z",
+        "relation_type_id": "discusses"
+      }, {
+        "license": "https:\/\/creativecommons.org\/publicdomain\/zero\/1.0\/",
+        "obj_id": "https:\/\/doi.org\/10.1016\/j.chest.2016.08.814",
+        "source_token": "a6c9d511-9239-4de8-a266-b013f5bd8764",
+        "occurred_at": "2016-10-26T07:17:26Z",
+        "subj_id": "https:\/\/reddit.com\/r\/nsclc\/comments\/59g95v\/comparative_analysis_of_realtime_liquid_biopsy_in\/",
+        "id": "096c58f4-e83d-47ea-b6df-503f217808fa",
+        "evidence_record": "https:\/\/evidence.eventdata.crossref.org\/evidence\/2017022214e8d2e9-5da9-428a-a256-c59ed9e696ee",
+        "terms": "https:\/\/doi.org\/10.13003\/CED-terms-of-use",
+        "action": "add",
+        "subj": {
+          "pid": "https:\/\/reddit.com\/r\/nsclc\/comments\/59g95v\/comparative_analysis_of_realtime_liquid_biopsy_in\/",
+          "type": "post",
+          "title": "Comparative Analysis of Real-Time Liquid Biopsy in Non-small Cell Lung Cancer",
+          "issued": "2016-10-26T07:17:26.000Z"
+        },
+        "source_id": "reddit",
+        "obj": {
+          "pid": "https:\/\/doi.org\/10.1016\/j.chest.2016.08.814",
+          "url": "http:\/\/journal.publications.chestnet.org\/article.aspx?articleid=2568434"
+        },
+        "timestamp": "2017-02-22T16:16:53Z",
+        "relation_type_id": "discusses"
+      }, {
+        "license": "https:\/\/creativecommons.org\/publicdomain\/zero\/1.0\/",
+        "obj_id": "https:\/\/doi.org\/10.1016\/j.chest.2016.08.797",
+        "source_token": "a6c9d511-9239-4de8-a266-b013f5bd8764",
+        "occurred_at": "2016-10-22T21:22:49Z",
+        "subj_id": "https:\/\/reddit.com\/r\/nsclc\/comments\/58vatl\/gene_expression_profiling_of_nonsmall_cell_lung\/",
+        "id": "e8f1d39b-6fa8-4bf1-9e8e-3768946dd9f4",
+        "evidence_record": "https:\/\/evidence.eventdata.crossref.org\/evidence\/2017022214e8d2e9-5da9-428a-a256-c59ed9e696ee",
+        "terms": "https:\/\/doi.org\/10.13003\/CED-terms-of-use",
+        "action": "add",
+        "subj": {
+          "pid": "https:\/\/reddit.com\/r\/nsclc\/comments\/58vatl\/gene_expression_profiling_of_nonsmall_cell_lung\/",
+          "type": "post",
+          "title": "Gene Expression Profiling of Non-small Cell Lung Cancer With Endobronchial Ultrasound-Guided Transbronchial Needle Aspiration",
+          "issued": "2016-10-22T21:22:49.000Z"
+        },
+        "source_id": "reddit",
+        "obj": {
+          "pid": "https:\/\/doi.org\/10.1016\/j.chest.2016.08.797",
+          "url": "http:\/\/journal.publications.chestnet.org\/article.aspx?articleid=2568417"
+        },
+        "timestamp": "2017-02-22T16:16:54Z",
+        "relation_type_id": "discusses"
+      }, {
+        "license": "https:\/\/creativecommons.org\/publicdomain\/zero\/1.0\/",
+        "obj_id": "https:\/\/doi.org\/10.1016\/j.chest.2016.08.821",
+        "source_token": "a6c9d511-9239-4de8-a266-b013f5bd8764",
+        "occurred_at": "2016-10-22T21:27:14Z",
+        "subj_id": "https:\/\/reddit.com\/r\/nsclc\/comments\/58vbl1\/pulmonary_function_or_individual_susceptibility\/",
+        "id": "bae50281-7d21-453e-a54b-997ff90130be",
+        "evidence_record": "https:\/\/evidence.eventdata.crossref.org\/evidence\/2017022214e8d2e9-5da9-428a-a256-c59ed9e696ee",
+        "terms": "https:\/\/doi.org\/10.13003\/CED-terms-of-use",
+        "action": "add",
+        "subj": {
+          "pid": "https:\/\/reddit.com\/r\/nsclc\/comments\/58vbl1\/pulmonary_function_or_individual_susceptibility\/",
+          "type": "post",
+          "title": "Pulmonary Function or Individual Susceptibility to Pack-Years Is an Independent Prognostic Factor in Non-small Cell Lung Cancer Patients",
+          "issued": "2016-10-22T21:27:14.000Z"
+        },
+        "source_id": "reddit",
+        "obj": {
+          "pid": "https:\/\/doi.org\/10.1016\/j.chest.2016.08.821",
+          "url": "http:\/\/journal.publications.chestnet.org\/article.aspx?articleid=2568441"
+        },
+        "timestamp": "2017-02-22T16:16:54Z",
+        "relation_type_id": "discusses"
+      }, {
+        "license": "https:\/\/creativecommons.org\/publicdomain\/zero\/1.0\/",
+        "obj_id": "https:\/\/doi.org\/10.1016\/j.chest.2016.08.041",
+        "source_token": "a6c9d511-9239-4de8-a266-b013f5bd8764",
+        "occurred_at": "2016-10-22T21:22:17Z",
+        "subj_id": "https:\/\/reddit.com\/r\/nsclc\/comments\/58vaqe\/electromagnetic_navigational_bronchoscopy_for\/",
+        "id": "b1e1d61e-38da-43c2-979c-28e32a11f00e",
+        "evidence_record": "https:\/\/evidence.eventdata.crossref.org\/evidence\/2017022214e8d2e9-5da9-428a-a256-c59ed9e696ee",
+        "terms": "https:\/\/doi.org\/10.13003\/CED-terms-of-use",
+        "action": "add",
+        "subj": {
+          "pid": "https:\/\/reddit.com\/r\/nsclc\/comments\/58vaqe\/electromagnetic_navigational_bronchoscopy_for\/",
+          "type": "post",
+          "title": "Electromagnetic Navigational Bronchoscopy for Non-small Cell Lung Cancer: Clinical and Radiographic Factors Predicting Successful Diagnosis",
+          "issued": "2016-10-22T21:22:17.000Z"
+        },
+        "source_id": "reddit",
+        "obj": {
+          "pid": "https:\/\/doi.org\/10.1016\/j.chest.2016.08.041",
+          "url": "http:\/\/journal.publications.chestnet.org\/article.aspx?articleid=2567749"
+        },
+        "timestamp": "2017-02-22T16:16:54Z",
+        "relation_type_id": "discusses"
+      }, {
+        "license": "https:\/\/creativecommons.org\/publicdomain\/zero\/1.0\/",
+        "obj_id": "https:\/\/doi.org\/10.1016\/j.chest.2016.08.818",
+        "source_token": "a6c9d511-9239-4de8-a266-b013f5bd8764",
+        "occurred_at": "2016-10-26T07:15:25Z",
+        "subj_id": "https:\/\/reddit.com\/r\/nsclc\/comments\/59g8x9\/frequency_of_mutations_with_availability_of\/",
+        "id": "ab2e9c56-7fc4-4ec2-8621-8c275ab47694",
+        "evidence_record": "https:\/\/evidence.eventdata.crossref.org\/evidence\/2017022214e8d2e9-5da9-428a-a256-c59ed9e696ee",
+        "terms": "https:\/\/doi.org\/10.13003\/CED-terms-of-use",
+        "action": "add",
+        "subj": {
+          "pid": "https:\/\/reddit.com\/r\/nsclc\/comments\/59g8x9\/frequency_of_mutations_with_availability_of\/",
+          "type": "post",
+          "title": "Frequency of Mutations With Availability of Targeted Therapies in Non-small Cell Lung Cancer (NSCLC) in Patients in Central California",
+          "issued": "2016-10-26T07:15:25.000Z"
+        },
+        "source_id": "reddit",
+        "obj": {
+          "pid": "https:\/\/doi.org\/10.1016\/j.chest.2016.08.818",
+          "url": "http:\/\/journal.publications.chestnet.org\/article.aspx?articleid=2568438"
+        },
+        "timestamp": "2017-02-22T16:16:54Z",
+        "relation_type_id": "discusses"
+      }, {
+        "license": "https:\/\/creativecommons.org\/publicdomain\/zero\/1.0\/",
+        "obj_id": "https:\/\/doi.org\/10.1016\/j.chest.2016.08.820",
+        "source_token": "a6c9d511-9239-4de8-a266-b013f5bd8764",
+        "occurred_at": "2016-10-26T07:15:54Z",
+        "subj_id": "https:\/\/reddit.com\/r\/nsclc\/comments\/59g8zg\/assessing_utility_of_bloodbased_predictive_and\/",
+        "id": "94fa6eae-0daf-408a-bdf9-a3a7e17ddf3e",
+        "evidence_record": "https:\/\/evidence.eventdata.crossref.org\/evidence\/2017022214e8d2e9-5da9-428a-a256-c59ed9e696ee",
+        "terms": "https:\/\/doi.org\/10.13003\/CED-terms-of-use",
+        "action": "add",
+        "subj": {
+          "pid": "https:\/\/reddit.com\/r\/nsclc\/comments\/59g8zg\/assessing_utility_of_bloodbased_predictive_and\/",
+          "type": "post",
+          "title": "Assessing Utility of Blood-Based Predictive and Prognostic Proteomic Test in Patient Non-small Cell Lung Cancer",
+          "issued": "2016-10-26T07:15:54.000Z"
+        },
+        "source_id": "reddit",
+        "obj": {
+          "pid": "https:\/\/doi.org\/10.1016\/j.chest.2016.08.820",
+          "url": "http:\/\/journal.publications.chestnet.org\/article.aspx?articleid=2568440"
+        },
+        "timestamp": "2017-02-22T16:16:54Z",
+        "relation_type_id": "discusses"
+      }, {
+        "license": "https:\/\/creativecommons.org\/publicdomain\/zero\/1.0\/",
+        "obj_id": "https:\/\/doi.org\/10.1016\/j.chest.2016.08.856",
+        "source_token": "a6c9d511-9239-4de8-a266-b013f5bd8764",
+        "occurred_at": "2016-10-22T21:21:56Z",
+        "subj_id": "https:\/\/reddit.com\/r\/nsclc\/comments\/58vao0\/a_rare_case_of_pericardial_tamponade_as_the\/",
+        "id": "0ca01185-ff7c-411d-a582-f627f6c53463",
+        "evidence_record": "https:\/\/evidence.eventdata.crossref.org\/evidence\/2017022214e8d2e9-5da9-428a-a256-c59ed9e696ee",
+        "terms": "https:\/\/doi.org\/10.13003\/CED-terms-of-use",
+        "action": "add",
+        "subj": {
+          "pid": "https:\/\/reddit.com\/r\/nsclc\/comments\/58vao0\/a_rare_case_of_pericardial_tamponade_as_the\/",
+          "type": "post",
+          "title": "A Rare Case of Pericardial Tamponade as the Initial Presentation of Metastatic Non-small Cell Lung\u00c2 Cancer",
+          "issued": "2016-10-22T21:21:56.000Z"
+        },
+        "source_id": "reddit",
+        "obj": {
+          "pid": "https:\/\/doi.org\/10.1016\/j.chest.2016.08.856",
+          "url": "http:\/\/journal.publications.chestnet.org\/article.aspx?articleid=2568476"
+        },
+        "timestamp": "2017-02-22T16:16:54Z",
+        "relation_type_id": "discusses"
+      }, {
+        "license": "https:\/\/creativecommons.org\/publicdomain\/zero\/1.0\/",
+        "obj_id": "https:\/\/doi.org\/10.1016\/j.chest.2016.08.802",
+        "source_token": "a6c9d511-9239-4de8-a266-b013f5bd8764",
+        "occurred_at": "2016-10-22T21:20:10Z",
+        "subj_id": "https:\/\/reddit.com\/r\/nsclc\/comments\/58vad6\/endobronchial_ultrasoundguided_transbronchial\/",
+        "id": "ed84b33c-1b92-445d-a62d-b7b0f7c1bac1",
+        "evidence_record": "https:\/\/evidence.eventdata.crossref.org\/evidence\/2017022214e8d2e9-5da9-428a-a256-c59ed9e696ee",
+        "terms": "https:\/\/doi.org\/10.13003\/CED-terms-of-use",
+        "action": "add",
+        "subj": {
+          "pid": "https:\/\/reddit.com\/r\/nsclc\/comments\/58vad6\/endobronchial_ultrasoundguided_transbronchial\/",
+          "type": "post",
+          "title": "Endobronchial Ultrasound-Guided Transbronchial Needle Aspiration Use for the Subclassification and Genotyping of Non-small Cell Lung Cancer",
+          "issued": "2016-10-22T21:20:10.000Z"
+        },
+        "source_id": "reddit",
+        "obj": {
+          "pid": "https:\/\/doi.org\/10.1016\/j.chest.2016.08.802",
+          "url": "http:\/\/journal.publications.chestnet.org\/article.aspx?articleid=2568422"
+        },
+        "timestamp": "2017-02-22T16:16:55Z",
+        "relation_type_id": "discusses"
+      }, {
+        "license": "https:\/\/creativecommons.org\/publicdomain\/zero\/1.0\/",
+        "obj_id": "https:\/\/doi.org\/10.1016\/j.chest.2016.02.292",
+        "source_token": "a6c9d511-9239-4de8-a266-b013f5bd8764",
+        "occurred_at": "2016-04-14T20:53:24Z",
+        "subj_id": "https:\/\/reddit.com\/r\/nsclc\/comments\/4et96w\/personalized_therapy_with_genetic_susceptibility\/",
+        "id": "d7504833-aa15-4961-b83e-28376898d41e",
+        "evidence_record": "https:\/\/evidence.eventdata.crossref.org\/evidence\/2017022214e8d2e9-5da9-428a-a256-c59ed9e696ee",
+        "terms": "https:\/\/doi.org\/10.13003\/CED-terms-of-use",
+        "action": "add",
+        "subj": {
+          "pid": "https:\/\/reddit.com\/r\/nsclc\/comments\/4et96w\/personalized_therapy_with_genetic_susceptibility\/",
+          "type": "post",
+          "title": "Personalized Therapy With Genetic Susceptibility to Advanced Non-small Cell Lung Cancer",
+          "issued": "2016-04-14T20:53:24.000Z"
+        },
+        "source_id": "reddit",
+        "obj": {
+          "pid": "https:\/\/doi.org\/10.1016\/j.chest.2016.02.292",
+          "url": "http:\/\/journal.publications.chestnet.org\/article.aspx?articleid=2511682"
+        },
+        "timestamp": "2017-02-22T16:16:55Z",
+        "relation_type_id": "discusses"
+      }, {
+        "license": "https:\/\/creativecommons.org\/publicdomain\/zero\/1.0\/",
+        "obj_id": "https:\/\/doi.org\/10.1016\/j.chest.2016.02.268",
+        "source_token": "a6c9d511-9239-4de8-a266-b013f5bd8764",
+        "occurred_at": "2016-04-14T20:53:00Z",
+        "subj_id": "https:\/\/reddit.com\/r\/nsclc\/comments\/4et94w\/antisense_long_noncoding_rna_loc285194_is\/",
+        "id": "7f7b40cc-0590-460d-8b4a-1715a65c4ceb",
+        "evidence_record": "https:\/\/evidence.eventdata.crossref.org\/evidence\/2017022214e8d2e9-5da9-428a-a256-c59ed9e696ee",
+        "terms": "https:\/\/doi.org\/10.13003\/CED-terms-of-use",
+        "action": "add",
+        "subj": {
+          "pid": "https:\/\/reddit.com\/r\/nsclc\/comments\/4et94w\/antisense_long_noncoding_rna_loc285194_is\/",
+          "type": "post",
+          "title": "Antisense Long Noncoding RNA LOC285194 is Downregulated in NSCLC and Associated With Poor Prognosis",
+          "issued": "2016-04-14T20:53:00.000Z"
+        },
+        "source_id": "reddit",
+        "obj": {
+          "pid": "https:\/\/doi.org\/10.1016\/j.chest.2016.02.268",
+          "url": "http:\/\/journal.publications.chestnet.org\/article.aspx?articleid=2511658"
+        },
+        "timestamp": "2017-02-22T16:16:55Z",
+        "relation_type_id": "discusses"
+      }, {
+        "license": "https:\/\/creativecommons.org\/publicdomain\/zero\/1.0\/",
+        "obj_id": "https:\/\/doi.org\/10.1016\/j.chest.2016.08.1417",
+        "source_token": "a6c9d511-9239-4de8-a266-b013f5bd8764",
+        "occurred_at": "2016-10-18T12:18:30Z",
+        "subj_id": "https:\/\/reddit.com\/r\/electronic_cigarette\/comments\/583g5e\/chest_physicians_mostly_lung_docs_survey_shows\/",
+        "id": "6c092db2-19c7-4dd1-a012-dda01d23a25f",
+        "evidence_record": "https:\/\/evidence.eventdata.crossref.org\/evidence\/2017022214e8d2e9-5da9-428a-a256-c59ed9e696ee",
+        "terms": "https:\/\/doi.org\/10.13003\/CED-terms-of-use",
+        "action": "add",
+        "subj": {
+          "pid": "https:\/\/reddit.com\/r\/electronic_cigarette\/comments\/583g5e\/chest_physicians_mostly_lung_docs_survey_shows\/",
+          "type": "post",
+          "title": "CHEST Physicians (mostly lung docs) survey shows that 84% are asked about vaping, but 3\/4 of the docs think it's harmful and not as effective as FDA approved quitting methods",
+          "issued": "2016-10-18T12:18:30.000Z"
+        },
+        "source_id": "reddit",
+        "obj": {
+          "pid": "https:\/\/doi.org\/10.1016\/j.chest.2016.08.1417",
+          "url": "http:\/\/journal.publications.chestnet.org\/article.aspx?articleID=2569017"
+        },
+        "timestamp": "2017-02-22T16:16:55Z",
+        "relation_type_id": "discusses"
+      }, {
+        "license": "https:\/\/creativecommons.org\/publicdomain\/zero\/1.0\/",
+        "obj_id": "https:\/\/doi.org\/10.1016\/j.chest.2016.02.302",
+        "source_token": "a6c9d511-9239-4de8-a266-b013f5bd8764",
+        "occurred_at": "2016-04-14T20:48:22Z",
+        "subj_id": "https:\/\/reddit.com\/r\/nsclc\/comments\/4et8fp\/higher_expression_of_mdig_related_to_mir190\/",
+        "id": "6a370e20-7002-433b-ad6d-de08c0285e9e",
+        "evidence_record": "https:\/\/evidence.eventdata.crossref.org\/evidence\/2017022214e8d2e9-5da9-428a-a256-c59ed9e696ee",
+        "terms": "https:\/\/doi.org\/10.13003\/CED-terms-of-use",
+        "action": "add",
+        "subj": {
+          "pid": "https:\/\/reddit.com\/r\/nsclc\/comments\/4et8fp\/higher_expression_of_mdig_related_to_mir190\/",
+          "type": "post",
+          "title": "Higher Expression of Mdig Related to miR-190 Overexpression in Lung Cancer Patients.",
+          "issued": "2016-04-14T20:48:22.000Z"
+        },
+        "source_id": "reddit",
+        "obj": {
+          "pid": "https:\/\/doi.org\/10.1016\/j.chest.2016.02.302",
+          "url": "http:\/\/journal.publications.chestnet.org\/article.aspx?articleid=2511692"
+        },
+        "timestamp": "2017-02-22T16:16:55Z",
+        "relation_type_id": "discusses"
+      }, {
+        "license": "https:\/\/creativecommons.org\/publicdomain\/zero\/1.0\/",
+        "obj_id": "https:\/\/doi.org\/10.1016\/j.chest.2016.02.320",
+        "source_token": "a6c9d511-9239-4de8-a266-b013f5bd8764",
+        "occurred_at": "2016-04-14T20:49:45Z",
+        "subj_id": "https:\/\/reddit.com\/r\/nsclc\/comments\/4et8n8\/effects_and_mechanisms_of_lncrna_rp11366l203_on\/",
+        "id": "67d1ec61-f05c-4916-9d51-1231fe955e4b",
+        "evidence_record": "https:\/\/evidence.eventdata.crossref.org\/evidence\/2017022214e8d2e9-5da9-428a-a256-c59ed9e696ee",
+        "terms": "https:\/\/doi.org\/10.13003\/CED-terms-of-use",
+        "action": "add",
+        "subj": {
+          "pid": "https:\/\/reddit.com\/r\/nsclc\/comments\/4et8n8\/effects_and_mechanisms_of_lncrna_rp11366l203_on\/",
+          "type": "post",
+          "title": "Effects and Mechanisms of lncRNA RP11-366L20.3 on Non-small Cell Lung Cancer Metastasis",
+          "issued": "2016-04-14T20:49:45.000Z"
+        },
+        "source_id": "reddit",
+        "obj": {
+          "pid": "https:\/\/doi.org\/10.1016\/j.chest.2016.02.320",
+          "url": "http:\/\/journal.publications.chestnet.org\/article.aspx?articleid=2511715"
+        },
+        "timestamp": "2017-02-22T16:16:55Z",
+        "relation_type_id": "discusses"
+      }, {
+        "license": "https:\/\/creativecommons.org\/publicdomain\/zero\/1.0\/",
+        "obj_id": "https:\/\/doi.org\/10.1016\/j.chest.2016.02.344",
+        "source_token": "a6c9d511-9239-4de8-a266-b013f5bd8764",
+        "occurred_at": "2016-04-14T20:52:32Z",
+        "subj_id": "https:\/\/reddit.com\/r\/nsclc\/comments\/4et92u\/the_impact_of_precision_egfr_mutation_detection\/",
+        "id": "291c273f-b993-4bca-b4ed-34788872457b",
+        "evidence_record": "https:\/\/evidence.eventdata.crossref.org\/evidence\/2017022214e8d2e9-5da9-428a-a256-c59ed9e696ee",
+        "terms": "https:\/\/doi.org\/10.13003\/CED-terms-of-use",
+        "action": "add",
+        "subj": {
+          "pid": "https:\/\/reddit.com\/r\/nsclc\/comments\/4et92u\/the_impact_of_precision_egfr_mutation_detection\/",
+          "type": "post",
+          "title": "The Impact of Precision EGFR Mutation Detection on the Treatment Patterns and Outcomes of Patients With Non-small Cell Lung Cancer (NSCLC): A Real-World Study in China",
+          "issued": "2016-04-14T20:52:32.000Z"
+        },
+        "source_id": "reddit",
+        "obj": {
+          "pid": "https:\/\/doi.org\/10.1016\/j.chest.2016.02.344",
+          "url": "http:\/\/journal.publications.chestnet.org\/article.aspx?articleid=2511739"
+        },
+        "timestamp": "2017-02-22T16:16:55Z",
+        "relation_type_id": "discusses"
+      }, {
+        "license": "https:\/\/creativecommons.org\/publicdomain\/zero\/1.0\/",
+        "obj_id": "https:\/\/doi.org\/10.1016\/j.chest.2016.02.305",
+        "source_token": "a6c9d511-9239-4de8-a266-b013f5bd8764",
+        "occurred_at": "2016-04-14T20:41:52Z",
+        "subj_id": "https:\/\/reddit.com\/r\/nsclc\/comments\/4et7cc\/an_optimal_method_to_establish_nonsmall_cell_lung\/",
+        "id": "7c041f1c-9de5-4b62-9dbd-c909a7726fbe",
+        "evidence_record": "https:\/\/evidence.eventdata.crossref.org\/evidence\/2017022214e8d2e9-5da9-428a-a256-c59ed9e696ee",
+        "terms": "https:\/\/doi.org\/10.13003\/CED-terms-of-use",
+        "action": "add",
+        "subj": {
+          "pid": "https:\/\/reddit.com\/r\/nsclc\/comments\/4et7cc\/an_optimal_method_to_establish_nonsmall_cell_lung\/",
+          "type": "post",
+          "title": "An Optimal Method to Establish Non-small Cell Lung Cancer Model With Highly Brain Metastasis",
+          "issued": "2016-04-14T20:41:52.000Z"
+        },
+        "source_id": "reddit",
+        "obj": {
+          "pid": "https:\/\/doi.org\/10.1016\/j.chest.2016.02.305",
+          "url": "http:\/\/journal.publications.chestnet.org\/article.aspx?articleid=2511695"
+        },
+        "timestamp": "2017-02-22T16:16:56Z",
+        "relation_type_id": "discusses"
+      }, {
+        "license": "https:\/\/creativecommons.org\/publicdomain\/zero\/1.0\/",
+        "obj_id": "https:\/\/doi.org\/10.1016\/j.chest.2016.02.441",
+        "source_token": "a6c9d511-9239-4de8-a266-b013f5bd8764",
+        "occurred_at": "2016-04-14T20:44:50Z",
+        "subj_id": "https:\/\/reddit.com\/r\/nsclc\/comments\/4et7vc\/electromagnetic_navigational_bronchoscopyguided\/",
+        "id": "6b45dc36-977e-44aa-a3f6-101c2a579b37",
+        "evidence_record": "https:\/\/evidence.eventdata.crossref.org\/evidence\/2017022214e8d2e9-5da9-428a-a256-c59ed9e696ee",
+        "terms": "https:\/\/doi.org\/10.13003\/CED-terms-of-use",
+        "action": "add",
+        "subj": {
+          "pid": "https:\/\/reddit.com\/r\/nsclc\/comments\/4et7vc\/electromagnetic_navigational_bronchoscopyguided\/",
+          "type": "post",
+          "title": "Electromagnetic Navigational Bronchoscopy-Guided Diagnosis of Left Upper Lobe Spiculated Lung Nodule After Prior Right Upper Lobectomy for Non-small Cell Lung Cancer",
+          "issued": "2016-04-14T20:44:50.000Z"
+        },
+        "source_id": "reddit",
+        "obj": {
+          "pid": "https:\/\/doi.org\/10.1016\/j.chest.2016.02.441",
+          "url": "http:\/\/journal.publications.chestnet.org\/article.aspx?articleid=2511831"
+        },
+        "timestamp": "2017-02-22T16:16:56Z",
+        "relation_type_id": "discusses"
+      }, {
+        "license": "https:\/\/creativecommons.org\/publicdomain\/zero\/1.0\/",
+        "obj_id": "https:\/\/doi.org\/10.1016\/j.chest.2016.02.326",
+        "source_token": "a6c9d511-9239-4de8-a266-b013f5bd8764",
+        "occurred_at": "2016-04-14T20:44:16Z",
+        "subj_id": "https:\/\/reddit.com\/r\/nsclc\/comments\/4et7s3\/the_role_of_nyeso1_activated_dendritic_cell\/",
+        "id": "6af58de6-b95a-4178-aff8-cb533f84ae91",
+        "evidence_record": "https:\/\/evidence.eventdata.crossref.org\/evidence\/2017022214e8d2e9-5da9-428a-a256-c59ed9e696ee",
+        "terms": "https:\/\/doi.org\/10.13003\/CED-terms-of-use",
+        "action": "add",
+        "subj": {
+          "pid": "https:\/\/reddit.com\/r\/nsclc\/comments\/4et7s3\/the_role_of_nyeso1_activated_dendritic_cell\/",
+          "type": "post",
+          "title": "The Role of NY-ESO-1 Activated Dendritic Cell Vaccines in Treating Advanced Non-small Cell Lung Cancer",
+          "issued": "2016-04-14T20:44:16.000Z"
+        },
+        "source_id": "reddit",
+        "obj": {
+          "pid": "https:\/\/doi.org\/10.1016\/j.chest.2016.02.326",
+          "url": "http:\/\/journal.publications.chestnet.org\/article.aspx?articleid=2511721"
+        },
+        "timestamp": "2017-02-22T16:16:56Z",
+        "relation_type_id": "discusses"
+      }, {
+        "license": "https:\/\/creativecommons.org\/publicdomain\/zero\/1.0\/",
+        "obj_id": "https:\/\/doi.org\/10.1016\/j.chest.2016.02.300",
+        "source_token": "a6c9d511-9239-4de8-a266-b013f5bd8764",
+        "occurred_at": "2016-04-14T20:42:38Z",
+        "subj_id": "https:\/\/reddit.com\/r\/nsclc\/comments\/4et7h5\/impact_of_chronic_obstructive_lung_disease_on\/",
+        "id": "4cbd50c0-cac5-4507-bb0c-2b0d0b30e45e",
+        "evidence_record": "https:\/\/evidence.eventdata.crossref.org\/evidence\/2017022214e8d2e9-5da9-428a-a256-c59ed9e696ee",
+        "terms": "https:\/\/doi.org\/10.13003\/CED-terms-of-use",
+        "action": "add",
+        "subj": {
+          "pid": "https:\/\/reddit.com\/r\/nsclc\/comments\/4et7h5\/impact_of_chronic_obstructive_lung_disease_on\/",
+          "type": "post",
+          "title": "Impact of Chronic Obstructive Lung Disease on Postoperative Recurrence in Patients With Resected Non-small Cell Lung Cancer",
+          "issued": "2016-04-14T20:42:38.000Z"
+        },
+        "source_id": "reddit",
+        "obj": {
+          "pid": "https:\/\/doi.org\/10.1016\/j.chest.2016.02.300",
+          "url": "http:\/\/journal.publications.chestnet.org\/article.aspx?articleid=2511690"
+        },
+        "timestamp": "2017-02-22T16:16:56Z",
+        "relation_type_id": "discusses"
+      }, {
+        "license": "https:\/\/creativecommons.org\/publicdomain\/zero\/1.0\/",
+        "obj_id": "https:\/\/doi.org\/10.1378\/chest.14-3051",
+        "source_token": "a6c9d511-9239-4de8-a266-b013f5bd8764",
+        "occurred_at": "2015-04-11T23:48:11Z",
+        "subj_id": "https:\/\/reddit.com\/r\/nsclc\/comments\/32a5cl\/racial_and_sex_differences_in_presentation_and\/",
+        "id": "eababa20-a8b9-4a65-a748-79a365e337a6",
+        "evidence_record": "https:\/\/evidence.eventdata.crossref.org\/evidence\/2017022214e8d2e9-5da9-428a-a256-c59ed9e696ee",
+        "terms": "https:\/\/doi.org\/10.13003\/CED-terms-of-use",
+        "action": "add",
+        "subj": {
+          "pid": "https:\/\/reddit.com\/r\/nsclc\/comments\/32a5cl\/racial_and_sex_differences_in_presentation_and\/",
+          "type": "post",
+          "title": "Racial and Sex Differences in Presentation and Outcomes of Small Cell Lung Cancer in the United States: 1973 to 2010",
+          "issued": "2015-04-11T23:48:11.000Z"
+        },
+        "source_id": "reddit",
+        "obj": {
+          "pid": "https:\/\/doi.org\/10.1378\/chest.14-3051",
+          "url": "http:\/\/journal.publications.chestnet.org\/article.aspx?articleid=2211957"
+        },
+        "timestamp": "2017-02-22T16:16:57Z",
+        "relation_type_id": "discusses"
+      }, {
+        "license": "https:\/\/creativecommons.org\/publicdomain\/zero\/1.0\/",
+        "obj_id": "https:\/\/doi.org\/10.1016\/j.chest.2016.02.338",
+        "source_token": "a6c9d511-9239-4de8-a266-b013f5bd8764",
+        "occurred_at": "2016-04-14T20:40:51Z",
+        "subj_id": "https:\/\/reddit.com\/r\/nsclc\/comments\/4et76p\/clinical_significance_of_epcam_in_circulating\/",
+        "id": "8f37ff70-38aa-4030-9dd0-f7b67ea86762",
+        "evidence_record": "https:\/\/evidence.eventdata.crossref.org\/evidence\/2017022214e8d2e9-5da9-428a-a256-c59ed9e696ee",
+        "terms": "https:\/\/doi.org\/10.13003\/CED-terms-of-use",
+        "action": "add",
+        "subj": {
+          "pid": "https:\/\/reddit.com\/r\/nsclc\/comments\/4et76p\/clinical_significance_of_epcam_in_circulating\/",
+          "type": "post",
+          "title": "Clinical Significance of EpCAM in Circulating Tumor Cells in the Peripheral Blood During Adjuvant Therapy for Postoperative Non-small Cell Lung Cancer Patients",
+          "issued": "2016-04-14T20:40:51.000Z"
+        },
+        "source_id": "reddit",
+        "obj": {
+          "pid": "https:\/\/doi.org\/10.1016\/j.chest.2016.02.338",
+          "url": "http:\/\/journal.publications.chestnet.org\/article.aspx?articleid=2511733"
+        },
+        "timestamp": "2017-02-22T16:16:57Z",
+        "relation_type_id": "discusses"
+      }, {
+        "license": "https:\/\/creativecommons.org\/publicdomain\/zero\/1.0\/",
+        "obj_id": "https:\/\/doi.org\/10.1016\/j.chest.2016.02.287",
+        "source_token": "a6c9d511-9239-4de8-a266-b013f5bd8764",
+        "occurred_at": "2016-04-14T20:39:57Z",
+        "subj_id": "https:\/\/reddit.com\/r\/nsclc\/comments\/4et71m\/comparative_effectiveness_of_5_localregional\/",
+        "id": "79083e8a-399f-463f-bb02-bfe1737e1f6f",
+        "evidence_record": "https:\/\/evidence.eventdata.crossref.org\/evidence\/2017022214e8d2e9-5da9-428a-a256-c59ed9e696ee",
+        "terms": "https:\/\/doi.org\/10.13003\/CED-terms-of-use",
+        "action": "add",
+        "subj": {
+          "pid": "https:\/\/reddit.com\/r\/nsclc\/comments\/4et71m\/comparative_effectiveness_of_5_localregional\/",
+          "type": "post",
+          "title": "Comparative Effectiveness of 5 Local-Regional Control Strategies for IIIA (N2) Non-small Cell Lung Cancer Using SEER Data: Outcomes After Treatment of 20,468 Patients",
+          "issued": "2016-04-14T20:39:57.000Z"
+        },
+        "source_id": "reddit",
+        "obj": {
+          "pid": "https:\/\/doi.org\/10.1016\/j.chest.2016.02.287",
+          "url": "http:\/\/journal.publications.chestnet.org\/article.aspx?articleid=2511677"
+        },
+        "timestamp": "2017-02-22T16:16:57Z",
+        "relation_type_id": "discusses"
+      }, {
+        "license": "https:\/\/creativecommons.org\/publicdomain\/zero\/1.0\/",
+        "obj_id": "https:\/\/doi.org\/10.1016\/j.chest.2016.02.337",
+        "source_token": "a6c9d511-9239-4de8-a266-b013f5bd8764",
+        "occurred_at": "2016-04-14T20:40:23Z",
+        "subj_id": "https:\/\/reddit.com\/r\/nsclc\/comments\/4et73z\/adenylate_cyclaseassociated_protein_1_is\/",
+        "id": "6b6407c8-4318-41ed-a79a-518fad88900d",
+        "evidence_record": "https:\/\/evidence.eventdata.crossref.org\/evidence\/2017022214e8d2e9-5da9-428a-a256-c59ed9e696ee",
+        "terms": "https:\/\/doi.org\/10.13003\/CED-terms-of-use",
+        "action": "add",
+        "subj": {
+          "pid": "https:\/\/reddit.com\/r\/nsclc\/comments\/4et73z\/adenylate_cyclaseassociated_protein_1_is\/",
+          "type": "post",
+          "title": "Adenylate Cyclase-Associated Protein 1 Is Associated With Metastasis of Non-small Cell Lung Cancer Especially in Brain Metastasis Patients and Promotes the Lung Cancer Cell Proliferation and Migration In Vitro as Well as Its Growth and Metastasis In Vivo By the Signaling Pathways of Limk1-Cofilin",
+          "issued": "2016-04-14T20:40:23.000Z"
+        },
+        "source_id": "reddit",
+        "obj": {
+          "pid": "https:\/\/doi.org\/10.1016\/j.chest.2016.02.337",
+          "url": "http:\/\/journal.publications.chestnet.org\/article.aspx?articleid=2511732"
+        },
+        "timestamp": "2017-02-22T16:16:57Z",
+        "relation_type_id": "discusses"
+      }, {
+        "license": "https:\/\/creativecommons.org\/publicdomain\/zero\/1.0\/",
+        "obj_id": "https:\/\/doi.org\/10.1378\/chest.15-0559",
+        "source_token": "a6c9d511-9239-4de8-a266-b013f5bd8764",
+        "occurred_at": "2015-09-22T20:40:46Z",
+        "subj_id": "https:\/\/reddit.com\/r\/nsclc\/comments\/3lzd19\/the_frequency_and_prognostic_impact_of\/",
+        "id": "4da0fe56-cee8-4402-9341-efcf9fa71444",
+        "evidence_record": "https:\/\/evidence.eventdata.crossref.org\/evidence\/2017022214e8d2e9-5da9-428a-a256-c59ed9e696ee",
+        "terms": "https:\/\/doi.org\/10.13003\/CED-terms-of-use",
+        "action": "add",
+        "subj": {
+          "pid": "https:\/\/reddit.com\/r\/nsclc\/comments\/3lzd19\/the_frequency_and_prognostic_impact_of\/",
+          "type": "post",
+          "title": "The frequency and prognostic impact of pathological microscopic vascular invasion according to tumor size in non-small cell lung cancer",
+          "issued": "2015-09-22T20:40:46.000Z"
+        },
+        "source_id": "reddit",
+        "obj": {
+          "pid": "https:\/\/doi.org\/10.1378\/chest.15-0559",
+          "url": "http:\/\/journal.publications.chestnet.org\/article.aspx?articleid=2443138"
+        },
+        "timestamp": "2017-02-22T16:16:57Z",
+        "relation_type_id": "discusses"
+      }, {
+        "license": "https:\/\/creativecommons.org\/publicdomain\/zero\/1.0\/",
+        "obj_id": "https:\/\/doi.org\/10.1378\/chest.14-0986",
+        "source_token": "a6c9d511-9239-4de8-a266-b013f5bd8764",
+        "occurred_at": "2014-11-04T12:40:54Z",
+        "subj_id": "https:\/\/reddit.com\/r\/Foamed\/comments\/2l987h\/atrial_fibrillation_and_sepsis\/",
+        "id": "d70e5bff-8398-48e3-a4ca-1240f4f07fcf",
+        "evidence_record": "https:\/\/evidence.eventdata.crossref.org\/evidence\/2017022214e8d2e9-5da9-428a-a256-c59ed9e696ee",
+        "terms": "https:\/\/doi.org\/10.13003\/CED-terms-of-use",
+        "action": "add",
+        "subj": {
+          "pid": "https:\/\/reddit.com\/r\/Foamed\/comments\/2l987h\/atrial_fibrillation_and_sepsis\/",
+          "type": "post",
+          "title": "Atrial fibrillation and sepsis",
+          "issued": "2014-11-04T12:40:54.000Z"
+        },
+        "source_id": "reddit",
+        "obj": {
+          "pid": "https:\/\/doi.org\/10.1378\/chest.14-0986",
+          "url": "http:\/\/journal.publications.chestnet.org\/article.aspx?articleID=1920995"
+        },
+        "timestamp": "2017-02-22T16:16:58Z",
+        "relation_type_id": "discusses"
+      }, {
+        "license": "https:\/\/creativecommons.org\/publicdomain\/zero\/1.0\/",
+        "obj_id": "https:\/\/doi.org\/10.1378\/chest.08-0095",
+        "source_token": "a6c9d511-9239-4de8-a266-b013f5bd8764",
+        "occurred_at": "2014-03-06T05:07:20Z",
+        "subj_id": "https:\/\/reddit.com\/r\/todayilearned\/comments\/1zp1i6\/til_the_menthol_odor_in_vicks_tricks_your_brain\/",
+        "id": "c66715d1-feaa-4233-8ae5-2e453c919072",
+        "evidence_record": "https:\/\/evidence.eventdata.crossref.org\/evidence\/2017022214e8d2e9-5da9-428a-a256-c59ed9e696ee",
+        "terms": "https:\/\/doi.org\/10.13003\/CED-terms-of-use",
+        "action": "add",
+        "subj": {
+          "pid": "https:\/\/reddit.com\/r\/todayilearned\/comments\/1zp1i6\/til_the_menthol_odor_in_vicks_tricks_your_brain\/",
+          "type": "post",
+          "title": "TIL the menthol odor in Vicks tricks your brain into thinking you're breathing normally, and the rub itself may even cause inflammation",
+          "issued": "2014-03-06T05:07:20.000Z"
+        },
+        "source_id": "reddit",
+        "obj": {
+          "pid": "https:\/\/doi.org\/10.1378\/chest.08-0095",
+          "url": "http:\/\/journal.publications.chestnet.org\/article.aspx?articleid=1089581&amp;issueno=1&amp;fromsource=nelm"
+        },
+        "timestamp": "2017-02-22T16:16:58Z",
+        "relation_type_id": "discusses"
+      }, {
+        "license": "https:\/\/creativecommons.org\/publicdomain\/zero\/1.0\/",
+        "obj_id": "https:\/\/doi.org\/10.1378\/chest.13-0665",
+        "source_token": "a6c9d511-9239-4de8-a266-b013f5bd8764",
+        "occurred_at": "2013-08-20T08:44:35Z",
+        "subj_id": "https:\/\/reddit.com\/r\/SRSScience\/comments\/1kq1ql\/experiences_of_racism_and_the_incidence_of\/",
+        "id": "c01015f6-4df8-4f0d-b557-517ef240f0d0",
+        "evidence_record": "https:\/\/evidence.eventdata.crossref.org\/evidence\/2017022214e8d2e9-5da9-428a-a256-c59ed9e696ee",
+        "terms": "https:\/\/doi.org\/10.13003\/CED-terms-of-use",
+        "action": "add",
+        "subj": {
+          "pid": "https:\/\/reddit.com\/r\/SRSScience\/comments\/1kq1ql\/experiences_of_racism_and_the_incidence_of\/",
+          "type": "post",
+          "title": "Experiences of Racism and the Incidence of Adult-Onset Asthma in the Black Women\u2019s Health Study",
+          "issued": "2013-08-20T08:44:35.000Z"
+        },
+        "source_id": "reddit",
+        "obj": {
+          "pid": "https:\/\/doi.org\/10.1378\/chest.13-0665",
+          "url": "http:\/\/journal.publications.chestnet.org\/article.aspx?articleid=1719283"
+        },
+        "timestamp": "2017-02-22T16:16:58Z",
+        "relation_type_id": "discusses"
+      }, {
+        "license": "https:\/\/creativecommons.org\/publicdomain\/zero\/1.0\/",
+        "obj_id": "https:\/\/doi.org\/10.1378\/chest.13-0665",
+        "source_token": "a6c9d511-9239-4de8-a266-b013f5bd8764",
+        "occurred_at": "2013-08-20T09:49:03Z",
+        "subj_id": "https:\/\/reddit.com\/r\/doublespeakgutter\/comments\/1kq3ra\/srsscience_experiences_of_racism_and_the\/",
+        "id": "9aebdcc8-5388-47c6-8d05-09843e37fd9e",
+        "evidence_record": "https:\/\/evidence.eventdata.crossref.org\/evidence\/2017022214e8d2e9-5da9-428a-a256-c59ed9e696ee",
+        "terms": "https:\/\/doi.org\/10.13003\/CED-terms-of-use",
+        "action": "add",
+        "subj": {
+          "pid": "https:\/\/reddit.com\/r\/doublespeakgutter\/comments\/1kq3ra\/srsscience_experiences_of_racism_and_the\/",
+          "type": "post",
+          "title": "[SRSScience] Experiences of Racism and the Incidence of Adult-Onset Asthma in the Black Women\u2019s Health Study [iFlashie]",
+          "issued": "2013-08-20T09:49:03.000Z"
+        },
+        "source_id": "reddit",
+        "obj": {
+          "pid": "https:\/\/doi.org\/10.1378\/chest.13-0665",
+          "url": "http:\/\/journal.publications.chestnet.org\/article.aspx?articleid=1719283"
+        },
+        "timestamp": "2017-02-22T16:16:58Z",
+        "relation_type_id": "discusses"
+      }, {
+        "license": "https:\/\/creativecommons.org\/publicdomain\/zero\/1.0\/",
+        "obj_id": "https:\/\/doi.org\/10.1378\/chest.11-2443",
+        "source_token": "a6c9d511-9239-4de8-a266-b013f5bd8764",
+        "occurred_at": "2013-08-27T17:07:49Z",
+        "subj_id": "https:\/\/reddit.com\/r\/electronic_cigarette\/comments\/1l75gm\/shortterm_pulmonary_effects_of_using_an\/",
+        "id": "6c4180e7-0947-48c3-b345-6bdf96dee184",
+        "evidence_record": "https:\/\/evidence.eventdata.crossref.org\/evidence\/2017022214e8d2e9-5da9-428a-a256-c59ed9e696ee",
+        "terms": "https:\/\/doi.org\/10.13003\/CED-terms-of-use",
+        "action": "add",
+        "subj": {
+          "pid": "https:\/\/reddit.com\/r\/electronic_cigarette\/comments\/1l75gm\/shortterm_pulmonary_effects_of_using_an\/",
+          "type": "post",
+          "title": "Short-term Pulmonary Effects of Using an Electronic Cigarette: Impact on Respiratory Flow Resistance, Impedance, and Exhaled Nitric Oxide ---Any scientific minds want to take a stab at interpreting this for us?",
+          "issued": "2013-08-27T17:07:49.000Z"
+        },
+        "source_id": "reddit",
+        "obj": {
+          "pid": "https:\/\/doi.org\/10.1378\/chest.11-2443",
+          "url": "http:\/\/journal.publications.chestnet.org\/article.aspx?articleid=1187047"
+        },
+        "timestamp": "2017-02-22T16:16:58Z",
+        "relation_type_id": "discusses"
+      }, {
+        "license": "https:\/\/creativecommons.org\/publicdomain\/zero\/1.0\/",
+        "obj_id": "https:\/\/doi.org\/10.1378\/chest.14-2055",
+        "source_token": "a6c9d511-9239-4de8-a266-b013f5bd8764",
+        "occurred_at": "2014-12-06T18:47:50Z",
+        "subj_id": "https:\/\/reddit.com\/r\/nsclc\/comments\/2oh8vt\/a_survey_of_japanese_thoracic_oncologists\/",
+        "id": "1afb6efd-b42a-4cb2-ba68-4f71286aecf4",
+        "evidence_record": "https:\/\/evidence.eventdata.crossref.org\/evidence\/2017022214e8d2e9-5da9-428a-a256-c59ed9e696ee",
+        "terms": "https:\/\/doi.org\/10.13003\/CED-terms-of-use",
+        "action": "add",
+        "subj": {
+          "pid": "https:\/\/reddit.com\/r\/nsclc\/comments\/2oh8vt\/a_survey_of_japanese_thoracic_oncologists\/",
+          "type": "post",
+          "title": "A Survey of Japanese Thoracic Oncologists\u2019 Perception of Diagnostic and Treatment Strategies for EGFR Mutant or EML4-ALK Fusion Non-small Cell Lung Cancer",
+          "issued": "2014-12-06T18:47:50.000Z"
+        },
+        "source_id": "reddit",
+        "obj": {
+          "pid": "https:\/\/doi.org\/10.1378\/chest.14-2055",
+          "url": "http:\/\/journal.publications.chestnet.org\/article.aspx?articleid=1983750"
+        },
+        "timestamp": "2017-02-22T16:16:58Z",
+        "relation_type_id": "discusses"
+      }, {
+        "license": "https:\/\/creativecommons.org\/publicdomain\/zero\/1.0\/",
+        "obj_id": "https:\/\/doi.org\/10.1378\/chest.12-2842",
+        "source_token": "a6c9d511-9239-4de8-a266-b013f5bd8764",
+        "occurred_at": "2013-07-23T17:53:48Z",
+        "subj_id": "https:\/\/reddit.com\/r\/electronic_cigarette\/comments\/1iwboc\/research_do_ecigarettes_have_the_potential_to\/",
+        "id": "83e23b9a-cae9-48f9-b58e-dcde8acac3a2",
+        "evidence_record": "https:\/\/evidence.eventdata.crossref.org\/evidence\/2017022214e8d2e9-5da9-428a-a256-c59ed9e696ee",
+        "terms": "https:\/\/doi.org\/10.13003\/CED-terms-of-use",
+        "action": "add",
+        "subj": {
+          "pid": "https:\/\/reddit.com\/r\/electronic_cigarette\/comments\/1iwboc\/research_do_ecigarettes_have_the_potential_to\/",
+          "type": "post",
+          "title": "[research] Do e-cigarettes have the potential to compete with conventional cigarettes? A survey of conventional cigarette smokers\u2019 experiences with e-cigarettes",
+          "issued": "2013-07-23T17:53:48.000Z"
+        },
+        "source_id": "reddit",
+        "obj": {
+          "pid": "https:\/\/doi.org\/10.1378\/chest.12-2842",
+          "url": "http:\/\/journal.publications.chestnet.org\/article.aspx?articleid=1714565"
+        },
+        "timestamp": "2017-02-22T16:16:59Z",
+        "relation_type_id": "discusses"
+      }, {
+        "license": "https:\/\/creativecommons.org\/publicdomain\/zero\/1.0\/",
+        "obj_id": "https:\/\/doi.org\/10.1175\/bams-d-15-00015.1",
+        "source_token": "a6c9d511-9239-4de8-a266-b013f5bd8764",
+        "occurred_at": "2017-02-05T10:53:55Z",
+        "subj_id": "https:\/\/reddit.com\/r\/GlobalClimateChange\/comments\/5s6u2t\/study_open_access_sustained_production_of\/",
+        "id": "81ca9c0b-1b50-4c40-b45c-e71b0dfa75c9",
+        "evidence_record": "https:\/\/evidence.eventdata.crossref.org\/evidence\/20170222f9f69ce1-687f-408e-847c-806bdb40fe12",
+        "terms": "https:\/\/doi.org\/10.13003\/CED-terms-of-use",
+        "action": "add",
+        "subj": {
+          "pid": "https:\/\/reddit.com\/r\/GlobalClimateChange\/comments\/5s6u2t\/study_open_access_sustained_production_of\/",
+          "type": "post",
+          "title": "Study (open access) | Sustained Production of Multidecadal Climate Records: Lessons from the NOAA Climate Data Record Program",
+          "issued": "2017-02-05T10:53:55.000Z"
+        },
+        "source_id": "reddit",
+        "obj": {
+          "pid": "https:\/\/doi.org\/10.1175\/bams-d-15-00015.1",
+          "url": "http:\/\/journals.ametsoc.org\/doi\/10.1175\/BAMS-D-15-00015.1"
+        },
+        "timestamp": "2017-02-22T16:17:01Z",
+        "relation_type_id": "discusses"
+      }, {
+        "license": "https:\/\/creativecommons.org\/publicdomain\/zero\/1.0\/",
+        "obj_id": "https:\/\/doi.org\/10.1175\/bams-d-16-0007.1",
+        "source_token": "a6c9d511-9239-4de8-a266-b013f5bd8764",
+        "occurred_at": "2017-01-26T15:29:14Z",
+        "subj_id": "https:\/\/reddit.com\/r\/collapsademic\/comments\/5qarcq\/estimating_changes_in_global_temperature_since\/",
+        "id": "eb4598ed-7d3a-41c8-8430-711c306f9d25",
+        "evidence_record": "https:\/\/evidence.eventdata.crossref.org\/evidence\/20170222f9f69ce1-687f-408e-847c-806bdb40fe12",
+        "terms": "https:\/\/doi.org\/10.13003\/CED-terms-of-use",
+        "action": "add",
+        "subj": {
+          "pid": "https:\/\/reddit.com\/r\/collapsademic\/comments\/5qarcq\/estimating_changes_in_global_temperature_since\/",
+          "type": "post",
+          "title": "Estimating changes in global temperature since the pre-industrial period: Bulletin of the American Meteorological Society: Early Online Release",
+          "issued": "2017-01-26T15:29:14.000Z"
+        },
+        "source_id": "reddit",
+        "obj": {
+          "pid": "https:\/\/doi.org\/10.1175\/bams-d-16-0007.1",
+          "url": "http:\/\/journals.ametsoc.org\/doi\/10.1175\/BAMS-D-16-0007.1"
+        },
+        "timestamp": "2017-02-22T16:17:02Z",
+        "relation_type_id": "discusses"
+      }, {
+        "license": "https:\/\/creativecommons.org\/publicdomain\/zero\/1.0\/",
+        "obj_id": "https:\/\/doi.org\/10.1175\/waf-d-16-0075.1",
+        "source_token": "a6c9d511-9239-4de8-a266-b013f5bd8764",
+        "occurred_at": "2016-12-20T22:51:15Z",
+        "subj_id": "https:\/\/reddit.com\/r\/bigdata\/comments\/5jgd5h\/viability_of_cloud_computing_for_realtime\/",
+        "id": "e252d0df-38c1-4a04-abba-562d7423f52c",
+        "evidence_record": "https:\/\/evidence.eventdata.crossref.org\/evidence\/20170222f9f69ce1-687f-408e-847c-806bdb40fe12",
+        "terms": "https:\/\/doi.org\/10.13003\/CED-terms-of-use",
+        "action": "add",
+        "subj": {
+          "pid": "https:\/\/reddit.com\/r\/bigdata\/comments\/5jgd5h\/viability_of_cloud_computing_for_realtime\/",
+          "type": "post",
+          "title": "Viability of Cloud Computing for Real-Time Numerical Weather Prediction",
+          "issued": "2016-12-20T22:51:15.000Z"
+        },
+        "source_id": "reddit",
+        "obj": {
+          "pid": "https:\/\/doi.org\/10.1175\/waf-d-16-0075.1",
+          "url": "http:\/\/journals.ametsoc.org\/doi\/full\/10.1175\/WAF-D-16-0075.1"
+        },
+        "timestamp": "2017-02-22T16:17:02Z",
+        "relation_type_id": "discusses"
+      }, {
+        "license": "https:\/\/creativecommons.org\/publicdomain\/zero\/1.0\/",
+        "obj_id": "https:\/\/doi.org\/10.1175\/wcas-d-12-00008.1",
+        "source_token": "a6c9d511-9239-4de8-a266-b013f5bd8764",
+        "occurred_at": "2017-01-25T16:54:13Z",
+        "subj_id": "https:\/\/reddit.com\/r\/skeptic\/comments\/5q4al5\/study_open_access_did_the_arctic_ice_recover\/",
+        "id": "97862a2e-a01c-46df-a6ad-ca68e57e7fff",
+        "evidence_record": "https:\/\/evidence.eventdata.crossref.org\/evidence\/20170222f9f69ce1-687f-408e-847c-806bdb40fe12",
+        "terms": "https:\/\/doi.org\/10.13003\/CED-terms-of-use",
+        "action": "add",
+        "subj": {
+          "pid": "https:\/\/reddit.com\/r\/skeptic\/comments\/5q4al5\/study_open_access_did_the_arctic_ice_recover\/",
+          "type": "post",
+          "title": "Study (open access) | Did the Arctic Ice Recover? Demographics of True and False Climate Facts: Weather, Climate, and Society: Vol 4, No 4",
+          "issued": "2017-01-25T16:54:13.000Z"
+        },
+        "source_id": "reddit",
+        "obj": {
+          "pid": "https:\/\/doi.org\/10.1175\/wcas-d-12-00008.1",
+          "url": "http:\/\/journals.ametsoc.org\/doi\/full\/10.1175\/WCAS-D-12-00008.1"
+        },
+        "timestamp": "2017-02-22T16:17:02Z",
+        "relation_type_id": "discusses"
+      }, {
+        "license": "https:\/\/creativecommons.org\/publicdomain\/zero\/1.0\/",
+        "obj_id": "https:\/\/doi.org\/10.1175\/wcas-d-12-00008.1",
+        "source_token": "a6c9d511-9239-4de8-a266-b013f5bd8764",
+        "occurred_at": "2017-01-25T15:39:27Z",
+        "subj_id": "https:\/\/reddit.com\/r\/climate\/comments\/5q3u3e\/study_open_access_did_the_arctic_ice_recover\/",
+        "id": "74accd2e-ef99-4f7c-82c5-6b917b15670f",
+        "evidence_record": "https:\/\/evidence.eventdata.crossref.org\/evidence\/20170222f9f69ce1-687f-408e-847c-806bdb40fe12",
+        "terms": "https:\/\/doi.org\/10.13003\/CED-terms-of-use",
+        "action": "add",
+        "subj": {
+          "pid": "https:\/\/reddit.com\/r\/climate\/comments\/5q3u3e\/study_open_access_did_the_arctic_ice_recover\/",
+          "type": "post",
+          "title": "Study (open access) | Did the Arctic Ice Recover? Demographics of True and False Climate Facts",
+          "issued": "2017-01-25T15:39:27.000Z"
+        },
+        "source_id": "reddit",
+        "obj": {
+          "pid": "https:\/\/doi.org\/10.1175\/wcas-d-12-00008.1",
+          "url": "http:\/\/journals.ametsoc.org\/doi\/full\/10.1175\/WCAS-D-12-00008.1"
+        },
+        "timestamp": "2017-02-22T16:17:02Z",
+        "relation_type_id": "discusses"
+      }, {
+        "license": "https:\/\/creativecommons.org\/publicdomain\/zero\/1.0\/",
+        "obj_id": "https:\/\/doi.org\/10.1175\/jpo-d-16-0082.1",
+        "source_token": "a6c9d511-9239-4de8-a266-b013f5bd8764",
+        "occurred_at": "2017-02-01T16:19:27Z",
+        "subj_id": "https:\/\/reddit.com\/r\/science\/comments\/5rgdxd\/abyssal_upwelling_and_downwelling_driven_by\/",
+        "id": "70496d80-2d84-4723-bd8f-1a944b338091",
+        "evidence_record": "https:\/\/evidence.eventdata.crossref.org\/evidence\/20170222f9f69ce1-687f-408e-847c-806bdb40fe12",
+        "terms": "https:\/\/doi.org\/10.13003\/CED-terms-of-use",
+        "action": "add",
+        "subj": {
+          "pid": "https:\/\/reddit.com\/r\/science\/comments\/5rgdxd\/abyssal_upwelling_and_downwelling_driven_by\/",
+          "type": "post",
+          "title": "Abyssal Upwelling and Downwelling Driven by Near-Boundary Mixing -- a new framework for understanding the abyssal Meridional Ocean Circulation (MOC)",
+          "issued": "2017-02-01T16:19:27.000Z"
+        },
+        "source_id": "reddit",
+        "obj": {
+          "pid": "https:\/\/doi.org\/10.1175\/jpo-d-16-0082.1",
+          "url": "http:\/\/journals.ametsoc.org\/doi\/full\/10.1175\/JPO-D-16-0082.1"
+        },
+        "timestamp": "2017-02-22T16:17:02Z",
+        "relation_type_id": "discusses"
+      }, {
+        "license": "https:\/\/creativecommons.org\/publicdomain\/zero\/1.0\/",
+        "obj_id": "https:\/\/doi.org\/10.1175\/wcas-d-16-0030.1",
+        "source_token": "a6c9d511-9239-4de8-a266-b013f5bd8764",
+        "occurred_at": "2016-12-24T08:31:26Z",
+        "subj_id": "https:\/\/reddit.com\/r\/climate\/comments\/5k26q0\/atmosfear_communicating_the_effects_of_climate\/",
+        "id": "6fa28248-aff1-4596-a16b-bbc23ac34f42",
+        "evidence_record": "https:\/\/evidence.eventdata.crossref.org\/evidence\/20170222f9f69ce1-687f-408e-847c-806bdb40fe12",
+        "terms": "https:\/\/doi.org\/10.13003\/CED-terms-of-use",
+        "action": "add",
+        "subj": {
+          "pid": "https:\/\/reddit.com\/r\/climate\/comments\/5k26q0\/atmosfear_communicating_the_effects_of_climate\/",
+          "type": "post",
+          "title": "Atmosfear: Communicating the Effects of Climate Change on Extreme Weather",
+          "issued": "2016-12-24T08:31:26.000Z"
+        },
+        "source_id": "reddit",
+        "obj": {
+          "pid": "https:\/\/doi.org\/10.1175\/wcas-d-16-0030.1",
+          "url": "http:\/\/journals.ametsoc.org\/doi\/full\/10.1175\/WCAS-D-16-0030.1"
+        },
+        "timestamp": "2017-02-22T16:17:02Z",
+        "relation_type_id": "discusses"
+      }, {
+        "license": "https:\/\/creativecommons.org\/publicdomain\/zero\/1.0\/",
+        "obj_id": "https:\/\/doi.org\/10.1175\/bams-d-16-0183.1",
+        "source_token": "a6c9d511-9239-4de8-a266-b013f5bd8764",
+        "occurred_at": "2016-11-07T02:53:56Z",
+        "subj_id": "https:\/\/reddit.com\/r\/australia\/comments\/5bjul0\/the_hottest_year_on_record_globally_in_2015_could\/",
+        "id": "9b299c32-78d6-4262-a6de-e1d0b8dce769",
+        "evidence_record": "https:\/\/evidence.eventdata.crossref.org\/evidence\/20170222f9f69ce1-687f-408e-847c-806bdb40fe12",
+        "terms": "https:\/\/doi.org\/10.13003\/CED-terms-of-use",
+        "action": "add",
+        "subj": {
+          "pid": "https:\/\/reddit.com\/r\/australia\/comments\/5bjul0\/the_hottest_year_on_record_globally_in_2015_could\/",
+          "type": "post",
+          "title": "The hottest year on record globally in 2015 could be just another average year by 2025 if carbon emissions continue to rise at their current rate according to Australian scientists.",
+          "issued": "2016-11-07T02:53:56.000Z"
+        },
+        "source_id": "reddit",
+        "obj": {
+          "pid": "https:\/\/doi.org\/10.1175\/bams-d-16-0183.1",
+          "url": "http:\/\/journals.ametsoc.org\/doi\/abs\/10.1175\/BAMS-D-16-0183.1"
+        },
+        "timestamp": "2017-02-22T16:17:03Z",
+        "relation_type_id": "discusses"
+      }, {
+        "license": "https:\/\/creativecommons.org\/publicdomain\/zero\/1.0\/",
+        "obj_id": "https:\/\/doi.org\/10.1175\/bams-d-16-0183.1",
+        "source_token": "a6c9d511-9239-4de8-a266-b013f5bd8764",
+        "occurred_at": "2016-11-07T12:38:52Z",
+        "subj_id": "https:\/\/reddit.com\/r\/RIPscience\/comments\/5blwyh\/the_hottest_year_on_record_globally_in_2015_could\/",
+        "id": "92c81642-a43a-4efe-b8a2-385a6ec54c8b",
+        "evidence_record": "https:\/\/evidence.eventdata.crossref.org\/evidence\/20170222f9f69ce1-687f-408e-847c-806bdb40fe12",
+        "terms": "https:\/\/doi.org\/10.13003\/CED-terms-of-use",
+        "action": "add",
+        "subj": {
+          "pid": "https:\/\/reddit.com\/r\/RIPscience\/comments\/5blwyh\/the_hottest_year_on_record_globally_in_2015_could\/",
+          "type": "post",
+          "title": "The hottest year on record globally in 2015 could be just another average year by 2025 if carbon emissions continue to rise at their current rate according to Australian scientists.",
+          "issued": "2016-11-07T12:38:52.000Z"
+        },
+        "source_id": "reddit",
+        "obj": {
+          "pid": "https:\/\/doi.org\/10.1175\/bams-d-16-0183.1",
+          "url": "http:\/\/journals.ametsoc.org\/doi\/abs\/10.1175\/BAMS-D-16-0183.1"
+        },
+        "timestamp": "2017-02-22T16:17:03Z",
+        "relation_type_id": "discusses"
+      }, {
+        "license": "https:\/\/creativecommons.org\/publicdomain\/zero\/1.0\/",
+        "obj_id": "https:\/\/doi.org\/10.1175\/jcli-d-15-0746.1",
+        "source_token": "a6c9d511-9239-4de8-a266-b013f5bd8764",
+        "occurred_at": "2016-11-23T16:21:34Z",
+        "subj_id": "https:\/\/reddit.com\/r\/climate\/comments\/5ei4iu\/random_numbers_in_stateoftheart_ocean_models\/",
+        "id": "7d7a1e99-2353-4b12-b769-42cda725b0f4",
+        "evidence_record": "https:\/\/evidence.eventdata.crossref.org\/evidence\/20170222f9f69ce1-687f-408e-847c-806bdb40fe12",
+        "terms": "https:\/\/doi.org\/10.13003\/CED-terms-of-use",
+        "action": "add",
+        "subj": {
+          "pid": "https:\/\/reddit.com\/r\/climate\/comments\/5ei4iu\/random_numbers_in_stateoftheart_ocean_models\/",
+          "type": "post",
+          "title": "Random numbers in state-of-the-art ocean models could improve climate simulations",
+          "issued": "2016-11-23T16:21:34.000Z"
+        },
+        "source_id": "reddit",
+        "obj": {
+          "pid": "https:\/\/doi.org\/10.1175\/jcli-d-15-0746.1",
+          "url": "http:\/\/journals.ametsoc.org\/doi\/10.1175\/JCLI-D-15-0746.1"
+        },
+        "timestamp": "2017-02-22T16:17:03Z",
+        "relation_type_id": "discusses"
+      }, {
+        "license": "https:\/\/creativecommons.org\/publicdomain\/zero\/1.0\/",
+        "obj_id": "https:\/\/doi.org\/10.1175\/bams-d-16-0183.1",
+        "source_token": "a6c9d511-9239-4de8-a266-b013f5bd8764",
+        "occurred_at": "2016-11-07T06:09:14Z",
+        "subj_id": "https:\/\/reddit.com\/r\/theworldnews\/comments\/5bknmi\/the_hottest_year_on_record_globally_in_2015_could\/",
+        "id": "619fc160-4aeb-4612-80a0-6468f2f7f6c1",
+        "evidence_record": "https:\/\/evidence.eventdata.crossref.org\/evidence\/20170222f9f69ce1-687f-408e-847c-806bdb40fe12",
+        "terms": "https:\/\/doi.org\/10.13003\/CED-terms-of-use",
+        "action": "add",
+        "subj": {
+          "pid": "https:\/\/reddit.com\/r\/theworldnews\/comments\/5bknmi\/the_hottest_year_on_record_globally_in_2015_could\/",
+          "type": "post",
+          "title": "The hottest year on record globally in 2015 could be just another average year by 2025 if carbon emissions continue to rise at their current rate according to Australian scientists.",
+          "issued": "2016-11-07T06:09:14.000Z"
+        },
+        "source_id": "reddit",
+        "obj": {
+          "pid": "https:\/\/doi.org\/10.1175\/bams-d-16-0183.1",
+          "url": "http:\/\/journals.ametsoc.org\/doi\/abs\/10.1175\/BAMS-D-16-0183.1"
+        },
+        "timestamp": "2017-02-22T16:17:03Z",
+        "relation_type_id": "discusses"
+      }, {
+        "license": "https:\/\/creativecommons.org\/publicdomain\/zero\/1.0\/",
+        "obj_id": "https:\/\/doi.org\/10.1175\/jcli-d-15-0508.1",
+        "source_token": "a6c9d511-9239-4de8-a266-b013f5bd8764",
+        "occurred_at": "2016-12-01T17:38:48Z",
+        "subj_id": "https:\/\/reddit.com\/r\/GlobalClimateChange\/comments\/5fxwns\/study_open_access_the_pacific_decadal_oscillation\/",
+        "id": "50ec738d-0c58-4ef0-9ce5-1dd750ff7b10",
+        "evidence_record": "https:\/\/evidence.eventdata.crossref.org\/evidence\/20170222f9f69ce1-687f-408e-847c-806bdb40fe12",
+        "terms": "https:\/\/doi.org\/10.13003\/CED-terms-of-use",
+        "action": "add",
+        "subj": {
+          "pid": "https:\/\/reddit.com\/r\/GlobalClimateChange\/comments\/5fxwns\/study_open_access_the_pacific_decadal_oscillation\/",
+          "type": "post",
+          "title": "Study (open access) | The Pacific Decadal Oscillation, Revisited",
+          "issued": "2016-12-01T17:38:48.000Z"
+        },
+        "source_id": "reddit",
+        "obj": {
+          "pid": "https:\/\/doi.org\/10.1175\/jcli-d-15-0508.1",
+          "url": "http:\/\/journals.ametsoc.org\/doi\/full\/10.1175\/JCLI-D-15-0508.1"
+        },
+        "timestamp": "2017-02-22T16:17:03Z",
+        "relation_type_id": "discusses"
+      }, {
+        "license": "https:\/\/creativecommons.org\/publicdomain\/zero\/1.0\/",
+        "obj_id": "https:\/\/doi.org\/10.1175\/jtech-d-15-0188.1",
+        "source_token": "a6c9d511-9239-4de8-a266-b013f5bd8764",
+        "occurred_at": "2016-11-13T22:53:49Z",
+        "subj_id": "https:\/\/reddit.com\/r\/science\/comments\/5csmns\/the_impact_of_lightning_data_assimilation_on\/",
+        "id": "4c43c35c-8c12-4a21-9f74-6cf268b14e4f",
+        "evidence_record": "https:\/\/evidence.eventdata.crossref.org\/evidence\/20170222f9f69ce1-687f-408e-847c-806bdb40fe12",
+        "terms": "https:\/\/doi.org\/10.13003\/CED-terms-of-use",
+        "action": "add",
+        "subj": {
+          "pid": "https:\/\/reddit.com\/r\/science\/comments\/5csmns\/the_impact_of_lightning_data_assimilation_on\/",
+          "type": "post",
+          "title": "The Impact of Lightning Data Assimilation on Deterministic and Ensemble Forecasts of Convective Events - Using Lighting to Improve Weather Forecasts.",
+          "issued": "2016-11-13T22:53:49.000Z"
+        },
+        "source_id": "reddit",
+        "obj": {
+          "pid": "https:\/\/doi.org\/10.1175\/jtech-d-15-0188.1",
+          "url": "http:\/\/journals.ametsoc.org\/doi\/10.1175\/JTECH-D-15-0188.1"
+        },
+        "timestamp": "2017-02-22T16:17:03Z",
+        "relation_type_id": "discusses"
+      }, {
+        "license": "https:\/\/creativecommons.org\/publicdomain\/zero\/1.0\/",
+        "obj_id": "https:\/\/doi.org\/10.1175\/1520-0469(1967)024%3c0241%3ateotaw%3e2.0.co%3b2",
+        "source_token": "a6c9d511-9239-4de8-a266-b013f5bd8764",
+        "occurred_at": "2016-12-01T05:32:26Z",
+        "subj_id": "https:\/\/reddit.com\/r\/climate_science\/comments\/5fuw5w\/thermal_equilibrium_of_the_atmosphere_with_a\/",
+        "id": "435bfade-906f-4672-ae7f-c2e7338aded1",
+        "evidence_record": "https:\/\/evidence.eventdata.crossref.org\/evidence\/20170222f9f69ce1-687f-408e-847c-806bdb40fe12",
+        "terms": "https:\/\/doi.org\/10.13003\/CED-terms-of-use",
+        "action": "add",
+        "subj": {
+          "pid": "https:\/\/reddit.com\/r\/climate_science\/comments\/5fuw5w\/thermal_equilibrium_of_the_atmosphere_with_a\/",
+          "type": "post",
+          "title": "Thermal Equilibrium of the Atmosphere with a Given Distribution of Relative Humidity: Journal of the Atmospheric Sciences: Vol 24, No 3. Published in 67. This is when climate science really began considering CO2 emissions and what their effect could be on our planet.",
+          "issued": "2016-12-01T05:32:26.000Z"
+        },
+        "source_id": "reddit",
+        "obj": {
+          "pid": "https:\/\/doi.org\/10.1175\/1520-0469(1967)024%3c0241%3ateotaw%3e2.0.co%3b2",
+          "url": "http:\/\/journals.ametsoc.org\/doi\/abs\/10.1175\/1520-0469(1967)024%3C0241%3ATEOTAW%3E2.0.CO%3B2"
+        },
+        "timestamp": "2017-02-22T16:17:03Z",
+        "relation_type_id": "discusses"
+      }, {
+        "license": "https:\/\/creativecommons.org\/publicdomain\/zero\/1.0\/",
+        "obj_id": "https:\/\/doi.org\/10.1175\/bams-d-16-0183.1",
+        "source_token": "a6c9d511-9239-4de8-a266-b013f5bd8764",
+        "occurred_at": "2016-11-07T02:53:29Z",
+        "subj_id": "https:\/\/reddit.com\/r\/Futurology\/comments\/5bjuig\/the_hottest_year_on_record_globally_in_2015_could\/",
+        "id": "e5e1e3aa-d53b-4052-9d56-35ff78716571",
+        "evidence_record": "https:\/\/evidence.eventdata.crossref.org\/evidence\/20170222f9f69ce1-687f-408e-847c-806bdb40fe12",
+        "terms": "https:\/\/doi.org\/10.13003\/CED-terms-of-use",
+        "action": "add",
+        "subj": {
+          "pid": "https:\/\/reddit.com\/r\/Futurology\/comments\/5bjuig\/the_hottest_year_on_record_globally_in_2015_could\/",
+          "type": "post",
+          "title": "The hottest year on record globally in 2015 could be just another average year by 2025 if carbon emissions continue to rise at their current rate according to Australian scientists.",
+          "issued": "2016-11-07T02:53:29.000Z"
+        },
+        "source_id": "reddit",
+        "obj": {
+          "pid": "https:\/\/doi.org\/10.1175\/bams-d-16-0183.1",
+          "url": "http:\/\/journals.ametsoc.org\/doi\/abs\/10.1175\/BAMS-D-16-0183.1"
+        },
+        "timestamp": "2017-02-22T16:17:04Z",
+        "relation_type_id": "discusses"
+      }, {
+        "license": "https:\/\/creativecommons.org\/publicdomain\/zero\/1.0\/",
+        "obj_id": "https:\/\/doi.org\/10.1175\/jcli-d-15-0744.1",
+        "source_token": "a6c9d511-9239-4de8-a266-b013f5bd8764",
+        "occurred_at": "2016-09-08T14:47:57Z",
+        "subj_id": "https:\/\/reddit.com\/r\/GlobalClimateChange\/comments\/51rnsk\/study_open_access_sensitivity_of_satellitederived\/",
+        "id": "dffe87e6-5f95-4f28-9d07-864d7218679d",
+        "evidence_record": "https:\/\/evidence.eventdata.crossref.org\/evidence\/20170222f9f69ce1-687f-408e-847c-806bdb40fe12",
+        "terms": "https:\/\/doi.org\/10.13003\/CED-terms-of-use",
+        "action": "add",
+        "subj": {
+          "pid": "https:\/\/reddit.com\/r\/GlobalClimateChange\/comments\/51rnsk\/study_open_access_sensitivity_of_satellitederived\/",
+          "type": "post",
+          "title": "Study (open access) | Sensitivity of Satellite-Derived Tropospheric Temperature Trends to the Diurnal Cycle Adjustment",
+          "issued": "2016-09-08T14:47:57.000Z"
+        },
+        "source_id": "reddit",
+        "obj": {
+          "pid": "https:\/\/doi.org\/10.1175\/jcli-d-15-0744.1",
+          "url": "http:\/\/journals.ametsoc.org\/doi\/full\/10.1175\/JCLI-D-15-0744.1"
+        },
+        "timestamp": "2017-02-22T16:17:04Z",
+        "relation_type_id": "discusses"
+      }, {
+        "license": "https:\/\/creativecommons.org\/publicdomain\/zero\/1.0\/",
+        "updated_reason": "https:\/\/evidence.eventdata.crossref.org\/announcements\/2017-03-09T12-19-00Z-CED-7.json",
+        "updated": "edited",
+        "obj_id": "https:\/\/doi.org\/10.1175\/bams-d-16-0097.1",
+        "source_token": "a6c9d511-9239-4de8-a266-b013f5bd8764",
+        "occurred_at": "2016-09-26T19:19:56Z",
+        "subj_id": "https:\/\/reddit.com\/r\/GlobalClimateChange\/comments\/54mcwl\/study_most_americans_want_to_learn_more_about\/",
+        "id": "da4da774-52b3-422d-8c21-e51a3ee6ee90",
+        "evidence_record": "https:\/\/evidence.eventdata.crossref.org\/evidence\/20170222f9f69ce1-687f-408e-847c-806bdb40fe12",
+        "terms": "https:\/\/doi.org\/10.13003\/CED-terms-of-use",
+        "action": "add",
+        "subj": {
+          "pid": "https:\/\/reddit.com\/r\/GlobalClimateChange\/comments\/54mcwl\/study_most_americans_want_to_learn_more_about\/",
+          "type": "post",
+          "title": "Study | Most Americans Want to Learn More About Climate Change (pdf)",
+          "issued": "2016-09-26T19:19:56.000Z"
+        },
+        "source_id": "reddit",
+        "obj": {
+          "pid": "https:\/\/doi.org\/10.1175\/bams-d-16-0097.1?utm_source=most+americans+want+to+learn+more+about+climate+change&amp;utm_campaign=tv+weathercasters&amp;utm_medium=email&amp;",
+          "url": "http:\/\/journals.ametsoc.org\/doi\/pdf\/10.1175\/BAMS-D-16-0097.1?utm_source=Most+Americans+Want+to+Learn+More+about+Climate+Change&amp;utm_campaign=TV+Weathercasters&amp;utm_medium=email&amp;"
+        },
+        "timestamp": "2017-02-22T16:17:04Z",
+        "updated_date": "2017-03-10T18:38:25.311Z",
+        "relation_type_id": "discusses"
+      }, {
+        "license": "https:\/\/creativecommons.org\/publicdomain\/zero\/1.0\/",
+        "updated_reason": "https:\/\/evidence.eventdata.crossref.org\/announcements\/2017-03-09T12-19-00Z-CED-7.json",
+        "updated": "edited",
+        "obj_id": "https:\/\/doi.org\/10.1175\/bams-d-16-0097.1",
+        "source_token": "a6c9d511-9239-4de8-a266-b013f5bd8764",
+        "occurred_at": "2016-09-26T19:06:10Z",
+        "subj_id": "https:\/\/reddit.com\/r\/meteorology\/comments\/54maad\/most_americans_want_to_learn_more_about_climate\/",
+        "id": "a641dec3-5fa9-4f59-aabb-fca46869366f",
+        "evidence_record": "https:\/\/evidence.eventdata.crossref.org\/evidence\/20170222f9f69ce1-687f-408e-847c-806bdb40fe12",
+        "terms": "https:\/\/doi.org\/10.13003\/CED-terms-of-use",
+        "action": "add",
+        "subj": {
+          "pid": "https:\/\/reddit.com\/r\/meteorology\/comments\/54maad\/most_americans_want_to_learn_more_about_climate\/",
+          "type": "post",
+          "title": "Most Americans Want to Learn More about Climate Change, AMS members well-positioned to communicate the science to the public",
+          "issued": "2016-09-26T19:06:10.000Z"
+        },
+        "source_id": "reddit",
+        "obj": {
+          "pid": "https:\/\/doi.org\/10.1175\/bams-d-16-0097.1?utm_source=most+americans+want+to+learn+more+about+climate+change&amp;utm_campaign=tv+weathercasters&amp;utm_medium=email&amp;",
+          "url": "http:\/\/journals.ametsoc.org\/doi\/pdf\/10.1175\/BAMS-D-16-0097.1?utm_source=Most+Americans+Want+to+Learn+More+about+Climate+Change&amp;utm_campaign=TV+Weathercasters&amp;utm_medium=email&amp;"
+        },
+        "timestamp": "2017-02-22T16:17:04Z",
+        "updated_date": "2017-03-10T18:38:10.623Z",
+        "relation_type_id": "discusses"
+      }, {
+        "license": "https:\/\/creativecommons.org\/publicdomain\/zero\/1.0\/",
+        "updated_reason": "https:\/\/evidence.eventdata.crossref.org\/announcements\/2017-03-09T12-19-00Z-CED-7.json",
+        "updated": "edited",
+        "obj_id": "https:\/\/doi.org\/10.1175\/bams-d-16-0097.1",
+        "source_token": "a6c9d511-9239-4de8-a266-b013f5bd8764",
+        "occurred_at": "2016-09-26T19:16:01Z",
+        "subj_id": "https:\/\/reddit.com\/r\/science\/comments\/54mc5k\/most_americans_want_to_learn_more_about_climate\/",
+        "id": "9a991c8d-38fc-47ca-8e76-4822ad34ce84",
+        "evidence_record": "https:\/\/evidence.eventdata.crossref.org\/evidence\/20170222f9f69ce1-687f-408e-847c-806bdb40fe12",
+        "terms": "https:\/\/doi.org\/10.13003\/CED-terms-of-use",
+        "action": "add",
+        "subj": {
+          "pid": "https:\/\/reddit.com\/r\/science\/comments\/54mc5k\/most_americans_want_to_learn_more_about_climate\/",
+          "type": "post",
+          "title": "Most Americans Want to Learn More about Climate Change | AMS members make a case for 'who' and 'how'",
+          "issued": "2016-09-26T19:16:01.000Z"
+        },
+        "source_id": "reddit",
+        "obj": {
+          "pid": "https:\/\/doi.org\/10.1175\/bams-d-16-0097.1?utm_source=most+americans+want+to+learn+more+about+climate+change&amp;utm_campaign=tv+weathercasters&amp;utm_medium=email&amp;",
+          "url": "http:\/\/journals.ametsoc.org\/doi\/pdf\/10.1175\/BAMS-D-16-0097.1?utm_source=Most+Americans+Want+to+Learn+More+about+Climate+Change&amp;utm_campaign=TV+Weathercasters&amp;utm_medium=email&amp;"
+        },
+        "timestamp": "2017-02-22T16:17:04Z",
+        "updated_date": "2017-03-10T18:38:07.785Z",
+        "relation_type_id": "discusses"
+      }, {
+        "license": "https:\/\/creativecommons.org\/publicdomain\/zero\/1.0\/",
+        "obj_id": "https:\/\/doi.org\/10.1175\/bams-d-14-00154.1",
+        "source_token": "a6c9d511-9239-4de8-a266-b013f5bd8764",
+        "occurred_at": "2016-09-09T19:09:51Z",
+        "subj_id": "https:\/\/reddit.com\/r\/GlobalClimateChange\/comments\/51z3sw\/study_open_access_connecting_climate_model\/",
+        "id": "0c4a3768-07e9-4d3d-94c1-adacc9125442",
+        "evidence_record": "https:\/\/evidence.eventdata.crossref.org\/evidence\/20170222f9f69ce1-687f-408e-847c-806bdb40fe12",
+        "terms": "https:\/\/doi.org\/10.13003\/CED-terms-of-use",
+        "action": "add",
+        "subj": {
+          "pid": "https:\/\/reddit.com\/r\/GlobalClimateChange\/comments\/51z3sw\/study_open_access_connecting_climate_model\/",
+          "type": "post",
+          "title": "Study (open access) | Connecting Climate Model Projections of Global Temperature Change with the Real World",
+          "issued": "2016-09-09T19:09:51.000Z"
+        },
+        "source_id": "reddit",
+        "obj": {
+          "pid": "https:\/\/doi.org\/10.1175\/bams-d-14-00154.1",
+          "url": "http:\/\/journals.ametsoc.org\/doi\/full\/10.1175\/BAMS-D-14-00154.1"
+        },
+        "timestamp": "2017-02-22T16:17:04Z",
+        "relation_type_id": "discusses"
+      }, {
+        "license": "https:\/\/creativecommons.org\/publicdomain\/zero\/1.0\/",
+        "obj_id": "https:\/\/doi.org\/10.1175\/bams-d-15-00135.1",
+        "source_token": "a6c9d511-9239-4de8-a266-b013f5bd8764",
+        "occurred_at": "2016-08-01T17:05:24Z",
+        "subj_id": "https:\/\/reddit.com\/r\/GlobalClimateChange\/comments\/4vnjik\/study_open_access_the_art_and_science_of_climate\/",
+        "id": "f2595910-8f2a-428c-9aa5-4acbea8bfc12",
+        "evidence_record": "https:\/\/evidence.eventdata.crossref.org\/evidence\/20170222f9f69ce1-687f-408e-847c-806bdb40fe12",
+        "terms": "https:\/\/doi.org\/10.13003\/CED-terms-of-use",
+        "action": "add",
+        "subj": {
+          "pid": "https:\/\/reddit.com\/r\/GlobalClimateChange\/comments\/4vnjik\/study_open_access_the_art_and_science_of_climate\/",
+          "type": "post",
+          "title": "Study (open access) | The art and science of climate model tuning",
+          "issued": "2016-08-01T17:05:24.000Z"
+        },
+        "source_id": "reddit",
+        "obj": {
+          "pid": "https:\/\/doi.org\/10.1175\/bams-d-15-00135.1",
+          "url": "http:\/\/journals.ametsoc.org\/doi\/abs\/10.1175\/BAMS-D-15-00135.1"
+        },
+        "timestamp": "2017-02-22T16:17:05Z",
+        "relation_type_id": "discusses"
+      }, {
+        "license": "https:\/\/creativecommons.org\/publicdomain\/zero\/1.0\/",
+        "obj_id": "https:\/\/doi.org\/10.1175\/bams-d-13-00085.1",
+        "source_token": "a6c9d511-9239-4de8-a266-b013f5bd8764",
+        "occurred_at": "2016-08-17T01:04:28Z",
+        "subj_id": "https:\/\/reddit.com\/r\/environment\/comments\/4y2y0y\/reducing_global_greenhouse_gas_emissions_avoids\/",
+        "id": "c31016b4-6766-48fe-a604-026fef2db9ee",
+        "evidence_record": "https:\/\/evidence.eventdata.crossref.org\/evidence\/20170222f9f69ce1-687f-408e-847c-806bdb40fe12",
+        "terms": "https:\/\/doi.org\/10.13003\/CED-terms-of-use",
+        "action": "add",
+        "subj": {
+          "pid": "https:\/\/reddit.com\/r\/environment\/comments\/4y2y0y\/reducing_global_greenhouse_gas_emissions_avoids\/",
+          "type": "post",
+          "title": "Reducing Global Greenhouse Gas Emissions Avoids the Risk of Hurricane Sandy-Strength Storms Happening Nearly Every Year by 2050",
+          "issued": "2016-08-17T01:04:28.000Z"
+        },
+        "source_id": "reddit",
+        "obj": {
+          "pid": "https:\/\/doi.org\/10.1175\/bams-d-13-00085.1",
+          "url": "http:\/\/journals.ametsoc.org\/doi\/pdf\/10.1175\/BAMS-D-13-00085.1"
+        },
+        "timestamp": "2017-02-22T16:17:05Z",
+        "relation_type_id": "discusses"
+      }, {
+        "license": "https:\/\/creativecommons.org\/publicdomain\/zero\/1.0\/",
+        "obj_id": "https:\/\/doi.org\/10.1175\/bams-d-15-00135.1",
+        "source_token": "a6c9d511-9239-4de8-a266-b013f5bd8764",
+        "occurred_at": "2016-08-19T12:13:49Z",
+        "subj_id": "https:\/\/reddit.com\/r\/skeptic\/comments\/4yikcn\/the_art_and_science_of_climate_model_tuning\/",
+        "id": "98570608-d4cc-46ca-bb71-dc3e087a3081",
+        "evidence_record": "https:\/\/evidence.eventdata.crossref.org\/evidence\/20170222f9f69ce1-687f-408e-847c-806bdb40fe12",
+        "terms": "https:\/\/doi.org\/10.13003\/CED-terms-of-use",
+        "action": "add",
+        "subj": {
+          "pid": "https:\/\/reddit.com\/r\/skeptic\/comments\/4yikcn\/the_art_and_science_of_climate_model_tuning\/",
+          "type": "post",
+          "title": "The art and science of climate model tuning",
+          "issued": "2016-08-19T12:13:49.000Z"
+        },
+        "source_id": "reddit",
+        "obj": {
+          "pid": "https:\/\/doi.org\/10.1175\/bams-d-15-00135.1",
+          "url": "http:\/\/journals.ametsoc.org\/doi\/abs\/10.1175\/BAMS-D-15-00135.1"
+        },
+        "timestamp": "2017-02-22T16:17:05Z",
+        "relation_type_id": "discusses"
+      }, {
+        "license": "https:\/\/creativecommons.org\/publicdomain\/zero\/1.0\/",
+        "obj_id": "https:\/\/doi.org\/10.1175\/mwr-d-15-0298.1",
+        "source_token": "a6c9d511-9239-4de8-a266-b013f5bd8764",
+        "occurred_at": "2016-06-22T10:45:07Z",
+        "subj_id": "https:\/\/reddit.com\/r\/science\/comments\/4pa1ei\/study_from_the_university_of_manchester_uk_shows\/",
+        "id": "87bf9bc9-6943-4dfe-a7c7-a96146812358",
+        "evidence_record": "https:\/\/evidence.eventdata.crossref.org\/evidence\/20170222f9f69ce1-687f-408e-847c-806bdb40fe12",
+        "terms": "https:\/\/doi.org\/10.13003\/CED-terms-of-use",
+        "action": "add",
+        "subj": {
+          "pid": "https:\/\/reddit.com\/r\/science\/comments\/4pa1ei\/study_from_the_university_of_manchester_uk_shows\/",
+          "type": "post",
+          "title": "Study from the University of Manchester (UK) shows that 9563 tornadoes were reported in Europe between 1800 and 2014",
+          "issued": "2016-06-22T10:45:07.000Z"
+        },
+        "source_id": "reddit",
+        "obj": {
+          "pid": "https:\/\/doi.org\/10.1175\/mwr-d-15-0298.1",
+          "url": "http:\/\/journals.ametsoc.org\/doi\/full\/10.1175\/MWR-D-15-0298.1"
+        },
+        "timestamp": "2017-02-22T16:17:05Z",
+        "relation_type_id": "discusses"
+      }, {
+        "license": "https:\/\/creativecommons.org\/publicdomain\/zero\/1.0\/",
+        "obj_id": "https:\/\/doi.org\/10.1175\/bams-d-15-00013.1",
+        "source_token": "a6c9d511-9239-4de8-a266-b013f5bd8764",
+        "occurred_at": "2016-07-25T10:07:02Z",
+        "subj_id": "https:\/\/reddit.com\/r\/GlobalClimateChange\/comments\/4uhunb\/study_open_access_cmip5_scientific_gaps_and\/",
+        "id": "271d4df9-aee6-4687-aeac-51b62e1f0a6c",
+        "evidence_record": "https:\/\/evidence.eventdata.crossref.org\/evidence\/20170222f9f69ce1-687f-408e-847c-806bdb40fe12",
+        "terms": "https:\/\/doi.org\/10.13003\/CED-terms-of-use",
+        "action": "add",
+        "subj": {
+          "pid": "https:\/\/reddit.com\/r\/GlobalClimateChange\/comments\/4uhunb\/study_open_access_cmip5_scientific_gaps_and\/",
+          "type": "post",
+          "title": "Study (open access) | CMIP5 scientific gaps and recommendations for CMIP6",
+          "issued": "2016-07-25T10:07:02.000Z"
+        },
+        "source_id": "reddit",
+        "obj": {
+          "pid": "https:\/\/doi.org\/10.1175\/bams-d-15-00013.1",
+          "url": "http:\/\/journals.ametsoc.org\/doi\/abs\/10.1175\/BAMS-D-15-00013.1"
+        },
+        "timestamp": "2017-02-22T16:17:05Z",
+        "relation_type_id": "discusses"
+      }, {
+        "license": "https:\/\/creativecommons.org\/publicdomain\/zero\/1.0\/",
+        "obj_id": "https:\/\/doi.org\/10.1175\/jcli-d-15-0897.1",
+        "source_token": "a6c9d511-9239-4de8-a266-b013f5bd8764",
+        "occurred_at": "2016-05-26T14:05:43Z",
+        "subj_id": "https:\/\/reddit.com\/r\/climate_science\/comments\/4l5gbc\/constraints_on_climate_sensitivity_from\/",
+        "id": "f74f669e-13c4-4a29-b8e1-2c58fb5902de",
+        "evidence_record": "https:\/\/evidence.eventdata.crossref.org\/evidence\/20170222f9f69ce1-687f-408e-847c-806bdb40fe12",
+        "terms": "https:\/\/doi.org\/10.13003\/CED-terms-of-use",
+        "action": "add",
+        "subj": {
+          "pid": "https:\/\/reddit.com\/r\/climate_science\/comments\/4l5gbc\/constraints_on_climate_sensitivity_from\/",
+          "type": "post",
+          "title": "Constraints on climate sensitivity from space-based measurements of low-cloud reflection",
+          "issued": "2016-05-26T14:05:43.000Z"
+        },
+        "source_id": "reddit",
+        "obj": {
+          "pid": "https:\/\/doi.org\/10.1175\/jcli-d-15-0897.1",
+          "url": "http:\/\/journals.ametsoc.org\/doi\/abs\/10.1175\/JCLI-D-15-0897.1"
+        },
+        "timestamp": "2017-02-22T16:17:06Z",
+        "relation_type_id": "discusses"
+      }, {
+        "license": "https:\/\/creativecommons.org\/publicdomain\/zero\/1.0\/",
+        "obj_id": "https:\/\/doi.org\/10.1175\/jcli-d-14-00656.1",
+        "source_token": "a6c9d511-9239-4de8-a266-b013f5bd8764",
+        "occurred_at": "2016-06-08T12:24:00Z",
+        "subj_id": "https:\/\/reddit.com\/r\/climatechange\/comments\/4n4qqt\/rethinking_the_lower_bound_on_aerosol_radiative\/",
+        "id": "97615ec8-c5a4-4e99-a452-a979b2f0ab7a",
+        "evidence_record": "https:\/\/evidence.eventdata.crossref.org\/evidence\/20170222f9f69ce1-687f-408e-847c-806bdb40fe12",
+        "terms": "https:\/\/doi.org\/10.13003\/CED-terms-of-use",
+        "action": "add",
+        "subj": {
+          "pid": "https:\/\/reddit.com\/r\/climatechange\/comments\/4n4qqt\/rethinking_the_lower_bound_on_aerosol_radiative\/",
+          "type": "post",
+          "title": "Rethinking the Lower Bound on Aerosol Radiative Forcing",
+          "issued": "2016-06-08T12:24:00.000Z"
+        },
+        "source_id": "reddit",
+        "obj": {
+          "pid": "https:\/\/doi.org\/10.1175\/jcli-d-14-00656.1",
+          "url": "http:\/\/journals.ametsoc.org\/doi\/abs\/10.1175\/JCLI-D-14-00656.1"
+        },
+        "timestamp": "2017-02-22T16:17:06Z",
+        "relation_type_id": "discusses"
+      }, {
+        "license": "https:\/\/creativecommons.org\/publicdomain\/zero\/1.0\/",
+        "obj_id": "https:\/\/doi.org\/10.1175\/jcli-d-15-0897.1",
+        "source_token": "a6c9d511-9239-4de8-a266-b013f5bd8764",
+        "occurred_at": "2016-05-26T13:41:38Z",
+        "subj_id": "https:\/\/reddit.com\/r\/science\/comments\/4l5cin\/constraints_on_climate_sensitivity_from\/",
+        "id": "66c7be97-8110-4099-8788-241027a24f79",
+        "evidence_record": "https:\/\/evidence.eventdata.crossref.org\/evidence\/20170222f9f69ce1-687f-408e-847c-806bdb40fe12",
+        "terms": "https:\/\/doi.org\/10.13003\/CED-terms-of-use",
+        "action": "add",
+        "subj": {
+          "pid": "https:\/\/reddit.com\/r\/science\/comments\/4l5cin\/constraints_on_climate_sensitivity_from\/",
+          "type": "post",
+          "title": "Constraints on climate sensitivity from space-based measurements of low-cloud reflection",
+          "issued": "2016-05-26T13:41:38.000Z"
+        },
+        "source_id": "reddit",
+        "obj": {
+          "pid": "https:\/\/doi.org\/10.1175\/jcli-d-15-0897.1",
+          "url": "http:\/\/journals.ametsoc.org\/doi\/abs\/10.1175\/JCLI-D-15-0897.1"
+        },
+        "timestamp": "2017-02-22T16:17:06Z",
+        "relation_type_id": "discusses"
+      }, {
+        "license": "https:\/\/creativecommons.org\/publicdomain\/zero\/1.0\/",
+        "obj_id": "https:\/\/doi.org\/10.1175\/jcli-d-15-0744.1",
+        "source_token": "a6c9d511-9239-4de8-a266-b013f5bd8764",
+        "occurred_at": "2016-03-03T15:43:46Z",
+        "subj_id": "https:\/\/reddit.com\/r\/science\/comments\/48si2p\/sensitivity_of_satellitederived_tropospheric\/",
+        "id": "e564292d-2fc7-42db-a9bd-e0ba371dad5a",
+        "evidence_record": "https:\/\/evidence.eventdata.crossref.org\/evidence\/20170222f9f69ce1-687f-408e-847c-806bdb40fe12",
+        "terms": "https:\/\/doi.org\/10.13003\/CED-terms-of-use",
+        "action": "add",
+        "subj": {
+          "pid": "https:\/\/reddit.com\/r\/science\/comments\/48si2p\/sensitivity_of_satellitederived_tropospheric\/",
+          "type": "post",
+          "title": "Sensitivity of satellite-derived tropospheric temperature trends to the diurnal cycle adjustment",
+          "issued": "2016-03-03T15:43:46.000Z"
+        },
+        "source_id": "reddit",
+        "obj": {
+          "pid": "https:\/\/doi.org\/10.1175\/jcli-d-15-0744.1",
+          "url": "http:\/\/journals.ametsoc.org\/doi\/abs\/10.1175\/JCLI-D-15-0744.1"
+        },
+        "timestamp": "2017-02-22T16:17:07Z",
+        "relation_type_id": "discusses"
+      }, {
+        "license": "https:\/\/creativecommons.org\/publicdomain\/zero\/1.0\/",
+        "obj_id": "https:\/\/doi.org\/10.1175\/jcli-d-15-0384.1",
+        "source_token": "a6c9d511-9239-4de8-a266-b013f5bd8764",
+        "occurred_at": "2016-02-07T01:17:37Z",
+        "subj_id": "https:\/\/reddit.com\/r\/climate_science\/comments\/44j8gg\/unforced_surface_air_temperature_variability_and\/",
+        "id": "be858c8e-e973-4617-9222-bfbb80b35342",
+        "evidence_record": "https:\/\/evidence.eventdata.crossref.org\/evidence\/20170222f9f69ce1-687f-408e-847c-806bdb40fe12",
+        "terms": "https:\/\/doi.org\/10.13003\/CED-terms-of-use",
+        "action": "add",
+        "subj": {
+          "pid": "https:\/\/reddit.com\/r\/climate_science\/comments\/44j8gg\/unforced_surface_air_temperature_variability_and\/",
+          "type": "post",
+          "title": "Unforced Surface Air Temperature Variability and Its Contrasting Relationship with the Anomalous TOA Energy Flux at Local and Global Spatial Scales",
+          "issued": "2016-02-07T01:17:37.000Z"
+        },
+        "source_id": "reddit",
+        "obj": {
+          "pid": "https:\/\/doi.org\/10.1175\/jcli-d-15-0384.1",
+          "url": "http:\/\/journals.ametsoc.org\/doi\/abs\/10.1175\/JCLI-D-15-0384.1"
+        },
+        "timestamp": "2017-02-22T16:17:07Z",
+        "relation_type_id": "discusses"
+      }, {
+        "license": "https:\/\/creativecommons.org\/publicdomain\/zero\/1.0\/",
+        "obj_id": "https:\/\/doi.org\/10.1175\/wcas-d-13-00059.1",
+        "source_token": "a6c9d511-9239-4de8-a266-b013f5bd8764",
+        "occurred_at": "2016-03-31T07:15:20Z",
+        "subj_id": "https:\/\/reddit.com\/r\/MakeTotalDestr0i\/comments\/4cozcq\/water_drought_climate_change_and_conflict_in_syria\/",
+        "id": "ae95e8f6-d3dd-4eb9-b019-e221871cc527",
+        "evidence_record": "https:\/\/evidence.eventdata.crossref.org\/evidence\/20170222f9f69ce1-687f-408e-847c-806bdb40fe12",
+        "terms": "https:\/\/doi.org\/10.13003\/CED-terms-of-use",
+        "action": "add",
+        "subj": {
+          "pid": "https:\/\/reddit.com\/r\/MakeTotalDestr0i\/comments\/4cozcq\/water_drought_climate_change_and_conflict_in_syria\/",
+          "type": "post",
+          "title": "Water, Drought, Climate Change, and Conflict in Syria",
+          "issued": "2016-03-31T07:15:20.000Z"
+        },
+        "source_id": "reddit",
+        "obj": {
+          "pid": "https:\/\/doi.org\/10.1175\/wcas-d-13-00059.1",
+          "url": "http:\/\/journals.ametsoc.org\/doi\/pdf\/10.1175\/WCAS-D-13-00059.1"
+        },
+        "timestamp": "2017-02-22T16:17:07Z",
+        "relation_type_id": "discusses"
+      }, {
+        "license": "https:\/\/creativecommons.org\/publicdomain\/zero\/1.0\/",
+        "obj_id": "https:\/\/doi.org\/10.1175\/wcas-d-15-0046.1",
+        "source_token": "a6c9d511-9239-4de8-a266-b013f5bd8764",
+        "occurred_at": "2016-02-17T17:06:43Z",
+        "subj_id": "https:\/\/reddit.com\/r\/sciencecommunication\/comments\/469pae\/differences_between_conservatives_and_liberals_in\/",
+        "id": "8fc2a8b6-dde1-47fd-83d9-5f334a5fbad0",
+        "evidence_record": "https:\/\/evidence.eventdata.crossref.org\/evidence\/20170222f9f69ce1-687f-408e-847c-806bdb40fe12",
+        "terms": "https:\/\/doi.org\/10.13003\/CED-terms-of-use",
+        "action": "add",
+        "subj": {
+          "pid": "https:\/\/reddit.com\/r\/sciencecommunication\/comments\/469pae\/differences_between_conservatives_and_liberals_in\/",
+          "type": "post",
+          "title": "Differences between Conservatives and Liberals in Information-Seeking Behavior and Perceived Risks Associated with Climate-Driven Changes to Local Forest Conditions (x-post from science and social science)",
+          "issued": "2016-02-17T17:06:43.000Z"
+        },
+        "source_id": "reddit",
+        "obj": {
+          "pid": "https:\/\/doi.org\/10.1175\/wcas-d-15-0046.1",
+          "url": "http:\/\/journals.ametsoc.org\/doi\/abs\/10.1175\/WCAS-D-15-0046.1"
+        },
+        "timestamp": "2017-02-22T16:17:07Z",
+        "relation_type_id": "discusses"
+      }, {
+        "license": "https:\/\/creativecommons.org\/publicdomain\/zero\/1.0\/",
+        "obj_id": "https:\/\/doi.org\/10.1175\/wcas-d-15-0046.1",
+        "source_token": "a6c9d511-9239-4de8-a266-b013f5bd8764",
+        "occurred_at": "2016-02-17T18:08:54Z",
+        "subj_id": "https:\/\/reddit.com\/r\/socialscience\/comments\/46a15w\/differences_between_conservatives_and_liberals_in\/",
+        "id": "5d7b543c-b967-4335-90c8-e5ca594ebb10",
+        "evidence_record": "https:\/\/evidence.eventdata.crossref.org\/evidence\/20170222f9f69ce1-687f-408e-847c-806bdb40fe12",
+        "terms": "https:\/\/doi.org\/10.13003\/CED-terms-of-use",
+        "action": "add",
+        "subj": {
+          "pid": "https:\/\/reddit.com\/r\/socialscience\/comments\/46a15w\/differences_between_conservatives_and_liberals_in\/",
+          "type": "post",
+          "title": "Differences between Conservatives and Liberals in Information-Seeking Behavior and Perceived Risks Associated with Climate-Driven Changes to Local Forest Conditions (x-post from science and science communication)",
+          "issued": "2016-02-17T18:08:54.000Z"
+        },
+        "source_id": "reddit",
+        "obj": {
+          "pid": "https:\/\/doi.org\/10.1175\/wcas-d-15-0046.1",
+          "url": "http:\/\/journals.ametsoc.org\/doi\/abs\/10.1175\/WCAS-D-15-0046.1"
+        },
+        "timestamp": "2017-02-22T16:17:07Z",
+        "relation_type_id": "discusses"
+      }, {
+        "license": "https:\/\/creativecommons.org\/publicdomain\/zero\/1.0\/",
+        "obj_id": "https:\/\/doi.org\/10.1175\/wcas-d-15-0046.1",
+        "source_token": "a6c9d511-9239-4de8-a266-b013f5bd8764",
+        "occurred_at": "2016-02-11T21:36:58Z",
+        "subj_id": "https:\/\/reddit.com\/r\/science\/comments\/45b89w\/differences_between_conservatives_and_liberals_in\/",
+        "id": "4b53aacc-da32-4287-8c90-231950d3355e",
+        "evidence_record": "https:\/\/evidence.eventdata.crossref.org\/evidence\/20170222f9f69ce1-687f-408e-847c-806bdb40fe12",
+        "terms": "https:\/\/doi.org\/10.13003\/CED-terms-of-use",
+        "action": "add",
+        "subj": {
+          "pid": "https:\/\/reddit.com\/r\/science\/comments\/45b89w\/differences_between_conservatives_and_liberals_in\/",
+          "type": "post",
+          "title": "Differences Between Conservatives and Liberals in Information Seeking-Behavior and Perceived Risks Associated with Climate-Driven Changes to Local Forest Conditions",
+          "issued": "2016-02-11T21:36:58.000Z"
+        },
+        "source_id": "reddit",
+        "obj": {
+          "pid": "https:\/\/doi.org\/10.1175\/wcas-d-15-0046.1",
+          "url": "http:\/\/journals.ametsoc.org\/doi\/abs\/10.1175\/WCAS-D-15-0046.1"
+        },
+        "timestamp": "2017-02-22T16:17:07Z",
+        "relation_type_id": "discusses"
+      }, {
+        "license": "https:\/\/creativecommons.org\/publicdomain\/zero\/1.0\/",
+        "obj_id": "https:\/\/doi.org\/10.1175\/jcli-d-15-0384.1",
+        "source_token": "a6c9d511-9239-4de8-a266-b013f5bd8764",
+        "occurred_at": "2016-02-06T03:50:20Z",
+        "subj_id": "https:\/\/reddit.com\/r\/science\/comments\/44ejtn\/study_unforced_surface_air_temperature\/",
+        "id": "9dce67f4-c728-4323-baac-3e097882f90c",
+        "evidence_record": "https:\/\/evidence.eventdata.crossref.org\/evidence\/20170222f9f69ce1-687f-408e-847c-806bdb40fe12",
+        "terms": "https:\/\/doi.org\/10.13003\/CED-terms-of-use",
+        "action": "add",
+        "subj": {
+          "pid": "https:\/\/reddit.com\/r\/science\/comments\/44ejtn\/study_unforced_surface_air_temperature\/",
+          "type": "post",
+          "title": "Study: Unforced Surface Air Temperature Variability and Its Contrasting Relationship with the Anomalous TOA Energy Flux at Local and Global Spatial Scales",
+          "issued": "2016-02-06T03:50:20.000Z"
+        },
+        "source_id": "reddit",
+        "obj": {
+          "pid": "https:\/\/doi.org\/10.1175\/jcli-d-15-0384.1",
+          "url": "http:\/\/journals.ametsoc.org\/doi\/abs\/10.1175\/JCLI-D-15-0384.1"
+        },
+        "timestamp": "2017-02-22T16:17:08Z",
+        "relation_type_id": "discusses"
+      }, {
+        "license": "https:\/\/creativecommons.org\/publicdomain\/zero\/1.0\/",
+        "updated_reason": "https:\/\/evidence.eventdata.crossref.org\/announcements\/2017-03-09T12-19-00Z-CED-7.json",
+        "updated": "edited",
+        "obj_id": "https:\/\/doi.org\/10.1175\/jcli-d-12-00575.1",
+        "source_token": "a6c9d511-9239-4de8-a266-b013f5bd8764",
+        "occurred_at": "2016-01-21T23:57:10Z",
+        "subj_id": "https:\/\/reddit.com\/r\/climatechange\/comments\/422tqz\/the_seasonal_cycle_of_atmospheric_heating_and\/",
+        "id": "8199b6cc-3b3b-4ac7-8170-a119cb4b3bc0",
+        "evidence_record": "https:\/\/evidence.eventdata.crossref.org\/evidence\/20170222f9f69ce1-687f-408e-847c-806bdb40fe12",
+        "terms": "https:\/\/doi.org\/10.13003\/CED-terms-of-use",
+        "action": "add",
+        "subj": {
+          "pid": "https:\/\/reddit.com\/r\/climatechange\/comments\/422tqz\/the_seasonal_cycle_of_atmospheric_heating_and\/",
+          "type": "post",
+          "title": "The Seasonal Cycle of Atmospheric Heating and Temperature",
+          "issued": "2016-01-21T23:57:10.000Z"
+        },
+        "source_id": "reddit",
+        "obj": {
+          "pid": "https:\/\/doi.org\/10.1175\/jcli-d-12-00575.1#\/doi\/full\/10.1175",
+          "url": "http:\/\/journals.ametsoc.org\/doi\/abs\/10.1175\/JCLI-D-12-00575.1#\/doi\/full\/10.1175\/JCLI-D-12-00713.1"
+        },
+        "timestamp": "2017-02-22T16:17:08Z",
+        "updated_date": "2017-03-10T18:38:02.507Z",
+        "relation_type_id": "discusses"
+      }, {
+        "license": "https:\/\/creativecommons.org\/publicdomain\/zero\/1.0\/",
+        "obj_id": "https:\/\/doi.org\/10.1175\/bams-d-14-00234.1",
+        "source_token": "a6c9d511-9239-4de8-a266-b013f5bd8764",
+        "occurred_at": "2015-10-27T18:10:27Z",
+        "subj_id": "https:\/\/reddit.com\/r\/weather\/comments\/3qg7cn\/using_high_resolution_gps_tracking_data_of_bird\/",
+        "id": "7adf682c-9540-454c-8e50-7101b871c74f",
+        "evidence_record": "https:\/\/evidence.eventdata.crossref.org\/evidence\/20170222f9f69ce1-687f-408e-847c-806bdb40fe12",
+        "terms": "https:\/\/doi.org\/10.13003\/CED-terms-of-use",
+        "action": "add",
+        "subj": {
+          "pid": "https:\/\/reddit.com\/r\/weather\/comments\/3qg7cn\/using_high_resolution_gps_tracking_data_of_bird\/",
+          "type": "post",
+          "title": "Using high resolution GPS tracking data of bird flight for meteorological observations",
+          "issued": "2015-10-27T18:10:27.000Z"
+        },
+        "source_id": "reddit",
+        "obj": {
+          "pid": "https:\/\/doi.org\/10.1175\/bams-d-14-00234.1",
+          "url": "http:\/\/journals.ametsoc.org\/doi\/abs\/10.1175\/BAMS-D-14-00234.1"
+        },
+        "timestamp": "2017-02-22T16:17:08Z",
+        "relation_type_id": "discusses"
+      }, {
+        "license": "https:\/\/creativecommons.org\/publicdomain\/zero\/1.0\/",
+        "updated_reason": "https:\/\/evidence.eventdata.crossref.org\/announcements\/2017-03-09T12-19-00Z-CED-7.json",
+        "updated": "edited",
+        "obj_id": "https:\/\/doi.org\/10.1175\/jcli-d-15-0082.1",
+        "source_token": "a6c9d511-9239-4de8-a266-b013f5bd8764",
+        "occurred_at": "2015-10-31T20:59:58Z",
+        "subj_id": "https:\/\/reddit.com\/r\/climate\/comments\/3r0c9w\/recent_southern_new_york_climate_change\/",
+        "id": "041730a5-1017-489a-a205-4ec5f3ed45fd",
+        "evidence_record": "https:\/\/evidence.eventdata.crossref.org\/evidence\/20170222f9f69ce1-687f-408e-847c-806bdb40fe12",
+        "terms": "https:\/\/doi.org\/10.13003\/CED-terms-of-use",
+        "action": "add",
+        "subj": {
+          "pid": "https:\/\/reddit.com\/r\/climate\/comments\/3r0c9w\/recent_southern_new_york_climate_change\/",
+          "type": "post",
+          "title": "Recent Southern New York Climate Change: Observations, Mechanisms and Spatial Context",
+          "issued": "2015-10-31T20:59:58.000Z"
+        },
+        "source_id": "reddit",
+        "obj": {
+          "pid": "https:\/\/doi.org\/10.1175\/jcli-d-15-0082.1?af=r",
+          "url": "http:\/\/journals.ametsoc.org\/doi\/abs\/10.1175\/JCLI-D-15-0082.1?af=R"
+        },
+        "timestamp": "2017-02-22T16:17:08Z",
+        "updated_date": "2017-03-10T18:37:31.890Z",
+        "relation_type_id": "discusses"
+      }, {
+        "license": "https:\/\/creativecommons.org\/publicdomain\/zero\/1.0\/",
+        "obj_id": "https:\/\/doi.org\/10.1175\/2011mwr3593.1",
+        "source_token": "a6c9d511-9239-4de8-a266-b013f5bd8764",
+        "occurred_at": "2015-06-19T23:27:06Z",
+        "subj_id": "https:\/\/reddit.com\/r\/TropicalWeather\/comments\/3aghuv\/with_td_bill_somehow_still_spinning_over_the_ohio\/",
+        "id": "dc1e4811-e4c7-4eed-b698-c5d3595f9243",
+        "evidence_record": "https:\/\/evidence.eventdata.crossref.org\/evidence\/20170222f9f69ce1-687f-408e-847c-806bdb40fe12",
+        "terms": "https:\/\/doi.org\/10.13003\/CED-terms-of-use",
+        "action": "add",
+        "subj": {
+          "pid": "https:\/\/reddit.com\/r\/TropicalWeather\/comments\/3aghuv\/with_td_bill_somehow_still_spinning_over_the_ohio\/",
+          "type": "post",
+          "title": "With TD Bill somehow still spinning over the Ohio Valley, I found a good AMS article about the \"Brown Ocean Effect\" to share.",
+          "issued": "2015-06-19T23:27:06.000Z"
+        },
+        "source_id": "reddit",
+        "obj": {
+          "pid": "https:\/\/doi.org\/10.1175\/2011mwr3593.1",
+          "url": "http:\/\/journals.ametsoc.org\/doi\/abs\/10.1175\/2011MWR3593.1"
+        },
+        "timestamp": "2017-02-22T16:17:09Z",
+        "relation_type_id": "discusses"
+      }, {
+        "license": "https:\/\/creativecommons.org\/publicdomain\/zero\/1.0\/",
+        "obj_id": "https:\/\/doi.org\/10.1175\/bams-d-14-00106.1",
+        "source_token": "a6c9d511-9239-4de8-a266-b013f5bd8764",
+        "occurred_at": "2015-09-20T08:24:43Z",
+        "subj_id": "https:\/\/reddit.com\/r\/climateskeptics\/comments\/3lnnmv\/the_pause_in_global_warming_turning_a_routine\/",
+        "id": "65d7994f-5f5a-4d55-9b4e-b68ae62f0745",
+        "evidence_record": "https:\/\/evidence.eventdata.crossref.org\/evidence\/20170222f9f69ce1-687f-408e-847c-806bdb40fe12",
+        "terms": "https:\/\/doi.org\/10.13003\/CED-terms-of-use",
+        "action": "add",
+        "subj": {
+          "pid": "https:\/\/reddit.com\/r\/climateskeptics\/comments\/3lnnmv\/the_pause_in_global_warming_turning_a_routine\/",
+          "type": "post",
+          "title": "The \u201cPause\u201d in Global Warming: Turning a Routine Fluctuation into a Problem for Science",
+          "issued": "2015-09-20T08:24:43.000Z"
+        },
+        "source_id": "reddit",
+        "obj": {
+          "pid": "https:\/\/doi.org\/10.1175\/bams-d-14-00106.1",
+          "url": "http:\/\/journals.ametsoc.org\/doi\/pdf\/10.1175\/BAMS-D-14-00106.1"
+        },
+        "timestamp": "2017-02-22T16:17:09Z",
+        "relation_type_id": "discusses"
+      }, {
+        "license": "https:\/\/creativecommons.org\/publicdomain\/zero\/1.0\/",
+        "obj_id": "https:\/\/doi.org\/10.1175\/bams-d-14-00106.1",
+        "source_token": "a6c9d511-9239-4de8-a266-b013f5bd8764",
+        "occurred_at": "2015-09-18T14:34:08Z",
+        "subj_id": "https:\/\/reddit.com\/r\/climate_science\/comments\/3lfqp3\/the_pause_in_global_warming_turning_a_routine\/",
+        "id": "561d9b1c-2efe-48c7-8a4e-2616d4d81c89",
+        "evidence_record": "https:\/\/evidence.eventdata.crossref.org\/evidence\/20170222f9f69ce1-687f-408e-847c-806bdb40fe12",
+        "terms": "https:\/\/doi.org\/10.13003\/CED-terms-of-use",
+        "action": "add",
+        "subj": {
+          "pid": "https:\/\/reddit.com\/r\/climate_science\/comments\/3lfqp3\/the_pause_in_global_warming_turning_a_routine\/",
+          "type": "post",
+          "title": "The \u201cPause\u201d in Global Warming: Turning a Routine Fluctuation into a Problem for Science",
+          "issued": "2015-09-18T14:34:08.000Z"
+        },
+        "source_id": "reddit",
+        "obj": {
+          "pid": "https:\/\/doi.org\/10.1175\/bams-d-14-00106.1",
+          "url": "http:\/\/journals.ametsoc.org\/doi\/abs\/10.1175\/BAMS-D-14-00106.1"
+        },
+        "timestamp": "2017-02-22T16:17:09Z",
+        "relation_type_id": "discusses"
+      }, {
+        "license": "https:\/\/creativecommons.org\/publicdomain\/zero\/1.0\/",
+        "updated_reason": "https:\/\/evidence.eventdata.crossref.org\/announcements\/2017-03-09T12-19-00Z-CED-7.json",
+        "updated": "edited",
+        "obj_id": "https:\/\/doi.org\/10.1175\/jcli-d-15-0260.1",
+        "source_token": "a6c9d511-9239-4de8-a266-b013f5bd8764",
+        "occurred_at": "2015-10-21T19:34:44Z",
+        "subj_id": "https:\/\/reddit.com\/r\/climate\/comments\/3poa3v\/how_has_humaninduced_climate_change_affected\/",
+        "id": "48e29f7c-2b15-4878-a5ef-b0576e2d1c8a",
+        "evidence_record": "https:\/\/evidence.eventdata.crossref.org\/evidence\/20170222f9f69ce1-687f-408e-847c-806bdb40fe12",
+        "terms": "https:\/\/doi.org\/10.13003\/CED-terms-of-use",
+        "action": "add",
+        "subj": {
+          "pid": "https:\/\/reddit.com\/r\/climate\/comments\/3poa3v\/how_has_humaninduced_climate_change_affected\/",
+          "type": "post",
+          "title": "How Has Human-induced Climate Change Affected California Drought Risk?",
+          "issued": "2015-10-21T19:34:44.000Z"
+        },
+        "source_id": "reddit",
+        "obj": {
+          "pid": "https:\/\/doi.org\/10.1175\/jcli-d-15-0260.1#.vib5oldwczw.twitter",
+          "url": "http:\/\/journals.ametsoc.org\/doi\/abs\/10.1175\/JCLI-D-15-0260.1#.Vib5OLdwczw.twitter"
+        },
+        "timestamp": "2017-02-22T16:17:09Z",
+        "updated_date": "2017-03-10T18:37:49.096Z",
+        "relation_type_id": "discusses"
+      }, {
+        "license": "https:\/\/creativecommons.org\/publicdomain\/zero\/1.0\/",
+        "updated_reason": "https:\/\/evidence.eventdata.crossref.org\/announcements\/2017-03-09T12-19-00Z-CED-7.json",
+        "updated": "edited",
+        "obj_id": "https:\/\/doi.org\/10.1175\/jcli-d-15-0188.1",
+        "source_token": "a6c9d511-9239-4de8-a266-b013f5bd8764",
+        "occurred_at": "2015-07-28T16:29:21Z",
+        "subj_id": "https:\/\/reddit.com\/r\/skeptic\/comments\/3ewyiq\/new_paper_accumulated_cyclone_energy_globally_has\/",
+        "id": "486e5c19-ad5f-4d85-97d9-c921aa657bca",
+        "evidence_record": "https:\/\/evidence.eventdata.crossref.org\/evidence\/20170222f9f69ce1-687f-408e-847c-806bdb40fe12",
+        "terms": "https:\/\/doi.org\/10.13003\/CED-terms-of-use",
+        "action": "add",
+        "subj": {
+          "pid": "https:\/\/reddit.com\/r\/skeptic\/comments\/3ewyiq\/new_paper_accumulated_cyclone_energy_globally_has\/",
+          "type": "post",
+          "title": "New paper: \"Accumulated Cyclone Energy globally has experienced a large and significant downward trend\" 1990-2014",
+          "issued": "2015-07-28T16:29:21.000Z"
+        },
+        "source_id": "reddit",
+        "obj": {
+          "pid": "https:\/\/doi.org\/10.1175\/jcli-d-15-0188.1?af=r&amp;",
+          "url": "http:\/\/journals.ametsoc.org\/doi\/abs\/10.1175\/JCLI-D-15-0188.1?af=R&amp;"
+        },
+        "timestamp": "2017-02-22T16:17:09Z",
+        "updated_date": "2017-03-10T18:37:48.972Z",
+        "relation_type_id": "discusses"
+      }]
+    }
+  }

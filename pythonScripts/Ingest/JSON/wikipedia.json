@@ -1,0 +1,2611 @@
+{
+    "status": "ok",
+    "message-type": "event-list",
+    "message": {
+        "next-cursor": "ad7f3409-b373-4c31-b923-32f5ac136ac6",
+        "total-results": 197467834,
+        "items-per-page": 100,
+        "events": [
+            {
+                "license": "https://creativecommons.org/publicdomain/zero/1.0/",
+                "terms": "https://doi.org/10.13003/CED-terms-of-use",
+                "updated_reason": "https://evidence.eventdata.crossref.org/announcements/2018-01-19T00-00-00Z-ED-15.json",
+                "obj_id": "https://doi.org/10.1073/pnas.1108312108",
+                "source_token": "36c35e23-8757-4a9d-aacf-345e9b7eb50d",
+                "occurred_at": "2017-04-11T11:12:10Z",
+                "subj_id": "https://it.wikipedia.org/wiki/Digit_ratio",
+                "id": "d9cb9101-5dbf-4a9c-8f56-3ae3f08e1e07",
+                "evidence_record": "https://evidence.eventdata.crossref.org/evidence/20170411-wikipedia-b3138ec9-f630-4565-8d83-32219823981f",
+                "action": "add",
+                "subj": {
+                    "pid": "https://it.wikipedia.org/wiki/Digit_ratio",
+                    "url": "https://it.wikipedia.org/w/index.php?title=Digit_ratio&oldid=87062122",
+                    "title": "Digit ratio",
+                    "api-url": "https://it.wikipedia.org/api/rest_v1/page/html/Digit_ratio/87062122"
+                },
+                "source_id": "wikipedia",
+                "obj": {
+                    "pid": "https://doi.org/10.1073/pnas.1108312108",
+                    "url": "https://doi.org/10.1073/pnas.1108312108"
+                },
+                "timestamp": "2017-04-11T11:12:32Z",
+                "updated_date": "2018-01-31T17:30:00Z",
+                "relation_type_id": "references"
+            },
+            {
+                "license": "https://creativecommons.org/publicdomain/zero/1.0/",
+                "terms": "https://doi.org/10.13003/CED-terms-of-use",
+                "updated_reason": "https://evidence.eventdata.crossref.org/announcements/2018-01-19T00-00-00Z-ED-15.json",
+                "obj_id": "https://doi.org/10.1111/j.1469-7580.2007.00801.x",
+                "source_token": "36c35e23-8757-4a9d-aacf-345e9b7eb50d",
+                "occurred_at": "2017-04-11T11:12:10Z",
+                "subj_id": "https://it.wikipedia.org/wiki/Digit_ratio",
+                "id": "b39c79bc-28d3-42a9-be57-3babb40851e5",
+                "evidence_record": "https://evidence.eventdata.crossref.org/evidence/20170411-wikipedia-b3138ec9-f630-4565-8d83-32219823981f",
+                "action": "add",
+                "subj": {
+                    "pid": "https://it.wikipedia.org/wiki/Digit_ratio",
+                    "url": "https://it.wikipedia.org/w/index.php?title=Digit_ratio&oldid=87062122",
+                    "title": "Digit ratio",
+                    "api-url": "https://it.wikipedia.org/api/rest_v1/page/html/Digit_ratio/87062122"
+                },
+                "source_id": "wikipedia",
+                "obj": {
+                    "pid": "https://doi.org/10.1111/j.1469-7580.2007.00801.x",
+                    "url": "https://doi.org/10.1111/j.1469-7580.2007.00801.x"
+                },
+                "timestamp": "2017-04-11T11:12:32Z",
+                "updated_date": "2018-01-31T17:30:00Z",
+                "relation_type_id": "references"
+            },
+            {
+                "license": "https://creativecommons.org/publicdomain/zero/1.0/",
+                "terms": "https://doi.org/10.13003/CED-terms-of-use",
+                "updated_reason": "https://evidence.eventdata.crossref.org/announcements/2018-01-19T00-00-00Z-ED-15.json",
+                "obj_id": "https://doi.org/10.1016/j.psyneuen.2007.01.007",
+                "source_token": "36c35e23-8757-4a9d-aacf-345e9b7eb50d",
+                "occurred_at": "2017-04-11T11:12:10Z",
+                "subj_id": "https://it.wikipedia.org/wiki/Digit_ratio",
+                "id": "cf312dfd-bc3b-4295-a189-007ade2a97ec",
+                "evidence_record": "https://evidence.eventdata.crossref.org/evidence/20170411-wikipedia-b3138ec9-f630-4565-8d83-32219823981f",
+                "action": "add",
+                "subj": {
+                    "pid": "https://it.wikipedia.org/wiki/Digit_ratio",
+                    "url": "https://it.wikipedia.org/w/index.php?title=Digit_ratio&oldid=87062122",
+                    "title": "Digit ratio",
+                    "api-url": "https://it.wikipedia.org/api/rest_v1/page/html/Digit_ratio/87062122"
+                },
+                "source_id": "wikipedia",
+                "obj": {
+                    "pid": "https://doi.org/10.1016/j.psyneuen.2007.01.007",
+                    "url": "https://doi.org/10.1016/j.psyneuen.2007.01.007"
+                },
+                "timestamp": "2017-04-11T11:12:33Z",
+                "updated_date": "2018-01-31T17:30:00Z",
+                "relation_type_id": "references"
+            },
+            {
+                "license": "https://creativecommons.org/publicdomain/zero/1.0/",
+                "terms": "https://doi.org/10.13003/CED-terms-of-use",
+                "updated_reason": "https://evidence.eventdata.crossref.org/announcements/2018-01-19T00-00-00Z-ED-15.json",
+                "obj_id": "https://doi.org/10.1007/s10508-005-3121-y",
+                "source_token": "36c35e23-8757-4a9d-aacf-345e9b7eb50d",
+                "occurred_at": "2017-04-11T11:12:10Z",
+                "subj_id": "https://it.wikipedia.org/wiki/Digit_ratio",
+                "id": "205ac75a-1e9d-4989-8996-43bdf4469e26",
+                "evidence_record": "https://evidence.eventdata.crossref.org/evidence/20170411-wikipedia-b3138ec9-f630-4565-8d83-32219823981f",
+                "action": "add",
+                "subj": {
+                    "pid": "https://it.wikipedia.org/wiki/Digit_ratio",
+                    "url": "https://it.wikipedia.org/w/index.php?title=Digit_ratio&oldid=87062122",
+                    "title": "Digit ratio",
+                    "api-url": "https://it.wikipedia.org/api/rest_v1/page/html/Digit_ratio/87062122"
+                },
+                "source_id": "wikipedia",
+                "obj": {
+                    "pid": "https://doi.org/10.1007/s10508-005-3121-y",
+                    "url": "https://doi.org/10.1007/s10508-005-3121-y"
+                },
+                "timestamp": "2017-04-11T11:12:33Z",
+                "updated_date": "2018-01-31T17:30:00Z",
+                "relation_type_id": "references"
+            },
+            {
+                "license": "https://creativecommons.org/publicdomain/zero/1.0/",
+                "terms": "https://doi.org/10.13003/CED-terms-of-use",
+                "updated_reason": "https://evidence.eventdata.crossref.org/announcements/2018-01-19T00-00-00Z-ED-15.json",
+                "obj_id": "https://doi.org/10.1016/j.earlhumdev.2012.08.009",
+                "source_token": "36c35e23-8757-4a9d-aacf-345e9b7eb50d",
+                "occurred_at": "2017-04-11T11:12:10Z",
+                "subj_id": "https://it.wikipedia.org/wiki/Digit_ratio",
+                "id": "1d085b3b-f192-46ee-9012-e22ec024ded4",
+                "evidence_record": "https://evidence.eventdata.crossref.org/evidence/20170411-wikipedia-b3138ec9-f630-4565-8d83-32219823981f",
+                "action": "add",
+                "subj": {
+                    "pid": "https://it.wikipedia.org/wiki/Digit_ratio",
+                    "url": "https://it.wikipedia.org/w/index.php?title=Digit_ratio&oldid=87062122",
+                    "title": "Digit ratio",
+                    "api-url": "https://it.wikipedia.org/api/rest_v1/page/html/Digit_ratio/87062122"
+                },
+                "source_id": "wikipedia",
+                "obj": {
+                    "pid": "https://doi.org/10.1016/j.earlhumdev.2012.08.009",
+                    "url": "https://doi.org/10.1016/j.earlhumdev.2012.08.009"
+                },
+                "timestamp": "2017-04-11T11:12:33Z",
+                "updated_date": "2018-01-31T17:30:00Z",
+                "relation_type_id": "references"
+            },
+            {
+                "license": "https://creativecommons.org/publicdomain/zero/1.0/",
+                "terms": "https://doi.org/10.13003/CED-terms-of-use",
+                "updated_reason": "https://evidence.eventdata.crossref.org/announcements/2018-01-19T00-00-00Z-ED-15.json",
+                "obj_id": "https://doi.org/10.1098/rsbl.2014.0977",
+                "source_token": "36c35e23-8757-4a9d-aacf-345e9b7eb50d",
+                "occurred_at": "2017-04-11T11:12:10Z",
+                "subj_id": "https://it.wikipedia.org/wiki/Digit_ratio",
+                "id": "1167fb87-6dec-41dc-b11c-1a1d7824fcd6",
+                "evidence_record": "https://evidence.eventdata.crossref.org/evidence/20170411-wikipedia-b3138ec9-f630-4565-8d83-32219823981f",
+                "action": "add",
+                "subj": {
+                    "pid": "https://it.wikipedia.org/wiki/Digit_ratio",
+                    "url": "https://it.wikipedia.org/w/index.php?title=Digit_ratio&oldid=87062122",
+                    "title": "Digit ratio",
+                    "api-url": "https://it.wikipedia.org/api/rest_v1/page/html/Digit_ratio/87062122"
+                },
+                "source_id": "wikipedia",
+                "obj": {
+                    "pid": "https://doi.org/10.1098/rsbl.2014.0977",
+                    "url": "https://doi.org/10.1098/rsbl.2014.0977"
+                },
+                "timestamp": "2017-04-11T11:12:33Z",
+                "updated_date": "2018-01-31T17:30:00Z",
+                "relation_type_id": "references"
+            },
+            {
+                "license": "https://creativecommons.org/publicdomain/zero/1.0/",
+                "terms": "https://doi.org/10.13003/CED-terms-of-use",
+                "updated_reason": "https://evidence.eventdata.crossref.org/announcements/2018-01-19T00-00-00Z-ED-15.json",
+                "obj_id": "https://doi.org/10.1016/j.biopsycho.2004.05.001",
+                "source_token": "36c35e23-8757-4a9d-aacf-345e9b7eb50d",
+                "occurred_at": "2017-04-11T11:12:10Z",
+                "subj_id": "https://it.wikipedia.org/wiki/Digit_ratio",
+                "id": "f1d1a691-40e8-46cb-b8cd-39340e19b3af",
+                "evidence_record": "https://evidence.eventdata.crossref.org/evidence/20170411-wikipedia-b3138ec9-f630-4565-8d83-32219823981f",
+                "action": "add",
+                "subj": {
+                    "pid": "https://it.wikipedia.org/wiki/Digit_ratio",
+                    "url": "https://it.wikipedia.org/w/index.php?title=Digit_ratio&oldid=87062122",
+                    "title": "Digit ratio",
+                    "api-url": "https://it.wikipedia.org/api/rest_v1/page/html/Digit_ratio/87062122"
+                },
+                "source_id": "wikipedia",
+                "obj": {
+                    "pid": "https://doi.org/10.1016/j.biopsycho.2004.05.001",
+                    "url": "https://doi.org/10.1016/j.biopsycho.2004.05.001"
+                },
+                "timestamp": "2017-04-11T11:12:34Z",
+                "updated_date": "2018-01-31T17:30:00Z",
+                "relation_type_id": "references"
+            },
+            {
+                "license": "https://creativecommons.org/publicdomain/zero/1.0/",
+                "terms": "https://doi.org/10.13003/CED-terms-of-use",
+                "updated_reason": "https://evidence.eventdata.crossref.org/announcements/2018-01-19T00-00-00Z-ED-15.json",
+                "obj_id": "https://doi.org/10.1016/j.earlhumdev.2004.06.004",
+                "source_token": "36c35e23-8757-4a9d-aacf-345e9b7eb50d",
+                "occurred_at": "2017-04-11T11:12:10Z",
+                "subj_id": "https://it.wikipedia.org/wiki/Digit_ratio",
+                "id": "dbffa729-dd82-4466-b136-1afc36d647d1",
+                "evidence_record": "https://evidence.eventdata.crossref.org/evidence/20170411-wikipedia-b3138ec9-f630-4565-8d83-32219823981f",
+                "action": "add",
+                "subj": {
+                    "pid": "https://it.wikipedia.org/wiki/Digit_ratio",
+                    "url": "https://it.wikipedia.org/w/index.php?title=Digit_ratio&oldid=87062122",
+                    "title": "Digit ratio",
+                    "api-url": "https://it.wikipedia.org/api/rest_v1/page/html/Digit_ratio/87062122"
+                },
+                "source_id": "wikipedia",
+                "obj": {
+                    "pid": "https://doi.org/10.1016/j.earlhumdev.2004.06.004",
+                    "url": "https://doi.org/10.1016/j.earlhumdev.2004.06.004"
+                },
+                "timestamp": "2017-04-11T11:12:34Z",
+                "updated_date": "2018-01-31T17:30:00Z",
+                "relation_type_id": "references"
+            },
+            {
+                "license": "https://creativecommons.org/publicdomain/zero/1.0/",
+                "terms": "https://doi.org/10.13003/CED-terms-of-use",
+                "updated_reason": "https://evidence.eventdata.crossref.org/announcements/2018-01-19T00-00-00Z-ED-15.json",
+                "obj_id": "https://doi.org/10.1038/35006555",
+                "source_token": "36c35e23-8757-4a9d-aacf-345e9b7eb50d",
+                "occurred_at": "2017-04-11T11:12:10Z",
+                "subj_id": "https://it.wikipedia.org/wiki/Digit_ratio",
+                "id": "88a0469c-e416-486b-9e28-efe529e4cd50",
+                "evidence_record": "https://evidence.eventdata.crossref.org/evidence/20170411-wikipedia-b3138ec9-f630-4565-8d83-32219823981f",
+                "action": "add",
+                "subj": {
+                    "pid": "https://it.wikipedia.org/wiki/Digit_ratio",
+                    "url": "https://it.wikipedia.org/w/index.php?title=Digit_ratio&oldid=87062122",
+                    "title": "Digit ratio",
+                    "api-url": "https://it.wikipedia.org/api/rest_v1/page/html/Digit_ratio/87062122"
+                },
+                "source_id": "wikipedia",
+                "obj": {
+                    "pid": "https://doi.org/10.1038/35006555",
+                    "url": "https://doi.org/10.1038/35006555"
+                },
+                "timestamp": "2017-04-11T11:12:34Z",
+                "updated_date": "2018-01-31T17:30:00Z",
+                "relation_type_id": "references"
+            },
+            {
+                "license": "https://creativecommons.org/publicdomain/zero/1.0/",
+                "terms": "https://doi.org/10.13003/CED-terms-of-use",
+                "updated_reason": "https://evidence.eventdata.crossref.org/announcements/2018-01-19T00-00-00Z-ED-15.json",
+                "obj_id": "https://doi.org/10.1016/0273-1223(96)00469-6",
+                "source_token": "36c35e23-8757-4a9d-aacf-345e9b7eb50d",
+                "occurred_at": "2017-04-11T11:12:16Z",
+                "subj_id": "https://en.wikipedia.org/wiki/Sewage_treatment",
+                "id": "6ef911b5-ecb2-467e-acff-f51603fb0336",
+                "evidence_record": "https://evidence.eventdata.crossref.org/evidence/20170411-wikipedia-1524e40f-fe36-483b-a7d4-cf5dadb7cd2c",
+                "action": "add",
+                "subj": {
+                    "pid": "https://en.wikipedia.org/wiki/Sewage_treatment",
+                    "url": "https://en.wikipedia.org/w/index.php?title=Sewage_treatment&oldid=774899271",
+                    "title": "Sewage treatment",
+                    "api-url": "https://en.wikipedia.org/api/rest_v1/page/html/Sewage_treatment/774899271"
+                },
+                "source_id": "wikipedia",
+                "obj": {
+                    "pid": "https://doi.org/10.1016/0273-1223(96)00469-6",
+                    "url": "https://doi.org/10.1016/0273-1223(96)00469-6"
+                },
+                "timestamp": "2017-04-11T11:12:34Z",
+                "updated_date": "2018-01-31T17:30:00Z",
+                "relation_type_id": "references"
+            },
+            {
+                "license": "https://creativecommons.org/publicdomain/zero/1.0/",
+                "terms": "https://doi.org/10.13003/CED-terms-of-use",
+                "updated_reason": "https://evidence.eventdata.crossref.org/announcements/2018-01-19T00-00-00Z-ED-15.json",
+                "obj_id": "https://doi.org/10.1007/s11157-014-9333-7",
+                "source_token": "36c35e23-8757-4a9d-aacf-345e9b7eb50d",
+                "occurred_at": "2017-04-11T11:12:16Z",
+                "subj_id": "https://en.wikipedia.org/wiki/Sewage_treatment",
+                "id": "573daf23-3403-4818-8fad-2c36d4705c57",
+                "evidence_record": "https://evidence.eventdata.crossref.org/evidence/20170411-wikipedia-1524e40f-fe36-483b-a7d4-cf5dadb7cd2c",
+                "action": "add",
+                "subj": {
+                    "pid": "https://en.wikipedia.org/wiki/Sewage_treatment",
+                    "url": "https://en.wikipedia.org/w/index.php?title=Sewage_treatment&oldid=774899271",
+                    "title": "Sewage treatment",
+                    "api-url": "https://en.wikipedia.org/api/rest_v1/page/html/Sewage_treatment/774899271"
+                },
+                "source_id": "wikipedia",
+                "obj": {
+                    "pid": "https://doi.org/10.1007/s11157-014-9333-7",
+                    "url": "https://doi.org/10.1007/s11157-014-9333-7"
+                },
+                "timestamp": "2017-04-11T11:12:34Z",
+                "updated_date": "2018-01-31T17:30:00Z",
+                "relation_type_id": "references"
+            },
+            {
+                "license": "https://creativecommons.org/publicdomain/zero/1.0/",
+                "terms": "https://doi.org/10.13003/CED-terms-of-use",
+                "updated_reason": "https://evidence.eventdata.crossref.org/announcements/2018-01-19T00-00-00Z-ED-15.json",
+                "obj_id": "https://doi.org/10.1016/s1090-5138(00)00029-5",
+                "source_token": "36c35e23-8757-4a9d-aacf-345e9b7eb50d",
+                "occurred_at": "2017-04-11T11:12:10Z",
+                "subj_id": "https://it.wikipedia.org/wiki/Digit_ratio",
+                "id": "3fc11274-c45d-4481-a6e7-e08ed9ebd577",
+                "evidence_record": "https://evidence.eventdata.crossref.org/evidence/20170411-wikipedia-b3138ec9-f630-4565-8d83-32219823981f",
+                "action": "add",
+                "subj": {
+                    "pid": "https://it.wikipedia.org/wiki/Digit_ratio",
+                    "url": "https://it.wikipedia.org/w/index.php?title=Digit_ratio&oldid=87062122",
+                    "title": "Digit ratio",
+                    "api-url": "https://it.wikipedia.org/api/rest_v1/page/html/Digit_ratio/87062122"
+                },
+                "source_id": "wikipedia",
+                "obj": {
+                    "pid": "https://doi.org/10.1016/s1090-5138(00)00029-5",
+                    "url": "https://doi.org/10.1016/s1090-5138(00)00029-5"
+                },
+                "timestamp": "2017-04-11T11:12:34Z",
+                "updated_date": "2018-01-31T17:30:00Z",
+                "relation_type_id": "references"
+            },
+            {
+                "license": "https://creativecommons.org/publicdomain/zero/1.0/",
+                "terms": "https://doi.org/10.13003/CED-terms-of-use",
+                "updated_reason": "https://evidence.eventdata.crossref.org/announcements/2018-01-19T00-00-00Z-ED-15.json",
+                "obj_id": "https://doi.org/10.1128/aem.07113-11",
+                "source_token": "36c35e23-8757-4a9d-aacf-345e9b7eb50d",
+                "occurred_at": "2017-04-11T11:12:16Z",
+                "subj_id": "https://en.wikipedia.org/wiki/Sewage_treatment",
+                "id": "1b3aa2e8-3c32-4751-aa1e-c47581dac5bd",
+                "evidence_record": "https://evidence.eventdata.crossref.org/evidence/20170411-wikipedia-1524e40f-fe36-483b-a7d4-cf5dadb7cd2c",
+                "action": "add",
+                "subj": {
+                    "pid": "https://en.wikipedia.org/wiki/Sewage_treatment",
+                    "url": "https://en.wikipedia.org/w/index.php?title=Sewage_treatment&oldid=774899271",
+                    "title": "Sewage treatment",
+                    "api-url": "https://en.wikipedia.org/api/rest_v1/page/html/Sewage_treatment/774899271"
+                },
+                "source_id": "wikipedia",
+                "obj": {
+                    "pid": "https://doi.org/10.1128/aem.07113-11",
+                    "url": "https://doi.org/10.1128/aem.07113-11"
+                },
+                "timestamp": "2017-04-11T11:12:34Z",
+                "updated_date": "2018-01-31T17:30:00Z",
+                "relation_type_id": "references"
+            },
+            {
+                "license": "https://creativecommons.org/publicdomain/zero/1.0/",
+                "terms": "https://doi.org/10.13003/CED-terms-of-use",
+                "updated_reason": "https://evidence.eventdata.crossref.org/announcements/2018-01-19T00-00-00Z-ED-15.json",
+                "obj_id": "https://doi.org/10.1021/es0627592",
+                "source_token": "36c35e23-8757-4a9d-aacf-345e9b7eb50d",
+                "occurred_at": "2017-04-11T11:12:16Z",
+                "subj_id": "https://en.wikipedia.org/wiki/Sewage_treatment",
+                "id": "f9b10e54-eb8c-42fe-bb95-777f869964bc",
+                "evidence_record": "https://evidence.eventdata.crossref.org/evidence/20170411-wikipedia-1524e40f-fe36-483b-a7d4-cf5dadb7cd2c",
+                "action": "add",
+                "subj": {
+                    "pid": "https://en.wikipedia.org/wiki/Sewage_treatment",
+                    "url": "https://en.wikipedia.org/w/index.php?title=Sewage_treatment&oldid=774899271",
+                    "title": "Sewage treatment",
+                    "api-url": "https://en.wikipedia.org/api/rest_v1/page/html/Sewage_treatment/774899271"
+                },
+                "source_id": "wikipedia",
+                "obj": {
+                    "pid": "https://doi.org/10.1021/es0627592",
+                    "url": "https://doi.org/10.1021/es0627592"
+                },
+                "timestamp": "2017-04-11T11:12:35Z",
+                "updated_date": "2018-01-31T17:30:00Z",
+                "relation_type_id": "references"
+            },
+            {
+                "license": "https://creativecommons.org/publicdomain/zero/1.0/",
+                "terms": "https://doi.org/10.13003/CED-terms-of-use",
+                "updated_reason": "https://evidence.eventdata.crossref.org/announcements/2018-01-19T00-00-00Z-ED-15.json",
+                "obj_id": "https://doi.org/10.1038/aja.2011.75",
+                "source_token": "36c35e23-8757-4a9d-aacf-345e9b7eb50d",
+                "occurred_at": "2017-04-11T11:12:10Z",
+                "subj_id": "https://it.wikipedia.org/wiki/Digit_ratio",
+                "id": "f1f917c6-7002-4240-9e69-74793e36f14a",
+                "evidence_record": "https://evidence.eventdata.crossref.org/evidence/20170411-wikipedia-b3138ec9-f630-4565-8d83-32219823981f",
+                "action": "add",
+                "subj": {
+                    "pid": "https://it.wikipedia.org/wiki/Digit_ratio",
+                    "url": "https://it.wikipedia.org/w/index.php?title=Digit_ratio&oldid=87062122",
+                    "title": "Digit ratio",
+                    "api-url": "https://it.wikipedia.org/api/rest_v1/page/html/Digit_ratio/87062122"
+                },
+                "source_id": "wikipedia",
+                "obj": {
+                    "pid": "https://doi.org/10.1038/aja.2011.75",
+                    "url": "https://doi.org/10.1038/aja.2011.75"
+                },
+                "timestamp": "2017-04-11T11:12:35Z",
+                "updated_date": "2018-01-31T17:30:00Z",
+                "relation_type_id": "references"
+            },
+            {
+                "license": "https://creativecommons.org/publicdomain/zero/1.0/",
+                "terms": "https://doi.org/10.13003/CED-terms-of-use",
+                "updated_reason": "https://evidence.eventdata.crossref.org/announcements/2018-01-19T00-00-00Z-ED-15.json",
+                "obj_id": "https://doi.org/10.1186/1477-7827-9-57",
+                "source_token": "36c35e23-8757-4a9d-aacf-345e9b7eb50d",
+                "occurred_at": "2017-04-11T11:12:10Z",
+                "subj_id": "https://it.wikipedia.org/wiki/Digit_ratio",
+                "id": "ea718f5c-1d34-466c-8cbb-4eea7668a3d0",
+                "evidence_record": "https://evidence.eventdata.crossref.org/evidence/20170411-wikipedia-b3138ec9-f630-4565-8d83-32219823981f",
+                "action": "add",
+                "subj": {
+                    "pid": "https://it.wikipedia.org/wiki/Digit_ratio",
+                    "url": "https://it.wikipedia.org/w/index.php?title=Digit_ratio&oldid=87062122",
+                    "title": "Digit ratio",
+                    "api-url": "https://it.wikipedia.org/api/rest_v1/page/html/Digit_ratio/87062122"
+                },
+                "source_id": "wikipedia",
+                "obj": {
+                    "pid": "https://doi.org/10.1186/1477-7827-9-57",
+                    "url": "https://doi.org/10.1186/1477-7827-9-57"
+                },
+                "timestamp": "2017-04-11T11:12:35Z",
+                "updated_date": "2018-01-31T17:30:00Z",
+                "relation_type_id": "references"
+            },
+            {
+                "license": "https://creativecommons.org/publicdomain/zero/1.0/",
+                "terms": "https://doi.org/10.13003/CED-terms-of-use",
+                "updated_reason": "https://evidence.eventdata.crossref.org/announcements/2018-01-19T00-00-00Z-ED-15.json",
+                "obj_id": "https://doi.org/10.1519/jsc.0b013e318212de8e",
+                "source_token": "36c35e23-8757-4a9d-aacf-345e9b7eb50d",
+                "occurred_at": "2017-04-11T11:12:10Z",
+                "subj_id": "https://it.wikipedia.org/wiki/Digit_ratio",
+                "id": "da546e18-c3ba-4715-ada9-38b53605dad7",
+                "evidence_record": "https://evidence.eventdata.crossref.org/evidence/20170411-wikipedia-b3138ec9-f630-4565-8d83-32219823981f",
+                "action": "add",
+                "subj": {
+                    "pid": "https://it.wikipedia.org/wiki/Digit_ratio",
+                    "url": "https://it.wikipedia.org/w/index.php?title=Digit_ratio&oldid=87062122",
+                    "title": "Digit ratio",
+                    "api-url": "https://it.wikipedia.org/api/rest_v1/page/html/Digit_ratio/87062122"
+                },
+                "source_id": "wikipedia",
+                "obj": {
+                    "pid": "https://doi.org/10.1519/jsc.0b013e318212de8e",
+                    "url": "https://doi.org/10.1519/jsc.0b013e318212de8e"
+                },
+                "timestamp": "2017-04-11T11:12:35Z",
+                "updated_date": "2018-01-31T17:30:00Z",
+                "relation_type_id": "references"
+            },
+            {
+                "license": "https://creativecommons.org/publicdomain/zero/1.0/",
+                "terms": "https://doi.org/10.13003/CED-terms-of-use",
+                "updated_reason": "https://evidence.eventdata.crossref.org/announcements/2018-01-19T00-00-00Z-ED-15.json",
+                "obj_id": "https://doi.org/10.1080/00288330.1968.9515271",
+                "source_token": "36c35e23-8757-4a9d-aacf-345e9b7eb50d",
+                "occurred_at": "2017-04-11T11:12:16Z",
+                "subj_id": "https://en.wikipedia.org/wiki/Sewage_treatment",
+                "id": "c58404aa-e96a-4f93-a0e7-dddd12cc7b84",
+                "evidence_record": "https://evidence.eventdata.crossref.org/evidence/20170411-wikipedia-1524e40f-fe36-483b-a7d4-cf5dadb7cd2c",
+                "action": "add",
+                "subj": {
+                    "pid": "https://en.wikipedia.org/wiki/Sewage_treatment",
+                    "url": "https://en.wikipedia.org/w/index.php?title=Sewage_treatment&oldid=774899271",
+                    "title": "Sewage treatment",
+                    "api-url": "https://en.wikipedia.org/api/rest_v1/page/html/Sewage_treatment/774899271"
+                },
+                "source_id": "wikipedia",
+                "obj": {
+                    "pid": "https://doi.org/10.1080/00288330.1968.9515271",
+                    "url": "https://doi.org/10.1080/00288330.1968.9515271"
+                },
+                "timestamp": "2017-04-11T11:12:35Z",
+                "updated_date": "2018-01-31T17:30:00Z",
+                "relation_type_id": "references"
+            },
+            {
+                "license": "https://creativecommons.org/publicdomain/zero/1.0/",
+                "terms": "https://doi.org/10.13003/CED-terms-of-use",
+                "updated_reason": "https://evidence.eventdata.crossref.org/announcements/2018-01-19T00-00-00Z-ED-15.json",
+                "obj_id": "https://doi.org/10.2166/wst.2007.560",
+                "source_token": "36c35e23-8757-4a9d-aacf-345e9b7eb50d",
+                "occurred_at": "2017-04-11T11:12:16Z",
+                "subj_id": "https://en.wikipedia.org/wiki/Sewage_treatment",
+                "id": "b42e38d9-e50c-4381-82fc-d69e21738f67",
+                "evidence_record": "https://evidence.eventdata.crossref.org/evidence/20170411-wikipedia-1524e40f-fe36-483b-a7d4-cf5dadb7cd2c",
+                "action": "add",
+                "subj": {
+                    "pid": "https://en.wikipedia.org/wiki/Sewage_treatment",
+                    "url": "https://en.wikipedia.org/w/index.php?title=Sewage_treatment&oldid=774899271",
+                    "title": "Sewage treatment",
+                    "api-url": "https://en.wikipedia.org/api/rest_v1/page/html/Sewage_treatment/774899271"
+                },
+                "source_id": "wikipedia",
+                "obj": {
+                    "pid": "https://doi.org/10.2166/wst.2007.560",
+                    "url": "https://doi.org/10.2166/wst.2007.560"
+                },
+                "timestamp": "2017-04-11T11:12:35Z",
+                "updated_date": "2018-01-31T17:30:00Z",
+                "relation_type_id": "references"
+            },
+            {
+                "license": "https://creativecommons.org/publicdomain/zero/1.0/",
+                "terms": "https://doi.org/10.13003/CED-terms-of-use",
+                "updated_reason": "https://evidence.eventdata.crossref.org/announcements/2018-01-19T00-00-00Z-ED-15.json",
+                "obj_id": "https://doi.org/10.1186/2191-0855-3-63",
+                "source_token": "36c35e23-8757-4a9d-aacf-345e9b7eb50d",
+                "occurred_at": "2017-04-11T11:12:16Z",
+                "subj_id": "https://en.wikipedia.org/wiki/Sewage_treatment",
+                "id": "acc69205-9bf1-40fa-9a4c-4aabd5a17b7b",
+                "evidence_record": "https://evidence.eventdata.crossref.org/evidence/20170411-wikipedia-1524e40f-fe36-483b-a7d4-cf5dadb7cd2c",
+                "action": "add",
+                "subj": {
+                    "pid": "https://en.wikipedia.org/wiki/Sewage_treatment",
+                    "url": "https://en.wikipedia.org/w/index.php?title=Sewage_treatment&oldid=774899271",
+                    "title": "Sewage treatment",
+                    "api-url": "https://en.wikipedia.org/api/rest_v1/page/html/Sewage_treatment/774899271"
+                },
+                "source_id": "wikipedia",
+                "obj": {
+                    "pid": "https://doi.org/10.1186/2191-0855-3-63",
+                    "url": "https://doi.org/10.1186/2191-0855-3-63"
+                },
+                "timestamp": "2017-04-11T11:12:35Z",
+                "updated_date": "2018-01-31T17:30:00Z",
+                "relation_type_id": "references"
+            },
+            {
+                "license": "https://creativecommons.org/publicdomain/zero/1.0/",
+                "terms": "https://doi.org/10.13003/CED-terms-of-use",
+                "updated_reason": "https://evidence.eventdata.crossref.org/announcements/2018-01-19T00-00-00Z-ED-15.json",
+                "obj_id": "https://doi.org/10.4319/lo.1971.16.4.0599",
+                "source_token": "36c35e23-8757-4a9d-aacf-345e9b7eb50d",
+                "occurred_at": "2017-04-11T11:12:16Z",
+                "subj_id": "https://en.wikipedia.org/wiki/Sewage_treatment",
+                "id": "9774013d-53dd-4695-a9ce-40823028f1b2",
+                "evidence_record": "https://evidence.eventdata.crossref.org/evidence/20170411-wikipedia-1524e40f-fe36-483b-a7d4-cf5dadb7cd2c",
+                "action": "add",
+                "subj": {
+                    "pid": "https://en.wikipedia.org/wiki/Sewage_treatment",
+                    "url": "https://en.wikipedia.org/w/index.php?title=Sewage_treatment&oldid=774899271",
+                    "title": "Sewage treatment",
+                    "api-url": "https://en.wikipedia.org/api/rest_v1/page/html/Sewage_treatment/774899271"
+                },
+                "source_id": "wikipedia",
+                "obj": {
+                    "pid": "https://doi.org/10.4319/lo.1971.16.4.0599",
+                    "url": "https://doi.org/10.4319/lo.1971.16.4.0599"
+                },
+                "timestamp": "2017-04-11T11:12:35Z",
+                "updated_date": "2018-01-31T17:30:00Z",
+                "relation_type_id": "references"
+            },
+            {
+                "license": "https://creativecommons.org/publicdomain/zero/1.0/",
+                "terms": "https://doi.org/10.13003/CED-terms-of-use",
+                "updated_reason": "https://evidence.eventdata.crossref.org/announcements/2018-01-19T00-00-00Z-ED-15.json",
+                "obj_id": "https://doi.org/10.1007/s100980100108",
+                "source_token": "36c35e23-8757-4a9d-aacf-345e9b7eb50d",
+                "occurred_at": "2017-04-11T11:12:16Z",
+                "subj_id": "https://en.wikipedia.org/wiki/Sewage_treatment",
+                "id": "4e6f533f-26b8-4f17-97f7-a8512bc2a3c3",
+                "evidence_record": "https://evidence.eventdata.crossref.org/evidence/20170411-wikipedia-1524e40f-fe36-483b-a7d4-cf5dadb7cd2c",
+                "action": "add",
+                "subj": {
+                    "pid": "https://en.wikipedia.org/wiki/Sewage_treatment",
+                    "url": "https://en.wikipedia.org/w/index.php?title=Sewage_treatment&oldid=774899271",
+                    "title": "Sewage treatment",
+                    "api-url": "https://en.wikipedia.org/api/rest_v1/page/html/Sewage_treatment/774899271"
+                },
+                "source_id": "wikipedia",
+                "obj": {
+                    "pid": "https://doi.org/10.1007/s100980100108",
+                    "url": "https://doi.org/10.1007/s100980100108"
+                },
+                "timestamp": "2017-04-11T11:12:35Z",
+                "updated_date": "2018-01-31T17:30:00Z",
+                "relation_type_id": "references"
+            },
+            {
+                "license": "https://creativecommons.org/publicdomain/zero/1.0/",
+                "terms": "https://doi.org/10.13003/CED-terms-of-use",
+                "updated_reason": "https://evidence.eventdata.crossref.org/announcements/2018-01-19T00-00-00Z-ED-15.json",
+                "obj_id": "https://doi.org/10.1002/ajhb.20603",
+                "source_token": "36c35e23-8757-4a9d-aacf-345e9b7eb50d",
+                "occurred_at": "2017-04-11T11:12:10Z",
+                "subj_id": "https://it.wikipedia.org/wiki/Digit_ratio",
+                "id": "3d12f2d3-7fdb-45e4-a9a3-369628d0ddc0",
+                "evidence_record": "https://evidence.eventdata.crossref.org/evidence/20170411-wikipedia-b3138ec9-f630-4565-8d83-32219823981f",
+                "action": "add",
+                "subj": {
+                    "pid": "https://it.wikipedia.org/wiki/Digit_ratio",
+                    "url": "https://it.wikipedia.org/w/index.php?title=Digit_ratio&oldid=87062122",
+                    "title": "Digit ratio",
+                    "api-url": "https://it.wikipedia.org/api/rest_v1/page/html/Digit_ratio/87062122"
+                },
+                "source_id": "wikipedia",
+                "obj": {
+                    "pid": "https://doi.org/10.1002/ajhb.20603",
+                    "url": "https://doi.org/10.1002/ajhb.20603"
+                },
+                "timestamp": "2017-04-11T11:12:35Z",
+                "updated_date": "2018-01-31T17:30:00Z",
+                "relation_type_id": "references"
+            },
+            {
+                "license": "https://creativecommons.org/publicdomain/zero/1.0/",
+                "terms": "https://doi.org/10.13003/CED-terms-of-use",
+                "updated_reason": "https://evidence.eventdata.crossref.org/announcements/2018-01-19T00-00-00Z-ED-15.json",
+                "obj_id": "https://doi.org/10.1098/rspb.2003.2502",
+                "source_token": "36c35e23-8757-4a9d-aacf-345e9b7eb50d",
+                "occurred_at": "2017-04-11T11:12:10Z",
+                "subj_id": "https://it.wikipedia.org/wiki/Digit_ratio",
+                "id": "21fb42ea-d5cb-4edf-b8fd-e450ac1bbbc5",
+                "evidence_record": "https://evidence.eventdata.crossref.org/evidence/20170411-wikipedia-b3138ec9-f630-4565-8d83-32219823981f",
+                "action": "add",
+                "subj": {
+                    "pid": "https://it.wikipedia.org/wiki/Digit_ratio",
+                    "url": "https://it.wikipedia.org/w/index.php?title=Digit_ratio&oldid=87062122",
+                    "title": "Digit ratio",
+                    "api-url": "https://it.wikipedia.org/api/rest_v1/page/html/Digit_ratio/87062122"
+                },
+                "source_id": "wikipedia",
+                "obj": {
+                    "pid": "https://doi.org/10.1098/rspb.2003.2502",
+                    "url": "https://doi.org/10.1098/rspb.2003.2502"
+                },
+                "timestamp": "2017-04-11T11:12:35Z",
+                "updated_date": "2018-01-31T17:30:00Z",
+                "relation_type_id": "references"
+            },
+            {
+                "license": "https://creativecommons.org/publicdomain/zero/1.0/",
+                "terms": "https://doi.org/10.13003/CED-terms-of-use",
+                "updated_reason": "https://evidence.eventdata.crossref.org/announcements/2018-01-19T00-00-00Z-ED-15.json",
+                "obj_id": "https://doi.org/10.5042/bjfp.2010.0183",
+                "source_token": "36c35e23-8757-4a9d-aacf-345e9b7eb50d",
+                "occurred_at": "2017-04-11T11:12:10Z",
+                "subj_id": "https://it.wikipedia.org/wiki/Digit_ratio",
+                "id": "147f252e-1f7d-485b-989f-101da273b833",
+                "evidence_record": "https://evidence.eventdata.crossref.org/evidence/20170411-wikipedia-b3138ec9-f630-4565-8d83-32219823981f",
+                "action": "add",
+                "subj": {
+                    "pid": "https://it.wikipedia.org/wiki/Digit_ratio",
+                    "url": "https://it.wikipedia.org/w/index.php?title=Digit_ratio&oldid=87062122",
+                    "title": "Digit ratio",
+                    "api-url": "https://it.wikipedia.org/api/rest_v1/page/html/Digit_ratio/87062122"
+                },
+                "source_id": "wikipedia",
+                "obj": {
+                    "pid": "https://doi.org/10.5042/bjfp.2010.0183",
+                    "url": "https://doi.org/10.5042/bjfp.2010.0183"
+                },
+                "timestamp": "2017-04-11T11:12:35Z",
+                "updated_date": "2018-01-31T17:30:00Z",
+                "relation_type_id": "references"
+            },
+            {
+                "license": "https://creativecommons.org/publicdomain/zero/1.0/",
+                "terms": "https://doi.org/10.13003/CED-terms-of-use",
+                "updated_reason": "https://evidence.eventdata.crossref.org/announcements/2018-01-19T00-00-00Z-ED-15.json",
+                "obj_id": "https://doi.org/10.1093/humrep/13.11.3000",
+                "source_token": "36c35e23-8757-4a9d-aacf-345e9b7eb50d",
+                "occurred_at": "2017-04-11T11:12:10Z",
+                "subj_id": "https://it.wikipedia.org/wiki/Digit_ratio",
+                "id": "e9b53530-b7d5-4dfd-88e6-794847fde8f5",
+                "evidence_record": "https://evidence.eventdata.crossref.org/evidence/20170411-wikipedia-b3138ec9-f630-4565-8d83-32219823981f",
+                "action": "add",
+                "subj": {
+                    "pid": "https://it.wikipedia.org/wiki/Digit_ratio",
+                    "url": "https://it.wikipedia.org/w/index.php?title=Digit_ratio&oldid=87062122",
+                    "title": "Digit ratio",
+                    "api-url": "https://it.wikipedia.org/api/rest_v1/page/html/Digit_ratio/87062122"
+                },
+                "source_id": "wikipedia",
+                "obj": {
+                    "pid": "https://doi.org/10.1093/humrep/13.11.3000",
+                    "url": "https://doi.org/10.1093/humrep/13.11.3000"
+                },
+                "timestamp": "2017-04-11T11:12:36Z",
+                "updated_date": "2018-01-31T17:30:00Z",
+                "relation_type_id": "references"
+            },
+            {
+                "license": "https://creativecommons.org/publicdomain/zero/1.0/",
+                "terms": "https://doi.org/10.13003/CED-terms-of-use",
+                "updated_reason": "https://evidence.eventdata.crossref.org/announcements/2018-01-19T00-00-00Z-ED-15.json",
+                "obj_id": "https://doi.org/10.1126/science.275.5306.1568",
+                "source_token": "36c35e23-8757-4a9d-aacf-345e9b7eb50d",
+                "occurred_at": "2017-04-11T11:12:10Z",
+                "subj_id": "https://it.wikipedia.org/wiki/Digit_ratio",
+                "id": "dfe8a589-d27f-482f-9eb7-b0c32be6af8a",
+                "evidence_record": "https://evidence.eventdata.crossref.org/evidence/20170411-wikipedia-b3138ec9-f630-4565-8d83-32219823981f",
+                "action": "add",
+                "subj": {
+                    "pid": "https://it.wikipedia.org/wiki/Digit_ratio",
+                    "url": "https://it.wikipedia.org/w/index.php?title=Digit_ratio&oldid=87062122",
+                    "title": "Digit ratio",
+                    "api-url": "https://it.wikipedia.org/api/rest_v1/page/html/Digit_ratio/87062122"
+                },
+                "source_id": "wikipedia",
+                "obj": {
+                    "pid": "https://doi.org/10.1126/science.275.5306.1568",
+                    "url": "https://doi.org/10.1126/science.275.5306.1568"
+                },
+                "timestamp": "2017-04-11T11:12:36Z",
+                "updated_date": "2018-01-31T17:30:00Z",
+                "relation_type_id": "references"
+            },
+            {
+                "license": "https://creativecommons.org/publicdomain/zero/1.0/",
+                "terms": "https://doi.org/10.13003/CED-terms-of-use",
+                "updated_reason": "https://evidence.eventdata.crossref.org/announcements/2018-01-19T00-00-00Z-ED-15.json",
+                "obj_id": "https://doi.org/10.1007/s11157-014-9333-7",
+                "source_token": "36c35e23-8757-4a9d-aacf-345e9b7eb50d",
+                "occurred_at": "2017-04-11T11:12:16Z",
+                "subj_id": "https://en.wikipedia.org/wiki/Sewage_treatment",
+                "id": "d7c92304-ae60-4e5a-baef-62b9a11d4b45",
+                "evidence_record": "https://evidence.eventdata.crossref.org/evidence/20170411-wikipedia-1524e40f-fe36-483b-a7d4-cf5dadb7cd2c",
+                "action": "add",
+                "subj": {
+                    "pid": "https://en.wikipedia.org/wiki/Sewage_treatment",
+                    "url": "https://en.wikipedia.org/w/index.php?title=Sewage_treatment&oldid=774899271",
+                    "title": "Sewage treatment",
+                    "api-url": "https://en.wikipedia.org/api/rest_v1/page/html/Sewage_treatment/774899271"
+                },
+                "source_id": "wikipedia",
+                "obj": {
+                    "pid": "https://doi.org/10.1007/s11157-014-9333-7",
+                    "url": "http://link.springer.com/article/10.1007%2Fs11157-014-9333-7"
+                },
+                "timestamp": "2017-04-11T11:12:36Z",
+                "updated_date": "2018-01-31T17:30:00Z",
+                "relation_type_id": "references"
+            },
+            {
+                "license": "https://creativecommons.org/publicdomain/zero/1.0/",
+                "terms": "https://doi.org/10.13003/CED-terms-of-use",
+                "updated_reason": "https://evidence.eventdata.crossref.org/announcements/2018-01-19T00-00-00Z-ED-15.json",
+                "obj_id": "https://doi.org/10.1002/ajhb.21054",
+                "source_token": "36c35e23-8757-4a9d-aacf-345e9b7eb50d",
+                "occurred_at": "2017-04-11T11:12:10Z",
+                "subj_id": "https://it.wikipedia.org/wiki/Digit_ratio",
+                "id": "9cfd801b-57f0-4396-9d57-b01958a7a597",
+                "evidence_record": "https://evidence.eventdata.crossref.org/evidence/20170411-wikipedia-b3138ec9-f630-4565-8d83-32219823981f",
+                "action": "add",
+                "subj": {
+                    "pid": "https://it.wikipedia.org/wiki/Digit_ratio",
+                    "url": "https://it.wikipedia.org/w/index.php?title=Digit_ratio&oldid=87062122",
+                    "title": "Digit ratio",
+                    "api-url": "https://it.wikipedia.org/api/rest_v1/page/html/Digit_ratio/87062122"
+                },
+                "source_id": "wikipedia",
+                "obj": {
+                    "pid": "https://doi.org/10.1002/ajhb.21054",
+                    "url": "https://doi.org/10.1002/ajhb.21054"
+                },
+                "timestamp": "2017-04-11T11:12:36Z",
+                "updated_date": "2018-01-31T17:30:00Z",
+                "relation_type_id": "references"
+            },
+            {
+                "license": "https://creativecommons.org/publicdomain/zero/1.0/",
+                "terms": "https://doi.org/10.13003/CED-terms-of-use",
+                "updated_reason": "https://evidence.eventdata.crossref.org/announcements/2018-01-19T00-00-00Z-ED-15.json",
+                "obj_id": "https://doi.org/10.1002/ajhb.22639",
+                "source_token": "36c35e23-8757-4a9d-aacf-345e9b7eb50d",
+                "occurred_at": "2017-04-11T11:12:10Z",
+                "subj_id": "https://it.wikipedia.org/wiki/Digit_ratio",
+                "id": "93ee8b73-e63e-456c-86bb-101da35f3bec",
+                "evidence_record": "https://evidence.eventdata.crossref.org/evidence/20170411-wikipedia-b3138ec9-f630-4565-8d83-32219823981f",
+                "action": "add",
+                "subj": {
+                    "pid": "https://it.wikipedia.org/wiki/Digit_ratio",
+                    "url": "https://it.wikipedia.org/w/index.php?title=Digit_ratio&oldid=87062122",
+                    "title": "Digit ratio",
+                    "api-url": "https://it.wikipedia.org/api/rest_v1/page/html/Digit_ratio/87062122"
+                },
+                "source_id": "wikipedia",
+                "obj": {
+                    "pid": "https://doi.org/10.1002/ajhb.22639",
+                    "url": "https://doi.org/10.1002/ajhb.22639"
+                },
+                "timestamp": "2017-04-11T11:12:36Z",
+                "updated_date": "2018-01-31T17:30:00Z",
+                "relation_type_id": "references"
+            },
+            {
+                "license": "https://creativecommons.org/publicdomain/zero/1.0/",
+                "terms": "https://doi.org/10.13003/CED-terms-of-use",
+                "updated_reason": "https://evidence.eventdata.crossref.org/announcements/2018-01-19T00-00-00Z-ED-15.json",
+                "obj_id": "https://doi.org/10.3109/03014460.2014.902993",
+                "source_token": "36c35e23-8757-4a9d-aacf-345e9b7eb50d",
+                "occurred_at": "2017-04-11T11:12:10Z",
+                "subj_id": "https://it.wikipedia.org/wiki/Digit_ratio",
+                "id": "934877ab-3cae-49c0-ba54-fae4469a0008",
+                "evidence_record": "https://evidence.eventdata.crossref.org/evidence/20170411-wikipedia-b3138ec9-f630-4565-8d83-32219823981f",
+                "action": "add",
+                "subj": {
+                    "pid": "https://it.wikipedia.org/wiki/Digit_ratio",
+                    "url": "https://it.wikipedia.org/w/index.php?title=Digit_ratio&oldid=87062122",
+                    "title": "Digit ratio",
+                    "api-url": "https://it.wikipedia.org/api/rest_v1/page/html/Digit_ratio/87062122"
+                },
+                "source_id": "wikipedia",
+                "obj": {
+                    "pid": "https://doi.org/10.3109/03014460.2014.902993",
+                    "url": "https://doi.org/10.3109/03014460.2014.902993"
+                },
+                "timestamp": "2017-04-11T11:12:36Z",
+                "updated_date": "2018-01-31T17:30:00Z",
+                "relation_type_id": "references"
+            },
+            {
+                "license": "https://creativecommons.org/publicdomain/zero/1.0/",
+                "terms": "https://doi.org/10.13003/CED-terms-of-use",
+                "updated_reason": "https://evidence.eventdata.crossref.org/announcements/2018-01-19T00-00-00Z-ED-15.json",
+                "obj_id": "https://doi.org/10.1038/sj.ijo.0803154",
+                "source_token": "36c35e23-8757-4a9d-aacf-345e9b7eb50d",
+                "occurred_at": "2017-04-11T11:12:10Z",
+                "subj_id": "https://it.wikipedia.org/wiki/Digit_ratio",
+                "id": "432f573e-ce6f-4b39-9297-e17fedf2523e",
+                "evidence_record": "https://evidence.eventdata.crossref.org/evidence/20170411-wikipedia-b3138ec9-f630-4565-8d83-32219823981f",
+                "action": "add",
+                "subj": {
+                    "pid": "https://it.wikipedia.org/wiki/Digit_ratio",
+                    "url": "https://it.wikipedia.org/w/index.php?title=Digit_ratio&oldid=87062122",
+                    "title": "Digit ratio",
+                    "api-url": "https://it.wikipedia.org/api/rest_v1/page/html/Digit_ratio/87062122"
+                },
+                "source_id": "wikipedia",
+                "obj": {
+                    "pid": "https://doi.org/10.1038/sj.ijo.0803154",
+                    "url": "https://doi.org/10.1038/sj.ijo.0803154"
+                },
+                "timestamp": "2017-04-11T11:12:36Z",
+                "updated_date": "2018-01-31T17:30:00Z",
+                "relation_type_id": "references"
+            },
+            {
+                "license": "https://creativecommons.org/publicdomain/zero/1.0/",
+                "terms": "https://doi.org/10.13003/CED-terms-of-use",
+                "updated_reason": "https://evidence.eventdata.crossref.org/announcements/2018-01-19T00-00-00Z-ED-15.json",
+                "obj_id": "https://doi.org/10.1093/shm/4.1.173",
+                "source_token": "36c35e23-8757-4a9d-aacf-345e9b7eb50d",
+                "occurred_at": "2017-04-11T11:12:16Z",
+                "subj_id": "https://en.wikipedia.org/wiki/Sewage_treatment",
+                "id": "298406d2-fe60-4a00-9596-774f82cd77a1",
+                "evidence_record": "https://evidence.eventdata.crossref.org/evidence/20170411-wikipedia-1524e40f-fe36-483b-a7d4-cf5dadb7cd2c",
+                "action": "add",
+                "subj": {
+                    "pid": "https://en.wikipedia.org/wiki/Sewage_treatment",
+                    "url": "https://en.wikipedia.org/w/index.php?title=Sewage_treatment&oldid=774899271",
+                    "title": "Sewage treatment",
+                    "api-url": "https://en.wikipedia.org/api/rest_v1/page/html/Sewage_treatment/774899271"
+                },
+                "source_id": "wikipedia",
+                "obj": {
+                    "pid": "https://doi.org/10.1093/shm/4.1.173",
+                    "url": "https://doi.org/10.1093/shm/4.1.173"
+                },
+                "timestamp": "2017-04-11T11:12:36Z",
+                "updated_date": "2018-01-31T17:30:00Z",
+                "relation_type_id": "references"
+            },
+            {
+                "license": "https://creativecommons.org/publicdomain/zero/1.0/",
+                "terms": "https://doi.org/10.13003/CED-terms-of-use",
+                "updated_reason": "https://evidence.eventdata.crossref.org/announcements/2018-01-19T00-00-00Z-ED-15.json",
+                "obj_id": "https://doi.org/10.1111/j.1469-7610.2009.02065.x",
+                "source_token": "36c35e23-8757-4a9d-aacf-345e9b7eb50d",
+                "occurred_at": "2017-04-11T11:12:10Z",
+                "subj_id": "https://it.wikipedia.org/wiki/Digit_ratio",
+                "id": "eb8288fd-6f4d-4ba3-a36e-330d4cd1a6de",
+                "evidence_record": "https://evidence.eventdata.crossref.org/evidence/20170411-wikipedia-b3138ec9-f630-4565-8d83-32219823981f",
+                "action": "add",
+                "subj": {
+                    "pid": "https://it.wikipedia.org/wiki/Digit_ratio",
+                    "url": "https://it.wikipedia.org/w/index.php?title=Digit_ratio&oldid=87062122",
+                    "title": "Digit ratio",
+                    "api-url": "https://it.wikipedia.org/api/rest_v1/page/html/Digit_ratio/87062122"
+                },
+                "source_id": "wikipedia",
+                "obj": {
+                    "pid": "https://doi.org/10.1111/j.1469-7610.2009.02065.x",
+                    "url": "https://doi.org/10.1111/j.1469-7610.2009.02065.x"
+                },
+                "timestamp": "2017-04-11T11:12:37Z",
+                "updated_date": "2018-01-31T17:30:00Z",
+                "relation_type_id": "references"
+            },
+            {
+                "license": "https://creativecommons.org/publicdomain/zero/1.0/",
+                "terms": "https://doi.org/10.13003/CED-terms-of-use",
+                "updated_reason": "https://evidence.eventdata.crossref.org/announcements/2018-01-19T00-00-00Z-ED-15.json",
+                "obj_id": "https://doi.org/10.1017/s0033291705006653",
+                "source_token": "36c35e23-8757-4a9d-aacf-345e9b7eb50d",
+                "occurred_at": "2017-04-11T11:12:10Z",
+                "subj_id": "https://it.wikipedia.org/wiki/Digit_ratio",
+                "id": "d4612000-6887-4d84-b3fc-eaa13e5cc141",
+                "evidence_record": "https://evidence.eventdata.crossref.org/evidence/20170411-wikipedia-b3138ec9-f630-4565-8d83-32219823981f",
+                "action": "add",
+                "subj": {
+                    "pid": "https://it.wikipedia.org/wiki/Digit_ratio",
+                    "url": "https://it.wikipedia.org/w/index.php?title=Digit_ratio&oldid=87062122",
+                    "title": "Digit ratio",
+                    "api-url": "https://it.wikipedia.org/api/rest_v1/page/html/Digit_ratio/87062122"
+                },
+                "source_id": "wikipedia",
+                "obj": {
+                    "pid": "https://doi.org/10.1017/s0033291705006653",
+                    "url": "https://doi.org/10.1017/s0033291705006653"
+                },
+                "timestamp": "2017-04-11T11:12:37Z",
+                "updated_date": "2018-01-31T17:30:00Z",
+                "relation_type_id": "references"
+            },
+            {
+                "license": "https://creativecommons.org/publicdomain/zero/1.0/",
+                "terms": "https://doi.org/10.13003/CED-terms-of-use",
+                "updated_reason": "https://evidence.eventdata.crossref.org/announcements/2018-01-19T00-00-00Z-ED-15.json",
+                "obj_id": "https://doi.org/10.1002/ajhb.20571",
+                "source_token": "36c35e23-8757-4a9d-aacf-345e9b7eb50d",
+                "occurred_at": "2017-04-11T11:12:10Z",
+                "subj_id": "https://it.wikipedia.org/wiki/Digit_ratio",
+                "id": "99ea4dac-b048-4a00-b540-25f971352f91",
+                "evidence_record": "https://evidence.eventdata.crossref.org/evidence/20170411-wikipedia-b3138ec9-f630-4565-8d83-32219823981f",
+                "action": "add",
+                "subj": {
+                    "pid": "https://it.wikipedia.org/wiki/Digit_ratio",
+                    "url": "https://it.wikipedia.org/w/index.php?title=Digit_ratio&oldid=87062122",
+                    "title": "Digit ratio",
+                    "api-url": "https://it.wikipedia.org/api/rest_v1/page/html/Digit_ratio/87062122"
+                },
+                "source_id": "wikipedia",
+                "obj": {
+                    "pid": "https://doi.org/10.1002/ajhb.20571",
+                    "url": "https://doi.org/10.1002/ajhb.20571"
+                },
+                "timestamp": "2017-04-11T11:12:37Z",
+                "updated_date": "2018-01-31T17:30:00Z",
+                "relation_type_id": "references"
+            },
+            {
+                "license": "https://creativecommons.org/publicdomain/zero/1.0/",
+                "terms": "https://doi.org/10.13003/CED-terms-of-use",
+                "updated_reason": "https://evidence.eventdata.crossref.org/announcements/2018-01-19T00-00-00Z-ED-15.json",
+                "obj_id": "https://doi.org/10.1037/0735-7044.122.2.273",
+                "source_token": "36c35e23-8757-4a9d-aacf-345e9b7eb50d",
+                "occurred_at": "2017-04-11T11:12:10Z",
+                "subj_id": "https://it.wikipedia.org/wiki/Digit_ratio",
+                "id": "8258e961-e5d7-44f1-8fc1-f853da6d538a",
+                "evidence_record": "https://evidence.eventdata.crossref.org/evidence/20170411-wikipedia-b3138ec9-f630-4565-8d83-32219823981f",
+                "action": "add",
+                "subj": {
+                    "pid": "https://it.wikipedia.org/wiki/Digit_ratio",
+                    "url": "https://it.wikipedia.org/w/index.php?title=Digit_ratio&oldid=87062122",
+                    "title": "Digit ratio",
+                    "api-url": "https://it.wikipedia.org/api/rest_v1/page/html/Digit_ratio/87062122"
+                },
+                "source_id": "wikipedia",
+                "obj": {
+                    "pid": "https://doi.org/10.1037/0735-7044.122.2.273",
+                    "url": "https://doi.org/10.1037/0735-7044.122.2.273"
+                },
+                "timestamp": "2017-04-11T11:12:37Z",
+                "updated_date": "2018-01-31T17:30:00Z",
+                "relation_type_id": "references"
+            },
+            {
+                "license": "https://creativecommons.org/publicdomain/zero/1.0/",
+                "terms": "https://doi.org/10.13003/CED-terms-of-use",
+                "updated_reason": "https://evidence.eventdata.crossref.org/announcements/2018-01-19T00-00-00Z-ED-15.json",
+                "obj_id": "https://doi.org/10.1017/s0012162201000317",
+                "source_token": "36c35e23-8757-4a9d-aacf-345e9b7eb50d",
+                "occurred_at": "2017-04-11T11:12:10Z",
+                "subj_id": "https://it.wikipedia.org/wiki/Digit_ratio",
+                "id": "5585bbcc-53ee-4f66-a64e-79beb114924c",
+                "evidence_record": "https://evidence.eventdata.crossref.org/evidence/20170411-wikipedia-b3138ec9-f630-4565-8d83-32219823981f",
+                "action": "add",
+                "subj": {
+                    "pid": "https://it.wikipedia.org/wiki/Digit_ratio",
+                    "url": "https://it.wikipedia.org/w/index.php?title=Digit_ratio&oldid=87062122",
+                    "title": "Digit ratio",
+                    "api-url": "https://it.wikipedia.org/api/rest_v1/page/html/Digit_ratio/87062122"
+                },
+                "source_id": "wikipedia",
+                "obj": {
+                    "pid": "https://doi.org/10.1017/s0012162201000317",
+                    "url": "https://doi.org/10.1017/s0012162201000317"
+                },
+                "timestamp": "2017-04-11T11:12:37Z",
+                "updated_date": "2018-01-31T17:30:00Z",
+                "relation_type_id": "references"
+            },
+            {
+                "license": "https://creativecommons.org/publicdomain/zero/1.0/",
+                "terms": "https://doi.org/10.13003/CED-terms-of-use",
+                "updated_reason": "https://evidence.eventdata.crossref.org/announcements/2018-01-19T00-00-00Z-ED-15.json",
+                "obj_id": "https://doi.org/10.1002/eat.20736",
+                "source_token": "36c35e23-8757-4a9d-aacf-345e9b7eb50d",
+                "occurred_at": "2017-04-11T11:12:10Z",
+                "subj_id": "https://it.wikipedia.org/wiki/Digit_ratio",
+                "id": "bb720c70-85af-4371-9cac-29600cfd6aeb",
+                "evidence_record": "https://evidence.eventdata.crossref.org/evidence/20170411-wikipedia-b3138ec9-f630-4565-8d83-32219823981f",
+                "action": "add",
+                "subj": {
+                    "pid": "https://it.wikipedia.org/wiki/Digit_ratio",
+                    "url": "https://it.wikipedia.org/w/index.php?title=Digit_ratio&oldid=87062122",
+                    "title": "Digit ratio",
+                    "api-url": "https://it.wikipedia.org/api/rest_v1/page/html/Digit_ratio/87062122"
+                },
+                "source_id": "wikipedia",
+                "obj": {
+                    "pid": "https://doi.org/10.1002/eat.20736",
+                    "url": "https://doi.org/10.1002/eat.20736"
+                },
+                "timestamp": "2017-04-11T11:12:38Z",
+                "updated_date": "2018-01-31T17:30:00Z",
+                "relation_type_id": "references"
+            },
+            {
+                "license": "https://creativecommons.org/publicdomain/zero/1.0/",
+                "terms": "https://doi.org/10.13003/CED-terms-of-use",
+                "updated_reason": "https://evidence.eventdata.crossref.org/announcements/2018-01-19T00-00-00Z-ED-15.json",
+                "obj_id": "https://doi.org/10.1016/j.paid.2004.12.017",
+                "source_token": "36c35e23-8757-4a9d-aacf-345e9b7eb50d",
+                "occurred_at": "2017-04-11T11:12:10Z",
+                "subj_id": "https://it.wikipedia.org/wiki/Digit_ratio",
+                "id": "4a7fff0d-2a24-411f-9559-00027298c8b4",
+                "evidence_record": "https://evidence.eventdata.crossref.org/evidence/20170411-wikipedia-b3138ec9-f630-4565-8d83-32219823981f",
+                "action": "add",
+                "subj": {
+                    "pid": "https://it.wikipedia.org/wiki/Digit_ratio",
+                    "url": "https://it.wikipedia.org/w/index.php?title=Digit_ratio&oldid=87062122",
+                    "title": "Digit ratio",
+                    "api-url": "https://it.wikipedia.org/api/rest_v1/page/html/Digit_ratio/87062122"
+                },
+                "source_id": "wikipedia",
+                "obj": {
+                    "pid": "https://doi.org/10.1016/j.paid.2004.12.017",
+                    "url": "https://doi.org/10.1016/j.paid.2004.12.017"
+                },
+                "timestamp": "2017-04-11T11:12:38Z",
+                "updated_date": "2018-01-31T17:30:00Z",
+                "relation_type_id": "references"
+            },
+            {
+                "license": "https://creativecommons.org/publicdomain/zero/1.0/",
+                "terms": "https://doi.org/10.13003/CED-terms-of-use",
+                "updated_reason": "https://evidence.eventdata.crossref.org/announcements/2018-01-19T00-00-00Z-ED-15.json",
+                "obj_id": "https://doi.org/10.1007/s10508-007-9260-6",
+                "source_token": "36c35e23-8757-4a9d-aacf-345e9b7eb50d",
+                "occurred_at": "2017-04-11T11:12:10Z",
+                "subj_id": "https://it.wikipedia.org/wiki/Digit_ratio",
+                "id": "ca26b86f-c116-4b4c-870d-7fedcf5a2caa",
+                "evidence_record": "https://evidence.eventdata.crossref.org/evidence/20170411-wikipedia-b3138ec9-f630-4565-8d83-32219823981f",
+                "action": "add",
+                "subj": {
+                    "pid": "https://it.wikipedia.org/wiki/Digit_ratio",
+                    "url": "https://it.wikipedia.org/w/index.php?title=Digit_ratio&oldid=87062122",
+                    "title": "Digit ratio",
+                    "api-url": "https://it.wikipedia.org/api/rest_v1/page/html/Digit_ratio/87062122"
+                },
+                "source_id": "wikipedia",
+                "obj": {
+                    "pid": "https://doi.org/10.1007/s10508-007-9260-6",
+                    "url": "https://doi.org/10.1007/s10508-007-9260-6"
+                },
+                "timestamp": "2017-04-11T11:12:39Z",
+                "updated_date": "2018-01-31T17:30:00Z",
+                "relation_type_id": "references"
+            },
+            {
+                "license": "https://creativecommons.org/publicdomain/zero/1.0/",
+                "terms": "https://doi.org/10.13003/CED-terms-of-use",
+                "updated_reason": "https://evidence.eventdata.crossref.org/announcements/2018-01-19T00-00-00Z-ED-15.json",
+                "obj_id": "https://doi.org/10.1371/journal.pone.0019332",
+                "source_token": "36c35e23-8757-4a9d-aacf-345e9b7eb50d",
+                "occurred_at": "2017-04-11T11:12:10Z",
+                "subj_id": "https://it.wikipedia.org/wiki/Digit_ratio",
+                "id": "4179af56-0568-4272-92fd-f9a783e1fbf4",
+                "evidence_record": "https://evidence.eventdata.crossref.org/evidence/20170411-wikipedia-b3138ec9-f630-4565-8d83-32219823981f",
+                "action": "add",
+                "subj": {
+                    "pid": "https://it.wikipedia.org/wiki/Digit_ratio",
+                    "url": "https://it.wikipedia.org/w/index.php?title=Digit_ratio&oldid=87062122",
+                    "title": "Digit ratio",
+                    "api-url": "https://it.wikipedia.org/api/rest_v1/page/html/Digit_ratio/87062122"
+                },
+                "source_id": "wikipedia",
+                "obj": {
+                    "pid": "https://doi.org/10.1371/journal.pone.0019332",
+                    "url": "https://doi.org/10.1371/journal.pone.0019332"
+                },
+                "timestamp": "2017-04-11T11:12:39Z",
+                "updated_date": "2018-01-31T17:30:00Z",
+                "relation_type_id": "references"
+            },
+            {
+                "license": "https://creativecommons.org/publicdomain/zero/1.0/",
+                "terms": "https://doi.org/10.13003/CED-terms-of-use",
+                "updated_reason": "https://evidence.eventdata.crossref.org/announcements/2018-01-19T00-00-00Z-ED-15.json",
+                "obj_id": "https://doi.org/10.1016/j.pnpbp.2003.09.020",
+                "source_token": "36c35e23-8757-4a9d-aacf-345e9b7eb50d",
+                "occurred_at": "2017-04-11T11:12:10Z",
+                "subj_id": "https://it.wikipedia.org/wiki/Digit_ratio",
+                "id": "053b5d8a-3599-4429-a567-17fe8e0a37e8",
+                "evidence_record": "https://evidence.eventdata.crossref.org/evidence/20170411-wikipedia-b3138ec9-f630-4565-8d83-32219823981f",
+                "action": "add",
+                "subj": {
+                    "pid": "https://it.wikipedia.org/wiki/Digit_ratio",
+                    "url": "https://it.wikipedia.org/w/index.php?title=Digit_ratio&oldid=87062122",
+                    "title": "Digit ratio",
+                    "api-url": "https://it.wikipedia.org/api/rest_v1/page/html/Digit_ratio/87062122"
+                },
+                "source_id": "wikipedia",
+                "obj": {
+                    "pid": "https://doi.org/10.1016/j.pnpbp.2003.09.020",
+                    "url": "https://doi.org/10.1016/j.pnpbp.2003.09.020"
+                },
+                "timestamp": "2017-04-11T11:12:39Z",
+                "updated_date": "2018-01-31T17:30:00Z",
+                "relation_type_id": "references"
+            },
+            {
+                "license": "https://creativecommons.org/publicdomain/zero/1.0/",
+                "terms": "https://doi.org/10.13003/CED-terms-of-use",
+                "updated_reason": "https://evidence.eventdata.crossref.org/announcements/2018-01-19T00-00-00Z-ED-15.json",
+                "obj_id": "https://doi.org/10.1016/j.psyneuen.2014.01.023",
+                "source_token": "36c35e23-8757-4a9d-aacf-345e9b7eb50d",
+                "occurred_at": "2017-04-11T11:12:10Z",
+                "subj_id": "https://it.wikipedia.org/wiki/Digit_ratio",
+                "id": "f8ea79bc-cca3-49e6-a94b-b4f60f25bed3",
+                "evidence_record": "https://evidence.eventdata.crossref.org/evidence/20170411-wikipedia-b3138ec9-f630-4565-8d83-32219823981f",
+                "action": "add",
+                "subj": {
+                    "pid": "https://it.wikipedia.org/wiki/Digit_ratio",
+                    "url": "https://it.wikipedia.org/w/index.php?title=Digit_ratio&oldid=87062122",
+                    "title": "Digit ratio",
+                    "api-url": "https://it.wikipedia.org/api/rest_v1/page/html/Digit_ratio/87062122"
+                },
+                "source_id": "wikipedia",
+                "obj": {
+                    "pid": "https://doi.org/10.1016/j.psyneuen.2014.01.023",
+                    "url": "https://doi.org/10.1016/j.psyneuen.2014.01.023"
+                },
+                "timestamp": "2017-04-11T11:12:40Z",
+                "updated_date": "2018-01-31T17:30:00Z",
+                "relation_type_id": "references"
+            },
+            {
+                "license": "https://creativecommons.org/publicdomain/zero/1.0/",
+                "terms": "https://doi.org/10.13003/CED-terms-of-use",
+                "updated_reason": "https://evidence.eventdata.crossref.org/announcements/2018-01-19T00-00-00Z-ED-15.json",
+                "obj_id": "https://doi.org/10.1016/s1090-5138(00)00063-5",
+                "source_token": "36c35e23-8757-4a9d-aacf-345e9b7eb50d",
+                "occurred_at": "2017-04-11T11:12:10Z",
+                "subj_id": "https://it.wikipedia.org/wiki/Digit_ratio",
+                "id": "b404f7ea-8b08-4fc2-ad42-9473d87c6f5c",
+                "evidence_record": "https://evidence.eventdata.crossref.org/evidence/20170411-wikipedia-b3138ec9-f630-4565-8d83-32219823981f",
+                "action": "add",
+                "subj": {
+                    "pid": "https://it.wikipedia.org/wiki/Digit_ratio",
+                    "url": "https://it.wikipedia.org/w/index.php?title=Digit_ratio&oldid=87062122",
+                    "title": "Digit ratio",
+                    "api-url": "https://it.wikipedia.org/api/rest_v1/page/html/Digit_ratio/87062122"
+                },
+                "source_id": "wikipedia",
+                "obj": {
+                    "pid": "https://doi.org/10.1016/s1090-5138(00)00063-5",
+                    "url": "https://doi.org/10.1016/s1090-5138(00)00063-5"
+                },
+                "timestamp": "2017-04-11T11:12:40Z",
+                "updated_date": "2018-01-31T17:30:00Z",
+                "relation_type_id": "references"
+            },
+            {
+                "license": "https://creativecommons.org/publicdomain/zero/1.0/",
+                "terms": "https://doi.org/10.13003/CED-terms-of-use",
+                "updated_reason": "https://evidence.eventdata.crossref.org/announcements/2018-01-19T00-00-00Z-ED-15.json",
+                "obj_id": "https://doi.org/10.1016/j.biopsycho.2004.03.012",
+                "source_token": "36c35e23-8757-4a9d-aacf-345e9b7eb50d",
+                "occurred_at": "2017-04-11T11:12:10Z",
+                "subj_id": "https://it.wikipedia.org/wiki/Digit_ratio",
+                "id": "790062f5-6ce1-4726-a141-f840cc39ff7d",
+                "evidence_record": "https://evidence.eventdata.crossref.org/evidence/20170411-wikipedia-b3138ec9-f630-4565-8d83-32219823981f",
+                "action": "add",
+                "subj": {
+                    "pid": "https://it.wikipedia.org/wiki/Digit_ratio",
+                    "url": "https://it.wikipedia.org/w/index.php?title=Digit_ratio&oldid=87062122",
+                    "title": "Digit ratio",
+                    "api-url": "https://it.wikipedia.org/api/rest_v1/page/html/Digit_ratio/87062122"
+                },
+                "source_id": "wikipedia",
+                "obj": {
+                    "pid": "https://doi.org/10.1016/j.biopsycho.2004.03.012",
+                    "url": "https://doi.org/10.1016/j.biopsycho.2004.03.012"
+                },
+                "timestamp": "2017-04-11T11:12:40Z",
+                "updated_date": "2018-01-31T17:30:00Z",
+                "relation_type_id": "references"
+            },
+            {
+                "license": "https://creativecommons.org/publicdomain/zero/1.0/",
+                "terms": "https://doi.org/10.13003/CED-terms-of-use",
+                "updated_reason": "https://evidence.eventdata.crossref.org/announcements/2018-01-19T00-00-00Z-ED-15.json",
+                "obj_id": "https://doi.org/10.1016/j.yhbeh.2004.06.004",
+                "source_token": "36c35e23-8757-4a9d-aacf-345e9b7eb50d",
+                "occurred_at": "2017-04-11T11:12:10Z",
+                "subj_id": "https://it.wikipedia.org/wiki/Digit_ratio",
+                "id": "48012b41-570e-48c6-9b49-e16a8697297d",
+                "evidence_record": "https://evidence.eventdata.crossref.org/evidence/20170411-wikipedia-b3138ec9-f630-4565-8d83-32219823981f",
+                "action": "add",
+                "subj": {
+                    "pid": "https://it.wikipedia.org/wiki/Digit_ratio",
+                    "url": "https://it.wikipedia.org/w/index.php?title=Digit_ratio&oldid=87062122",
+                    "title": "Digit ratio",
+                    "api-url": "https://it.wikipedia.org/api/rest_v1/page/html/Digit_ratio/87062122"
+                },
+                "source_id": "wikipedia",
+                "obj": {
+                    "pid": "https://doi.org/10.1016/j.yhbeh.2004.06.004",
+                    "url": "https://doi.org/10.1016/j.yhbeh.2004.06.004"
+                },
+                "timestamp": "2017-04-11T11:12:40Z",
+                "updated_date": "2018-01-31T17:30:00Z",
+                "relation_type_id": "references"
+            },
+            {
+                "license": "https://creativecommons.org/publicdomain/zero/1.0/",
+                "terms": "https://doi.org/10.13003/CED-terms-of-use",
+                "updated_reason": "https://evidence.eventdata.crossref.org/announcements/2018-01-19T00-00-00Z-ED-15.json",
+                "obj_id": "https://doi.org/10.1073/pnas.0810907106",
+                "source_token": "36c35e23-8757-4a9d-aacf-345e9b7eb50d",
+                "occurred_at": "2017-04-11T11:12:10Z",
+                "subj_id": "https://it.wikipedia.org/wiki/Digit_ratio",
+                "id": "47b64311-6681-49f9-8a10-ba9c341056e8",
+                "evidence_record": "https://evidence.eventdata.crossref.org/evidence/20170411-wikipedia-b3138ec9-f630-4565-8d83-32219823981f",
+                "action": "add",
+                "subj": {
+                    "pid": "https://it.wikipedia.org/wiki/Digit_ratio",
+                    "url": "https://it.wikipedia.org/w/index.php?title=Digit_ratio&oldid=87062122",
+                    "title": "Digit ratio",
+                    "api-url": "https://it.wikipedia.org/api/rest_v1/page/html/Digit_ratio/87062122"
+                },
+                "source_id": "wikipedia",
+                "obj": {
+                    "pid": "https://doi.org/10.1073/pnas.0810907106",
+                    "url": "https://doi.org/10.1073/pnas.0810907106"
+                },
+                "timestamp": "2017-04-11T11:12:40Z",
+                "updated_date": "2018-01-31T17:30:00Z",
+                "relation_type_id": "references"
+            },
+            {
+                "license": "https://creativecommons.org/publicdomain/zero/1.0/",
+                "terms": "https://doi.org/10.13003/CED-terms-of-use",
+                "updated_reason": "https://evidence.eventdata.crossref.org/announcements/2018-01-19T00-00-00Z-ED-15.json",
+                "obj_id": "https://doi.org/10.1016/j.paid.2005.01.024",
+                "source_token": "36c35e23-8757-4a9d-aacf-345e9b7eb50d",
+                "occurred_at": "2017-04-11T11:12:10Z",
+                "subj_id": "https://it.wikipedia.org/wiki/Digit_ratio",
+                "id": "0a10493c-61b1-49e3-b60c-9fe9b9f1f453",
+                "evidence_record": "https://evidence.eventdata.crossref.org/evidence/20170411-wikipedia-b3138ec9-f630-4565-8d83-32219823981f",
+                "action": "add",
+                "subj": {
+                    "pid": "https://it.wikipedia.org/wiki/Digit_ratio",
+                    "url": "https://it.wikipedia.org/w/index.php?title=Digit_ratio&oldid=87062122",
+                    "title": "Digit ratio",
+                    "api-url": "https://it.wikipedia.org/api/rest_v1/page/html/Digit_ratio/87062122"
+                },
+                "source_id": "wikipedia",
+                "obj": {
+                    "pid": "https://doi.org/10.1016/j.paid.2005.01.024",
+                    "url": "https://doi.org/10.1016/j.paid.2005.01.024"
+                },
+                "timestamp": "2017-04-11T11:12:40Z",
+                "updated_date": "2018-01-31T17:30:00Z",
+                "relation_type_id": "references"
+            },
+            {
+                "license": "https://creativecommons.org/publicdomain/zero/1.0/",
+                "terms": "https://doi.org/10.13003/CED-terms-of-use",
+                "updated_reason": "https://evidence.eventdata.crossref.org/announcements/2018-01-19T00-00-00Z-ED-15.json",
+                "obj_id": "https://doi.org/10.1016/s0191-8869(02)00002-8",
+                "source_token": "36c35e23-8757-4a9d-aacf-345e9b7eb50d",
+                "occurred_at": "2017-04-11T11:12:10Z",
+                "subj_id": "https://it.wikipedia.org/wiki/Digit_ratio",
+                "id": "fdceaf6b-8f52-4d5e-b912-b25f325c5eb6",
+                "evidence_record": "https://evidence.eventdata.crossref.org/evidence/20170411-wikipedia-b3138ec9-f630-4565-8d83-32219823981f",
+                "action": "add",
+                "subj": {
+                    "pid": "https://it.wikipedia.org/wiki/Digit_ratio",
+                    "url": "https://it.wikipedia.org/w/index.php?title=Digit_ratio&oldid=87062122",
+                    "title": "Digit ratio",
+                    "api-url": "https://it.wikipedia.org/api/rest_v1/page/html/Digit_ratio/87062122"
+                },
+                "source_id": "wikipedia",
+                "obj": {
+                    "pid": "https://doi.org/10.1016/s0191-8869(02)00002-8",
+                    "url": "https://doi.org/10.1016/s0191-8869(02)00002-8"
+                },
+                "timestamp": "2017-04-11T11:12:41Z",
+                "updated_date": "2018-01-31T17:30:00Z",
+                "relation_type_id": "references"
+            },
+            {
+                "license": "https://creativecommons.org/publicdomain/zero/1.0/",
+                "terms": "https://doi.org/10.13003/CED-terms-of-use",
+                "updated_reason": "https://evidence.eventdata.crossref.org/announcements/2018-01-19T00-00-00Z-ED-15.json",
+                "obj_id": "https://doi.org/10.1007/s10508-006-9136-1",
+                "source_token": "36c35e23-8757-4a9d-aacf-345e9b7eb50d",
+                "occurred_at": "2017-04-11T11:12:10Z",
+                "subj_id": "https://it.wikipedia.org/wiki/Digit_ratio",
+                "id": "9930ef0a-1cac-46c3-87e3-fa63e986bfe4",
+                "evidence_record": "https://evidence.eventdata.crossref.org/evidence/20170411-wikipedia-b3138ec9-f630-4565-8d83-32219823981f",
+                "action": "add",
+                "subj": {
+                    "pid": "https://it.wikipedia.org/wiki/Digit_ratio",
+                    "url": "https://it.wikipedia.org/w/index.php?title=Digit_ratio&oldid=87062122",
+                    "title": "Digit ratio",
+                    "api-url": "https://it.wikipedia.org/api/rest_v1/page/html/Digit_ratio/87062122"
+                },
+                "source_id": "wikipedia",
+                "obj": {
+                    "pid": "https://doi.org/10.1007/s10508-006-9136-1",
+                    "url": "https://doi.org/10.1007/s10508-006-9136-1"
+                },
+                "timestamp": "2017-04-11T11:12:41Z",
+                "updated_date": "2018-01-31T17:30:00Z",
+                "relation_type_id": "references"
+            },
+            {
+                "license": "https://creativecommons.org/publicdomain/zero/1.0/",
+                "terms": "https://doi.org/10.13003/CED-terms-of-use",
+                "updated_reason": "https://evidence.eventdata.crossref.org/announcements/2018-01-19T00-00-00Z-ED-15.json",
+                "obj_id": "https://doi.org/10.1371/journal.pone.0046319",
+                "source_token": "36c35e23-8757-4a9d-aacf-345e9b7eb50d",
+                "occurred_at": "2017-04-11T11:12:10Z",
+                "subj_id": "https://it.wikipedia.org/wiki/Digit_ratio",
+                "id": "4d908869-e8c0-420d-a6aa-91e0dd7405f2",
+                "evidence_record": "https://evidence.eventdata.crossref.org/evidence/20170411-wikipedia-b3138ec9-f630-4565-8d83-32219823981f",
+                "action": "add",
+                "subj": {
+                    "pid": "https://it.wikipedia.org/wiki/Digit_ratio",
+                    "url": "https://it.wikipedia.org/w/index.php?title=Digit_ratio&oldid=87062122",
+                    "title": "Digit ratio",
+                    "api-url": "https://it.wikipedia.org/api/rest_v1/page/html/Digit_ratio/87062122"
+                },
+                "source_id": "wikipedia",
+                "obj": {
+                    "pid": "https://doi.org/10.1371/journal.pone.0046319",
+                    "url": "https://doi.org/10.1371/journal.pone.0046319"
+                },
+                "timestamp": "2017-04-11T11:12:41Z",
+                "updated_date": "2018-01-31T17:30:00Z",
+                "relation_type_id": "references"
+            },
+            {
+                "license": "https://creativecommons.org/publicdomain/zero/1.0/",
+                "terms": "https://doi.org/10.13003/CED-terms-of-use",
+                "updated_reason": "https://evidence.eventdata.crossref.org/announcements/2018-01-19T00-00-00Z-ED-15.json",
+                "obj_id": "https://doi.org/10.1016/s1090-5138(99)00026-4",
+                "source_token": "36c35e23-8757-4a9d-aacf-345e9b7eb50d",
+                "occurred_at": "2017-04-11T11:12:10Z",
+                "subj_id": "https://it.wikipedia.org/wiki/Digit_ratio",
+                "id": "1ddeb0c3-973d-41c8-a8b2-f31e31d65c08",
+                "evidence_record": "https://evidence.eventdata.crossref.org/evidence/20170411-wikipedia-b3138ec9-f630-4565-8d83-32219823981f",
+                "action": "add",
+                "subj": {
+                    "pid": "https://it.wikipedia.org/wiki/Digit_ratio",
+                    "url": "https://it.wikipedia.org/w/index.php?title=Digit_ratio&oldid=87062122",
+                    "title": "Digit ratio",
+                    "api-url": "https://it.wikipedia.org/api/rest_v1/page/html/Digit_ratio/87062122"
+                },
+                "source_id": "wikipedia",
+                "obj": {
+                    "pid": "https://doi.org/10.1016/s1090-5138(99)00026-4",
+                    "url": "https://doi.org/10.1016/s1090-5138(99)00026-4"
+                },
+                "timestamp": "2017-04-11T11:12:41Z",
+                "updated_date": "2018-01-31T17:30:00Z",
+                "relation_type_id": "references"
+            },
+            {
+                "license": "https://creativecommons.org/publicdomain/zero/1.0/",
+                "terms": "https://doi.org/10.13003/CED-terms-of-use",
+                "updated_reason": "https://evidence.eventdata.crossref.org/announcements/2018-01-19T00-00-00Z-ED-15.json",
+                "obj_id": "https://doi.org/10.1159/000094730",
+                "source_token": "36c35e23-8757-4a9d-aacf-345e9b7eb50d",
+                "occurred_at": "2017-04-11T11:12:10Z",
+                "subj_id": "https://it.wikipedia.org/wiki/Digit_ratio",
+                "id": "8cee8884-f3d6-4cf2-9d62-fd6f61646f82",
+                "evidence_record": "https://evidence.eventdata.crossref.org/evidence/20170411-wikipedia-b3138ec9-f630-4565-8d83-32219823981f",
+                "action": "add",
+                "subj": {
+                    "pid": "https://it.wikipedia.org/wiki/Digit_ratio",
+                    "url": "https://it.wikipedia.org/w/index.php?title=Digit_ratio&oldid=87062122",
+                    "title": "Digit ratio",
+                    "api-url": "https://it.wikipedia.org/api/rest_v1/page/html/Digit_ratio/87062122"
+                },
+                "source_id": "wikipedia",
+                "obj": {
+                    "pid": "https://doi.org/10.1159/000094730",
+                    "url": "https://doi.org/10.1159/000094730"
+                },
+                "timestamp": "2017-04-11T11:12:42Z",
+                "updated_date": "2018-01-31T17:30:00Z",
+                "relation_type_id": "references"
+            },
+            {
+                "license": "https://creativecommons.org/publicdomain/zero/1.0/",
+                "terms": "https://doi.org/10.13003/CED-terms-of-use",
+                "updated_reason": "https://evidence.eventdata.crossref.org/announcements/2018-01-19T00-00-00Z-ED-15.json",
+                "obj_id": "https://doi.org/10.1348/000712607x197406",
+                "source_token": "36c35e23-8757-4a9d-aacf-345e9b7eb50d",
+                "occurred_at": "2017-04-11T11:12:10Z",
+                "subj_id": "https://it.wikipedia.org/wiki/Digit_ratio",
+                "id": "46cd0790-6f3a-499e-9b59-978dfcb54ebe",
+                "evidence_record": "https://evidence.eventdata.crossref.org/evidence/20170411-wikipedia-b3138ec9-f630-4565-8d83-32219823981f",
+                "action": "add",
+                "subj": {
+                    "pid": "https://it.wikipedia.org/wiki/Digit_ratio",
+                    "url": "https://it.wikipedia.org/w/index.php?title=Digit_ratio&oldid=87062122",
+                    "title": "Digit ratio",
+                    "api-url": "https://it.wikipedia.org/api/rest_v1/page/html/Digit_ratio/87062122"
+                },
+                "source_id": "wikipedia",
+                "obj": {
+                    "pid": "https://doi.org/10.1348/000712607x197406",
+                    "url": "https://doi.org/10.1348/000712607x197406"
+                },
+                "timestamp": "2017-04-11T11:12:42Z",
+                "updated_date": "2018-01-31T17:30:00Z",
+                "relation_type_id": "references"
+            },
+            {
+                "license": "https://creativecommons.org/publicdomain/zero/1.0/",
+                "terms": "https://doi.org/10.13003/CED-terms-of-use",
+                "updated_reason": "https://evidence.eventdata.crossref.org/announcements/2018-01-19T00-00-00Z-ED-15.json",
+                "obj_id": "https://doi.org/10.1016/j.paid.2009.01.051",
+                "source_token": "36c35e23-8757-4a9d-aacf-345e9b7eb50d",
+                "occurred_at": "2017-04-11T11:12:10Z",
+                "subj_id": "https://it.wikipedia.org/wiki/Digit_ratio",
+                "id": "2c811ed8-71c5-4afc-9d4a-ba6edea2ed91",
+                "evidence_record": "https://evidence.eventdata.crossref.org/evidence/20170411-wikipedia-b3138ec9-f630-4565-8d83-32219823981f",
+                "action": "add",
+                "subj": {
+                    "pid": "https://it.wikipedia.org/wiki/Digit_ratio",
+                    "url": "https://it.wikipedia.org/w/index.php?title=Digit_ratio&oldid=87062122",
+                    "title": "Digit ratio",
+                    "api-url": "https://it.wikipedia.org/api/rest_v1/page/html/Digit_ratio/87062122"
+                },
+                "source_id": "wikipedia",
+                "obj": {
+                    "pid": "https://doi.org/10.1016/j.paid.2009.01.051",
+                    "url": "https://doi.org/10.1016/j.paid.2009.01.051"
+                },
+                "timestamp": "2017-04-11T11:12:42Z",
+                "updated_date": "2018-01-31T17:30:00Z",
+                "relation_type_id": "references"
+            },
+            {
+                "license": "https://creativecommons.org/publicdomain/zero/1.0/",
+                "terms": "https://doi.org/10.13003/CED-terms-of-use",
+                "updated_reason": "https://evidence.eventdata.crossref.org/announcements/2018-01-19T00-00-00Z-ED-15.json",
+                "obj_id": "https://doi.org/10.1016/j.yhbeh.2008.05.002",
+                "source_token": "36c35e23-8757-4a9d-aacf-345e9b7eb50d",
+                "occurred_at": "2017-04-11T11:12:10Z",
+                "subj_id": "https://it.wikipedia.org/wiki/Digit_ratio",
+                "id": "1aff3c4d-0ef3-44bb-a35d-aff2116da416",
+                "evidence_record": "https://evidence.eventdata.crossref.org/evidence/20170411-wikipedia-b3138ec9-f630-4565-8d83-32219823981f",
+                "action": "add",
+                "subj": {
+                    "pid": "https://it.wikipedia.org/wiki/Digit_ratio",
+                    "url": "https://it.wikipedia.org/w/index.php?title=Digit_ratio&oldid=87062122",
+                    "title": "Digit ratio",
+                    "api-url": "https://it.wikipedia.org/api/rest_v1/page/html/Digit_ratio/87062122"
+                },
+                "source_id": "wikipedia",
+                "obj": {
+                    "pid": "https://doi.org/10.1016/j.yhbeh.2008.05.002",
+                    "url": "https://doi.org/10.1016/j.yhbeh.2008.05.002"
+                },
+                "timestamp": "2017-04-11T11:12:42Z",
+                "updated_date": "2018-01-31T17:30:00Z",
+                "relation_type_id": "references"
+            },
+            {
+                "license": "https://creativecommons.org/publicdomain/zero/1.0/",
+                "terms": "https://doi.org/10.13003/CED-terms-of-use",
+                "updated_reason": "https://evidence.eventdata.crossref.org/announcements/2018-01-19T00-00-00Z-ED-15.json",
+                "obj_id": "https://doi.org/10.1016/j.paid.2005.03.016",
+                "source_token": "36c35e23-8757-4a9d-aacf-345e9b7eb50d",
+                "occurred_at": "2017-04-11T11:12:10Z",
+                "subj_id": "https://it.wikipedia.org/wiki/Digit_ratio",
+                "id": "1aa722a5-4b27-4d08-ba42-19b63034e476",
+                "evidence_record": "https://evidence.eventdata.crossref.org/evidence/20170411-wikipedia-b3138ec9-f630-4565-8d83-32219823981f",
+                "action": "add",
+                "subj": {
+                    "pid": "https://it.wikipedia.org/wiki/Digit_ratio",
+                    "url": "https://it.wikipedia.org/w/index.php?title=Digit_ratio&oldid=87062122",
+                    "title": "Digit ratio",
+                    "api-url": "https://it.wikipedia.org/api/rest_v1/page/html/Digit_ratio/87062122"
+                },
+                "source_id": "wikipedia",
+                "obj": {
+                    "pid": "https://doi.org/10.1016/j.paid.2005.03.016",
+                    "url": "https://doi.org/10.1016/j.paid.2005.03.016"
+                },
+                "timestamp": "2017-04-11T11:12:42Z",
+                "updated_date": "2018-01-31T17:30:00Z",
+                "relation_type_id": "references"
+            },
+            {
+                "license": "https://creativecommons.org/publicdomain/zero/1.0/",
+                "terms": "https://doi.org/10.13003/CED-terms-of-use",
+                "updated_reason": "https://evidence.eventdata.crossref.org/announcements/2018-01-19T00-00-00Z-ED-15.json",
+                "obj_id": "https://doi.org/10.1016/s0301-0511(02)00127-8",
+                "source_token": "36c35e23-8757-4a9d-aacf-345e9b7eb50d",
+                "occurred_at": "2017-04-11T11:12:10Z",
+                "subj_id": "https://it.wikipedia.org/wiki/Digit_ratio",
+                "id": "054a9fe7-42c2-458f-84e1-bb1348c2dbd2",
+                "evidence_record": "https://evidence.eventdata.crossref.org/evidence/20170411-wikipedia-b3138ec9-f630-4565-8d83-32219823981f",
+                "action": "add",
+                "subj": {
+                    "pid": "https://it.wikipedia.org/wiki/Digit_ratio",
+                    "url": "https://it.wikipedia.org/w/index.php?title=Digit_ratio&oldid=87062122",
+                    "title": "Digit ratio",
+                    "api-url": "https://it.wikipedia.org/api/rest_v1/page/html/Digit_ratio/87062122"
+                },
+                "source_id": "wikipedia",
+                "obj": {
+                    "pid": "https://doi.org/10.1016/s0301-0511(02)00127-8",
+                    "url": "https://doi.org/10.1016/s0301-0511(02)00127-8"
+                },
+                "timestamp": "2017-04-11T11:12:42Z",
+                "updated_date": "2018-01-31T17:30:00Z",
+                "relation_type_id": "references"
+            },
+            {
+                "license": "https://creativecommons.org/publicdomain/zero/1.0/",
+                "terms": "https://doi.org/10.13003/CED-terms-of-use",
+                "updated_reason": "https://evidence.eventdata.crossref.org/announcements/2018-01-19T00-00-00Z-ED-15.json",
+                "obj_id": "https://doi.org/10.1023/a:1026054625638",
+                "source_token": "36c35e23-8757-4a9d-aacf-345e9b7eb50d",
+                "occurred_at": "2017-04-11T11:12:10Z",
+                "subj_id": "https://it.wikipedia.org/wiki/Digit_ratio",
+                "id": "e0df215f-1f4b-4dff-a712-5f3549dec983",
+                "evidence_record": "https://evidence.eventdata.crossref.org/evidence/20170411-wikipedia-b3138ec9-f630-4565-8d83-32219823981f",
+                "action": "add",
+                "subj": {
+                    "pid": "https://it.wikipedia.org/wiki/Digit_ratio",
+                    "url": "https://it.wikipedia.org/w/index.php?title=Digit_ratio&oldid=87062122",
+                    "title": "Digit ratio",
+                    "api-url": "https://it.wikipedia.org/api/rest_v1/page/html/Digit_ratio/87062122"
+                },
+                "source_id": "wikipedia",
+                "obj": {
+                    "pid": "https://doi.org/10.1023/a:1026054625638",
+                    "url": "https://doi.org/10.1023/a:1026054625638"
+                },
+                "timestamp": "2017-04-11T11:12:43Z",
+                "updated_date": "2018-01-31T17:30:00Z",
+                "relation_type_id": "references"
+            },
+            {
+                "license": "https://creativecommons.org/publicdomain/zero/1.0/",
+                "terms": "https://doi.org/10.13003/CED-terms-of-use",
+                "updated_reason": "https://evidence.eventdata.crossref.org/announcements/2018-01-19T00-00-00Z-ED-15.json",
+                "obj_id": "https://doi.org/10.1007/s10508-006-9166-8",
+                "source_token": "36c35e23-8757-4a9d-aacf-345e9b7eb50d",
+                "occurred_at": "2017-04-11T11:12:10Z",
+                "subj_id": "https://it.wikipedia.org/wiki/Digit_ratio",
+                "id": "cdfeec73-bc79-4175-9045-80bee3bfca9c",
+                "evidence_record": "https://evidence.eventdata.crossref.org/evidence/20170411-wikipedia-b3138ec9-f630-4565-8d83-32219823981f",
+                "action": "add",
+                "subj": {
+                    "pid": "https://it.wikipedia.org/wiki/Digit_ratio",
+                    "url": "https://it.wikipedia.org/w/index.php?title=Digit_ratio&oldid=87062122",
+                    "title": "Digit ratio",
+                    "api-url": "https://it.wikipedia.org/api/rest_v1/page/html/Digit_ratio/87062122"
+                },
+                "source_id": "wikipedia",
+                "obj": {
+                    "pid": "https://doi.org/10.1007/s10508-006-9166-8",
+                    "url": "https://doi.org/10.1007/s10508-006-9166-8"
+                },
+                "timestamp": "2017-04-11T11:12:43Z",
+                "updated_date": "2018-01-31T17:30:00Z",
+                "relation_type_id": "references"
+            },
+            {
+                "license": "https://creativecommons.org/publicdomain/zero/1.0/",
+                "terms": "https://doi.org/10.13003/CED-terms-of-use",
+                "updated_reason": "https://evidence.eventdata.crossref.org/announcements/2018-01-19T00-00-00Z-ED-15.json",
+                "obj_id": "https://doi.org/10.1016/s1090-5138(00)00052-0",
+                "source_token": "36c35e23-8757-4a9d-aacf-345e9b7eb50d",
+                "occurred_at": "2017-04-11T11:12:10Z",
+                "subj_id": "https://it.wikipedia.org/wiki/Digit_ratio",
+                "id": "9e382960-d580-4e19-a6e9-02ba10df4043",
+                "evidence_record": "https://evidence.eventdata.crossref.org/evidence/20170411-wikipedia-b3138ec9-f630-4565-8d83-32219823981f",
+                "action": "add",
+                "subj": {
+                    "pid": "https://it.wikipedia.org/wiki/Digit_ratio",
+                    "url": "https://it.wikipedia.org/w/index.php?title=Digit_ratio&oldid=87062122",
+                    "title": "Digit ratio",
+                    "api-url": "https://it.wikipedia.org/api/rest_v1/page/html/Digit_ratio/87062122"
+                },
+                "source_id": "wikipedia",
+                "obj": {
+                    "pid": "https://doi.org/10.1016/s1090-5138(00)00052-0",
+                    "url": "https://doi.org/10.1016/s1090-5138(00)00052-0"
+                },
+                "timestamp": "2017-04-11T11:12:43Z",
+                "updated_date": "2018-01-31T17:30:00Z",
+                "relation_type_id": "references"
+            },
+            {
+                "license": "https://creativecommons.org/publicdomain/zero/1.0/",
+                "terms": "https://doi.org/10.13003/CED-terms-of-use",
+                "updated_reason": "https://evidence.eventdata.crossref.org/announcements/2018-01-19T00-00-00Z-ED-15.json",
+                "obj_id": "https://doi.org/10.1037/a0018764",
+                "source_token": "36c35e23-8757-4a9d-aacf-345e9b7eb50d",
+                "occurred_at": "2017-04-11T11:12:10Z",
+                "subj_id": "https://it.wikipedia.org/wiki/Digit_ratio",
+                "id": "278001ce-99e9-43d0-98ff-6777fdea691f",
+                "evidence_record": "https://evidence.eventdata.crossref.org/evidence/20170411-wikipedia-b3138ec9-f630-4565-8d83-32219823981f",
+                "action": "add",
+                "subj": {
+                    "pid": "https://it.wikipedia.org/wiki/Digit_ratio",
+                    "url": "https://it.wikipedia.org/w/index.php?title=Digit_ratio&oldid=87062122",
+                    "title": "Digit ratio",
+                    "api-url": "https://it.wikipedia.org/api/rest_v1/page/html/Digit_ratio/87062122"
+                },
+                "source_id": "wikipedia",
+                "obj": {
+                    "pid": "https://doi.org/10.1037/a0018764",
+                    "url": "https://doi.org/10.1037/a0018764"
+                },
+                "timestamp": "2017-04-11T11:12:43Z",
+                "updated_date": "2018-01-31T17:30:00Z",
+                "relation_type_id": "references"
+            },
+            {
+                "license": "https://creativecommons.org/publicdomain/zero/1.0/",
+                "terms": "https://doi.org/10.13003/CED-terms-of-use",
+                "updated_reason": "https://evidence.eventdata.crossref.org/announcements/2018-01-19T00-00-00Z-ED-15.json",
+                "obj_id": "https://doi.org/10.1007/s10508-005-3122-x",
+                "source_token": "36c35e23-8757-4a9d-aacf-345e9b7eb50d",
+                "occurred_at": "2017-04-11T11:12:10Z",
+                "subj_id": "https://it.wikipedia.org/wiki/Digit_ratio",
+                "id": "09e1fd5b-f45d-485c-b053-3d052bb41305",
+                "evidence_record": "https://evidence.eventdata.crossref.org/evidence/20170411-wikipedia-b3138ec9-f630-4565-8d83-32219823981f",
+                "action": "add",
+                "subj": {
+                    "pid": "https://it.wikipedia.org/wiki/Digit_ratio",
+                    "url": "https://it.wikipedia.org/w/index.php?title=Digit_ratio&oldid=87062122",
+                    "title": "Digit ratio",
+                    "api-url": "https://it.wikipedia.org/api/rest_v1/page/html/Digit_ratio/87062122"
+                },
+                "source_id": "wikipedia",
+                "obj": {
+                    "pid": "https://doi.org/10.1007/s10508-005-3122-x",
+                    "url": "https://doi.org/10.1007/s10508-005-3122-x"
+                },
+                "timestamp": "2017-04-11T11:12:43Z",
+                "updated_date": "2018-01-31T17:30:00Z",
+                "relation_type_id": "references"
+            },
+            {
+                "license": "https://creativecommons.org/publicdomain/zero/1.0/",
+                "terms": "https://doi.org/10.13003/CED-terms-of-use",
+                "updated_reason": "https://evidence.eventdata.crossref.org/announcements/2018-01-19T00-00-00Z-ED-15.json",
+                "obj_id": "https://doi.org/10.1007/s10508-011-9889-z",
+                "source_token": "36c35e23-8757-4a9d-aacf-345e9b7eb50d",
+                "occurred_at": "2017-04-11T11:12:10Z",
+                "subj_id": "https://it.wikipedia.org/wiki/Digit_ratio",
+                "id": "017ba69e-7918-4f18-966b-ebab424bcc82",
+                "evidence_record": "https://evidence.eventdata.crossref.org/evidence/20170411-wikipedia-b3138ec9-f630-4565-8d83-32219823981f",
+                "action": "add",
+                "subj": {
+                    "pid": "https://it.wikipedia.org/wiki/Digit_ratio",
+                    "url": "https://it.wikipedia.org/w/index.php?title=Digit_ratio&oldid=87062122",
+                    "title": "Digit ratio",
+                    "api-url": "https://it.wikipedia.org/api/rest_v1/page/html/Digit_ratio/87062122"
+                },
+                "source_id": "wikipedia",
+                "obj": {
+                    "pid": "https://doi.org/10.1007/s10508-011-9889-z",
+                    "url": "https://doi.org/10.1007/s10508-011-9889-z"
+                },
+                "timestamp": "2017-04-11T11:12:43Z",
+                "updated_date": "2018-01-31T17:30:00Z",
+                "relation_type_id": "references"
+            },
+            {
+                "license": "https://creativecommons.org/publicdomain/zero/1.0/",
+                "terms": "https://doi.org/10.13003/CED-terms-of-use",
+                "updated_reason": "https://evidence.eventdata.crossref.org/announcements/2018-01-19T00-00-00Z-ED-15.json",
+                "obj_id": "https://doi.org/10.1037/a0018764",
+                "source_token": "36c35e23-8757-4a9d-aacf-345e9b7eb50d",
+                "occurred_at": "2017-04-11T11:12:10Z",
+                "subj_id": "https://it.wikipedia.org/wiki/Digit_ratio",
+                "id": "b40ce9fb-8a98-4377-b498-1ac440e1ba4a",
+                "evidence_record": "https://evidence.eventdata.crossref.org/evidence/20170411-wikipedia-b3138ec9-f630-4565-8d83-32219823981f",
+                "action": "add",
+                "subj": {
+                    "pid": "https://it.wikipedia.org/wiki/Digit_ratio",
+                    "url": "https://it.wikipedia.org/w/index.php?title=Digit_ratio&oldid=87062122",
+                    "title": "Digit ratio",
+                    "api-url": "https://it.wikipedia.org/api/rest_v1/page/html/Digit_ratio/87062122"
+                },
+                "source_id": "wikipedia",
+                "obj": {
+                    "pid": "https://doi.org/10.1037/a0018764",
+                    "url": "https://doi.org/10.1037/a0018764"
+                },
+                "timestamp": "2017-04-11T11:12:44Z",
+                "updated_date": "2018-01-31T17:30:00Z",
+                "relation_type_id": "references"
+            },
+            {
+                "license": "https://creativecommons.org/publicdomain/zero/1.0/",
+                "terms": "https://doi.org/10.13003/CED-terms-of-use",
+                "updated_reason": "https://evidence.eventdata.crossref.org/announcements/2018-01-19T00-00-00Z-ED-15.json",
+                "obj_id": "https://doi.org/10.1098/rspb.2005.3179",
+                "source_token": "36c35e23-8757-4a9d-aacf-345e9b7eb50d",
+                "occurred_at": "2017-04-11T11:12:10Z",
+                "subj_id": "https://it.wikipedia.org/wiki/Digit_ratio",
+                "id": "acaad156-9be6-43e5-bc78-32e653f59412",
+                "evidence_record": "https://evidence.eventdata.crossref.org/evidence/20170411-wikipedia-b3138ec9-f630-4565-8d83-32219823981f",
+                "action": "add",
+                "subj": {
+                    "pid": "https://it.wikipedia.org/wiki/Digit_ratio",
+                    "url": "https://it.wikipedia.org/w/index.php?title=Digit_ratio&oldid=87062122",
+                    "title": "Digit ratio",
+                    "api-url": "https://it.wikipedia.org/api/rest_v1/page/html/Digit_ratio/87062122"
+                },
+                "source_id": "wikipedia",
+                "obj": {
+                    "pid": "https://doi.org/10.1098/rspb.2005.3179",
+                    "url": "https://doi.org/10.1098/rspb.2005.3179"
+                },
+                "timestamp": "2017-04-11T11:12:44Z",
+                "updated_date": "2018-01-31T17:30:00Z",
+                "relation_type_id": "references"
+            },
+            {
+                "license": "https://creativecommons.org/publicdomain/zero/1.0/",
+                "terms": "https://doi.org/10.13003/CED-terms-of-use",
+                "updated_reason": "https://evidence.eventdata.crossref.org/announcements/2018-01-19T00-00-00Z-ED-15.json",
+                "obj_id": "https://doi.org/10.1016/s0378-3782(02)00009-9",
+                "source_token": "36c35e23-8757-4a9d-aacf-345e9b7eb50d",
+                "occurred_at": "2017-04-11T11:12:10Z",
+                "subj_id": "https://it.wikipedia.org/wiki/Digit_ratio",
+                "id": "79f2b26e-6e54-44a9-acd6-d2dadd1fd8f3",
+                "evidence_record": "https://evidence.eventdata.crossref.org/evidence/20170411-wikipedia-b3138ec9-f630-4565-8d83-32219823981f",
+                "action": "add",
+                "subj": {
+                    "pid": "https://it.wikipedia.org/wiki/Digit_ratio",
+                    "url": "https://it.wikipedia.org/w/index.php?title=Digit_ratio&oldid=87062122",
+                    "title": "Digit ratio",
+                    "api-url": "https://it.wikipedia.org/api/rest_v1/page/html/Digit_ratio/87062122"
+                },
+                "source_id": "wikipedia",
+                "obj": {
+                    "pid": "https://doi.org/10.1016/s0378-3782(02)00009-9",
+                    "url": "https://doi.org/10.1016/s0378-3782(02)00009-9"
+                },
+                "timestamp": "2017-04-11T11:12:44Z",
+                "updated_date": "2018-01-31T17:30:00Z",
+                "relation_type_id": "references"
+            },
+            {
+                "license": "https://creativecommons.org/publicdomain/zero/1.0/",
+                "terms": "https://doi.org/10.13003/CED-terms-of-use",
+                "updated_reason": "https://evidence.eventdata.crossref.org/announcements/2018-01-19T00-00-00Z-ED-15.json",
+                "obj_id": "https://doi.org/10.1016/s1090-5138(03)00084-9",
+                "source_token": "36c35e23-8757-4a9d-aacf-345e9b7eb50d",
+                "occurred_at": "2017-04-11T11:12:10Z",
+                "subj_id": "https://it.wikipedia.org/wiki/Digit_ratio",
+                "id": "6ca782f1-ca1e-414e-a861-97ae77886673",
+                "evidence_record": "https://evidence.eventdata.crossref.org/evidence/20170411-wikipedia-b3138ec9-f630-4565-8d83-32219823981f",
+                "action": "add",
+                "subj": {
+                    "pid": "https://it.wikipedia.org/wiki/Digit_ratio",
+                    "url": "https://it.wikipedia.org/w/index.php?title=Digit_ratio&oldid=87062122",
+                    "title": "Digit ratio",
+                    "api-url": "https://it.wikipedia.org/api/rest_v1/page/html/Digit_ratio/87062122"
+                },
+                "source_id": "wikipedia",
+                "obj": {
+                    "pid": "https://doi.org/10.1016/s1090-5138(03)00084-9",
+                    "url": "https://doi.org/10.1016/s1090-5138(03)00084-9"
+                },
+                "timestamp": "2017-04-11T11:12:44Z",
+                "updated_date": "2018-01-31T17:30:00Z",
+                "relation_type_id": "references"
+            },
+            {
+                "license": "https://creativecommons.org/publicdomain/zero/1.0/",
+                "terms": "https://doi.org/10.13003/CED-terms-of-use",
+                "updated_reason": "https://evidence.eventdata.crossref.org/announcements/2018-01-19T00-00-00Z-ED-15.json",
+                "obj_id": "https://doi.org/10.1016/j.psyneuen.2005.07.005",
+                "source_token": "36c35e23-8757-4a9d-aacf-345e9b7eb50d",
+                "occurred_at": "2017-04-11T11:12:10Z",
+                "subj_id": "https://it.wikipedia.org/wiki/Digit_ratio",
+                "id": "510494dd-09b8-4667-a84c-53022c3fd677",
+                "evidence_record": "https://evidence.eventdata.crossref.org/evidence/20170411-wikipedia-b3138ec9-f630-4565-8d83-32219823981f",
+                "action": "add",
+                "subj": {
+                    "pid": "https://it.wikipedia.org/wiki/Digit_ratio",
+                    "url": "https://it.wikipedia.org/w/index.php?title=Digit_ratio&oldid=87062122",
+                    "title": "Digit ratio",
+                    "api-url": "https://it.wikipedia.org/api/rest_v1/page/html/Digit_ratio/87062122"
+                },
+                "source_id": "wikipedia",
+                "obj": {
+                    "pid": "https://doi.org/10.1016/j.psyneuen.2005.07.005",
+                    "url": "https://doi.org/10.1016/j.psyneuen.2005.07.005"
+                },
+                "timestamp": "2017-04-11T11:12:44Z",
+                "updated_date": "2018-01-31T17:30:00Z",
+                "relation_type_id": "references"
+            },
+            {
+                "license": "https://creativecommons.org/publicdomain/zero/1.0/",
+                "terms": "https://doi.org/10.13003/CED-terms-of-use",
+                "updated_reason": "https://evidence.eventdata.crossref.org/announcements/2018-01-19T00-00-00Z-ED-15.json",
+                "obj_id": "https://doi.org/10.1371/journal.pone.0003216",
+                "source_token": "36c35e23-8757-4a9d-aacf-345e9b7eb50d",
+                "occurred_at": "2017-04-11T11:12:10Z",
+                "subj_id": "https://it.wikipedia.org/wiki/Digit_ratio",
+                "id": "f26d2be8-19d7-4153-8823-755ef10bfd59",
+                "evidence_record": "https://evidence.eventdata.crossref.org/evidence/20170411-wikipedia-b3138ec9-f630-4565-8d83-32219823981f",
+                "action": "add",
+                "subj": {
+                    "pid": "https://it.wikipedia.org/wiki/Digit_ratio",
+                    "url": "https://it.wikipedia.org/w/index.php?title=Digit_ratio&oldid=87062122",
+                    "title": "Digit ratio",
+                    "api-url": "https://it.wikipedia.org/api/rest_v1/page/html/Digit_ratio/87062122"
+                },
+                "source_id": "wikipedia",
+                "obj": {
+                    "pid": "https://doi.org/10.1371/journal.pone.0003216",
+                    "url": "https://doi.org/10.1371/journal.pone.0003216"
+                },
+                "timestamp": "2017-04-11T11:12:45Z",
+                "updated_date": "2018-01-31T17:30:00Z",
+                "relation_type_id": "references"
+            },
+            {
+                "license": "https://creativecommons.org/publicdomain/zero/1.0/",
+                "terms": "https://doi.org/10.13003/CED-terms-of-use",
+                "updated_reason": "https://evidence.eventdata.crossref.org/announcements/2018-01-19T00-00-00Z-ED-15.json",
+                "obj_id": "https://doi.org/10.1016/j.paid.2009.01.051",
+                "source_token": "36c35e23-8757-4a9d-aacf-345e9b7eb50d",
+                "occurred_at": "2017-04-11T11:12:10Z",
+                "subj_id": "https://it.wikipedia.org/wiki/Digit_ratio",
+                "id": "f18b2e26-9ce5-4b5f-82fd-57960a044d74",
+                "evidence_record": "https://evidence.eventdata.crossref.org/evidence/20170411-wikipedia-b3138ec9-f630-4565-8d83-32219823981f",
+                "action": "add",
+                "subj": {
+                    "pid": "https://it.wikipedia.org/wiki/Digit_ratio",
+                    "url": "https://it.wikipedia.org/w/index.php?title=Digit_ratio&oldid=87062122",
+                    "title": "Digit ratio",
+                    "api-url": "https://it.wikipedia.org/api/rest_v1/page/html/Digit_ratio/87062122"
+                },
+                "source_id": "wikipedia",
+                "obj": {
+                    "pid": "https://doi.org/10.1016/j.paid.2009.01.051",
+                    "url": "http://dx.doi.org/10.1016%2Fj.paid.2009.01.051"
+                },
+                "timestamp": "2017-04-11T11:12:45Z",
+                "updated_date": "2018-01-31T17:30:00Z",
+                "relation_type_id": "references"
+            },
+            {
+                "license": "https://creativecommons.org/publicdomain/zero/1.0/",
+                "terms": "https://doi.org/10.13003/CED-terms-of-use",
+                "updated_reason": "https://evidence.eventdata.crossref.org/announcements/2018-01-19T00-00-00Z-ED-15.json",
+                "obj_id": "https://doi.org/10.1016/j.biopsycho.2004.05.001",
+                "source_token": "36c35e23-8757-4a9d-aacf-345e9b7eb50d",
+                "occurred_at": "2017-04-11T11:12:10Z",
+                "subj_id": "https://it.wikipedia.org/wiki/Digit_ratio",
+                "id": "bb5725bc-047a-45cb-bf82-a5ba386682c7",
+                "evidence_record": "https://evidence.eventdata.crossref.org/evidence/20170411-wikipedia-b3138ec9-f630-4565-8d83-32219823981f",
+                "action": "add",
+                "subj": {
+                    "pid": "https://it.wikipedia.org/wiki/Digit_ratio",
+                    "url": "https://it.wikipedia.org/w/index.php?title=Digit_ratio&oldid=87062122",
+                    "title": "Digit ratio",
+                    "api-url": "https://it.wikipedia.org/api/rest_v1/page/html/Digit_ratio/87062122"
+                },
+                "source_id": "wikipedia",
+                "obj": {
+                    "pid": "https://doi.org/10.1016/j.biopsycho.2004.05.001",
+                    "url": "http://dx.doi.org/10.1016%2Fj.biopsycho.2004.05.001"
+                },
+                "timestamp": "2017-04-11T11:12:45Z",
+                "updated_date": "2018-01-31T17:30:00Z",
+                "relation_type_id": "references"
+            },
+            {
+                "license": "https://creativecommons.org/publicdomain/zero/1.0/",
+                "terms": "https://doi.org/10.13003/CED-terms-of-use",
+                "updated_reason": "https://evidence.eventdata.crossref.org/announcements/2018-01-19T00-00-00Z-ED-15.json",
+                "obj_id": "https://doi.org/10.1136/bmjopen-2014-007433",
+                "source_token": "36c35e23-8757-4a9d-aacf-345e9b7eb50d",
+                "occurred_at": "2017-04-11T11:12:10Z",
+                "subj_id": "https://it.wikipedia.org/wiki/Digit_ratio",
+                "id": "960fd8cf-b121-4600-97de-3ae6033c82c8",
+                "evidence_record": "https://evidence.eventdata.crossref.org/evidence/20170411-wikipedia-b3138ec9-f630-4565-8d83-32219823981f",
+                "action": "add",
+                "subj": {
+                    "pid": "https://it.wikipedia.org/wiki/Digit_ratio",
+                    "url": "https://it.wikipedia.org/w/index.php?title=Digit_ratio&oldid=87062122",
+                    "title": "Digit ratio",
+                    "api-url": "https://it.wikipedia.org/api/rest_v1/page/html/Digit_ratio/87062122"
+                },
+                "source_id": "wikipedia",
+                "obj": {
+                    "pid": "https://doi.org/10.1136/bmjopen-2014-007433",
+                    "url": "https://doi.org/10.1136/bmjopen-2014-007433"
+                },
+                "timestamp": "2017-04-11T11:12:45Z",
+                "updated_date": "2018-01-31T17:30:00Z",
+                "relation_type_id": "references"
+            },
+            {
+                "license": "https://creativecommons.org/publicdomain/zero/1.0/",
+                "terms": "https://doi.org/10.13003/CED-terms-of-use",
+                "updated_reason": "https://evidence.eventdata.crossref.org/announcements/2018-01-19T00-00-00Z-ED-15.json",
+                "obj_id": "https://doi.org/10.1111/j.2047-2927.2012.00013.x",
+                "source_token": "36c35e23-8757-4a9d-aacf-345e9b7eb50d",
+                "occurred_at": "2017-04-11T11:12:10Z",
+                "subj_id": "https://it.wikipedia.org/wiki/Digit_ratio",
+                "id": "279ca926-ce3c-4146-83ed-4e39a85d247c",
+                "evidence_record": "https://evidence.eventdata.crossref.org/evidence/20170411-wikipedia-b3138ec9-f630-4565-8d83-32219823981f",
+                "action": "add",
+                "subj": {
+                    "pid": "https://it.wikipedia.org/wiki/Digit_ratio",
+                    "url": "https://it.wikipedia.org/w/index.php?title=Digit_ratio&oldid=87062122",
+                    "title": "Digit ratio",
+                    "api-url": "https://it.wikipedia.org/api/rest_v1/page/html/Digit_ratio/87062122"
+                },
+                "source_id": "wikipedia",
+                "obj": {
+                    "pid": "https://doi.org/10.1111/j.2047-2927.2012.00013.x",
+                    "url": "https://doi.org/10.1111/j.2047-2927.2012.00013.x"
+                },
+                "timestamp": "2017-04-11T11:12:45Z",
+                "updated_date": "2018-01-31T17:30:00Z",
+                "relation_type_id": "references"
+            },
+            {
+                "license": "https://creativecommons.org/publicdomain/zero/1.0/",
+                "terms": "https://doi.org/10.13003/CED-terms-of-use",
+                "updated_reason": "https://evidence.eventdata.crossref.org/announcements/2018-01-19T00-00-00Z-ED-15.json",
+                "obj_id": "https://doi.org/10.1016/j.yhbeh.2008.10.010",
+                "source_token": "36c35e23-8757-4a9d-aacf-345e9b7eb50d",
+                "occurred_at": "2017-04-11T11:12:10Z",
+                "subj_id": "https://it.wikipedia.org/wiki/Digit_ratio",
+                "id": "1244835e-db9f-4dc1-aafa-1b7aff4c302a",
+                "evidence_record": "https://evidence.eventdata.crossref.org/evidence/20170411-wikipedia-b3138ec9-f630-4565-8d83-32219823981f",
+                "action": "add",
+                "subj": {
+                    "pid": "https://it.wikipedia.org/wiki/Digit_ratio",
+                    "url": "https://it.wikipedia.org/w/index.php?title=Digit_ratio&oldid=87062122",
+                    "title": "Digit ratio",
+                    "api-url": "https://it.wikipedia.org/api/rest_v1/page/html/Digit_ratio/87062122"
+                },
+                "source_id": "wikipedia",
+                "obj": {
+                    "pid": "https://doi.org/10.1016/j.yhbeh.2008.10.010",
+                    "url": "https://doi.org/10.1016/j.yhbeh.2008.10.010"
+                },
+                "timestamp": "2017-04-11T11:12:45Z",
+                "updated_date": "2018-01-31T17:30:00Z",
+                "relation_type_id": "references"
+            },
+            {
+                "license": "https://creativecommons.org/publicdomain/zero/1.0/",
+                "terms": "https://doi.org/10.13003/CED-terms-of-use",
+                "updated_reason": "https://evidence.eventdata.crossref.org/announcements/2018-01-19T00-00-00Z-ED-15.json",
+                "obj_id": "https://doi.org/10.1016/s1090-5138(99)00026-4",
+                "source_token": "36c35e23-8757-4a9d-aacf-345e9b7eb50d",
+                "occurred_at": "2017-04-11T11:12:10Z",
+                "subj_id": "https://it.wikipedia.org/wiki/Digit_ratio",
+                "id": "cf2c65a2-fdd7-4c57-bc27-5e9fae9656ee",
+                "evidence_record": "https://evidence.eventdata.crossref.org/evidence/20170411-wikipedia-b3138ec9-f630-4565-8d83-32219823981f",
+                "action": "add",
+                "subj": {
+                    "pid": "https://it.wikipedia.org/wiki/Digit_ratio",
+                    "url": "https://it.wikipedia.org/w/index.php?title=Digit_ratio&oldid=87062122",
+                    "title": "Digit ratio",
+                    "api-url": "https://it.wikipedia.org/api/rest_v1/page/html/Digit_ratio/87062122"
+                },
+                "source_id": "wikipedia",
+                "obj": {
+                    "pid": "https://doi.org/10.1016/s1090-5138(99)00026-4",
+                    "url": "http://dx.doi.org/10.1016%2FS1090-5138%2899%2900026-4"
+                },
+                "timestamp": "2017-04-11T11:12:46Z",
+                "updated_date": "2018-01-31T17:30:00Z",
+                "relation_type_id": "references"
+            },
+            {
+                "license": "https://creativecommons.org/publicdomain/zero/1.0/",
+                "terms": "https://doi.org/10.13003/CED-terms-of-use",
+                "updated_reason": "https://evidence.eventdata.crossref.org/announcements/2018-01-19T00-00-00Z-ED-15.json",
+                "obj_id": "https://doi.org/10.1098/rsbl.2014.0977",
+                "source_token": "36c35e23-8757-4a9d-aacf-345e9b7eb50d",
+                "occurred_at": "2017-04-11T11:12:10Z",
+                "subj_id": "https://it.wikipedia.org/wiki/Digit_ratio",
+                "id": "c00b71a2-345a-44a8-8ffc-68d10906c6ad",
+                "evidence_record": "https://evidence.eventdata.crossref.org/evidence/20170411-wikipedia-b3138ec9-f630-4565-8d83-32219823981f",
+                "action": "add",
+                "subj": {
+                    "pid": "https://it.wikipedia.org/wiki/Digit_ratio",
+                    "url": "https://it.wikipedia.org/w/index.php?title=Digit_ratio&oldid=87062122",
+                    "title": "Digit ratio",
+                    "api-url": "https://it.wikipedia.org/api/rest_v1/page/html/Digit_ratio/87062122"
+                },
+                "source_id": "wikipedia",
+                "obj": {
+                    "pid": "https://doi.org/10.1098/rsbl.2014.0977",
+                    "url": "http://dx.doi.org/10.1098%2Frsbl.2014.0977"
+                },
+                "timestamp": "2017-04-11T11:12:46Z",
+                "updated_date": "2018-01-31T17:30:00Z",
+                "relation_type_id": "references"
+            },
+            {
+                "license": "https://creativecommons.org/publicdomain/zero/1.0/",
+                "terms": "https://doi.org/10.13003/CED-terms-of-use",
+                "updated_reason": "https://evidence.eventdata.crossref.org/announcements/2018-01-19T00-00-00Z-ED-15.json",
+                "obj_id": "https://doi.org/10.1017/s0012162201000317",
+                "source_token": "36c35e23-8757-4a9d-aacf-345e9b7eb50d",
+                "occurred_at": "2017-04-11T11:12:10Z",
+                "subj_id": "https://it.wikipedia.org/wiki/Digit_ratio",
+                "id": "bde3444a-bcf7-446b-83c2-7b93ad69cb0f",
+                "evidence_record": "https://evidence.eventdata.crossref.org/evidence/20170411-wikipedia-b3138ec9-f630-4565-8d83-32219823981f",
+                "action": "add",
+                "subj": {
+                    "pid": "https://it.wikipedia.org/wiki/Digit_ratio",
+                    "url": "https://it.wikipedia.org/w/index.php?title=Digit_ratio&oldid=87062122",
+                    "title": "Digit ratio",
+                    "api-url": "https://it.wikipedia.org/api/rest_v1/page/html/Digit_ratio/87062122"
+                },
+                "source_id": "wikipedia",
+                "obj": {
+                    "pid": "https://doi.org/10.1017/s0012162201000317",
+                    "url": "http://dx.doi.org/10.1017%2FS0012162201000317"
+                },
+                "timestamp": "2017-04-11T11:12:46Z",
+                "updated_date": "2018-01-31T17:30:00Z",
+                "relation_type_id": "references"
+            },
+            {
+                "license": "https://creativecommons.org/publicdomain/zero/1.0/",
+                "terms": "https://doi.org/10.13003/CED-terms-of-use",
+                "updated_reason": "https://evidence.eventdata.crossref.org/announcements/2018-01-19T00-00-00Z-ED-15.json",
+                "obj_id": "https://doi.org/10.1016/j.yhbeh.2008.05.002",
+                "source_token": "36c35e23-8757-4a9d-aacf-345e9b7eb50d",
+                "occurred_at": "2017-04-11T11:12:10Z",
+                "subj_id": "https://it.wikipedia.org/wiki/Digit_ratio",
+                "id": "ac7dfa63-feeb-4b63-bd83-cea46c9afae0",
+                "evidence_record": "https://evidence.eventdata.crossref.org/evidence/20170411-wikipedia-b3138ec9-f630-4565-8d83-32219823981f",
+                "action": "add",
+                "subj": {
+                    "pid": "https://it.wikipedia.org/wiki/Digit_ratio",
+                    "url": "https://it.wikipedia.org/w/index.php?title=Digit_ratio&oldid=87062122",
+                    "title": "Digit ratio",
+                    "api-url": "https://it.wikipedia.org/api/rest_v1/page/html/Digit_ratio/87062122"
+                },
+                "source_id": "wikipedia",
+                "obj": {
+                    "pid": "https://doi.org/10.1016/j.yhbeh.2008.05.002",
+                    "url": "http://dx.doi.org/10.1016%2Fj.yhbeh.2008.05.002"
+                },
+                "timestamp": "2017-04-11T11:12:46Z",
+                "updated_date": "2018-01-31T17:30:00Z",
+                "relation_type_id": "references"
+            },
+            {
+                "license": "https://creativecommons.org/publicdomain/zero/1.0/",
+                "terms": "https://doi.org/10.13003/CED-terms-of-use",
+                "updated_reason": "https://evidence.eventdata.crossref.org/announcements/2018-01-19T00-00-00Z-ED-15.json",
+                "obj_id": "https://doi.org/10.1007/s10508-006-9166-8",
+                "source_token": "36c35e23-8757-4a9d-aacf-345e9b7eb50d",
+                "occurred_at": "2017-04-11T11:12:10Z",
+                "subj_id": "https://it.wikipedia.org/wiki/Digit_ratio",
+                "id": "7cff63ae-c0a4-4703-876d-b475a14ad47b",
+                "evidence_record": "https://evidence.eventdata.crossref.org/evidence/20170411-wikipedia-b3138ec9-f630-4565-8d83-32219823981f",
+                "action": "add",
+                "subj": {
+                    "pid": "https://it.wikipedia.org/wiki/Digit_ratio",
+                    "url": "https://it.wikipedia.org/w/index.php?title=Digit_ratio&oldid=87062122",
+                    "title": "Digit ratio",
+                    "api-url": "https://it.wikipedia.org/api/rest_v1/page/html/Digit_ratio/87062122"
+                },
+                "source_id": "wikipedia",
+                "obj": {
+                    "pid": "https://doi.org/10.1007/s10508-006-9166-8",
+                    "url": "http://dx.doi.org/10.1007%2Fs10508-006-9166-8"
+                },
+                "timestamp": "2017-04-11T11:12:46Z",
+                "updated_date": "2018-01-31T17:30:00Z",
+                "relation_type_id": "references"
+            },
+            {
+                "license": "https://creativecommons.org/publicdomain/zero/1.0/",
+                "terms": "https://doi.org/10.13003/CED-terms-of-use",
+                "updated_reason": "https://evidence.eventdata.crossref.org/announcements/2018-01-19T00-00-00Z-ED-15.json",
+                "obj_id": "https://doi.org/10.1098/rspb.2005.3179",
+                "source_token": "36c35e23-8757-4a9d-aacf-345e9b7eb50d",
+                "occurred_at": "2017-04-11T11:12:10Z",
+                "subj_id": "https://it.wikipedia.org/wiki/Digit_ratio",
+                "id": "14964828-0aab-43d0-aeda-99200aa616b6",
+                "evidence_record": "https://evidence.eventdata.crossref.org/evidence/20170411-wikipedia-b3138ec9-f630-4565-8d83-32219823981f",
+                "action": "add",
+                "subj": {
+                    "pid": "https://it.wikipedia.org/wiki/Digit_ratio",
+                    "url": "https://it.wikipedia.org/w/index.php?title=Digit_ratio&oldid=87062122",
+                    "title": "Digit ratio",
+                    "api-url": "https://it.wikipedia.org/api/rest_v1/page/html/Digit_ratio/87062122"
+                },
+                "source_id": "wikipedia",
+                "obj": {
+                    "pid": "https://doi.org/10.1098/rspb.2005.3179",
+                    "url": "http://dx.doi.org/10.1098%2Frspb.2005.3179"
+                },
+                "timestamp": "2017-04-11T11:12:46Z",
+                "updated_date": "2018-01-31T17:30:00Z",
+                "relation_type_id": "references"
+            },
+            {
+                "license": "https://creativecommons.org/publicdomain/zero/1.0/",
+                "terms": "https://doi.org/10.13003/CED-terms-of-use",
+                "updated_reason": "https://evidence.eventdata.crossref.org/announcements/2018-01-19T00-00-00Z-ED-15.json",
+                "obj_id": "https://doi.org/10.1037/a0018764",
+                "source_token": "36c35e23-8757-4a9d-aacf-345e9b7eb50d",
+                "occurred_at": "2017-04-11T11:12:10Z",
+                "subj_id": "https://it.wikipedia.org/wiki/Digit_ratio",
+                "id": "ce7336d7-f304-42a4-a3bc-669496e0e292",
+                "evidence_record": "https://evidence.eventdata.crossref.org/evidence/20170411-wikipedia-b3138ec9-f630-4565-8d83-32219823981f",
+                "action": "add",
+                "subj": {
+                    "pid": "https://it.wikipedia.org/wiki/Digit_ratio",
+                    "url": "https://it.wikipedia.org/w/index.php?title=Digit_ratio&oldid=87062122",
+                    "title": "Digit ratio",
+                    "api-url": "https://it.wikipedia.org/api/rest_v1/page/html/Digit_ratio/87062122"
+                },
+                "source_id": "wikipedia",
+                "obj": {
+                    "pid": "https://doi.org/10.1037/a0018764",
+                    "url": "http://dx.doi.org/10.1037%2Fa0018764"
+                },
+                "timestamp": "2017-04-11T11:12:47Z",
+                "updated_date": "2018-01-31T17:30:00Z",
+                "relation_type_id": "references"
+            },
+            {
+                "license": "https://creativecommons.org/publicdomain/zero/1.0/",
+                "terms": "https://doi.org/10.13003/CED-terms-of-use",
+                "updated_reason": "https://evidence.eventdata.crossref.org/announcements/2018-01-19T00-00-00Z-ED-15.json",
+                "obj_id": "https://doi.org/10.1038/aja.2011.75",
+                "source_token": "36c35e23-8757-4a9d-aacf-345e9b7eb50d",
+                "occurred_at": "2017-04-11T11:12:10Z",
+                "subj_id": "https://it.wikipedia.org/wiki/Digit_ratio",
+                "id": "b390f79f-89d0-448d-8205-e37d2c23a0d2",
+                "evidence_record": "https://evidence.eventdata.crossref.org/evidence/20170411-wikipedia-b3138ec9-f630-4565-8d83-32219823981f",
+                "action": "add",
+                "subj": {
+                    "pid": "https://it.wikipedia.org/wiki/Digit_ratio",
+                    "url": "https://it.wikipedia.org/w/index.php?title=Digit_ratio&oldid=87062122",
+                    "title": "Digit ratio",
+                    "api-url": "https://it.wikipedia.org/api/rest_v1/page/html/Digit_ratio/87062122"
+                },
+                "source_id": "wikipedia",
+                "obj": {
+                    "pid": "https://doi.org/10.1038/aja.2011.75",
+                    "url": "http://dx.doi.org/10.1038%2Faja.2011.75"
+                },
+                "timestamp": "2017-04-11T11:12:47Z",
+                "updated_date": "2018-01-31T17:30:00Z",
+                "relation_type_id": "references"
+            },
+            {
+                "license": "https://creativecommons.org/publicdomain/zero/1.0/",
+                "terms": "https://doi.org/10.13003/CED-terms-of-use",
+                "updated_reason": "https://evidence.eventdata.crossref.org/announcements/2018-01-19T00-00-00Z-ED-15.json",
+                "obj_id": "https://doi.org/10.1186/1477-7827-9-57",
+                "source_token": "36c35e23-8757-4a9d-aacf-345e9b7eb50d",
+                "occurred_at": "2017-04-11T11:12:10Z",
+                "subj_id": "https://it.wikipedia.org/wiki/Digit_ratio",
+                "id": "a38c332b-9ba7-4aeb-960d-9002303b369a",
+                "evidence_record": "https://evidence.eventdata.crossref.org/evidence/20170411-wikipedia-b3138ec9-f630-4565-8d83-32219823981f",
+                "action": "add",
+                "subj": {
+                    "pid": "https://it.wikipedia.org/wiki/Digit_ratio",
+                    "url": "https://it.wikipedia.org/w/index.php?title=Digit_ratio&oldid=87062122",
+                    "title": "Digit ratio",
+                    "api-url": "https://it.wikipedia.org/api/rest_v1/page/html/Digit_ratio/87062122"
+                },
+                "source_id": "wikipedia",
+                "obj": {
+                    "pid": "https://doi.org/10.1186/1477-7827-9-57",
+                    "url": "http://dx.doi.org/10.1186%2F1477-7827-9-57"
+                },
+                "timestamp": "2017-04-11T11:12:47Z",
+                "updated_date": "2018-01-31T17:30:00Z",
+                "relation_type_id": "references"
+            },
+            {
+                "license": "https://creativecommons.org/publicdomain/zero/1.0/",
+                "terms": "https://doi.org/10.13003/CED-terms-of-use",
+                "updated_reason": "https://evidence.eventdata.crossref.org/announcements/2018-01-19T00-00-00Z-ED-15.json",
+                "obj_id": "https://doi.org/10.1007/s10508-005-3121-y",
+                "source_token": "36c35e23-8757-4a9d-aacf-345e9b7eb50d",
+                "occurred_at": "2017-04-11T11:12:10Z",
+                "subj_id": "https://it.wikipedia.org/wiki/Digit_ratio",
+                "id": "a0a58a80-49d1-4a10-85d8-f4c48dae6013",
+                "evidence_record": "https://evidence.eventdata.crossref.org/evidence/20170411-wikipedia-b3138ec9-f630-4565-8d83-32219823981f",
+                "action": "add",
+                "subj": {
+                    "pid": "https://it.wikipedia.org/wiki/Digit_ratio",
+                    "url": "https://it.wikipedia.org/w/index.php?title=Digit_ratio&oldid=87062122",
+                    "title": "Digit ratio",
+                    "api-url": "https://it.wikipedia.org/api/rest_v1/page/html/Digit_ratio/87062122"
+                },
+                "source_id": "wikipedia",
+                "obj": {
+                    "pid": "https://doi.org/10.1007/s10508-005-3121-y",
+                    "url": "http://dx.doi.org/10.1007%2Fs10508-005-3121-y"
+                },
+                "timestamp": "2017-04-11T11:12:47Z",
+                "updated_date": "2018-01-31T17:30:00Z",
+                "relation_type_id": "references"
+            },
+            {
+                "license": "https://creativecommons.org/publicdomain/zero/1.0/",
+                "terms": "https://doi.org/10.13003/CED-terms-of-use",
+                "updated_reason": "https://evidence.eventdata.crossref.org/announcements/2018-01-19T00-00-00Z-ED-15.json",
+                "obj_id": "https://doi.org/10.1016/s1090-5138(00)00063-5",
+                "source_token": "36c35e23-8757-4a9d-aacf-345e9b7eb50d",
+                "occurred_at": "2017-04-11T11:12:10Z",
+                "subj_id": "https://it.wikipedia.org/wiki/Digit_ratio",
+                "id": "9273180d-2dbf-4567-ae73-8c26f6306f47",
+                "evidence_record": "https://evidence.eventdata.crossref.org/evidence/20170411-wikipedia-b3138ec9-f630-4565-8d83-32219823981f",
+                "action": "add",
+                "subj": {
+                    "pid": "https://it.wikipedia.org/wiki/Digit_ratio",
+                    "url": "https://it.wikipedia.org/w/index.php?title=Digit_ratio&oldid=87062122",
+                    "title": "Digit ratio",
+                    "api-url": "https://it.wikipedia.org/api/rest_v1/page/html/Digit_ratio/87062122"
+                },
+                "source_id": "wikipedia",
+                "obj": {
+                    "pid": "https://doi.org/10.1016/s1090-5138(00)00063-5",
+                    "url": "http://dx.doi.org/10.1016%2FS1090-5138%2800%2900063-5"
+                },
+                "timestamp": "2017-04-11T11:12:47Z",
+                "updated_date": "2018-01-31T17:30:00Z",
+                "relation_type_id": "references"
+            },
+            {
+                "license": "https://creativecommons.org/publicdomain/zero/1.0/",
+                "terms": "https://doi.org/10.13003/CED-terms-of-use",
+                "updated_reason": "https://evidence.eventdata.crossref.org/announcements/2018-01-19T00-00-00Z-ED-15.json",
+                "obj_id": "https://doi.org/10.1519/jsc.0b013e318212de8e",
+                "source_token": "36c35e23-8757-4a9d-aacf-345e9b7eb50d",
+                "occurred_at": "2017-04-11T11:12:10Z",
+                "subj_id": "https://it.wikipedia.org/wiki/Digit_ratio",
+                "id": "471cefdb-5a5f-447c-965d-35455e6fca1d",
+                "evidence_record": "https://evidence.eventdata.crossref.org/evidence/20170411-wikipedia-b3138ec9-f630-4565-8d83-32219823981f",
+                "action": "add",
+                "subj": {
+                    "pid": "https://it.wikipedia.org/wiki/Digit_ratio",
+                    "url": "https://it.wikipedia.org/w/index.php?title=Digit_ratio&oldid=87062122",
+                    "title": "Digit ratio",
+                    "api-url": "https://it.wikipedia.org/api/rest_v1/page/html/Digit_ratio/87062122"
+                },
+                "source_id": "wikipedia",
+                "obj": {
+                    "pid": "https://doi.org/10.1519/jsc.0b013e318212de8e",
+                    "url": "http://dx.doi.org/10.1519%2FJSC.0b013e318212de8e"
+                },
+                "timestamp": "2017-04-11T11:12:47Z",
+                "updated_date": "2018-01-31T17:30:00Z",
+                "relation_type_id": "references"
+            },
+            {
+                "license": "https://creativecommons.org/publicdomain/zero/1.0/",
+                "terms": "https://doi.org/10.13003/CED-terms-of-use",
+                "updated_reason": "https://evidence.eventdata.crossref.org/announcements/2018-01-19T00-00-00Z-ED-15.json",
+                "obj_id": "https://doi.org/10.2307/2847021",
+                "source_token": "36c35e23-8757-4a9d-aacf-345e9b7eb50d",
+                "occurred_at": "2017-04-11T11:12:37Z",
+                "subj_id": "https://en.wikipedia.org/wiki/English_literature",
+                "id": "fb8c2338-de94-4393-a892-d2cc7dd6cb7d",
+                "evidence_record": "https://evidence.eventdata.crossref.org/evidence/20170411-wikipedia-00833c3b-3a7c-49ee-93f7-253c1e5359a8",
+                "action": "add",
+                "subj": {
+                    "pid": "https://en.wikipedia.org/wiki/English_literature",
+                    "url": "https://en.wikipedia.org/w/index.php?title=English_literature&oldid=774899303",
+                    "title": "English literature",
+                    "api-url": "https://en.wikipedia.org/api/rest_v1/page/html/English_literature/774899303"
+                },
+                "source_id": "wikipedia",
+                "obj": {
+                    "pid": "https://doi.org/10.2307/2847021",
+                    "url": "https://doi.org/10.2307/2847021"
+                },
+                "timestamp": "2017-04-11T11:12:48Z",
+                "updated_date": "2018-01-31T17:30:00Z",
+                "relation_type_id": "references"
+            },
+            {
+                "license": "https://creativecommons.org/publicdomain/zero/1.0/",
+                "terms": "https://doi.org/10.13003/CED-terms-of-use",
+                "updated_reason": "https://evidence.eventdata.crossref.org/announcements/2018-01-19T00-00-00Z-ED-15.json",
+                "obj_id": "https://doi.org/10.1016/j.psyneuen.2014.01.023",
+                "source_token": "36c35e23-8757-4a9d-aacf-345e9b7eb50d",
+                "occurred_at": "2017-04-11T11:12:10Z",
+                "subj_id": "https://it.wikipedia.org/wiki/Digit_ratio",
+                "id": "f37c4a06-fdd0-44a5-9229-e6a73352efc6",
+                "evidence_record": "https://evidence.eventdata.crossref.org/evidence/20170411-wikipedia-b3138ec9-f630-4565-8d83-32219823981f",
+                "action": "add",
+                "subj": {
+                    "pid": "https://it.wikipedia.org/wiki/Digit_ratio",
+                    "url": "https://it.wikipedia.org/w/index.php?title=Digit_ratio&oldid=87062122",
+                    "title": "Digit ratio",
+                    "api-url": "https://it.wikipedia.org/api/rest_v1/page/html/Digit_ratio/87062122"
+                },
+                "source_id": "wikipedia",
+                "obj": {
+                    "pid": "https://doi.org/10.1016/j.psyneuen.2014.01.023",
+                    "url": "http://dx.doi.org/10.1016%2Fj.psyneuen.2014.01.023"
+                },
+                "timestamp": "2017-04-11T11:12:48Z",
+                "updated_date": "2018-01-31T17:30:00Z",
+                "relation_type_id": "references"
+            },
+            {
+                "license": "https://creativecommons.org/publicdomain/zero/1.0/",
+                "terms": "https://doi.org/10.13003/CED-terms-of-use",
+                "updated_reason": "https://evidence.eventdata.crossref.org/announcements/2018-01-19T00-00-00Z-ED-15.json",
+                "obj_id": "https://doi.org/10.1371/journal.pone.0046319",
+                "source_token": "36c35e23-8757-4a9d-aacf-345e9b7eb50d",
+                "occurred_at": "2017-04-11T11:12:10Z",
+                "subj_id": "https://it.wikipedia.org/wiki/Digit_ratio",
+                "id": "da389f60-4414-4587-b131-75243cef7ef7",
+                "evidence_record": "https://evidence.eventdata.crossref.org/evidence/20170411-wikipedia-b3138ec9-f630-4565-8d83-32219823981f",
+                "action": "add",
+                "subj": {
+                    "pid": "https://it.wikipedia.org/wiki/Digit_ratio",
+                    "url": "https://it.wikipedia.org/w/index.php?title=Digit_ratio&oldid=87062122",
+                    "title": "Digit ratio",
+                    "api-url": "https://it.wikipedia.org/api/rest_v1/page/html/Digit_ratio/87062122"
+                },
+                "source_id": "wikipedia",
+                "obj": {
+                    "pid": "https://doi.org/10.1371/journal.pone.0046319",
+                    "url": "http://www.plosone.org/article/info:doi/10.1371/journal.pone.0046319"
+                },
+                "timestamp": "2017-04-11T11:12:48Z",
+                "updated_date": "2018-01-31T17:30:00Z",
+                "relation_type_id": "references"
+            },
+            {
+                "license": "https://creativecommons.org/publicdomain/zero/1.0/",
+                "terms": "https://doi.org/10.13003/CED-terms-of-use",
+                "updated_reason": "https://evidence.eventdata.crossref.org/announcements/2018-01-19T00-00-00Z-ED-15.json",
+                "obj_id": "https://doi.org/10.1348/000712607x197406",
+                "source_token": "36c35e23-8757-4a9d-aacf-345e9b7eb50d",
+                "occurred_at": "2017-04-11T11:12:10Z",
+                "subj_id": "https://it.wikipedia.org/wiki/Digit_ratio",
+                "id": "b039f2e1-5b8e-4986-99bb-5f0e11fc705f",
+                "evidence_record": "https://evidence.eventdata.crossref.org/evidence/20170411-wikipedia-b3138ec9-f630-4565-8d83-32219823981f",
+                "action": "add",
+                "subj": {
+                    "pid": "https://it.wikipedia.org/wiki/Digit_ratio",
+                    "url": "https://it.wikipedia.org/w/index.php?title=Digit_ratio&oldid=87062122",
+                    "title": "Digit ratio",
+                    "api-url": "https://it.wikipedia.org/api/rest_v1/page/html/Digit_ratio/87062122"
+                },
+                "source_id": "wikipedia",
+                "obj": {
+                    "pid": "https://doi.org/10.1348/000712607x197406",
+                    "url": "http://dx.doi.org/10.1348%2F000712607X197406"
+                },
+                "timestamp": "2017-04-11T11:12:48Z",
+                "updated_date": "2018-01-31T17:30:00Z",
+                "relation_type_id": "references"
+            },
+            {
+                "license": "https://creativecommons.org/publicdomain/zero/1.0/",
+                "terms": "https://doi.org/10.13003/CED-terms-of-use",
+                "updated_reason": "https://evidence.eventdata.crossref.org/announcements/2018-01-19T00-00-00Z-ED-15.json",
+                "obj_id": "https://doi.org/10.1016/s1090-5138(00)00029-5",
+                "source_token": "36c35e23-8757-4a9d-aacf-345e9b7eb50d",
+                "occurred_at": "2017-04-11T11:12:10Z",
+                "subj_id": "https://it.wikipedia.org/wiki/Digit_ratio",
+                "id": "68a51c85-0f89-4fc1-bf2f-436e033b73ab",
+                "evidence_record": "https://evidence.eventdata.crossref.org/evidence/20170411-wikipedia-b3138ec9-f630-4565-8d83-32219823981f",
+                "action": "add",
+                "subj": {
+                    "pid": "https://it.wikipedia.org/wiki/Digit_ratio",
+                    "url": "https://it.wikipedia.org/w/index.php?title=Digit_ratio&oldid=87062122",
+                    "title": "Digit ratio",
+                    "api-url": "https://it.wikipedia.org/api/rest_v1/page/html/Digit_ratio/87062122"
+                },
+                "source_id": "wikipedia",
+                "obj": {
+                    "pid": "https://doi.org/10.1016/s1090-5138(00)00029-5",
+                    "url": "http://dx.doi.org/10.1016%2FS1090-5138%2800%2900029-5"
+                },
+                "timestamp": "2017-04-11T11:12:48Z",
+                "updated_date": "2018-01-31T17:30:00Z",
+                "relation_type_id": "references"
+            },
+            {
+                "license": "https://creativecommons.org/publicdomain/zero/1.0/",
+                "terms": "https://doi.org/10.13003/CED-terms-of-use",
+                "updated_reason": "https://evidence.eventdata.crossref.org/announcements/2018-01-19T00-00-00Z-ED-15.json",
+                "obj_id": "https://doi.org/10.1002/eat.20736",
+                "source_token": "36c35e23-8757-4a9d-aacf-345e9b7eb50d",
+                "occurred_at": "2017-04-11T11:12:10Z",
+                "subj_id": "https://it.wikipedia.org/wiki/Digit_ratio",
+                "id": "4a1165d5-41c6-467b-ac61-e85ecd9bcfd9",
+                "evidence_record": "https://evidence.eventdata.crossref.org/evidence/20170411-wikipedia-b3138ec9-f630-4565-8d83-32219823981f",
+                "action": "add",
+                "subj": {
+                    "pid": "https://it.wikipedia.org/wiki/Digit_ratio",
+                    "url": "https://it.wikipedia.org/w/index.php?title=Digit_ratio&oldid=87062122",
+                    "title": "Digit ratio",
+                    "api-url": "https://it.wikipedia.org/api/rest_v1/page/html/Digit_ratio/87062122"
+                },
+                "source_id": "wikipedia",
+                "obj": {
+                    "pid": "https://doi.org/10.1002/eat.20736",
+                    "url": "http://dx.doi.org/10.1002%2Feat.20736"
+                },
+                "timestamp": "2017-04-11T11:12:48Z",
+                "updated_date": "2018-01-31T17:30:00Z",
+                "relation_type_id": "references"
+            },
+            {
+                "license": "https://creativecommons.org/publicdomain/zero/1.0/",
+                "terms": "https://doi.org/10.13003/CED-terms-of-use",
+                "updated_reason": "https://evidence.eventdata.crossref.org/announcements/2018-01-19T00-00-00Z-ED-15.json",
+                "obj_id": "https://doi.org/10.1073/pnas.1108312108",
+                "source_token": "36c35e23-8757-4a9d-aacf-345e9b7eb50d",
+                "occurred_at": "2017-04-11T11:12:10Z",
+                "subj_id": "https://it.wikipedia.org/wiki/Digit_ratio",
+                "id": "e5ae81a9-e2f8-499c-903b-73d9ff81293c",
+                "evidence_record": "https://evidence.eventdata.crossref.org/evidence/20170411-wikipedia-b3138ec9-f630-4565-8d83-32219823981f",
+                "action": "add",
+                "subj": {
+                    "pid": "https://it.wikipedia.org/wiki/Digit_ratio",
+                    "url": "https://it.wikipedia.org/w/index.php?title=Digit_ratio&oldid=87062122",
+                    "title": "Digit ratio",
+                    "api-url": "https://it.wikipedia.org/api/rest_v1/page/html/Digit_ratio/87062122"
+                },
+                "source_id": "wikipedia",
+                "obj": {
+                    "pid": "https://doi.org/10.1073/pnas.1108312108",
+                    "url": "http://dx.doi.org/10.1073%2Fpnas.1108312108"
+                },
+                "timestamp": "2017-04-11T11:12:49Z",
+                "updated_date": "2018-01-31T17:30:00Z",
+                "relation_type_id": "references"
+            },
+            {
+                "license": "https://creativecommons.org/publicdomain/zero/1.0/",
+                "terms": "https://doi.org/10.13003/CED-terms-of-use",
+                "updated_reason": "https://evidence.eventdata.crossref.org/announcements/2018-01-19T00-00-00Z-ED-15.json",
+                "obj_id": "https://doi.org/10.1016/s0301-0511(02)00127-8",
+                "source_token": "36c35e23-8757-4a9d-aacf-345e9b7eb50d",
+                "occurred_at": "2017-04-11T11:12:10Z",
+                "subj_id": "https://it.wikipedia.org/wiki/Digit_ratio",
+                "id": "d1b7b951-b83f-480b-b696-be70985206ac",
+                "evidence_record": "https://evidence.eventdata.crossref.org/evidence/20170411-wikipedia-b3138ec9-f630-4565-8d83-32219823981f",
+                "action": "add",
+                "subj": {
+                    "pid": "https://it.wikipedia.org/wiki/Digit_ratio",
+                    "url": "https://it.wikipedia.org/w/index.php?title=Digit_ratio&oldid=87062122",
+                    "title": "Digit ratio",
+                    "api-url": "https://it.wikipedia.org/api/rest_v1/page/html/Digit_ratio/87062122"
+                },
+                "source_id": "wikipedia",
+                "obj": {
+                    "pid": "https://doi.org/10.1016/s0301-0511(02)00127-8",
+                    "url": "http://dx.doi.org/10.1016%2FS0301-0511%2802%2900127-8"
+                },
+                "timestamp": "2017-04-11T11:12:49Z",
+                "updated_date": "2018-01-31T17:30:00Z",
+                "relation_type_id": "references"
+            },
+            {
+                "license": "https://creativecommons.org/publicdomain/zero/1.0/",
+                "terms": "https://doi.org/10.13003/CED-terms-of-use",
+                "updated_reason": "https://evidence.eventdata.crossref.org/announcements/2018-01-19T00-00-00Z-ED-15.json",
+                "obj_id": "https://doi.org/10.1038/sj.ijo.0803154",
+                "source_token": "36c35e23-8757-4a9d-aacf-345e9b7eb50d",
+                "occurred_at": "2017-04-11T11:12:10Z",
+                "subj_id": "https://it.wikipedia.org/wiki/Digit_ratio",
+                "id": "6cd8cff6-1d55-4538-a26b-1487d0206d54",
+                "evidence_record": "https://evidence.eventdata.crossref.org/evidence/20170411-wikipedia-b3138ec9-f630-4565-8d83-32219823981f",
+                "action": "add",
+                "subj": {
+                    "pid": "https://it.wikipedia.org/wiki/Digit_ratio",
+                    "url": "https://it.wikipedia.org/w/index.php?title=Digit_ratio&oldid=87062122",
+                    "title": "Digit ratio",
+                    "api-url": "https://it.wikipedia.org/api/rest_v1/page/html/Digit_ratio/87062122"
+                },
+                "source_id": "wikipedia",
+                "obj": {
+                    "pid": "https://doi.org/10.1038/sj.ijo.0803154",
+                    "url": "http://dx.doi.org/10.1038%2Fsj.ijo.0803154"
+                },
+                "timestamp": "2017-04-11T11:12:49Z",
+                "updated_date": "2018-01-31T17:30:00Z",
+                "relation_type_id": "references"
+            },
+            {
+                "license": "https://creativecommons.org/publicdomain/zero/1.0/",
+                "terms": "https://doi.org/10.13003/CED-terms-of-use",
+                "updated_reason": "https://evidence.eventdata.crossref.org/announcements/2018-01-19T00-00-00Z-ED-15.json",
+                "obj_id": "https://doi.org/10.1002/ajhb.21054",
+                "source_token": "36c35e23-8757-4a9d-aacf-345e9b7eb50d",
+                "occurred_at": "2017-04-11T11:12:10Z",
+                "subj_id": "https://it.wikipedia.org/wiki/Digit_ratio",
+                "id": "5b994a9f-cc09-408e-81f4-694edfc47d99",
+                "evidence_record": "https://evidence.eventdata.crossref.org/evidence/20170411-wikipedia-b3138ec9-f630-4565-8d83-32219823981f",
+                "action": "add",
+                "subj": {
+                    "pid": "https://it.wikipedia.org/wiki/Digit_ratio",
+                    "url": "https://it.wikipedia.org/w/index.php?title=Digit_ratio&oldid=87062122",
+                    "title": "Digit ratio",
+                    "api-url": "https://it.wikipedia.org/api/rest_v1/page/html/Digit_ratio/87062122"
+                },
+                "source_id": "wikipedia",
+                "obj": {
+                    "pid": "https://doi.org/10.1002/ajhb.21054",
+                    "url": "http://dx.doi.org/10.1002%2Fajhb.21054"
+                },
+                "timestamp": "2017-04-11T11:12:49Z",
+                "updated_date": "2018-01-31T17:30:00Z",
+                "relation_type_id": "references"
+            },
+            {
+                "license": "https://creativecommons.org/publicdomain/zero/1.0/",
+                "terms": "https://doi.org/10.13003/CED-terms-of-use",
+                "updated_reason": "https://evidence.eventdata.crossref.org/announcements/2018-01-19T00-00-00Z-ED-15.json",
+                "obj_id": "https://doi.org/10.1016/j.earlhumdev.2004.06.004",
+                "source_token": "36c35e23-8757-4a9d-aacf-345e9b7eb50d",
+                "occurred_at": "2017-04-11T11:12:10Z",
+                "subj_id": "https://it.wikipedia.org/wiki/Digit_ratio",
+                "id": "3bdacf8e-717a-43d0-81a7-d02bc998c9cb",
+                "evidence_record": "https://evidence.eventdata.crossref.org/evidence/20170411-wikipedia-b3138ec9-f630-4565-8d83-32219823981f",
+                "action": "add",
+                "subj": {
+                    "pid": "https://it.wikipedia.org/wiki/Digit_ratio",
+                    "url": "https://it.wikipedia.org/w/index.php?title=Digit_ratio&oldid=87062122",
+                    "title": "Digit ratio",
+                    "api-url": "https://it.wikipedia.org/api/rest_v1/page/html/Digit_ratio/87062122"
+                },
+                "source_id": "wikipedia",
+                "obj": {
+                    "pid": "https://doi.org/10.1016/j.earlhumdev.2004.06.004",
+                    "url": "http://dx.doi.org/10.1016%2Fj.earlhumdev.2004.06.004"
+                },
+                "timestamp": "2017-04-11T11:12:49Z",
+                "updated_date": "2018-01-31T17:30:00Z",
+                "relation_type_id": "references"
+            },
+            {
+                "license": "https://creativecommons.org/publicdomain/zero/1.0/",
+                "terms": "https://doi.org/10.13003/CED-terms-of-use",
+                "updated_reason": "https://evidence.eventdata.crossref.org/announcements/2018-01-19T00-00-00Z-ED-15.json",
+                "obj_id": "https://doi.org/10.1007/s10508-005-3122-x",
+                "source_token": "36c35e23-8757-4a9d-aacf-345e9b7eb50d",
+                "occurred_at": "2017-04-11T11:12:10Z",
+                "subj_id": "https://it.wikipedia.org/wiki/Digit_ratio",
+                "id": "ad7f3409-b373-4c31-b923-32f5ac136ac6",
+                "evidence_record": "https://evidence.eventdata.crossref.org/evidence/20170411-wikipedia-b3138ec9-f630-4565-8d83-32219823981f",
+                "action": "add",
+                "subj": {
+                    "pid": "https://it.wikipedia.org/wiki/Digit_ratio",
+                    "url": "https://it.wikipedia.org/w/index.php?title=Digit_ratio&oldid=87062122",
+                    "title": "Digit ratio",
+                    "api-url": "https://it.wikipedia.org/api/rest_v1/page/html/Digit_ratio/87062122"
+                },
+                "source_id": "wikipedia",
+                "obj": {
+                    "pid": "https://doi.org/10.1007/s10508-005-3122-x",
+                    "url": "http://dx.doi.org/10.1007%2Fs10508-005-3122-x"
+                },
+                "timestamp": "2017-04-11T11:12:50Z",
+                "updated_date": "2018-01-31T17:30:00Z",
+                "relation_type_id": "references"
+            }
+        ]
+    }
+}
