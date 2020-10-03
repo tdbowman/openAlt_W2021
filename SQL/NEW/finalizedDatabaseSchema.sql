@@ -331,12 +331,6 @@ CREATE TABLE IF NOT EXISTS RedditEvent(
     --  Terms of use for the CROSSREF EVENT DATA QUERY API.
     termsOfUse              VARCHAR (45),
 
-    --  Updated date.
-    updatedDate             TIMESTAMP,
-
-    --  Reason for updating an event. Optional, may point to an announcement page explaining the edit.
-    updatedReason           VARCHAR(100),
-
     --  Link to the scholarly writing.
     objectID                VARCHAR(100),
 
@@ -347,7 +341,7 @@ CREATE TABLE IF NOT EXISTS RedditEvent(
     occurredAt              TIMESTAMP,
 
     --  Subject ID is similar to the object ID, since most events have a URL as a subject ID and the DOI as object ID. The agent that processes the data decides on each event.
-    subjectID               VARCHAR(100),
+    subjectID               VARCHAR(200),
 
     --  Every event is assigned a unique ID. Used for reference.
     eventID                 VARCHAR(36) ,
@@ -359,10 +353,10 @@ CREATE TABLE IF NOT EXISTS RedditEvent(
     eventAction             VARCHAR(15),
 
     --  The ID of the entity mentioning the DOI.
-    subjectPID              VARCHAR(80),
+    subjectPID              VARCHAR(200),
 
     --  The title of the subject.
-    subjectTitle            VARCHAR(60),
+    subjectTitle            VARCHAR(200),
 
     --  Author of the event.
     subjectType             VARCHAR(100),
