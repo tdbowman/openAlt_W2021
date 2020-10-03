@@ -1,5 +1,4 @@
 def cambiaLensIngest(uniqueEvent, cursor, connection):
-
     for key, value in uniqueEvent.items():
         if key == "license":
             t_license = value
@@ -43,14 +42,6 @@ def cambiaLensIngest(uniqueEvent, cursor, connection):
             t_updated_date = value
         elif (key == "relation_type_id"):
             t_relation_type_id = value
-    
-    # SQL which inserts into event table
-    add_event = ("INSERT IGNORE INTO CambiaEvent " "(eventID, objectID, license, updatedReason, updated, sourceToken, occurredAt, subjectID, termsOfUse, eventAction, workSubtypeID, workTypeID, subjectTitle, subjectPID, jurisdiction, sourceID, timeObserved, updatedDate, relationType) " "VALUES(%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s)")
-    # Values to insert into event table
-    data_event = (t_id, t_obj_id, t_license, t_updated_reason, t_updated, t_source_token, t_occurred_at, t_subject_id, t_terms, t_action, t_work_subtype_id, t_work_id, t_title, t_pid, t_jurisdiction, t_source_id, t_timestamp, t_updated_date, t_relation_type_id)
-
-    add_to_main =("INSERT IGNORE INTO main (objectID) VALUES (\'" + t_obj_id + "\');")
-
-    cursor.execute(add_to_main)
-    cursor.execute(add_event, data_event) # add information to cambia table
-    connection.commit()
+    # cursor.execute()
+    # Execute some complex SQL statement here
+    # INSERT INTO IN
