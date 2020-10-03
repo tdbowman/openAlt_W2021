@@ -24,11 +24,11 @@ def wikipediaIngest(uniqueEvent, cursor, connection):
             subj_fields = uniqueEvent.get("subj")
             for key, value in subj_fields.items():
                 if(key == 'pid'):
-                    t_pid = value
+                    t_subj_pid = value
                 elif(key == 'url'):
-                    t_url = value
+                    t_subj_url = value
                 elif(key == 'title'):
-                    t_title = value
+                    t_subj_title = value
                 elif(key == 'api-url'):
                     t_api_url = value
         elif (key == 'source_id'):
@@ -37,9 +37,9 @@ def wikipediaIngest(uniqueEvent, cursor, connection):
             obj_fields = uniqueEvent.get('obj')
             for key, value in obj_fields.items():
                 if(key == 'pid'):
-                    t_pid = value
+                    t_obj_pid = value
                 elif(key == 'url'):
-                    t_url = value
+                    t_obj_url = value
         elif (key == 'timestamp'):
             t_timestamp = value
         elif (key == "updated_date"):
@@ -49,14 +49,17 @@ def wikipediaIngest(uniqueEvent, cursor, connection):
     # cursor.execute()
 
     add_event = (
-        "INSERT IGNORE INTO WikipediaEvent " "(license, termsOfUse, updatedDate, updatedReason, objectID, sourceToken, occuredAt, subjectID, eventID, evidenceRecord, eventAction, subjectPID, subjectTitle, subjectURL, subjectAPIURL, sourceID, objectPID, objectURL, timeObserved, relationType) " "VALUES(%s,%s,%s,%s,%s,%s,%s,%s,%s,%s)")
+        "INSERT IGNORE INTO WikipediaEvent " "(license, termsOfUse, updatedDate, updatedReason, objectID, sourceToken, occurredAt, subjectID, eventID, evidenceRecord, eventAction, subjectPID, subjectTitle, subjectURL, subjectAPIURL, sourceID, objectPID, objectURL, timeObserved, relationType) " "VALUES(%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s)")
     # Values to insert into wikipediaevent table  - LEAVE OUT THE OBJECT ID
     data_event = (
-    t_license, t_terms, t_updated_date, t_updatedReason, t_obj_id, t_source_token, t_occurred_at, t_subj_id, t_id,
-    t_evidence_record, t_action, t_pid, t_title, t_url, t_api_url, t_source_id, t_pid, t_url, t_timestamp, t_relation_type_id)
+        t_license, t_terms, t_updated_date, t_updatedReason, t_obj_id, t_source_token, t_occurred_at, t_subj_id, t_id,
+        t_evidence_record, t_action, t_subj_pid, t_subj_title, t_subj_url, t_api_url, t_source_id, t_obj_pid, t_obj_url, t_timestamp, t_relation_type_id)
 
-    add_to_main = ("INSERT IGNORE INTO main (objectID) VALUES (\'" + t_obj_id + "\');")
+    add_to_main = (
+        "INSERT IGNORE INTO main (objectID) VALUES (\'" + t_obj_id + "\');")
 
     cursor.execute(add_to_main)
-    cursor.execute(add_event, data_event)  # add information to wikipediaevent table
+    # add information to wikipediaevent table
+    cursor.execute(add_event, data_event)
+    print(cursor.rowcount, "record inserted.")
     connection.commit()
