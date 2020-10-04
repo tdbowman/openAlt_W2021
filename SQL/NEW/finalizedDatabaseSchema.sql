@@ -25,8 +25,8 @@ CREATE TABLE Author(
 
 CREATE TABLE Article_to_Author(
     articleAuthorID        BIGINT AUTO_INCREMENT,
-    articleID              INTEGER,
-    authorID               INTEGER,
+    articleID              BIGINT,
+    authorID               BIGINT,
     PRIMARY KEY(articleAuthorID),
     FOREIGN KEY (articleID) REFERENCES Main(autoArticleID),
     FOREIGN KEY (authorID) REFERENCES Author(authorID)
