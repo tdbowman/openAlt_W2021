@@ -1,0 +1,36 @@
+{% extends 'template.html' %}
+
+<!-- Anything you put here will be in the HTML head tags-->
+{% block head %}
+<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename = 'css/style.css')}}">
+{% endblock %}
+
+<!-- Anything you put here will be in the body-->
+{% block body %}
+<h1>Search results page</h1>
+{% for result in listedSearchResults %}
+
+    <div class="DOI">
+        DOI:
+        <a href="{{ url_for('articleDashboard') }}?DOI={{ result.objectID }}">{{ result.objectID }}</a>
+    </div>
+    <div class="articleTitle">
+        Article Title:
+        <a href="{{ url_for('articleDashboard') }}?DOI={{ result.objectID }}">{{ result.articleTitle }}</a>
+    </div>
+    <div class="journalName">
+        Journal Name:
+        <a href="{{ url_for('journalDashboard') }}?journalName={{ result.journalName }}">{{ result.journalName }}</a>
+    </div>
+    <div class="articleDate">
+        Article Date: {{ result.articleDate }}
+    </div>
+    <div class="authors">
+        Authors: {{ result.articleDate }}
+    </div>
+    <br>
+    <br>
+    <br>
+{% endfor %}
+
+{% endblock %}

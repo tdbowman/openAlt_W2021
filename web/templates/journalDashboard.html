@@ -1,0 +1,16 @@
+{% extends 'template.html' %}
+
+<!-- Anything you put here will be in the HTML head tags-->
+{% block head %}
+<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename = 'css/style.css')}}">
+{% endblock %}
+
+<!-- Anything you put here will be in the body-->
+{% block body %}
+<h1>Journal Dashboard</h1>
+
+<br>
+<br>
+<br>
+
+{% endblock %}

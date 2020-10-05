@@ -2,3 +2,9 @@
 /pythonScripts/__pycache__
 CR_webpages/.idea
 /pythonScripts/Ingest/__pycache__
+/CR_webpages/__pycache__
+/CR_webpages/env
+/CR_webpages/venv
+/web/env
+/web/venv
+/web/__pycache__
