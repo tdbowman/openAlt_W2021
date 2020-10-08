@@ -1,4 +1,24 @@
 def stackExchangeIngest(uniqueEvent, cursor, connection):
+    t_license = None
+    t_terms = None
+    t_obj_id = None
+    t_source_token = None
+    t_occurred_at = None
+    t_subj_id = None
+    t_id = None
+    t_evidence_record = None
+    t_action = None
+    t_subj_pid = None
+    t_subj_title = None
+    t_subj_type = None
+    t_source_id = None
+    t_obj_pid = None
+    t_obj_url = None
+    t_timestamp = None
+    t_relation_type_id = None
+    t_author_id = None
+    t_author_url = None
+    t_author_name = None
     for key, value in uniqueEvent.items():
         if (key == "license"):
             t_license = value

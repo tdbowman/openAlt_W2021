@@ -6,7 +6,7 @@ CREATE TABLE Main(
     -- A link that contains the Document Object Identifier(DOI) or the scholary content that was registered at CrossRef.
     objectID               VARCHAR(70),
     -- Unique ID of each event.
-    autoArticleID          INTEGER AUTO_INCREMENT UNIQUE,   
+    autoArticleID          BIGINT AUTO_INCREMENT UNIQUE,   
     articleTitle           VARCHAR(120),
     journalName            VARCHAR(40),
     articleDate            DATE,
@@ -17,16 +17,16 @@ CREATE TABLE Main(
 -- Are ORCIDs worth considering?'
 CREATE TABLE Author(
     -- Given by us, increments automatically
-    authorID               INTEGER AUTO_INCREMENT, 
+    authorID               BIGINT AUTO_INCREMENT, 
     givenName              VARCHAR(30),
     familyName             VARCHAR(30),
     PRIMARY KEY (authorID)
 );
 
 CREATE TABLE Article_to_Author(
-    articleAuthorID        INTEGER AUTO_INCREMENT,
-    articleID              INTEGER,
-    authorID               INTEGER,
+    articleAuthorID        BIGINT AUTO_INCREMENT,
+    articleID              BIGINT,
+    authorID               BIGINT,
     PRIMARY KEY(articleAuthorID),
     FOREIGN KEY (articleID) REFERENCES Main(autoArticleID),
     FOREIGN KEY (authorID) REFERENCES Author(authorID)
@@ -36,7 +36,7 @@ CREATE TABLE CrossRefEvent
 (
 
     -- Auto increment for easy primary keys
-    crossRefIncrement       INTEGER AUTO_INCREMENT PRIMARY KEY,
+    crossRefIncrement       BIGINT AUTO_INCREMENT PRIMARY KEY,
 
     --  Foreign key to reference the doi
     FOREIGN KEY (objectID) REFERENCES Main(objectID) ON DELETE CASCADE,
@@ -84,7 +84,7 @@ CREATE TABLE CrossRefEvent
 CREATE TABLE IF NOT EXISTS RedditEvent(   
 
     --  Auto increment for easy primary keys.
-    redditIncrement         INTEGER AUTO_INCREMENT PRIMARY KEY,
+    redditIncrement         BIGINT AUTO_INCREMENT PRIMARY KEY,
 
     --  Foreign key to reference the doi.
     FOREIGN KEY(objectID) REFERENCES Main(objectID) ON DELETE CASCADE,
@@ -163,7 +163,7 @@ CREATE TABLE IF NOT EXISTS RedditEvent(
     CREATE TABLE IF NOT EXISTS StackexchangeEvent(
 
     --  Auto increment for easy primary keys.
-    stackExchangeIncrement  INTEGER AUTO_INCREMENT PRIMARY KEY,
+    stackExchangeIncrement  BIGINT AUTO_INCREMENT PRIMARY KEY,
 
     --  Foreign key to reference the doi.
     FOREIGN KEY(objectID) REFERENCES Main(objectID) ON DELETE CASCADE,
@@ -240,7 +240,7 @@ CREATE TABLE IF NOT EXISTS RedditEvent(
     CREATE TABLE IF NOT EXISTS WikipediaEvent(
 
     --  Auto increment for easy primary keys
-    wikipediaIncrement      INTEGER AUTO_INCREMENT PRIMARY KEY,
+    wikipediaIncrement      BIGINT AUTO_INCREMENT PRIMARY KEY,
 
     --  Foreign key to reference the doi
     FOREIGN KEY (objectID) REFERENCES Main(objectID) ON DELETE CASCADE,
@@ -315,7 +315,7 @@ CREATE TABLE IF NOT EXISTS RedditEvent(
     CREATE TABLE IF NOT EXISTS WordPressEvent(
 
     --  Auto increment for easy primary keys.
-    wordPressIncrement      INTEGER AUTO_INCREMENT PRIMARY KEY,
+    wordPressIncrement      BIGINT AUTO_INCREMENT PRIMARY KEY,
 
     --  Foreign key to reference the doi.
     FOREIGN KEY(objectID) REFERENCES Main(objectID) ON DELETE CASCADE,
@@ -381,7 +381,7 @@ CREATE TABLE IF NOT EXISTS RedditEvent(
     CREATE TABLE IF NOT EXISTS DataCiteEvent(
 
     --   Auto increment for easy primary keys.
-    dataCiteIncrement       INTEGER AUTO_INCREMENT PRIMARY KEY,
+    dataCiteIncrement       BIGINT AUTO_INCREMENT PRIMARY KEY,
 
     --   Foreign key to reference the doi.
     FOREIGN KEY(objectID) REFERENCES Main(objectID) ON DELETE CASCADE,
@@ -425,7 +425,7 @@ CREATE TABLE IF NOT EXISTS RedditEvent(
 
 CREATE TABLE TwitterEvent(
     -- Uniquely identify each row.
-    twitterIncrement        INTEGER AUTO_INCREMENT,
+    twitterIncrement        BIGINT AUTO_INCREMENT,
 
     -- Unique ID of each event.
     eventID                 VARCHAR(36) ,
@@ -508,7 +508,7 @@ CREATE TABLE TwitterEvent(
 
 CREATE TABLE RedditLinksEvent(
     -- To uniquely identify each row.
-    redditLinksIncrement    INTEGER AUTO_INCREMENT,
+    redditLinksIncrement    BIGINT AUTO_INCREMENT,
 
     -- Unique ID of each event.
     eventID                 VARCHAR(36) ,
@@ -579,7 +579,7 @@ CREATE TABLE RedditLinksEvent(
 
 CREATE TABLE NewsfeedEvent(
     -- To uniquely identify each row.
-    newsfeedIncrement       INTEGER AUTO_INCREMENT,
+    newsfeedIncrement       BIGINT AUTO_INCREMENT,
 
     -- Unique ID of each event.
     eventID                 VARCHAR(36) ,
@@ -654,7 +654,7 @@ CREATE TABLE NewsfeedEvent(
 
 CREATE TABLE HypothesisEvent(
     -- To uniquely identify each row.
-    hypothesisIncrement     INTEGER AUTO_INCREMENT,
+    hypothesisIncrement     BIGINT AUTO_INCREMENT,
 
     -- Unique ID of each event.
     eventID                 VARCHAR(36) ,
@@ -726,7 +726,7 @@ CREATE TABLE HypothesisEvent(
 
 CREATE TABLE CambiaEvent(
     -- To uniquely identify each row.
-    cambiaIncrement         INTEGER AUTO_INCREMENT,
+    cambiaIncrement         BIGINT AUTO_INCREMENT,
 
     -- Unique ID of each event.
     eventID                 VARCHAR(36) ,
@@ -795,7 +795,7 @@ CREATE TABLE CambiaEvent(
 
 CREATE TABLE WebEvent(
     -- To uniquely identify each row.
-    webIncrement            INTEGER AUTO_INCREMENT,
+    webIncrement            BIGINT AUTO_INCREMENT,
 
     -- Unique ID of each event.
     eventID                 VARCHAR(36) ,

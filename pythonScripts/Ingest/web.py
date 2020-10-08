@@ -1,4 +1,8 @@
 def webIngest(uniqueEvent, cursor, connection):
+    # Updated fields do not always exist. So I set them as empty sting in case
+    t_updated_reason = None
+    t_updated_date = None
+    t_updated = None
     for key, value in uniqueEvent.items():
         if (key == "terms"):
             t_terms = value

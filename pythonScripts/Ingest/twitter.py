@@ -6,6 +6,10 @@ def twitterIngest(uniqueEvent, cursor, connection):
     t_original_tweet_url = None
     t_original_tweet_author = None
     t_alternative_id = None
+    # Updated fields do not always exist. So I set them as empty sting in case
+    t_updated_reason = None
+    t_updated_date = None
+    t_updated = None
     for key, value in uniqueEvent.items():
         # for key in uniqueEvent.keys():
         if key == "license":
@@ -79,6 +83,5 @@ def twitterIngest(uniqueEvent, cursor, connection):
 
     cursor.execute(add_to_main)
     cursor.execute(add_event, data_event)  # add information to reddit table
-    print(cursor.rowcount, "record inserted.")
     # Helps check if rows are inserting. Helps me sleep at night. print(cursor.rowcount, "record inserted.")
     connection.commit()
