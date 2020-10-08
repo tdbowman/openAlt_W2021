@@ -13,18 +13,36 @@
   </head>
   <body>
     <header>
-        <nav class="navbar navbar-default">
+        <nav class="navbar navbar-inverse">
           <div class="container-fluid">
             <div class="navbar-header">
               <a class="navbar-brand" href="{{ url_for('index') }}">Interface for Crossref Event Data</a>
             </div>
+            
             <ul class="nav navbar-nav">
-              <li><a href="{{ url_for('index') }}">Search</a></li>
+              <li><a href="{{ url_for('index') }}">New Search</a></li>
+            </ul>
+          <!--
+          {% if request.path != index %}
+          <ul class="nav navbar-nav">
+          <form method="post" action="{{ url_for('homepageSearch') }}" >
+          <select name="dropdownSearchBy" id="dropdownSearchBy"  >
+                <option selected="selected" value="DOI">DOI</option>
+                <option value="Author">Author</option>
+                <option value="Journal">Journal</option>
+                <option value="Article">Article</option>
+            </select>
+            <input type="text" id="search_input" name="search" placeholder="Enter search..." style="width: 300px;" >
+            <input width="80%" type="submit" value="Search" style="width: 100px;">
+            </form>
+          </ul>
+          {% endif %}
+          -->
+            <ul class="nav navbar-nav navbar-right">
               <li><a href="{{ url_for('about') }}">About</a></li>
             </ul>
           </div>
         </nav>
-      
     </header>
   
     {% block body %}{% endblock %}
