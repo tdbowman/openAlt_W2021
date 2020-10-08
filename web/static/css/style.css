@@ -1,17 +1,25 @@
+:root {
+  --bg-color: #1a1c1e;
+  --textColor: #ccc;
+  --accentColor: #e12d66;
+  --accentColor2: #65ff00;
+  --hoverColor: #268bd2;
+}
+
 body,h4,h3 {
-  background-color: #282a36;
-  color: #f8f8f2;
+  background-color: var(--bg-color) !important;
+  color: var(--mainColor);
 }
 
 h2,a,th {
-  color: #1ccaf1;
+  color: var(--accentColor2);
 }
 
 h1 {
-  color: #50fa7b;
+  color: var(--accentColor);
   text-align: center;
 }
 
 sub {
-  color: #ff79c6;
+  color: var(--hoverColor);
 }
