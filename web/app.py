@@ -98,5 +98,10 @@ def authorDashboard():
 
     return flask.render_template('authorDashboard.html')
 
+@app.route('/about', methods =["GET", "POST"])
+def about():
+    
+    return flask.render_template('about.html')
+
 if __name__ == "__main__":
     app.run(debug=True)
