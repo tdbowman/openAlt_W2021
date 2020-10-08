@@ -9,10 +9,23 @@ The goal of this project is to create a dashboard-style interface that displays 
 
 We will work to create a web interface that organizes, simplifies, and visualizes this data. Our web interface will also rank authors in a consistent, and well documented way to facilitate bibliometric and altmetric research.
 
+## How it works
+### Collecting and organizing the Events
+The Python script `pythonScripts/tapAPI.py` pulls down data on a regular schedule from the crossref API. This data is stored as a dated JSON file, each file containing 10,000 Events.
+These files are then ingested into the database by `pythonScripts/Ingest/main.py`. Which reads each JSON in the data directory, and inserts it into our MySQL database.  
+Because the Events do not contain the authors, journal, or article title for every DOI, we are developing more scripts to fetch that data from crossref based on the gaps in our database.
+### The website
+We are developing a website which will allow users to search our database for DOI's, authors, article titles, or journals. Users will be able to see how many Events, and of which type, a given article or author has generated.
+
 ## Dependencies
-Python Modules (These may be installed with `pip install <name of module>`
-* schedule
-* crossrefapi
+* MySQL 8.0
+* Python Modules (These may be installed with `pip install <name of module>`)
+    * schedule
+    * crossrefapi
+    * mysql-connector-python
+    * flask
+    * flask-mysqldb
+    * virtualenv
 
 ## Acknowledgements
 We would like to thank:  

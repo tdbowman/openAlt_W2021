@@ -1,0 +1,17 @@
+body,h4,h3 {
+  background-color: #282a36;
+  color: #f8f8f2;
+}
+
+h2,a,th {
+  color: #1ccaf1;
+}
+
+h1 {
+  color: #50fa7b;
+  text-align: center;
+}
+
+sub {
+  color: #ff79c6;
+}
