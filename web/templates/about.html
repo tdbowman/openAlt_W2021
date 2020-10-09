@@ -1,0 +1,48 @@
+{% extends 'template.html' %}
+
+<!-- Anything you put here will be in the HTML head tags-->
+{% block head %}
+<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename = 'css/style.css')}}">
+{% endblock %}
+
+<!-- Anything you put here will be in the body-->
+{% block body %}
+<div class="container">
+    <div class="row">
+      <div class="col-sm-6">
+        <h3>Overview</h3>
+        <p>The goal of this project is to create a dashboard-style interface that displays activity and engagement surrounding scientific publications.<br>
+            Crossref is an official agency responsible for assigning DOIs (Document Object Identifiers) to published papers. 
+            <br>
+            <br>
+            The Crossref Event API provides information on how and where scholarly articles are discussed. The goal of this interface is to organizes, simplify, and visualize this Event data.
+        </p>
+      </div>
+      <div class="col-sm-6">
+        <h3>Developers</h3>
+        <li>Mitchell Fenner - mitchfen@protonmail.com - [<a href="https://github.com/mitchfen">mitchfen</a>]</li>
+        <li>Mohammad Riyadh - ujayar1@gmail.com - [<a href="https://https://github.com/ujayar1">ujayar1</a>]</li>
+        <li>Ponnila Sampath Kumar - ga7280@wayne.edu - [<a href="https://https://github.com/ga7280">ga7280</a>]</li>
+        <li>Hassan Bachir - hassanbachir@wayne.edu - [<a href="https://https://github.com/HassanBachir">HassanBachir</a>]</li>
+        <!--
+        <li>Dr. Timothy Bowman - [<a href="https://https://github.com/tdbowman">tdbowman</a>]</li>
+        -->
+        
+        <h3>View the code / documentation</h3>
+        <p>This project is open source. All the code and documentation is available on <a href="https://github.com/tdbowman-CompSci-F2020/crossrefEventData">GitHub</a>.</p>
+
+        <h3>Acknowledgements</h3>
+        We would like to thank:<br>
+        <p><strong>Dr. Timothy Bowman</strong> for the project idea and guidance! 💡<br>
+        <strong>Minh Nguyen</Strong> for assisting us with technical questions. 💬<br>
+        <strong>Seyed Ziae Mousavi Mojab</Strong> for teaching the class, of which this project was a part. 🍎</p>
+      </div>
+    </div>
+</div>
+
+
+<br>
+<br>
+<br>
+
+{% endblock %}
