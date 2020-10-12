@@ -48,8 +48,13 @@ body {
 
 .box{
 	position: absolute;
-	width: 100%;
+	width: 500px;
 	text-align: center;
+	font-family: "Lucida Console", Monaco, monospace;
+    font-size: 15px;
+    font-style: normal;
+    font-variant: normal;
+    font-weight: bold;
 }
 
 .wrapper .search_box{
