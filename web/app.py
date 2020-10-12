@@ -24,16 +24,49 @@ def homepageSearch():
     global mysql
     cursor = mysql.connection.cursor()
     returnedQueries = []
+
     x = "something not none"
 
     # Get the parameters from 
     if flask.request.method == "POST":
         search = str(flask.request.form.get("search"))
         selection = str(flask.request.form.get("dropdownSearchBy"))
-    
+        selcted_years = flask.request.form.getlist("years")
+
+        for year in range(0, len(selcted_years)):
+            selcted_years[year] = int(selcted_years[year])
+
+        if not selcted_years:
+            years = [{'year':2020, 'select': ''},
+                     {'year':2019, 'select': ''},
+                     {'year':2018, 'select': ''},
+                     {'year':2017, 'select': ''},
+                     {'year':2016, 'select': ''}]# TBD bring unique years from main table
+        else:
+            years = [{'year':2020, 'select': ''},
+                     {'year':2019, 'select': ''},
+                     {'year':2018, 'select': ''},
+                     {'year':2017, 'select': ''},
+                     {'year':2016, 'select': ''}]
+
+            for year in years:
+                if year.get('year') in selcted_years:
+                    year['select'] = 'checked'
+    # form query string for year filter constraint in where clause
+    s_years = '( '
+    for year in selcted_years:
+        if year == selcted_years[-1]:
+            s_years = s_years + "'" + str(year) + "'"
+        else:
+            s_years = s_years + "'" + str(year) + "'" + ","
+    s_years = s_years + ')'
+
     # Search by DOI - WORKING
     if (selection == "DOI"):
-        sql = "Select * from main where objectID like '%" + search + "%\';"
+        if not selcted_years:
+            sql = "Select * from main where objectID like '%" + search + "%\';"
+        else:
+            sql = "Select * from main where objectID like '%" + search + "%\' and year(articleDate) in "+s_years+";"
         cursor.execute(sql)
         mysql.connection.commit()
         while x is not None:
@@ -55,7 +88,7 @@ def homepageSearch():
 
     # THIS DOES NOT WORK YET SINCE JOURNAL TABLE NOT FILLED IN
     elif (selection == "Journal"):
-        sql = "Select * from redditevent where objectID like '%10.1370/afm.1885';"
+        sql = "Select * from main where journalName like '%" + search + "%\';"
         cursor.execute(sql)
         mysql.connection.commit()
         while x is not None:
@@ -66,7 +99,7 @@ def homepageSearch():
 
     # THIS DOES NOT WORK YET SINCE ARTICLE TABLE NOT FILLED IN
     elif (selection == "Article"):
-        sql = "Select * from redditevent where objectID like '%10.1370/afm.1885';"
+        sql = "Select * from main where articleTitle like '%" + search + "%\';"
         cursor.execute(sql)
         mysql.connection.commit()
         while x is not None:
@@ -75,7 +108,11 @@ def homepageSearch():
         cursor.close()  
         returnedQueries.pop() # the last list item is always null so pop it
 
-    return flask.render_template('searchResultsPage.html', listedSearchResults=returnedQueries)
+    return flask.render_template('searchResultsPage.html',
+                                 listedSearchResults=returnedQueries,
+                                 years=years,
+                                 dropdownSearchBy=selection,
+                                 search=search )
 
 # Article Dashboard
 @app.route('/articleDashboard', methods =["GET", "POST"])
