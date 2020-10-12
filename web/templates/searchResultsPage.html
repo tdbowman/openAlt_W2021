@@ -1,15 +1,48 @@
 {% extends 'template.html' %}
 
 <!-- Anything you put here will be in the HTML head tags-->
-{% block head %}
-<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename = 'css/style.css')}}">
-{% endblock %}
+<!--{% block head %}-->
+<!--<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename = 'css/style.css')}}">-->
+<!--{% endblock %}-->
 
 <!-- Anything you put here will be in the body-->
 {% block body %}
 <h1>Search results page</h1>
-{% for result in listedSearchResults %}
+<div class="container">
 
+
+
+    <div class="row">
+
+      <div class="col-sm-2">
+         <form method="post" action="{{ url_for('homepageSearch') }}" >
+             <input type="hidden" id="search" name="search" value= {{ search }} >
+             <input type="hidden" id="dropdownSearchBy" name="dropdownSearchBy" value={{ dropdownSearchBy }}>
+
+             <div class='year_filter'>
+            <h6>YEAR</h6>
+         </div>
+
+        <ul>
+        {% for year in years %}
+        <li>
+            <input name="years" type="checkbox" {{year.select }}  value= {{ year.year }}  >
+            {{ year.year }}
+        </li>
+        {% endfor %}
+        </ul>
+
+          <input width="80%" type="submit" value="Apply" style="width: 100px;">
+         </form>
+      </div>
+
+<div class="col-sm-8">
+   <table>
+
+{% for result in listedSearchResults %}
+<tr>
+
+<td class='item-data'>
     <div class="DOI">
         DOI:
         <a href="{{ url_for('articleDashboard') }}?DOI={{ result.objectID }}">{{ result.objectID }}</a>
@@ -31,6 +64,26 @@
     <br>
     <br>
     <br>
+   </td>
+   </tr>
 {% endfor %}
+</table>
+
+<div>
+ <nav aria-label="Page navigation example">
+  <ul class="pagination pg-blue">
+    <li class="page-item"><a class="page-link">Previous</a></li>
+    <li class="page-item"><a class="page-link">1</a></li>
+    <li class="page-item"><a class="page-link">2</a></li>
+    <li class="page-item"><a class="page-link">3</a></li>
+    <li class="page-item"><a class="page-link">Next</a></li>
+  </ul>
+</nav>
+</div>
+
 
 {% endblock %}
+
+</div>
+    </div>
+</div>

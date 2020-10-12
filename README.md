@@ -18,8 +18,11 @@ Because the Events do not contain the authors, journal, or article title for eve
 We are developing a website which will allow users to search our database for DOI's, authors, article titles, or journals. Users will be able to see how many Events, and of which type, a given article or author has generated.
 
 ## Dependencies
-* MySQL 8.0
-* Python Modules (These may be installed with `pip install <name of module>`)
+* MySQL 8.0.21
+* MySQL Python Connector 8.0.21
+* Python 3.8
+* Bootstrap 3.3.7
+* Python Modules (These may be installed with `pip3 install <name of module>`)
     * schedule
     * crossrefapi
     * mysql-connector-python

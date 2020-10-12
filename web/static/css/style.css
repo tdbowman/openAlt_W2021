@@ -8,7 +8,7 @@
 
 body,h4,h3 {
   background-color: var(--bg-color) !important;
-  color: var(--mainColor);
+  color: var(--textColor) !important;
 }
 
 h2,a,th {
