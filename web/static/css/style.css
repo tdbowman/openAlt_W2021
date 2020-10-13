@@ -23,3 +23,19 @@ h1 {
 sub {
   color: var(--hoverColor);
 }
+
+#pHead{
+  font-size: 30px;
+  color: var(--accentColor2);
+}
+
+#pContent{
+  font-size: 20px;
+  /* Adds a scroll option */
+  overflow:auto;
+  height: 780px;  
+}
+
+.aInfo{
+  list-style-type: none;
+}
