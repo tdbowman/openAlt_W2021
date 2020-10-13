@@ -1,10 +1,6 @@
-/.ipynb_checkpoints
-/pythonScripts/__pycache__
-CR_webpages/.idea
-/pythonScripts/Ingest/__pycache__
-/CR_webpages/__pycache__
-/CR_webpages/env
-/CR_webpages/venv
+.ipynb_checkpoints*
+__pycache__*
+.DS_Store*
+.idea*
 /web/env
 /web/venv
-/web/__pycache__
