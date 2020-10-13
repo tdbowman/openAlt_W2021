@@ -147,5 +147,10 @@ def about():
     
     return flask.render_template('about.html')
 
+@app.route('/team', methods =["GET", "POST"])
+def team():
+    
+    return flask.render_template('team.html')
+
 if __name__ == "__main__":
     app.run(debug=True)
