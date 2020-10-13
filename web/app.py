@@ -67,6 +67,7 @@ def homepageSearch():
             sql = "Select * from main where objectID like '%" + search + "%\';"
         else:
             sql = "Select * from main where objectID like '%" + search + "%\' and year(articleDate) in "+s_years+";"
+
         cursor.execute(sql)
         mysql.connection.commit()
         while x is not None:
@@ -88,7 +89,10 @@ def homepageSearch():
 
     # THIS DOES NOT WORK YET SINCE JOURNAL TABLE NOT FILLED IN
     elif (selection == "Journal"):
-        sql = "Select * from main where journalName like '%" + search + "%\';"
+        if not selcted_years:
+            sql = "Select * from main where journalName like '%" + search + "%\';"
+        else:
+            sql = "Select * from main where journalName like '%" + search + "%\' and year(articleDate) in "+s_years+";"
         cursor.execute(sql)
         mysql.connection.commit()
         while x is not None:
@@ -99,7 +103,10 @@ def homepageSearch():
 
     # THIS DOES NOT WORK YET SINCE ARTICLE TABLE NOT FILLED IN
     elif (selection == "Article"):
-        sql = "Select * from main where articleTitle like '%" + search + "%\';"
+        if not selcted_years:
+            sql = "Select * from main where articleTitle like '%" + search + "%\';"
+        else:
+            sql = "Select * from main where articleTitle like '%" + search + "%\' and year(articleDate) in " + s_years + ";"
         cursor.execute(sql)
         mysql.connection.commit()
         while x is not None:
