@@ -1,28 +1,70 @@
 :root {
-  --bg-color: #1a1c1e;
-  --textColor: #ccc;
-  --accentColor: #e12d66;
-  --accentColor2: #65ff00;
+  --bg-color: #EED5B0;
+  --textColor: #333333;
+  --accentColor: #6C908D;
+  --accentColor2: #A15951;
   --hoverColor: #268bd2;
 }
 
 body,h4,h3 {
-  background-color: var(--bg-color) !important;
-  color: var(--textColor) !important;
+  background-color: var(--bg-color);
+  color: var(--textColor);
 }
 
 h2,a,th {
-  color: var(--accentColor2);
+  color: var(--accentColor);
 }
 
 h1 {
-  color: var(--accentColor);
+  color: var(--accentColor2);
   text-align: center;
 }
 
 sub {
   color: var(--hoverColor);
 }
+
+.boxed {
+  border: 5px solid black ;
+  font-family: "Lucida Console", Monaco, monospace;
+  font-size: 15px;
+  font-style: normal;
+  font-variant: normal;
+  font-weight: bold;
+  margin: 20px auto;
+  display: block;
+  width: 500px;
+}
+
+table.table-bordered{
+    border:5px solid black;
+    margin-top:20px;
+}
+
+.AD_articleTitle {
+    font-size: 28px;
+    font-style: normal;
+    font-variant: small-caps;
+}
+
+.AD_journalName {
+    font-size: 20px;
+    font-style: normal;
+}
+
+.AD_articleDate {
+    font-size: 20px;
+    font-style: normal;
+}
+
+.AD_authors {
+    font-size: 20px;
+    font-style: normal;
+}
+
+.AD_DOI {
+    font-size: 20px;
+    font-style: normal;
 
 #pHead{
   font-size: 30px;
@@ -38,4 +80,5 @@ sub {
 
 .aInfo{
   list-style-type: none;
+
 }

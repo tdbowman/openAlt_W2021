@@ -124,9 +124,21 @@ def homepageSearch():
 # Article Dashboard
 @app.route('/articleDashboard', methods =["GET", "POST"])
 def articleDashboard():
+    article_detail = []
+    x = "something not none"
+    global mysql
+    cursor = mysql.connection.cursor()
 
-    
-    return flask.render_template('articleDashboard.html')
+    search = str(flask.request.args.get("DOI"))
+    sql = "Select * from main where objectID like '%" + search + "%\';"
+
+    cursor.execute(sql)
+    mysql.connection.commit()
+    article_detail=cursor.fetchone()
+    cursor.close()
+
+    return flask.render_template('articleDashboard.html',
+                                 article_detail=article_detail)
 
 # Journal Dashboard
 @app.route('/journalDashboard', methods =["GET", "POST"])

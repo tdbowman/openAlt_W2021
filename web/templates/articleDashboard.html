@@ -8,6 +8,49 @@
 <!-- Anything you put here will be in the body-->
 {% block body %}
 <h1>Article Dashboard</h1>
+<div class = "container">
+    <div class = "col-md-5">
+        <div class="row">
+            <div class="col">
+        <table>
+
+<table class="table table-bordered">
+<tr>
+<td class='item-data'>
+
+    <div class="AD_articleTitle">
+        Article Title: {{ article_detail.articleTitle }}
+    </div>
+    <div class="AD_journalName">
+        Journal Name: {{ article_detail.journalName }}
+    </div>
+    <div class="AD_articleDate">
+        Article Date: {{ article_detail.articleDate }}
+    </div>
+    <div class="AD_authors">
+        Authors: {{ article_detail.articleDate }}
+    </div>
+    <div class="AD_DOI">
+        URL: {{ article_detail.objectID }}
+    </div>
+    <br>
+    <br>
+    <br>
+</td>
+</tr>
+</table>
+
+        </table>
+            </div>
+            <div class="col">
+                <p>Top 100 events</p>
+            </div>
+        </div>
+    </div>
+    <div class = col-md-7>
+    <p>GRAPH HERE</p>
+
+    </div>
 
 <br>
 <br>
