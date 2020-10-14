@@ -9,6 +9,59 @@
 {% block body %}
 <h1>Author Dashboard</h1>
 
+<div class="container">
+    <div class="col-md-8">
+        <div id="pHead">
+            first name, last name
+        </div>
+        <hr>
+        <div id="pContent">
+            <ul class="aInfo">
+                <li>Article Title: </li>
+                <li>Published in: </li>
+                <li>Journal Name: </li>
+                <li>Authors: </li>
+            </ul>
+            <!-- Database tables aren't set up to allow us to connect the webpages to the tables for these fields to appear.
+
+            <table>
+            {% for result in listedSearchResults %}
+            <tr>
+                <td class='item-data'>
+                    <div class="articleTitle">
+                        Article Title:
+                        <a href="{{ url_for('articleDashboard') }}?DOI={{ result.objectID }}">{{ result.articleTitle }}</a>
+                    </div>
+                    <div class="articleDate">
+                        Article Date: {{ result.articleDate }}
+                    </div>
+                    <div class="journalName">
+                        Journal Name:
+                        <a href="{{ url_for('journalDashboard') }}?journalName={{ result.journalName }}">{{ result.journalName }}</a>
+                    </div>
+                    <div class="authors">
+                        Authors:
+                        <a href="{{ url_for('authorDashboard') }}?authors={{ result.authors }}"> {{ result.journalName }}</a> 
+                    </div>
+                    <br>
+                    <hr>
+                    <br>
+                </td>
+            </tr>
+            {% endfor %}
+            </table> -->
+        </div>
+    </div>
+    <div class="col-md-4">
+        <div class="row">
+            <img src="https://placekitten.com/400/400" alt="Cat">
+        </div>
+        <div class="row">
+            <img src="https://placekitten.com/400/400" alt="Cat">
+        </div>
+    </div>
+</div>
+
 <br>
 <br>
 <br>

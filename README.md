@@ -1,7 +1,7 @@
 # Building an Interface for Crossref Event Data
 
 Hassan Bachir, Mitchell Fenner, Mohammad Riyadh, Ponnila Sampath Kumar, Dr. Timothy Bowman 
-See the full documentation on the [Jupyter README](https://github.com/tdbowman-CompSci-F2020/crossrefEventData/blob/master/readme.ipynb).
+
 ## Overview
 The goal of this project is to create a dashboard-style interface that displays activity and engagement surrounding scientific publications.  
 
@@ -17,18 +17,24 @@ Because the Events do not contain the authors, journal, or article title for eve
 ### The website
 We are developing a website which will allow users to search our database for DOI's, authors, article titles, or journals. Users will be able to see how many Events, and of which type, a given article or author has generated.
 
-## Dependencies
-* MySQL 8.0.21
-* MySQL Python Connector 8.0.21
-* Python 3.8
-* Bootstrap 3.3.7
-* Python Modules (These may be installed with `pip3 install <name of module>`)
-    * schedule
-    * crossrefapi
-    * mysql-connector-python
-    * flask
-    * flask-mysqldb
-    * virtualenv
+## Dependencies and their Licenses
+
+| Software                        | License                            |
+|:--------------------------------|:-----------------------------------|
+| MySQL 8.0.21                    | GPL-2.0 License                    |
+| MySQL Python Connector 8.0.21   | GPL-2.0 License                    |
+| Python 3.8                      | Python Software Foundation License |
+| Bootstrap 3.3.7                 | MIT License                        |
+<br>
+
+| Python Module             | License                    |
+|:--------------------------|:---------------------------|
+| schedule                  | MIT License                |
+| crossrefapi               | BSD-2-Clause License       |
+| mysql-connector-python    | GPL-2.0 License            |
+| flask                     | BSD-3-Clause License       |
+| flask-mysqldb             | MIT License                |
+| virtualenv                | MIT License                |
 
 ## Acknowledgements
 We would like to thank:  

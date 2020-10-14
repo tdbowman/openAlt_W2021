@@ -14,23 +14,39 @@
 scholarly articles via DOI (Document Object Identifier), author name, journal name, or institution.
 Your results will show you instances of social media activity of the article you have selected<br> <br>
 Enter your search below to get started.</p1></div>
-<h1>Crossref event data search</h1>
-<form method="post" action="{{ url_for('homepageSearch') }}" >
+<!-- <h1>Crossref event data search</h1>
+form method="post" action="{{ url_for('homepageSearch') }}" >
     <div align="center" align-items="center">
 	<select name="dropdownSearchBy" id="dropdownSearchBy"  >
         <option selected="selected" value="DOI">DOI</option>
         <option value="Author">Author</option>
         <option value="Journal">Journal</option>
         <option value="Article">Article</option>
-    </select>
+    </select>-->
+<div class="col-sm-3">
+</div>
 
-    <!--
-    Search bar - input text
-    -->
-    <input type="text" id="search_input" name="search" placeholder="Enter search..." style="width: 300px;" >
-    <input width="80%" type="submit" value="Search" style="width: 100px;">
+<div class = "col-sm-6">
+  <h1 style="text-align: center;">Crossref event data search</h1>
+  <form method="post" action="{{ url_for('homepageSearch') }}" class="form-inline">
+    <div class="form-group">
+            
+        <!-- Drop Down Search -->
+        <select name="dropdownSearchBy" id="dropdownSearchBy" class="form-control">
+            <option selected="selected" value="DOI">DOI</option>
+            <option value="Author">Author</option>
+            <option value="Journal">Journal</option>
+            <option value="Article">Article</option>
+        </select>
+
+        <!-- Search bar - input text -->
+        <input type="text" id="search_input" name="search" placeholder="Enter search..." style="width: 400px;" class="form-control">
+        <input width="80%" type="submit" value="Search" style="width: 100px;" class="form-control">
     </div>
+  </form>
+</div>
 
-</form>
-
+<div class="col-sm-3">
+    <!-- Empty column of size 2. Right of search bar -->
+</div>
 {% endblock %}
