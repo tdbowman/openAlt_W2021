@@ -7,150 +7,52 @@
 <!-- Anything you put here will be in the body-->
 {% block body %}
 <h1>Journal Dashboard</h1>
-<br>
-<br>
-<br>
-
-<!-- Sidebar -->
-<div class = "col-md-2">
-<div id="sidebar">
-  <style scoped>
-    @import url('https://fonts.googleapis.com/css?family=Roboto:300,400,400i,500');
-
-body {
-  overflow-x: hidden;
-  font-family: 'Roboto', sans-serif;
-  font-size: 16px;
-}
-
-/* Toggle Styles */
-
-#viewport {
-  padding-left: 250px;
-  -webkit-transition: all 0.5s ease;
-  -moz-transition: all 0.5s ease;
-  -o-transition: all 0.5s ease;
-  transition: all 0.5s ease;
-}
-
-#content {
-  width: 100%;
-  position: fixed;
-  margin-right: 0;
-}
-
-/* Sidebar Styles */
-
-#sidebar {
-  z-index: 1000;
-  position: relative;
-  left: 250px;
-  width: 250px;
-  height: 100%;
-  margin-left: -250px;
-  overflow-y: auto;
-  background: #37474F;
-  -webkit-transition: all 0.5s ease;
-  -moz-transition: all 0.5s ease;
-  -o-transition: all 0.5s ease;
-  transition: all 0.5s ease;
-}
-
-#sidebar header {
-  background-color: #263238;
-  font-size: 20px;
-  line-height: 52px;
-  text-align: center;
-}
-
-#sidebar header a {
-  color: #fff;
-  display: block;
-  text-decoration: none;
-}
-
-#sidebar header a:hover {
-  color: #fff;
-}
-
-#sidebar .nav{
-  
-}
-
-#sidebar .nav a{
-  background: none;
-  border-bottom: 1px solid #455A64;
-  color: #CFD8DC;
-  font-size: 14px;
-  padding: 16px 24px;
-}
-
-#sidebar .nav a:hover{
-  background: none;
-  color: #ECEFF1;
-}
-
-#sidebar .nav a i{
-  margin-right: 16px;
-}
-</style>
-    
-  </style>
-  <header>
-    <a href="#">Navigation</a>
-  </header>
-  <ul class="nav">
-    <li>
-      <a href="#">
-        <i class="zmdi zmdi-view-dashboard"></i> Home
-      </a>
-    </li>
-    <li>
-      <a href="#">
-        <i class="zmdi zmdi-link"></i> About
-      </a>
-    </li>
-    <li>
-      <a href="#">
-        <i class="zmdi zmdi-widgets"></i> Contact Us
-      </a>
-    </li>
-    <li>
-      <a href="#">
-        <i class="zmdi zmdi-calendar"></i> Crossref
-      </a>
-    </li>
-
-  </ul>
-</div>
-</div>
-
-
 <div class = "container">
 
   <div class = "col-md-8">
-    <div class="panel panel-default">
+    <!--<img src="https://placekitten.com/200/302" alt="Cat">-->
+<table class="table table-bordered">
 
-      <h1 class="text-left">Journal Name</h1>
-      <p class ="text-left">"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."</p>
+{% for journal in journal_list %}
+<tr class="row row-bordered">
 
+<td class='item-data'>
+
+    <div class="JD_articleTitle">
+        Article Title:
+        <a>{{ journal.articleTitle }}</a>
     </div>
-
-
-
-
-
-
-
+    <div class="JD_journalName">
+        Journal Name:
+        <a>{{ journal.journalName }}</a>
+    </div>
+    <div class="JD_articleDate">
+        Article Date: {{ journal.articleDate }}
+    </div>
+    <div class="JD_authors">
+        Authors: {{ journal.articleDate }}
+    </div>
+    <div class="JD_DOI">
+        DOI:
+        <a>{{ journal.objectID }}</a>
+    </div>
+    <br>
+    <br>
+    <br>
+   </td>
+   </tr>
+{% endfor %}
+</table>
   </div>
 
-  <div class = "col-md-3">
-      <div class = "row" style = "display: flex; justify-content: flex-end">
+  <div class = col-md-4>
+      <div class = "row">
+        <h1>FILTERS</h1>
           <table>
           <fieldset>
              <tr>
                  <td>
-            <div>
+            <div class="col">
                 <legend>YEAR</legend>
                 <input type="checkbox" name="year" value="2020" <!--onclick="return ValidatePetSelection();"--> 2020<br>
                 <input type="checkbox" name="year" value="2019" <!--onclick="return ValidatePetSelection();"--> 2019<br>
@@ -160,8 +62,24 @@ body {
                     <br>
             </div>
                  </td>
-                 
+                 <td></td>
                  <td>
+          <div class="col">
+        <legend>SOURCES</legend>
+        <input type="checkbox" name="source" value="Twitter" <!--onclick="return ValidatePetSelection();"--> Twitter<br>
+        <input type="checkbox" name="source" value="Reddit" <!--onclick="return ValidatePetSelection();"--> Reddit<br>
+        <input type="checkbox" name="source" value="Wikipedia" <!--onclick="return ValidatePetSelection();"--> Wikipedia<br>
+        <input type="checkbox" name="source" value="Wordpress" <!--onclick="return ValidatePetSelection();"--> Wordpress<br>
+        <input type="checkbox" name="source" value="RedditLinks" <!--onclick="return ValidatePetSelection();"--> RedditLinks<br>
+        <input type="checkbox" name="source" value="Stack Exchange Network" <!--onclick="return ValidatePetSelection();"--> Stack Exchange Network<br>
+        <input type="checkbox" name="source" value="Newsfeed" <!--onclick="return ValidatePetSelection();"--> Newsfeed<br>
+        <input type="checkbox" name="source" value="Cambia" <!--onclick="return ValidatePetSelection();"--> Cambia<br>
+        <input type="checkbox" name="source" value="Hypothes.is" <!--onclick="return ValidatePetSelection();"--> Hypothes.is<br>
+        <input type="checkbox" name="source" value="F1000Prime" <!--onclick="return ValidatePetSelection();"--> F1000Prime<br>
+        <input type="checkbox" name="source" value="DataCite Metadata" <!--onclick="return ValidatePetSelection();"--> DataCite Metadata<br>
+        <input type="checkbox" name="source" value="Crossref Metadata" <!--onclick="return ValidatePetSelection();"--> Crossref Metadata<br>
+            <br>
+          </div>
                  </td>
              </tr>
               <tr>
@@ -173,6 +91,9 @@ body {
         </table>
       </div>
 
+
+      <div class = "row">
+      </div>
   </div>
 
 
