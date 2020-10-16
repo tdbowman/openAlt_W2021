@@ -25,6 +25,8 @@ We are developing a website which will allow users to search our database for DO
 | MySQL Python Connector 8.0.21   | GPL-2.0 License                    |
 | Python 3.8                      | Python Software Foundation License |
 | Bootstrap 3.3.7                 | MIT License                        |
+| C3 0.7.20                       | MIT License                        |
+| D3 v5                           | BSD-3-Clause License               |
 <br>
 
 | Python Module             | License                    |
