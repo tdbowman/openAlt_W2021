@@ -80,5 +80,57 @@ table.table-bordered{
 
 .aInfo{
   list-style-type: none;
+}
 
+#legend{
+  border: solid;
+  background: pink;
+}
+/* Color blocks */
+.colorLegend{
+  height: 15px;
+  width: 15px;
+  display: inline-block;
+}
+
+#crossrefColor{
+  background: red;
+}
+#redditColor{
+  background: orange;
+}
+#stackexchangeColor{
+  background:yellow;
+}
+#wikipediaColor{
+  background:green;
+}
+#wordpressColor{
+  background: blue;
+}
+#dataciteColor{
+  background: indigo;
+}
+#twitterColor{
+  background: violet;
+}
+#redditlinksColor{
+  background: rgb(83, 5, 66);
+}
+#newsfeedColor{
+  background: rgb(14, 214, 214);
+}
+#hypothesisColor{
+  background: rgb(154, 230, 12);
+}
+#cambiaColor{
+  background:rgba(87, 60, 9, 0.801);
+}
+#webColor{
+  background: rgb(0, 0, 0);
+}
+/* Event Name */
+.tag{
+  display: inline;
+  font-size: 17px;
 }
