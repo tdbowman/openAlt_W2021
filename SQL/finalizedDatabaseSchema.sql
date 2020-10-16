@@ -2,44 +2,13 @@
 CREATE DATABASE crossRefEventData;
 USE crossRefEventData;
 
-CREATE TABLE Main(
-    -- A link that contains the Document Object Identifier(DOI) or the scholary content that was registered at CrossRef.
-    objectID               VARCHAR(70),
-    -- Unique ID of each event.
-    autoArticleID          BIGINT AUTO_INCREMENT UNIQUE,   
-    articleTitle           VARCHAR(120),
-    journalName            VARCHAR(40),
-    articleDate            DATE,
-    PRIMARY KEY(objectID)
-);
--- Journal Table has been removed and merged with Main Table
--- We can use Python to parse the JSON author lists into Given_Name and Family_Name over time'
--- Are ORCIDs worth considering?'
-CREATE TABLE Author(
-    -- Given by us, increments automatically
-    authorID               BIGINT AUTO_INCREMENT, 
-    givenName              VARCHAR(30),
-    familyName             VARCHAR(30),
-    PRIMARY KEY (authorID)
-);
-
-CREATE TABLE Article_to_Author(
-    articleAuthorID        BIGINT AUTO_INCREMENT,
-    articleID              BIGINT,
-    authorID               BIGINT,
-    PRIMARY KEY(articleAuthorID),
-    FOREIGN KEY (articleID) REFERENCES Main(autoArticleID),
-    FOREIGN KEY (authorID) REFERENCES Author(authorID)
-);
-
 CREATE TABLE CrossRefEvent
 (
 
     -- Auto increment for easy primary keys
-    crossRefIncrement       BIGINT AUTO_INCREMENT PRIMARY KEY,
+    crossRefIncrement       INTEGER AUTO_INCREMENT PRIMARY KEY,
 
     --  Foreign key to reference the doi
-    FOREIGN KEY (objectID) REFERENCES Main(objectID) ON DELETE CASCADE,
 
     --  --  -############################--  --  -COLUMNS--  ###############################--  --  -
     
@@ -84,10 +53,7 @@ CREATE TABLE CrossRefEvent
 CREATE TABLE IF NOT EXISTS RedditEvent(   
 
     --  Auto increment for easy primary keys.
-    redditIncrement         BIGINT AUTO_INCREMENT PRIMARY KEY,
-
-    --  Foreign key to reference the doi.
-    FOREIGN KEY(objectID) REFERENCES Main(objectID) ON DELETE CASCADE,
+    redditIncrement         INTEGER AUTO_INCREMENT PRIMARY KEY,
 
     --  --  -############################--  --  -COLUMNS--  ###############################--  --  -
     --  Author. redditAuthor
@@ -163,10 +129,7 @@ CREATE TABLE IF NOT EXISTS RedditEvent(
     CREATE TABLE IF NOT EXISTS StackexchangeEvent(
 
     --  Auto increment for easy primary keys.
-    stackExchangeIncrement  BIGINT AUTO_INCREMENT PRIMARY KEY,
-
-    --  Foreign key to reference the doi.
-    FOREIGN KEY(objectID) REFERENCES Main(objectID) ON DELETE CASCADE,
+    stackExchangeIncrement  INTEGER AUTO_INCREMENT PRIMARY KEY,
 
 
 
@@ -240,10 +203,7 @@ CREATE TABLE IF NOT EXISTS RedditEvent(
     CREATE TABLE IF NOT EXISTS WikipediaEvent(
 
     --  Auto increment for easy primary keys
-    wikipediaIncrement      BIGINT AUTO_INCREMENT PRIMARY KEY,
-
-    --  Foreign key to reference the doi
-    FOREIGN KEY (objectID) REFERENCES Main(objectID) ON DELETE CASCADE,
+    wikipediaIncrement      INTEGER AUTO_INCREMENT PRIMARY KEY,
 
     --  --  -############################--  --  -COLUMNS--  ###############################--  --  -
     
@@ -315,10 +275,7 @@ CREATE TABLE IF NOT EXISTS RedditEvent(
     CREATE TABLE IF NOT EXISTS WordPressEvent(
 
     --  Auto increment for easy primary keys.
-    wordPressIncrement      BIGINT AUTO_INCREMENT PRIMARY KEY,
-
-    --  Foreign key to reference the doi.
-    FOREIGN KEY(objectID) REFERENCES Main(objectID) ON DELETE CASCADE,
+    wordPressIncrement      INTEGER AUTO_INCREMENT PRIMARY KEY,
 
     --  --  -############################--  --  -COLUMNS--  ###############################--  --  -
     
@@ -381,10 +338,7 @@ CREATE TABLE IF NOT EXISTS RedditEvent(
     CREATE TABLE IF NOT EXISTS DataCiteEvent(
 
     --   Auto increment for easy primary keys.
-    dataCiteIncrement       BIGINT AUTO_INCREMENT PRIMARY KEY,
-
-    --   Foreign key to reference the doi.
-    FOREIGN KEY(objectID) REFERENCES Main(objectID) ON DELETE CASCADE,
+    dataCiteIncrement       INTEGER AUTO_INCREMENT PRIMARY KEY,
 
     --  --  -############################--  --  -COLUMNS--  ###############################--  --  -
     
@@ -425,13 +379,13 @@ CREATE TABLE IF NOT EXISTS RedditEvent(
 
 CREATE TABLE TwitterEvent(
     -- Uniquely identify each row.
-    twitterIncrement        BIGINT AUTO_INCREMENT,
+    twitterIncrement INTEGER AUTO_INCREMENT PRIMARY KEY,
 
     -- Unique ID of each event.
     eventID                 VARCHAR(36) ,
 
     -- A link that contains the Document Object Identifier(DOI) or the scholarly content that was registered at CrossRef.
-    objectID                VARCHAR(50),
+    objectID                VARCHAR(100),
 
     -- Author. At least for this table, this may be unnecessary because we already have a tweetAuthor and originalTweetAuthor
     -- twitterAuthor        VARCHAR(36),
@@ -500,21 +454,19 @@ CREATE TABLE TwitterEvent(
     updatedDate             DATETIME ,
 
     -- Type of relation between subject and object.
-    relationType            VARCHAR(10) ,
+    relationType            VARCHAR(10)
 
-    PRIMARY KEY(twitterIncrement),
-    FOREIGN KEY (objectID) REFERENCES Main(objectID) ON DELETE CASCADE
 );
 
 CREATE TABLE RedditLinksEvent(
     -- To uniquely identify each row.
-    redditLinksIncrement    BIGINT AUTO_INCREMENT,
+    redditLinksIncrement    INTEGER AUTO_INCREMENT  PRIMARY KEY,
 
     -- Unique ID of each event.
     eventID                 VARCHAR(36) ,
 
     -- A link that contains the Document Object Identifier(DOI) or the scholary content that was registered at CrossRef.
-    objectID                VARCHAR(50),
+    objectID                VARCHAR(100),
 
     -- Author. redditLinksAuthor
     -- DOIAuthor               VARCHAR(36),
@@ -568,18 +520,14 @@ CREATE TABLE RedditLinksEvent(
     updatedDate             TIMESTAMP ,
 
     -- Type of relation between subject and object.
-    relationType            VARCHAR(15) ,
-
-
-    PRIMARY KEY (redditLinksIncrement),
-    FOREIGN KEY (objectID) REFERENCES Main(objectID) ON DELETE CASCADE
+    relationType            VARCHAR(15)
 );
 
 
 
 CREATE TABLE NewsfeedEvent(
     -- To uniquely identify each row.
-    newsfeedIncrement       BIGINT AUTO_INCREMENT,
+    newsfeedIncrement       INTEGER AUTO_INCREMENT  PRIMARY KEY,
 
     -- Unique ID of each event.
     eventID                 VARCHAR(36) ,
@@ -645,16 +593,14 @@ CREATE TABLE NewsfeedEvent(
     updatedDate             TIMESTAMP ,
 
     -- Nature of the discussion on the doi (discusses, mentions, etc.).
-    relationType            VARCHAR(10) ,
+    relationType            VARCHAR(10)
 
-    PRIMARY KEY (newsfeedIncrement),
-    FOREIGN KEY (objectID) REFERENCES Main(objectID)
 );
 
 
 CREATE TABLE HypothesisEvent(
     -- To uniquely identify each row.
-    hypothesisIncrement     BIGINT AUTO_INCREMENT,
+    hypothesisIncrement     INTEGER AUTO_INCREMENT  PRIMARY KEY,
 
     -- Unique ID of each event.
     eventID                 VARCHAR(36) ,
@@ -717,16 +663,13 @@ CREATE TABLE HypothesisEvent(
     timeObserved            TIMESTAMP ,
 
     -- Nature of the discussion on the doi (discusses, mentions, etc.).
-    relationType            VARCHAR(10) ,
-
-    PRIMARY KEY (hypothesisIncrement),
-    FOREIGN KEY (objectID) REFERENCES Main(objectID) ON DELETE CASCADE
+    relationType            VARCHAR(10)
 );
 
 
 CREATE TABLE CambiaEvent(
     -- To uniquely identify each row.
-    cambiaIncrement         BIGINT AUTO_INCREMENT,
+    cambiaIncrement         INTEGER AUTO_INCREMENT  PRIMARY KEY,
 
     -- Unique ID of each event.
     eventID                 VARCHAR(36) ,
@@ -786,16 +729,13 @@ CREATE TABLE CambiaEvent(
     updatedDate             TIMESTAMP ,
 
     -- Nature of the discussion on the doi (discusses, mentions, etc.).
-    relationType            VARCHAR(10) ,
-
-    PRIMARY KEY (cambiaIncrement),
-    FOREIGN KEY (objectID) REFERENCES Main(objectID) ON DELETE CASCADE
+    relationType            VARCHAR(10)
 );
 
 
 CREATE TABLE WebEvent(
     -- To uniquely identify each row.
-    webIncrement            BIGINT AUTO_INCREMENT,
+    webIncrement            INTEGER AUTO_INCREMENT  PRIMARY KEY,
 
     -- Unique ID of each event.
     eventID                 VARCHAR(36) ,
@@ -852,8 +792,5 @@ CREATE TABLE WebEvent(
     updatedDate             TIMESTAMP ,
 
     -- Nature of the discussion on the doi (discusses, mentions, etc.).
-    relationType            VARCHAR(10) ,
-
-    PRIMARY KEY (webIncrement),
-    FOREIGN KEY (objectID) REFERENCES Main(objectID) ON DELETE CASCADE
+    relationType            VARCHAR(10)
 );

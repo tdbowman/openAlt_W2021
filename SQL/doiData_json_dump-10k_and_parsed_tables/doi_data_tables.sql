@@ -1,3 +1,6 @@
+create database dr_bowman_doi_data_tables;
+use dr_bowman_doi_data_tables;
+
 CREATE TABLE `_main_` (
   `id` int unsigned NOT NULL AUTO_INCREMENT,
   `DOI` varchar(500) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL,

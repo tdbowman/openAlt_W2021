@@ -63,7 +63,7 @@ def wordPressIngest(uniqueEvent, cursor, connection):
             add_event = ("INSERT IGNORE INTO WordPressEvent " "(license, termsOfUse, objectID, sourceToken, occurredAt, subjectID, eventID, evidenceRecord, eventAction, subjectPID, subjectTitle, subjectType, sourceID, objectPID, objectURL, timeObserved, relationType) " "VALUES(%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s)")
             # Values to insert into wordpressevent tabls
             data_event = (t_license, t_terms, t_obj_id, t_source_token, t_occurred_at, t_subj_id, t_id, t_evidence_record, t_action, t_subj_pid, t_subj_title, t_subj_type, t_source_id, t_obj_pid, t_obj_url, t_timestamp, t_relation_type_id)
-            add_to_main = ("INSERT IGNORE INTO main(objectID) VALUES (\'" + t_obj_id + "\');")
-            cursor.execute(add_to_main)
+
+            
             cursor.execute(add_event, data_event)
             connection.commit()

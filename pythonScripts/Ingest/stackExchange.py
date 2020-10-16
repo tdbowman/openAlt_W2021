@@ -77,10 +77,6 @@ def stackExchangeIngest(uniqueEvent, cursor, connection):
     data_event = (t_license, t_terms, t_obj_id, t_source_token, t_occurred_at, t_subj_id, t_id, t_evidence_record, t_subj_pid,
                   t_title, t_issued, t_type, t_author_url, t_author_name, t_author_id, t_source_id, t_obj_pid, t_obj_url, t_timestamp, t_relation_type_id)
 
-    add_to_main = (
-        "INSERT IGNORE INTO main (objectID) VALUES (\'" + t_obj_id + "\')")
-
-    cursor.execute(add_to_main)
     cursor.execute(add_event, data_event)  # add information to reddit table
     # Helps check if rows are inserting. Helps me sleep at night. print(cursor.rowcount, "record inserted.")
     connection.commit()
