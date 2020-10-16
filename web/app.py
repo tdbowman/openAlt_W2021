@@ -143,9 +143,26 @@ def articleDashboard():
 # Journal Dashboard
 @app.route('/journalDashboard', methods =["GET", "POST"])
 def journalDashboard():
+journal_list = [] #list initializing
+    x = "something not none"
+    global mysql
+    cursor = mysql.connection.cursor()
 
+    journal_name = str(flask.request.args.get("journalName")) #fetch the query parameter journal name from searchREsults page
+    sql = "Select * from main where journalName like '%" + journal_name + "%\';"
 
-    return flask.render_template('journalDashboard.html')
+    cursor.execute(sql)
+    mysql.connection.commit()
+
+    #iterate SQL result set from cursor and move it into journal_list (python list)
+    while x is not None:
+        x = cursor.fetchone()
+        journal_list.append(x)
+    cursor.close()
+    journal_list.pop()
+
+    return flask.render_template('journalDashboard.html',
+                                 journal_list=journal_list)
 
 # Author Dashboard
 @app.route('/authorDashboard', methods =["GET", "POST"])
