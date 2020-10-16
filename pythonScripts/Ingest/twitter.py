@@ -77,11 +77,7 @@ def twitterIngest(uniqueEvent, cursor, connection):
     # Values to insert into event table
     data_event = (t_id, t_obj_id, t_author_url, t_original_tweet_author, t_occurred_at, t_license, t_terms, t_updated_reason, t_updated, t_source_token, t_evidence_record, t_action, t_subj_id,
                   t_subject_pid, t_original_tweet_url, t_alternative_id, t_subject_title, t_subject_issued, t_source_id, t_obj_pid, t_obj_url, t_timestamp, t_updated_date, t_relation_type_id)
-
-    add_to_main = (
-        "INSERT IGNORE INTO main(objectID) VALUES (\'" + t_obj_id + "\');")
-
-    cursor.execute(add_to_main)
+                  
     cursor.execute(add_event, data_event)  # add information to reddit table
     # Helps check if rows are inserting. Helps me sleep at night. print(cursor.rowcount, "record inserted.")
     connection.commit()

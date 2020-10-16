@@ -53,10 +53,6 @@ def webIngest(uniqueEvent, cursor, connection):
     data_event = (t_id, t_obj_id, t_occurred_at, t_terms, t_updatedReason, t_updated, t_source_token, t_subj_id, t_evidence_record,
                   t_action, t_subj_pid, t_subj_url, t_source_id, t_obj_pid, t_obj_url, t_timestamp, t_updated_date, t_relation_type_id)
 
-    add_to_main = (
-        "INSERT IGNORE INTO main (objectID) VALUES (\'" + t_obj_id + "\')")
-
-    cursor.execute(add_to_main)
     cursor.execute(add_event, data_event)  # add information to reddit table
     # Helps check if rows are inserting. Helps me sleep at night. print(cursor.rowcount, "record inserted.")
     connection.commit()

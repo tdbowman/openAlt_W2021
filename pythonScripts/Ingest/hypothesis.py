@@ -54,8 +54,5 @@ def hypothesisIngest(uniqueEvent, cursor, connection):
     # Values to insert into event table
     data_event = (t_id, t_obj_id, t_occurred_at, t_license, t_source_token, t_subj_id, t_evidence_record, t_terms, t_action, t_pid, t_json_url, t_url, t_type, t_title, t_issued, t_source_id, t_obj_pid, t_obj_url,t_timestamp, t_relation_type_id)
 
-    add_to_main =("INSERT IGNORE INTO main (objectID) VALUES (\'" + t_obj_id + "\');")
-
-    cursor.execute(add_to_main)
     cursor.execute(add_event, data_event) # add information to hypothesis table
     connection.commit()         

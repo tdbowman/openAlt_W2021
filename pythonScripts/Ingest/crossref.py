@@ -28,8 +28,5 @@ def crossrefIngest(uniqueEvent, cursor, connection):
     # Values to insert into event table
     data_event = (t_license, t_obj_id, t_source_token, t_occurred_at, t_subj_id, t_id, t_terms, t_message_action, t_source_id, t_timestamp, t_relation_type_id)
 
-    add_to_main =("INSERT IGNORE INTO main (objectID) VALUES (\'" + t_obj_id + "\');")
-
-    cursor.execute(add_to_main)
     cursor.execute(add_event, data_event) # add information to dataciteevent table
     connection.commit()

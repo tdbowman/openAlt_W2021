@@ -1,12 +1,3 @@
-
-'''
-TODO:
-
-    Write move statement at the bottom of this file
-    Testing testing testing.
-    More Try Except?
-
-'''
 import cambiaLens
 import wordPress
 import wikipedia
@@ -49,26 +40,6 @@ def main():
     for (path, dirnames, filenames) in os.walk(dataDirectory):
         files.extend(os.path.join(path, name) for name in sorted(filenames))
 
-    '''
-    # Can possibly use some variant of this to pop off any files which are not json
-    # But there should not be anything but .json in the folder so low priority
-    i = 0
-    while (i < len(files)-1):
-        if not files[i].endswith('.json'):
-            files.pop(i)
-        i += 1
-    print(files)
-    '''
-
-    '''
-    # We can run a second copy of this to pop all files which after the restore point
-    i = 0
-    while (i < len(files)-1):
-        if not files[i].endswith('.json'):
-            files.pop(i)
-        i += 1
-    print(files)
-    '''
 
     # For each file in the directory, open the file.
     #   For each open file, load the contents into memory and extract the events LIST
@@ -123,21 +94,7 @@ def main():
                         cursor.close()
                         connection.close()
                         sys.exit()
-    '''
-    TODO: 
-    add line to move (mv) file out of the dumps directory
-    Requires a folder structure like
-
-        home 
-        /   \  
-    dumps   ingest
-
-    Because the ../ingest/ tells it to move from dumps, up one director, then down into ingest
-    The mv command works fine on windows, so we should be able to debug it before uploading to the server
-
-    os.sys("mv " + files[i] + "../ingest/" + files[i])
-    
-    '''
+                        
     cursor.close()
     connection.close()
 

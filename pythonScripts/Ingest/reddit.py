@@ -58,8 +58,5 @@ def redditIngest(uniqueEvent, cursor, connection):
     # Values to insert into event table
     data_event = (t_license, t_terms, t_updated_reason, t_updated, t_updated_date, t_obj_id, t_obj_pid, t_obj_url, t_source_token, t_occurred_at, t_subj_id, t_id, t_evidence_record, t_action, t_source_id, t_subj_pid, t_subj_type, t_subj_title, t_subj_issued, t_timestamp, t_relation_type_id)
 
-    add_to_main =("INSERT IGNORE INTO main (objectID) VALUES (\'" + t_obj_id + "\');")
-
-    cursor.execute(add_to_main)
     cursor.execute(add_event, data_event) # add information to dataciteevent table
     connection.commit()
