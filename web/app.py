@@ -5,7 +5,7 @@ app = flask.Flask(__name__)
 
 # Database connection settings
 app.config['MYSQL_USER'] = 'root'
-app.config['MYSQL_PASSWORD'] = ''
+app.config['MYSQL_PASSWORD'] = '11911842'
 # Or use the database.table which will allow us to join the databases - the one with author, and the one with events
 app.config['MYSQL_DB'] = 'crossRefEventData'
 app.config['MYSQL_CURSORCLASS'] = 'DictCursor'
@@ -143,7 +143,7 @@ def articleDashboard():
 # Journal Dashboard
 @app.route('/journalDashboard', methods =["GET", "POST"])
 def journalDashboard():
-journal_list = [] #list initializing
+    journal_list = [] #list initializing
     x = "something not none"
     global mysql
     cursor = mysql.connection.cursor()
