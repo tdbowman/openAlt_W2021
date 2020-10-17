@@ -41,31 +41,32 @@ table.table-bordered{
     margin-top:20px;
 }
 
-.AD_articleTitle {
+.JD_articleTitle {
     font-size: 28px;
     font-style: normal;
     font-variant: small-caps;
 }
 
-.AD_journalName {
+.JD_journalName {
     font-size: 20px;
     font-style: normal;
 }
 
-.AD_articleDate {
+.JD_articleDate {
     font-size: 20px;
     font-style: normal;
 }
 
-.AD_authors {
+.JD_authors {
     font-size: 20px;
     font-style: normal;
 }
 
-.AD_DOI {
+.JD_DOI {
     font-size: 20px;
     font-style: normal;
 }
+
 #pHead{
   font-size: 30px;
   color: var(--accentColor2);
@@ -85,6 +86,19 @@ table.table-bordered{
 #legend{
   border: solid;
   background: pink;
+  text-align: left;
+}
+#legendHeader{
+  text-align: center;
+}
+#graph{
+  padding-right: 0;
+  padding-left: 0;
+}
+#filter{
+  border: solid;
+  background: pink;
+  text-align: left;
 }
 /* Color blocks */
 .colorLegend{
