@@ -8,97 +8,238 @@
 {% block body %}
 <h1>Journal Dashboard</h1>
 <div class = "container">
-
-  <div class = "col-md-8">
-    <!--<img src="https://placekitten.com/200/302" alt="Cat">-->
-<table class="table table-bordered">
-
-{% for journal in journal_list %}
-<tr class="row row-bordered">
-
-<td class='item-data'>
-
-    <div class="JD_articleTitle">
-        Article Title:
-        <a>{{ journal.articleTitle }}</a>
-    </div>
-    <div class="JD_journalName">
-        Journal Name:
-        <a>{{ journal.journalName }}</a>
-    </div>
-    <div class="JD_articleDate">
-        Article Date: {{ journal.articleDate }}
-    </div>
-    <div class="JD_authors">
-        Authors: {{ journal.articleDate }}
-    </div>
-    <div class="JD_DOI">
-        DOI:
-        <a>{{ journal.objectID }}</a>
-    </div>
-    <br>
-    <br>
-    <br>
-   </td>
-   </tr>
-{% endfor %}
-</table>
-  </div>
-
-  <div class = col-md-4>
-      <div class = "row">
-        <h1>FILTERS</h1>
-          <table>
-          <fieldset>
-             <tr>
-                 <td>
-            <div class="col">
-                <legend>YEAR</legend>
-                <input type="checkbox" name="year" value="2020" <!--onclick="return ValidatePetSelection();"--> 2020<br>
-                <input type="checkbox" name="year" value="2019" <!--onclick="return ValidatePetSelection();"--> 2019<br>
-                <input type="checkbox" name="year" value="2018" <!--onclick="return ValidatePetSelection();"--> 2018<br>
-                <input type="checkbox" name="year" value="2017" <!--onclick="return ValidatePetSelection();"--> 2017<br>
-                <input type="checkbox" name="year" value="2016" <!--onclick="return ValidatePetSelection();"--> 2016<br>
-                    <br>
+	<div class="row">
+        <div class="col-md-7">
+            <div id="pHead">
+                Journal Name
             </div>
-                 </td>
-                 <td></td>
-                 <td>
-          <div class="col">
-        <legend>SOURCES</legend>
-        <input type="checkbox" name="source" value="Twitter" <!--onclick="return ValidatePetSelection();"--> Twitter<br>
-        <input type="checkbox" name="source" value="Reddit" <!--onclick="return ValidatePetSelection();"--> Reddit<br>
-        <input type="checkbox" name="source" value="Wikipedia" <!--onclick="return ValidatePetSelection();"--> Wikipedia<br>
-        <input type="checkbox" name="source" value="Wordpress" <!--onclick="return ValidatePetSelection();"--> Wordpress<br>
-        <input type="checkbox" name="source" value="RedditLinks" <!--onclick="return ValidatePetSelection();"--> RedditLinks<br>
-        <input type="checkbox" name="source" value="Stack Exchange Network" <!--onclick="return ValidatePetSelection();"--> Stack Exchange Network<br>
-        <input type="checkbox" name="source" value="Newsfeed" <!--onclick="return ValidatePetSelection();"--> Newsfeed<br>
-        <input type="checkbox" name="source" value="Cambia" <!--onclick="return ValidatePetSelection();"--> Cambia<br>
-        <input type="checkbox" name="source" value="Hypothes.is" <!--onclick="return ValidatePetSelection();"--> Hypothes.is<br>
-        <input type="checkbox" name="source" value="F1000Prime" <!--onclick="return ValidatePetSelection();"--> F1000Prime<br>
-        <input type="checkbox" name="source" value="DataCite Metadata" <!--onclick="return ValidatePetSelection();"--> DataCite Metadata<br>
-        <input type="checkbox" name="source" value="Crossref Metadata" <!--onclick="return ValidatePetSelection();"--> Crossref Metadata<br>
-            <br>
-          </div>
-                 </td>
-             </tr>
-              <tr>
-                  <td colspan="3">
-                    <input type="submit" value="Apply">
-                  </td>
-              </tr>
-        </fieldset>
-        </table>
-      </div>
+            <hr>
+            <div id="pContent">
+                <ul class="aInfo">
+                    <li>Article Title: </li>
+                    <li>Published in: </li>
+                    <li>Journal Name: </li>
+                    <li>Authors: </li>
+				</ul>
+				<!-- <table class="table table-bordered">
 
+				{% for journal in journal_list %}
+				<tr class="row row-bordered">
 
-      <div class = "row">
-      </div>
-  </div>
+				<td class='item-data'>
 
+					<div class="JD_articleTitle">
+						Article Title:
+						<a>{{ journal.articleTitle }}</a>
+					</div>
+					<div class="JD_journalName">
+						Journal Name:
+						<a>{{ journal.journalName }}</a>
+					</div>
+					<div class="JD_articleDate">
+						Article Date: {{ journal.articleDate }}
+					</div>
+					<div class="JD_authors">
+						Authors: {{ journal.articleDate }}
+					</div>
+					<div class="JD_DOI">
+						DOI:
+						<a>{{ journal.objectID }}</a>
+					</div>
+					<br>
+					<br>
+					<br>
+					</td>
+					</tr>
+				{% endfor %}
+				</table> -->
+			</div>
+        </div>
+        <div class="col-md-5">
+            <div class="row">
+                <div class="col-5 col-md-8" id="filter">
+                    <div class="col-6 col-md-5" id="yearFilter">
+                        <h2>Year</h2>
+                        <hr>
+                        <form action="">
+                            <label for="2020">
+                                <input type="checkbox" id="2020" name="2020"> 2020
+                            </label><br>
+                            <label for="2019">
+                                <input type="checkbox" id="2019" name="2019"> 2019
+                            </label><br>
+                            <label for="2018">
+                                <input type="checkbox" id="2018" name="2018"> 2018
+                            </label><br>
+                            <label for="2017">
+                                <input type="checkbox" id="2017" name="2017"> 2016
+                            </label><br>
+                        </form>
+                    </div>
+                    <div class="col-6 col-md-7" id="sourceFilter">
+                        <h2>Source</h2>
+                        <hr>
+                        <form action="">
+                            <label for="crossref">
+                                <input type="checkbox" id="crossref" name="crossref"> Crossref
+                            </label><br>
+                            <label for="reddit">
+                                <input type="checkbox" id="reddit" name="reddit"> Reddit
+                            </label><br>
+                            <label for="stackexchange">
+                                <input type="checkbox" id="stackexchange" name="stackexchange"> Stack Exchange
+                            </label><br>
+                            <label for="wikipedia">
+                                <input type="checkbox" id="wikipedia" name="wikipedia"> Wikipedia
+                            </label><br>
+                            <label for="wordpress">
+                                <input type="checkbox" id="wordpress" name="wordpress"> Wordpress
+                            </label><br>
+                            <label for="datecite">
+                                <input type="checkbox" id="datecite" name="datecite"> Datacite
+                            </label><br>
+                            <label for="twitter">
+                                <input type="checkbox" id="twitter" name="twitter"> Twitter
+                            </label><br>
+                            <label for="redditlinks">
+                                <input type="checkbox" id="redditlinks" name="redditlinks"> Reddit Links
+                            </label><br>
+                            <label for="newsfeed">
+                                <input type="checkbox" id="newsfeed" name="newsfeed"> Newsfeed
+                            </label><br>
+                            <label for="hypothesis">
+                                <input type="checkbox" id="hypothesis" name="hypothesis"> Hypothesis
+                            </label><br>
+                            <label for="cambia">
+                                <input type="checkbox" id="cambia" name="cambia"> Cambia
+                            </label><br>
+                            <label for="web">
+                                <input type="checkbox" id="web" name="web"> Web
+                            </label><br>
+                            <input type="submit" value="Submit">
+                        </form>
+                    </div>
+                </div>
+                <div class="col-6 col-md-11" id="legend">
+                    <h2 id="legendHeader">Legend</h2> 
+                    <hr>
+                    <div class="row">
+                        <div class="col-2 col-md-6" id="legendItemsCol1">  
+                            <div class="crossrefLegend">
+                                <div class="colorLegend" id="crossrefColor">
 
+                                </div>
+                                <div class="tag">
+                                    Crossref
+                                </div>
+                            </div>
+                            <div class="redditLegend">
+                                <div class="colorLegend" id="redditColor">
 
+                                </div>
+                                <div class="tag">
+                                    Reddit
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-2 col-md-6" id="legendItemsCol2">
+                            <div class="stackexchangeLegend">
+                                <div class="colorLegend" id="stackexchangeColor">
 
+                                </div>
+                                <div class="tag">
+                                    Stack Exchange
+                                </div>
+                            </div>
+                            <div class="wikipediaLegend">
+                                <div class="colorLegend" id="wikipediaColor">
+
+                                </div>
+                                <div class="tag">
+                                    Wikipedia
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-2 col-md-6" id="legendItemsCol3">
+                            <div class="wordpressLegend">
+                                <div class="colorLegend" id="wordpressColor">
+
+                                </div>
+                                <div class="tag">
+                                    Wordpress
+                                </div>
+                            </div>
+                            <div class="dataciteLegend">
+                                <div class="colorLegend" id="dataciteColor">
+
+                                </div>
+                                <div class="tag">
+                                    Datacite
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-2 col-md-6" id="legendItemsCol4">
+                            <div class="twitterLegend">
+                                <div class="colorLegend" id="twitterColor">
+
+                                </div>
+                                <div class="tag">
+                                    Twitter
+                                </div>
+                            </div>
+                            <div class="redditlinksLegend">
+                                <div class="colorLegend" id="redditlinksColor">
+
+                                </div>
+                                <div class="tag">
+                                    Reddit Links
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-2 col-md-6" id="legendItemsCol5">
+                            <div class="newsfeedLegend">
+                                <div class="colorLegend" id="newsfeedColor">
+
+                                </div>
+                                <div class="tag">
+                                    Newsfeed
+                                </div>
+                            </div>
+                            <div class="hypothesisLegend">
+                                <div class="colorLegend" id="hypothesisColor">
+
+                                </div>
+                                <div class="tag">
+                                    Hypothesis
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-2 col-md-6" id="legendItemsCol6">
+                            <div class="cambiaLegend">
+                                <div class="colorLegend" id="cambiaColor">
+
+                                </div>
+                                <div class="tag">
+                                    Cambia
+                                </div>
+                            </div>
+                            <div class="webLegend">
+                                <div class="colorLegend" id="webColor">
+
+                                </div>
+                                <div class="tag">
+                                    Web
+                                </div>
+                            </div>
+                        </div>
+                    </div>    
+                </div>
+                <div class="col-6 col-md-6" id="graph">
+                    <img src="https://placekitten.com/400/400" alt="Cat">
+                </div>
+            </div>
+        </div>
+    </div>
 </div>
 <br>
 <br>
