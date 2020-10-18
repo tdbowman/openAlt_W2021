@@ -7,13 +7,19 @@
     <meta name="author" content="name">
     <meta name="description" content="description here">
     <meta name="keywords" content="keywords,here">
-
+    
     <!-- Bootstrap CDN 
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
     -->
 
+    <!-- jQuery CDN -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <!-- Bootstrap JS CDN -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    
     <!-- Local Bootstrap CSS -->
     <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename = 'css/bootstrap-3.3.7-dist/css/bootstrap.min.css')}}">
+    <!-- Our CSS -->
     <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename = 'css/style.css')}}">
     
     {% block head %}{% endblock %}
@@ -42,13 +48,24 @@
             <button type="submit" class="btn btn-default">Search</button>
           </form>
 
-          <!-- Right aligned buttons -->
+          <!-- Right aligned GitHub logo -->
           <ul class="nav navbar-nav navbar-right">
-            <li><a href="{{ url_for('about') }}">About the project</a></li>
+            <li><a href="https://github.com/tdbowman-CompSci-F2020/crossrefEventData"><img src="../static/images/GitHub logos/GitHub-Mark-Light-64px.png" height="30px"></a></li>
           </ul>
+          <!-- Right aligned Drop-down menu logo -->
           <ul class="nav navbar-nav navbar-right">
+            <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">About<span class="caret"></span></a>
+              <ul class="dropdown-menu">
+                <li><a href="{{ url_for('team') }}">Meet the team</a></li>
+                <li><a href="{{ url_for('about') }}">Learn about the project</a></li>
+                <li><a href="{{ url_for('licenses') }}">License and Dependency Info</a></li>
+              </ul>
+            </li>
+            <!--
+            <li><a href="{{ url_for('about') }}">About the project</a></li>
             <li><a href="{{ url_for('team') }}">Meet the team</a></li>
           </ul>
+          -->
           </div>
         </nav>
 
