@@ -181,5 +181,10 @@ def team():
     
     return flask.render_template('team.html')
 
+@app.route('/licenses', methods =["GET", "POST"])
+def licenses():
+    
+    return flask.render_template('licenses.html')
+
 if __name__ == "__main__":
     app.run(debug=True)
