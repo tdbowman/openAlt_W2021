@@ -28,7 +28,10 @@
         Article Date: {{ article_detail.articleDate }}
     </div>
     <div class="AD_authors">
-        Authors: {{ article_detail.articleDate }}
+        Authors:
+        {% for author in article_detail.author_list %}
+        {{ author.name }} ,
+        {% endfor %}
     </div>
     <div class="AD_DOI">
         URL: {{ article_detail.objectID }}

@@ -37,29 +37,34 @@
       </div>
 
 <div class="col-sm-8">
-   <table>
+    <div class="SR_boxed">
+<th>Displaying Search Results for: {{search}}</th></div>
+   <table class="table table-bordered">
 
 {% for result in listedSearchResults %}
-<tr>
+<tr class="row row-bordered">
 
 <td class='item-data'>
     <div class="DOI">
         DOI:
         <a href="{{ url_for('articleDashboard') }}?DOI={{ result.objectID }}">{{ result.objectID }}</a>
     </div>
-    <div class="articleTitle">
+    <div class="SR_articleTitle">
         Article Title:
         <a href="{{ url_for('articleDashboard') }}?DOI={{ result.objectID }}">{{ result.articleTitle }}</a>
     </div>
-    <div class="journalName">
+    <div class="SR_journalName">
         Journal Name:
         <a href="{{ url_for('journalDashboard') }}?journalName={{ result.journalName }}">{{ result.journalName }}</a>
     </div>
-    <div class="articleDate">
+    <div class="SR_articleDate">
         Article Date: {{ result.articleDate }}
     </div>
-    <div class="authors">
-        Authors: {{ result.articleDate }}
+    <div class="SR_authors">
+        Authors:
+        {% for author in result.author_list %}
+        <a href="{{ url_for('authorDashboard') }}?authorName={{ author.name }}"> {{ author.name }}</a>
+        {% endfor %}
     </div>
     <br>
     <br>
