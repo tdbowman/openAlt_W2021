@@ -12,44 +12,48 @@
     <div class="row">
         <div class="col-md-7">
             <div id="pHead">
-                First name, Last name
+                Author Name: {{}}
             </div>
             <hr>
             <div id="pContent">
-                <ul class="aInfo">
+                <!--<ul class="aInfo">
                     <li>Article Title: </li>
                     <li>Published in: </li>
                     <li>Journal Name: </li>
                     <li>Authors: </li>
-                </ul>
-                <!-- Database tables aren't set up to allow us to connect the webpages to the tables for these fields to appear.
+                </ul>-->
+                <table class="table table-bordered">
 
-                <table>
-                {% for result in searchResults %}
-                <tr>
-                    <td class='item-data'>
-                        <div class="articleTitle">
-                            Article Title:
-                            <a href="{{ url_for('articleDashboard') }}?DOI={{ result.objectID }}">{{ result.articleTitle }}</a>
-                        </div>
-                        <div class="articleDate">
-                            Article Date: {{ result.articleDate }}
-                        </div>
-                        <div class="journalName">
-                            Journal Name:
-                            <a href="{{ url_for('journalDashboard') }}?journalName={{ result.journalName }}">{{ result.journalName }}</a>
-                        </div>
-                        <div class="authors">
-                            Authors:
-                            <a href="{{ url_for('authorDashboard') }}?authors={{ result.authors }}"> {{ result.journalName }}</a> 
-                        </div>
-                        <br>
-                        <hr>
-                        <br>
-                    </td>
-                </tr>
-                {% endfor %}
-                </table> -->
+				{% for author in author_list %}
+				<tr class="row row-bordered">
+
+				<td class='item-data'>
+
+					<div class="AUD_articleTitle">
+						Article Title:
+						<a>{{ author.articleTitle }}</a>
+					</div>
+					<div class="AUD_journalName">
+						Journal Name:
+						<a>{{ author.journalName }}</a>
+					</div>
+					<div class="AUD_articleDate">
+						Article Date: {{ author.articleDate }}
+					</div>
+					<div class="AUD_authors">
+						Authors: {{ author.articleDate }}
+					</div>
+					<div class="AUD_DOI">
+						DOI:
+						<a>{{ author.objectID }}</a>
+					</div>
+					<br>
+					<br>
+					<br>
+					</td>
+					</tr>
+				{% endfor %}
+				</table>
             </div>
         </div>
         <div class="col-md-5">

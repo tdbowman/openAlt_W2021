@@ -24,6 +24,12 @@ sub {
   color: var(--hoverColor);
 }
 
+.SR_boxed{
+    border: 2px solid black ;
+    font-size: 15px;
+    padding:3px;
+}
+
 .boxed {
   border: 3px solid black ;
   font-family: "Lucida Console", Monaco, monospace;
@@ -41,31 +47,75 @@ table.table-bordered{
     margin-top:20px;
 }
 
+.SR_articleTitle{
+    font-size: 20px;
+    font-style: normal;
+    font-variant: small-caps;
+}
+
+.SR_journalName {
+    font-size: 110%;
+}
+
+.SR_articleDate {
+    font-size: 110%;
+}
+
+.SR_authors{
+    font-size: 110%;
+}
+
+
 .JD_articleTitle {
-    font-size: 28px;
+    font-size: 15px;
     font-style: normal;
     font-variant: small-caps;
 }
 
 .JD_journalName {
-    font-size: 20px;
+    font-size: 15px;
     font-style: normal;
 }
 
 .JD_articleDate {
-    font-size: 20px;
+    font-size: 15px;
     font-style: normal;
 }
 
 .JD_authors {
-    font-size: 20px;
+    font-size: 15px;
     font-style: normal;
 }
 
 .JD_DOI {
+    font-size: 15px;
+    font-style: normal;
+}
+
+.AD_articleTitle {
+    font-size: 28px;
+    font-style: normal;
+    font-variant: small-caps;
+}
+
+.AD_journalName {
     font-size: 20px;
     font-style: normal;
 }
+
+.AD_articleDate {
+    font-size: 20px;
+    font-style: normal;
+}
+
+.AD_authors {
+    font-size: 20px;
+    font-style: normal;
+}
+
+.AD_DOI {
+    font-size: 20px;
+    font-style: normal;}
 
 #pHead{
   font-size: 30px;
