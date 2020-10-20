@@ -341,7 +341,7 @@ table.table-bordered{
     width: 4rem;
   }
   .social-icons ul > li > a:hover {
-    background-color: #002E66;
+    background-color: #40ca47;
   }
 }
 
@@ -358,4 +358,18 @@ table.table-bordered{
 .input {
   font-weight: 300 !important;
 }
+
+.center-screen {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+
+a:hover {
+  background-color: rgb(27, 37, 27);
+}
+
 
