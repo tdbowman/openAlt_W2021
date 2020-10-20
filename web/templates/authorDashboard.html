@@ -12,7 +12,7 @@
     <div class="row">
         <div class="col-md-7">
             <div id="pHead">
-                Author Name: {{}}
+                Author Name: {{ author_name }}
             </div>
             <hr>
             <div id="pContent">
@@ -24,24 +24,27 @@
                 </ul>-->
                 <table class="table table-bordered">
 
-				{% for author in author_list %}
+				{% for author in author_article_list %}
 				<tr class="row row-bordered">
 
 				<td class='item-data'>
 
 					<div class="AUD_articleTitle">
 						Article Title:
-						<a>{{ author.articleTitle }}</a>
+						<a href="{{ url_for('articleDashboard') }}?DOI={{ author.objectID }}">{{ author.articleTitle }}</a>
 					</div>
 					<div class="AUD_journalName">
 						Journal Name:
-						<a>{{ author.journalName }}</a>
+						<a href="{{ url_for('journalDashboard') }}?journalName={{ author.journalName }}">{{ author.journalName }}</a>
 					</div>
 					<div class="AUD_articleDate">
 						Article Date: {{ author.articleDate }}
 					</div>
 					<div class="AUD_authors">
-						Authors: {{ author.articleDate }}
+						 Authors:
+                        {% for author in author.author_list %}
+                        {{ author.name }},
+                        {% endfor %}
 					</div>
 					<div class="AUD_DOI">
 						DOI:
