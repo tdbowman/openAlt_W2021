@@ -1,4 +1,16 @@
 def twitterIngest(uniqueEvent, cursor, connection):
+    # Initialize temporary variables
+    t_license = None
+    t_terms = None
+    t_updated_reason = None
+    t_updated = None
+    t_obj_id = None
+    t_source_token = None
+    t_occurred_at = None
+    t_subj_id = None
+    t_id = None
+    t_evidence_record = None
+    t_action = None
     t_subject_pid = None
     t_subject_title = None
     t_subject_issued = None
@@ -6,10 +18,13 @@ def twitterIngest(uniqueEvent, cursor, connection):
     t_original_tweet_url = None
     t_original_tweet_author = None
     t_alternative_id = None
-    # Updated fields do not always exist. So I set them as empty sting in case
-    t_updated_reason = None
+    t_source_id = None
+    t_obj_pid = None
+    t_obj_url = None
+    t_timestamp = None
     t_updated_date = None
-    t_updated = None
+    t_relation_type_id = None
+
     for key, value in uniqueEvent.items():
         # for key in uniqueEvent.keys():
         if key == "license":
@@ -77,7 +92,7 @@ def twitterIngest(uniqueEvent, cursor, connection):
     # Values to insert into event table
     data_event = (t_id, t_obj_id, t_author_url, t_original_tweet_author, t_occurred_at, t_license, t_terms, t_updated_reason, t_updated, t_source_token, t_evidence_record, t_action, t_subj_id,
                   t_subject_pid, t_original_tweet_url, t_alternative_id, t_subject_title, t_subject_issued, t_source_id, t_obj_pid, t_obj_url, t_timestamp, t_updated_date, t_relation_type_id)
-                  
+
     cursor.execute(add_event, data_event)  # add information to reddit table
     # Helps check if rows are inserting. Helps me sleep at night. print(cursor.rowcount, "record inserted.")
     connection.commit()

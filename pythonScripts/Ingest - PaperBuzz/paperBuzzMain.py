@@ -23,7 +23,7 @@ except:
 
 # Change these to suit your system
 mysql_username = "root"
-mysql_password = "RiyaFoxMcCloud64"
+mysql_password = ""
 
 connection = mysql.connector.connect(user=str(mysql_username), password=str(
     mysql_password), host='127.0.0.1', database='crossrefeventdata')

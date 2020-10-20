@@ -40,7 +40,6 @@ def main():
     for (path, dirnames, filenames) in os.walk(dataDirectory):
         files.extend(os.path.join(path, name) for name in sorted(filenames))
 
-
     # For each file in the directory, open the file.
     #   For each open file, load the contents into memory and extract the events LIST
     #       For i in events, pull out key/value pairs and "INSERT IGNORE INTO crossRefEventData"
@@ -56,45 +55,57 @@ def main():
                         if (key == "source_id" and value == "twitter"):
                             twitter.twitterIngest(
                                 uniqueEvent, cursor, connection)
+                            break
                         elif (key == "source_id" and value == "cambia-lens"):
                             cambiaLens.cambiaLensIngest(
                                 uniqueEvent, cursor, connection)
+                            break
                         elif (key == "source_id" and value == "hypothesis"):
                             hypothesis.hypothesisIngest(
                                 uniqueEvent, cursor, connection)
+                            break
                         elif (key == "source_id" and value == "reddit-links"):
                             redditLinks.redditLinksIngest(
                                 uniqueEvent, cursor, connection)
+                            break
                         elif (key == "source_id" and value == "newsfeed"):
                             newsfeed.newsfeedIngest(
                                 uniqueEvent, cursor, connection)
+                            break
                         elif (key == "source_id" and value == "web"):
                             web.webIngest(uniqueEvent, cursor, connection)
+                            break
                         elif (key == "source_id" and value == "crossref"):
                             crossref.crossrefIngest(
                                 uniqueEvent, cursor, connection)
+                            break
                         elif (key == "source_id" and value == "datacite"):
                             datacite.dataciteIngest(
                                 uniqueEvent, cursor, connection)
+                            break
                         elif (key == "source_id" and value == "wikipedia"):
                             wikipedia.wikipediaIngest(
                                 uniqueEvent, cursor, connection)
+                            break
                         elif (key == "source_id" and value == "wordpressdotcom"):
                             wordPress.wordPressIngest(
                                 uniqueEvent, cursor, connection)
+                            break
                         elif (key == "source_id" and value == "stackexchange"):
                             stackExchange.stackExchangeIngest(
                                 uniqueEvent, cursor, connection)
+                            break
                         elif (key == "source_id" and value == "reddit"):
                             reddit.redditIngest(
                                 uniqueEvent, cursor, connection)
+                            break
                     except Exception as e:
                         logging.info("Failed Ingest. Failed on file" + i)
                         logging.info("The error was " + str(e))
                         cursor.close()
                         connection.close()
                         sys.exit()
-                        
+
     cursor.close()
     connection.close()
 
