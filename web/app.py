@@ -66,27 +66,35 @@ def homepageSearch():
 
     # Search by DOI - WORKING
     if (selection == "DOI"):
+
         if not selcted_years:
+            #no year filter
             sql = "Select doi, title, publisher, published_print_date_parts, fk from _main_ where doi like '%" + search + "%\';"
         else:
+            #with year filter
             sql = "Select doi, title, publisher, published_print_date_parts, fk from _main_ where doi like '%" + search + "%\' and substr(published_print_date_parts, 1,4) in "+s_years+";"
 
         cursor.execute(sql)
         result_set = cursor.fetchall()
 
+        #iterate the _main_ table result set
         for row in result_set:
+            #get fk from _main_ table
             fk = row['fk']
             author_list = []
             if fk is not None:
-                author_sql = "select name from author where fk = " + str(fk) + ";"
+                #look up author table by fk
+                author_sql = "select id, name from author where fk = " + str(fk) + ";"
                 cursor.execute(author_sql)
+                #get list of authors for given fk
                 author_list = cursor.fetchall()
 
+            #create dict with _main_ table row and author list
             article = {'objectID': row['doi'], 'articleTitle': row['title'],
                        'journalName': row['publisher'],
                        'articleDate': row['published_print_date_parts'],
                        'author_list': author_list}
-            returnedQueries.append(article)
+            returnedQueries.append(article) #append article dict to returnedQueries list
 
         returnedQueries.append(None)
         cursor.close()
@@ -94,11 +102,13 @@ def homepageSearch():
 
     # THIS DOES NOT WORK YET SINCE AUTHOR TABLE NOT FILLED IN
     elif (selection == "Author"):
+        #get fk and name for searched author name
         given_author= []
         given_author = '( '
         auth_sql = "SELECT fk, name FROM dr_bowman_doi_data_tables.author where name like'%" +search+"%';"
         cursor.execute(auth_sql)
         result_set = cursor.fetchall()
+        #form a list of fk for the where statement (ex.) ('2005','2006')
         for row in result_set:
             if row == result_set[-1]:
                 given_author = given_author + str(row['fk'])
@@ -108,29 +118,37 @@ def homepageSearch():
 
         print(given_author)
 
+        #query _main_ table with list of fk gotten previously
         if result_set is not None:
             if not selcted_years:
+                #no year filter
                 sql = "Select doi, title, publisher, published_print_date_parts, fk from _main_ where fk in " + given_author + ";"
             else:
+                #with year filter
                 sql = "Select doi, title, publisher, published_print_date_parts, fk from _main_ where fk in " + given_author + " and substr(published_print_date_parts, 1,4) in" + s_years + ";"
 
             print(sql)
             cursor.execute(sql)
             result_set = cursor.fetchall()
 
+            #iterate the result set
             for row in result_set:
+                # get fk from _main_ table
                 fk = row['fk']
                 author_list = []
                 if fk is not None:
-                    author_sql = "select name from author where fk = " + str(fk) + ";"
+                    # look up author table by fk
+                    author_sql = "select id, name from author where fk = " + str(fk) + ";"
                     cursor.execute(author_sql)
+                    # get list of authors for given fk
                     author_list = cursor.fetchall()
 
+                # create dict with _main_ table row and author list
                 article = {'objectID': row['doi'], 'articleTitle': row['title'],
                            'journalName': row['publisher'],
                            'articleDate': row['published_print_date_parts'],
                            'author_list': author_list}
-                returnedQueries.append(article)
+                returnedQueries.append(article) #append article dict to returnedQueries list
 
             returnedQueries.append(None)
             cursor.close()
@@ -139,21 +157,28 @@ def homepageSearch():
     # THIS DOES NOT WORK YET SINCE JOURNAL TABLE NOT FILLED IN
     elif (selection == "Journal"):
         if not selcted_years:
+            #no year filter
             sql = "Select doi, title, publisher, published_print_date_parts, fk from _main_ where publisher like '%" + search + "%\';"
         else:
+            #with year filter
             sql = "Select doi, title, publisher, published_print_date_parts, fk from _main_ where publisher like '%" + search + "%\' and substr(published_print_date_parts, 1,4) in" + s_years+";"
 
         cursor.execute(sql)
         result_set = cursor.fetchall()
 
+        # iterate the result set
         for row in result_set:
+            # get fk from _main_ table
             fk = row['fk']
             author_list = []
             if fk is not None:
-                author_sql = "select name from author where fk = " + str(fk) + ";"
+                # look up author table by fk
+                author_sql = "select id, name from author where fk = " + str(fk) + ";"
                 cursor.execute(author_sql)
+                # get list of authors for given fk
                 author_list = cursor.fetchall()
 
+            # create dict with _main_ table row and author list
             article = {'objectID': row['doi'], 'articleTitle': row['title'],
                        'journalName': row['publisher'],
                        'articleDate': row['published_print_date_parts'],
@@ -167,22 +192,29 @@ def homepageSearch():
     # THIS DOES NOT WORK YET SINCE ARTICLE TABLE NOT FILLED IN
     elif (selection == "Article"):
         if not selcted_years:
+            #no year filter
             sql = "Select doi, title, publisher, published_print_date_parts, fk from _main_ where title like '%" + search + "%\';"
         else:
+            #with year filter
             sql = "Select doi, title, publisher, published_print_date_parts, fk from _main_ where title like '%" + search + "%\' and substr(published_print_date_parts, 1,4) in" + s_years + ";"
 
         print(sql)
         cursor.execute(sql)
         result_set = cursor.fetchall()
 
+        # iterate the result set
         for row in result_set:
+            # get fk from _main_ table
             fk = row['fk']
             author_list = []
             if fk is not None:
-                author_sql = "select name from author where fk = " + str(fk) + ";"
+                # look up author table by fk
+                author_sql = "select id, name from author where fk = " + str(fk) + ";"
                 cursor.execute(author_sql)
+                # get list of authors for given fk
                 author_list = cursor.fetchall()
 
+            # create dict with _main_ table row and author list
             article = {'objectID': row['doi'], 'articleTitle': row['title'],
                        'journalName': row['publisher'],
                        'articleDate': row['published_print_date_parts'],
@@ -205,18 +237,22 @@ def articleDashboard():
 
     global mysql
     cursor = mysql.connection.cursor()
-
+    #get DOI parameter
     search = str(flask.request.args.get("DOI"))
 
+    #query main table by DOI
     sql = "Select doi, title, publisher, published_print_date_parts, fk from _main_ where doi like '%" + search + "%\';"
 
     cursor.execute(sql)
     mysql.connection.commit()
     article_result = cursor.fetchone()
 
+
     if article_result is not None:
+        #get article fk
         fk = article_result['fk']
 
+        #get list of authors for that fk
         if fk is not None:
             author_sql = "select name from author where fk = " + str(fk) + ";"
             cursor.execute(author_sql)
@@ -228,7 +264,7 @@ def articleDashboard():
                    'author_list': author_list}
 
     cursor.close()
-    print(" ############", article)
+    #render the results to the article dashboard
     return flask.render_template('articleDashboard.html',
                                  article_detail=article)
 
@@ -240,20 +276,25 @@ def journalDashboard():
     global mysql
     cursor = mysql.connection.cursor()
 
-    journal_name = str(flask.request.args.get("journalName")) #fetch the query parameter journal name from searchREsults page
+    journal_name = str(flask.request.args.get("journalName")) #fetch the journal name parameter from searchREsults page
     sql = "Select doi, title, publisher, published_print_date_parts, fk from _main_ where publisher like '%" + journal_name + "%\';"
 
     cursor.execute(sql)
     result_set = cursor.fetchall()
 
+    # iterate the result set
     for row in result_set:
+        # get fk from _main_ table
         fk = row['fk']
         author_list = []
         if fk is not None:
+            # look up author table by fk
             author_sql = "select name from author where fk = " + str(fk) + ";"
             cursor.execute(author_sql)
+            # get list of authors for given fk
             author_list = cursor.fetchall()
 
+        # create dict with _main_ table row and author list
         article = {'objectID': row['doi'], 'articleTitle': row['title'],
                    'journalName': row['publisher'],
                    'articleDate': row['published_print_date_parts'],
@@ -267,9 +308,47 @@ def journalDashboard():
 # Author Dashboard
 @app.route('/authorDashboard', methods =["GET", "POST"])
 def authorDashboard():
+    author_article_list = []
 
+    global mysql
+    cursor = mysql.connection.cursor()
+    # fetch the query parameter author_id from searchResults page
+    author_id = str(flask.request.args.get("author_id"))
+    print('author_id' , author_id)
+    author_sql = "SELECT name, fk FROM dr_bowman_doi_data_tables.author where id ="+author_id+";"
+    cursor.execute(author_sql)
+    author_resultset = cursor.fetchone()
 
-    return flask.render_template('authorDashboard.html')
+    author_name = author_resultset['name']
+    author_fk = author_resultset['fk']
+    if author_fk is not None:
+        # look up author table by fk
+        sql = "Select doi, title, publisher, published_print_date_parts, fk from _main_ where fk = " + str(author_fk) + ";"
+        cursor.execute(sql)
+        result_set = cursor.fetchall()
+
+        # iterate the result set
+        for row in result_set:
+            # get fk from _main_ table
+            fk = row['fk']
+            author_list = []
+            if fk is not None:
+                # look up author table by fk
+                author_sql = "select id, name from author where fk = " + str(fk) + ";"
+                cursor.execute(author_sql)
+                # get list of authors for given fk
+                author_list = cursor.fetchall()
+
+            # create dict with _main_ table row and author list
+            article = {'objectID': row['doi'], 'articleTitle': row['title'],
+                       'journalName': row['publisher'],
+                       'articleDate': row['published_print_date_parts'],
+                       'author_list': author_list}
+            author_article_list.append(article)
+        cursor.close()
+    return flask.render_template('authorDashboard.html',
+                                 author_name=author_name,
+                                 author_article_list=author_article_list)
 
 @app.route('/about', methods =["GET", "POST"])
 def about():
