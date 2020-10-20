@@ -1,4 +1,16 @@
 def dataciteIngest(uniqueEvent, cursor, connection):
+
+    t_license = None
+    t_obj_id = None
+    t_occurred_at = None
+    t_subj_id = None
+    t_id = None
+    t_terms = None
+    t_message_action = None
+    t_source_id = None
+    t_timestamp = None
+    t_relation_type_id = None
+
     for key, value in uniqueEvent.items():
         if key == "license":
             t_license = value
@@ -24,7 +36,9 @@ def dataciteIngest(uniqueEvent, cursor, connection):
     # SQL which inserts into dataciteevent table
     add_event = ("INSERT IGNORE INTO DataCiteEvent " "(license, objectID, occurredAt, subjectID, eventID, termsOfUse, messageAction, sourceID, timeObserved, relationType) " "VALUES(%s,%s,%s,%s,%s,%s,%s,%s,%s, %s)")
     # Values to insert into dataciteevent tabls
-    data_event = (t_license, t_obj_id, t_occurred_at, t_subj_id, t_id, t_terms, t_message_action, t_source_id, t_timestamp, t_relation_type_id)
+    data_event = (t_license, t_obj_id, t_occurred_at, t_subj_id, t_id, t_terms,
+                  t_message_action, t_source_id, t_timestamp, t_relation_type_id)
 
-    cursor.execute(add_event, data_event) # add information to dataciteevent table
+    # add information to dataciteevent table
+    cursor.execute(add_event, data_event)
     connection.commit()
