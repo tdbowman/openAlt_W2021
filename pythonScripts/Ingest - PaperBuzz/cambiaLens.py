@@ -55,7 +55,7 @@ def cambiaLensIngest(uniqueEvent, cursor, connection):
                 elif(key == 'pid'):  # pid
                     t_pid = value
                 elif(key == 'jurisdiction'):  # jurisdiction
-                    t_subj_jurisdiction = value
+                    t_jurisdiction = value
         elif (key == "source_id"):
             t_source_id = value
         elif (key == "timestamp"):
