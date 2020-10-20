@@ -287,4 +287,4 @@ def licenses():
     return flask.render_template('licenses.html')
 
 if __name__ == "__main__":
-    app.run(host='localhost', port=8057)
+    app.run(host='localhost', port=5000)
