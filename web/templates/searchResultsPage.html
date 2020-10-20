@@ -63,7 +63,7 @@
     <div class="SR_authors">
         Authors:
         {% for author in result.author_list %}
-        <a href="{{ url_for('authorDashboard') }}?authorName={{ author.name }}"> {{ author.name }}</a>
+        <a href="{{ url_for('authorDashboard') }}?author_id={{ author.id }}"> {{ author.name }},</a>
         {% endfor %}
     </div>
     <br>
