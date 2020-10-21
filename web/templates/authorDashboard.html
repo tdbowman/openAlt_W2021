@@ -2,253 +2,105 @@
 
 <!-- Anything you put here will be in the HTML head tags-->
 {% block head %}
+<!-- FOR CHART -->
+<!-- Load c3.css first -->
+<link href="../static/js/libraries/c3-0.7.20/c3.css" rel="stylesheet">
 
+<!-- Load d3 second -->
+<script src="../static/js/libraries/d3.v5.min.js"></script>
+
+<!-- Load c3 last (because it depends on d3) -->
+<script src="../static/js/libraries/c3-0.7.20/c3.min.js"></script>
+<!-- END CHART SECTION -->
 {% endblock %}
+
 <!-- Anything you put here will be in the body-->
 {% block body %}
 <h1>Author Dashboard</h1>
 
 <div class="container">
-    <div class="row">
-        <div class="col-md-7">
-            <div id="pHead">
-                Author Name: {{ author_name }}
-            </div>
+
+    <!-- This is the left column-->
+    <div class="col-md-5">
+        <div id="pHead">
+            Author Name: {{ author_name }}
+        </div>
+        <hr>
+        <div id="pContent">
+            <!--<ul class="aInfo">
+                <li>Article Title: </li>
+                <li>Published in: </li>
+                <li>Journal Name: </li>
+                <li>Authors: </li>
+            </ul>-->
+            <table class="table table-bordered">
+
+            {% for author in author_article_list %}
+            <tr class="row row-bordered">
+
+            <td class='item-data'>
+
+                <div class="AUD_articleTitle">
+                    Article Title:
+                    <a href="{{ url_for('articleDashboard') }}?DOI={{ author.objectID }}">{{ author.articleTitle }}</a>
+                </div>
+                <div class="AUD_journalName">
+                    Journal Name:
+                    <a href="{{ url_for('journalDashboard') }}?journalName={{ author.journalName }}">{{ author.journalName }}</a>
+                </div>
+                <div class="AUD_articleDate">
+                    Article Date: {{ author.articleDate }}
+                </div>
+                <div class="AUD_authors">
+                        Authors:
+                    {% for author in author.author_list %}
+                    {{ author.name }},
+                    {% endfor %}
+                </div>
+                <div class="AUD_DOI">
+                    DOI:
+                    <a>{{ author.objectID }}</a>
+                </div>
+                <br>
+                <br>
+                <br>
+                </td>
+                </tr>
+            {% endfor %}
+            </table>
+        </div>
+    </div> <!-- End the leftmost column-->
+
+    <!-- This is the container for the right column-->
+    <div class = "container">
+        <div class="col-7" id="chart">
+        
+        </div>
+        
+        <!-- This goes below the chart -->
+        <div class="col-md-5" id="yearFilter">
+            <h3>Year</h3>
             <hr>
-            <div id="pContent">
-                <!--<ul class="aInfo">
-                    <li>Article Title: </li>
-                    <li>Published in: </li>
-                    <li>Journal Name: </li>
-                    <li>Authors: </li>
-                </ul>-->
-                <table class="table table-bordered">
-
-				{% for author in author_article_list %}
-				<tr class="row row-bordered">
-
-				<td class='item-data'>
-
-					<div class="AUD_articleTitle">
-						Article Title:
-						<a href="{{ url_for('articleDashboard') }}?DOI={{ author.objectID }}">{{ author.articleTitle }}</a>
-					</div>
-					<div class="AUD_journalName">
-						Journal Name:
-						<a href="{{ url_for('journalDashboard') }}?journalName={{ author.journalName }}">{{ author.journalName }}</a>
-					</div>
-					<div class="AUD_articleDate">
-						Article Date: {{ author.articleDate }}
-					</div>
-					<div class="AUD_authors">
-						 Authors:
-                        {% for author in author.author_list %}
-                        {{ author.name }},
-                        {% endfor %}
-					</div>
-					<div class="AUD_DOI">
-						DOI:
-						<a>{{ author.objectID }}</a>
-					</div>
-					<br>
-					<br>
-					<br>
-					</td>
-					</tr>
-				{% endfor %}
-				</table>
-            </div>
-        </div>
-        <div class="col-md-5">
-            <div class="row">
-                <div class="col-5 col-md-8" id="filter">
-                    <div class="col-6 col-md-5" id="yearFilter">
-                        <h2>Year</h2>
-                        <hr>
-                        <form action="">
-                            <label for="2020">
-                                <input type="checkbox" id="2020" name="2020"> 2020
-                            </label><br>
-                            <label for="2019">
-                                <input type="checkbox" id="2019" name="2019"> 2019
-                            </label><br>
-                            <label for="2018">
-                                <input type="checkbox" id="2018" name="2018"> 2018
-                            </label><br>
-                            <label for="2017">
-                                <input type="checkbox" id="2017" name="2017"> 2016
-                            </label><br>
-                        </form>
-                    </div>
-                    <div class="col-6 col-md-7" id="sourceFilter">
-                        <h2>Source</h2>
-                        <hr>
-                        <form action="">
-                            <label for="crossref">
-                                <input type="checkbox" id="crossref" name="crossref"> Crossref
-                            </label><br>
-                            <label for="reddit">
-                                <input type="checkbox" id="reddit" name="reddit"> Reddit
-                            </label><br>
-                            <label for="stackexchange">
-                                <input type="checkbox" id="stackexchange" name="stackexchange"> Stack Exchange
-                            </label><br>
-                            <label for="wikipedia">
-                                <input type="checkbox" id="wikipedia" name="wikipedia"> Wikipedia
-                            </label><br>
-                            <label for="wordpress">
-                                <input type="checkbox" id="wordpress" name="wordpress"> Wordpress
-                            </label><br>
-                            <label for="datecite">
-                                <input type="checkbox" id="datecite" name="datecite"> Datacite
-                            </label><br>
-                            <label for="twitter">
-                                <input type="checkbox" id="twitter" name="twitter"> Twitter
-                            </label><br>
-                            <label for="redditlinks">
-                                <input type="checkbox" id="redditlinks" name="redditlinks"> Reddit Links
-                            </label><br>
-                            <label for="newsfeed">
-                                <input type="checkbox" id="newsfeed" name="newsfeed"> Newsfeed
-                            </label><br>
-                            <label for="hypothesis">
-                                <input type="checkbox" id="hypothesis" name="hypothesis"> Hypothesis
-                            </label><br>
-                            <label for="cambia">
-                                <input type="checkbox" id="cambia" name="cambia"> Cambia
-                            </label><br>
-                            <label for="web">
-                                <input type="checkbox" id="web" name="web"> Web
-                            </label><br>
-                            <input type="submit" value="Submit">
-                        </form>
-                    </div>
-                </div>
-                <div class="col-6 col-md-11" id="legend">
-                    <h2 id="legendHeader">Legend</h2> 
-                    <hr>
-                    <div class="row">
-                        <div class="col-2 col-md-6" id="legendItemsCol1">  
-                            <div class="crossrefLegend">
-                                <div class="colorLegend" id="crossrefColor">
-
-                                </div>
-                                <div class="tag">
-                                    Crossref
-                                </div>
-                            </div>
-                            <div class="redditLegend">
-                                <div class="colorLegend" id="redditColor">
-
-                                </div>
-                                <div class="tag">
-                                    Reddit
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-2 col-md-6" id="legendItemsCol2">
-                            <div class="stackexchangeLegend">
-                                <div class="colorLegend" id="stackexchangeColor">
-
-                                </div>
-                                <div class="tag">
-                                    Stack Exchange
-                                </div>
-                            </div>
-                            <div class="wikipediaLegend">
-                                <div class="colorLegend" id="wikipediaColor">
-
-                                </div>
-                                <div class="tag">
-                                    Wikipedia
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-2 col-md-6" id="legendItemsCol3">
-                            <div class="wordpressLegend">
-                                <div class="colorLegend" id="wordpressColor">
-
-                                </div>
-                                <div class="tag">
-                                    Wordpress
-                                </div>
-                            </div>
-                            <div class="dataciteLegend">
-                                <div class="colorLegend" id="dataciteColor">
-
-                                </div>
-                                <div class="tag">
-                                    Datacite
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-2 col-md-6" id="legendItemsCol4">
-                            <div class="twitterLegend">
-                                <div class="colorLegend" id="twitterColor">
-
-                                </div>
-                                <div class="tag">
-                                    Twitter
-                                </div>
-                            </div>
-                            <div class="redditlinksLegend">
-                                <div class="colorLegend" id="redditlinksColor">
-
-                                </div>
-                                <div class="tag">
-                                    Reddit Links
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-2 col-md-6" id="legendItemsCol5">
-                            <div class="newsfeedLegend">
-                                <div class="colorLegend" id="newsfeedColor">
-
-                                </div>
-                                <div class="tag">
-                                    Newsfeed
-                                </div>
-                            </div>
-                            <div class="hypothesisLegend">
-                                <div class="colorLegend" id="hypothesisColor">
-
-                                </div>
-                                <div class="tag">
-                                    Hypothesis
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-2 col-md-6" id="legendItemsCol6">
-                            <div class="cambiaLegend">
-                                <div class="colorLegend" id="cambiaColor">
-
-                                </div>
-                                <div class="tag">
-                                    Cambia
-                                </div>
-                            </div>
-                            <div class="webLegend">
-                                <div class="colorLegend" id="webColor">
-
-                                </div>
-                                <div class="tag">
-                                    Web
-                                </div>
-                            </div>
-                        </div>
-                    </div>    
-                </div>
-                <div class="col-6 col-md-6" id="graph">
-                    <img src="https://placekitten.com/400/400" alt="Cat">
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-
-
+            <form action="">
+                <label for="2020">
+                    <input type="checkbox" id="2020" name="2020"> 2020
+                </label><br>
+                <label for="2019">
+                    <input type="checkbox" id="2019" name="2019"> 2019
+                </label><br>
+                <label for="2018">
+                    <input type="checkbox" id="2018" name="2018"> 2018
+                </label><br>
+                <label for="2017">
+                    <input type="checkbox" id="2017" name="2017"> 2016
+                </label><br>
+            </form>
+        </div><!-- End the Year filter div -->
+    </div><!-- End the container for right columns -->
+</div> <!-- end container wrapping entire page -->
 <br>
 <br>
 <br>
-
+<!-- Load Mitch JS for chart -->
+<script src="../static/js/chartScript.js"></script>
 {% endblock %}
