@@ -264,9 +264,9 @@ def articleDashboard():
                    'author_list': author_list}
 
     cursor.close()
+    #cambiaeventDataSend = [1,1,1,1,1]
     #render the results to the article dashboard
-    return flask.render_template('articleDashboard.html',
-                                 article_detail=article)
+    return flask.render_template('articleDashboard.html', article_detail=article)
 
 # Journal Dashboard
 @app.route('/journalDashboard', methods =["GET", "POST"])
@@ -366,4 +366,4 @@ def licenses():
     return flask.render_template('licenses.html')
 
 if __name__ == "__main__":
-    app.run(host='localhost', port=5000)
+    app.run(host='localhost', port=5000, debug=True)

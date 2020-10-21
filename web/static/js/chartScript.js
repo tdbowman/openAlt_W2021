@@ -6,7 +6,16 @@ Like: [column1, column2, column3, column4, column5]
 All 12 of these combine to make 5 bars, which are each 12 blocks high
 
 PYTHON CHANGES THESE OR PUTS THEM AS PARAMS */
-const cambiaevent = [10,30,10,80,70];
+
+
+/*
+var i;
+for (i = 0; i < cambiaevent.length; i++) {
+  //cambiaevent[i] = parseInt(cambiaevent[i])
+}
+i === 0;
+*/
+const cambiaevent = [1,30,10,80,70];
 const crossrefevent = [0,4,10,20,40];
 const dataciteevent = [10,0,10,10,10];
 const hypothesisevent = [10,10,10,70,10];
@@ -75,6 +84,21 @@ var chart = c3.generate({
           wikipediaevent,
           wordpressevent
         ],
+        type: 'bar',
+        groups: [
+          [ cambiaevent[0], 
+            crossrefevent[0], 
+            dataciteevent[0], 
+            hypothesisevent[0],
+            newsfeedevent[0],
+            redditevent[0],
+            redditlinksevent[0],
+            stackexchangeevent[0],
+            twitterevent[0],
+            webevent[0],
+            wikipediaevent[0],
+            wordpressevent[0]
+        ]],
         colors: {
           [cambiaevent[0]]: cambiaColor,
           [crossrefevent[0]]: crossrefColor,
@@ -89,32 +113,18 @@ var chart = c3.generate({
           [wikipediaevent[0]]: wikipediaColor,
           [wordpressevent[0]]: wordpressColor,
         },
-        legend: {
-          position: 'right'
-        },
-        type: 'bar',
-        /* 
-        This is confusing, but these need to be the items at position [0] in
-        each list. It won't work if you put cambiaevent or 'cambiaevent'.
-        It must be the cambiaevent[0]
+  },
+  
+  /* 
+  This is confusing, but these need to be the items at position [0] in
+  each list. It won't work if you put cambiaevent or 'cambiaevent'.
+  It must be the cambiaevent[0]
 
-        If you want to change their displayed names, change them in the 
-        unshift section above.
-        */
-        groups: [
-          [ cambiaevent[0], 
-            crossrefevent[0], 
-            dataciteevent[0], 
-            hypothesisevent[0],
-            newsfeedevent[0],
-            redditevent[0],
-            redditlinksevent[0],
-            stackexchangeevent[0],
-            twitterevent[0],
-            webevent[0],
-            wikipediaevent[0],
-            wordpressevent[0]
-        ]]
+  If you want to change their displayed names, change them in the 
+  unshift section above.
+  */
+  legend: {
+    position: 'bottom'
   },
   grid: {
       y: {
@@ -137,9 +147,8 @@ var chart = c3.generate({
       }
     }
   },
-  /*
+  
   size: {
-    height: 600
+    width: 670
   }
-  */
 });
