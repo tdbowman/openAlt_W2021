@@ -17,64 +17,60 @@
 <!-- Anything you put here will be in the body-->
 {% block body %}
 <div class="container">
+    <div class ="row">
+        <!-- This is the left column-->
+        <div class="col-md-5">
+            <div id="pHead">
+                {{ author_name }}
+            </div>
+            <hr>
+            <div id="pContent">
+                <!--<ul class="aInfo">
+                    <li>Article Title: </li>
+                    <li>Published in: </li>
+                    <li>Journal Name: </li>
+                    <li>Authors: </li>
+                </ul>-->
+                <table class="table table-bordered">
 
-    <!-- This is the left column-->
-    <div class="col-md-5">
-        <div id="pHead">
-            {{ author_name }}
-        </div>
-        <hr>
-        <div id="pContent">
-            <!--<ul class="aInfo">
-                <li>Article Title: </li>
-                <li>Published in: </li>
-                <li>Journal Name: </li>
-                <li>Authors: </li>
-            </ul>-->
-            <table class="table table-bordered">
+                {% for author in author_article_list %}
+                <tr class="row row-bordered">
 
-            {% for author in author_article_list %}
-            <tr class="row row-bordered">
+                <td class='item-data'>
 
-            <td class='item-data'>
-
-                <div class="AUD_articleTitle">
-                    Article Title:
-                    <a href="{{ url_for('articleDashboard') }}?DOI={{ author.objectID }}">{{ author.articleTitle }}</a>
-                </div>
-                <div class="AUD_journalName">
-                    Journal Name:
-                    <a href="{{ url_for('journalDashboard') }}?journalName={{ author.journalName }}">{{ author.journalName }}</a>
-                </div>
-                <div class="AUD_articleDate">
-                    Article Date: {{ author.articleDate }}
-                </div>
-                <div class="AUD_authors">
-                        Authors:
-                    {% for author in author.author_list %}
-                    {{ author.name }},
-                    {% endfor %}
-                </div>
-                <div class="AUD_DOI">
-                    DOI:
-                    <a>{{ author.objectID }}</a>
-                </div>
-                <br>
-                <br>
-                <br>
-                </td>
-                </tr>
-            {% endfor %}
-            </table>
-        </div>
-    </div> <!-- End the leftmost column-->
-
-    <!-- This is the container for the right column-->
-    <div class = "container">
+                    <div class="AUD_articleTitle">
+                        Article Title:
+                        <a href="{{ url_for('articleDashboard') }}?DOI={{ author.objectID }}">{{ author.articleTitle }}</a>
+                    </div>
+                    <div class="AUD_journalName">
+                        Journal Name:
+                        <a href="{{ url_for('journalDashboard') }}?journalName={{ author.journalName }}">{{ author.journalName }}</a>
+                    </div>
+                    <div class="AUD_articleDate">
+                        Article Date: {{ author.articleDate }}
+                    </div>
+                    <div class="AUD_authors">
+                            Authors:
+                        {% for author in author.author_list %}
+                        {{ author.name }},
+                        {% endfor %}
+                    </div>
+                    <div class="AUD_DOI">
+                        DOI:
+                        <a>{{ author.objectID }}</a>
+                    </div>
+                    <br>
+                    <br>
+                    <br>
+                    </td>
+                    </tr>
+                {% endfor %}
+                </table>
+            </div>
+        </div> <!-- End the leftmost column-->
         <div class="col-7" id="chart">
         
         </div>
-        
         <!-- This goes below the chart -->
         <div class="col-md-5" id="yearFilter">
             <h3>Year</h3>
@@ -95,7 +91,12 @@
             </form>
         </div><!-- End the Year filter div -->
     </div><!-- End the container for right columns -->
-</div> <!-- end container wrapping entire page -->
+    </div>
+
+    <!-- This is the container for the right column
+    <div class = "container">
+        
+</div> end container wrapping entire page -->
 <br>
 <br>
 <br>
@@ -120,54 +121,76 @@
 {% for index in cambiaEventData %}   
 <script>
     cambiaevent.push("{{ index }}");
+</script>
+{% endfor %}
+
+
+{% for index in crossrefEventData %}
+<script>
     crossrefevent.push("{{ index }}");
+</script>
+{% endfor %}
+
+{% for index in dataciteEventData %}
+<script>
     dataciteevent.push("{{ index }}");
+</script>
+{% endfor %}
+
+{% for index in hypothesisEventData %}
+<script>
     hypothesisevent.push("{{ index }}");
+</script>
+{% endfor %}
+
+{% for index in newsfeedEventData %}
+<script>
     newsfeedevent.push("{{ index }}");
+</script>
+{% endfor %}
+
+{% for index in redditEventData %}
+<script>
     redditevent.push("{{ index }}");
+</script>
+{% endfor %}
+
+{% for index in redditlinksEventData %}
+<script>
     redditlinksevent.push("{{ index }}");
+</script>
+{% endfor %}
+
+{% for index in stackexchangeEventData %}
+<script>
     stackexchangeevent.push("{{ index }}");
+</script>
+{% endfor %}
+
+{% for index in twitterEventData %}
+<script>
     twitterevent.push("{{ index }}");
+</script>
+{% endfor %}
+
+{% for index in webEventData %}
+<script>
     webevent.push("{{ index }}");
+</script>
+{% endfor %}
+
+{% for index in wikipediaEventData %}
+<script>
     wikipediaevent.push("{{ index }}");
+</script>
+{% endfor %}
+
+{% for index in wordpressEventData %}
+<script>
     wordpressevent.push("{{ index }}");
 </script>
 {% endfor %}
 
-<!-- 
-{% for index in crossrefEventData %}
-{% endfor %}
-
-{% for index in dataciteEventData %}
-{% endfor %}
-
-{% for index in hypothesisEventData %}
-{% endfor %}
-
-{% for index in newsfeedEventData %}
-{% endfor %}
-
-{% for index in redditEventData %}
-{% endfor %}
-
-{% for index in redditlinksEventData %}
-{% endfor %}
-
-{% for index in stackexchangeEventData %}
-{% endfor %}
-
-{% for index in twitterEventData %}
-{% endfor %}
-
-{% for index in webEventData %}
-{% endfor %}
-
-{% for index in wikipediaEventData %}
-{% endfor %}
-
-{% for index in wordpressEventData %}
-{% endfor %}
- -->
 
 <!-- Load Mitch JS for chart -->
 <script src="../static/js/chartScript.js"></script>
