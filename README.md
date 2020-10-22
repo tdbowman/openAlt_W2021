@@ -27,6 +27,7 @@ We are developing a website which will allow users to search our database for DO
 | Bootstrap 3.3.7                 | MIT License                        |
 | C3 0.7.20                       | MIT License                        |
 | D3 v5                           | BSD-3-Clause License               |
+| jQuery 3.5.1                    | MIT License                        |
 <br>
 
 | Python Module             | License                    |
