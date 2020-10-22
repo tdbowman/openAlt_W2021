@@ -60,7 +60,9 @@
     <!-- This is the right column container! -->
     <div class = "container">
         <div class="col-7">
-        <div id="chart"></div>
+        
+            <div id="chart"></div>
+
         </div>
     
         <!-- This is the right column below the chart-->
@@ -88,6 +90,74 @@
 <br>
 <br>
 
-<!-- Load Mitch JS for chart -->
+<!-- Initialize the arrays as empty arrays -->
+<script>
+    cambiaevent=[]
+    crossrefevent = [];
+    dataciteevent = [];
+    hypothesisevent = [];
+    newsfeedevent = [];
+    redditevent = [];
+    redditlinksevent = [];
+    stackexchangeevent = [];
+    twitterevent = [];
+    webevent = [];
+    wikipediaevent = [];
+    wordpressevent = [];
+</script>
+
+
+{% for index in cambiaEventData %}   
+<script>
+    cambiaevent.push("{{ index }}");
+    crossrefevent.push("{{ index }}");
+    dataciteevent.push("{{ index }}");
+    hypothesisevent.push("{{ index }}");
+    newsfeedevent.push("{{ index }}");
+    redditevent.push("{{ index }}");
+    redditlinksevent.push("{{ index }}");
+    stackexchangeevent.push("{{ index }}");
+    twitterevent.push("{{ index }}");
+    webevent.push("{{ index }}");
+    wikipediaevent.push("{{ index }}");
+    wordpressevent.push("{{ index }}");
+</script>
+{% endfor %}
+
+<!-- 
+{% for index in crossrefEventData %}
+{% endfor %}
+
+{% for index in dataciteEventData %}
+{% endfor %}
+
+{% for index in hypothesisEventData %}
+{% endfor %}
+
+{% for index in newsfeedEventData %}
+{% endfor %}
+
+{% for index in redditEventData %}
+{% endfor %}
+
+{% for index in redditlinksEventData %}
+{% endfor %}
+
+{% for index in stackexchangeEventData %}
+{% endfor %}
+
+{% for index in twitterEventData %}
+{% endfor %}
+
+{% for index in webEventData %}
+{% endfor %}
+
+{% for index in wikipediaEventData %}
+{% endfor %}
+
+{% for index in wordpressEventData %}
+{% endfor %}
+ -->
+
 <script src="../static/js/chartScript.js"></script>
 {% endblock %}

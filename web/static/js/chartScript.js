@@ -15,18 +15,20 @@ for (i = 0; i < cambiaevent.length; i++) {
 }
 i === 0;
 */
-const cambiaevent = [1,30,10,80,70];
-const crossrefevent = [0,4,10,20,40];
-const dataciteevent = [10,0,10,10,10];
-const hypothesisevent = [10,10,10,70,10];
-const newsfeedevent = [10,30,10,80,10];
-const redditevent = [10,10,10,10,10];
-const redditlinksevent = [10,10,20,10,10];
-const stackexchangeevent = [10,30,10,10,10];
-const twitterevent = [30,10,30,10,10];
-const webevent = [10,60,10,30,20];
-const wikipediaevent = [60,60,30,10,10];
-const wordpressevent = [70,90,30,10,10];
+
+// Values will be modified within each dashboard function in app.py
+// const cambiaevent = [];
+// const crossrefevent = [0, 4, 10, 20, 40];
+// const dataciteevent = [10, 0, 10, 10, 10];
+// const hypothesisevent = [10, 10, 10, 70, 10];
+// const newsfeedevent = [10, 30, 10, 80, 10];
+// const redditevent = [10, 10, 10, 10, 10];
+// const redditlinksevent = [10, 10, 20, 10, 10];
+// const stackexchangeevent = [10, 30, 10, 10, 10];
+// const twitterevent = [30, 10, 30, 10, 10];
+// const webevent = [10, 60, 10, 30, 20];
+// const wikipediaevent = [60, 60, 30, 10, 10];
+// const wordpressevent = [70, 90, 30, 10, 10];
 const year0 = 2016;
 const year1 = 2017;
 const year2 = 2018;
@@ -70,51 +72,51 @@ wordpressevent.unshift("Wordpress");
 var chart = c3.generate({
   bindto: '#chart',
   data: {
-        columns: [
-          cambiaevent,
-          crossrefevent,
-          dataciteevent,
-          hypothesisevent,
-          newsfeedevent,
-          redditevent,
-          redditlinksevent,
-          stackexchangeevent,
-          twitterevent,
-          webevent,
-          wikipediaevent,
-          wordpressevent
-        ],
-        type: 'bar',
-        groups: [
-          [ cambiaevent[0], 
-            crossrefevent[0], 
-            dataciteevent[0], 
-            hypothesisevent[0],
-            newsfeedevent[0],
-            redditevent[0],
-            redditlinksevent[0],
-            stackexchangeevent[0],
-            twitterevent[0],
-            webevent[0],
-            wikipediaevent[0],
-            wordpressevent[0]
-        ]],
-        colors: {
-          [cambiaevent[0]]: cambiaColor,
-          [crossrefevent[0]]: crossrefColor,
-          [dataciteevent[0]]: dataciteColor,
-          [hypothesisevent[0]]: hypothesisColor,
-          [newsfeedevent[0]]: newsfeedColor,
-          [redditevent[0]]: redditColor,
-          [redditlinksevent[0]]: redditLinksColor,
-          [stackexchangeevent[0]]: stackExchangeColor,
-          [twitterevent[0]]: twitterColor,
-          [webevent[0]]: webColor,
-          [wikipediaevent[0]]: wikipediaColor,
-          [wordpressevent[0]]: wordpressColor,
-        },
+    columns: [
+      cambiaevent,
+      crossrefevent,
+      dataciteevent,
+      hypothesisevent,
+      newsfeedevent,
+      redditevent,
+      redditlinksevent,
+      stackexchangeevent,
+      twitterevent,
+      webevent,
+      wikipediaevent,
+      wordpressevent
+    ],
+    type: 'bar',
+    groups: [
+      [cambiaevent[0],
+      crossrefevent[0],
+      dataciteevent[0],
+      hypothesisevent[0],
+      newsfeedevent[0],
+      redditevent[0],
+      redditlinksevent[0],
+      stackexchangeevent[0],
+      twitterevent[0],
+      webevent[0],
+      wikipediaevent[0],
+      wordpressevent[0]
+      ]],
+    colors: {
+      [cambiaevent[0]]: cambiaColor,
+      [crossrefevent[0]]: crossrefColor,
+      [dataciteevent[0]]: dataciteColor,
+      [hypothesisevent[0]]: hypothesisColor,
+      [newsfeedevent[0]]: newsfeedColor,
+      [redditevent[0]]: redditColor,
+      [redditlinksevent[0]]: redditLinksColor,
+      [stackexchangeevent[0]]: stackExchangeColor,
+      [twitterevent[0]]: twitterColor,
+      [webevent[0]]: webColor,
+      [wikipediaevent[0]]: wikipediaColor,
+      [wordpressevent[0]]: wordpressColor,
+    },
   },
-  
+
   /* 
   This is confusing, but these need to be the items at position [0] in
   each list. It won't work if you put cambiaevent or 'cambiaevent'.
@@ -127,9 +129,9 @@ var chart = c3.generate({
     position: 'bottom'
   },
   grid: {
-      y: {
-         lines: [{value:0}]
-      }
+    y: {
+      lines: [{ value: 0 }]
+    }
   },
   axis: {
     x: {
@@ -138,7 +140,7 @@ var chart = c3.generate({
         position: 'outer-center'
       },
       type: 'category',
-      categories: [year0, year1, year2, year3, year4]        
+      categories: [year0, year1, year2, year3, year4]
     },
     y: {
       label: {
@@ -147,7 +149,7 @@ var chart = c3.generate({
       }
     }
   },
-  
+
   size: {
     width: 670
   }
