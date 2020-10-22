@@ -110,54 +110,75 @@
 {% for index in cambiaEventData %}   
 <script>
     cambiaevent.push("{{ index }}");
-    crossrefevent.push("{{ index }}");
-    dataciteevent.push("{{ index }}");
-    hypothesisevent.push("{{ index }}");
-    newsfeedevent.push("{{ index }}");
-    redditevent.push("{{ index }}");
-    redditlinksevent.push("{{ index }}");
-    stackexchangeevent.push("{{ index }}");
-    twitterevent.push("{{ index }}");
-    webevent.push("{{ index }}");
-    wikipediaevent.push("{{ index }}");
-    wordpressevent.push("{{ index }}");
 </script>
 {% endfor %}
 
-<!-- 
+
 {% for index in crossrefEventData %}
+<script>
+    crossrefevent.push("{{ index }}");
+</script>
 {% endfor %}
 
 {% for index in dataciteEventData %}
+<script>
+    dataciteevent.push("{{ index }}");
+</script>
 {% endfor %}
 
 {% for index in hypothesisEventData %}
+<script>
+    hypothesisevent.push("{{ index }}");
+</script>
 {% endfor %}
 
 {% for index in newsfeedEventData %}
+<script>
+    newsfeedevent.push("{{ index }}");
+</script>
 {% endfor %}
 
 {% for index in redditEventData %}
+<script>
+    redditevent.push("{{ index }}");
+</script>
 {% endfor %}
 
 {% for index in redditlinksEventData %}
+<script>
+    redditlinksevent.push("{{ index }}");
+</script>
 {% endfor %}
 
 {% for index in stackexchangeEventData %}
+<script>
+    stackexchangeevent.push("{{ index }}");
+</script>
 {% endfor %}
 
 {% for index in twitterEventData %}
+<script>
+    twitterevent.push("{{ index }}");
+</script>
 {% endfor %}
 
 {% for index in webEventData %}
+<script>
+    webevent.push("{{ index }}");
+</script>
 {% endfor %}
 
 {% for index in wikipediaEventData %}
+<script>
+    wikipediaevent.push("{{ index }}");
+</script>
 {% endfor %}
 
 {% for index in wordpressEventData %}
+<script>
+    wordpressevent.push("{{ index }}");
+</script>
 {% endfor %}
- -->
 
 <script src="../static/js/chartScript.js"></script>
 {% endblock %}

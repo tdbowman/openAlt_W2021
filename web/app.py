@@ -286,24 +286,23 @@ def articleDashboard():
                    'author_list': author_list}
 
     cursor.close()
+
     # Size of each list depends on how many years(in chartScript.js) you'd like to display.
     # Queries will be inserted within the array
-    cambiaEvent = [30, 20, 50, 10, 90]
-    '''
-    crossrefevent = [];
-    dataciteevent = [];
-    hypothesisevent = [];
-    newsfeedevent = [];
-    redditevent = [];
-    redditlinksevent = [];
-    stackexchangeevent = [];
-    twitterevent = [];
-    webevent = [];
-    wikipediaevent = [];
-    wordpressevent = [];
-    '''
+    cambiaEvent = [-1, -1, -1, -1, -1]
+    crossrefevent = [-1, -1, -1, -1, -1]
+    dataciteevent = [-1, -1, -1, -1, -1]
+    hypothesisevent = [-1, -1, -1, -1, -1]
+    newsfeedevent = [-1, -1, -1, -1, -1]
+    redditevent = [-1, -1, -1, -1, -1]
+    redditlinksevent = [-1, -1, -1, -1, -1]
+    stackexchangeevent = [-1, -1, -1, -1, -1]
+    twitterevent = [-1, -1, -1, -1, -1]
+    webevent = [-1, -1, -1, -1, -1]
+    wikipediaevent = [-1, -1, -1, -1, -1]
+    wordpressevent = [-1, -1, -1, -1, -1]
 
-    return flask.render_template('articleDashboard.html', article_detail=article, cambiaEventData=cambiaEvent)
+    return flask.render_template('articleDashboard.html', article_detail=article, cambiaEventData=cambiaEvent, crossrefEventData=crossrefevent, dataciteEventData=dataciteevent, hypothesisEventData=hypothesisevent, newsfeedEventData=newsfeedevent, redditEventData=redditevent, redditlinksEventData=redditlinksevent, stackexchangeEventData=stackexchangeevent, twitterEventData=twitterevent, webEventData=webevent, wikipediaEventData=wikipediaevent, wordpressEventData=wordpressevent)
 
 # Journal Dashboard
 
@@ -343,24 +342,22 @@ def journalDashboard():
 
     # Size of each list depends on how many years(in chartScript.js) you'd like to display.
     # Queries will be inserted within the array
-    cambiaEvent = [30, 20, 50, 10, 90]
-    '''
-    crossrefevent = [];
-    dataciteevent = [];
-    hypothesisevent = [];
-    newsfeedevent = [];
-    redditevent = [];
-    redditlinksevent = [];
-    stackexchangeevent = [];
-    twitterevent = [];
-    webevent = [];
-    wikipediaevent = [];
-    wordpressevent = [];
-    '''
+    cambiaEvent = [-1, -1, -1, -1, -1]
+    crossrefevent = [-1, -1, -1, -1, -1]
+    dataciteevent = [-1, -1, -1, -1, -1]
+    hypothesisevent = [-1, -1, -1, -1, -1]
+    newsfeedevent = [-1, -1, -1, -1, -1]
+    redditevent = [-1, -1, -1, -1, -1]
+    redditlinksevent = [-1, -1, -1, -1, -1]
+    stackexchangeevent = [-1, -1, -1, -1, -1]
+    twitterevent = [-1, -1, -1, -1, -1]
+    webevent = [-1, -1, -1, -1, -1]
+    wikipediaevent = [-1, -1, -1, -1, -1]
+    wordpressevent = [-1, -1, -1, -1, -1]
 
     return flask.render_template('journalDashboard.html',
                                  journal_name=journal_name,
-                                 journal_list=journal_list, cambiaEventData=cambiaEvent)
+                                 journal_list=journal_list, cambiaEventData=cambiaEvent, crossrefEventData=crossrefevent, dataciteEventData=dataciteevent, hypothesisEventData=hypothesisevent, newsfeedEventData=newsfeedevent, redditEventData=redditevent, redditlinksEventData=redditlinksevent, stackexchangeEventData=stackexchangeevent, twitterEventData=twitterevent, webEventData=webevent, wikipediaEventData=wikipediaevent, wordpressEventData=wordpressevent)
 
 # Author Dashboard
 
@@ -410,24 +407,22 @@ def authorDashboard():
 
     # Size of each list depends on how many years(in chartScript.js) you'd like to display.
     # Queries will be inserted within the array
-    cambiaEvent = [30, 20, 50, 10, 90]
-    '''
-    crossrefevent = [];
-    dataciteevent = [];
-    hypothesisevent = [];
-    newsfeedevent = [];
-    redditevent = [];
-    redditlinksevent = [];
-    stackexchangeevent = [];
-    twitterevent = [];
-    webevent = [];
-    wikipediaevent = [];
-    wordpressevent = [];
-    '''
+    cambiaEvent = [-1, -1, -1, -1, -1]
+    crossrefevent = [-1, -1, -1, -1, -1]
+    dataciteevent = [-1, -1, -1, -1, -1]
+    hypothesisevent = [-1, -1, -1, -1, -1]
+    newsfeedevent = [-1, -1, -1, -1, -1]
+    redditevent = [-1, -1, -1, -1, -1]
+    redditlinksevent = [-1, -1, -1, -1, -1]
+    stackexchangeevent = [-1, -1, -1, -1, -1]
+    twitterevent = [-1, -1, -1, -1, -1]
+    webevent = [-1, -1, -1, -1, -1]
+    wikipediaevent = [-1, -1, -1, -1, -1]
+    wordpressevent = [-1, -1, -1, -1, -1]
 
     return flask.render_template('authorDashboard.html',
                                  author_name=author_name,
-                                 author_article_list=author_article_list, cambiaEventData=cambiaEvent)
+                                 author_article_list=author_article_list, cambiaEventData=cambiaEvent, crossrefEventData=crossrefevent, dataciteEventData=dataciteevent, hypothesisEventData=hypothesisevent, newsfeedEventData=newsfeedevent, redditEventData=redditevent, redditlinksEventData=redditlinksevent, stackexchangeEventData=stackexchangeevent, twitterEventData=twitterevent, webEventData=webevent, wikipediaEventData=wikipediaevent, wordpressEventData=wordpressevent)
 
 
 @app.route('/about', methods=["GET", "POST"])
