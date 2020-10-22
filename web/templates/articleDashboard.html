@@ -21,7 +21,6 @@
     //
 </script>
 
-<h1>Article Dashboard</h1>
 <div class = "container">
 
     <!-- This is the left column-->
@@ -31,8 +30,9 @@
                 <tr>
                 <td class='item-data'>
                 <div class="AD_articleTitle">
-                    Article Title: {{ article_detail.articleTitle }}
+                    {{ article_detail.articleTitle }}
                 </div>
+                <br>
                 <div class="AD_journalName">
                     Journal Name: {{ article_detail.journalName }}
                 </div>
@@ -41,7 +41,7 @@
                 </div>
                 <div class="AD_authors">
                     Authors:
-                    {% for author in article_detail.author_list %}
+                    {% for author in article_detail.author_list%}
                     {{ author.name }} ,
                     {% endfor %}
                 </div>

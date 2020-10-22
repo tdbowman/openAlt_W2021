@@ -50,7 +50,7 @@
         <a href="{{ url_for('articleDashboard') }}?DOI={{ result.objectID }}">{{ result.objectID }}</a>
     </div>
     <div class="SR_articleTitle">
-        Article Title:
+        
         <a href="{{ url_for('articleDashboard') }}?DOI={{ result.objectID }}">{{ result.articleTitle }}</a>
     </div>
     <div class="SR_journalName">
@@ -73,7 +73,7 @@
    </tr>
 {% endfor %}
 </table>
-
+<!--
 <div>
  <nav aria-label="Page navigation example">
   <ul class="pagination pg-blue">
@@ -85,7 +85,8 @@
   </ul>
 </nav>
 </div>
-
+-->
+<h4>END OF SEARCH RESULTS</h4>
 
 {% endblock %}
 
