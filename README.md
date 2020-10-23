@@ -39,6 +39,8 @@ We are developing a website which will allow users to search our database for DO
 | flask-mysqldb             | MIT License                |
 | virtualenv                | MIT License                |
 
+Search page image is from [99images.com](https://www.99images.com/wallpapers/travel-world/detroit-city-android-iphone-desktop-hd-backgrounds-wallpapers-1080p-4k-r1zh/193037)
+
 ## Acknowledgements
 We would like to thank:  
 * Dr. Timothy Bowman for the project idea and guidance! 💡  
