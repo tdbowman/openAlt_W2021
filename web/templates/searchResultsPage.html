@@ -46,7 +46,7 @@
 <td class='item-data'>
     <div class="DOI">
         DOI:
-        <a href="{{ url_for('articleDashboard') }}?DOI={{ result.objectID }}">{{ result.objectID }}</a>
+        <a href="https://doi.org/{{ result.objectID }}"target="_blank">{{ result.objectID }} &#8599;</a>
     </div>
     <div class="SR_articleTitle">
         
@@ -62,7 +62,7 @@
     <div class="SR_authors">
         Authors:
         {% for author in result.author_list %}
-        <a href="{{ url_for('authorDashboard') }}?author_id={{ author.id }}"> {{ author.name }},</a>
+        <a href="{{ url_for('authorDashboard') }}?author_id={{ author.id }}">{{ author.name }},</a>
         {% endfor %}
     </div>
     <br>
