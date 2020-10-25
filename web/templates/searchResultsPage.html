@@ -44,10 +44,7 @@
 <tr class="row row-bordered">
 
 <td class='item-data'>
-    <div class="DOI">
-        DOI:
-        <a href="https://doi.org/{{ result.objectID }}"target="_blank">{{ result.objectID }} &#8599;</a>
-    </div>
+
     <div class="SR_articleTitle">
         
         <a href="{{ url_for('articleDashboard') }}?DOI={{ result.objectID }}">{{ result.articleTitle }}</a>
@@ -56,14 +53,19 @@
         Journal Name:
         <a href="{{ url_for('journalDashboard') }}?journalName={{ result.journalName }}">{{ result.journalName }}</a>
     </div>
+    
     <div class="SR_articleDate">
         Article Date: {{ result.articleDate }}
     </div>
     <div class="SR_authors">
-        Authors:
+        Author(s):
         {% for author in result.author_list %}
         <a href="{{ url_for('authorDashboard') }}?author_id={{ author.id }}">{{ author.name }},</a>
         {% endfor %}
+    </div>
+    <div class="DOI">
+        DOI:
+        <a href="https://doi.org/{{ result.objectID }}"target="_blank">{{ result.objectID }} &#8599;</a>
     </div>
     <br>
     <br>

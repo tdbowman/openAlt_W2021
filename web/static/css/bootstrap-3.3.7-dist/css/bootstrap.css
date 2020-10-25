@@ -180,7 +180,7 @@ optgroup {
   font-weight: bold;
 }
 table {
-  border-spacing: 0;
+  border-spacing: 30px;
   border-collapse: collapse;
 }
 td,
@@ -2275,7 +2275,9 @@ th {
   line-height: 1.42857143;
   vertical-align: top;
   border-top: 1px solid #ddd;
+  
 }
+
 .table > thead > tr > th {
   vertical-align: bottom;
   border-bottom: 2px solid #ddd;

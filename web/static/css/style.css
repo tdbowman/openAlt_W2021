@@ -1,7 +1,7 @@
 :root {
-  --bg-colo: #aliceblue;
+  --bg-color: #aliceblue;
   --textColor: #333333;
-  --accentColor: #6C908D;
+  --accentColor: #375edd;
   --accentColor2: #A15951;
   --hoverColor: #268bd2;
 }
@@ -11,8 +11,17 @@ body,h4,h3 {
   color: var(--textColor);
 }
 
-h2,a,th {
+h2,th {
   color: var(--accentColor);
+}
+
+a{
+  color: var(--accentColor);
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+a:hover{
+  color: var(--accentColor);
+  /*font-size: 110%;*/
 }
 
 h1 {
@@ -25,14 +34,14 @@ sub {
 }
 
 .SR_boxed{
-    border: 2px solid black ;
-    font-size: 15px;
-    padding:3px;
+  border-radius: 25px; 
+  padding: 10px; 
+  background-color: rgba(208, 218, 230, 0.5);
 }
 
 .boxed {
   border: 3px solid black ;
-  font-family: "Lucida Console", Monaco, monospace;
+  font-family: Arial, Helvetica, sans-serif;
   font-size: 15px;
   font-style: normal;
   font-variant: normal;
@@ -43,8 +52,9 @@ sub {
 }
 
 table.table-bordered{
-    border:5px solid black;
+    background-color: rgba(208, 218, 230, 0.5);
     margin-top:20px;
+    border-radius: 25px;
 }
 
 .SR_articleTitle{
