@@ -55,6 +55,17 @@ table.table-bordered{
     background-color: rgba(208, 218, 230, 0.5);
     margin-top:20px;
     border-radius: 25px;
+    border:0px !important;
+}
+
+#noBorders{
+  background-color: rgba(208, 218, 230, 0.5);
+  margin-top:20px;
+  border-radius: 25px;
+  border:0px !important;
+}
+.item-data{
+  padding:2%;
 }
 
 .SR_articleTitle{

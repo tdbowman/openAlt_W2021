@@ -250,14 +250,20 @@ th {
   }
   .table {
     border-collapse: collapse !important;
+    border:0px !important;
+    border-collapse: collapse !important;
+
   }
   .table td,
   .table th {
     background-color: #fff !important;
+    border:0px !important;
+    border-collapse: collapse !important ;
   }
   .table-bordered th,
   .table-bordered td {
-    border: 1px solid #ddd !important;
+    border: 0px !important;
+    border-collapse: collapse !important  ;
   }
 }
 @font-face {
@@ -2305,7 +2311,8 @@ th {
   padding: 5px;
 }
 .table-bordered {
-  border: 1px solid #ddd;
+  border: 0px !important;
+
 }
 .table-bordered > thead > tr > th,
 .table-bordered > tbody > tr > th,
