@@ -610,26 +610,25 @@ def journalDashboard():
                    'author_list': author_list}
         journal_list.append(article)
 
-    # Size of each list depends on how many years(in chartScript.js) you'd like to display.
-    # Queries will be inserted within the array
-    cambiaEvent = [30, 20, 50, 10, 90]
-    '''
-    crossrefevent = [];
-    dataciteevent = [];
-    hypothesisevent = [];
-    newsfeedevent = [];
-    redditevent = [];
-    redditlinksevent = [];
-    stackexchangeevent = [];
-    twitterevent = [];
-    webevent = [];
-    wikipediaevent = [];
-    wordpressevent = [];
-    '''
-
+    start_year = 1995
+    end_year = 2020
+    publishedPerYear = []
+    while (start_year <= end_year):
+        articles_per_year_sql = "select count(*) count " \
+                                "from dr_bowman_doi_data_tables._main_ " \
+                                "where container_title like '%" + journal_name + "%' " \
+                                "and substr(published_print_date_parts,1,4)='" + str(
+            start_year) + "' ;"
+        cursor.execute(articles_per_year_sql)
+        yr_count = cursor.fetchone()
+        publishedPerYear.append(yr_count["count"])
+        start_year = start_year + 1
+    print("publishedPerYear ---- ", publishedPerYear)
     return flask.render_template('journalDashboard.html',
                                  journal_name=journal_name,
-                                 journal_list=journal_list, cambiaEventData=cambiaEvent)
+                                 journal_list=journal_list,
+                                 publishedPerYear=publishedPerYear
+                                 )
 
 # Author Dashboard
 
@@ -706,7 +705,7 @@ def authorDashboard():
     # Queries will be inserted within the array
     years_list = [2016, 2017, 2018, 2019, 2020]
 
-    # form a list for IN operation (e.g) ('2016', '2017','2018')
+    # form a list of just the DOIs
     doi_list = '( '
     for doi in author_doi_list:
         if doi == author_doi_list[-1]:
