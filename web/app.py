@@ -1,6 +1,6 @@
-# pip install flask-mysqldb
 import flask
 import json
+from datetime import datetime
 from flask_mysqldb import MySQL
 app = flask.Flask(__name__)
 
@@ -42,75 +42,29 @@ def homepageSearch():
 
     returnedQueries = []
 
-    x = "something not none"
     row = "something not none"
-    # Get the parameters from
+    # Get the parameters
     if flask.request.method == "POST":
         search = str(flask.request.form.get("search"))
         selection = str(flask.request.form.get("dropdownSearchBy"))
-        selcted_years = flask.request.form.getlist("years")
+        selected_years = []
+        try:
+            startYear = int(flask.request.form.get("startYear")) # Mitch - used to for range form
+            if startYear > datetime.now().year:
+                pass # If they enter a year greater than this year, just proceed to the except block AKA execute search with no year filter
+            endYear = int(flask.request.form.get("endYear")) # Mitch - used for range form
+            # Build up a list of selected years, ranging from startYear to endYear
+            while (startYear < endYear + 1):
+                selected_years.append(startYear)
+                startYear+=1
+        except:
+            selected_years = []
 
-        for year in range(0, len(selcted_years)):
-            selcted_years[year] = int(selcted_years[year])
-
-        if not selcted_years:
-            years = [{'year': 2020, 'select': ''},
-                     {'year': 2019, 'select': ''},
-                     {'year': 2018, 'select': ''},
-                     {'year': 2017, 'select': ''},
-                     {'year': 2016, 'select': ''},
-                     {'year': 2015, 'select': ''},
-                     {'year': 2014, 'select': ''},
-                     {'year': 2013, 'select': ''},
-                     {'year': 2012, 'select': ''},
-                     {'year': 2011, 'select': ''},
-                     {'year': 2010, 'select': ''},
-                     {'year': 2009, 'select': ''},
-                     {'year': 2008, 'select': ''},
-                     {'year': 2007, 'select': ''},
-                     {'year': 2006, 'select': ''},
-                     {'year': 2005, 'select': ''},
-                     {'year': 2004, 'select': ''},
-                     {'year': 2003, 'select': ''},
-                     {'year': 2002, 'select': ''},
-                     {'year': 2001, 'select': ''},
-                     {'year': 2000, 'select': ''},
-                     {'year': 1999, 'select': ''},
-                     {'year': 1998, 'select': ''},
-                     {'year': 1997, 'select': ''}]  # TBD bring unique years from main table
-        else:
-            years = [{'year': 2020, 'select': ''},
-                     {'year': 2019, 'select': ''},
-                     {'year': 2018, 'select': ''},
-                     {'year': 2017, 'select': ''},
-                     {'year': 2016, 'select': ''},
-                     {'year': 2015, 'select': ''},
-                     {'year': 2014, 'select': ''},
-                     {'year': 2013, 'select': ''},
-                     {'year': 2012, 'select': ''},
-                     {'year': 2011, 'select': ''},
-                     {'year': 2010, 'select': ''},
-                     {'year': 2009, 'select': ''},
-                     {'year': 2008, 'select': ''},
-                     {'year': 2007, 'select': ''},
-                     {'year': 2006, 'select': ''},
-                     {'year': 2005, 'select': ''},
-                     {'year': 2004, 'select': ''},
-                     {'year': 2003, 'select': ''},
-                     {'year': 2002, 'select': ''},
-                     {'year': 2001, 'select': ''},
-                     {'year': 2000, 'select': ''},
-                     {'year': 1999, 'select': ''},
-                     {'year': 1998, 'select': ''},
-                     {'year': 1997, 'select': ''}]  # TBD bring unique years from main table
-
-            for year in years:
-                if year.get('year') in selcted_years:
-                    year['select'] = 'checked'
-    # form query string for year filter constraint in where clause
+    # This builds up the years to select from
+    # If the user does not put anything, then this code set s_years to "( )" and all years are searched
     s_years = '( '
-    for year in selcted_years:
-        if year == selcted_years[-1]:
+    for year in selected_years:
+        if year == selected_years[-1]:
             s_years = s_years + "'" + str(year) + "'"
         else:
             s_years = s_years + "'" + str(year) + "'" + ","
@@ -119,12 +73,12 @@ def homepageSearch():
     # Search by DOI - WORKING
     if (selection == "DOI"):
 
-        if not selcted_years:
+        if not selected_years:
             # no year filter
-            sql = "Select doi, title, publisher, published_print_date_parts, fk from _main_ where doi like '%" + search + "%\';"
+            sql = "Select doi, title, container_title, published_print_date_parts, fk from _main_ where doi like '%" + search + "%\';"
         else:
             # with year filter
-            sql = "Select doi, title, publisher, published_print_date_parts, fk from _main_ where doi like '%" + \
+            sql = "Select doi, title, container_title, published_print_date_parts, fk from _main_ where doi like '%" + \
                 search + \
                 "%\' and substr(published_print_date_parts, 1,4) in " + \
                 s_years+";"
@@ -147,7 +101,7 @@ def homepageSearch():
 
             # create dict with _main_ table row and author list
             article = {'objectID': row['doi'], 'articleTitle': row['title'],
-                       'journalName': row['publisher'],
+                       'journalName': row['container_title'],
                        'articleDate': row['published_print_date_parts'],
                        'author_list': author_list}
             # append article dict to returnedQueries list
@@ -177,12 +131,12 @@ def homepageSearch():
 
         # query _main_ table with list of fk gotten previously
         if result_set is not None:
-            if not selcted_years:
+            if not selected_years:
                 # no year filter
-                sql = "Select doi, title, publisher, published_print_date_parts, fk from _main_ where fk in " + given_author + ";"
+                sql = "Select doi, title, container_title, published_print_date_parts, fk from _main_ where fk in " + given_author + ";"
             else:
                 # with year filter
-                sql = "Select doi, title, publisher, published_print_date_parts, fk from _main_ where fk in " + \
+                sql = "Select doi, title, container_title, published_print_date_parts, fk from _main_ where fk in " + \
                     given_author + \
                     " and substr(published_print_date_parts, 1,4) in" + \
                     s_years + ";"
@@ -206,7 +160,7 @@ def homepageSearch():
 
                     # create dict with _main_ table row and author list
                     article = {'objectID': row['doi'], 'articleTitle': row['title'],
-                               'journalName': row['publisher'],
+                               'journalName': row['container_title'],
                                'articleDate': row['published_print_date_parts'],
                                'author_list': author_list}
                     # append article dict to returnedQueries list
@@ -220,12 +174,12 @@ def homepageSearch():
 
     # THIS DOES NOT WORK YET SINCE JOURNAL TABLE NOT FILLED IN
     elif (selection == "Journal"):
-        if not selcted_years:
+        if not selected_years:
             # no year filter
-            sql = "Select doi, title, publisher, published_print_date_parts, fk from _main_ where publisher like '%" + search + "%\';"
+            sql = "Select doi, title, container_title, published_print_date_parts, fk from _main_ where container_title like '%" + search + "%\';"
         else:
             # with year filter
-            sql = "Select doi, title, publisher, published_print_date_parts, fk from _main_ where publisher like '%" + \
+            sql = "Select doi, title, container_title, published_print_date_parts, fk from _main_ where container_title like '%" + \
                 search + \
                 "%\' and substr(published_print_date_parts, 1,4) in" + \
                 s_years+";"
@@ -248,7 +202,7 @@ def homepageSearch():
 
             # create dict with _main_ table row and author list
             article = {'objectID': row['doi'], 'articleTitle': row['title'],
-                       'journalName': row['publisher'],
+                       'journalName': row['container_title'],
                        'articleDate': row['published_print_date_parts'],
                        'author_list': author_list}
             returnedQueries.append(article)
@@ -259,12 +213,12 @@ def homepageSearch():
 
     # THIS DOES NOT WORK YET SINCE ARTICLE TABLE NOT FILLED IN
     elif (selection == "Article"):
-        if not selcted_years:
+        if not selected_years:
             # no year filter
-            sql = "Select doi, title, publisher, published_print_date_parts, fk from _main_ where title like '%" + search + "%\';"
+            sql = "Select doi, title, container_title, published_print_date_parts, fk from _main_ where title like '%" + search + "%\';"
         else:
             # with year filter
-            sql = "Select doi, title, publisher, published_print_date_parts, fk from _main_ where title like '%" + \
+            sql = "Select doi, title, container_title, published_print_date_parts, fk from _main_ where title like '%" + \
                 search + \
                 "%\' and substr(published_print_date_parts, 1,4) in" + \
                 s_years + ";"
@@ -288,7 +242,7 @@ def homepageSearch():
 
             # create dict with _main_ table row and author list
             article = {'objectID': row['doi'], 'articleTitle': row['title'],
-                       'journalName': row['publisher'],
+                       'journalName': row['container_title'],
                        'articleDate': row['published_print_date_parts'],
                        'author_list': author_list}
             returnedQueries.append(article)
@@ -299,7 +253,6 @@ def homepageSearch():
 
     return flask.render_template('searchResultsPage.html',
                                  listedSearchResults=returnedQueries,
-                                 years=years,
                                  dropdownSearchBy=selection,
                                  search=search)
 
@@ -320,7 +273,7 @@ def articleDashboard():
     search = str(flask.request.args.get("DOI"))
 
     # query main table by DOI
-    sql = "Select doi, title, publisher, published_print_date_parts, fk from _main_ where doi like '%" + search + "%\';"
+    sql = "Select doi, title, container_title, published_print_date_parts, fk from _main_ where doi like '%" + search + "%\';"
 
     cursor.execute(sql)
     mysql.connection.commit()
@@ -337,7 +290,7 @@ def articleDashboard():
             author_list = cursor.fetchall()
 
         article = {'objectID': article_result['doi'], 'articleTitle': article_result['title'],
-                   'journalName': article_result['publisher'],
+                   'journalName': article_result['container_title'],
                    'articleDate': article_result['published_print_date_parts'],
                    'author_list': author_list}
 
@@ -627,13 +580,13 @@ def articleDashboard():
 @app.route('/journalDashboard', methods=["GET", "POST"])
 def journalDashboard():
     journal_list = []  # list initializing
-    x = "something not none"
+
     global mysql
     cursor = mysql.connection.cursor()
 
     # fetch the journal name parameter from searchREsults page
     journal_name = str(flask.request.args.get("journalName"))
-    sql = "Select doi, title, publisher, published_print_date_parts, fk from _main_ where publisher like '%" + journal_name + "%\';"
+    sql = "Select doi, title, container_title, published_print_date_parts, fk from _main_ where container_title like '%" + journal_name + "%\';"
 
     cursor.execute(sql)
     result_set = cursor.fetchall()
@@ -652,7 +605,7 @@ def journalDashboard():
 
         # create dict with _main_ table row and author list
         article = {'objectID': row['doi'], 'articleTitle': row['title'],
-                   'journalName': row['publisher'],
+                   'journalName': row['container_title'],
                    'articleDate': row['published_print_date_parts'],
                    'author_list': author_list}
         journal_list.append(article)
@@ -720,7 +673,7 @@ def authorDashboard():
     #author_fk = author_resultset['fk']
     if author_fk_list is not None:
         # look up author table by fk
-        sql = "Select doi, title, publisher, published_print_date_parts, fk from _main_ where fk in " + \
+        sql = "Select doi, title, container_title, published_print_date_parts, fk from _main_ where fk in " + \
             author_fk_list + ";"
         cursor.execute(sql)
         result_set = cursor.fetchall()
@@ -740,7 +693,7 @@ def authorDashboard():
 
             # create dict with _main_ table row and author list
             article = {'objectID': row['doi'], 'articleTitle': row['title'],
-                       'journalName': row['publisher'],
+                       'journalName': row['container_title'],
                        'articleDate': row['published_print_date_parts'],
                        'author_list': author_list}
             author_article_list.append(article)
