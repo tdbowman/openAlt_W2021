@@ -377,6 +377,10 @@ table.table-bordered{
   text-align: center;
 }
 
+.hideBullets{
+  list-style-type: none;
+  padding: 0px;
+}
 
 
 
