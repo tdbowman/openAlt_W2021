@@ -12,28 +12,41 @@
 
 
     <div class="row">
-
-      <div class="col-sm-2">
-         <form method="post" action="{{ url_for('homepageSearch') }}" >
-             <input type="hidden" id="search" name="search" value= {{ search }} >
-             <input type="hidden" id="dropdownSearchBy" name="dropdownSearchBy" value={{ dropdownSearchBy }}>
-
-             <div class='year_filter'>
-            <h6>YEAR</h6>
-         </div>
-
-        <ul class="hideBullets">
-        {% for year in years %}
-        <li>
-            <input name="years" type="checkbox" {{year.select }}  value= {{ year.year }}  >
-            {{ year.year }}
-        </li>
-        {% endfor %}
-        </ul>
-
-          <input width="80%" type="submit" value="Apply" style="width: 100px;">
-         </form>
-      </div>
+        <!-- THIS IS THE OLD FORM  - WITH MANY MANY CHECKBOXES
+          <div class="col-sm-2">
+             <form method="post" action="{{ url_for('homepageSearch') }}" >
+                 <input type="hidden" id="search" name="search" value= {{ search }} >
+                 <input type="hidden" id="dropdownSearchBy" name="dropdownSearchBy" value={{ dropdownSearchBy }}>
+    
+                 <div class='year_filter'>
+                <h6>YEAR</h6>
+             </div>
+    
+            <ul>
+            {% for year in years %}
+            <li>
+                <input name="years" type="checkbox" {{year.select }}  value= {{ year.year }}  >
+                {{ year.year }}
+            </li>
+            {% endfor %}
+            </ul>
+    
+              <input width="80%" type="submit" value="Apply" style="width: 100px;">
+             </form>
+          </div>
+        -->
+    
+        <!-- NEW FORM WITH A YEAR RANGE -->
+        <div class="col-sm-2">
+        <h4>Year range</h4>
+              <form class="" method="post" action="{{ url_for('homepageSearch') }}" >
+                <input type="hidden" id="search" name="search" value= {{ search }} >
+                <input type="hidden" id="dropdownSearchBy" name="dropdownSearchBy" value={{ dropdownSearchBy }}>
+                  <input type="text" class="form-control" id="startYear" placeholder="2016" name="startYear">
+                  <input type="text" class="form-control" id="endYear" placeholder="2020" name="endYear">
+                <button type="submit" class="btn btn-default">Apply</button>
+              </form>
+        </div>
 
 <div class="col-sm-8">
     <div class="SR_boxed">
