@@ -22,51 +22,71 @@
 </script>
 
 <div class = "container">
+    <div class="row">
+        <!-- This is the left column-->
+        <div class = "col-md-5">
+            <div class="col">
+                <table class="table table-bordered">
+                    <tr>
+                    <td class='item-data'>
+                    <div class="AD_articleTitle">
+                        {{ article_detail.articleTitle }}
+                    </div>
+                    <br>
+                    <div class="AD_journalName">
+                        Journal Name: {{ article_detail.journalName }}
+                    </div>
+                    <div class="AD_articleDate">
+                        Article Date: {{ article_detail.articleDate }}
+                    </div>
+                    <div class="AD_authors">
+                        Authors:
+                        {% for author in article_detail.author_list%}
+                        {{ author.name }} ,
+                        {% endfor %}
+                    </div>
+                    <div class="AD_DOI">
+                        URL: <a href="https://doi.org/{{ article_detail.objectID }}"target="_blank">{{ article_detail.objectID }} &#8599;</a>
+                    </div>
+                    <br>
+                    <br>
+                    <br>
+                    </td>
+                    </tr>
+                </table>
+            </div> 
+        </div><!-- End 5 width column on the left -->
 
-    <!-- This is the left column-->
-    <div class = "col-md-5">
-        <div class="col">
-            <table class="table table-bordered">
-                <tr>
-                <td class='item-data'>
-                <div class="AD_articleTitle">
-                    {{ article_detail.articleTitle }}
-                </div>
-                <br>
-                <div class="AD_journalName">
-                    Journal Name: {{ article_detail.journalName }}
-                </div>
-                <div class="AD_articleDate">
-                    Article Date: {{ article_detail.articleDate }}
-                </div>
-                <div class="AD_authors">
-                    Authors:
-                    {% for author in article_detail.author_list%}
-                    {{ author.name }} ,
-                    {% endfor %}
-                </div>
-                <div class="AD_DOI">
-                    URL: <a href="https://doi.org/{{ article_detail.objectID }}"target="_blank">{{ article_detail.objectID }} &#8599;</a>
-                </div>
-                <br>
-                <br>
-                <br>
-                </td>
-                </tr>
-            </table>
-        </div> 
-    </div><!-- End 5 width column on the left -->
-
-    <!-- This is the right column container! -->
-    <div class = "container">
+        <!-- This is the right column, first row containing the chart -->
         <div class="col-7">
         
             <div id="chart"></div>
 
         </div>
-    
-        <!-- This is the right column below the chart
-        <div class="col-md-5" id="yearFilter">
+    </div> <!-- end of row -->
+    <div class="row"> 
+        <div class="col-md-5" id="eventsDisplay">
+            <!-- <h1>Most Recent 100 events</h1> -->
+            <h1>Events</h1>
+            <hr>
+            <table class="table table-bordered">
+                {% for e in events %}
+                <tr class="row row-bordered">
+                    <td class="articleEventData">
+                        {{e.sourceID}}  {{e.relationType}}
+                        <br>
+                        {{e.subjectID}}
+                        <br>
+                        <!-- Testing Purposes Article URL: {{ article_detail.objectID }} -->
+                        <!-- Testing Purposes
+                            <br>
+                        DOI of Event: {{e.objectID}} -->
+                    </td>
+                </tr>
+                {% endfor %}
+            </table>
+        </div>
+        <!-- <div class="col-md-5" id="yearFilter">
             <h3>Year</h3>
             <hr>
             <form action="">
@@ -85,7 +105,7 @@
             </form>
         </div>
         -->
-    </div><!-- End the container for right column-->
+    </div> <!-- End the row -->
 </div> <!-- end container wrapping entire page-->
 <br>
 <br>
