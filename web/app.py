@@ -59,6 +59,24 @@ def homepageSearch():
                      {'year': 2018, 'select': ''},
                      {'year': 2017, 'select': ''},
                      {'year': 2016, 'select': ''},
+                     {'year': 2015, 'select': ''},
+                     {'year': 2014, 'select': ''},
+                     {'year': 2013, 'select': ''},
+                     {'year': 2012, 'select': ''},
+                     {'year': 2011, 'select': ''},
+                     {'year': 2010, 'select': ''},
+                     {'year': 2009, 'select': ''},
+                     {'year': 2008, 'select': ''},
+                     {'year': 2007, 'select': ''},
+                     {'year': 2006, 'select': ''},
+                     {'year': 2005, 'select': ''},
+                     {'year': 2004, 'select': ''},
+                     {'year': 2003, 'select': ''},
+                     {'year': 2002, 'select': ''},
+                     {'year': 2001, 'select': ''},
+                     {'year': 2000, 'select': ''},
+                     {'year': 1999, 'select': ''},
+                     {'year': 1998, 'select': ''},
                      {'year': 1997, 'select': ''}]  # TBD bring unique years from main table
         else:
             years = [{'year': 2020, 'select': ''},
@@ -66,7 +84,25 @@ def homepageSearch():
                      {'year': 2018, 'select': ''},
                      {'year': 2017, 'select': ''},
                      {'year': 2016, 'select': ''},
-                     {'year': 1997, 'select': ''}]
+                     {'year': 2015, 'select': ''},
+                     {'year': 2014, 'select': ''},
+                     {'year': 2013, 'select': ''},
+                     {'year': 2012, 'select': ''},
+                     {'year': 2011, 'select': ''},
+                     {'year': 2010, 'select': ''},
+                     {'year': 2009, 'select': ''},
+                     {'year': 2008, 'select': ''},
+                     {'year': 2007, 'select': ''},
+                     {'year': 2006, 'select': ''},
+                     {'year': 2005, 'select': ''},
+                     {'year': 2004, 'select': ''},
+                     {'year': 2003, 'select': ''},
+                     {'year': 2002, 'select': ''},
+                     {'year': 2001, 'select': ''},
+                     {'year': 2000, 'select': ''},
+                     {'year': 1999, 'select': ''},
+                     {'year': 1998, 'select': ''},
+                     {'year': 1997, 'select': ''}]  # TBD bring unique years from main table
 
             for year in years:
                 if year.get('year') in selcted_years:
@@ -152,33 +188,37 @@ def homepageSearch():
                     s_years + ";"
 
             print(sql)
-            cursor.execute(sql)
-            result_set = cursor.fetchall()
+            try:
+                cursor.execute(sql)
+                result_set = cursor.fetchall()
+                # iterate the result set
+                for row in result_set:
+                    # get fk from _main_ table
+                    fk = row['fk']
+                    author_list = []
+                    if fk is not None:
+                        # look up author table by fk
+                        author_sql = "select id, name from author where fk = " + \
+                            str(fk) + ";"
+                        cursor.execute(author_sql)
+                        # get list of authors for given fk
+                        author_list = cursor.fetchall()
 
-            # iterate the result set
-            for row in result_set:
-                # get fk from _main_ table
-                fk = row['fk']
-                author_list = []
-                if fk is not None:
-                    # look up author table by fk
-                    author_sql = "select id, name from author where fk = " + \
-                        str(fk) + ";"
-                    cursor.execute(author_sql)
-                    # get list of authors for given fk
-                    author_list = cursor.fetchall()
+                    # create dict with _main_ table row and author list
+                    article = {'objectID': row['doi'], 'articleTitle': row['title'],
+                            'journalName': row['publisher'],
+                            'articleDate': row['published_print_date_parts'],
+                            'author_list': author_list}
+                    # append article dict to returnedQueries list
+                    returnedQueries.append(article)
 
-                # create dict with _main_ table row and author list
-                article = {'objectID': row['doi'], 'articleTitle': row['title'],
-                           'journalName': row['publisher'],
-                           'articleDate': row['published_print_date_parts'],
-                           'author_list': author_list}
-                # append article dict to returnedQueries list
-                returnedQueries.append(article)
+                returnedQueries.append(None)
+                cursor.close()
+                returnedQueries.pop()  # the last list item is always null so pop it
+            except:
+                pass
 
-            returnedQueries.append(None)
-            cursor.close()
-            returnedQueries.pop()  # the last list item is always null so pop it
+            
 
     # THIS DOES NOT WORK YET SINCE JOURNAL TABLE NOT FILLED IN
     elif (selection == "Journal"):
