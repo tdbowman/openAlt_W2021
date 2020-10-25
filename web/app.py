@@ -555,22 +555,43 @@ def journalDashboard():
 @app.route('/authorDashboard', methods=["GET", "POST"])
 def authorDashboard():
     author_article_list = []
-
+    author_doi_list = []
     global mysql
     cursor = mysql.connection.cursor()
+
+    global mysql2
+    # connect to crossrefeventdata
+    cursor2 = mysql2.connection.cursor()
+
     # fetch the query parameter author_id from searchResults page
     author_id = str(flask.request.args.get("author_id"))
     print('author_id', author_id)
-    author_sql = "SELECT name, fk FROM dr_bowman_doi_data_tables.author where id ="+author_id+";"
-    cursor.execute(author_sql)
-    author_resultset = cursor.fetchone()
 
-    author_name = author_resultset['name']
-    author_fk = author_resultset['fk']
-    if author_fk is not None:
+    author_sql = "SELECT name FROM dr_bowman_doi_data_tables.author where id ="+author_id+";"
+    cursor.execute(author_sql)
+    author_name = cursor.fetchone()
+    print('author_name -----<<<: ', author_name['name'])
+
+    author_sql = "SELECT fk FROM dr_bowman_doi_data_tables.author where name = '" + author_name['name'] + "';"
+    cursor.execute(author_sql)
+    author_resultset = cursor.fetchall()
+    print('###################', author_resultset)
+    # form a list of fk for the where statement (ex.) ('2005','2006')
+    author_fk_list='('
+    for row in author_resultset:
+        #author_name=row['name']
+        if row == author_resultset[-1]:
+            author_fk_list = author_fk_list + str(row['fk'])
+        else:
+            author_fk_list = author_fk_list + str(row['fk']) + ","
+    author_fk_list = author_fk_list + ')'
+
+    #author_name = author_resultset['name']
+    #author_fk = author_resultset['fk']
+    if author_fk_list is not None:
         # look up author table by fk
-        sql = "Select doi, title, publisher, published_print_date_parts, fk from _main_ where fk = " + \
-            str(author_fk) + ";"
+        sql = "Select doi, title, publisher, published_print_date_parts, fk from _main_ where fk in " + \
+            author_fk_list + ";"
         cursor.execute(sql)
         result_set = cursor.fetchall()
 
@@ -593,28 +614,209 @@ def authorDashboard():
                        'articleDate': row['published_print_date_parts'],
                        'author_list': author_list}
             author_article_list.append(article)
+            author_doi_list.append(row['doi'])
         cursor.close()
+
+        print('author_article_list --------------->>>> :', author_article_list)
 
     # Size of each list depends on how many years(in chartScript.js) you'd like to display.
     # Queries will be inserted within the array
-    cambiaEvent = [30, 20, 50, 10, 90]
-    '''
-    crossrefevent = [];
-    dataciteevent = [];
-    hypothesisevent = [];
-    newsfeedevent = [];
-    redditevent = [];
-    redditlinksevent = [];
-    stackexchangeevent = [];
-    twitterevent = [];
-    webevent = [];
-    wikipediaevent = [];
-    wordpressevent = [];
-    '''
+    years_list = [2016, 2017, 2018, 2019, 2020]
+
+    # form a list for IN operation (e.g) ('2016', '2017','2018')
+    doi_list = '( '
+    for doi in author_doi_list:
+        if doi == author_doi_list[-1]:
+            doi_list = doi_list + "'" + str(doi) + "'"
+        else:
+            doi_list = doi_list + "'" + str(doi) + "'" + ","
+    doi_list = doi_list + ')'
+
+    print( ' Author DOI list : ', doi_list)
+    # cambia event
+    cambiaEvent = []
+    for year in years_list:
+        cambia_sql = "select count(*) count from crossrefeventdata.cambiaevent " \
+                     "where substr(objectID,17) in " + doi_list + " " \
+                     "and substr(occurredAt,1,4)='" + str(year) + "';"
+
+        cursor2.execute(cambia_sql)
+        mysql2.connection.commit()
+        event_count = cursor2.fetchone()
+        cambiaEvent.append(event_count['count'])
+    print('cambiaEvent ~~~~~~~~~', cambiaEvent)
+    # cambiaEvent = [30, 20, 50, 10, 90]  # TBD - delete this line after we upload data in cambia event table for all these years
+
+    # crossrefevent
+    crossrefevent = []
+    for year in years_list:
+        crossref_sql = "select count(*) count from crossrefeventdata.crossrefevent " \
+                       "where substr(objectID,17) in " + doi_list+ " " \
+                       "and substr(occurredAt,1,4)='" + str(year) + "';"
+
+        cursor2.execute(crossref_sql)
+        mysql2.connection.commit()
+        event_count = cursor2.fetchone()
+        crossrefevent.append(event_count['count'])
+    print(' crossrefevent ~~~~~~~~~~~', crossrefevent)
+    # crossrefevent = [5, 7, 14, 18, 25]; # TBD - delete this line after we upload data in cambia event table for all these years
+
+    # dataciteevent
+    dataciteevent = []
+    for year in years_list:
+        datacite_sql = "select count(*) count from crossrefeventdata.dataciteevent " \
+                       "where substr(objectID,17) in " + doi_list + " " \
+                       "and substr(occurredAt,1,4)='" + str(year) + "';"
+
+        cursor2.execute(datacite_sql)
+        mysql2.connection.commit()
+        event_count = cursor2.fetchone()
+        dataciteevent.append(event_count['count'])
+    print(' dataciteevent ~~~~~~~~~~~', dataciteevent)
+    # dataciteevent = [5, 10, 15, 20, 25];  # TBD - delete this line after we upload data in cambia event table for all these years
+
+    # hypothesisevent
+    hypothesisevent = []
+    for year in years_list:
+        hypothesis_sql = "select count(*) count from crossrefeventdata.hypothesisevent " \
+                       "where substr(objectID,17) in " + doi_list + " " \
+                        "and substr(occurredAt,1,4)='" + str(year) + "';"
+
+        cursor2.execute(hypothesis_sql)
+        mysql2.connection.commit()
+        event_count = cursor2.fetchone()
+        hypothesisevent.append(event_count['count'])
+    print(' hypothesisevent ~~~~~~~~~~~', hypothesisevent)
+    # hypothesisevent = [5, 10, 15, 20, 25];  # TBD - delete this line after we upload data in cambia event table for all these years
+
+    # newsfeedevent
+    newsfeedevent = []
+    for year in years_list:
+        newsfeed_sql = "select count(*) count from crossrefeventdata.newsfeedevent " \
+                         "where substr(objectID,17) in " + doi_list + " " \
+                         "and substr(occurredAt,1,4)='" + str(year) + "';"
+
+        cursor2.execute(newsfeed_sql)
+        mysql2.connection.commit()
+        event_count = cursor2.fetchone()
+        newsfeedevent.append(event_count['count'])
+    print(' newsfeedevent ~~~~~~~~~~~', newsfeedevent)
+    # newsfeedevent = [5, 10, 15, 20, 25];  # TBD - delete this line after we upload data in cambia event table for all these years
+
+    # redditevent
+    redditevent = []
+    for year in years_list:
+        reddit_sql = "select count(*) count from crossrefeventdata.redditevent " \
+                       "where substr(objectID,17) in " + doi_list + " " \
+                        "and substr(occurredAt,1,4)='" + str(year) + "';"
+
+        cursor2.execute(reddit_sql)
+        mysql2.connection.commit()
+        event_count = cursor2.fetchone()
+        redditevent.append(event_count['count'])
+    print(' redditevent ~~~~~~~~~~~', redditevent)
+    # redditevent = [5, 10, 15, 20, 25];  # TBD - delete this line after we upload data in cambia event table for all these years
+
+    # redditlinksevent
+    redditlinksevent = []
+    for year in years_list:
+        redditlinks_sql = "select count(*) count from crossrefeventdata.redditlinksevent " \
+                     "where substr(objectID,17) in " + doi_list + " " \
+                      "and substr(occurredAt,1,4)='" + str(year) + "';"
+
+        cursor2.execute(redditlinks_sql)
+        mysql2.connection.commit()
+        event_count = cursor2.fetchone()
+        redditlinksevent.append(event_count['count'])
+    print(' redditlinksevent ~~~~~~~~~~~', redditlinksevent)
+    # redditlinksevent = [5, 10, 15, 20, 25];  # TBD - delete this line after we upload data in cambia event table for all these years
+
+    # stackexchangeevent
+    stackexchangeevent = []
+    for year in years_list:
+        stackexchange_sql = "select count(*) count from crossrefeventdata.stackexchangeevent " \
+                          "where substr(objectID,17) in " + doi_list + " " \
+                           "and substr(occurredAt,1,4)='" + str(year) + "';"
+
+        cursor2.execute(stackexchange_sql)
+        mysql2.connection.commit()
+        event_count = cursor2.fetchone()
+        stackexchangeevent.append(event_count['count'])
+    print(' stackexchangeevent ~~~~~~~~~~~', stackexchangeevent)
+    # stackexchangeevent = [5, 10, 15, 20, 25];  # TBD - delete this line after we upload data in cambia event table for all these years
+
+    # twitterevent
+    twitterevent = []
+    for year in years_list:
+        twitter_sql = "select count(*) count from crossrefeventdata.twitterevent " \
+                            "where substr(objectID,17) in " + doi_list + " " \
+                            "and substr(occurredAt,1,4)='" + str(year) + "';"
+
+        cursor2.execute(twitter_sql)
+        mysql2.connection.commit()
+        event_count = cursor2.fetchone()
+        twitterevent.append(event_count['count'])
+    print(' twitterevent ~~~~~~~~~~~', twitterevent)
+    # twitterevent = [5, 10, 15, 20, 25];  # TBD - delete this line after we upload data in cambia event table for all these years
+
+    # webevent
+    webevent = []
+    for year in years_list:
+        web_sql = "select count(*) count from crossrefeventdata.webevent " \
+                      "where substr(objectID,17) in " + doi_list + " " \
+                       "and substr(occurredAt,1,4)='" + str(year) + "';"
+
+        cursor2.execute(web_sql)
+        mysql2.connection.commit()
+        event_count = cursor2.fetchone()
+        webevent.append(event_count['count'])
+    print(' webevent ~~~~~~~~~~~', webevent)
+    # webevent = [5, 10, 15, 20, 25];  # TBD - delete this line after we upload data in cambia event table for all these years
+
+    # wikipediaevent
+    wikipediaevent = []
+    for year in years_list:
+        wikipedia_sql = "select count(*) count from crossrefeventdata.wikipediaevent " \
+                  "where substr(objectID,17) in " + doi_list + " " \
+                   "and substr(occurredAt,1,4)='" + str(year) + "';"
+
+        cursor2.execute(wikipedia_sql)
+        mysql2.connection.commit()
+        event_count = cursor2.fetchone()
+        wikipediaevent.append(event_count['count'])
+    print(' wikipediaevent ~~~~~~~~~~~', wikipediaevent)
+    # wikipediaevent = [5, 10, 15, 20, 25];  # TBD - delete this line after we upload data in cambia event table for all these years
+
+    # wordpressevent
+    wordpressevent = []
+    for year in years_list:
+        wordpress_sql = "select count(*) count from crossrefeventdata.wordpressevent " \
+                        "where substr(objectID,17) in " + doi_list + " " \
+                        "and substr(occurredAt,1,4)='" + str(year) + "';"
+
+        cursor2.execute(wordpress_sql)
+        mysql2.connection.commit()
+        event_count = cursor2.fetchone()
+        wordpressevent.append(event_count['count'])
+    print(' wordpressevent ~~~~~~~~~~~', wordpressevent)
+    # wordpressevent = [5, 10, 15, 20, 25];  # TBD - delete this line after we upload data in cambia event table for all these years
+
 
     return flask.render_template('authorDashboard.html',
-                                 author_name=author_name,
-                                 author_article_list=author_article_list, cambiaEventData=cambiaEvent)
+                                     author_name=author_name['name'],
+                                     author_article_list=author_article_list,
+                                     cambiaEventData=cambiaEvent,
+                                     crossrefEventData=crossrefevent,
+                                     dataciteEventData=dataciteevent,
+                                     hypothesisEventData=hypothesisevent,
+                                     newsfeedEventData=newsfeedevent,
+                                     redditEventData=redditevent,
+                                     redditlinksEventData=redditlinksevent,
+                                     stackexchangeEventData=stackexchangeevent,
+                                     twitterEventData=twitterevent,
+                                     webEventData=webevent,
+                                     wikipediaEventData=wikipediaevent,
+                                     wordpressEventData=wordpressevent)
 
 
 @app.route('/about', methods=["GET", "POST"])
