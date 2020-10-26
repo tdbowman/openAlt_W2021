@@ -40,12 +40,16 @@
                         Article Date: {{ article_detail.articleDate }}
                     </div>
                     <div class="AD_authors">
-                        Authors:
+                        Author(s):
                         {% for author in article_detail.author_list%}
-                        {{ author.name }} ,
+                            {% if author == article_detail.author_list[-1]: %}
+                              {{ author.name }}
+                            {%else:%}
+                              {{ author.name }} ,
+                            {% endif %}
                         {% endfor %}
                     </div>
-                    <div class="AD_DOI">
+                    <div class="AD_DOI">article_detail.author_listarticle_detail.author_list
                         URL: <a href="https://doi.org/{{ article_detail.objectID }}"target="_blank">{{ article_detail.objectID }} &#8599;</a>
                     </div>
                     <br>

@@ -50,9 +50,13 @@
                     Article Date: {{ journal.articleDate }}
                 </div>
                 <div class="JD_authors">
-                    Authors:
+                    Author(s):
                     {% for author in journal.author_list %}
-                    <a href="{{ url_for('authorDashboard') }}?author_id={{ author.id }}">{{ author.name }},</a>
+                        {% if author == journal.author_list[-1]: %}
+                            <a href="{{ url_for('authorDashboard') }}?author_id={{ author.id }}">{{ author.name }}</a>
+                        {%else:%}
+                            <a href="{{ url_for('authorDashboard') }}?author_id={{ author.id }}">{{ author.name }},</a>
+                        {% endif %}
                     {% endfor %}
                 </div>
                 <div class="JD_DOI">
