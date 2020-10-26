@@ -72,6 +72,8 @@
     <div class = "container">
 
         <!-- Charty chart -->
+        <br><br><br><br>
+        <h3 style="text-align: center;">{{ journal_name }} articles published over time</h3>
         <div class="col-7" id="chart">
         
         </div>
@@ -104,6 +106,7 @@
 <!-- Initialize the arrays as empty arrays -->
 <script>
     publishedPerYr=[]
+    const journalName = "{{ journal_name }}"
 </script>
 
 {% for index in publishedPerYear %}
