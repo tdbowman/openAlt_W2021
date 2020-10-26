@@ -154,3 +154,8 @@ var chart = c3.generate({
     width: 670
   }
 });
+
+
+// These two lines force the C3 chart back into its column. 
+var loader = document.getElementById("changeAfterChart");
+loader.className = "col-sm-7";
