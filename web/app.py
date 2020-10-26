@@ -771,7 +771,7 @@ def journalDashboard():
 
     # fetch the journal name parameter from searchResults page
     journal_name = str(flask.request.args.get("journalName"))
-    sql = "Select doi, title, container_title, published_print_date_parts, fk from _main_ where container_title like '%" + journal_name + "%\';"
+    sql = "Select doi, title, container_title, issue, page, published_print_date_parts, fk from _main_ where container_title like '%" + journal_name + "%\';"
 
     cursor.execute(sql)
     result_set = cursor.fetchall()
@@ -791,6 +791,8 @@ def journalDashboard():
         # create dict with _main_ table row and author list
         article = {'objectID': row['doi'], 'articleTitle': row['title'],
                    'journalName': row['container_title'],
+                   'issue': row['issue'],
+                   'journalPage': row['page'],
                    'articleDate': row['published_print_date_parts'],
                    'author_list': author_list}
         journal_list.append(article)
