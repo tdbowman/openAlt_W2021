@@ -149,10 +149,6 @@ table.table-bordered{
     font-style: normal;
 }
 
-#AD_authors li + li:before {
-    content: ", ";
-}
-
 .AD_DOI {
     font-size: 20px;
     font-style: normal;}

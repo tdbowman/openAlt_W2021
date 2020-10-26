@@ -49,14 +49,16 @@ def homepageSearch():
         selection = str(flask.request.form.get("dropdownSearchBy"))
         selected_years = []
         try:
-            startYear = int(flask.request.form.get("startYear")) # Mitch - used to for range form
+            # Mitch - used to for range form
+            startYear = int(flask.request.form.get("startYear"))
             if startYear > datetime.now().year:
-                pass # If they enter a year greater than this year, just proceed to the except block AKA execute search with no year filter
-            endYear = int(flask.request.form.get("endYear")) # Mitch - used for range form
+                pass  # If they enter a year greater than this year, just proceed to the except block AKA execute search with no year filter
+            # Mitch - used for range form
+            endYear = int(flask.request.form.get("endYear"))
             # Build up a list of selected years, ranging from startYear to endYear
             while (startYear < endYear + 1):
                 selected_years.append(startYear)
-                startYear+=1
+                startYear += 1
         except:
             selected_years = []
 
@@ -298,33 +300,12 @@ def articleDashboard():
     # ---------- Article Events ----------
 
     # "UNION "
-    # "SELECT subjectID,sourceID,relationType,objectID FROM crossrefeventdata.hypothesisevent "
-    # "WHERE substr(objectID,17) like '%" + \
-    #     article['objectID'] + "%' "
     # "UNION "
-    # "SELECT subjectID,sourceID,relationType,objectID FROM crossrefeventdata.newsfeedevent "
-    # "WHERE substr(objectID,17) like '%" + \
-    #     article['objectID'] + "%' "
     # "UNION "
-    # "SELECT subjectID,sourceID,relationType,objectID FROM crossrefeventdata.redditevent "
-    # "WHERE substr(objectID,17) like '%" + \
-    #     article['objectID'] + "%' "
     # "UNION "
-    # "SELECT subjectID,sourceID,relationType,objectID FROM crossrefeventdata.redditlinksevent "
-    # "WHERE substr(objectID,17) like '%" + \
-    #     article['objectID'] + "%' "
     # "UNION "
-    # "SELECT subjectID,sourceID,relationType,objectID FROM crossrefeventdata.stackexchangeevent "
-    # "WHERE substr(objectID,17) like '%" + \
-    #     article['objectID'] + "%' "
     # "UNION "
-    # "SELECT subjectID,sourceID,relationType,objectID FROM crossrefeventdata.webevent "
-    # "WHERE substr(objectID,17) like '%" + \
-    #     article['objectID'] + "%' "
     # "UNION "
-    # "SELECT subjectID,sourceID,relationType,objectID FROM crossrefeventdata.wordpressevent "
-    # "WHERE substr(objectID,17) like '%" + \
-    #     article['objectID'] + "%' "
     # "UNION "
     # "WHERE substr(objectID,17) like '%" + \
     #     article['objectID'] + "%';"
@@ -340,14 +321,44 @@ def articleDashboard():
     "WHERE objectID like '%" + \
         article['objectID'] + "%';"
 
+    hypothesisEventQuery = "SELECT subjectID,sourceID,relationType,objectID FROM crossrefeventdata.hypothesisevent "
+    "WHERE objectID like '%" + \
+        article['objectID'] + "%';"
+
+    newsfeedEventQuery = "SELECT subjectID,sourceID,relationType,objectID FROM crossrefeventdata.newsfeedevent "
+    "WHERE objectID like '%" + \
+        article['objectID'] + "%'; "
+
+    redditEventQuery = "SELECT subjectID,sourceID,relationType,objectID FROM crossrefeventdata.redditevent "
+    "WHERE objectID like '%" + \
+        article['objectID'] + "%'; "
+
+    redditLinksEventQuery = "SELECT subjectID,sourceID,relationType,objectID FROM crossrefeventdata.redditlinksevent "
+    "WHERE objectID like '%" + \
+        article['objectID'] + "%'; "
+
+    stackexchangeEventQuery = "SELECT subjectID,sourceID,relationType,objectID FROM crossrefeventdata.stackexchangeevent "
+    "WHERE objectID like '%" + \
+        article['objectID'] + "%'; "
+
+    webEventQuery = "SELECT subjectID,sourceID,relationType,objectID FROM crossrefeventdata.webevent "
+    "WHERE objectID like '%" + \
+        article['objectID'] + "%'; "
+
+    wordpressEventQuery = "SELECT subjectID,sourceID,relationType,objectID FROM crossrefeventdata.wordpressevent "
+    "WHERE objectID like '%" + \
+        article['objectID'] + "%'; "
+
     cursor2.execute(twitterEventQuery)
     eventRows = cursor2.fetchall()
 
+    # ---------- Twitter Events -------------
     for tweet in eventRows:
 
         # Shouldn't have to check if the objectID in each row is the same as the articleURL but the query kept retrieving all events.
-        # This query worked in workbench but not here for some unkown reason for now.
+        # The 9 queries that were brought together using unions worked in workbench but not here for some unkown reason for now.
         # UPDATE: the substring() isn't working as it retrieves the whole objectID rather than part of it. objID[16:length] is the workaround for substr().
+
         # grab each twitter event's subjectID and objectID
         subjID = tweet['subjectID']
         objID = tweet['objectID']
@@ -366,9 +377,10 @@ def articleDashboard():
     cursor2.execute(wikipediaEventQuery)
     eventRows = cursor2.fetchall()
 
+    # ----------- Wikipedia Events -----------
     for wiki in eventRows:
         # Shouldn't have to check if the objectID in each row is the same as the articleURL but the query kept retrieving all events.
-        # This query worked in workbench but not here for some unkown reason for now.
+        # The 9 queries that were brought together using unions worked in workbench but not here for some unkown reason for now.
         # UPDATE: the substring() isn't working as it retrieves the whole objectID rather than part of it. objID[16:length] is the workaround for substr().
 
         # grab each wikipedia event's subjectID and objectID
@@ -386,8 +398,181 @@ def articleDashboard():
                              'objectID': wiki['objectID']}
                 eventsForArticle.append(eachEvent)
 
-    # ---------- End of Article Events ----------
+    cursor2.execute(hypothesisEventQuery)
+    eventRows = cursor2.fetchall()
 
+    # ------------ Hypothesis Events -------------
+    for hypo in eventRows:
+
+        # Shouldn't have to check if the objectID in each row is the same as the articleURL but the query kept retrieving all events.
+        # The 9 queries that were brought together using unions worked in workbench but not here for some unkown reason for now.
+        # UPDATE: the substring() isn't working as it retrieves the whole objectID rather than part of it. objID[16:length] is the workaround for substr().
+
+        # grab each hypothesis event's subjectID and objectID
+        subjID = hypo['subjectID']
+        objID = hypo['objectID']
+        length = len(objID)
+
+        # Had to slice the objectID and start at the 16th index and compare the rest of the slice with the selected article's URL
+        if objID[16:length] == article['objectID']:
+            if subjID is not None:
+
+                # Store all column values of the event into a python dictionary and add the eachEvent dictionary to the eventsForArticle list.
+                eachEvent = {'subjectID': hypo['subjectID'],
+                             'sourceID': hypo['sourceID'],
+                             'relationType': hypo['relationType'], 'objectID': hypo['objectID']}
+                eventsForArticle.append(eachEvent)
+
+    cursor2.execute(newsfeedEventQuery)
+    eventRows = cursor2.fetchall()
+
+    # ------------ Newsfeed Events ---------------
+    for news in eventRows:
+
+        # Shouldn't have to check if the objectID in each row is the same as the articleURL but the query kept retrieving all events.
+        # The 9 queries that were brought together using unions worked in workbench but not here for some unkown reason for now.
+        # UPDATE: the substring() isn't working as it retrieves the whole objectID rather than part of it. objID[16:length] is the workaround for substr().
+
+        # grab each newsfeed event's subjectID and objectID
+        subjID = news['subjectID']
+        objID = news['objectID']
+        length = len(objID)
+
+        # Had to slice the objectID and start at the 16th index and compare the rest of the slice with the selected article's URL
+        if objID[16:length] == article['objectID']:
+            if subjID is not None:
+
+                # Store all column values of the event into a python dictionary and add the eachEvent dictionary to the eventsForArticle list.
+                eachEvent = {'subjectID': news['subjectID'],
+                             'sourceID': news['sourceID'],
+                             'relationType': news['relationType'], 'objectID': news['objectID']}
+                eventsForArticle.append(eachEvent)
+
+    cursor2.execute(redditEventQuery)
+    eventRows = cursor2.fetchall()
+    # ------------ Reddit Events -----------------
+
+    for red in eventRows:
+
+        # Shouldn't have to check if the objectID in each row is the same as the articleURL but the query kept retrieving all events.
+        # The 9 queries that were brought together using unions worked in workbench but not here for some unkown reason for now.
+        # UPDATE: the substring() isn't working as it retrieves the whole objectID rather than part of it. objID[16:length] is the workaround for substr().
+
+        # grab each reddit event's subjectID and objectID
+        subjID = red['subjectID']
+        objID = red['objectID']
+        length = len(objID)
+
+        # Had to slice the objectID and start at the 16th index and compare the rest of the slice with the selected article's URL
+        if objID[16:length] == article['objectID']:
+            if subjID is not None:
+
+                # Store all column values of the event into a python dictionary and add the eachEvent dictionary to the eventsForArticle list.
+                eachEvent = {'subjectID': red['subjectID'],
+                             'sourceID': red['sourceID'],
+                             'relationType': red['relationType'], 'objectID': red['objectID']}
+                eventsForArticle.append(eachEvent)
+
+    cursor2.execute(redditLinksEventQuery)
+    eventRows = cursor2.fetchall()
+
+    # ------------ Redditlinks Events -----------
+    for redl in eventRows:
+
+        # Shouldn't have to check if the objectID in each row is the same as the articleURL but the query kept retrieving all events.
+        # The 9 queries that were brought together using unions worked in workbench but not here for some unkown reason for now.
+        # UPDATE: the substring() isn't working as it retrieves the whole objectID rather than part of it. objID[16:length] is the workaround for substr().
+
+        # grab each redditlink event's subjectID and objectID
+        subjID = redl['subjectID']
+        objID = redl['objectID']
+        length = len(objID)
+
+        # Had to slice the objectID and start at the 16th index and compare the rest of the slice with the selected article's URL
+        if objID[16:length] == article['objectID']:
+            if subjID is not None:
+
+                # Store all column values of the event into a python dictionary and add the eachEvent dictionary to the eventsForArticle list.
+                eachEvent = {'subjectID': redl['subjectID'],
+                             'sourceID': redl['sourceID'],
+                             'relationType': redl['relationType'], 'objectID': redl['objectID']}
+                eventsForArticle.append(eachEvent)
+
+    cursor2.execute(stackexchangeEventQuery)
+    eventRows = cursor2.fetchall()
+    # ------------ Stackexchange Events ----------
+    for stack in eventRows:
+
+        # Shouldn't have to check if the objectID in each row is the same as the articleURL but the query kept retrieving all events.
+        # The 9 queries that were brought together using unions worked in workbench but not here for some unkown reason for now.
+        # UPDATE: the substring() isn't working as it retrieves the whole objectID rather than part of it. objID[16:length] is the workaround for substr().
+
+        # grab each stackexchange event's subjectID and objectID
+        subjID = stack['subjectID']
+        objID = stack['objectID']
+        length = len(objID)
+
+        # Had to slice the objectID and start at the 16th index and compare the rest of the slice with the selected article's URL
+        if objID[16:length] == article['objectID']:
+            if subjID is not None:
+
+                # Store all column values of the event into a python dictionary and add the eachEvent dictionary to the eventsForArticle list.
+                eachEvent = {'subjectID': stack['subjectID'],
+                             'sourceID': stack['sourceID'],
+                             'relationType': stack['relationType'], 'objectID': stack['objectID']}
+                eventsForArticle.append(eachEvent)
+
+    cursor2.execute(webEventQuery)
+    eventRows = cursor2.fetchall()
+
+    # ------------ Web Events -------------------
+    for web in eventRows:
+
+        # Shouldn't have to check if the objectID in each row is the same as the articleURL but the query kept retrieving all events.
+        # The 9 queries that were brought together using unions worked in workbench but not here for some unkown reason for now.
+        # UPDATE: the substring() isn't working as it retrieves the whole objectID rather than part of it. objID[16:length] is the workaround for substr().
+
+        # grab each web event's subjectID and objectID
+        subjID = web['subjectID']
+        objID = web['objectID']
+        length = len(objID)
+
+        # Had to slice the objectID and start at the 16th index and compare the rest of the slice with the selected article's URL
+        if objID[16:length] == article['objectID']:
+            if subjID is not None:
+
+                # Store all column values of the event into a python dictionary and add the eachEvent dictionary to the eventsForArticle list.
+                eachEvent = {'subjectID': web['subjectID'],
+                             'sourceID': web['sourceID'],
+                             'relationType': web['relationType'], 'objectID': web['objectID']}
+                eventsForArticle.append(eachEvent)
+
+    cursor2.execute(wordpressEventQuery)
+    eventRows = cursor2.fetchall()
+
+    # ------------ Wordpress Events -------------
+    for word in eventRows:
+
+        # Shouldn't have to check if the objectID in each row is the same as the articleURL but the query kept retrieving all events.
+        # The 9 queries that were brought together using unions worked in workbench but not here for some unkown reason for now.
+        # UPDATE: the substring() isn't working as it retrieves the whole objectID rather than part of it. objID[16:length] is the workaround for substr().
+
+        # grab each wordpress event's subjectID and objectID
+        subjID = word['subjectID']
+        objID = word['objectID']
+        length = len(objID)
+
+        # Had to slice the objectID and start at the 16th index and compare the rest of the slice with the selected article's URL
+        if objID[16:length] == article['objectID']:
+            if subjID is not None:
+
+                # Store all column values of the event into a python dictionary and add the eachEvent dictionary to the eventsForArticle list.
+                eachEvent = {'subjectID': word['subjectID'],
+                             'sourceID': word['sourceID'],
+                             'relationType': word['relationType'], 'objectID': word['objectID']}
+                eventsForArticle.append(eachEvent)
+
+    # ---------- End of Article Events ---------
     # Size of each list depends on how many years(in chartScript.js) you'd like to display.
     # Queries will be inserted within the array
     years_list = [2016, 2017, 2018, 2019, 2020]
@@ -618,7 +803,7 @@ def journalDashboard():
                                 "from dr_bowman_doi_data_tables._main_ " \
                                 "where container_title like '%" + journal_name + "%' " \
                                 "and substr(published_print_date_parts,1,4)='" + str(
-            start_year) + "' ;"
+                                    start_year) + "' ;"
         cursor.execute(articles_per_year_sql)
         yr_count = cursor.fetchone()
         publishedPerYear.append(yr_count["count"])
