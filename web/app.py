@@ -287,7 +287,8 @@ def articleDashboard():
 
         # get list of authors for that fk
         if fk is not None:
-            author_sql = "select name from author where fk = " + str(fk) + ";"
+            author_sql = "select id,name from author where fk = " + \
+                str(fk) + ";"
             cursor.execute(author_sql)
             author_list = cursor.fetchall()
 
@@ -783,7 +784,8 @@ def journalDashboard():
         author_list = []
         if fk is not None:
             # look up author table by fk
-            author_sql = "select name from author where fk = " + str(fk) + ";"
+            author_sql = "select id,name from author where fk = " + \
+                str(fk) + ";"
             cursor.execute(author_sql)
             # get list of authors for given fk
             author_list = cursor.fetchall()

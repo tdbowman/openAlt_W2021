@@ -66,6 +66,10 @@ input[type="number"]{
   width: 500px;
 }
 
+/* #eventsDisplay{
+  overflow:scroll;
+} */
+
 table.table-bordered{
     background-color: rgba(208, 218, 230, 0.5);
     margin-top:20px;

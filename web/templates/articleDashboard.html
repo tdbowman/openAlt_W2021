@@ -41,13 +41,13 @@
                     </div>
                     <div class="AD_authors">
                         Author(s):
-                        {% for author in article_detail.author_list%}
-                            {% if author == article_detail.author_list[-1]: %}
-                              {{ author.name }}
-                            {%else:%}
-                              {{ author.name }} ,
-                            {% endif %}
-                        {% endfor %}
+                            {% for auth in article_detail.author_list %}
+                                {% if auth == article_detail.author_list[-1] %}
+                                    <a href="{{ url_for('authorDashboard') }}?author_id={{ auth.id }}">{{ auth.name }}</a>
+                                    {% else %}
+                                        <a href="{{ url_for('authorDashboard') }}?author_id={{ auth.id }}">{{ auth.name }}</a>,
+                                    {% endif %}
+                            {% endfor %}
                     </div>
                     <div class="AD_DOI">
                         URL: <a href="https://doi.org/{{ article_detail.objectID }}"target="_blank">{{ article_detail.objectID }} &#8599;</a>
@@ -70,7 +70,7 @@
         </div>
     </div> <!-- end of row -->
     <div class="row"> 
-        <div class="col-md-12" id="eventsDisplay">
+        <div class="col-md-12">
             <!-- <h1>Most Recent 100 events</h1> -->
             <h1>Events</h1>
             <hr>
