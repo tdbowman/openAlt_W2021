@@ -27,6 +27,7 @@
         <!-- This is the left column-->
         <div class = "col-md-5">
             <div class="col">
+                <br><br><br>
                 <table id="noBorders">
                     <tr>
                     <td class='item-data'>
@@ -35,7 +36,7 @@
                     </div>
                     <br>
                     <div class="AD_journalName">
-                        Journal Name: {{ article_detail.journalName }}
+                        Journal Name: <a href="{{ url_for('journalDashboard') }}?journalName={{ article_detail.journalName }}">{{ article_detail.journalName }}</a>
                     </div>
                     <div class="AD_articleDate">
                         Article Date: {{ article_detail.articleDate }}
