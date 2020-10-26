@@ -44,7 +44,7 @@
                 </div>
                 <div class="JD_journalName">
                     Journal Name:
-                    <a>{{ journal.journalName }}</a>
+                    {{ journal.journalName }}
                 </div>
                 <div class="JD_articleDate">
                     Article Date: {{ journal.articleDate }}
@@ -78,7 +78,7 @@
         <!-- Charty chart -->
         <br><br><br><br>
         <h3 style="text-align: center;">{{ journal_name }} articles published over time</h3>
-        <div class="col-7" id="changeAfterChart">
+        <div class="col-sm-7" id="changeAfterChart">
             <div id="chart"></div>
         </div>
         
