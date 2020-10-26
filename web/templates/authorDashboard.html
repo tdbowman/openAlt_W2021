@@ -51,11 +51,19 @@
                     <div class="AUD_authors">
                             Author(s):
                             {% for auth in author.author_list%}
-                                {% if auth == author.author_list[-1]: %}
-                                  {{ auth.name }}
-                                {%else:%}
-                                  {{ auth.name }} ,
-                                {% endif %}
+                                    {% if auth.name == author_name %}
+                                            {% if auth == author.author_list[-1] %}
+                                                {{ auth.name }}
+                                            {% else %}
+                                                {{ auth.name }} ,
+                                            {% endif %}
+                                    {% else %}
+                                        {% if auth == author.author_list[-1] %}
+                                            <a href="{{ url_for('authorDashboard') }}?author_id={{ auth.id }}">{{ auth.name }}</a>
+                                        {% else %}
+                                            <a href="{{ url_for('authorDashboard') }}?author_id={{ auth.id }}">{{ auth.name }}</a>,
+                                        {% endif %}
+                                    {% endif %}
                             {% endfor %}
 
 
