@@ -73,8 +73,13 @@
     <div class="SR_authors">
         Author(s):
         {% for author in result.author_list %}
-        <a href="{{ url_for('authorDashboard') }}?author_id={{ author.id }}">{{ author.name }},</a>
+            {% if author == result.author_list[-1]: %}
+              <a href="{{ url_for('authorDashboard') }}?author_id={{ author.id }}">{{ author.name }}</a>
+            {%else:%}
+              <a href="{{ url_for('authorDashboard') }}?author_id={{ author.id }}">{{ author.name }},</a>
+            {% endif %}
         {% endfor %}
+
     </div>
     <div class="DOI">
         DOI:
