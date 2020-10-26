@@ -103,12 +103,22 @@ table.table-bordered{
 
 
 .JD_articleTitle {
-    font-size: 15px;
+    font-size: 20px;
     font-style: normal;
     font-variant: small-caps;
 }
 
 .JD_journalName {
+    font-size: 15px;
+    font-style: normal;
+}
+
+.JD_issue {
+    font-size: 15px;
+    font-style: normal;
+}
+
+.JD_journalPage {
     font-size: 15px;
     font-style: normal;
 }
