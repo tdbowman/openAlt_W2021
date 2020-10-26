@@ -769,7 +769,7 @@ def journalDashboard():
     global mysql
     cursor = mysql.connection.cursor()
 
-    # fetch the journal name parameter from searchREsults page
+    # fetch the journal name parameter from searchResults page
     journal_name = str(flask.request.args.get("journalName"))
     sql = "Select doi, title, container_title, published_print_date_parts, fk from _main_ where container_title like '%" + journal_name + "%\';"
 
