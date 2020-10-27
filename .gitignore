@@ -3,6 +3,6 @@ __pycache__*
 .DS_Store*
 ingest.log*
 .idea*
-
+passwd.txt*
 /web/env
 /web/venv

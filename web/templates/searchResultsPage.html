@@ -14,7 +14,7 @@
     <div class="row">
         <!-- THIS IS THE OLD FORM  - WITH MANY MANY CHECKBOXES
           <div class="col-sm-2">
-             <form method="post" action="{{ url_for('homepageSearch') }}" >
+             <form method="post" action="{{ url_for('search') }}" >
                  <input type="hidden" id="search" name="search" value= {{ search }} >
                  <input type="hidden" id="dropdownSearchBy" name="dropdownSearchBy" value={{ dropdownSearchBy }}>
     
@@ -39,7 +39,7 @@
         <!-- NEW FORM WITH A YEAR RANGE
         <div class="col-sm-2">
         <h4>Filter by Year</h4>
-              <form class="form-inline" method="post" action="{{ url_for('homepageSearch') }}" >
+              <form class="form-inline" method="post" action="{{ url_for('search') }}" >
                 <input type="hidden" id="search" name="search" value= {{ search }} >
                 <input type="hidden" id="dropdownSearchBy" name="dropdownSearchBy" value={{ dropdownSearchBy }}>
                   <input type="text" class=" resizedTextbox form-control" id="startYear" placeholder="From" name="startYear" maxlength="4" size="4">
@@ -52,7 +52,7 @@
 <div class="col-sm-12">
 
   <h4>Filter by Year</h4>
-  <form class="form-inline" method="post" action="{{ url_for('homepageSearch') }}" >
+  <form class="form-inline" method="post" action="{{ url_for('search') }}" >
     <input type="hidden" id="search" name="search" value= {{ search }} >
     <input type="hidden" id="dropdownSearchBy" name="dropdownSearchBy" value={{ dropdownSearchBy }}>
       <input type="text" class=" resizedTextbox form-control" id="startYear" placeholder="From" name="startYear" maxlength="4" size="4">

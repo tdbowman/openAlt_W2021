@@ -10,7 +10,7 @@
 <br>
 <br>
 <!-- <h1>Crossref event data search</h1>
-form method="post" action="{{ url_for('homepageSearch') }}" >
+form method="post" action="{{ url_for('search') }}" >
     <div align="center" align-items="center">
 	<select name="dropdownSearchBy" id="dropdownSearchBy"  >
         <option selected="selected" value="DOI">DOI</option>
@@ -26,6 +26,7 @@ form method="post" action="{{ url_for('homepageSearch') }}" >
   <p2 style="text-align: center; color: aliceblue;">Search for scholarly publications by the <a style="color: aliceblue; text-decoration: underline;" href="https://www.doi.org/doi_handbook/1_Introduction.html#1.6.1"target="_blank">Document Object Identifier (DOI) &#8599;</a>, journal, author, or article name</p2>
   <br>
   <form method="post" action="{{ url_for('homepageSearch') }}" class="form-inline">
+  <form method="post" action="{{ url_for('search') }}" class="form-inline">
     <div class="form-group" style="text-align: center">
             
         <!-- Drop Down Search -->
@@ -42,7 +43,7 @@ form method="post" action="{{ url_for('homepageSearch') }}" >
     </div>
   </form>
   <br>
-  
+
   
 </div>
 
