@@ -1,4 +1,4 @@
-***************WARNING UNOPTIMIZED VERSION******************
+*************************OPTIMIZED VERSION******************
 
 1. Change the datadirectory for your JSON folder to suit your system (line 26).
 

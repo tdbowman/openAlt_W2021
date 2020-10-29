@@ -1,3 +1,6 @@
+import dateutil.parser
+
+
 def redditIngest(uniqueEvent, cursor, connection):
     # These are all temporary objects used to store the values of the fields in the JSON files.
     # Some fields may not always exist. We were getting errors when we didn't have some fields initialized so we decided to initialize all the fields.
@@ -75,88 +78,59 @@ def redditIngest(uniqueEvent, cursor, connection):
         elif (key == "updated_date"):
             t_updated_date = value
 
-    # Fetch all records from the 6 columns in the database and is placed into a list of tuples
-    listOfDictQuery = "SELECT increment, objectID, totalEvents, totalRedditEvents,firstRedditEvent, lastRedditEvent FROM Main;"
+    # Insert t_obj_id from the event of the JSON file into the main table
+    objectIDInsertionQuery = "INSERT IGNORE INTO main (objectID) VALUES(\'" + \
+        t_obj_id + "\');"
+    cursor.execute(objectIDInsertionQuery)
+    connection.commit()
+
+    # Fetch all records from the 4 columns in the main table from t_obj_id and is placed into a list of tuples.
+    # (firstRedditEvent, lastRedditevent, totalEvents, totalRedditEvents)
+    listOfDictQuery = "SELECT firstRedditEvent, lastRedditEvent, totalEvents, totalRedditEvents FROM Main WHERE objectID = \'" + t_obj_id + "\';"
     cursor.execute(listOfDictQuery)
-    listOfTuples = cursor.fetchall()
+    listOfTuples = cursor.fetchone()
 
-    # This is used for the situation that there may be a match in objectIDs(DOI) between the event in the JSON file and the main table.
-    # If there isn't a match then we'll be using an insertion query rather than an update query for an event.
-    # The insertion query will be used for the main table.
-    updated = False
+    # Initialize objects to tuple values
+    firstEvent = listOfTuples[0]
+    lastEvent = listOfTuples[1]
+    totalEvents = listOfTuples[2]
+    totalRedditEvents = listOfTuples[3]
 
-    # Fetch all records from the 3 columns in the database and is placed into a list of tuples
-    timestampQuery = "SELECT eventID, timeObserved, objectID FROM Redditevent;"
-    cursor.execute(timestampQuery)
-    listOfEventIDAndTimestamps = cursor.fetchall()
+    # If empty, intialize to 0
+    if not totalEvents:
+        totalEvents = 0
+    if not totalRedditEvents:
+        totalRedditEvents = 0
 
-    # Iterate through the list of records(which are within tuples)
-    # From the main table (increment, objectID, totalEvents, totalRedditEvents,firstRedditEvent, lastRedditEvent)
-    for lOfTuple in listOfTuples:
+    # Convert t_timestamp(timestamp) into t_dateTime(datetime)
+    t_dateTime = dateutil.parser.isoparse(t_timestamp)
+    t_dateTime = str(t_dateTime)
 
-        # If there's an event with an objectID(DOI) within the JSON file that matches a objectID(DOI) within the Reddit Event Table, continue
-        if t_obj_id == lOfTuple[1]:
-
-            # DON'T CHANGE THE INCREMENT
-            iOfRecord = lOfTuple[0]
-            tEvents = lOfTuple[2]
-            tRedditEvents = lOfTuple[3]
-
-            # From the Reddit event table (eventID, timeObserved, objectID)
-            # This list of tuples(listOfEventIDandTimestamps) is used to compare timestamps of records from the Reddit Event Table to determine the value of the column of firstRedditEvent and lastRedditEvent in the Main table
-            for IDandTimestamps in listOfEventIDAndTimestamps:
-                # This is used to find the same eventID in the Reddit event table as the firstRedditEvent(eventID) in the main table.
-                # This is to make sure we're updating or modifying the firstRedditevent from the main table.
-                if lOfTuple[4] == IDandTimestamps[0]:
-                    if t_timestamp < str(IDandTimestamps[1]):
-                        fRedditEvent = t_id
-                    elif str(IDandTimestamps[1]) < t_timestamp:
-                        fRedditEvent = IDandTimestamps[0]
-                # This is to make sure we're updating or modifying the lastRedditevent from the main table with the same objectID.
-                if t_obj_id == IDandTimestamps[2]:
-                    if t_timestamp < str(IDandTimestamps[1]):
-                        lRedditEvent = IDandTimestamps[0]
-                    elif str(IDandTimestamps[1]) < t_timestamp:
-                        lRedditEvent = t_id
-
-            tEvents = tEvents + 1
-            tRedditEvents = tRedditEvents + 1
-
-            # Update query used to modify the record at a specific row(record) in the main table.
-            updateQuery = "UPDATE Main SET totalEvents = %s, totalRedditEvents = %s, firstRedditEvent = %s, lastRedditEvent = %s WHERE increment = %s;"
-
-            updateValues = (tEvents, tRedditEvents, fRedditEvent,
-                            lRedditEvent, iOfRecord)
-
-            # Execute query
-            cursor.execute(updateQuery, updateValues)
-            connection.commit()
-
-            # An existing row in the main was indeed modified.
-            updated = True
-    # Inserting a new record in the main table
-    if updated == False:
-        # Initialize temporary values
-        t_total_events = 0
-        t_total_Reddit_events = 0
-        t_first_Reddit_event = None
-        t_last_Reddit_event = None
-
-        t_first_Reddit_event = t_id
-        t_total_events += t_total_events + 1
-        t_total_Reddit_events += t_total_Reddit_events + 1
-        t_last_Reddit_event = t_id
-
-        # Inserting a row(record) query in the main table
-        addToMainQuery = (
-            "INSERT IGNORE INTO Main " "(objectID,totalEvents,totalRedditEvents,firstRedditEvent,lastRedditEvent) " "VALUES(%s,%s,%s,%s,%s);")
-
-        mainData = (t_obj_id, t_total_events, t_total_Reddit_events,
-                    t_first_Reddit_event, t_last_Reddit_event)
-
-        # Execute query
-        cursor.execute(addToMainQuery, mainData)
+    # If t_timestamp is less than firstEvent or if firstEvent is NULL, update firstRedditEvent with t_dateTime in the same row in the main table.
+    if ((t_timestamp < str(firstEvent)) or (firstEvent == None)):
+        updateFirstEventQuery = "UPDATE main SET firstRedditEvent = \'" + \
+            t_dateTime + "\' WHERE objectID = \'" + t_obj_id + "\';"
+        cursor.execute(updateFirstEventQuery)
         connection.commit()
+
+    # If t_timestamp is greater than lastEvent or if lastEvent is NULL, update lastRedditEvent with t_dateTime in the same row in the main table.
+    if ((t_timestamp > str(lastEvent)) or (lastEvent == None)):
+        updateLastEventQuery = "UPDATE main SET lastRedditEvent = \'" + \
+            t_dateTime + "\' WHERE objectID = \'" + t_obj_id + "\';"
+        cursor.execute(updateLastEventQuery)
+        connection.commit()
+
+    # Increment event count
+    totalEvents += 1
+    totalRedditEvents += 1
+
+    # Update totalEvents and totalRedditEvents in the main table
+    updateTotalEventsQuery = "UPDATE main SET totalEvents = " + str(totalEvents) + \
+        ", totalRedditEvents = " + str(totalRedditEvents) + \
+        " WHERE objectID = \'" + t_obj_id + "\';"
+
+    cursor.execute(updateTotalEventsQuery)
+    connection.commit()
 
     # These statements are used to insert data into Reddit Event's Table
     # SQL which inserts into event table
