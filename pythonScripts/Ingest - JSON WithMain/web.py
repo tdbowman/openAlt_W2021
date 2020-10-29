@@ -1,3 +1,6 @@
+import dateutil.parser
+
+
 def webIngest(uniqueEvent, cursor, connection):
 
     # These are all temporary objects used to store the values of the fields in the JSON files.
@@ -64,89 +67,59 @@ def webIngest(uniqueEvent, cursor, connection):
         elif (key == 'relation_type_id'):
             t_relation_type_id = value
 
-    # Fetch all records from the 6 columns in the database and is placed into a list of tuples
-    listOfDictQuery = "SELECT increment, objectID, totalEvents, totalWebEvents,firstWebEvent, lastWebEvent FROM Main;"
+    # Insert t_obj_id from the event of the JSON file into the main table
+    objectIDInsertionQuery = "INSERT IGNORE INTO main (objectID) VALUES(\'" + \
+        t_obj_id + "\');"
+    cursor.execute(objectIDInsertionQuery)
+    connection.commit()
+
+    # Fetch all records from the 4 columns in the main table from t_obj_id and is placed into a list of tuples.
+    # (firstWebEvent, lastWebevent, totalEvents, totalWebEvents)
+    listOfDictQuery = "SELECT firstWebEvent, lastWebEvent, totalEvents, totalWebEvents FROM Main WHERE objectID = \'" + t_obj_id + "\';"
     cursor.execute(listOfDictQuery)
-    listOfTuples = cursor.fetchall()
+    listOfTuples = cursor.fetchone()
 
-    # This is used for the situation that there may be a match in objectIDs(DOI) between the event in the JSON file and the main table.
-    # If there isn't a match then we'll be using an insertion query rather than an update query for an event.
-    # The insertion query will be used for the main table.
-    updated = False
+    # Initialize objects to tuple values
+    firstEvent = listOfTuples[0]
+    lastEvent = listOfTuples[1]
+    totalEvents = listOfTuples[2]
+    totalWebEvents = listOfTuples[3]
 
-    # Fetch all records from the 3 columns in the database and is placed into a list of tuples
-    timestampQuery = "SELECT eventID, timeObserved, objectID FROM Webevent;"
-    cursor.execute(timestampQuery)
-    listOfEventIDAndTimestamps = cursor.fetchall()
+    # If empty, intialize to 0
+    if not totalEvents:
+        totalEvents = 0
+    if not totalWebEvents:
+        totalWebEvents = 0
 
-    # Iterate through the list of records(which are within tuples)
-    # From the main table (increment, objectID, totalEvents, totalWebEvents,firstWebEvent, lastWebEvent)
-    for lOfTuple in listOfTuples:
+    # Convert t_timestamp(timestamp) into t_dateTime(datetime)
+    t_dateTime = dateutil.parser.isoparse(t_timestamp)
+    t_dateTime = str(t_dateTime)
 
-        # If there's an event with an objectID(DOI) within the JSON file that matches a objectID(DOI) within the Web Event Table, continue
-        if t_obj_id == lOfTuple[1]:
-
-            # DON'T CHANGE THE INCREMENT
-            iOfRecord = lOfTuple[0]
-            tEvents = lOfTuple[2]
-            tWebEvents = lOfTuple[3]
-
-            # From the Web event table (eventID, timeObserved, objectID)
-            # This list of tuples(listOfEventIDandTimestamps) is used to compare timestamps of records from the Web Event Table to determine the value of the column of firstWebEvent and lastWebEvent in the Main table
-            for IDandTimestamps in listOfEventIDAndTimestamps:
-                # This is used to find the same eventID in the Web event table as the firstWebEvent(eventID) in the main table.
-                # This is to make sure we're updating or modifying the firstWebevent from the main table.
-                if lOfTuple[4] == IDandTimestamps[0]:
-                    if t_timestamp < str(IDandTimestamps[1]):
-                        fWebEvent = t_id
-                    elif str(IDandTimestamps[1]) < t_timestamp:
-                        fWebEvent = IDandTimestamps[0]
-                # This is to make sure we're updating or modifying the lastWebevent from the main table with the same objectID.
-                if t_obj_id == IDandTimestamps[2]:
-                    if t_timestamp < str(IDandTimestamps[1]):
-                        lWebEvent = IDandTimestamps[0]
-                    elif str(IDandTimestamps[1]) < t_timestamp:
-                        lWebEvent = t_id
-
-            tEvents = tEvents + 1
-            tWebEvents = tWebEvents + 1
-
-            # Update query used to modify the record at a specific row(record) in the main table.
-            updateQuery = "UPDATE Main SET totalEvents = %s, totalWebEvents = %s, firstWebEvent = %s, lastWebEvent = %s WHERE increment = %s;"
-
-            updateValues = (tEvents, tWebEvents, fWebEvent,
-                            lWebEvent, iOfRecord)
-
-            # Execute query
-            cursor.execute(updateQuery, updateValues)
-            connection.commit()
-
-            # An existing row in the main was indeed modified.
-            updated = True
-
-    # Inserting a new record in the main table
-    if updated == False:
-        # Initialize temporary values
-        t_total_events = 0
-        t_total_Web_events = 0
-        t_first_Web_event = None
-        t_last_Web_event = None
-
-        t_first_Web_event = t_id
-        t_total_events += t_total_events + 1
-        t_total_Web_events += t_total_Web_events + 1
-        t_last_Web_event = t_id
-
-        # Inserting a row(record) query in the main table
-        addToMainQuery = (
-            "INSERT IGNORE INTO Main " "(objectID,totalEvents,totalWebEvents,firstWebEvent,lastWebEvent) " "VALUES(%s,%s,%s,%s,%s);")
-
-        mainData = (t_obj_id, t_total_events, t_total_Web_events,
-                    t_first_Web_event, t_last_Web_event)
-
-        # Execute query
-        cursor.execute(addToMainQuery, mainData)
+    # If t_timestamp is less than firstEvent or if firstEvent is NULL, update firstWebEvent with t_dateTime in the same row in the main table.
+    if ((t_timestamp < str(firstEvent)) or (firstEvent == None)):
+        updateFirstEventQuery = "UPDATE main SET firstWebEvent = \'" + \
+            t_dateTime + "\' WHERE objectID = \'" + t_obj_id + "\';"
+        cursor.execute(updateFirstEventQuery)
         connection.commit()
+
+    # If t_timestamp is greater than lastEvent or if lastEvent is NULL, update lastWebEvent with t_dateTime in the same row in the main table.
+    if ((t_timestamp > str(lastEvent)) or (lastEvent == None)):
+        updateLastEventQuery = "UPDATE main SET lastWebEvent = \'" + \
+            t_dateTime + "\' WHERE objectID = \'" + t_obj_id + "\';"
+        cursor.execute(updateLastEventQuery)
+        connection.commit()
+
+    # Increment event count
+    totalEvents += 1
+    totalWebEvents += 1
+
+    # Update totalEvents and totalWebEvents in the main table
+    updateTotalEventsQuery = "UPDATE main SET totalEvents = " + str(totalEvents) + \
+        ", totalWebEvents = " + str(totalWebEvents) + \
+        " WHERE objectID = \'" + t_obj_id + "\';"
+
+    cursor.execute(updateTotalEventsQuery)
+    connection.commit()
 
     # These statements are used to insert data into Web Event's Table
     # SQL which inserts into event table
