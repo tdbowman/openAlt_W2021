@@ -232,6 +232,8 @@ def authorDashboardLogic(mysql, mysql2):
         event_count = cursor2.fetchone()
         wordpressevent.append(event_count['count'])
     # wordpressevent = [5, 10, 15, 20, 25];  # TBD - delete this line after we upload data in cambia event table for all these years
+    
+    cursor2.close()
 
     return flask.render_template('authorDashboard.html',
                                  author_name=author_name['name'],
