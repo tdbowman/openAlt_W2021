@@ -64,32 +64,32 @@ def main():
                             pass
                         else:
                             if (key == "source_id" and value == "cambia-lens"):
-                                print("cambia")
+                                print('cambia')
                                 cambiaLens.cambiaLensIngest(
                                     uniqueEvent, cursor, connection)
                                 break
                             elif (key == "source_id" and value == "crossref"):
-                                print("crossref")
+                                print('crossref')
                                 crossref.crossrefIngest(
                                     uniqueEvent, cursor, connection)
                                 break
                             elif (key == "source_id" and value == "datacite"):
-                                print("catacite")
+                                print('datacite')
                                 datacite.dataciteIngest(
                                     uniqueEvent, cursor, connection)
                                 break
                             elif (key == "source_id" and value == "hypothesis"):
-                                print("hypothesis")
+                                print('hypothesis')
                                 hypothesis.hypothesisIngest(
                                     uniqueEvent, cursor, connection)
                                 break
                             elif (key == "source_id" and value == "newsfeed"):
-                                print("newsfeed")
+                                print('newsfeed')
                                 newsfeed.newsfeedIngest(
                                     uniqueEvent, cursor, connection)
                                 break
                             elif (key == "source_id" and value == "reddit"):
-                                print("reddit")
+                                print('reddit')
                                 reddit.redditIngest(
                                     uniqueEvent, cursor, connection)
                                 break
