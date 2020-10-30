@@ -67,26 +67,31 @@ def wordpressIngest(uniqueEvent, cursor, connection):
         elif (key == 'relation_type_id'):
             t_relation_type_id = value
 
+    # Wordpress is unique - needs more work
     if (t_obj_id != None):
+        try:
+            # Insert t_obj_id from the event of the JSON file into the main table
+            objectIDInsertionQuery = "INSERT IGNORE INTO main (objectID) VALUES(\'" + \
+                t_obj_id + "\');"
+            cursor.execute(objectIDInsertionQuery)
+            connection.commit()
 
-        # Insert t_obj_id from the event of the JSON file into the main table
-        objectIDInsertionQuery = "INSERT IGNORE INTO main (objectID) VALUES(\'" + \
-            t_obj_id + "\');"
-        cursor.execute(objectIDInsertionQuery)
-        connection.commit()
+            # Fetch all records from the 4 columns in the main table from t_obj_id and is placed into a list of tuples.
+            # (firstWordpressEvent, lastWordpressevent, totalEvents, totalWordpressEvents)
+            listOfDictQuery = "SELECT firstWordpressEvent, lastWordpressEvent, totalEvents, totalWordpressEvents FROM Main WHERE objectID = \'" + t_obj_id + "\';"
+            cursor.execute(listOfDictQuery)
+            listOfTuples = cursor.fetchone()
 
-        # Fetch all records from the 4 columns in the main table from t_obj_id and is placed into a list of tuples.
-        # (firstWordpressEvent, lastWordpressevent, totalEvents, totalWordpressEvents)
-        listOfDictQuery = "SELECT firstWordpressEvent, lastWordpressEvent, totalEvents, totalWordpressEvents FROM Main WHERE objectID = \'" + t_obj_id + "\';"
-        cursor.execute(listOfDictQuery)
-        listOfTuples = cursor.fetchone()
-
-        # Initialize objects to tuple values
-        firstEvent = listOfTuples[0]
-        lastEvent = listOfTuples[1]
-        totalEvents = listOfTuples[2]
-        totalWordpressEvents = listOfTuples[3]
-
+            # Initialize objects to tuple values
+            firstEvent = listOfTuples[0]
+            lastEvent = listOfTuples[1]
+            totalEvents = listOfTuples[2]
+            totalWordpressEvents = listOfTuples[3]
+        
+        # If we enter this except block, most likely the DOI was long gibberish and was unable to be entered into the main table which is VARCHAR(100)
+        except:
+            return # just return to main.py, this event will not be ingested
+        
         # If empty, intialize to 0
         if not totalEvents:
             totalEvents = 0
