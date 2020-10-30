@@ -89,13 +89,20 @@ def newsfeedIngest(uniqueEvent, cursor, connection):
         # (firstNewsfeedEvent, lastNewsfeedevent, totalEvents, totalNewsfeedEvents)
         listOfDictQuery = "SELECT firstNewsfeedEvent, lastNewsfeedEvent, totalEvents, totalNewsfeedEvents FROM Main WHERE objectID = \'" + t_obj_id + "\';"
         cursor.execute(listOfDictQuery)
-        listOfTuples = cursor.fetchone()
+        row = cursor.fetchone()
 
-        # Initialize objects to tuple values
-        firstEvent = listOfTuples[0]
-        lastEvent = listOfTuples[1]
-        totalEvents = listOfTuples[2]
-        totalNewsfeedEvents = listOfTuples[3]
+        if (type(row) == dict):
+            # Initialize objects to dictionary key values
+            firstEvent = row['firstNewsfeedEvent']
+            lastEvent = row['lastNewsfeedEvent']
+            totalEvents = row['totalEvents']
+            totalNewsfeedEvents = row['totalNewsfeedEvents']
+        elif (type(row) == tuple):
+            # Initialize objects to tuple values
+            firstEvent = row[0]
+            lastEvent = row[1]
+            totalEvents = row[2]
+            totalNewsfeedEvents = row[3]
 
     # If we enter this except block, most likely the DOI was long gibberish and was unable to be entered into the main table which is VARCHAR(100)
     except:
