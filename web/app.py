@@ -42,8 +42,7 @@ def index():
     totalSum = landingPageStats(mysql)
     totalSumArticles = landingPageArticles(mysql)
     totalSumJournals = landingPageJournals(mysql)
-    return flask.render_template('index.html', totalSum=totalSum , totalSumArticles=totalSumArticles , totalSumJournals=totalSumJournals) 
-
+    return flask.render_template('index.html', totalSum=totalSum , totalSumArticles=totalSumArticles , totalSumJournals=totalSumJournals)
 
 
 @app.route('/searchResultsPage', methods=["GET", "POST"])
