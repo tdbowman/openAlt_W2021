@@ -25,9 +25,9 @@ except:
     logging.info("Cannot determine how you intend to run the program")
 
 # Change these to suit your system
-dataDirectory = "../../JSON"
+dataDirectory = "../JSON"
 mysql_username = "root"
-mysql_password = "RiyaFoxMcCloud64"
+mysql_password = ""
 
 
 def main():
@@ -64,49 +64,61 @@ def main():
                             pass
                         else:
                             if (key == "source_id" and value == "cambia-lens"):
+                                print('cambia')
                                 cambiaLens.cambiaLensIngest(
                                     uniqueEvent, cursor, connection)
                                 break
                             elif (key == "source_id" and value == "crossref"):
+                                print('crossref')
                                 crossref.crossrefIngest(
                                     uniqueEvent, cursor, connection)
                                 break
                             elif (key == "source_id" and value == "datacite"):
+                                print('datacite')
                                 datacite.dataciteIngest(
                                     uniqueEvent, cursor, connection)
                                 break
                             elif (key == "source_id" and value == "hypothesis"):
+                                print('hypothesis')
                                 hypothesis.hypothesisIngest(
                                     uniqueEvent, cursor, connection)
                                 break
                             elif (key == "source_id" and value == "newsfeed"):
+                                print('newsfeed')
                                 newsfeed.newsfeedIngest(
                                     uniqueEvent, cursor, connection)
                                 break
                             elif (key == "source_id" and value == "reddit"):
+                                print('reddit')
                                 reddit.redditIngest(
                                     uniqueEvent, cursor, connection)
                                 break
                             elif (key == "source_id" and value == "reddit-links"):
+                                print('redditlinks')
                                 redditLinks.redditLinksIngest(
                                     uniqueEvent, cursor, connection)
                                 break
                             elif (key == "source_id" and value == "stackexchange"):
+                                print('stackexchange')
                                 stackExchange.stackExchangeIngest(
                                     uniqueEvent, cursor, connection)
                                 break
                             elif (key == "source_id" and value == "twitter"):
+                                print('twitter')
                                 twitter.twitterIngest(
                                     uniqueEvent, cursor, connection)
                                 break
                             elif (key == "source_id" and value == "web"):
+                                print('web')
                                 web.webIngest(uniqueEvent, cursor, connection)
                                 break
                             elif (key == "source_id" and value == "wikipedia"):
+                                print('wikipedia')
                                 wikipedia.wikipediaIngest(
                                     uniqueEvent, cursor, connection)
                                 break
                             elif (key == "source_id" and value == "wordpressdotcom"):
+                                print('wordpress.com')
                                 wordpress.wordpressIngest(
                                     uniqueEvent, cursor, connection)
                                 break
