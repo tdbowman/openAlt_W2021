@@ -19,6 +19,21 @@ form method="post" action="{{ url_for('search') }}" >
         <option value="Article">Article</option>
     </select>-->
 <div class="col-sm-3">
+    <div style="width:200px; border-radius: 25px; padding: 10px; background-color: rgba(60, 65, 70, 0.5); " class = "center-screen col-sm-6">
+        <h2 style="text-align: center; color: aliceblue;">Total number of events</h2>
+        <p3 style="text-align: center; color: aliceblue;">{{totalSum}}</p3>
+        <br><br>
+    </div>
+    <div style="width:200px; border-radius: 25px; padding: 10px; background-color: rgba(60, 65, 70, 0.5); " class = "center-screen col-sm-6">
+        <h2 style="text-align: center; color: aliceblue;">Total number of articles</h2>
+        <p3 style="text-align: center; color: aliceblue;">{{totalSumArticles}}</p3>
+        <br><br>
+    </div>
+    <div style="width:200px; border-radius: 25px; padding: 10px; background-color: rgba(60, 65, 70, 0.5); " class = "center-screen col-sm-6">
+        <h2 style="text-align: center; color: aliceblue;">Total number of journals</h2>
+        <p3 style="text-align: center; color: aliceblue;">{{totalSumJournals}}</p3>
+        <br><br>
+    </div>
 </div>
 
 <div style="border-radius: 25px; padding: 10px; background-color: rgba(60, 65, 70, 0.5); " class = "center-screen col-sm-6">
@@ -40,7 +55,11 @@ form method="post" action="{{ url_for('search') }}" >
         <input width="80%" type="submit" value="Search" style="width: 100px;" class="form-control">
     </div>
   </form>
+
 </div>
+
+
+
 
 <div class="col-sm-3">
     <!-- Empty column of size 2. Right of search bar -->
