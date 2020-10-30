@@ -7,6 +7,9 @@ from articleDashboardLogic import articleDashboardLogic
 from journalDashboardLogic import journalDashboardLogic
 from authorDashboardLogic import authorDashboardLogic
 from getPassword import getPassword
+from landingPageStats import landingPageStats
+from landingPageArticles import landingPageArticles
+from landingPageJournals import landingPageJournals
 
 # get the users password from crossrefeventdata/web/passwd.txt
 mysql_password = getPassword()
@@ -36,7 +39,11 @@ mysql2 = MySQL(app2)
 
 @app.route('/')
 def index():
-    return flask.render_template('index.html')
+    totalSum = landingPageStats(mysql)
+    totalSumArticles = landingPageArticles(mysql)
+    totalSumJournals = landingPageJournals(mysql)
+    return flask.render_template('index.html', totalSum=totalSum , totalSumArticles=totalSumArticles , totalSumJournals=totalSumJournals) 
+
 
 
 @app.route('/searchResultsPage', methods=["GET", "POST"])
