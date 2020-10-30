@@ -80,7 +80,7 @@ def authorDashboardLogic(mysql, mysql2):
     # cambia event
     cambiaEvent = []
     for year in years_list:
-        cambia_sql = "select count(*) count from crossrefeventdata.cambiaevent " \
+        cambia_sql = "select count(objectID) count from crossrefeventdata.cambiaevent " \
                      "where substr(objectID,17) in " + doi_list + " " \
                      "and substr(occurredAt,1,4)='" + str(year) + "';"
 
@@ -93,7 +93,7 @@ def authorDashboardLogic(mysql, mysql2):
     # crossrefevent
     crossrefevent = []
     for year in years_list:
-        crossref_sql = "select count(*) count from crossrefeventdata.crossrefevent " \
+        crossref_sql = "select count(objectID) count from crossrefeventdata.crossrefevent " \
                        "where substr(objectID,17) in " + doi_list + " " \
                        "and substr(occurredAt,1,4)='" + str(year) + "';"
 
@@ -106,7 +106,7 @@ def authorDashboardLogic(mysql, mysql2):
     # dataciteevent
     dataciteevent = []
     for year in years_list:
-        datacite_sql = "select count(*) count from crossrefeventdata.dataciteevent " \
+        datacite_sql = "select count(objectID) count from crossrefeventdata.dataciteevent " \
                        "where substr(objectID,17) in " + doi_list + " " \
                        "and substr(occurredAt,1,4)='" + str(year) + "';"
 
@@ -119,7 +119,7 @@ def authorDashboardLogic(mysql, mysql2):
     # hypothesisevent
     hypothesisevent = []
     for year in years_list:
-        hypothesis_sql = "select count(*) count from crossrefeventdata.hypothesisevent " \
+        hypothesis_sql = "select count(objectID) count from crossrefeventdata.hypothesisevent " \
             "where substr(objectID,17) in " + doi_list + " " \
             "and substr(occurredAt,1,4)='" + str(year) + "';"
 
@@ -132,7 +132,7 @@ def authorDashboardLogic(mysql, mysql2):
     # newsfeedevent
     newsfeedevent = []
     for year in years_list:
-        newsfeed_sql = "select count(*) count from crossrefeventdata.newsfeedevent " \
+        newsfeed_sql = "select count(objectID) count from crossrefeventdata.newsfeedevent " \
             "where substr(objectID,17) in " + doi_list + " " \
             "and substr(occurredAt,1,4)='" + str(year) + "';"
 
@@ -145,7 +145,7 @@ def authorDashboardLogic(mysql, mysql2):
     # redditevent
     redditevent = []
     for year in years_list:
-        reddit_sql = "select count(*) count from crossrefeventdata.redditevent " \
+        reddit_sql = "select count(objectID) count from crossrefeventdata.redditevent " \
             "where substr(objectID,17) in " + doi_list + " " \
             "and substr(occurredAt,1,4)='" + str(year) + "';"
 
@@ -158,7 +158,7 @@ def authorDashboardLogic(mysql, mysql2):
     # redditlinksevent
     redditlinksevent = []
     for year in years_list:
-        redditlinks_sql = "select count(*) count from crossrefeventdata.redditlinksevent " \
+        redditlinks_sql = "select count(objectID) count from crossrefeventdata.redditlinksevent " \
             "where substr(objectID,17) in " + doi_list + " " \
             "and substr(occurredAt,1,4)='" + str(year) + "';"
 
@@ -171,7 +171,7 @@ def authorDashboardLogic(mysql, mysql2):
     # stackexchangeevent
     stackexchangeevent = []
     for year in years_list:
-        stackexchange_sql = "select count(*) count from crossrefeventdata.stackexchangeevent " \
+        stackexchange_sql = "select count(objectID) count from crossrefeventdata.stackexchangeevent " \
             "where substr(objectID,17) in " + doi_list + " " \
             "and substr(occurredAt,1,4)='" + str(year) + "';"
 
@@ -184,7 +184,7 @@ def authorDashboardLogic(mysql, mysql2):
     # twitterevent
     twitterevent = []
     for year in years_list:
-        twitter_sql = "select count(*) count from crossrefeventdata.twitterevent " \
+        twitter_sql = "select count(objectID) count from crossrefeventdata.twitterevent " \
             "where substr(objectID,17) in " + doi_list + " " \
             "and substr(occurredAt,1,4)='" + str(year) + "';"
 
@@ -197,7 +197,7 @@ def authorDashboardLogic(mysql, mysql2):
     # webevent
     webevent = []
     for year in years_list:
-        web_sql = "select count(*) count from crossrefeventdata.webevent " \
+        web_sql = "select count(objectID) count from crossrefeventdata.webevent " \
             "where substr(objectID,17) in " + doi_list + " " \
             "and substr(occurredAt,1,4)='" + str(year) + "';"
 
@@ -210,7 +210,7 @@ def authorDashboardLogic(mysql, mysql2):
     # wikipediaevent
     wikipediaevent = []
     for year in years_list:
-        wikipedia_sql = "select count(*) count from crossrefeventdata.wikipediaevent " \
+        wikipedia_sql = "select count(objectID) count from crossrefeventdata.wikipediaevent " \
             "where substr(objectID,17) in " + doi_list + " " \
             "and substr(occurredAt,1,4)='" + str(year) + "';"
 
@@ -223,7 +223,7 @@ def authorDashboardLogic(mysql, mysql2):
     # wordpressevent
     wordpressevent = []
     for year in years_list:
-        wordpress_sql = "select count(*) count from crossrefeventdata.wordpressevent " \
+        wordpress_sql = "select count(objectID) count from crossrefeventdata.wordpressevent " \
                         "where substr(objectID,17) in " + doi_list + " " \
                         "and substr(occurredAt,1,4)='" + str(year) + "';"
 
@@ -232,6 +232,8 @@ def authorDashboardLogic(mysql, mysql2):
         event_count = cursor2.fetchone()
         wordpressevent.append(event_count['count'])
     # wordpressevent = [5, 10, 15, 20, 25];  # TBD - delete this line after we upload data in cambia event table for all these years
+    
+    cursor2.close()
 
     return flask.render_template('authorDashboard.html',
                                  author_name=author_name['name'],

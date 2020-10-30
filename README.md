@@ -38,6 +38,7 @@ We are developing a website which will allow users to search our database for DO
 | flask                     | BSD-3-Clause License       |
 | flask-mysqldb             | MIT License                |
 | virtualenv                | MIT License                |
+| python-dateutil           | Apache-2.0 License         |
 
 Search page image is from [99images.com](https://www.99images.com/wallpapers/travel-world/detroit-city-android-iphone-desktop-hd-backgrounds-wallpapers-1080p-4k-r1zh/193037)
 

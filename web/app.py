@@ -36,41 +36,49 @@ app2.config['MYSQL_CURSORCLASS'] = 'DictCursor'
 # Database initialization and cursor
 mysql2 = MySQL(app2)
 
+
 @app.route('/')
 def index():
     totalSum = landingPageStats(mysql)
     totalSumArticles = landingPageArticles(mysql)
     totalSumJournals = landingPageJournals(mysql)
-    return flask.render_template('index.html', totalSum=totalSum , totalSumArticles=totalSumArticles , totalSumJournals=totalSumJournals) 
+    return flask.render_template('index.html', totalSum=totalSum , totalSumArticles=totalSumArticles , totalSumJournals=totalSumJournals)
 
 
 @app.route('/searchResultsPage', methods=["GET", "POST"])
 def search():
     return searchLogic(mysql)
-    
+
+
 @app.route('/articleDashboard', methods=["GET", "POST"])
 def articleDashboard():
     return articleDashboardLogic(mysql, mysql2)
-    
+
+
 @app.route('/journalDashboard', methods=["GET", "POST"])
 def journalDashboard():
     return journalDashboardLogic(mysql)
+
 
 @app.route('/authorDashboard', methods=["GET", "POST"])
 def authorDashboard():
     return authorDashboardLogic(mysql, mysql2)
 
+
 @app.route('/about', methods=["GET", "POST"])
 def about():
     return flask.render_template('about.html')
+
 
 @app.route('/team', methods=["GET", "POST"])
 def team():
     return flask.render_template('team.html')
 
+
 @app.route('/licenses', methods=["GET", "POST"])
 def licenses():
     return flask.render_template('licenses.html')
+
 
 if __name__ == "__main__":
     app.run(host='localhost', port=5000, debug=True)
