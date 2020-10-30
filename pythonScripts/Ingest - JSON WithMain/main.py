@@ -15,6 +15,7 @@ import logging
 import sys
 import os
 import time
+
 # import git password thing
 logging.basicConfig(filename='./ingest.log', filemode='a', level=logging.INFO,
                     format='%(asctime)s - %(message)s', datefmt='%d-%b-%y %H:%M:%S')  # Set the logging parameters
