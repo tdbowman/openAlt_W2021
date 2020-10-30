@@ -25,7 +25,7 @@ except:
 
 # Change these to suit your system
 mysql_username = "root"
-mysql_password = "RiyaFoxMcCloud64"
+mysql_password = ""
 
 
 def main():
