@@ -55,14 +55,14 @@ Anyone can use our scripts and database schemas to create and fill in `crossRefE
 We are developing a website which will allow users to search our databases for DOI's, authors, paper titles, or journals. Users will be able to see how many Events, and of which type, a given paper or author has generated. The number of papers published per year for a given journal will also be shown.
 
 ## Quirks of the Crossref API
-1) Some DOI's in the Crossref Event data are malformed.  
+* Some Events give a DOI(objectID) of simply https://doi.org. For example, the event with ID: `5c83ca20-d4a1-471b-a23f-f21486cefb5c`
+* Some DOI's in the Crossref Event data are malformed.  
+This appears to be an inability of the Crossref agent to process Arabic text. We have only observed this for Twitter events so far.  
 For example, the event with ID `5dd6719b-8981-4712-988c-8c01f7ad760b` has a DOI(objectID) of:  
  ```
  "obj_id": "https://doi.org/www.kau.edu.sa/content.aspx?pg=%d9%88%d8%b8%d8%a7%d8%a6%d9%81-%d8%b4%d8%a7%d8%ba%d8%b1%d8%a9-%d8%b9%d9%84%d9%89-%d8%a8%d9%86%d8%af-%d8%a7%d9%84%d8%a7%d8%ac%d9%88%d8%b1-%d8%a8%d9%88%d9%83%d8%a7%d9%84%d8%a9-%d8%b4%d8%b7%d8%b1-%d8%a7%d9%84%d8%b7%d8%a7%d9%84%d8%a8%d8%a7%d8%aa"
- ```  
- This appears to be an inability of the Crossref agent to process Arabic text. We have only observed this for Twitter events so far.
-2) Some DOI's are listed only as https://doi.org. For example, the event with ID: `5c83ca20-d4a1-471b-a23f-f21486cefb5c`
-3) Many Twitter Events do not provide a link to the tweet as their subjectID. Instead, they have only `http://twitter.com` as their link.  Since these events do not contain useful links, we have designed the website to hide these events from the "100 recent events" section on the article dashboard. These events are still counted towards the author/article totals.
+ ```
+* Many Twitter Events do not provide a link to the tweet as their subjectID. Instead, they have only `http://twitter.com` as their link.  Since these events do not contain useful links, we have designed the website to hide these events from the "100 recent events" section on the article dashboard. These events are still counted towards the author/article totals.
 
 ## Dependencies and their Licenses
 
