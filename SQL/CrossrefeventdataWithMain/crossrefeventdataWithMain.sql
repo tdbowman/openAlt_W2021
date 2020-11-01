@@ -37,9 +37,17 @@ CREATE TABLE IF NOT EXISTS Main
     -- First Datacite datetime inserted into the database
     firstDataciteEvent 		datetime,
     
-    -- Last Crossref datetime inserted into the database
+    -- Last Datacite datetime inserted into the database
     lastDataciteEvent 		datetime,
     
+    -- Total number of F1000 events
+    totalF1000Events        INT,
+
+    -- First F1000 datetime inserted into the database
+    firstF1000Event         datetime,
+
+    -- Last F1000 datetime inserted into the database
+    lastF1000Event          datetime,
     
     -- Total number of Hypothesis events
     totalHypothesisEvents 	INT,
@@ -209,7 +217,7 @@ CREATE TABLE IF NOT EXISTS CrossRefEvent
     -- Auto increment for easy primary keys
     crossRefIncrement       INTEGER AUTO_INCREMENT PRIMARY KEY,
     
-	--  The original source of the input data. Source could be any of the 12 sources listed in CrossRef's guide.
+	--  The original source of the input data. Source could be any of the 13 sources listed in CrossRef's guide.
     sourceID                VARCHAR(100),
     
 	--  Link to the scholarly writing.
@@ -253,7 +261,7 @@ CREATE TABLE IF NOT EXISTS DataCiteEvent(
     --   Auto increment for easy primary keys.
     dataCiteIncrement       INTEGER AUTO_INCREMENT PRIMARY KEY,
 
-	--  The original source of the input data. Source could be any of the 12 sources listed in CrossRef's guide.
+	--  The original source of the input data. Source could be any of the 13 sources listed in CrossRef's guide.
     sourceID                VARCHAR (20),
     
     --  Link to the scholarly writing.
@@ -287,6 +295,69 @@ CREATE TABLE IF NOT EXISTS DataCiteEvent(
 	FOREIGN KEY (objectID) REFERENCES main(objectID) ON DELETE CASCADE
 );
 
+
+CREATE TABLE IF NOT EXISTS F1000Event(
+
+    -- To uniquely identify each row.
+    f1000Increment     INTEGER AUTO_INCREMENT  PRIMARY KEY,
+
+    -- Name of source that event came from.
+    sourceID        VARCHAR(100),
+
+    --  Link to the scholarly writing.
+    objectID        VARCHAR(100),
+
+    --  Subject ID is similar to the object ID, since most events have a URL as a subject ID and the DOI as object ID. The agent that processes the data decides on each event.
+    subjectID       VARCHAR(100),
+
+    --  Every event is assigned a unique ID. Used for reference.
+    eventID         VARCHAR(100),
+
+    --  The date and time the event was "REPORTED" to have been published by users. CONFORMS TO ISO8601.
+    occurredAt      VARCHAR(100),
+
+    --  datetime shortly after the event was spotted.
+    timeObserved    VARCHAR(100),
+
+    --  Nature of the discussion on the doi (discusses, mentions, etc.).
+    relationType    VARCHAR(100),
+
+    -- An id that identifies the Agent that made the Event.
+    sourceToken     VARCHAR(100),
+
+    -- A license under which the Event is made available.
+    license         VARCHAR(100),
+
+    --  Terms of use for the CROSSREF EVENT DATA QUERY API.
+    termsOfUse      VARCHAR(100),
+
+    -- Includes a link to an Evidence Record for this Event. This is used to generate an Event and contains all of the information used to create the Event.
+    evidenceRecord  VARCHAR(100),
+
+    -- Action is the nature of the event, such as adding a comment, in which case the action is "add".
+    eventAction     VARCHAR(100),
+
+    -- The ID of the entity mentioning the DOI.
+    subjectPID      VARCHAR(100),
+
+    -- Author of the event.
+    subjectURL      VARCHAR(100),
+
+
+    alternativeID   VARCHAR(100),
+
+
+    workTypeID      VARCHAR(100),
+
+    -- Persistent Identifer(PID) of the object (DOI being discussed).
+    objectPID       VARCHAR(100),
+
+    -- URL of the doi being discussed.
+    objectURL       VARCHAR(100),
+
+    --  Foreign key to reference the doi
+    FOREIGN KEY (objectID) REFERENCES main(objectID) ON DELETE CASCADE
+);
 
 
 CREATE TABLE IF NOT EXISTS HypothesisEvent(
@@ -440,7 +511,7 @@ CREATE TABLE IF NOT EXISTS RedditEvent(
     --  Auto increment for easy primary keys.
     redditIncrement         INTEGER AUTO_INCREMENT PRIMARY KEY,
     
-    --  The original source of the input data. Source could be any of the 12 sources listed in CrossRef's guide.
+    --  The original source of the input data. Source could be any of the 13 sources listed in CrossRef's guide.
     sourceID                VARCHAR(100),
     
 	--  ID of the scholarly writing.
@@ -582,7 +653,7 @@ CREATE TABLE IF NOT EXISTS StackexchangeEvent(
     --  Auto increment for easy primary keys.
     stackExchangeIncrement  INTEGER AUTO_INCREMENT PRIMARY KEY,
 
-	--  The original source of the input data. Source could be any of the 12 sources listed in CrossRef's guide.
+	--  The original source of the input data. Source could be any of the 13 sources listed in CrossRef's guide.
     sourceID                VARCHAR(100),
     
 	--  Link to the scholarly writing.
@@ -802,7 +873,7 @@ CREATE TABLE IF NOT EXISTS WebEvent(
     --  Auto increment for easy primary keys
     wikipediaIncrement      INTEGER AUTO_INCREMENT PRIMARY KEY,
 
-	--  The original source of the input data. Source could be any of the 12 sources listed in CrossRef's guide.
+	--  The original source of the input data. Source could be any of the 13 sources listed in CrossRef's guide.
     sourceID                VARCHAR(100),
     
     --  Link to the scholarly writing.
@@ -873,7 +944,7 @@ CREATE TABLE IF NOT EXISTS WebEvent(
     --  Auto increment for easy primary keys.
     wordPressIncrement      INTEGER AUTO_INCREMENT PRIMARY KEY,
     
-    --  The original source of the input data. Source could be any of the 12 sources listed in CrossRef's guide.
+    --  The original source of the input data. Source could be any of the 13 sources listed in CrossRef's guide.
     sourceID                VARCHAR(100),
     
 	--  Link to the scholarly writing.

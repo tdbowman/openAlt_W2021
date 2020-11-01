@@ -31,7 +31,7 @@ app2 = flask.Flask(__name__)
 app2.config['MYSQL_USER'] = 'root'
 app2.config['MYSQL_PASSWORD'] = mysql_password
 # Or use the database.table which will allow us to join the databases - the one with author, and the one with events
-app2.config['MYSQL_DB'] = 'crossrefeventdata'
+app2.config['MYSQL_DB'] = 'crossrefeventdatamain'
 app2.config['MYSQL_CURSORCLASS'] = 'DictCursor'
 # Database initialization and cursor
 mysql2 = MySQL(app2)
@@ -42,7 +42,7 @@ def index():
     totalSum = landingPageStats(mysql)
     totalSumArticles = landingPageArticles(mysql)
     totalSumJournals = landingPageJournals(mysql)
-    return flask.render_template('index.html', totalSum=totalSum , totalSumArticles=totalSumArticles , totalSumJournals=totalSumJournals)
+    return flask.render_template('index.html', totalSum=totalSum, totalSumArticles=totalSumArticles, totalSumJournals=totalSumJournals)
 
 
 @app.route('/searchResultsPage', methods=["GET", "POST"])
