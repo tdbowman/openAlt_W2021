@@ -72,7 +72,7 @@ def cambiaLensIngest(uniqueEvent, cursor, connection):
         elif (key == "relation_type_id"):
             t_relation_type_id = value
 
-    try:
+    if(len(t_obj_id) < 100):
         # Insert t_obj_id from the event of the JSON file into the main table
         objectIDInsertionQuery = "INSERT IGNORE INTO main (objectID) VALUES(\'" + \
             t_obj_id + "\');"
@@ -85,42 +85,46 @@ def cambiaLensIngest(uniqueEvent, cursor, connection):
         cursor.execute(listOfDictQuery)
         row = cursor.fetchone()
 
+        firstEvent = ""
+        lastEvent = ""
+        totalEvents = 0
+        totalCambiaEvents = 0
+
         if (type(row) == dict):
             # Initialize objects to dictionary key values
             firstEvent = row['firstCambiaEvent']
             lastEvent = row['lastCambiaEvent']
-            totalEvents = row['totalEvents']
-            totalCambiaEvents = row['totalCambiaEvents']
+            if row['totalEvents'] is not None:
+                totalEvents = row['totalEvents']
+            if row['totalCambiaEvents'] is not None:
+                totalCambiaEvents = row['totalCambiaEvents']
         elif (type(row) == tuple):
             # Initialize objects to tuple values
             firstEvent = row[0]
             lastEvent = row[1]
-            totalEvents = row[2]
-            totalCambiaEvents = row[3]
+
+            if row[2] is not None:
+                totalEvents = row[2]
+            if row[3] is not None:
+                totalCambiaEvents = row[3]
 
     # If we enter this except block, most likely the DOI was long gibberish and was unable to be entered into the main table which is VARCHAR(100)
-    except:
+    elif (len(t_obj_id) >= 100):
         return  # just return to main.py, this event will not be ingested
-
-    # If empty, intialize to 0
-    if not totalEvents:
-        totalEvents = 0
-    if not totalCambiaEvents:
-        totalCambiaEvents = 0
 
     # Convert t_timestamp(timestamp) into t_dateTime(datetime)
     t_dateTime = dateutil.parser.isoparse(t_timestamp)
     t_dateTime = str(t_dateTime)
 
-    # If t_timestamp is less than firstEvent or if firstEvent is NULL, update firstCambiaEvent with t_dateTime in the same row in the main table.
-    if ((t_timestamp < str(firstEvent)) or (firstEvent == None)):
+    # If t_dateTime is less than firstEvent or if firstEvent is NULL, update firstCambiaEvent with t_dateTime in the same row in the main table.
+    if ((t_dateTime < str(firstEvent)) or (firstEvent == None)):
         updateFirstEventQuery = "UPDATE main SET firstCambiaEvent = \'" + \
             t_dateTime + "\' WHERE objectID = \'" + t_obj_id + "\';"
         cursor.execute(updateFirstEventQuery)
         connection.commit()
 
-    # If t_timestamp is greater than lastEvent or if lastEvent is NULL, update lastCambiaEvent with t_dateTime in the same row in the main table.
-    if ((t_timestamp > str(lastEvent)) or (lastEvent == None)):
+    # If t_dateTime is greater than lastEvent or if lastEvent is NULL, update lastCambiaEvent with t_dateTime in the same row in the main table.
+    if ((t_dateTime > str(lastEvent)) or (lastEvent == None)):
         updateLastEventQuery = "UPDATE main SET lastCambiaEvent = \'" + \
             t_dateTime + "\' WHERE objectID = \'" + t_obj_id + "\';"
         cursor.execute(updateLastEventQuery)
@@ -143,7 +147,7 @@ def cambiaLensIngest(uniqueEvent, cursor, connection):
     add_event = ("INSERT IGNORE INTO CambiaEvent " "(sourceID, objectID, subjectID, eventID, occurredAt, timeObserved, relationType, sourceToken, license, termsOfUse, updatedReason, updated, eventAction, workSubtypeID, workTypeID, subjectTitle, subjectPID, jurisdiction, updatedDate) " "VALUES(%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s);")
 
     # Values to insert into Cambia Event Table
-    data_event = (t_source_id, t_obj_id, t_subj_id, t_id, t_occurred_at, t_timestamp, t_relation_type_id, t_source_token, t_license, t_terms, t_updated_reason, t_updated, t_action,
+    data_event = (t_source_id, t_obj_id, t_subj_id, t_id, t_occurred_at, t_dateTime, t_relation_type_id, t_source_token, t_license, t_terms, t_updated_reason, t_updated, t_action,
                   t_work_subtype_id, t_work_id, t_title, t_pid, t_jurisdiction,  t_updated_date)
 
     # Execute query to add information to Cambia event table

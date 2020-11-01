@@ -25,7 +25,7 @@ except:
 
 # Change these to suit your system
 mysql_username = "root"
-mysql_password = ""
+mysql_password = "RiyaFoxMcCloud64"
 
 
 def main():
@@ -77,6 +77,11 @@ def main():
                         break
                     elif (key == "source_id" and value == "datacite"):
                         print('Datacite')
+                        datacite.dataciteIngest(
+                            eventDict, cursor, connection)
+                        break
+                    elif (key == "source_id" and value == "f1000"):
+                        print('F1000')
                         datacite.dataciteIngest(
                             eventDict, cursor, connection)
                         break

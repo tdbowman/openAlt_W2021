@@ -43,7 +43,8 @@ def crossrefIngest(uniqueEvent, cursor, connection):
             t_timestamp = value
         elif (key == "relation_type_id"):
             t_relation_type_id = value
-    try:
+
+    if(len(t_obj_id) < 100):
         # Insert t_obj_id from the event of the JSON file into the main table
         objectIDInsertionQuery = "INSERT IGNORE INTO main (objectID) VALUES(\'" + \
             t_obj_id + "\');"
@@ -56,42 +57,46 @@ def crossrefIngest(uniqueEvent, cursor, connection):
         cursor.execute(listOfDictQuery)
         row = cursor.fetchone()
 
+        firstEvent = ""
+        lastEvent = ""
+        totalEvents = 0
+        totalCrossrefEvents = 0
+
         if (type(row) == dict):
             # Initialize objects to dictionary key values
             firstEvent = row['firstCrossrefEvent']
             lastEvent = row['lastCrossrefEvent']
-            totalEvents = row['totalEvents']
-            totalCrossrefEvents = row['totalCrossrefEvents']
+            if row['totalEvents'] is not None:
+                totalEvents = row['totalEvents']
+            if row['totalCrossrefEvents'] is not None:
+                totalCrossrefEvents = row['totalCrossrefEvents']
         elif (type(row) == tuple):
             # Initialize objects to tuple values
             firstEvent = row[0]
             lastEvent = row[1]
-            totalEvents = row[2]
-            totalCrossrefEvents = row[3]
+
+            if row[2] is not None:
+                totalEvents = row[2]
+            if row[3] is not None:
+                totalCrossrefEvents = row[3]
 
     # If we enter this except block, most likely the DOI was long gibberish and was unable to be entered into the main table which is VARCHAR(100)
-    except:
+    elif (len(t_obj_id) >= 100):
         return  # just return to main.py, this event will not be ingested
-
-    # If empty, intialize to 0
-    if not totalEvents:
-        totalEvents = 0
-    if not totalCrossrefEvents:
-        totalCrossrefEvents = 0
 
     # Convert t_timestamp(timestamp) into t_dateTime(datetime)
     t_dateTime = dateutil.parser.isoparse(t_timestamp)
     t_dateTime = str(t_dateTime)
 
-    # If t_timestamp is less than firstEvent or if firstEvent is NULL, update firstCrossrefEvent with t_dateTime in the same row in the main table.
-    if ((t_timestamp < str(firstEvent)) or (firstEvent == None)):
+    # If t_dateTime is less than firstEvent or if firstEvent is NULL, update firstCrossrefEvent with t_dateTime in the same row in the main table.
+    if ((t_dateTime < str(firstEvent)) or (firstEvent == None)):
         updateFirstEventQuery = "UPDATE main SET firstCrossrefEvent = \'" + \
             t_dateTime + "\' WHERE objectID = \'" + t_obj_id + "\';"
         cursor.execute(updateFirstEventQuery)
         connection.commit()
 
-    # If t_timestamp is greater than lastEvent or if lastEvent is NULL, update lastCrossrefEvent with t_dateTime in the same row in the main table.
-    if ((t_timestamp > str(lastEvent)) or (lastEvent == None)):
+    # If t_dateTime is greater than lastEvent or if lastEvent is NULL, update lastCrossrefEvent with t_dateTime in the same row in the main table.
+    if ((t_dateTime > str(lastEvent)) or (lastEvent == None)):
         updateLastEventQuery = "UPDATE main SET lastCrossrefEvent = \'" + \
             t_dateTime + "\' WHERE objectID = \'" + t_obj_id + "\';"
         cursor.execute(updateLastEventQuery)
@@ -111,11 +116,12 @@ def crossrefIngest(uniqueEvent, cursor, connection):
 
     # These statements are used to insert data into Crossref Event's Table
     # SQL which inserts into event table
+    # This was a previous layout of columns in the Crossref event table before we remodeled the database
     add_event = ("INSERT IGNORE INTO crossrefevent " "(license, objectID, sourceToken, occurredAt, subjectID, eventID, crossrefTermsOfUse, messageAction, sourceID, timeObserved, relationType) " "VALUES(%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s)")
 
     # Values to insert into Crossref event table
     data_event = (t_license, t_obj_id, t_source_token, t_occurred_at, t_subj_id,
-                  t_id, t_terms, t_message_action, t_source_id, t_timestamp, t_relation_type_id)
+                  t_id, t_terms, t_message_action, t_source_id, t_dateTime, t_relation_type_id)
 
     # Execute query to add information to Crossref event table
     cursor.execute(add_event, data_event)
