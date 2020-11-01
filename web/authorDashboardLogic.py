@@ -252,7 +252,7 @@ def authorDashboardLogic(mysql, mysql2):
                                  author_name=author_name['name'],
                                  author_article_list=author_article_list,
                                  cambiaEventData=cambiaEvent,
-                                 crossrefeventdatamain=crossrefevent,
+                                 crossrefEventData=crossrefevent,
                                  f1000eventData=f1000event,
                                  dataciteEventData=dataciteevent,
                                  hypothesisEventData=hypothesisevent,

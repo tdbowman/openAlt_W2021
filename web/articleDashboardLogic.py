@@ -511,7 +511,7 @@ def articleDashboardLogic(mysql, mysql2):
 
     return flask.render_template('articleDashboard.html', article_detail=article, events=eventsForArticle,
                                  cambiaEventData=cambiaEvent,
-                                 crossrefeventdatamain=crossrefevent,
+                                 crossrefEventData=crossrefevent,
                                  dataciteEventData=dataciteevent,
                                  f1000eventData=f1000event,
                                  hypothesisEventData=hypothesisevent,
