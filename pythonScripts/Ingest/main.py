@@ -2,6 +2,7 @@ import cambiaLens
 import wordpress
 import wikipedia
 import web
+import f1000
 import twitter
 import stackExchange
 import redditLinks
@@ -27,7 +28,7 @@ except:
 # Change these to suit your system
 dataDirectory = "../JSON"
 mysql_username = "root"
-mysql_password = ""
+mysql_password = "RiyaFoxMcCloud64"
 
 
 def main():
@@ -76,6 +77,11 @@ def main():
                             elif (key == "source_id" and value == "datacite"):
                                 print('datacite')
                                 datacite.dataciteIngest(
+                                    uniqueEvent, cursor, connection)
+                                break
+                            elif (key == "source_id" and value == "f1000"):
+                                print('F1000')
+                                f1000.F1000Ingest(
                                     uniqueEvent, cursor, connection)
                                 break
                             elif (key == "source_id" and value == "hypothesis"):

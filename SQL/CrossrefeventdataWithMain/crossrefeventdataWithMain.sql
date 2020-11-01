@@ -299,61 +299,61 @@ CREATE TABLE IF NOT EXISTS DataCiteEvent(
 CREATE TABLE IF NOT EXISTS F1000Event(
 
     -- To uniquely identify each row.
-    f1000Increment     INTEGER AUTO_INCREMENT  PRIMARY KEY,
+    f1000Increment  		INTEGER AUTO_INCREMENT  PRIMARY KEY,
 
     -- Name of source that event came from.
-    sourceID        VARCHAR(100),
+    sourceID       	 		VARCHAR(100),
 
     --  Link to the scholarly writing.
-    objectID        VARCHAR(100),
+    objectID        		VARCHAR(100),
 
     --  Subject ID is similar to the object ID, since most events have a URL as a subject ID and the DOI as object ID. The agent that processes the data decides on each event.
-    subjectID       VARCHAR(100),
+    subjectID       		VARCHAR(100),
 
     --  Every event is assigned a unique ID. Used for reference.
-    eventID         VARCHAR(100),
+    eventID         		VARCHAR(100),
 
     --  The date and time the event was "REPORTED" to have been published by users. CONFORMS TO ISO8601.
-    occurredAt      VARCHAR(100),
+    occurredAt      		datetime,
 
     --  datetime shortly after the event was spotted.
-    timeObserved    VARCHAR(100),
+    timeObserved    		datetime,
 
     --  Nature of the discussion on the doi (discusses, mentions, etc.).
-    relationType    VARCHAR(100),
+    relationType    		VARCHAR(100),
 
     -- An id that identifies the Agent that made the Event.
-    sourceToken     VARCHAR(100),
+    sourceToken     		VARCHAR(100),
 
     -- A license under which the Event is made available.
-    license         VARCHAR(100),
+    license         		VARCHAR(100),
 
     --  Terms of use for the CROSSREF EVENT DATA QUERY API.
-    termsOfUse      VARCHAR(100),
+    termsOfUse      		VARCHAR(100),
 
     -- Includes a link to an Evidence Record for this Event. This is used to generate an Event and contains all of the information used to create the Event.
-    evidenceRecord  VARCHAR(100),
+    evidenceRecord  		VARCHAR(100),
 
     -- Action is the nature of the event, such as adding a comment, in which case the action is "add".
-    eventAction     VARCHAR(100),
+    eventAction     		VARCHAR(100),
 
     -- The ID of the entity mentioning the DOI.
-    subjectPID      VARCHAR(100),
+    subjectPID      		VARCHAR(100),
 
     -- Author of the event.
-    subjectURL      VARCHAR(100),
+    subjectURL      		VARCHAR(100),
 
 
-    alternativeID   VARCHAR(100),
+    alternativeID   		VARCHAR(100),
 
 
-    workTypeID      VARCHAR(100),
+    workTypeID      		VARCHAR(100),
 
     -- Persistent Identifer(PID) of the object (DOI being discussed).
-    objectPID       VARCHAR(100),
+    objectPID       		VARCHAR(100),
 
     -- URL of the doi being discussed.
-    objectURL       VARCHAR(100),
+    objectURL       		VARCHAR(100),
 
     --  Foreign key to reference the doi
     FOREIGN KEY (objectID) REFERENCES main(objectID) ON DELETE CASCADE

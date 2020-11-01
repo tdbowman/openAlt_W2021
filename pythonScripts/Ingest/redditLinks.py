@@ -72,7 +72,7 @@ def redditLinksIngest(uniqueEvent, cursor, connection):
         elif (key == 'relation_type_id'):
             t_relation_type_id = value
 
-    try:
+    if(len(t_obj_id) < 100):
         # Insert t_obj_id from the event of the JSON file into the main table
         objectIDInsertionQuery = "INSERT IGNORE INTO main (objectID) VALUES(\'" + \
             t_obj_id + "\');"
@@ -85,42 +85,46 @@ def redditLinksIngest(uniqueEvent, cursor, connection):
         cursor.execute(listOfDictQuery)
         row = cursor.fetchone()
 
+        firstEvent = ""
+        lastEvent = ""
+        totalEvents = 0
+        totalRedditLinksEvents = 0
+
         if (type(row) == dict):
             # Initialize objects to dictionary key values
             firstEvent = row['firstRedditLinksEvent']
             lastEvent = row['lastRedditLinksEvent']
-            totalEvents = row['totalEvents']
-            totalRedditLinksEvents = row['totalRedditLinksEvents']
+            if row['totalEvents'] is not None:
+                totalEvents = row['totalEvents']
+            if row['totalRedditLinksEvents'] is not None:
+                totalRedditLinksEvents = row['totalRedditLinksEvents']
         elif (type(row) == tuple):
             # Initialize objects to tuple values
             firstEvent = row[0]
             lastEvent = row[1]
-            totalEvents = row[2]
-            totalRedditLinksEvents = row[3]
+
+            if row[2] is not None:
+                totalEvents = row[2]
+            if row[3] is not None:
+                totalRedditLinksEvents = row[3]
 
     # If we enter this except block, most likely the DOI was long gibberish and was unable to be entered into the main table which is VARCHAR(100)
-    except:
+    elif (len(t_obj_id) >= 100):
         return  # just return to main.py, this event will not be ingested
-
-    # If empty, intialize to 0
-    if not totalEvents:
-        totalEvents = 0
-    if not totalRedditLinksEvents:
-        totalRedditLinksEvents = 0
 
     # Convert t_timestamp(timestamp) into t_dateTime(datetime)
     t_dateTime = dateutil.parser.isoparse(t_timestamp)
     t_dateTime = str(t_dateTime)
 
-    # If t_timestamp is less than firstEvent or if firstEvent is NULL, update firstRedditLinksEvent with t_dateTime in the same row in the main table.
-    if ((t_timestamp < str(firstEvent)) or (firstEvent == None)):
+    # If t_dateTime is less than firstEvent or if firstEvent is NULL, update firstRedditLinksEvent with t_dateTime in the same row in the main table.
+    if ((t_dateTime < str(firstEvent)) or (firstEvent == None)):
         updateFirstEventQuery = "UPDATE main SET firstRedditLinksEvent = \'" + \
             t_dateTime + "\' WHERE objectID = \'" + t_obj_id + "\';"
         cursor.execute(updateFirstEventQuery)
         connection.commit()
 
-    # If t_timestamp is greater than lastEvent or if lastEvent is NULL, update lastRedditLinksEvent with t_dateTime in the same row in the main table.
-    if ((t_timestamp > str(lastEvent)) or (lastEvent == None)):
+    # If t_dateTime is greater than lastEvent or if lastEvent is NULL, update lastRedditLinksEvent with t_dateTime in the same row in the main table.
+    if ((t_dateTime > str(lastEvent)) or (lastEvent == None)):
         updateLastEventQuery = "UPDATE main SET lastRedditLinksEvent = \'" + \
             t_dateTime + "\' WHERE objectID = \'" + t_obj_id + "\';"
         cursor.execute(updateLastEventQuery)
@@ -140,11 +144,12 @@ def redditLinksIngest(uniqueEvent, cursor, connection):
 
     # These statements are used to insert data into RedditLinks Event's Table
     # SQL which inserts into event table
+    # This was a previous layout of columns in the RedditLinks event table before we remodeled the database
     add_event = ("INSERT IGNORE INTO RedditLinksevent " "(eventID, objectID, occurredAt, license, termsOfUse, updatedReason, updated, sourceToken, subjectID, evidenceRecord, eventAction, subjectPID, subjectURL, sourceID, objectPID, objectURL, timeObserved, updatedDate, relationType) " "VALUES(%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s)")
 
     # Values to insert into redditLinks event table
     data_event = (t_id, t_obj_id, t_occurred_at, t_license, t_terms, t_updated_reason, t_updated, t_source_token, t_subj_id, t_evidence_record,
-                  t_action, t_subj_pid, t_subj_url, t_source_id, t_obj_pid, t_obj_url, t_timestamp, t_updated_date, t_relation_type_id)
+                  t_action, t_subj_pid, t_subj_url, t_source_id, t_obj_pid, t_obj_url, t_dateTime, t_updated_date, t_relation_type_id)
 
     # Execute query to add information to RedditLinks event table
     cursor.execute(add_event, data_event)
