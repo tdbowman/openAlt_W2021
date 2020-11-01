@@ -51,6 +51,7 @@
 
 <div class="col-sm-12">
 
+
   <h4>Filter by Year</h4>
   <form class="form-inline" method="post" action="{{ url_for('search') }}" >
     <input type="hidden" id="search" name="search" value= {{ search }} >
@@ -59,15 +60,20 @@
       <label>-</label>
       <input type="text" class="resizedTextbox form-control" id="endYear" placeholder="To" name="endYear" maxlength="4" size="4">
     <button type="submit" class=" resizedTextbox btn btn-default">Apply</button>
-  </form>
+ </form>
   <br>
   <br>
 
     <div class="SR_boxed">
 <th>Displaying Search Results for: {{search}}</th></div>
-   <table style="width:1140px;" id="noBorders">
 
-{% for result in listedSearchResults %}
+    <!--Flask Pagination -->
+    {{pagination.info}}
+    {{pagination.links}}
+
+   <table style="width:1140px;" id="noBorders">
+<!-- Pagination: List articles from article_start index to article_end index -->
+{% for result in listedSearchResults[article_start:article_end] %}
 <tr class="row row-bordered">
 
 <td class='item-data'>
@@ -102,7 +108,11 @@
    </td>
    </tr>
 {% endfor %}
+
 </table>
+    <!--Flask Pagination -->
+      {{pagination.links}}
+
 <!--
 <div>
  <nav aria-label="Page navigation example">
@@ -116,9 +126,11 @@
 </nav>
 </div>
 -->
+
 <h4>END OF SEARCH RESULTS</h4>
 
 {% endblock %}
+
 
 </div>
     </div>

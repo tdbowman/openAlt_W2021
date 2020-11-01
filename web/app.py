@@ -22,6 +22,7 @@ app.config['MYSQL_PASSWORD'] = mysql_password
 # Or use the database.table which will allow us to join the databases - the one with author, and the one with events
 app.config['MYSQL_DB'] = 'dr_bowman_doi_data_tables'
 app.config['MYSQL_CURSORCLASS'] = 'DictCursor'
+
 # Database initialization and cursor
 mysql = MySQL(app)
 
@@ -47,8 +48,8 @@ def index():
 
 @app.route('/searchResultsPage', methods=["GET", "POST"])
 def search():
-    return searchLogic(mysql)
-
+    cursor = mysql.connection.cursor()
+    return searchLogic(mysql, cursor)
 
 @app.route('/articleDashboard', methods=["GET", "POST"])
 def articleDashboard():
