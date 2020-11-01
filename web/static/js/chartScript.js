@@ -5,30 +5,25 @@ Reassign these with Python - position in array corresponds to column
 Like: [column1, column2, column3, column4, column5]
 All 12 of these combine to make 5 bars, which are each 12 blocks high
 
-PYTHON CHANGES THESE OR PUTS THEM AS PARAMS */
-
-
-/*
-var i;
-for (i = 0; i < cambiaevent.length; i++) {
-  //cambiaevent[i] = parseInt(cambiaevent[i])
-}
-i === 0;
-*/
-
 // Values will be modified within each dashboard function in app.py
 // const cambiaevent = [];
-// const crossrefevent = [0, 4, 10, 20, 40];
-// const dataciteevent = [10, 0, 10, 10, 10];
-// const hypothesisevent = [10, 10, 10, 70, 10];
-// const newsfeedevent = [10, 30, 10, 80, 10];
-// const redditevent = [10, 10, 10, 10, 10];
-// const redditlinksevent = [10, 10, 20, 10, 10];
-// const stackexchangeevent = [10, 30, 10, 10, 10];
-// const twitterevent = [30, 10, 30, 10, 10];
-// const webevent = [10, 60, 10, 30, 20];
-// const wikipediaevent = [60, 60, 30, 10, 10];
-// const wordpressevent = [70, 90, 30, 10, 10];
+// const crossrefevent = [];
+// const dataciteevent = [];
+// const hypothesisevent = [];
+// const newsfeedevent = [];
+// const redditevent = [];
+// const redditlinksevent = [];
+// const stackexchangeevent = [];
+// const twitterevent = [];
+// const webevent = [];
+// const wikipediaevent = [];
+// const wordpressevent = [];
+// const f1000event = [];
+// const f1000event = [];
+*/
+
+
+
 const year0 = 2016;
 const year1 = 2017;
 const year2 = 2018;
@@ -48,7 +43,21 @@ const twitterColor = '#1DA1F2';
 const webColor = '#257E22';
 const wikipediaColor = '#D7D8D9';
 const wordpressColor = '#e3b9c7';
+const f1000Color = '#D7ffD9';
 
+let cambiaBool = true;
+let crossrefBool = true;
+let dataciteBool = true;
+let hypothesisBool = true;
+let newsfeedBool = true;
+let redditBool = true;
+let redditLinksBool = true;
+let stackExchangeBool = true;
+let twitterBool = true;
+let webBool = true;
+let wikipediaBool = true;
+let wordpressBool = true;
+let f1000bool = true;
 /*
 Now we can prepend the column names since these are constant. 
 Names need to be at [0]
@@ -65,9 +74,15 @@ twitterevent.unshift("Twitter");
 webevent.unshift("Web");
 wikipediaevent.unshift("Wikipedia");
 wordpressevent.unshift("Wordpress");
+f1000event.unshift("F1000");
+//f1000event.unshift("F1000");
+
+// we will use this later to show/hide elements
+let elements = null;
+
 
 /*
------------ No changes below this line ------------------------------------
+----------- C3 Chart ------------------------------------
 */
 var chart = c3.generate({
   bindto: '#chart',
@@ -76,6 +91,7 @@ var chart = c3.generate({
       cambiaevent,
       crossrefevent,
       dataciteevent,
+      f1000event,
       hypothesisevent,
       newsfeedevent,
       redditevent,
@@ -91,6 +107,7 @@ var chart = c3.generate({
       [cambiaevent[0],
       crossrefevent[0],
       dataciteevent[0],
+      f1000event[0],
       hypothesisevent[0],
       newsfeedevent[0],
       redditevent[0],
@@ -105,6 +122,7 @@ var chart = c3.generate({
       [cambiaevent[0]]: cambiaColor,
       [crossrefevent[0]]: crossrefColor,
       [dataciteevent[0]]: dataciteColor,
+      [f1000event[0]]: f1000Color,
       [hypothesisevent[0]]: hypothesisColor,
       [newsfeedevent[0]]: newsfeedColor,
       [redditevent[0]]: redditColor,
@@ -126,8 +144,172 @@ var chart = c3.generate({
   unshift section above.
   */
   legend: {
-    position: 'bottom'
-  },
+    position: 'bottom',
+    item: {
+        onclick: function (id) { 
+
+          // Switching on the column names - determine what is clicked
+          switch (id) {
+
+            case cambiaevent[0]:
+              if (cambiaBool) {
+                chart.hide(id);
+                cambiaBool = false;
+              } else {
+                chart.show(id);
+                cambiaBool = true;
+              }
+              hideElements(id)
+              break;
+
+            case crossrefevent[0]:
+              if (crossrefBool) {
+                chart.hide(id);
+                crossrefBool = false;
+              } else {
+                chart.show(id);
+                crossrefBool = true;
+              }
+              hideElements(id)
+              break;
+
+            case dataciteevent[0]:
+              if (dataciteBool) {
+                chart.hide(id);
+                dataciteBool = false;
+              } else {
+                chart.show(id);
+                dataciteBool = true;
+              }
+              hideElements(id)
+              break;
+
+            case f1000event[0]:
+              if (wordpressBool) {
+                chart.hide(id);
+                wordpressBool = false;
+              } else {
+                chart.show(id);
+                wordpressBool = true;
+              }
+              hideElements(id)
+              break;
+
+            case hypothesisevent[0]:
+              if (hypothesisBool) {
+                chart.hide(id);
+                hypothesisBool = false;
+              } else {
+                chart.show(id);
+                hypothesisBool = true;
+              }
+              hideElements(id)
+              break;
+
+            case newsfeedevent[0]:
+              if (newsfeedBool) {
+                chart.hide(id);
+                newsfeedBool = false;
+              } else {
+                chart.show(id);
+                newsfeedBool = true;
+              }
+              hideElements(id)
+              break;
+            
+            case redditevent[0]:
+              if (redditBool) {
+                chart.hide(id);
+                redditBool = false;
+              } else {
+                chart.show(id);
+                redditBool = true;
+              }
+              hideElements(id)
+              break;
+            
+            case redditlinksevent[0]:
+              if (redditLinksBool) {
+                chart.hide(id);
+                redditLinksBool = false;
+              } else {
+                chart.show(id);
+                redditLinksBool = true;
+              }
+              hideElements(id)
+              break;
+
+            case stackexchangeevent[0]:
+              if (stackExchangeBool) {
+                chart.hide(id);
+                stackExchangeBool = false;
+              } else {
+                chart.show(id);
+                stackExchangeBool = true;
+              }
+              hideElements(id)
+              break;
+
+            case twitterevent[0]:
+              if (twitterBool) {
+                chart.hide(id);
+                twitterBool = false;
+              } else {
+                chart.show(id);
+                twitterBool = true;
+              }
+              hideElements(id)
+              break;
+
+            case webevent[0]:
+              if (stackExchangeBool) {
+                chart.hide(id);
+                stackExchangeBool = false;
+              } else {
+                chart.show(id);
+                stackExchangeBool = true;
+              }
+              hideElements(id)
+              break;
+
+            case wikipediaevent[0]:
+              if (wikipediaBool) {
+                chart.hide(id);
+                wikipediaBool = false;
+              } else {
+                chart.show(id);
+                wikipediaBool = true;
+              }
+              hideElements(id)
+              break;
+
+            case wordpressevent[0]:
+              if (wordpressBool) {
+                chart.hide(id);
+                wordpressBool = false;
+              } else {
+                chart.show(id);
+                wordpressBool = true;
+              }
+              hideElements(id)
+              break;
+          }
+          /*
+          console.log('clicked');
+          if (id === 'Twitter' && twitterBool === true) {
+            chart.hide(id);
+            twitterBool = false;
+            console.log(twitterBool);
+          }
+          else if (id === 'Twitter' && twitterBool === false) {
+            chart.show(id);
+            twitterBool = true;
+            console.log(twitterBool);
+          }
+          */
+        }
+      },
+    },
   grid: {
     y: {
       lines: [{ value: 0 }]
@@ -155,6 +337,17 @@ var chart = c3.generate({
   }
 });
 
+function hideElements(id) {
+  elements = document.getElementsByClassName("eventItem");
+  for(var i=0; i<elements.length; i++) {
+    if (elements[i].style.display === "none") {
+      elements[i].style.display = "block";
+    } 
+    else {
+      elements[i].style.display = "none";
+    }
+  }
+}
 
 // These two lines force the C3 chart back into its column. 
 var loader = document.getElementById("changeAfterChart");

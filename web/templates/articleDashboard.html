@@ -78,7 +78,7 @@
             <hr>
             <table class="table table-bordered">
                 {% for e in events %}
-                <tr class="row row-bordered" >
+                <tr class="row row-bordered eventItem" >
                     <td class="articleEventData">
                         {{e.sourceID}}  {{e.relationType}}
                         <br>
@@ -126,6 +126,7 @@
     cambiaevent=[]
     crossrefevent = [];
     dataciteevent = [];
+    f1000event = [];
     hypothesisevent = [];
     newsfeedevent = [];
     redditevent = [];
@@ -154,6 +155,12 @@
 {% for index in dataciteEventData %}
 <script>
     dataciteevent.push("{{ index }}");
+</script>
+{% endfor %}
+
+{% for index in f1000eventData %}
+<script>
+    f1000event.push("{{ index }}");
 </script>
 {% endfor %}
 

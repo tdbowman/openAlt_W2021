@@ -123,6 +123,7 @@
     cambiaevent=[]
     crossrefevent = [];
     dataciteevent = [];
+    f1000event = [];
     hypothesisevent = [];
     newsfeedevent = [];
     redditevent = [];
@@ -151,6 +152,12 @@
 {% for index in dataciteEventData %}
 <script>
     dataciteevent.push("{{ index }}");
+</script>
+{% endfor %}
+
+{% for index in f1000eventData %}
+<script>
+    f1000event.push("{{ index }}");
 </script>
 {% endfor %}
 
