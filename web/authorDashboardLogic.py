@@ -116,6 +116,19 @@ def authorDashboardLogic(mysql, mysql2):
         dataciteevent.append(event_count['count'])
     # dataciteevent = [5, 10, 15, 20, 25];  # TBD - delete this line after we upload data in cambia event table for all these years
 
+    # f1000event
+    f1000event = []
+    for year in years_list:
+        f1000_sql = "select count(objectID) count from crossrefeventdata.hypothesisevent " \
+            "where substr(objectID,17) in " + doi_list + " " \
+            "and substr(occurredAt,1,4)='" + str(year) + "';"
+
+        cursor2.execute(f1000_sql)
+        mysql2.connection.commit()
+        event_count = cursor2.fetchone()
+        f1000event.append(event_count['count'])
+
+
     # hypothesisevent
     hypothesisevent = []
     for year in years_list:
@@ -240,6 +253,7 @@ def authorDashboardLogic(mysql, mysql2):
                                  author_article_list=author_article_list,
                                  cambiaEventData=cambiaEvent,
                                  crossrefEventData=crossrefevent,
+                                 f1000eventData=f1000event,
                                  dataciteEventData=dataciteevent,
                                  hypothesisEventData=hypothesisevent,
                                  newsfeedEventData=newsfeedevent,
