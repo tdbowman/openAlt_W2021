@@ -78,7 +78,7 @@
             <hr>
             <table class="table table-bordered">
                 {% for e in events %}
-                <tr class="row row-bordered">
+                <tr class="row row-bordered" >
                     <td class="articleEventData">
                         {{e.sourceID}}  {{e.relationType}}
                         <br>
@@ -88,6 +88,9 @@
                         <!-- Testing Purposes
                             <br>
                         DOI of Event: {{e.objectID}} -->
+                    </td>
+                    <td style="background-color: {{e.media_color}};">
+
                     </td>
                 </tr>
                 {% endfor %}

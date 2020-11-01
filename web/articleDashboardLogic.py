@@ -109,7 +109,10 @@ def articleDashboardLogic(mysql, mysql2):
                 # Store all column values of the event into a python dictionary and add the eachEvent dictionary to the eventsForArticle list.
                 eachEvent = {'subjectID': tweet['subjectID'],
                              'sourceID': tweet['sourceID'],
-                             'relationType': tweet['relationType'], 'objectID': tweet['objectID']}
+                             'relationType': tweet['relationType'],
+                             'media': 'twitter',
+                             'media_color': '#1DA1F2',
+                             'objectID': tweet['objectID']}
                 eventsForArticle.append(eachEvent)
 
     cursor2.execute(wikipediaEventQuery)
@@ -133,6 +136,8 @@ def articleDashboardLogic(mysql, mysql2):
                 eachEvent = {'subjectID': wiki['subjectID'],
                              'sourceID': wiki['sourceID'],
                              'relationType': wiki['relationType'],
+                             'media': 'wiki',
+                             'media_color': '#D7D8D9',
                              'objectID': wiki['objectID']}
                 eventsForArticle.append(eachEvent)
 
@@ -158,7 +163,10 @@ def articleDashboardLogic(mysql, mysql2):
                 # Store all column values of the event into a python dictionary and add the eachEvent dictionary to the eventsForArticle list.
                 eachEvent = {'subjectID': hypo['subjectID'],
                              'sourceID': hypo['sourceID'],
-                             'relationType': hypo['relationType'], 'objectID': hypo['objectID']}
+                             'relationType': hypo['relationType'],
+                             'media': 'hypothesis',
+                             'media_color': '#D22C7F',
+                             'objectID': hypo['objectID']}
                 eventsForArticle.append(eachEvent)
 
     cursor2.execute(newsfeedEventQuery)
@@ -183,7 +191,10 @@ def articleDashboardLogic(mysql, mysql2):
                 # Store all column values of the event into a python dictionary and add the eachEvent dictionary to the eventsForArticle list.
                 eachEvent = {'subjectID': news['subjectID'],
                              'sourceID': news['sourceID'],
-                             'relationType': news['relationType'], 'objectID': news['objectID']}
+                             'relationType': news['relationType'],
+                             'media': 'newsfeed',
+                             'media_color': '#a89ae5',
+                             'objectID': news['objectID']}
                 eventsForArticle.append(eachEvent)
 
     cursor2.execute(redditEventQuery)
@@ -208,7 +219,10 @@ def articleDashboardLogic(mysql, mysql2):
                 # Store all column values of the event into a python dictionary and add the eachEvent dictionary to the eventsForArticle list.
                 eachEvent = {'subjectID': red['subjectID'],
                              'sourceID': red['sourceID'],
-                             'relationType': red['relationType'], 'objectID': red['objectID']}
+                             'relationType': red['relationType'],
+                             'media': 'reddit',
+                             'media_color': '#FF4500',
+                             'objectID': red['objectID']}
                 eventsForArticle.append(eachEvent)
 
     cursor2.execute(redditLinksEventQuery)
@@ -233,7 +247,10 @@ def articleDashboardLogic(mysql, mysql2):
                 # Store all column values of the event into a python dictionary and add the eachEvent dictionary to the eventsForArticle list.
                 eachEvent = {'subjectID': redl['subjectID'],
                              'sourceID': redl['sourceID'],
-                             'relationType': redl['relationType'], 'objectID': redl['objectID']}
+                             'relationType': redl['relationType'],
+                             'media': 'redditlinks',
+                             'media_color': '#983333',
+                             'objectID': redl['objectID']}
                 eventsForArticle.append(eachEvent)
 
     cursor2.execute(stackexchangeEventQuery)
@@ -257,7 +274,10 @@ def articleDashboardLogic(mysql, mysql2):
                 # Store all column values of the event into a python dictionary and add the eachEvent dictionary to the eventsForArticle list.
                 eachEvent = {'subjectID': stack['subjectID'],
                              'sourceID': stack['sourceID'],
-                             'relationType': stack['relationType'], 'objectID': stack['objectID']}
+                             'relationType': stack['relationType'],
+                             'media': 'stackex',
+                             'media_color': '#ee874e',
+                             'objectID': stack['objectID']}
                 eventsForArticle.append(eachEvent)
 
     cursor2.execute(webEventQuery)
@@ -282,7 +302,10 @@ def articleDashboardLogic(mysql, mysql2):
                 # Store all column values of the event into a python dictionary and add the eachEvent dictionary to the eventsForArticle list.
                 eachEvent = {'subjectID': web['subjectID'],
                              'sourceID': web['sourceID'],
-                             'relationType': web['relationType'], 'objectID': web['objectID']}
+                             'relationType': web['relationType'],
+                             'media': 'web',
+                             'media_color': '#257E22',
+                             'objectID': web['objectID']}
                 eventsForArticle.append(eachEvent)
 
     cursor2.execute(wordpressEventQuery)
@@ -307,7 +330,10 @@ def articleDashboardLogic(mysql, mysql2):
                 # Store all column values of the event into a python dictionary and add the eachEvent dictionary to the eventsForArticle list.
                 eachEvent = {'subjectID': word['subjectID'],
                              'sourceID': word['sourceID'],
-                             'relationType': word['relationType'], 'objectID': word['objectID']}
+                             'relationType': word['relationType'],
+                             'media': 'wordpress',
+                             'media_color': '#e3b9c7',
+                             'objectID': word['objectID']}
                 eventsForArticle.append(eachEvent)
 
     # ---------- End of Article Events ---------

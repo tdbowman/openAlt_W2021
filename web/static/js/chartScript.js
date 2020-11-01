@@ -38,16 +38,16 @@ const year4 = 2020;
 /* CHANGE COLORS HERE */
 const cambiaColor = '#002f99';
 const crossrefColor = '#F4AE22';
-const dataciteColor = '#F4AE22';
+const dataciteColor = '#15d4cf';
 const hypothesisColor = '#D22C7F';
-const newsfeedColor = '#452fa3';
+const newsfeedColor = '#a89ae5';
 const redditColor = '#FF4500';
-const redditLinksColor = '#FF1100';
-const stackExchangeColor = '#f68749';
+const redditLinksColor = '#983333';
+const stackExchangeColor = '#ee874e';
 const twitterColor = '#1DA1F2';
 const webColor = '#257E22';
 const wikipediaColor = '#D7D8D9';
-const wordpressColor = '#904860';
+const wordpressColor = '#e3b9c7';
 
 /*
 Now we can prepend the column names since these are constant. 
