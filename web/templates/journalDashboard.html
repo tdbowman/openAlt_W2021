@@ -42,10 +42,12 @@
                 <div class="JD_articleTitle">
                     <a href="{{ url_for('articleDashboard') }}?DOI={{ journal.objectID }}">{{ journal.articleTitle }}</a>
                 </div>
+                <!--
                 <div class="JD_journalName">
                     Journal Name:
                     {{ journal.journalName }}
                 </div>
+                -->
                  <div class="JD_issue">
                     Issue:
                     {{ journal.issue }}
@@ -55,7 +57,7 @@
                     {{ journal.journalPage }}
                 </div>
                 <div class="JD_articleDate">
-                    Article Date: {{ journal.articleDate }}
+                    Date Published: {{ journal.articleDate }}
                 </div>
                 <div class="JD_authors">
                     Author(s):
