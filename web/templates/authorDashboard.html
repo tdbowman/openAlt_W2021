@@ -43,11 +43,11 @@
                         <a href="{{ url_for('articleDashboard') }}?DOI={{ author.objectID }}">{{ author.articleTitle }}</a>
                     </div>
                     <div class="AUD_journalName">
-                        Journal Name:
+                        Journal:
                         <a href="{{ url_for('journalDashboard') }}?journalName={{ author.journalName }}">{{ author.journalName }}</a>
                     </div>
                     <div class="AUD_articleDate">
-                        Article Date: {{ author.articleDate }}
+                        Date Published: {{ author.articleDate }}
                     </div>
                     <div class="AUD_authors">
                             Author(s):
