@@ -5,7 +5,7 @@ def articleDashboardLogic(mysql, mysql2):
     # connect to Dr Bowman's database
     cursor = mysql.connection.cursor()
 
-    # connect to crossrefeventdata
+    # connect to crossrefeventdatamain
     cursor2 = mysql2.connection.cursor()
 
     # get DOI parameter
@@ -50,40 +50,40 @@ def articleDashboardLogic(mysql, mysql2):
 
     # May have to seperate the queries into different lists because only events from one platform are showing up in the event data. Next would be to append them together in one list.
     eventsForArticle = []
-    twitterEventQuery = "SELECT subjectID,sourceID,relationType,objectID FROM crossrefeventdata.twitterevent "
+    twitterEventQuery = "SELECT subjectID,sourceID,relationType,objectID FROM crossrefeventdatamain.twitterevent "
     "WHERE objectID like '%" + \
         article['objectID'] + "%' "
 
     # "UNION ALL " not working meaning it only displays columns for the first query but nothing else.
-    wikipediaEventQuery = "SELECT subjectID,sourceID,relationType,objectID FROM crossrefeventdata.wikipediaevent "
+    wikipediaEventQuery = "SELECT subjectID,sourceID,relationType,objectID FROM crossrefeventdatamain.wikipediaevent "
     "WHERE objectID like '%" + \
         article['objectID'] + "%';"
 
-    hypothesisEventQuery = "SELECT subjectID,sourceID,relationType,objectID FROM crossrefeventdata.hypothesisevent "
+    hypothesisEventQuery = "SELECT subjectID,sourceID,relationType,objectID FROM crossrefeventdatamain.hypothesisevent "
     "WHERE objectID like '%" + \
         article['objectID'] + "%';"
 
-    newsfeedEventQuery = "SELECT subjectID,sourceID,relationType,objectID FROM crossrefeventdata.newsfeedevent "
+    newsfeedEventQuery = "SELECT subjectID,sourceID,relationType,objectID FROM crossrefeventdatamain.newsfeedevent "
     "WHERE objectID like '%" + \
         article['objectID'] + "%'; "
 
-    redditEventQuery = "SELECT subjectID,sourceID,relationType,objectID FROM crossrefeventdata.redditevent "
+    redditEventQuery = "SELECT subjectID,sourceID,relationType,objectID FROM crossrefeventdatamain.redditevent "
     "WHERE objectID like '%" + \
         article['objectID'] + "%'; "
 
-    redditLinksEventQuery = "SELECT subjectID,sourceID,relationType,objectID FROM crossrefeventdata.redditlinksevent "
+    redditLinksEventQuery = "SELECT subjectID,sourceID,relationType,objectID FROM crossrefeventdatamain.redditlinksevent "
     "WHERE objectID like '%" + \
         article['objectID'] + "%'; "
 
-    stackexchangeEventQuery = "SELECT subjectID,sourceID,relationType,objectID FROM crossrefeventdata.stackexchangeevent "
+    stackexchangeEventQuery = "SELECT subjectID,sourceID,relationType,objectID FROM crossrefeventdatamain.stackexchangeevent "
     "WHERE objectID like '%" + \
         article['objectID'] + "%'; "
 
-    webEventQuery = "SELECT subjectID,sourceID,relationType,objectID FROM crossrefeventdata.webevent "
+    webEventQuery = "SELECT subjectID,sourceID,relationType,objectID FROM crossrefeventdatamain.webevent "
     "WHERE objectID like '%" + \
         article['objectID'] + "%'; "
 
-    wordpressEventQuery = "SELECT subjectID,sourceID,relationType,objectID FROM crossrefeventdata.wordpressevent "
+    wordpressEventQuery = "SELECT subjectID,sourceID,relationType,objectID FROM crossrefeventdatamain.wordpressevent "
     "WHERE objectID like '%" + \
         article['objectID'] + "%'; "
 
@@ -344,7 +344,7 @@ def articleDashboardLogic(mysql, mysql2):
     # cambia event
     cambiaEvent = []
     for year in years_list:
-        cambia_sql = "select count(objectID) count from crossrefeventdata.cambiaevent " \
+        cambia_sql = "select count(objectID) count from crossrefeventdatamain.cambiaevent " \
                      "where substr(objectID,17)='"+article_result['doi']+"' " \
                      "and substr(occurredAt,1,4)='"+str(year)+"';"
 
@@ -357,7 +357,7 @@ def articleDashboardLogic(mysql, mysql2):
     # crossrefevent
     crossrefevent = []
     for year in years_list:
-        crossref_sql = "select count(objectID) count from crossrefeventdata.crossrefevent " \
+        crossref_sql = "select count(objectID) count from crossrefeventdatamain.crossrefevent " \
             "where substr(objectID,17)='" + article_result['doi'] + "' " \
             "and substr(occurredAt,1,4)='" + str(year) + "';"
 
@@ -370,7 +370,7 @@ def articleDashboardLogic(mysql, mysql2):
     # dataciteevent
     dataciteevent = []
     for year in years_list:
-        datacite_sql = "select count(objectID) count from crossrefeventdata.dataciteevent " \
+        datacite_sql = "select count(objectID) count from crossrefeventdatamain.dataciteevent " \
                        "where substr(objectID,17)='" + article_result['doi'] + "' " \
             "and substr(occurredAt,1,4)='" + str(year) + "';"
 
@@ -383,7 +383,7 @@ def articleDashboardLogic(mysql, mysql2):
     # f1000event
     f1000event = []
     for year in years_list:
-        f1000_sql = "select count(objectID) count from crossrefeventdata.wordpressevent " \
+        f1000_sql = "select count(objectID) count from crossrefeventdatamain.f1000event " \
                         "where substr(objectID,17)='" + article_result['doi'] + "' " \
                         "and substr(occurredAt,1,4)='" + str(year) + "';"
 
@@ -395,7 +395,7 @@ def articleDashboardLogic(mysql, mysql2):
     # hypothesisevent
     hypothesisevent = []
     for year in years_list:
-        hypothesis_sql = "select count(objectID) count from crossrefeventdata.hypothesisevent " \
+        hypothesis_sql = "select count(objectID) count from crossrefeventdatamain.hypothesisevent " \
                          "where substr(objectID,17)='" + article_result['doi'] + "' " \
                          "and substr(occurredAt,1,4)='" + str(year) + "';"
 
@@ -408,7 +408,7 @@ def articleDashboardLogic(mysql, mysql2):
     # newsfeedevent
     newsfeedevent = []
     for year in years_list:
-        newsfeed_sql = "select count(objectID) count from crossrefeventdata.newsfeedevent " \
+        newsfeed_sql = "select count(objectID) count from crossrefeventdatamain.newsfeedevent " \
             "where substr(objectID,17)='" + article_result['doi'] + "' " \
             "and substr(occurredAt,1,4)='" + str(year) + "';"
 
@@ -421,7 +421,7 @@ def articleDashboardLogic(mysql, mysql2):
     # redditevent
     redditevent = []
     for year in years_list:
-        reddit_sql = "select count(objectID) count from crossrefeventdata.redditevent " \
+        reddit_sql = "select count(objectID) count from crossrefeventdatamain.redditevent " \
             "where substr(objectID,17)='" + article_result['doi'] + "' " \
             "and substr(occurredAt,1,4)='" + str(year) + "';"
 
@@ -434,7 +434,7 @@ def articleDashboardLogic(mysql, mysql2):
     # redditlinksevent
     redditlinksevent = []
     for year in years_list:
-        redditlinks_sql = "select count(objectID) count from crossrefeventdata.redditlinksevent " \
+        redditlinks_sql = "select count(objectID) count from crossrefeventdatamain.redditlinksevent " \
                           "where substr(objectID,17)='" + article_result['doi'] + "' " \
                           "and substr(occurredAt,1,4)='" + str(year) + "';"
 
@@ -447,7 +447,7 @@ def articleDashboardLogic(mysql, mysql2):
     # stackexchangeevent
     stackexchangeevent = []
     for year in years_list:
-        stackexchange_sql = "select count(objectID) count from crossrefeventdata.stackexchangeevent " \
+        stackexchange_sql = "select count(objectID) count from crossrefeventdatamain.stackexchangeevent " \
                             "where substr(objectID,17)='" + article_result['doi'] + "' " \
                             "and substr(occurredAt,1,4)='" + str(year) + "';"
 
@@ -460,7 +460,7 @@ def articleDashboardLogic(mysql, mysql2):
     # twitterevent
     twitterevent = []
     for year in years_list:
-        twitter_sql = "select count(objectID) count from crossrefeventdata.twitterevent " \
+        twitter_sql = "select count(objectID) count from crossrefeventdatamain.twitterevent " \
             "where substr(objectID,17)='" + article_result['doi'] + "' " \
             "and substr(occurredAt,1,4)='" + str(year) + "';"
 
@@ -473,7 +473,7 @@ def articleDashboardLogic(mysql, mysql2):
     # webevent
     webevent = []
     for year in years_list:
-        web_sql = "select count(objectID) count from crossrefeventdata.webevent " \
+        web_sql = "select count(objectID) count from crossrefeventdatamain.webevent " \
             "where substr(objectID,17)='" + article_result['doi'] + "' " \
             "and substr(occurredAt,1,4)='" + str(year) + "';"
 
@@ -486,7 +486,7 @@ def articleDashboardLogic(mysql, mysql2):
     # wikipediaevent
     wikipediaevent = []
     for year in years_list:
-        wikipedia_sql = "select count(objectID) count from crossrefeventdata.wikipediaevent " \
+        wikipedia_sql = "select count(objectID) count from crossrefeventdatamain.wikipediaevent " \
             "where substr(objectID,17)='" + article_result['doi'] + "' " \
             "and substr(occurredAt,1,4)='" + str(year) + "';"
 
@@ -499,7 +499,7 @@ def articleDashboardLogic(mysql, mysql2):
     # wordpressevent
     wordpressevent = []
     for year in years_list:
-        wordpress_sql = "select count(objectID) count from crossrefeventdata.wordpressevent " \
+        wordpress_sql = "select count(objectID) count from crossrefeventdatamain.wordpressevent " \
                         "where substr(objectID,17)='" + article_result['doi'] + "' " \
                         "and substr(occurredAt,1,4)='" + str(year) + "';"
 

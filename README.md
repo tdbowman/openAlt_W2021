@@ -86,6 +86,7 @@ For example, the event with ID `5dd6719b-8981-4712-988c-8c01f7ad760b` has a DOI(
 | flask-mysqldb             | MIT License                |
 | virtualenv                | MIT License                |
 | python-dateutil           | Apache-2.0 License         |
+| flask-paginate            | BSD-3-Clause License       |
 
 
 ## Acknowledgements
