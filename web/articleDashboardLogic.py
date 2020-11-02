@@ -47,22 +47,6 @@ def articleDashboardLogic(mysql, mysql2):
 
     if totalEvents is not None:
         EventsQuery = "SELECT subjectID, sourceID, relationType, timeObserved " + \
-            "FROM crossrefeventdatamain.cambiaevent WHERE objectID like '%" + \
-            article['objectID'] + "%' " + \
-            "UNION " + \
-            "SELECT subjectID, sourceID, relationType, timeObserved " + \
-            "FROM crossrefeventdatamain.crossrefevent WHERE objectID like '%" + \
-            article['objectID'] + "%' " + \
-            "UNION " + \
-            "SELECT subjectID, sourceID, relationType, timeObserved " + \
-            "FROM crossrefeventdatamain.dataciteevent WHERE objectID like '%" + \
-            article['objectID'] + "%' " + \
-            "UNION " + \
-            "SELECT subjectID, sourceID, relationType, timeObserved " + \
-            "FROM crossrefeventdatamain.f1000event WHERE objectID like '%" + \
-            article['objectID'] + "%' " + \
-            "UNION " + \
-            "SELECT subjectID, sourceID, relationType, timeObserved " + \
             "FROM crossrefeventdatamain.hypothesisevent WHERE objectID like '%" + \
             article['objectID'] + "%' " + \
             "UNION " + \
