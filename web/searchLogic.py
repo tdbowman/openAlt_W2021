@@ -60,13 +60,13 @@ def searchLogic(mysql, cursor):
 
         if not selected_years:
             # no year filter
-            sql = "Select doi, title, container_title, published_print_date_parts, fk from _main_ where doi like '%" + search + "%\';"
+            sql = "Select doi, title, container_title, published_print_date_parts, fk from _main_ where doi like '%" + search + "%\' order by published_print_date_parts desc;"
         else:
             # with year filter
             sql = "Select doi, title, container_title, published_print_date_parts, fk from _main_ where doi like '%" + \
                 search + \
                 "%\' and substr(published_print_date_parts, 1,4) in " + \
-                s_years+";"
+                s_years + " order by published_print_date_parts desc;"
 
         cursor.execute(sql)
         result_set = cursor.fetchall()
@@ -116,13 +116,13 @@ def searchLogic(mysql, cursor):
         if result_set is not None:
             if not selected_years:
                 # no year filter
-                sql = "Select doi, title, container_title, published_print_date_parts, fk from _main_ where fk in " + given_author + ";"
+                sql = "Select doi, title, container_title, published_print_date_parts, fk from _main_ where fk in " + given_author + " order by published_print_date_parts desc;;"
             else:
                 # with year filter
                 sql = "Select doi, title, container_title, published_print_date_parts, fk from _main_ where fk in " + \
                     given_author + \
                     " and substr(published_print_date_parts, 1,4) in" + \
-                    s_years + ";"
+                    s_years + " order by published_print_date_parts desc;"
 
             try:
                 cursor.execute(sql)
@@ -158,13 +158,13 @@ def searchLogic(mysql, cursor):
     elif (selection == "Journal"):
         if not selected_years:
             # no year filter
-            sql = "Select doi, title, container_title, published_print_date_parts, fk from _main_ where container_title like '%" + search + "%\';"
+            sql = "Select doi, title, container_title, published_print_date_parts, fk from _main_ where container_title like '%" + search + "%\' order by published_print_date_parts desc;"
         else:
             # with year filter
             sql = "Select doi, title, container_title, published_print_date_parts, fk from _main_ where container_title like '%" + \
                 search + \
                 "%\' and substr(published_print_date_parts, 1,4) in" + \
-                s_years+";"
+                s_years+" order by published_print_date_parts desc;"
 
         cursor.execute(sql)
         result_set = cursor.fetchall()
@@ -197,13 +197,13 @@ def searchLogic(mysql, cursor):
     elif (selection == "Article"):
         if not selected_years:
             # no year filter
-            sql = "Select doi, title, container_title, published_print_date_parts, fk from _main_ where title like '%" + search + "%\';"
+            sql = "Select doi, title, container_title, published_print_date_parts, fk from _main_ where title like '%" + search + "%\' order by published_print_date_parts desc;"
         else:
             # with year filter
             sql = "Select doi, title, container_title, published_print_date_parts, fk from _main_ where title like '%" + \
                 search + \
                 "%\' and substr(published_print_date_parts, 1,4) in" + \
-                s_years + ";"
+                s_years + " order by published_print_date_parts desc;"
 
         cursor.execute(sql)
         result_set = cursor.fetchall()
