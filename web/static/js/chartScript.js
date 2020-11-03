@@ -144,7 +144,7 @@ var chart = c3.generate({
   unshift section above.
   */
   legend: {
-    position: 'bottom',
+    position: 'right',
     item: {
         onclick: function (id) { 
 
@@ -312,7 +312,7 @@ var chart = c3.generate({
     },
   grid: {
     y: {
-      lines: [{ value: 0 }]
+      show: false
     }
   },
   axis: {
@@ -327,9 +327,23 @@ var chart = c3.generate({
     y: {
       label: {
         text: 'Total Events',
-        position: 'outer-middle'
+        position: 'outer-middle',
+      },
+      tick: {
+        format: function (d) { 
+          if (d < 0) {
+              return null
+          }
+          else if (d % 1 > 0) {
+              return null
+          }
+          else {
+            return d ;  
+          }
+        }
       }
-    }
+    },
+    rotated: false
   },
 
   size: {
@@ -337,6 +351,7 @@ var chart = c3.generate({
   }
 });
 
+// This function hides the bar chart items the user clicks, both in the chart and in the events section below
 function hideElements(id) {
   elements = document.getElementsByClassName("eventItem");
   for(var i=0; i<elements.length; i++) {
@@ -347,6 +362,12 @@ function hideElements(id) {
       elements[i].style.display = "none";
     }
   }
+}
+
+// This function determines the tick values.
+// It looks at the booleans to determine what is being displayed, and then creates a list of tick values
+function getTickValues() {
+  return [0, 1, 5, 10, 15, 20, 40, 80, 100, 250, 500, 750, 1000, 2500, 5000, 10000, 30000, 50000, 100000];
 }
 
 // These two lines force the C3 chart back into its column. 
