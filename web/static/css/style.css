@@ -442,5 +442,13 @@ table.table-bordered{
   padding: 0px;
 }
 
+.statsContainer{
+  display: flex;
+}
+.statsContainer > div {
+  flex:1;
+}
 
-
+p1{
+  font-size: large;
+}

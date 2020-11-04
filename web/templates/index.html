@@ -19,47 +19,52 @@ form method="post" action="{{ url_for('search') }}" >
         <option value="Article">Article</option>
     </select>-->
 <div class="col-sm-3">
-    <div style="width:200px; border-radius: 25px; padding: 10px; background-color: rgba(60, 65, 70, 0.5); " class = "center-screen col-sm-6">
-        <h2 style="text-align: center; color: aliceblue;">Total number of events</h2>
-        <p3 style="text-align: center; color: aliceblue;">{{totalSum}}</p3>
-        <br><br>
-    </div>
-    <div style="width:200px; border-radius: 25px; padding: 10px; background-color: rgba(60, 65, 70, 0.5); " class = "center-screen col-sm-6">
-        <h2 style="text-align: center; color: aliceblue;">Total number of articles</h2>
-        <p3 style="text-align: center; color: aliceblue;">{{totalSumArticles}}</p3>
-        <br><br>
-    </div>
-    <div style="width:200px; border-radius: 25px; padding: 10px; background-color: rgba(60, 65, 70, 0.5); " class = "center-screen col-sm-6">
-        <h2 style="text-align: center; color: aliceblue;">Total number of journals</h2>
-        <p3 style="text-align: center; color: aliceblue;">{{totalSumJournals}}</p3>
-        <br><br>
-    </div>
 </div>
 
-<div style="border-radius: 25px; padding: 10px; background-color: rgba(60, 65, 70, 0.5); " class = "center-screen col-sm-6">
-  <h1 style="text-align: center; color: aliceblue;">Crossref Event Data Dashboard</h1>
-  <p2 style="text-align: center; color: aliceblue;">Search for scholarly publications by the <a style="color: aliceblue; text-decoration: underline;" href="https://www.doi.org/doi_handbook/1_Introduction.html#1.6.1"target="_blank">Document Object Identifier (DOI) &#8599;</a>, journal, author, or article name</p2>
-  <br>
-  <form method="post" action="{{ url_for('search') }}" class="form-inline">
-    <div class="form-group" style="text-align: center">
-            
-        <!-- Drop Down Search -->
-        <select name="dropdownSearchBy" id="dropdownSearchBy" class="form-control">
-            <option selected="selected" value="DOI">DOI</option>
-            <option value="Author">Author</option>
-            <option value="Journal">Journal</option>
-            <option value="Article">Article</option>
-        </select>
-
-        <!-- Search bar - input text -->
-        <input type="text" id="search_input" name="search" placeholder="Enter search..." style="width: 400px;" class="form-control">
-        <input width="80%" type="submit" value="Search" style="width: 100px;" class="form-control">
+<div class = "center-screen col-sm-6">
+    <div style="border-radius: 25px; padding: 10px; background-color: rgba(60, 65, 70, 0.8); " >
+        <h1 style="text-align: center; color: aliceblue;">Crossref Event Data Dashboard</h1>
+        <p2 style="text-align: center; color: aliceblue;">Search for scholarly publications by the <a style="color: aliceblue; text-decoration: underline;" href="https://www.doi.org/doi_handbook/1_Introduction.html#1.6.1"target="_blank">Document Object Identifier (DOI) &#8599;</a>, journal, author, or article name</p2>
+        <br><br>
+        <form method="post" action="{{ url_for('search') }}" class="form-inline">
+          <div class="form-group" style="text-align: center">
+                  
+              <!-- Drop Down Search -->
+              <select name="dropdownSearchBy" id="dropdownSearchBy" class="form-control">
+                  <option selected="selected" value="DOI">DOI</option>
+                  <option value="Author">Author</option>
+                  <option value="Journal">Journal</option>
+                  <option value="Article">Article</option>
+              </select>
+      
+              <!-- Search bar - input text -->
+              <input type="text" id="search_input" name="search" placeholder="Enter search..." style="width: 400px;" class="form-control">
+              <input width="80%" type="submit" value="Search" style="width: 100px;" class="form-control">
+          </div>
+        </form>
+        <br>
     </div>
-  </form>
-  <br>
+    <br><br>
+    <div class = "statsContainer">
+    <div style="width:180px; border-radius: 25px; padding: 10px; background-color: rgba(60, 65, 70, 0.8); " class = "center-screen col-sm-6">
+        <h2 style="text-align: center; color: aliceblue;">{{totalSum}}</h2>
+        <p1 style="text-align: center; color: aliceblue;">Events</p1>
+        <br>
+    </div>
+    <div style="width:180px; border-radius: 25px; padding: 10px; background-color: rgba(60, 65, 70, 0.8); " class = "center-screen col-sm-6">
+        <h2 style="text-align: center; color: aliceblue;">{{totalSumArticles}}</h2>
+        <p1 style="text-align: center; color: aliceblue;">Articles</p1>
+        <br>
+    </div>
+    <div style="width:180px; border-radius: 25px; padding: 10px; background-color: rgba(60, 65, 70, 0.8); " class = "center-screen col-sm-6">
+        <h2 style="text-align: center; color: aliceblue;">{{totalSumJournals}}</h2>
+        <p1 style="text-align: center; color: aliceblue;">Journals</p1>
+        <br>
+    </div>
+    </div>
 
 </div>
-
+<br>
 
 
 
