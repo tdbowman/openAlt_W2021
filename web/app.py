@@ -53,7 +53,13 @@ def search():
 
 @app.route('/articleDashboard', methods=["GET", "POST"])
 def articleDashboard():
-    return articleDashboardLogic(mysql, mysql2)
+    # get the years from the form
+    # save that as years_list[]
+
+    # THIS IS THE ENTRY POINT FOR THE YEAR CHECKBOX FORM ON THE DASHBOARD
+
+    years_list = []
+    return articleDashboardLogic(mysql, mysql2, years_list)
 
 
 @app.route('/journalDashboard', methods=["GET", "POST"])
