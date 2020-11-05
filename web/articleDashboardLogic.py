@@ -46,53 +46,62 @@ def articleDashboardLogic(mysql, mysql2):
     totalEvents = cursor2.fetchone()
 
     if totalEvents is not None:
-        EventsQuery = "SELECT subjectID, sourceID, relationType, timeObserved " + \
+        rEventsQuery = "SELECT subjectPID, sourceID, relationType, MAX(timeObserved) AS recent " + \
             "FROM crossrefeventdatamain.hypothesisevent WHERE objectID like '%" + \
             article['objectID'] + "%' " + \
+            "GROUP BY subjectPID " + \
             "UNION " + \
-            "SELECT subjectID, sourceID, relationType, timeObserved " + \
+            "SELECT subjectPID, sourceID, relationType, MAX(timeObserved) AS recent " + \
             "FROM crossrefeventdatamain.newsfeedevent WHERE objectID like '%" + \
             article['objectID'] + "%' " + \
+            "GROUP BY subjectPID " + \
             "UNION " + \
-            "SELECT subjectID, sourceID, relationType, timeObserved " + \
+            "SELECT subjectPID, sourceID, relationType, MAX(timeObserved) AS recent " + \
             "FROM crossrefeventdatamain.redditevent WHERE objectID like '%" + \
             article['objectID'] + "%' " + \
+            "GROUP BY subjectPID " + \
             "UNION " + \
-            "SELECT subjectID, sourceID, relationType, timeObserved " + \
+            "SELECT subjectPID, sourceID, relationType, MAX(timeObserved) AS recent " + \
             "FROM crossrefeventdatamain.redditlinksevent WHERE objectID like '%" + \
             article['objectID'] + "%' " + \
+            "GROUP BY subjectPID " + \
             "UNION " + \
-            "SELECT subjectID, sourceID, relationType, timeObserved " + \
+            "SELECT subjectPID, sourceID, relationType, MAX(timeObserved) AS recent " + \
             "FROM crossrefeventdatamain.stackexchangeevent WHERE objectID like '%" + \
             article['objectID'] + "%' " + \
+            "GROUP BY subjectPID " + \
             "UNION " + \
-            "SELECT subjectID, sourceID, relationType, timeObserved " + \
+            "SELECT subjectPID, sourceID, relationType, MAX(timeObserved) AS recent " + \
             "FROM crossrefeventdatamain.twitterevent WHERE objectID like '%" + \
-            article['objectID'] + "%' " + \
+            article['objectID'] + "%' and subjectPID like '%http://twitter.com%' " + \
+            "GROUP BY subjectPID " + \
             "UNION " + \
-            "SELECT subjectID, sourceID, relationType, timeObserved " + \
+            "SELECT subjectPID, sourceID, relationType, MAX(timeObserved) AS recent " + \
             "FROM crossrefeventdatamain.webevent WHERE objectID like '%" + \
             article['objectID'] + "%' " + \
+            "GROUP BY subjectPID " + \
             "UNION " + \
-            "SELECT subjectID, sourceID, relationType, timeObserved " + \
+            "SELECT subjectPID, sourceID, relationType, MAX(timeObserved) AS recent " + \
             "FROM crossrefeventdatamain.wikipediaevent WHERE objectID like '%" + \
             article['objectID'] + "%' " + \
+            "GROUP BY subjectPID " + \
             "UNION " + \
-            "SELECT subjectID, sourceID, relationType, timeObserved " + \
+            "SELECT subjectPID, sourceID, relationType, MAX(timeObserved) AS recent " + \
             "FROM crossrefeventdatamain.wordpressevent WHERE objectID like '%" + \
             article['objectID'] + "%' " + \
-            "ORDER BY timeObserved DESC " + \
+            "GROUP BY subjectPID " + \
+            "ORDER BY recent DESC " + \
             "LIMIT 50;"
 
-        cursor2.execute(EventsQuery)
+        cursor2.execute(rEventsQuery)
         eventRows = cursor2.fetchall()
 
         for event in eventRows:
-            # grab each event's subjectID
-            subjID = event['subjectID']
+            # grab each event's subjectPID
+            subjPID = event['subjectPID']
 
-            if subjID is not None:
-                # Store all column values of the event into a python dictionary and add the eachEvent dictionary to the eventsForArticle list.
+            if subjPID is not None:
+
                 media = ""
                 mediaColor = ""
 
@@ -136,7 +145,8 @@ def articleDashboardLogic(mysql, mysql2):
                     media = "Wordpress"
                     mediaColor = "#e3b9c7"
 
-                eachEvent = {'subjectID': event['subjectID'],
+                # Store all column values of the event into a python dictionary and add the eachEvent dictionary to the eventsForArticle list.
+                eachEvent = {'subjectPID': event['subjectPID'],
                              'sourceID': event['sourceID'],
                              'relationType': event['relationType'],
                              'media': media,
