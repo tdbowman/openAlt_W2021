@@ -1,7 +1,7 @@
 import flask
 
 
-def articleDashboardLogic(mysql, mysql2):
+def articleDashboardLogic(mysql, mysql2, years_list):
 
     # connect to Dr Bowman's database
     cursor = mysql.connection.cursor()

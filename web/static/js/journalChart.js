@@ -29,10 +29,21 @@ var chart = c3.generate({
         },
         y: {
           label: {
-            min: 0,
-            text: 'Number of Articles',
+            text: 'Total Events',
             position: 'outer-middle',
-
+          },
+          tick: {
+            format: function (d) { 
+              if (d < 0) {
+                  return null
+              }
+              else if (d % 1 > 0) {
+                  return null
+              }
+              else {
+                return d;  
+              }
+            }
           }
         }
       },
@@ -44,11 +55,13 @@ var chart = c3.generate({
     interaction: {
     enabled: false
     },
+    /*
     size: {
-      width: 670
+      width: 1000
     }
+    */
 });
 
 // These two lines force the C3 chart back into its column. 
 var loader = document.getElementById("changeAfterChart");
-loader.className = "col-sm-7";
+loader.className = "col-sm-12";

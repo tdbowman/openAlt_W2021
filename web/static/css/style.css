@@ -167,6 +167,14 @@ table.table-bordered{
     font-size: 20px;
     font-style: normal;}
 
+#score{
+    width: 50px;
+    height: 50px;
+    -webkit-border-radius: 25px;
+    -moz-border-radius: 25px;
+    border-radius: 25px;
+    background: gray;
+}
 
 .pagination a {
   color: black;
@@ -442,5 +450,13 @@ table.table-bordered{
   padding: 0px;
 }
 
+.statsContainer{
+  display: flex;
+}
+.statsContainer > div {
+  flex:1;
+}
 
-
+p1{
+  font-size: large;
+}
