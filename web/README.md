@@ -2,7 +2,7 @@
 
 ### Before we start
 This guide assumes you are using Python 3.8, and have established the `crossrefeventdatamain` and `dr_bowman_doi_data_tables` databases in MySQL. See the SQL folder for the relevant scripts.  
-If you have Python 2 installed, you will need to substitute Python for Python3 below.  
+If you have Python 2 installed, you will need to substitute Python3 for Python below.  
 
 ### Step by step guide
 These actions should be performed here, at this level in the folder.
