@@ -18,7 +18,6 @@
 {% block body %}
 <div class="container">
     <h1>Author Dashboard</h1>
-    <div class ="row">
         <!-- This is the left column-->
         <div class="col-md-5">
             <div id="pHead">
@@ -87,29 +86,17 @@
         <div class="col-sm-7" id="changeAfterChart">
             <div id="chart"></div>
         </div>
-        <!-- This goes below the chart
-        <div class="col-md-5" id="yearFilter">
-            <h3>Year</h3>
-            <hr>
-            <form action="">
-                <label for="2020">
-                    <input type="checkbox" id="2020" name="2020"> 2020
-                </label><br>
-                <label for="2019">
-                    <input type="checkbox" id="2019" name="2019"> 2019
-                </label><br>
-                <label for="2018">
-                    <input type="checkbox" id="2018" name="2018"> 2018
-                </label><br>
-                <label for="2017">
-                    <input type="checkbox" id="2017" name="2017"> 2016
-                </label><br>
-            </form>
-        </div>
-    -->
-    </div><!-- End the container for right columns -->
+    <div class="col-sm-7" id="yearFilter">
+        <!-- This form determines the years used by the chart. Clicking submit refreshes the page by calling articleDashboard in the same way that the search results page does -->
+        <form method="post" action="{{ url_for('authorDashboard') }}?author_id={{ passed_author_id }}" class="form-inline">
+            <label class="radio-inline"><input type="radio" name="optradio" value="2001-2005">2001-2005</label>
+            <label class="radio-inline"><input type="radio" name="optradio" value="2006-2010">2006-2010</label>
+            <label class="radio-inline"><input type="radio" name="optradio" value="2011-2015">2011-2015</label>
+            <label class="radio-inline"><input type="radio" name="optradio" value="2016-2020">2016-2020</label>
+            <input width="40%" type="submit" value="Update" class="form-control">
+        </form>
     </div>
-
+    </div>
     <!-- This is the container for the right column
     <div class = "container">
         
@@ -133,8 +120,14 @@
     webevent = [];
     wikipediaevent = [];
     wordpressevent = [];
+    years_list = [];
 </script>
 
+{% for year in years_list %}
+<script>
+    years_list.push("{{ year }}")
+</script>
+{% endfor %}
 
 {% for index in cambiaEventData %}   
 <script>

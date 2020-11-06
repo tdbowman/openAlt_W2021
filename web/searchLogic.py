@@ -18,7 +18,7 @@ def searchLogic(mysql, cursor):
 
     try:
         page = flask.request.args.get(get_page_parameter(), type=int, default=1)
-        print('--Page number-- ', page)
+        #print('--Page number-- ', page)
     except ValueError:
         page = 1
 

@@ -26,17 +26,12 @@
     <div class = "col-md-11">
         <h1>Article Dashboard</h1>
     </div>
-    <div class = "col-md-1">
-         <table border="1" width=50% height="150%">
-
-             <table width=50% id="score">
-                 <tr>
-                     <td align="center"> <h3> 85 </h3> </td>
-                 </tr>
-             </table>
-
-         </table>
-    </div>
+    <div class = "statsContainer">
+        <div style="width:180px; border-radius: 25px; padding: 10px; background-color: rgba(208, 218, 230, 0.5); " class = "center-screen col-sm-6">
+            <h2 style="text-align: center;">{{totalEventsSum}}</h2>
+            <p2><a style="text-decoration: underline;" href="https://www.crossref.org/services/event-data/"target="_blank">Events &#8599;</a></p2>
+            <br>
+        </div>
     </div>
 
     <div class="row">
@@ -81,29 +76,36 @@
 
         <!-- This is the right column, first row containing the chart -->
         <br><br>
-        <div class="col-7" id="changeAfterChart">
+        <div class="col-sm-7" id="changeAfterChart">
             <h3 style="text-align: center;">Events for this article over time</h3>
             <div id="chart"></div>
 
         </div>
+        <div class="col-sm-7" id="yearFilter">
+            <!-- This form determines the years used by the chart. Clicking submit refreshes the page by calling articleDashboard in the same way that the search results page does -->
+            <form method="post" action="{{ url_for('articleDashboard') }}?DOI={{ article_detail.objectID }}" class="form-inline">
+                <label class="radio-inline"><input type="radio" name="optradio" value="2001-2005">2001-2005</label>
+                <label class="radio-inline"><input type="radio" name="optradio" value="2006-2010">2006-2010</label>
+                <label class="radio-inline"><input type="radio" name="optradio" value="2011-2015">2011-2015</label>
+                <label class="radio-inline"><input type="radio" name="optradio" value="2016-2020">2016-2020</label>
+                <input width="40%" type="submit" value="Update" class="form-control">
+            </form>
+        </div>
     </div> <!-- end of row -->
     <div class="row"> 
         <div class="col-md-12">
-            <!-- <h1>Most Recent 100 events</h1> -->
             <h1>Most Recent 50 Events</h1>
             <hr>
+            
+            <!-- THIS WAS THE TABLE WITH THE NICE COLOR BLOCKS - IT DOES NOT RESPOND TO HIDING 
             <table class="table table-bordered">
                 {% for e in events %}
-                <tr class="row row-bordered eventItem" >
+                <tr class="row row-bordered eventItem" id="{{e.sourceID}}" style='visibility:collapse'>
                     <td class="articleEventData">
                         {{e.sourceID}}  {{e.relationType}}
                         <br>
                         <a href="{{e.subjectPID}}" target="_blank">{{e.subjectPID}} &#8599;</a>
                         <br>
-                        <!-- Testing Purposes Article URL: {{ article_detail.objectID }} -->
-                        <!-- Testing Purposes
-                            <br>
-                        DOI of Event: {{e.objectID}} -->
                     </td>
                     <td style="background-color: {{e.media_color}};">
 
@@ -111,26 +113,37 @@
                 </tr>
                 {% endfor %}
             </table>
+            -->
+            
+            <!-- Table which hides events properly but looks a little strange -->
+            {% for e in events %}
+            <div class="row row-bordered eventItem" id="{{e.sourceID}}">
+                <table class="table table-bordered" style="margin-bottom: 0px; margin-top: 0px">
+                    <tr class="row row-bordered eventItem" id="{{e.sourceID}}">
+                        <td class="articleEventData" style="width: 100%">
+                            {{e.sourceID}}  {{e.relationType}}
+                            <br>
+                            <a href="{{e.subjectPID}}" target="_blank">{{e.subjectPID}} &#8599;</a>
+                        </td>
+                        <td style="background-color: {{e.media_color}};">
+                        </td>
+                    </tr>
+                </table>
+            </div>
+            {% endfor %}
+            
+            <!-- Simple display, but  hides the events properly 
+            {% for e in events %}
+            <div class="row row-bordered eventItem" id="{{e.sourceID}}">
+                {{e.sourceID}}  {{e.relationType}}
+                <br>
+                <a href="{{e.subjectPID}}" target="_blank">{{e.subjectPID}} &#8599;</a>
+                <div style="background-color: {{e.media_color}};"></div>
+            </div>
+            {% endfor %}
+            -->
+
         </div>
-        <!-- <div class="col-md-5" id="yearFilter">
-            <h3>Year</h3>
-            <hr>
-            <form action="">
-                <label for="2020">
-                    <input type="checkbox" id="2020" name="2020"> 2020
-                </label><br>
-                <label for="2019">
-                    <input type="checkbox" id="2019" name="2019"> 2019
-                </label><br>
-                <label for="2018">
-                    <input type="checkbox" id="2018" name="2018"> 2018
-                </label><br>
-                <label for="2017">
-                    <input type="checkbox" id="2017" name="2017"> 2016
-                </label><br>
-            </form>
-        </div>
-        -->
     </div> <!-- End the row -->
 </div> <!-- end container wrapping entire page-->
 <br>
@@ -152,8 +165,14 @@
     webevent = [];
     wikipediaevent = [];
     wordpressevent = [];
+    years_list = [];
 </script>
 
+{% for year in years_list %}
+<script>
+    years_list.push("{{ year }}")
+</script>
+{% endfor %}
 
 {% for index in cambiaEventData %}   
 <script>

@@ -1,6 +1,6 @@
 import flask
 
-def authorDashboardLogic(mysql, mysql2):
+def authorDashboardLogic(mysql, mysql2, years_list):
 
     author_article_list = []
     author_doi_list = []
@@ -66,7 +66,7 @@ def authorDashboardLogic(mysql, mysql2):
 
     # Size of each list depends on how many years(in chartScript.js) you'd like to display.
     # Queries will be inserted within the array
-    years_list = [2016, 2017, 2018, 2019, 2020]
+    #years_list = [2016, 2017, 2018, 2019, 2020]
 
     # form a list of just the DOIs
     doi_list = '( '
@@ -250,6 +250,8 @@ def authorDashboardLogic(mysql, mysql2):
 
     return flask.render_template('authorDashboard.html',
                                  author_name=author_name['name'],
+                                 years_list = years_list,
+                                 passed_author_id = author_id, # this is for the year filter!
                                  author_article_list=author_article_list,
                                  cambiaEventData=cambiaEvent,
                                  crossrefEventData=crossrefevent,
