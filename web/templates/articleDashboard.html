@@ -81,7 +81,10 @@
             <div id="chart"></div>
 
         </div>
-        <div class="col-sm-7" id="yearFilter">
+    </div> <!-- end of row -->
+    <div class="row">
+        <div class="col-md-6"></div>
+        <div class="col-md-6" id="yearFilter">
             <!-- This form determines the years used by the chart. Clicking submit refreshes the page by calling articleDashboard in the same way that the search results page does -->
             <form method="post" action="{{ url_for('articleDashboard') }}?DOI={{ article_detail.objectID }}" class="form-inline">
                 <label class="radio-inline"><input type="radio" name="optradio" value="2001-2005">2001-2005</label>
@@ -91,7 +94,7 @@
                 <input width="40%" type="submit" value="Update" class="form-control">
             </form>
         </div>
-    </div> <!-- end of row -->
+    </div>
     <div class="row"> 
         <div class="col-md-12">
             <h1>Most Recent 50 Events</h1>
