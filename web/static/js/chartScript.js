@@ -22,11 +22,12 @@ All 12 of these combine to make 5 bars, which are each 12 blocks high
 // const f1000event = [];
 */
 
-const year0 = 2016;
-const year1 = 2017;
-const year2 = 2018;
-const year3 = 2019;
-const year4 = 2020;
+//const year0 = 2016;
+//const year1 = 2017;
+//const year2 = 2018;
+//const year3 = 2019;
+//const year4 = 2020;
+
 
 /* CHANGE COLORS HERE */
 const cambiaColor = '#002f99';
@@ -323,7 +324,7 @@ var chart = c3.generate({
         position: 'outer-center'
       },
       type: 'category',
-      categories: [year0, year1, year2, year3, year4]
+      categories: [years_list[0], years_list[1], years_list[2], years_list[3], years_list[4]]
     },
     y: {
       label: {
