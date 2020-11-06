@@ -9,6 +9,9 @@ def articleDashboardLogic(mysql, mysql2, years_list):
     # connect to crossrefeventdatamain
     cursor2 = mysql2.connection.cursor()
 
+    #cursor to display total number of events
+    cursor3 = mysql.connection.cursor()
+
     # get DOI parameter
     search = str(flask.request.args.get("DOI"))
 
@@ -315,8 +318,17 @@ def articleDashboardLogic(mysql, mysql2, years_list):
         event_count = cursor2.fetchone()
         wordpressevent.append(event_count['count'])
     # wordpressevent = [5, 10, 15, 20, 25];  # TBD - delete this line after we upload data in cambia event table for all these years
+    
+    
+    TotalEventsQuerySum = "SELECT (SELECT COUNT(totalEvents ) FROM crossrefeventdatamain.main WHERE objectID like '%" + \
+        article['objectID'] + "%') AS sumCount;"
+    cursor3.execute(TotalEventsQuerySum)
+    mysql.connection.commit()
+    totalEventsSum = cursor3.fetchone()
+    cursor3.close()
 
-    return flask.render_template('articleDashboard.html', article_detail=article, events=eventsForArticle,
+
+    return flask.render_template('articleDashboard.html', article_detail=article, events=eventsForArticle, totalEventsSum=totalEventsSum['sumCount'],
                                  cambiaEventData=cambiaEvent,
                                  crossrefEventData=crossrefevent,
                                  dataciteEventData=dataciteevent,
