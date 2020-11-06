@@ -76,10 +76,20 @@
 
         <!-- This is the right column, first row containing the chart -->
         <br><br>
-        <div class="col-7" id="changeAfterChart">
+        <div class="col-sm-7" id="changeAfterChart">
             <h3 style="text-align: center;">Events for this article over time</h3>
             <div id="chart"></div>
 
+        </div>
+        <div class="col-sm-7" id="yearFilter">
+            <!-- This form determines the years used by the chart. Clicking submit refreshes the page by calling articleDashboard in the same way that the search results page does -->
+            <form method="post" action="{{ url_for('articleDashboard') }}?DOI={{ article_detail.objectID }}" class="form-inline">
+                <label class="radio-inline"><input type="radio" name="optradio" value="2001-2005">2001-2005</label>
+                <label class="radio-inline"><input type="radio" name="optradio" value="2006-2010">2006-2010</label>
+                <label class="radio-inline"><input type="radio" name="optradio" value="2011-2015">2011-2015</label>
+                <label class="radio-inline"><input type="radio" name="optradio" value="2016-2020">2016-2020</label>
+                <input width="40%" type="submit" value="Update" class="form-control">
+            </form>
         </div>
     </div> <!-- end of row -->
     <div class="row"> 
@@ -155,8 +165,14 @@
     webevent = [];
     wikipediaevent = [];
     wordpressevent = [];
+    years_list = [];
 </script>
 
+{% for year in years_list %}
+<script>
+    years_list.push("{{ year }}")
+</script>
+{% endfor %}
 
 {% for index in cambiaEventData %}   
 <script>

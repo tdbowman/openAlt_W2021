@@ -159,7 +159,7 @@ def articleDashboardLogic(mysql, mysql2, years_list):
         # ---------------------------- End of Article Events ----------------------------------------
     # Size of each list depends on how many years(in chartScript.js) you'd like to display.
     # Queries will be inserted within the array
-    years_list = [2016, 2017, 2018, 2019, 2020]
+    #years_list = [2016, 2017, 2018, 2019, 2020]
 
     # cambia event
     cambiaEvent = []
@@ -338,7 +338,7 @@ def articleDashboardLogic(mysql, mysql2, years_list):
     cursor3.close()
 
 
-    return flask.render_template('articleDashboard.html', article_detail=article, events=eventsForArticle, totalEventsSum=totalEventsSum['sumCount'],
+    return flask.render_template('articleDashboard.html', years_list=years_list, article_detail=article, events=eventsForArticle, totalEventsSum=totalEventsSum['sumCount'],
                                  cambiaEventData=cambiaEvent,
                                  crossrefEventData=crossrefevent,
                                  dataciteEventData=dataciteevent,
