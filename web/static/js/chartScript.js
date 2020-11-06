@@ -22,8 +22,6 @@ All 12 of these combine to make 5 bars, which are each 12 blocks high
 // const f1000event = [];
 */
 
-
-
 const year0 = 2016;
 const year1 = 2017;
 const year2 = 2018;
@@ -77,9 +75,11 @@ wordpressevent.unshift("Wordpress");
 f1000event.unshift("F1000");
 //f1000event.unshift("F1000");
 
-// we will use this later to show/hide elements
-let elements = null;
-
+// We need to set all these to "initial" now, so we can hide and reset them later on
+let elements = document.getElementsByClassName("eventItem");
+for(var i=0; i<elements.length; i++) {
+  elements[i].style.display = "initial";
+}
 
 /*
 ----------- C3 Chart ------------------------------------
@@ -159,7 +159,7 @@ var chart = c3.generate({
                 chart.show(id);
                 cambiaBool = true;
               }
-              hideElements(id)
+              hideElements(elements);
               break;
 
             case crossrefevent[0]:
@@ -170,7 +170,7 @@ var chart = c3.generate({
                 chart.show(id);
                 crossrefBool = true;
               }
-              hideElements(id)
+              hideElements(elements);
               break;
 
             case dataciteevent[0]:
@@ -181,7 +181,7 @@ var chart = c3.generate({
                 chart.show(id);
                 dataciteBool = true;
               }
-              hideElements(id)
+              hideElements(elements);
               break;
 
             case f1000event[0]:
@@ -192,7 +192,7 @@ var chart = c3.generate({
                 chart.show(id);
                 wordpressBool = true;
               }
-              hideElements(id)
+              hideElements(elements);
               break;
 
             case hypothesisevent[0]:
@@ -203,7 +203,7 @@ var chart = c3.generate({
                 chart.show(id);
                 hypothesisBool = true;
               }
-              hideElements(id)
+              hideElements(elements);
               break;
 
             case newsfeedevent[0]:
@@ -214,7 +214,7 @@ var chart = c3.generate({
                 chart.show(id);
                 newsfeedBool = true;
               }
-              hideElements(id)
+              hideElements(elements);
               break;
             
             case redditevent[0]:
@@ -225,7 +225,7 @@ var chart = c3.generate({
                 chart.show(id);
                 redditBool = true;
               }
-              hideElements(id)
+              hideElements(elements);
               break;
             
             case redditlinksevent[0]:
@@ -236,7 +236,7 @@ var chart = c3.generate({
                 chart.show(id);
                 redditLinksBool = true;
               }
-              hideElements(id)
+              hideElements(elements);
               break;
 
             case stackexchangeevent[0]:
@@ -247,7 +247,7 @@ var chart = c3.generate({
                 chart.show(id);
                 stackExchangeBool = true;
               }
-              hideElements(id)
+              hideElements(elements);
               break;
 
             case twitterevent[0]:
@@ -258,7 +258,7 @@ var chart = c3.generate({
                 chart.show(id);
                 twitterBool = true;
               }
-              hideElements(id)
+              hideElements(elements);
               break;
 
             case webevent[0]:
@@ -269,18 +269,19 @@ var chart = c3.generate({
                 chart.show(id);
                 stackExchangeBool = true;
               }
-              hideElements(id)
+              hideElements(elements);
               break;
 
             case wikipediaevent[0]:
               if (wikipediaBool) {
                 chart.hide(id);
                 wikipediaBool = false;
+                console.log(wikipediaBool);
               } else {
                 chart.show(id);
                 wikipediaBool = true;
               }
-              hideElements(id)
+              hideElements(elements);
               break;
 
             case wordpressevent[0]:
@@ -291,7 +292,7 @@ var chart = c3.generate({
                 chart.show(id);
                 wordpressBool = true;
               }
-              hideElements(id)
+              hideElements(elements);
               break;
           }
           /*
@@ -352,15 +353,24 @@ var chart = c3.generate({
 });
 
 // This function hides the bar chart items the user clicks, both in the chart and in the events section below
-function hideElements(id) {
-  elements = document.getElementsByClassName("eventItem");
+function hideElements(elements) {
+  //elements = document.getElementsByClassName("eventItem");
   for(var i=0; i<elements.length; i++) {
-    if (elements[i].style.display === "") {
-      elements[i].style.display = "";
-    } 
-    else {
-      elements[i].style.display = "";
-    }
+   // If the element ID is twitter, and the twitterBool is false, hide twitter.
+   // False booleans mean we want to hide them.
+
+  // WARNING - THIS TOOK FOREVER TO FIGURE OUT - CHANGE IT AT YOUR OWN RISK
+  // YOU ABSOLUTELY MUST USE  .style.display = "none" or .style.display = "initial"
+  if (elements[i].id === "twitter" && twitterBool === false) { elements[i].style.display = "none"; }
+  else if (elements[i].id === "wikipedia" && wikipediaBool === false) { elements[i].style.display = "none"; }
+  else if (elements[i].id === "reddit" && redditBool === false) { elements[i].style.display = "none"; }
+  else if (elements[i].id === "hypothesis" && hypothesisBool === false) { elements[i].style.display = "none"; }
+  else if (elements[i].id === "newsfeed" && newsfeedBool === false) { elements[i].style.display = "none"; }
+  else if (elements[i].id === "redditlinks" && redditLinksBool === false) { elements[i].style.display = "none"; }
+  else if (elements[i].id === "stackexchange" && stackExchangeBool === false) { elements[i].style.display = "none"; }
+  else if (elements[i].id === "web" && webBool === false) { elements[i].style.display = "none"; }
+  else if (elements[i].id === "wordpressdotcom" && wordpressBool === false) { elements[i].style.display = "none"; }
+  else { elements[i].style.display = "initial"; }
   }
 }
 
