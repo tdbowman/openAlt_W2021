@@ -12,14 +12,43 @@
 <!-- Load c3 last (because it depends on d3) -->
 <script src="../static/js/libraries/c3-0.7.20/c3.min.js"></script>
 <!-- END CHART SECTION -->
+
+<script>
+    // Only run this function when the document has fully loaded.
+    $(document).ready(function(){
+        // Storing radio button values into the object radioValues
+        // localStorage is a property of the Web Storage API that creates an instance of a  Storage object. Storage objects are simple key-value stores but stay intact through page loads. The key and values are always strings.
+        // JSON.parse() converts the data which is a string and turns it into a JS object.
+        let radioValues = JSON.parse(localStorage.getItem('radioValues')) || {};
+        // Jquery statement that selects the radio buttons within the <div> yearFilter and stores them into $radioButtons.
+        let $radioButtons = $("#yearFilter :radio");
+
+        // When a radio button is pressed(changes)...
+        $radioButtons.on("change",function(){
+            // Debugging 
+            // alert("The radio button " + this.value + " was selected"); or this.id
+            
+            // Iterate through each radio button.....
+            $radioButtons.each(function(){
+                // This radio button is checked
+                radioValues[this.id] = this.checked;
+            });
+            // Stringify the values of each button and set them into the key radioValues in localStorage.
+            localStorage.setItem("radioValues", JSON.stringify(radioValues));
+        });
+
+        // On page load, check the radio button by ID .
+        $.each(radioValues,function(key, value){
+            $("#" + key).prop("checked", value);
+        });
+    });
+</script>
 {% endblock %}
 
 <!-- Anything you put here will be in the body-->
 {% block body %}
 
-<script>
-    //
-</script>
+
 
 <div class = "container">
     <div class="row">
@@ -77,7 +106,7 @@
         <!-- This is the right column, first row containing the chart -->
         <br><br>
         <div class="col-sm-7" id="changeAfterChart">
-            <h3 style="text-align: center;">Events for this article over time</h3>
+            <h3 style="text-align: center;">Events for this article over {{years_list[0]}} - {{years_list[-1]}} </h3>
             <div id="chart"></div>
 
         </div>
@@ -87,10 +116,10 @@
         <div class="col-md-6" id="yearFilter">
             <!-- This form determines the years used by the chart. Clicking submit refreshes the page by calling articleDashboard in the same way that the search results page does -->
             <form method="post" action="{{ url_for('articleDashboard') }}?DOI={{ article_detail.objectID }}" class="form-inline">
-                <label class="radio-inline"><input type="radio" name="optradio" value="2001-2005">2001-2005</label>
-                <label class="radio-inline"><input type="radio" name="optradio" value="2006-2010">2006-2010</label>
-                <label class="radio-inline"><input type="radio" name="optradio" value="2011-2015">2011-2015</label>
-                <label class="radio-inline"><input type="radio" name="optradio" value="2016-2020">2016-2020</label>
+                <label class="radio-inline"><input type="radio" name="optradio" value="2001-2005" id="button1">2001-2005</label>
+                <label class="radio-inline"><input type="radio" name="optradio" value="2006-2010" id="button2">2006-2010</label>
+                <label class="radio-inline"><input type="radio" name="optradio" value="2011-2015" id="button3">2011-2015</label>
+                <label class="radio-inline"><input type="radio" name="optradio" value="2016-2020" id="button4">2016-2020</label>
                 <input width="40%" type="submit" value="Update" class="form-control">
             </form>
         </div>
