@@ -48,92 +48,89 @@
 <!-- Anything you put here will be in the body-->
 {% block body %}
 <div class="container">
-    <h1>Author Dashboard</h1>
-        <!-- This is the left column-->
-        <div class="col-md-5">
-            <div id="pHead">
-                {{ author_name }}
-            </div>
-            <hr>
-            <div id="pContent">
-                <!--<ul class="aInfo">
-                    <li>Article Title: </li>
-                    <li>Published in: </li>
-                    <li>Journal Name: </li>
-                    <li>Authors: </li>
-                </ul>-->
-                <table id="noBorders">
+    <div class="row">
+        <h1>Author Dashboard</h1>
+            <!-- This is the left column-->
+            <div class="col-md-5">
+                <div id="pHead">
+                    {{ author_name }}
+                </div>
+                <hr>
+                <div id="pContent">
+                    <!--<ul class="aInfo">
+                        <li>Article Title: </li>
+                        <li>Published in: </li>
+                        <li>Journal Name: </li>
+                        <li>Authors: </li>
+                    </ul>-->
+                    <table id="noBorders">
 
-                {% for author in author_article_list %}
-                <tr class="row row-bordered">
+                    {% for author in author_article_list %}
+                    <tr class="row row-bordered">
 
-                <td class='item-data'>
+                    <td class='item-data'>
 
-                    <div class="AUD_articleTitle">
-                        <a href="{{ url_for('articleDashboard') }}?DOI={{ author.objectID }}">{{ author.articleTitle }}</a>
-                    </div>
-                    <div class="AUD_journalName">
-                        Journal:
-                        <a href="{{ url_for('journalDashboard') }}?journalName={{ author.journalName }}">{{ author.journalName }}</a>
-                    </div>
-                    <div class="AUD_articleDate">
-                        Date Published: {{ author.articleDate }}
-                    </div>
-                    <div class="AUD_authors">
-                            Author(s):
-                            {% for auth in author.author_list%}
-                                    {% if auth.name == author_name %}
-                                            {% if auth == author.author_list[-1] %}
-                                                {{ auth.name }}
-                                            {% else %}
-                                                {{ auth.name }},
-                                            {% endif %}
-                                    {% else %}
-                                        {% if auth == author.author_list[-1] %}
-                                            <a href="{{ url_for('authorDashboard') }}?author_id={{ auth.id }}">{{ auth.name }}</a>
+                        <div class="AUD_articleTitle">
+                            <a href="{{ url_for('articleDashboard') }}?DOI={{ author.objectID }}">{{ author.articleTitle }}</a>
+                        </div>
+                        <div class="AUD_journalName">
+                            Journal:
+                            <a href="{{ url_for('journalDashboard') }}?journalName={{ author.journalName }}">{{ author.journalName }}</a>
+                        </div>
+                        <div class="AUD_articleDate">
+                            Date Published: {{ author.articleDate }}
+                        </div>
+                        <div class="AUD_authors">
+                                Author(s):
+                                {% for auth in author.author_list%}
+                                        {% if auth.name == author_name %}
+                                                {% if auth == author.author_list[-1] %}
+                                                    {{ auth.name }}
+                                                {% else %}
+                                                    {{ auth.name }},
+                                                {% endif %}
                                         {% else %}
-                                            <a href="{{ url_for('authorDashboard') }}?author_id={{ auth.id }}">{{ auth.name }}</a>,
+                                            {% if auth == author.author_list[-1] %}
+                                                <a href="{{ url_for('authorDashboard') }}?author_id={{ auth.id }}">{{ auth.name }}</a>
+                                            {% else %}
+                                                <a href="{{ url_for('authorDashboard') }}?author_id={{ auth.id }}">{{ auth.name }}</a>,
+                                            {% endif %}
                                         {% endif %}
-                                    {% endif %}
-                            {% endfor %}
+                                {% endfor %}
 
 
-                    </div>
-                    <div class="AUD_DOI">
-                        DOI:
-                        <a href="https://doi.org/{{ author.objectID }}"target="_blank">{{ author.objectID }} &#8599;</a>
-                    </div>
-                    <br>
-                    <br>
-                    <br>
-                    </td>
-                    </tr>
-                {% endfor %}
-                </table>
+                        </div>
+                        <div class="AUD_DOI">
+                            DOI:
+                            <a href="https://doi.org/{{ author.objectID }}"target="_blank">{{ author.objectID }} &#8599;</a>
+                        </div>
+                        <br>
+                        <br>
+                        <br>
+                        </td>
+                        </tr>
+                    {% endfor %}
+                    </table>
+                </div>
+            </div> <!-- End the leftmost column-->
+            <br><br><br><br><br>
+            <h3 style="text-align: center;">Events for {{author_name}} over time</h3>
+            <div class="col-sm-7" id="changeAfterChart">
+                <div id="chart"></div>
             </div>
-        </div> <!-- End the leftmost column-->
-        <br><br><br><br><br>
-        <h3 style="text-align: center;">Events for {{author_name}} over time</h3>
-        <div class="col-sm-7" id="changeAfterChart">
-            <div id="chart"></div>
+        <div class="col-sm-7" id="yearFilter">
+            <!-- This form determines the years used by the chart. Clicking submit refreshes the page by calling articleDashboard in the same way that the search results page does -->
+            <form method="post" action="{{ url_for('authorDashboard') }}?author_id={{ passed_author_id }}" class="form-inline">
+                <label class="radio-inline"><input type="radio" name="optradio" value="2001-2005" id="button1">2001-2005</label>
+                <label class="radio-inline"><input type="radio" name="optradio" value="2006-2010" id="button2">2006-2010</label>
+                <label class="radio-inline"><input type="radio" name="optradio" value="2011-2015" id="button3">2011-2015</label>
+                <label class="radio-inline"><input type="radio" name="optradio" value="2016-2020" id="button4">2016-2020</label>
+                <input width="40%" type="submit" value="Update" class="form-control">
+            </form>
         </div>
-    <div class="col-sm-7" id="yearFilter">
-        <!-- This form determines the years used by the chart. Clicking submit refreshes the page by calling articleDashboard in the same way that the search results page does -->
-        <form method="post" action="{{ url_for('authorDashboard') }}?author_id={{ passed_author_id }}" class="form-inline">
-            <label class="radio-inline"><input type="radio" name="optradio" value="2001-2005" id="button1">2001-2005</label>
-            <label class="radio-inline"><input type="radio" name="optradio" value="2006-2010" id="button2">2006-2010</label>
-            <label class="radio-inline"><input type="radio" name="optradio" value="2011-2015" id="button3">2011-2015</label>
-            <label class="radio-inline"><input type="radio" name="optradio" value="2016-2020" id="button4">2016-2020</label>
-            <input width="40%" type="submit" value="Update" class="form-control">
-        </form>
     </div>
-    </div>
-    <!-- This is the container for the right column
-    <div class = "container">
-        
-</div> end container wrapping entire page -->
-<br>
-<br>
+</div>
+
 <br>
 
 <!-- Initialize the arrays as empty arrays -->
