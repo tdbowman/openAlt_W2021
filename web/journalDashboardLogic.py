@@ -1,11 +1,21 @@
 import flask
+from flask_paginate import Pagination, get_page_parameter, get_per_page_parameter
 
 def journalDashboardLogic(mysql):
 
     journal_list = []  # list initializing
+    returnedQueries = []
 
     #global mysql
     cursor = mysql.connection.cursor()
+
+    pagination = None
+
+    try:
+        page = flask.request.args.get(get_page_parameter(), type=int, default=1)
+        print('--Page number-- ', page)
+    except ValueError:
+        page = 1
 
     # fetch the journal name parameter from searchResults page
     journal_name = str(flask.request.args.get("journalName"))
@@ -49,8 +59,22 @@ def journalDashboardLogic(mysql):
         yr_count = cursor.fetchone()
         publishedPerYear.append(yr_count["count"])
         start_year = start_year + 1
+
+    per_page = 10  # article count per page
+    article_start = (page * per_page) - 10  # calculate starting article index (for any given page)
+    article_end = article_start + 10  # calculate ending article index (for any given page)
+
+    journal_url_param = "/journalDashboard?journalName=" + journal_name + "&page={0}"
+
+    # form a pagination object
+    pagination = Pagination(page=page, per_page=per_page, href=journal_url_param,
+                            total=len(journal_list), css_framework='bootstrap4')
+
     return flask.render_template('journalDashboard.html',
                                  journal_name=journal_name,
                                  journal_list=journal_list,
-                                 publishedPerYear=publishedPerYear
+                                 publishedPerYear=publishedPerYear,
+                                 pagination=pagination,
+                                 article_start=article_start,
+                                 article_end=article_end
                                  )

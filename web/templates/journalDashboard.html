@@ -62,8 +62,10 @@
                 <li>Authors: </li>
             </ul>-->
             <table id="noBorders">
+            {{pagination.info}}
+            {{pagination.links}}
 
-            {% for journal in journal_list %}
+            {% for journal in journal_list[article_start:article_end] %}
             <tr>
 
             <td class='item-data'>
@@ -101,13 +103,12 @@
                 <div class="JD_DOI">
                     DOI:
                     <a href="https://doi.org/{{ journal.objectID }}"target="_blank">{{ journal.objectID }} &#8599;</a>                </div>
-                <br>
-                <br>
-                <br>
                 </td>
                 </tr>
             {% endfor %}
             </table>
+
+            {{pagination.links}}
 			</div>
     </div>
     </div>
