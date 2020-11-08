@@ -108,12 +108,12 @@
             <!-- Table which hides events properly but looks a little strange -->
             {% for e in events %}
             <div class="row row-bordered eventItem" id="{{e.sourceID}}">
-                <table class="table table-bordered" style="margin-bottom: 0px; margin-top: 0px">
+                <table id ="noBorders" style="margin-bottom: 0px; margin-top: 0px; width:1140px;">
                     <tr class="row row-bordered eventItem" id="{{e.sourceID}}">
-                        <td class="articleEventData" style="width: 100%">
-                            {{e.sourceID}}  {{e.relationType}}
-                            <br>
-                            <a href="{{e.subjectPID}}" target="_blank">{{e.subjectPID}} &#8599;</a>
+                        <td class="articleEventData">
+                            <h3 style="font-size:20px; margin-left:15px; width: 100%">{{e.sourceID}}  {{e.relationType}}
+                            </h3><br>
+                            <a style="margin-left:15px;" href="{{e.subjectPID}}" target="_blank">{{e.subjectPID}} &#8599;</a>
                         </td>
                         <td style="background-color: {{e.media_color}};">
                         </td>
