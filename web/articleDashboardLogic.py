@@ -330,13 +330,15 @@ def articleDashboardLogic(mysql, mysql2, years_list):
     # wordpressevent = [5, 10, 15, 20, 25];  # TBD - delete this line after we upload data in cambia event table for all these years
     
     
-    TotalEventsQuerySum = "SELECT (SELECT COUNT(totalEvents ) FROM crossrefeventdatamain.main WHERE objectID like '%" + \
-        article['objectID'] + "%') AS sumCount;"
+    TotalEventsQuerySum = "SELECT (SELECT totalEvents FROM crossrefeventdatamain.main WHERE objectID like '%" + \
+article['objectID'] + "%') AS sumCount ;"
     cursor3.execute(TotalEventsQuerySum)
     mysql.connection.commit()
     totalEventsSum = cursor3.fetchone()
     cursor3.close()
 
+    if totalEventsSum['sumCount'] is None:
+        totalEventsSum['sumCount'] = 0
 
     return flask.render_template('articleDashboard.html', years_list=years_list, article_detail=article, events=eventsForArticle, totalEventsSum=totalEventsSum['sumCount'],
                                  cambiaEventData=cambiaEvent,
