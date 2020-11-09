@@ -9,7 +9,7 @@ def articleDashboardLogic(mysql, mysql2, years_list):
     # connect to crossrefeventdatamain
     cursor2 = mysql2.connection.cursor()
 
-    #cursor to display total number of events
+    # cursor to display total number of events
     cursor3 = mysql.connection.cursor()
 
     # get DOI parameter
@@ -40,7 +40,7 @@ def articleDashboardLogic(mysql, mysql2, years_list):
 
     cursor.close()
 
-    # ---------------------------------- ARTICLE EVENTS --------------------------------------------
+    # ---------------------------------- ARTICLE EVENTS --------------------------------------
     eventsForArticle = []
 
     TotalEventsQuery = "SELECT totalEvents FROM crossrefeventdatamain.main WHERE objectID like '%" + \
@@ -328,19 +328,20 @@ def articleDashboardLogic(mysql, mysql2, years_list):
         event_count = cursor2.fetchone()
         wordpressevent.append(event_count['count'])
     # wordpressevent = [5, 10, 15, 20, 25];  # TBD - delete this line after we upload data in cambia event table for all these years
-    
-    
-    TotalEventsQuerySum = "SELECT (SELECT totalEvents FROM crossrefeventdatamain.main WHERE objectID like '%" + \
-article['objectID'] + "%') AS sumCount ;"
+
+    TotalEventsQuerySum = "SELECT totalEvents AS sumCount FROM crossrefeventdatamain.main WHERE objectID like '%" + \
+        article['objectID'] + "%';"
     cursor3.execute(TotalEventsQuerySum)
-    mysql.connection.commit()
+
     totalEventsSum = cursor3.fetchone()
     cursor3.close()
 
-    if totalEventsSum['sumCount'] is None:
-        totalEventsSum['sumCount'] = 0
+    if totalEventsSum is None:
+        totalEventsSum = 0
+    else:
+        totalEventsSum = totalEventsSum['sumCount']
 
-    return flask.render_template('articleDashboard.html', years_list=years_list, article_detail=article, events=eventsForArticle, totalEventsSum=totalEventsSum['sumCount'],
+    return flask.render_template('articleDashboard.html', years_list=years_list, article_detail=article, events=eventsForArticle, totalEventsSum=totalEventsSum,
                                  cambiaEventData=cambiaEvent,
                                  crossrefEventData=crossrefevent,
                                  dataciteEventData=dataciteevent,

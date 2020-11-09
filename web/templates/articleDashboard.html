@@ -18,6 +18,7 @@
     $(document).ready(function(){
         // Storing radio button values into the object radioValues
         // localStorage is a property of the Web Storage API that creates an instance of a  Storage object. Storage objects are simple key-value stores but stay intact through page loads. The key and values are always strings.
+        // localStorage allows us to store data in the browser and retrieve it later.
         // JSON.parse() converts the data which is a string and turns it into a JS object.
         let radioValues = JSON.parse(localStorage.getItem('radioValues')) || {};
         // Jquery statement that selects the radio buttons within the <div> yearFilter and stores them into $radioButtons.
