@@ -64,8 +64,10 @@
                         <li>Authors: </li>
                     </ul>-->
                     <table id="noBorders">
+                    {{pagination.info}}
+                    {{pagination.links}}
 
-                    {% for author in author_article_list %}
+                    {% for author in author_article_list [article_start:article_end] %}
                     <tr class="row row-bordered">
 
                     <td class='item-data'>
@@ -105,12 +107,11 @@
                             <a href="https://doi.org/{{ author.objectID }}"target="_blank">{{ author.objectID }} &#8599;</a>
                         </div>
                         <br>
-                        <br>
-                        <br>
                         </td>
                         </tr>
                     {% endfor %}
                     </table>
+                    {{pagination.links}}
                 </div>
             </div> <!-- End the leftmost column-->
             <br><br><br><br><br>
