@@ -265,7 +265,7 @@ def authorDashboardLogic(mysql, mysql2, years_list):
 
     # form a pagination object
     pagination = Pagination(page=page, per_page=per_page, href=author_url_param,
-                            total=len(author_article_list), css_framework='bootstrap4')
+                            total=len(author_article_list), css_framework='bootstrap3')
 
     return flask.render_template('authorDashboard.html',
                                  author_name=author_name['name'],

@@ -23,6 +23,10 @@ var chart = c3.generate({
     },
     axis: {
         x: {
+          label: {
+            text: 'Years',
+            position: 'outer-center'
+          },
           tick: {
             culling: true
           }

@@ -8,111 +8,70 @@
 <!-- Anything you put here will be in the body-->
 {% block body %}
 <div class="container">
+  <div class="row">
+    <div class="col-sm-12">
 
+    <h4>Filter by Year</h4>
 
-
-    <div class="row">
-        <!-- THIS IS THE OLD FORM  - WITH MANY MANY CHECKBOXES
-          <div class="col-sm-2">
-             <form method="post" action="{{ url_for('search') }}" >
-                 <input type="hidden" id="search" name="search" value= {{ search }} >
-                 <input type="hidden" id="dropdownSearchBy" name="dropdownSearchBy" value={{ dropdownSearchBy }}>
-    
-                 <div class='year_filter'>
-                <h6>YEAR</h6>
-             </div>
-    
-            <ul>
-            {% for year in years %}
-            <li>
-                <input name="years" type="checkbox" {{year.select }}  value= {{ year.year }}  >
-                {{ year.year }}
-            </li>
-            {% endfor %}
-            </ul>
-    
-              <input width="80%" type="submit" value="Apply" style="width: 100px;">
-             </form>
-          </div>
-        -->
-    
-        <!-- NEW FORM WITH A YEAR RANGE
-        <div class="col-sm-2">
-        <h4>Filter by Year</h4>
-              <form class="form-inline" method="post" action="{{ url_for('search') }}" >
-                <input type="hidden" id="search" name="search" value= {{ search }} >
-                <input type="hidden" id="dropdownSearchBy" name="dropdownSearchBy" value={{ dropdownSearchBy }}>
-                  <input type="text" class=" resizedTextbox form-control" id="startYear" placeholder="From" name="startYear" maxlength="4" size="4">
-                  <input type="text" class="resizedTextbox form-control" id="endYear" placeholder="To" name="endYear" maxlength="4" size="4">
-                <button type="submit" class=" resizedTextbox btn btn-default">Apply</button>
-              </form>
-        </div>
-         -->
-
-<div class="col-sm-12">
-
-
-  <h4>Filter by Year</h4>
-  <form class="form-inline" method="post" action="{{ url_for('search') }}" >
-    <input type="hidden" id="search" name="search" value= {{ search }} >
-    <input type="hidden" id="dropdownSearchBy" name="dropdownSearchBy" value={{ dropdownSearchBy }}>
-      <input type="text" class=" resizedTextbox form-control" id="startYear" placeholder="From" name="startYear" maxlength="4" size="4">
-      <label>-</label>
-      <input type="text" class="resizedTextbox form-control" id="endYear" placeholder="To" name="endYear" maxlength="4" size="4">
-    <button type="submit" class=" resizedTextbox btn btn-default">Apply</button>
- </form>
-  <br>
-  <br>
+    <form class="form-inline" method="post" action="{{ url_for('search') }}" >
+      <input type="hidden" id="search" name="search" value= {{ search }} >
+      <input type="hidden" id="dropdownSearchBy" name="dropdownSearchBy" value={{ dropdownSearchBy }}>
+        <input type="text" class=" resizedTextbox form-control" id="startYear" placeholder="From" name="startYear" maxlength="4" size="4">
+        <label>-</label>
+        <input type="text" class="resizedTextbox form-control" id="endYear" placeholder="To" name="endYear" maxlength="4" size="4">
+      <button type="submit" class=" resizedTextbox btn btn-default">Apply</button>
+    </form>
+    <br>
+    <br>
 
     <div class="SR_boxed">
-<th>Displaying Search Results for: {{search}}</th></div>
+    <th>Displaying Search Results for: {{search}}</th></div>
+        <!--Flask Pagination -->
+        {{pagination.info}}
+        {{pagination.links}}
 
-    <!--Flask Pagination -->
-    {{pagination.info}}
-    {{pagination.links}}
+      <table style="width:1140px;" id="noBorders">
+        <!-- Pagination: List articles from article_start index to article_end index -->
+        {% for result in listedSearchResults[article_start:article_end] %}
+        <tr class="row row-bordered">
+        <td class='item-data'>
 
-   <table style="width:1140px;" id="noBorders">
-<!-- Pagination: List articles from article_start index to article_end index -->
-{% for result in listedSearchResults[article_start:article_end] %}
-<tr class="row row-bordered">
+            <div class="SR_articleTitle">
+                <a href="{{ url_for('articleDashboard') }}?DOI={{ result.objectID }}">{{ result.articleTitle }}</a>
+            </div>
 
-<td class='item-data'>
+            <div class="SR_journalName">
+                Journal Name:
+                <a href="{{ url_for('journalDashboard') }}?journalName={{ result.journalName }}">{{ result.journalName }}</a>
+            </div>
+            
+            <div class="SR_articleDate">
+                Article Date: {{ result.articleDate }}
+            </div>
 
-    <div class="SR_articleTitle">
-        
-        <a href="{{ url_for('articleDashboard') }}?DOI={{ result.objectID }}">{{ result.articleTitle }}</a>
-    </div>
-    <div class="SR_journalName">
-        Journal Name:
-        <a href="{{ url_for('journalDashboard') }}?journalName={{ result.journalName }}">{{ result.journalName }}</a>
-    </div>
-    
-    <div class="SR_articleDate">
-        Article Date: {{ result.articleDate }}
-    </div>
-    <div class="SR_authors">
-        Author(s):
-        {% for author in result.author_list %}
-            {% if author == result.author_list[-1] %}
-              <a href="{{ url_for('authorDashboard') }}?author_id={{ author.id }}">{{ author.name }}</a>
-            {% else %}
-              <a href="{{ url_for('authorDashboard') }}?author_id={{ author.id }}">{{ author.name }},</a>
-            {% endif %}
+            <div class="SR_authors">
+                Author(s):
+                {% for author in result.author_list %}
+                    {% if author == result.author_list[-1] %}
+                      <a href="{{ url_for('authorDashboard') }}?author_id={{ author.id }}">{{ author.name }}</a>
+                    {% else %}
+                      <a href="{{ url_for('authorDashboard') }}?author_id={{ author.id }}">{{ author.name }},</a>
+                    {% endif %}
+                {% endfor %}
+            </div>
+
+            <div class="DOI">
+                DOI:
+                <a href="https://doi.org/{{ result.objectID }}"target="_blank">{{ result.objectID }} &#8599;</a>
+            </div>
+
+          </td>
+          </tr>
         {% endfor %}
 
-    </div>
-    <div class="DOI">
-        DOI:
-        <a href="https://doi.org/{{ result.objectID }}"target="_blank">{{ result.objectID }} &#8599;</a>
-    </div>
-   </td>
-   </tr>
-{% endfor %}
-
-</table>
+      </table>
     <!--Flask Pagination -->
-      {{pagination.links}}
-
+    {{pagination.links}}
 <!--
 <div>
  <nav aria-label="Page navigation example">
@@ -127,11 +86,10 @@
 </div>
 -->
 
-<h4>END OF SEARCH RESULTS</h4>
+    <h4>END OF SEARCH RESULTS</h4>
 
-{% endblock %}
+    {% endblock %}
 
-
-</div>
-    </div>
-</div>
+    </div> <!-- End the 12 width column -->
+  </div> <!-- End the row -->
+</div> <!-- End the container -->
