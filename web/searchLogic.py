@@ -3,47 +3,70 @@ from flask import Flask, session
 from datetime import datetime
 from flask_paginate import Pagination, get_page_parameter, get_per_page_parameter
 
-def searchLogic(mysql, cursor):
-    #global mysql
+def searchLogic(mysql):
 
-    returnedQueries = []
-
+    # Declare variables here for readability
+    cursor = mysql.connection.cursor()
     row = "something not none"
-
     pagination = None
-    #if pagination == None:
-    # get search and dropdownSearchBy parameters from form in POST request
-    search = str(flask.request.form.get("search"))
-    selection = str(flask.request.form.get("dropdownSearchBy"))
+    s_years = None
+    startYear = None
+    endYear = None
+    returnedQueries = []
+    selected_years = []
 
+    # Get page number if it exists. If not, set to 1
     try:
         page = flask.request.args.get(get_page_parameter(), type=int, default=1)
-        #print('--Page number-- ', page)
     except ValueError:
         page = 1
 
     # get search and dropdownSearchBy parameters from GET request if form data is None
+    # This occurs when you click on a page number, since the hidden form is not repopulated
+    search = str(flask.request.form.get("search"))
+    selection = str(flask.request.form.get("dropdownSearchBy"))
+    startYear = flask.request.form.get("startYear")
+    endYear = flask.request.form.get("endYear")
+    
+    #print("Selection from hidden form is:", selection)
+    #print("Search from hidden form is:", search)
+    #print("startYear from hidden form is:", startYear)
+    #print("endYear from hidden form is:", endYear)
+    
     if flask.request.form.get("search") is None:
         search = str(flask.request.args.get("search"))
     if flask.request.form.get("dropdownSearchBy") is None:
         selection = str(flask.request.args.get("dropdownSearchBy"))
+    if flask.request.form.get("startYear") is None:
+        startYear = str(flask.request.args.get("startYear"))
+    if flask.request.form.get("endYear") is None:
+        endYear = str(flask.request.args.get("endYear"))
+
+    # Debugging
+    #print("Search is now:", search)
+    #print("Selection is now:", selection)
+    #print("startYear is now:", startYear)
+    #print("endYear is now:", endYear)
 
 
-    selected_years = []
+    # Grab the years from the year form if they exist
+    # Store these in selected_years list. This is related to the s_years string, but used in different ways
     try:
-        # Mitch - used to for range form
-        startYear = int(flask.request.form.get("startYear"))
-        if startYear > datetime.now().year:
-            pass  # If they enter a year greater than this year, just proceed to the except block AKA execute search with no year filter
-        # Mitch - used for range form
-        endYear = int(flask.request.form.get("endYear"))
+        # used in the year range form
+        startYear = int(startYear)
+        endYear = int(endYear)
+        temp_year = startYear # We want to keep startYear unchanged from users input
+        if temp_year > datetime.now().year:
+            pass  # If user enters a year greater than this year, just proceed to the except block AKA execute search with no year filter
+        
         # Build up a list of selected years, ranging from startYear to endYear
-        while (startYear < endYear + 1):
-            selected_years.append(startYear)
-            startYear += 1
+        while (temp_year < endYear + 1):
+            selected_years.append(temp_year)
+            temp_year += 1
+        print(selected_years[0])
+        print(selected_years[1])
     except:
         selected_years = []
-
 
     # This builds up the years to select from
     # If the user does not put anything, then this code set s_years to "( )" and all years are searched
@@ -54,6 +77,13 @@ def searchLogic(mysql, cursor):
         else:
             s_years = s_years + "'" + str(year) + "'" + ","
     s_years = s_years + ')'
+
+########################################################################
+#
+#   Select which SQL to execute, based on the drop-down selection,
+#   the search term, and the years selected, if any
+#
+########################################################################
 
     # Search by DOI - WORKING
     if (selection == "DOI"):
@@ -96,7 +126,6 @@ def searchLogic(mysql, cursor):
         cursor.close()
         returnedQueries.pop()  # the last list item is always null so pop it
 
-    # THIS DOES NOT WORK YET SINCE AUTHOR TABLE NOT FILLED IN
     elif (selection == "Author"):
         # get fk and name for searched author name
         given_author = []
@@ -154,7 +183,6 @@ def searchLogic(mysql, cursor):
             except:
                 pass
 
-    # THIS DOES NOT WORK YET SINCE JOURNAL TABLE NOT FILLED IN
     elif (selection == "Journal"):
         if not selected_years:
             # no year filter
@@ -193,7 +221,6 @@ def searchLogic(mysql, cursor):
         cursor.close()
         returnedQueries.pop()  # the last list item is always null so pop it
 
-    # THIS DOES NOT WORK YET SINCE ARTICLE TABLE NOT FILLED IN
     elif (selection == "Article"):
         if not selected_years:
             # no year filter
@@ -232,21 +259,22 @@ def searchLogic(mysql, cursor):
         cursor.close()
         returnedQueries.pop()  # the last list item is always null so pop it
 
+
+########################################################################
+#
+#   Pagination and Return statements
+#
+########################################################################
+    
     per_page = 10 #article count per page
     article_start = (page*per_page)-10 #calculate starting article index (for any given page)
     article_end = article_start+10 #calculate ending article index (for any given page)
 
     #form a URL for href with parameters
-    search_url_param = "/searchResultsPage?search=" + search + "&dropdownSearchBy=" + selection + "&page={0}"
+    search_url_param = "/searchResultsPage?search=" + search + "&dropdownSearchBy=" + selection + "&page={0}" + "&startYear=" + str(startYear) + "&endYear=" + str(endYear)
 
-    #form a pagination object
+    #Instantiate a pagination object
     pagination = Pagination(page=page, per_page=per_page, href=search_url_param,
-                            total=len(returnedQueries), css_framework='bootstrap4')
+                            total=len(returnedQueries), css_framework='bootstrap3')
 
-    return flask.render_template('searchResultsPage.html',
-                                 listedSearchResults=returnedQueries,
-                                 dropdownSearchBy=selection,
-                                 article_start=article_start,
-                                 article_end=article_end,
-                                 search=search,
-                                 pagination=pagination)
+    return flask.render_template('searchResultsPage.html', listedSearchResults=returnedQueries, dropdownSearchBy=selection, article_start=article_start, article_end=article_end, search=search, pagination=pagination)

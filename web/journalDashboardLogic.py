@@ -4,11 +4,7 @@ from flask_paginate import Pagination, get_page_parameter, get_per_page_paramete
 def journalDashboardLogic(mysql):
 
     journal_list = []  # list initializing
-    returnedQueries = []
-
-    #global mysql
     cursor = mysql.connection.cursor()
-
     pagination = None
 
     try:
@@ -68,7 +64,7 @@ def journalDashboardLogic(mysql):
 
     # form a pagination object
     pagination = Pagination(page=page, per_page=per_page, href=journal_url_param,
-                            total=len(journal_list), css_framework='bootstrap4')
+                            total=len(journal_list), css_framework='bootstrap3')
 
     return flask.render_template('journalDashboard.html',
                                  journal_name=journal_name,
