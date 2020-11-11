@@ -48,7 +48,7 @@ def index():
 
 @app.route('/searchResultsPage', methods=["GET", "POST"])
 def search():
-    return searchLogic(mysql)
+    return searchLogic(mysql, mysql2)
 
 @app.route('/articleDashboard', methods=["GET", "POST"])
 def articleDashboard():
