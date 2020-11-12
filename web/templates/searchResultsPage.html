@@ -11,14 +11,24 @@
   <div class="row">
     <div class="col-sm-12">
 
-    <h4>Filter by Year</h4>
-
+    <h3>Filter by Year</h3>
     <form class="form-inline" method="post" action="{{ url_for('search') }}" >
+      <!-- Keep these hidden fields, searchLogic.py needs them-->
       <input type="hidden" id="search" name="search" value= {{ search }} >
       <input type="hidden" id="dropdownSearchBy" name="dropdownSearchBy" value={{ dropdownSearchBy }}>
         <input type="text" class=" resizedTextbox form-control" id="startYear" placeholder="From" name="startYear" maxlength="4" size="4">
         <label>-</label>
         <input type="text" class="resizedTextbox form-control" id="endYear" placeholder="To" name="endYear" maxlength="4" size="4">
+        <br>
+      <!-- Determine how the user would like to sort. This is picked up by sortLogic.py and used to set the descending_or_ascending variable -->
+      <h3>Sort by:</h3>
+      <select name="sortSelector" id="sortSelector" class="resizedTextbox form-control">
+        <option selected="selected" value="PublicationYearDescending">Publication year - Descending</option>
+          <option value="PublicationYearAscending">Publication year - Ascending</option>
+          <!-- Might use these later but not yet. -->
+          <option type="hidden" value="Other1">Other1</option>
+          <option type="hidden" value="Other2">Other2</option>
+        </select>
       <button type="submit" class=" resizedTextbox btn btn-default">Apply</button>
     </form>
     <br>
