@@ -14,8 +14,10 @@ def searchLogic(mysql, mysql2):
     s_years = None
     startYear = None
     endYear = None
+    sortSelector = None
     returnedQueries = []
     selected_years = []
+    descending_or_ascending = " desc;" # sort by descending by default, change to asc if user wants
 
     # Get page number if it exists. If not, set to 1
     try:
@@ -29,6 +31,7 @@ def searchLogic(mysql, mysql2):
     selection = str(flask.request.form.get("dropdownSearchBy"))
     startYear = flask.request.form.get("startYear")
     endYear = flask.request.form.get("endYear")
+    sortSelector = flask.request.form.get('sortSelector')
     
     #print("Selection from hidden form is:", selection)
     #print("Search from hidden form is:", search)
@@ -43,13 +46,14 @@ def searchLogic(mysql, mysql2):
         startYear = str(flask.request.args.get("startYear"))
     if flask.request.form.get("endYear") is None:
         endYear = str(flask.request.args.get("endYear"))
+    if flask.request.form.get("sortSelector") is None:
+        sortSelector = str(flask.request.args.get("sortSelector"))
 
-    # Debugging
-    #print("Search is now:", search)
-    #print("Selection is now:", selection)
-    #print("startYear is now:", startYear)
-    #print("endYear is now:", endYear)
-
+    # Now that we have checked the form and URL for how the user would like to search, we can set it
+    if (sortSelector == "PublicationYearAscending"):
+        descending_or_ascending = " asc;"
+    else:
+        descending_or_ascending = " desc;" # redundant but having this here is clearer
 
     # Grab the years from the year form if they exist
     # Store these in selected_years list. This is related to the s_years string, but used in different ways
@@ -92,13 +96,13 @@ def searchLogic(mysql, mysql2):
 
         if not selected_years:
             # no year filter
-            sql = "Select doi, title, container_title, published_print_date_parts, fk from _main_ where doi like '%" + search + "%\' order by published_print_date_parts desc;"
+            sql = "Select doi, title, container_title, published_print_date_parts, fk from _main_ where doi like '%" + search + "%\' order by published_print_date_parts" + descending_or_ascending
         else:
             # with year filter
             sql = "Select doi, title, container_title, published_print_date_parts, fk from _main_ where doi like '%" + \
                 search + \
                 "%\' and substr(published_print_date_parts, 1,4) in " + \
-                s_years + " order by published_print_date_parts desc;"
+                s_years + " order by published_print_date_parts" + descending_or_ascending
 
         cursor.execute(sql)
         result_set = cursor.fetchall()
@@ -148,13 +152,13 @@ def searchLogic(mysql, mysql2):
         if result_set is not None:
             if not selected_years:
                 # no year filter
-                sql = "Select doi, title, container_title, published_print_date_parts, fk from _main_ where fk in " + given_author + " order by published_print_date_parts desc;;"
+                sql = "Select doi, title, container_title, published_print_date_parts, fk from _main_ where fk in " + given_author + " order by published_print_date_parts" + descending_or_ascending
             else:
                 # with year filter
                 sql = "Select doi, title, container_title, published_print_date_parts, fk from _main_ where fk in " + \
                     given_author + \
                     " and substr(published_print_date_parts, 1,4) in" + \
-                    s_years + " order by published_print_date_parts desc;"
+                    s_years + " order by published_print_date_parts" + descending_or_ascending
 
             try:
                 cursor.execute(sql)
@@ -189,13 +193,13 @@ def searchLogic(mysql, mysql2):
     elif (selection == "Journal"):
         if not selected_years:
             # no year filter
-            sql = "Select doi, title, container_title, published_print_date_parts, fk from _main_ where container_title like '%" + search + "%\' order by published_print_date_parts desc;"
+            sql = "Select doi, title, container_title, published_print_date_parts, fk from _main_ where container_title like '%" + search + "%\' order by published_print_date_parts" + descending_or_ascending
         else:
             # with year filter
             sql = "Select doi, title, container_title, published_print_date_parts, fk from _main_ where container_title like '%" + \
                 search + \
                 "%\' and substr(published_print_date_parts, 1,4) in" + \
-                s_years+" order by published_print_date_parts desc;"
+                s_years+" order by published_print_date_parts" + descending_or_ascending
 
         cursor.execute(sql)
         result_set = cursor.fetchall()
@@ -227,13 +231,13 @@ def searchLogic(mysql, mysql2):
     elif (selection == "Article"):
         if not selected_years:
             # no year filter
-            sql = "Select doi, title, container_title, published_print_date_parts, fk from _main_ where title like '%" + search + "%\' order by published_print_date_parts desc;"
+            sql = "Select doi, title, container_title, published_print_date_parts, fk from _main_ where title like '%" + search + "%\' order by published_print_date_parts" + descending_or_ascending
         else:
             # with year filter
             sql = "Select doi, title, container_title, published_print_date_parts, fk from _main_ where title like '%" + \
                 search + \
                 "%\' and substr(published_print_date_parts, 1,4) in" + \
-                s_years + " order by published_print_date_parts desc;"
+                s_years + " order by published_print_date_parts" + descending_or_ascending
 
         cursor.execute(sql)
         result_set = cursor.fetchall()
@@ -287,7 +291,7 @@ def searchLogic(mysql, mysql2):
     article_end = article_start+10 #calculate ending article index (for any given page)
 
     #form a URL for href with parameters
-    search_url_param = "/searchResultsPage?search=" + search + "&dropdownSearchBy=" + selection + "&page={0}" + "&startYear=" + str(startYear) + "&endYear=" + str(endYear)
+    search_url_param = "/searchResultsPage?search=" + search + "&dropdownSearchBy=" + selection + "&page={0}" + "&startYear=" + str(startYear) + "&endYear=" + str(endYear) + "&sortSelector=" + sortSelector
 
     #Instantiate a pagination object
     pagination = Pagination(page=page, per_page=per_page, href=search_url_param,
