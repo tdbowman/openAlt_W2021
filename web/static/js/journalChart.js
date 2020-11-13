@@ -70,3 +70,6 @@ var chart = c3.generate({
 // These two lines force the C3 chart back into its column. 
 var loader = document.getElementById("changeAfterChart");
 loader.className = "col-sm-12";
+
+// This line sets the x-axis label a little lower on the page to accomodate the larger font size.
+$(".c3-axis-x-label").attr("dy", 50);
