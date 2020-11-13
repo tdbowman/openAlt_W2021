@@ -51,8 +51,7 @@ def index():
 
 @app.route('/searchResultsPage', methods=["GET", "POST"])
 def search():
-    cursor = mysql.connection.cursor()
-    return searchLogic(mysql, cursor)
+    return searchLogic(mysql, mysql2)
 
 
 @app.route('/articleDashboard', methods=["GET", "POST"])
