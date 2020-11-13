@@ -8,6 +8,9 @@ def searchLogic(mysql, mysql2):
     # Declare variables here for readability
     cursor = mysql.connection.cursor()
     cursor3 = mysql2.connection.cursor()
+    cursor4 = mysql2.connection.cursor()
+    cursor5 = mysql2.connection.cursor()
+    cursor6 = mysql2.connection.cursor()
 
     row = "something not none"
     pagination = None
@@ -121,11 +124,22 @@ def searchLogic(mysql, mysql2):
                 # get list of authors for given fk
                 author_list = cursor.fetchall()
 
+            TotalEventsQuerySum = "SELECT totalEvents AS sumCount FROM crossrefeventdatamain.main WHERE objectID like '%" + \
+            row['doi'] + "%';"
+            cursor6.execute(TotalEventsQuerySum)
+
+            totalEventsSum = cursor6.fetchone()
+
+            if totalEventsSum is None:
+                totalEventsSum = 0
+            else:
+                totalEventsSum = totalEventsSum['sumCount']
             # create dict with _main_ table row and author list
             article = {'objectID': row['doi'], 'articleTitle': row['title'],
                        'journalName': row['container_title'],
                        'articleDate': row['published_print_date_parts'],
-                       'author_list': author_list}
+                       'author_list': author_list,
+                       'totalEventsSum':totalEventsSum}
             # append article dict to returnedQueries list
             returnedQueries.append(article)
 
@@ -175,12 +189,24 @@ def searchLogic(mysql, mysql2):
                         cursor.execute(author_sql)
                         # get list of authors for given fk
                         author_list = cursor.fetchall()
+                    
+                    TotalEventsQuerySum = "SELECT totalEvents AS sumCount FROM crossrefeventdatamain.main WHERE objectID like '%" + \
+                    row['doi'] + "%';"
+                    cursor5.execute(TotalEventsQuerySum)
+
+                    totalEventsSum = cursor5.fetchone()
+
+                    if totalEventsSum is None:
+                        totalEventsSum = 0
+                    else:
+                          totalEventsSum = totalEventsSum['sumCount']
 
                     # create dict with _main_ table row and author list
                     article = {'objectID': row['doi'], 'articleTitle': row['title'],
                                'journalName': row['container_title'],
                                'articleDate': row['published_print_date_parts'],
-                               'author_list': author_list}
+                               'author_list': author_list,
+                               'totalEventsSum':totalEventsSum}
                     # append article dict to returnedQueries list
                     returnedQueries.append(article)
 
@@ -216,12 +242,24 @@ def searchLogic(mysql, mysql2):
                 cursor.execute(author_sql)
                 # get list of authors for given fk
                 author_list = cursor.fetchall()
+            
+            TotalEventsQuerySum = "SELECT totalEvents AS sumCount FROM crossrefeventdatamain.main WHERE objectID like '%" + \
+            row['doi'] + "%';"
+            cursor4.execute(TotalEventsQuerySum)
+
+            totalEventsSum = cursor4.fetchone()
+
+            if totalEventsSum is None:
+                totalEventsSum = 0
+            else:
+                totalEventsSum = totalEventsSum['sumCount']
 
             # create dict with _main_ table row and author list
             article = {'objectID': row['doi'], 'articleTitle': row['title'],
                        'journalName': row['container_title'],
                        'articleDate': row['published_print_date_parts'],
-                       'author_list': author_list}
+                       'author_list': author_list,
+                       'totalEventsSum':totalEventsSum}
             returnedQueries.append(article)
 
         returnedQueries.append(None)
@@ -277,6 +315,10 @@ def searchLogic(mysql, mysql2):
         returnedQueries.append(None)
         cursor.close()
         cursor3.close()
+        cursor4.close()
+        cursor5.close()
+        cursor6.close()
+
         returnedQueries.pop()  # the last list item is always null so pop it
 
 
