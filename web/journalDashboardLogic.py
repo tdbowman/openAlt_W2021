@@ -13,6 +13,13 @@ def journalDashboardLogic(mysql):
     except ValueError:
         page = 1
 
+    perPage = str(flask.request.form.get("perPage"))
+    if flask.request.form.get("perPage") is None:
+        if flask.request.args.get("perPage") is None:
+            perPage = "10"
+        else:
+            perPage = str(flask.request.args.get("perPage"))
+
     # fetch the journal name parameter from searchResults page
     journal_name = str(flask.request.args.get("journalName"))
     sql = "Select doi, title, container_title, issue, page, published_print_date_parts, fk from _main_ where container_title like '%" + journal_name + "%\';"
@@ -56,11 +63,11 @@ def journalDashboardLogic(mysql):
         publishedPerYear.append(yr_count["count"])
         start_year = start_year + 1
 
-    per_page = 10  # article count per page
-    article_start = (page * per_page) - 10  # calculate starting article index (for any given page)
-    article_end = article_start + 10  # calculate ending article index (for any given page)
+    per_page = int(perPage)  # article count per page
+    article_start = (page * per_page) - per_page  # calculate starting article index (for any given page)
+    article_end = article_start + per_page  # calculate ending article index (for any given page)
 
-    journal_url_param = "/journalDashboard?journalName=" + journal_name + "&page={0}"
+    journal_url_param = "/journalDashboard?journalName=" + journal_name + "&page={0}" + "&perPage=" + str(per_page)
 
     # form a pagination object
     pagination = Pagination(page=page, per_page=per_page, href=journal_url_param,
@@ -72,5 +79,6 @@ def journalDashboardLogic(mysql):
                                  publishedPerYear=publishedPerYear,
                                  pagination=pagination,
                                  article_start=article_start,
-                                 article_end=article_end
+                                 article_end=article_end,
+                                 perPage=perPage
                                  )

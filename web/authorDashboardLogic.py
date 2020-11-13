@@ -20,6 +20,13 @@ def authorDashboardLogic(mysql, mysql2, years_list):
     except ValueError:
         page = 1
 
+    perPage = str(flask.request.form.get("perPage"))
+    if flask.request.form.get("perPage") is None:
+        if flask.request.args.get("perPage") is None:
+            perPage = "10"
+        else:
+            perPage = str(flask.request.args.get("perPage"))
+
     # fetch the query parameter author_id from searchResults page
     author_id = str(flask.request.args.get("author_id"))
 
@@ -257,11 +264,11 @@ def authorDashboardLogic(mysql, mysql2, years_list):
     
     cursor2.close()
 
-    per_page = 10  # article count per page
-    article_start = (page * per_page) - 10  # calculate starting article index (for any given page)
-    article_end = article_start + 10  # calculate ending article index (for any given page)
+    per_page = int(perPage)  # article count per page
+    article_start = (page * per_page) - per_page  # calculate starting article index (for any given page)
+    article_end = article_start + per_page  # calculate ending article index (for any given page)
 
-    author_url_param = "/authorDashboard?author_id=" + str(author_id) + "&page={0}"
+    author_url_param = "/authorDashboard?author_id=" + str(author_id) + "&page={0}" + "&perPage=" + str(per_page)
 
     # form a pagination object
     pagination = Pagination(page=page, per_page=per_page, href=author_url_param,
@@ -287,5 +294,6 @@ def authorDashboardLogic(mysql, mysql2, years_list):
                                  wordpressEventData=wordpressevent,
                                  pagination=pagination,
                                  article_start=article_start,
-                                 article_end=article_end
+                                 article_end=article_end,
+                                 perPage=perPage
                                  )

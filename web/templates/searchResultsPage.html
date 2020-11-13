@@ -19,12 +19,21 @@
         <input type="text" class=" resizedTextbox form-control" id="startYear" placeholder="From" name="startYear" maxlength="4" size="4">
         <label>-</label>
         <input type="text" class="resizedTextbox form-control" id="endYear" placeholder="To" name="endYear" maxlength="4" size="4">
-        <br>
+
       <!-- Determine how the user would like to sort. This is picked up by sortLogic.py and used to set the descending_or_ascending variable -->
       <h3>Sort by:</h3>
       <select name="sortSelector" id="sortSelector" class="resizedTextbox form-control">
         <option selected="selected" value="PublicationYearDescending">Publication year - Descending</option>
           <option value="PublicationYearAscending">Publication year - Ascending</option>
+        </select>
+        <br>
+        <br>
+        <select name="perPage" id="perPage" class="resizedTextbox form-control" >
+          <option value="" disabled selected>Per Page</option>
+          <option value="10">10</option>
+          <option value="25">25</option>
+          <option value="50">50</option>
+          <option value="100">100</option>
         </select>
       <button type="submit" class=" resizedTextbox btn btn-default">Apply</button>
     </form>
@@ -33,6 +42,7 @@
 
     <div class="SR_boxed">
     <th>Displaying Search Results for: {{search}}</th></div>
+        <br>
         <!--Flask Pagination -->
         {{pagination.info}}
         {{pagination.links}}
