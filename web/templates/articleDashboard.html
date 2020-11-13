@@ -13,36 +13,93 @@
 <script src="../static/js/libraries/c3-0.7.20/c3.min.js"></script>
 <!-- END CHART SECTION -->
 
+<!-- jQRange Slider Scripts -->
+
+<link rel="stylesheet" href="../static/js/libraries/jQRangeSlider/css/iThing.css" type="text/css" />
+
+
+
 <script>
-    // Only run this function when the document has fully loaded.
-    $(document).ready(function(){
-        // Storing radio button values into the object radioValues
-        // localStorage is a property of the Web Storage API that creates an instance of a  Storage object. Storage objects are simple key-value stores but stay intact through page loads. The key and values are always strings.
-        // localStorage allows us to store data in the browser and retrieve it later.
-        // JSON.parse() converts the data which is a string and turns it into a JS object.
-        let radioValues = JSON.parse(localStorage.getItem('radioValues')) || {};
-        // Jquery statement that selects the radio buttons within the <div> yearFilter and stores them into $radioButtons.
-        let $radioButtons = $("#yearFilter :radio");
+    $(function(){
 
-        // When a radio button is pressed(changes)...
-        $radioButtons.on("change",function(){
-            // Debugging 
-            // alert("The radio button " + this.value + " was selected"); or this.id
-            
-            // Iterate through each radio button.....
-            $radioButtons.each(function(){
-                // This radio button is checked
-                radioValues[this.id] = this.checked;
+        let $submitButton = $("input[type='submit']")
+        let $yearRangeSelector = $("#slider")
+
+        let minBound = parseInt('{{minimumBound}}',10)
+        let maxBound = parseInt('{{maximumBound}}',10)
+
+        if (minBound === maxBound || (isNaN(minBound) && isNaN(maxBound))){
+            $yearRangeSelector.hide();
+            $("input[type='submit']").hide();
+        }
+        else{
+            $yearRangeSelector.rangeSlider({
+            bounds: {min: minBound, max: maxBound},
+            range: {min: 5, max: 5},
+            arrows: false
+        });
+        }
+        
+        let bounds = $yearRangeSelector.rangeSlider("option","bounds");
+        
+
+        // $.post("{{ url_for('articleDashboard') }}",{'data': bounds},function(data){
+        //     alert("Data sent to app.py: " + data.bounds);
+        // })
+        //     .fail(function(){
+        //         alert("Error has occurred.");
+        //     });
+        
+        // let clicked;
+            // data: JSON.stringify({Bounds: bounds})
+        $submitButton.click(function(event){
+            event.preventDefault();
+            $.ajax({
+                type: 'POST',
+                url: "{{ url_for('articleDashboard') }}?DOI={{ article_detail.objectID }}",
+                data: JSON.stringify(bounds),
+                contentType: 'application/json;charset=UTF-8',
+                dataType:"json",
+                success: function(response) {
+                    console.log(response);
+                },
+                error: function(error){
+                    console.log(error);
+                }
             });
-            // Stringify the values of each button and set them into the key radioValues in localStorage.
-            localStorage.setItem("radioValues", JSON.stringify(radioValues));
+
         });
 
-        // On page load, check the radio button by ID .
-        $.each(radioValues,function(key, value){
-            $("#" + key).prop("checked", value);
-        });
     });
+    // // Only run this function when the document has fully loaded.
+    // $(document).ready(function(){
+    //     // Storing radio button values into the object radioValues
+    //     // localStorage is a property of the Web Storage API that creates an instance of a  Storage object. Storage objects are simple key-value stores but stay intact through page loads. The key and values are always strings.
+    //     // localStorage allows us to store data in the browser and retrieve it later.
+    //     // JSON.parse() converts the data which is a string and turns it into a JS object.
+    //     let radioValues = JSON.parse(localStorage.getItem('radioValues')) || {};
+    //     // Jquery statement that selects the radio buttons within the <div> yearFilter and stores them into $radioButtons.
+    //     let $radioButtons = $("#yearFilter :radio");
+
+    //     // When a radio button is pressed(changes)...
+    //     $radioButtons.on("change",function(){
+    //         // Debugging 
+    //         // alert("The radio button " + this.value + " was selected"); or this.id
+            
+    //         // Iterate through each radio button.....
+    //         $radioButtons.each(function(){
+    //             // This radio button is checked
+    //             radioValues[this.id] = this.checked;
+    //         });
+    //         // Stringify the values of each button and set them into the key radioValues in localStorage.
+    //         localStorage.setItem("radioValues", JSON.stringify(radioValues));
+    //     });
+
+    //     // On page load, check the radio button by ID .
+    //     $.each(radioValues,function(key, value){
+    //         $("#" + key).prop("checked", value);
+    //     });
+    // });
 </script>
 {% endblock %}
 
@@ -115,14 +172,36 @@
     <div class="row">
         <div class="col-md-6"></div>
         <div class="col-md-6" id="yearFilter">
-            <!-- This form determines the years used by the chart. Clicking submit refreshes the page by calling articleDashboard in the same way that the search results page does -->
+
             <form method="post" action="{{ url_for('articleDashboard') }}?DOI={{ article_detail.objectID }}" class="form-inline">
+                <div id="slider">
+
+                </div>
+                <input width="40%" type="submit" value="Update" class="form-control">
+            </form>
+
+            
+            <!-- This is a replacement to jquery-ui-1.8.16.custom.min.js that solves an issue with some depreciated code. -->
+            <!-- <script
+            src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"
+            integrity="sha256-T0Vest3yCU7pafRw9r+settMBX6JkKN06dqBnpQ8d30="
+            crossorigin="anonymous"></script> -->
+
+            <!-- Depreciated code from jQRangeSlider  -->
+            <!-- <script src="../static/js/libraries/jQRangeSlider/demo/lib/jquery-ui/js/jquery-ui-1.8.16.custom.min.js"></script> -->
+
+            <script src="../static/js/libraries/jQRangeSlider/demo/lib/jquery-ui/js/jQuery-ui-1.12.1.js"></script>
+            <script src="../static/js/libraries/jQRangeSlider/jQRangeSlider-min.js"></script>
+
+            
+            <!-- This form determines the years used by the chart. Clicking submit refreshes the page by calling articleDashboard in the same way that the search results page does -->
+            <!-- <form method="post" action="{{ url_for('articleDashboard') }}?DOI={{ article_detail.objectID }}" class="form-inline">
                 <label class="radio-inline"><input type="radio" name="optradio" value="2001-2005" id="button1">2001-2005</label>
                 <label class="radio-inline"><input type="radio" name="optradio" value="2006-2010" id="button2">2006-2010</label>
                 <label class="radio-inline"><input type="radio" name="optradio" value="2011-2015" id="button3">2011-2015</label>
                 <label class="radio-inline"><input type="radio" name="optradio" value="2016-2020" id="button4">2016-2020</label>
                 <input width="40%" type="submit" value="Update" class="form-control">
-            </form>
+            </form> -->
         </div>
     </div>
     <div class="row"> 
@@ -160,7 +239,7 @@
                         </td>
                     </tr>
                     <tr>
-                        <td style="color:{{e.media_color}};">
+                        <td style="color:'{{e.media_color}}';">
                         </td>
                     </tr>
                 </table>
