@@ -2,7 +2,12 @@
 
 <!-- Anything you put here will be in the HTML head tags-->
 {% block head %}
-
+<script>
+  $(function(){
+    // Change the case 'd' into a capital 'D'.
+    $(".pagination-page-info").html("Displaying <b>1 - 7</b> records in total <b> 7 </b>");
+  })
+</script>
 {% endblock %}
 
 <!-- Anything you put here will be in the body-->
