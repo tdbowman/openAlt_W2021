@@ -7,10 +7,10 @@ def searchLogic(mysql, mysql2):
 
     # Declare variables here for readability
     cursor = mysql.connection.cursor()
-    #cursor3 = mysql2.connection.cursor()
-    #cursor4 = mysql2.connection.cursor()
-    #cursor5 = mysql2.connection.cursor()
-    #cursor6 = mysql2.connection.cursor()
+    cursor3 = mysql2.connection.cursor()
+    cursor4 = mysql2.connection.cursor()
+    cursor5 = mysql2.connection.cursor()
+    cursor6 = mysql2.connection.cursor()
 
     row = "something not none"
     pagination = None
@@ -130,22 +130,22 @@ def searchLogic(mysql, mysql2):
                 # get list of authors for given fk
                 author_list = cursor.fetchall()
 
-            #TotalEventsQuerySum = "SELECT totalEvents AS sumCount FROM crossrefeventdatamain.main WHERE objectID like '%" + \
-            #row['doi'] + "%';"
-            #cursor6.execute(TotalEventsQuerySum)
+            TotalEventsQuerySum = "SELECT totalEvents AS sumCount FROM crossrefeventdatamain.main WHERE objectID = 'https://doi.org/" + \
+            row['doi'] + "';"
+            cursor6.execute(TotalEventsQuerySum)
 
-            #totalEventsSum = cursor6.fetchone()
+            totalEventsSum = cursor6.fetchone()
 
-            #if totalEventsSum is None:
-            #    totalEventsSum = 0
-            #else:
-              #  totalEventsSum = totalEventsSum['sumCount']
+            if totalEventsSum is None:
+                totalEventsSum = 0
+            else:
+                totalEventsSum = totalEventsSum['sumCount']
             # create dict with _main_ table row and author list
             article = {'objectID': row['doi'], 'articleTitle': row['title'],
                        'journalName': row['container_title'],
                        'articleDate': row['published_print_date_parts'],
-                       'author_list': author_list}
-                       #'totalEventsSum':totalEventsSum}
+                       'author_list': author_list,
+                       'totalEventsSum':totalEventsSum}
             # append article dict to returnedQueries list
             returnedQueries.append(article)
 
@@ -196,23 +196,23 @@ def searchLogic(mysql, mysql2):
                         # get list of authors for given fk
                         author_list = cursor.fetchall()
                     
-                    #TotalEventsQuerySum = "SELECT totalEvents AS sumCount FROM crossrefeventdatamain.main WHERE objectID like '%" + \
-                    #row['doi'] + "%';"
-                    #cursor5.execute(TotalEventsQuerySum)
+                    TotalEventsQuerySum = "SELECT totalEvents AS sumCount FROM crossrefeventdatamain.main WHERE objectID = 'https://doi.org/" + \
+                    row['doi'] + "';"
+                    cursor5.execute(TotalEventsQuerySum)
 
-                    #totalEventsSum = cursor5.fetchone()
+                    totalEventsSum = cursor5.fetchone()
 
-                    #if totalEventsSum is None:
-                    #    totalEventsSum = 0
-                    #else:
-                    #      totalEventsSum = totalEventsSum['sumCount']
+                    if totalEventsSum is None:
+                        totalEventsSum = 0
+                    else:
+                         totalEventsSum = totalEventsSum['sumCount']
 
                     # create dict with _main_ table row and author list
                     article = {'objectID': row['doi'], 'articleTitle': row['title'],
                                'journalName': row['container_title'],
                                'articleDate': row['published_print_date_parts'],
-                               'author_list': author_list}
-                               #'totalEventsSum':totalEventsSum}
+                               'author_list': author_list,
+                               'totalEventsSum':totalEventsSum}
                     # append article dict to returnedQueries list
                     returnedQueries.append(article)
 
@@ -249,23 +249,23 @@ def searchLogic(mysql, mysql2):
                 # get list of authors for given fk
                 author_list = cursor.fetchall()
             
-            #TotalEventsQuerySum = "SELECT totalEvents AS sumCount FROM crossrefeventdatamain.main WHERE objectID like '%" + \
-            #row['doi'] + "%';"
-            #cursor4.execute(TotalEventsQuerySum)
+            TotalEventsQuerySum = "SELECT totalEvents AS sumCount FROM crossrefeventdatamain.main WHERE objectID = 'https://doi.org/" + \
+                    row['doi'] + "';"
+            cursor4.execute(TotalEventsQuerySum)
 
-            #totalEventsSum = cursor4.fetchone()
+            totalEventsSum = cursor4.fetchone()
 
-            #if totalEventsSum is None:
-                #totalEventsSum = 0
-            #else:
-                #totalEventsSum = totalEventsSum['sumCount']
+            if totalEventsSum is None:
+                totalEventsSum = 0
+            else:
+                totalEventsSum = totalEventsSum['sumCount']
 
             # create dict with _main_ table row and author list
             article = {'objectID': row['doi'], 'articleTitle': row['title'],
                        'journalName': row['container_title'],
                        'articleDate': row['published_print_date_parts'],
-                       'author_list': author_list}
-                       #'totalEventsSum':totalEventsSum}
+                       'author_list': author_list,
+                       'totalEventsSum':totalEventsSum}
             returnedQueries.append(article)
 
         returnedQueries.append(None)
@@ -299,31 +299,31 @@ def searchLogic(mysql, mysql2):
                 # get list of authors for given fk
                 author_list = cursor.fetchall()
 
-            #TotalEventsQuerySum = "SELECT totalEvents AS sumCount FROM crossrefeventdatamain.main WHERE objectID like '%" + \
-            #row['doi'] + "%';"
-            #cursor3.execute(TotalEventsQuerySum)
+            TotalEventsQuerySum = "SELECT totalEvents AS sumCount FROM crossrefeventdatamain.main WHERE objectID ='https://doi.org/" + \
+            row['doi'] + "';"
+            cursor3.execute(TotalEventsQuerySum)
 
-            #totalEventsSum = cursor3.fetchone()
+            totalEventsSum = cursor3.fetchone()
 
-            #if totalEventsSum is None:
-                #totalEventsSum = 0
-            #else:
-               # totalEventsSum = totalEventsSum['sumCount']
+            if totalEventsSum is None:
+                totalEventsSum = 0
+            else:
+               totalEventsSum = totalEventsSum['sumCount']
 
 
             # create dict with _main_ table row and author list
             article = {'objectID': row['doi'], 'articleTitle': row['title'],
                        'journalName': row['container_title'],
                        'articleDate': row['published_print_date_parts'],
-                       'author_list': author_list} #'totalEventsSum':totalEventsSum}
+                       'author_list': author_list, 'totalEventsSum':totalEventsSum}
             returnedQueries.append(article)
 
         returnedQueries.append(None)
         cursor.close()
-        #cursor3.close()
-        #cursor4.close()
-        #cursor5.close()
-        #cursor6.close()
+        cursor3.close()
+        cursor4.close()
+        cursor5.close()
+        cursor6.close()
 
         returnedQueries.pop()  # the last list item is always null so pop it
 
@@ -345,11 +345,4 @@ def searchLogic(mysql, mysql2):
     pagination = Pagination(page=page, per_page=per_page, href=search_url_param,
                             total=len(returnedQueries), css_framework='bootstrap3')
 
-    return flask.render_template('searchResultsPage.html',
-                                 listedSearchResults=returnedQueries,
-                                 dropdownSearchBy=selection,
-                                 article_start=article_start,
-                                 article_end=article_end,
-                                 search=search,
-                                 pagination=pagination,
-                                 perPage=perPage)
+    return flask.render_template('searchResultsPage.html', totalEventsSum=totalEventsSum, listedSearchResults=returnedQueries, dropdownSearchBy=selection, article_start=article_start, article_end=article_end, search=search, pagination=pagination)
