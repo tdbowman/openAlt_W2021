@@ -13,36 +13,155 @@
 <script src="../static/js/libraries/c3-0.7.20/c3.min.js"></script>
 <!-- END CHART SECTION -->
 
+<!-- *********** jQRange Slider Scripts ************ -->
+<!-- <link rel="stylesheet" href="../static/js/libraries/jQRangeSlider/css/iThing.css" type="text/css" /> -->
+
+
+
 <script>
-    // Only run this function when the document has fully loaded.
-    $(document).ready(function(){
-        // Storing radio button values into the object radioValues
-        // localStorage is a property of the Web Storage API that creates an instance of a  Storage object. Storage objects are simple key-value stores but stay intact through page loads. The key and values are always strings.
-        // localStorage allows us to store data in the browser and retrieve it later.
-        // JSON.parse() converts the data which is a string and turns it into a JS object.
-        let radioValues = JSON.parse(localStorage.getItem('radioValues')) || {};
-        // Jquery statement that selects the radio buttons within the <div> yearFilter and stores them into $radioButtons.
-        let $radioButtons = $("#yearFilter :radio");
+    $(function(){
 
-        // When a radio button is pressed(changes)...
-        $radioButtons.on("change",function(){
-            // Debugging 
-            // alert("The radio button " + this.value + " was selected"); or this.id
-            
-            // Iterate through each radio button.....
-            $radioButtons.each(function(){
-                // This radio button is checked
-                radioValues[this.id] = this.checked;
-            });
-            // Stringify the values of each button and set them into the key radioValues in localStorage.
-            localStorage.setItem("radioValues", JSON.stringify(radioValues));
+        // Create jQuery variables to reference the text box and the submit button.
+        let $yearInput = $("#yearBox");
+        let $submitButton = $("input[type='submit']");
+
+        // Creates in instance of the currentTime and grabs the year from it.
+        let currentTime = new Date()
+        let year = currentTime.getFullYear()
+
+        // Grab the publication year and slice it to remove the month portion.
+        let pubYear = '{{ article_detail.articleDate }}';
+        pubYear = pubYear.slice(0,4);
+
+        // If there are no events, hide the form.
+        if('{{totalEventsSum}}' === '0'){
+            $("form").hide();
+        }
+
+        // Grab the tspan elements and search through the array.
+        let x = document.getElementsByTagName("tspan");
+        for (let i = 0; i < x.length; i++) {
+            // If the value of the text is equal to the input submitted by the user, change the color to red, increase the size and bold the label.
+            if(x[i].innerHTML === '{{yearInput}}'){
+                x[i].style.fill = "red";
+                x[i].style.font = "bold 18px sans-serif";
+            }     
+        }
+
+        // When the user clicks on the submit button..
+        $submitButton.click(function(){
+            // If the year text box is empty, send an alert and don't allow the user to submit the form.
+            if(document.forms['YearRange'].year.value == ""){
+                alert("Please enter a year.");
+                return false;
+            }
+            // If the year input is greater than the current year, send an alert and don't allow the user to submit the form.
+            else if(document.forms['YearRange'].year.value > String(year)){
+                alert("Please enter a year before " + year + ".");
+                return false;
+            }
+            // If the year input is less than the publication year, send an alert and don't allow the user to submit the form.
+            else if(document.forms['YearRange'].year.value < pubYear){
+                alert("Please enter a year after " + pubYear + ".");
+                return false;
+            }
         });
 
-        // On page load, check the radio button by ID .
-        $.each(radioValues,function(key, value){
-            $("#" + key).prop("checked", value);
+        // When the focus is inside the year text box...
+        $yearInput.keydown(function(event){
+            // Disable shift key to stop special characters from entering text box.
+            if(event.shiftKey == true){
+                return false;
+            }
+            // Allow numbers from the top row of the keyboard and numpad.
+            else if(event.keyCode >= 48 && event.keyCode <= 57 || event.keyCode >= 96 && event.keyCode <= 105){
+                return true;
+            }
+            // Allow backspace, tab or enter button.
+            else if(event.keyCode == 8 || event.keyCode == 9 || event.keyCode == 13){
+                return true;
+            }
+            else{
+                return false;
+            }
         });
+
+        
     });
+        // ***********Year Range Slider decomissioned until after P3 ***************
+
+        // let $submitButton = $("input[type='submit']")
+        // let $yearRangeSelector = $("#slider")
+
+        // let minBound = parseInt('{{minimumBound}}',10)
+        // let maxBound = parseInt('{{maximumBound}}',10)
+
+        // if (minBound === maxBound || (isNaN(minBound) && isNaN(maxBound))){
+        //     $yearRangeSelector.hide();
+        //     $("input[type='submit']").hide();
+        // }
+        // else{
+        //     $yearRangeSelector.rangeSlider({
+        //     bounds: {min: minBound, max: maxBound},
+        //     range: {min: 5, max: 5},
+        //     arrows: false
+        // });
+        // }
+        
+        // let bounds = $yearRangeSelector.rangeSlider("option","bounds");
+        
+        // // let clicked;
+        //     // data: JSON.stringify({Bounds: bounds})
+        // $submitButton.click(function(event){
+        //     event.preventDefault();
+        //     $.ajax({
+        //         type: 'POST',
+        //         url: "{{ url_for('articleDashboard') }}?DOI={{ article_detail.objectID }}",
+        //         data: JSON.stringify(bounds),
+        //         contentType: 'application/json;charset=UTF-8',
+        //         dataType:"json",
+        //         success: function(response) {
+        //             console.log(response);
+        //         },
+        //         error: function(error){
+        //             console.log(error);
+        //         }
+        //     });
+
+        // });
+
+    
+
+    // Year Selector Radio Buttons
+
+    // $(document).ready(function(){
+    //     // Storing radio button values into the object radioValues
+    //     // localStorage is a property of the Web Storage API that creates an instance of a  Storage object. Storage objects are simple key-value stores but stay intact through page loads. The key and values are always strings.
+    //     // localStorage allows us to store data in the browser and retrieve it later.
+    //     // JSON.parse() converts the data which is a string and turns it into a JS object.
+    //     let radioValues = JSON.parse(localStorage.getItem('radioValues')) || {};
+    //     // Jquery statement that selects the radio buttons within the <div> yearFilter and stores them into $radioButtons.
+    //     let $radioButtons = $("#yearFilter :radio");
+
+    //     // When a radio button is pressed(changes)...
+    //     $radioButtons.on("change",function(){
+    //         // Debugging 
+    //         // alert("The radio button " + this.value + " was selected"); or this.id
+            
+    //         // Iterate through each radio button.....
+    //         $radioButtons.each(function(){
+    //             // This radio button is checked
+    //             radioValues[this.id] = this.checked;
+    //         });
+    //         // Stringify the values of each button and set them into the key radioValues in localStorage.
+    //         localStorage.setItem("radioValues", JSON.stringify(radioValues));
+    //     });
+
+    //     // On page load, check the radio button by ID .
+    //     $.each(radioValues,function(key, value){
+    //         $("#" + key).prop("checked", value);
+    //     });
+    // });
 </script>
 {% endblock %}
 
@@ -115,14 +234,32 @@
     <div class="row">
         <div class="col-md-6"></div>
         <div class="col-md-6" id="yearFilter">
+
+            <form method="post" action="{{ url_for('articleDashboard') }}?DOI={{ article_detail.objectID }}" class="form-inline" name="YearRange">
+                <!-- ***********Year Range Slider decomissioned until after P3 *************** -->
+                <!-- <div id="slider">
+
+                </div> -->
+                <label for="year">Select a year (YYYY):</label>
+                <input type="text" name="year" id="yearBox" maxlength="4" pattern="\d{4}">
+                <input width="40%" type="submit" value="Update" class="form-control">
+            </form>
+
+            
+    
+            <!-- *********** jQRangeSlider Scripts *************** -->
+            <!-- <script src="../static/js/libraries/jQRangeSlider/demo/lib/jquery-ui/js/jQuery-ui-1.12.1.js"></script>
+            <script src="../static/js/libraries/jQRangeSlider/jQRangeSlider-min.js"></script> -->
+
+            
             <!-- This form determines the years used by the chart. Clicking submit refreshes the page by calling articleDashboard in the same way that the search results page does -->
-            <form method="post" action="{{ url_for('articleDashboard') }}?DOI={{ article_detail.objectID }}" class="form-inline">
+            <!-- <form method="post" action="{{ url_for('articleDashboard') }}?DOI={{ article_detail.objectID }}" class="form-inline">
                 <label class="radio-inline"><input type="radio" name="optradio" value="2001-2005" id="button1">2001-2005</label>
                 <label class="radio-inline"><input type="radio" name="optradio" value="2006-2010" id="button2">2006-2010</label>
                 <label class="radio-inline"><input type="radio" name="optradio" value="2011-2015" id="button3">2011-2015</label>
                 <label class="radio-inline"><input type="radio" name="optradio" value="2016-2020" id="button4">2016-2020</label>
                 <input width="40%" type="submit" value="Update" class="form-control">
-            </form>
+            </form> -->
         </div>
     </div>
     <div class="row"> 
@@ -160,7 +297,7 @@
                         </td>
                     </tr>
                     <tr>
-                        <td style="color:{{e.media_color}};">
+                        <td style="color:'{{e.media_color}}';">
                         </td>
                     </tr>
                 </table>
