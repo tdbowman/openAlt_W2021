@@ -19,15 +19,21 @@
         <input type="text" class=" resizedTextbox form-control" id="startYear" placeholder="From" name="startYear" maxlength="4" size="4">
         <label>-</label>
         <input type="text" class="resizedTextbox form-control" id="endYear" placeholder="To" name="endYear" maxlength="4" size="4">
-        <br>
+
       <!-- Determine how the user would like to sort. This is picked up by sortLogic.py and used to set the descending_or_ascending variable -->
       <h3>Sort by:</h3>
       <select name="sortSelector" id="sortSelector" class="resizedTextbox form-control">
         <option selected="selected" value="PublicationYearDescending">Publication year - Descending</option>
           <option value="PublicationYearAscending">Publication year - Ascending</option>
-          <!-- Might use these later but not yet. -->
-          <option type="hidden" value="Other1">Other1</option>
-          <option type="hidden" value="Other2">Other2</option>
+        </select>
+        <br>
+        <br>
+        <select name="perPage" id="perPage" class="resizedTextbox form-control" >
+          <option value="" disabled selected>Rows per Page</option>
+          <option value="10">10</option>
+          <option value="25">25</option>
+          <option value="50">50</option>
+          <option value="100">100</option>
         </select>
       <button type="submit" class=" resizedTextbox btn btn-default">Apply</button>
     </form>
@@ -36,9 +42,13 @@
 
     <div class="SR_boxed">
     <th>Displaying Search Results for: {{search}}</th></div>
-        <!--Flask Pagination -->
+      <br>
+      <!--Flask Pagination -->
+      <div class="SR_boxed">
         {{pagination.info}}
         {{pagination.links}}
+      </div>  
+      
 
       <table style="width:1140px;" id="noBorders">
         <!-- Pagination: List articles from article_start index to article_end index -->
@@ -56,17 +66,26 @@
             </div>
             
             <div class="SR_articleDate">
+              {% if result.articleDate == None %}
+                Article Date: Unknown
+              {% else %}
                 Article Date: {{ result.articleDate }}
+              {% endif %}
             </div>
 
             <div class="SR_authors">
                 Author(s):
+                
+                {% if not result.author_list %}
+                  Unknown
+                {% endif %}
+
                 {% for author in result.author_list %}
                     {% if author == result.author_list[-1] %}
                       <a href="{{ url_for('authorDashboard') }}?author_id={{ author.id }}">{{ author.name }}</a>
                     {% else %}
                       <a href="{{ url_for('authorDashboard') }}?author_id={{ author.id }}">{{ author.name }},</a>
-                    {% endif %}
+                {% endif %}
                 {% endfor %}
             </div>
 

@@ -7,7 +7,7 @@
 <link href="../static/js/libraries/c3-0.7.20/c3.css" rel="stylesheet">
 
 <!-- Load d3 second -->
-<script src="../static/js/libraries/d3.v5.min.js"></script>
+<script src="../static/js/libraries/d3.v5/d3.v5.min.js"></script>
 
 <!-- Load c3 last (because it depends on d3) -->
 <script src="../static/js/libraries/c3-0.7.20/c3.min.js"></script>
@@ -61,6 +61,17 @@
                 <li>Journal Name: </li>
                 <li>Authors: </li>
             </ul>-->
+        <form class="form-inline" method="post" action="{{ url_for('journalDashboard') }}?journalName={{ journal_name }}" >
+        <select name="perPage" id="perPage" class="resizedTextbox form-control" >
+              <option value="" disabled selected>Per Page</option>
+              <option value="10">10</option>
+              <option value="25">25</option>
+              <option value="50">50</option>
+              <option value="100">100</option>
+        </select>
+        <button type="submit" class=" resizedTextbox btn btn-default">Apply</button>
+        </form>
+
             <table id="noBorders">
             {{pagination.info}}
             {{pagination.links}}

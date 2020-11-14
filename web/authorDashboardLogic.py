@@ -1,7 +1,8 @@
 import flask
 from flask_paginate import Pagination, get_page_parameter, get_per_page_parameter
 
-def authorDashboardLogic(mysql, mysql2, years_list):
+
+def authorDashboardLogic(mysql, mysql2, years_list, yearInput):
 
     author_article_list = []
     author_doi_list = []
@@ -15,10 +16,18 @@ def authorDashboardLogic(mysql, mysql2, years_list):
     pagination = None
 
     try:
-        page = flask.request.args.get(get_page_parameter(), type=int, default=1)
+        page = flask.request.args.get(
+            get_page_parameter(), type=int, default=1)
         print('--Page number-- ', page)
     except ValueError:
         page = 1
+
+    perPage = str(flask.request.form.get("perPage"))
+    if flask.request.form.get("perPage") is None:
+        if flask.request.args.get("perPage") is None:
+            perPage = "10"
+        else:
+            perPage = str(flask.request.args.get("perPage"))
 
     # fetch the query parameter author_id from searchResults page
     author_id = str(flask.request.args.get("author_id"))
@@ -71,7 +80,6 @@ def authorDashboardLogic(mysql, mysql2, years_list):
             author_article_list.append(article)
             author_doi_list.append(row['doi'])
         cursor.close()
-
 
     # Size of each list depends on how many years(in chartScript.js) you'd like to display.
     # Queries will be inserted within the array
@@ -136,7 +144,6 @@ def authorDashboardLogic(mysql, mysql2, years_list):
         mysql2.connection.commit()
         event_count = cursor2.fetchone()
         f1000event.append(event_count['count'])
-
 
     # hypothesisevent
     hypothesisevent = []
@@ -254,14 +261,17 @@ def authorDashboardLogic(mysql, mysql2, years_list):
         event_count = cursor2.fetchone()
         wordpressevent.append(event_count['count'])
     # wordpressevent = [5, 10, 15, 20, 25];  # TBD - delete this line after we upload data in cambia event table for all these years
-    
+
     cursor2.close()
 
-    per_page = 10  # article count per page
-    article_start = (page * per_page) - 10  # calculate starting article index (for any given page)
-    article_end = article_start + 10  # calculate ending article index (for any given page)
+    per_page = int(perPage)  # article count per page
+    # calculate starting article index (for any given page)
+    article_start = (page * per_page) - per_page
+    # calculate ending article index (for any given page)
+    article_end = article_start + per_page
 
-    author_url_param = "/authorDashboard?author_id=" + str(author_id) + "&page={0}"
+    author_url_param = "/authorDashboard?author_id=" + \
+        str(author_id) + "&page={0}" + "&perPage=" + str(per_page)
 
     # form a pagination object
     pagination = Pagination(page=page, per_page=per_page, href=author_url_param,
@@ -269,8 +279,8 @@ def authorDashboardLogic(mysql, mysql2, years_list):
 
     return flask.render_template('authorDashboard.html',
                                  author_name=author_name['name'],
-                                 years_list = years_list,
-                                 passed_author_id = author_id, # this is for the year filter!
+                                 years_list=years_list, yearInput=yearInput,
+                                 passed_author_id=author_id,  # this is for the year filter!
                                  author_article_list=author_article_list,
                                  cambiaEventData=cambiaEvent,
                                  crossrefEventData=crossrefevent,
@@ -287,5 +297,6 @@ def authorDashboardLogic(mysql, mysql2, years_list):
                                  wordpressEventData=wordpressevent,
                                  pagination=pagination,
                                  article_start=article_start,
-                                 article_end=article_end
+                                 article_end=article_end,
+                                 perPage=perPage
                                  )

@@ -7,7 +7,7 @@
 <link href="../static/js/libraries/c3-0.7.20/c3.css" rel="stylesheet">
 
 <!-- Load d3 second -->
-<script src="../static/js/libraries/d3.v5.min.js"></script>
+<script src="../static/js/libraries/d3.v5/d3.v5.min.js"></script>
 
 <!-- Load c3 last (because it depends on d3) -->
 <script src="../static/js/libraries/c3-0.7.20/c3.min.js"></script>
@@ -16,33 +16,108 @@
 <script>
     // Only run this function when the document has fully loaded.
     $(document).ready(function(){
-        // Storing radio button values into the object radioValues
-        // localStorage is a property of the Web Storage API that creates an instance of a  Storage object. Storage objects are simple key-value stores but stay intact through page loads. The key and values are always strings.
-        // localStorage allows us to store data in the browser and retrieve it later.
-        // JSON.parse() converts the data which is a string and turns it into a JS object.
-        let radioValues = JSON.parse(localStorage.getItem('radioValues')) || {};
-        // Jquery statement that selects the radio buttons within the <div> yearFilter and stores them into $radioButtons.
-        let $radioButtons = $("#yearFilter :radio");
 
-        // When a radio button is pressed(changes)...
-        $radioButtons.on("change",function(){
-            // Debugging 
-            // alert("The radio button " + this.value + " was selected"); or this.id
-            
-            // Iterate through each radio button.....
-            $radioButtons.each(function(){
-                // This radio button is checked
-                radioValues[this.id] = this.checked;
-            });
-            // Stringify the values of each button and set them into the key radioValues in localStorage.
-            localStorage.setItem("radioValues", JSON.stringify(radioValues));
+        // Create jQuery variables to reference the text box and the submit button
+        let $yearInput = $("#yearBox");
+        let $submitButton = $("input[type='submit']");
+
+        // Creates in instance of the currentTime and grabs the year from it.
+        let currentTime = new Date();
+        let year = currentTime.getFullYear();
+
+        // Grab the publication year and slice it to remove the month portion.
+        // The array articleDates is initialized near the bottom of this document(line 234).
+        let oldestPubYear = articleDates[0];
+
+        // Iterate through the list of dates and find the oldest date for the author.
+        for(let i = 0; i < articleDates.length; i++){
+            if (oldestPubYear > articleDates[i] ){
+                oldestPubYear = articleDates[i];
+            }
+        }
+
+        // If there are no events, hide the form.
+        if('{{totalEventsSum}}' === '0'){
+            $("form").hide();
+        }
+
+        // Grab the tspan elements and search through the array.
+        let x = document.getElementsByTagName("tspan");
+        for (let i = 0; i < x.length; i++) {
+            // If the value of the text is equal to the input submitted by the user, change the color to red, increase the size and bold the label.
+            if(x[i].innerHTML === '{{yearInput}}'){
+                x[i].style.fill = "red";
+                x[i].style.font = "bold 18px sans-serif";
+            }     
+        }
+
+        // When the user clicks on the submit button..
+        $submitButton.click(function(){
+            // If the year text box is empty, send an alert and don't allow the user to submit the form.
+            if(document.forms['YearRange'].year.value == ""){
+                alert("Please enter a year.");
+                return false;
+            }
+            // If the year input is greater than the current year, send an alert and don't allow the user to submit the form.
+            else if(document.forms['YearRange'].year.value > String(year)){
+                alert("Please enter a year before " + year + ".");
+                return false;
+            }
+            // If the year input is less than the oldest publication year, send an alert and don't allow the user to submit the form.
+            else if(document.forms['YearRange'].year.value < oldestPubYear){
+                alert("Please enter a year after " + oldestPubYear + ".");
+                return false;
+            }
         });
 
-        // On page load, check the radio button by ID .
-        $.each(radioValues,function(key, value){
-            $("#" + key).prop("checked", value);
+        // When the focus is inside the year text box...
+        $yearInput.keydown(function(event){
+            // Disable shift key to stop special characters from entering text box.
+            if(event.shiftKey == true){
+                return false;
+            }
+            // Allow numbers from the top row of the keyboard and numpad.
+            else if(event.keyCode >= 48 && event.keyCode <= 57 || event.keyCode >= 96 && event.keyCode <= 105){
+                return true;
+            }
+            // Allow backspace, tab or enter button.
+            else if(event.keyCode == 8 || event.keyCode == 9 || event.keyCode == 13){
+                return true;
+            }
+            else{
+                return false;
+            }
         });
+
+        
     });
+    //     // Storing radio button values into the object radioValues
+    //     // localStorage is a property of the Web Storage API that creates an instance of a  Storage object. Storage objects are simple key-value stores but stay intact through page loads. The key and values are always strings.
+    //     // localStorage allows us to store data in the browser and retrieve it later.
+    //     // JSON.parse() converts the data which is a string and turns it into a JS object.
+    //     let radioValues = JSON.parse(localStorage.getItem('radioValues')) || {};
+    //     // Jquery statement that selects the radio buttons within the <div> yearFilter and stores them into $radioButtons.
+    //     let $radioButtons = $("#yearFilter :radio");
+
+    //     // When a radio button is pressed(changes)...
+    //     $radioButtons.on("change",function(){
+    //         // Debugging 
+    //         // alert("The radio button " + this.value + " was selected"); or this.id
+            
+    //         // Iterate through each radio button.....
+    //         $radioButtons.each(function(){
+    //             // This radio button is checked
+    //             radioValues[this.id] = this.checked;
+    //         });
+    //         // Stringify the values of each button and set them into the key radioValues in localStorage.
+    //         localStorage.setItem("radioValues", JSON.stringify(radioValues));
+    //     });
+
+    //     // On page load, check the radio button by ID .
+    //     $.each(radioValues,function(key, value){
+    //         $("#" + key).prop("checked", value);
+    //     });
+    // });
 </script>
 {% endblock %}
 
@@ -64,6 +139,17 @@
                         <li>Journal Name: </li>
                         <li>Authors: </li>
                     </ul>-->
+
+                    <form class="form-inline" method="post" action="{{ url_for('authorDashboard') }}?author_id={{ passed_author_id }}" >
+                    <select name="perPage" id="perPage" class="resizedTextbox form-control" >
+                          <option value="" disabled selected>Per Page</option>
+                          <option value="10">10</option>
+                          <option value="25">25</option>
+                          <option value="50">50</option>
+                          <option value="100">100</option>
+                    </select>
+                    <button type="submit" class=" resizedTextbox btn btn-default">Apply</button>
+                    </form>
                     <table id="noBorders">
                     {{pagination.info}}
                     {{pagination.links}}
@@ -121,23 +207,49 @@
                 <div id="chart"></div>
             </div>
         <div class="col-sm-7" id="yearFilter">
+
+            <form method="post" action="{{ url_for('authorDashboard') }}?author_id={{ passed_author_id }}" class="form-inline" name="YearRange" id="YearRange">
+                <!-- ***********Year Range Slider decomissioned until after P3 *************** -->
+                <!-- <div id="slider">
+
+                </div> -->
+                <label for="year">Select a year (YYYY):</label>
+                <input type="text" name="year" id="yearBox" maxlength="4" pattern="\d{4}">
+                <input width="40%" type="submit" value="Update" class="form-control">
+            </form>
             <!-- This form determines the years used by the chart. Clicking submit refreshes the page by calling articleDashboard in the same way that the search results page does -->
-            <form method="post" action="{{ url_for('authorDashboard') }}?author_id={{ passed_author_id }}" class="form-inline">
+            <!-- <form method="post" action="{{ url_for('authorDashboard') }}?author_id={{ passed_author_id }}" class="form-inline">
                 <label class="radio-inline"><input type="radio" name="optradio" value="2001-2005" id="button1">2001-2005</label>
                 <label class="radio-inline"><input type="radio" name="optradio" value="2006-2010" id="button2">2006-2010</label>
                 <label class="radio-inline"><input type="radio" name="optradio" value="2011-2015" id="button3">2011-2015</label>
                 <label class="radio-inline"><input type="radio" name="optradio" value="2016-2020" id="button4">2016-2020</label>
                 <input width="40%" type="submit" value="Update" class="form-control">
-            </form>
+            </form> -->
         </div>
     </div>
 </div>
 
 <br>
 
+<!-- Initialize articleDates and yearOnly -->
+<script>
+    let articleDates = [];
+    let yearOnly = '';
+</script>
+
+<!-- Iterate through the author_article_list and store the article dates into an array. Cast them to an integer. -->
+{% for date in author_article_list %}
+<script>
+    yearOnly = '{{date.articleDate}}';
+    console.log(yearOnly);
+    yearOnly = yearOnly.slice(0,4);
+    articleDates.push(parseInt(yearOnly,10));
+</script>
+{% endfor %}
+
 <!-- Initialize the arrays as empty arrays -->
 <script>
-    cambiaevent=[]
+    cambiaevent=[];
     crossrefevent = [];
     dataciteevent = [];
     f1000event = [];

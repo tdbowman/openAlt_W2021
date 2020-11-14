@@ -35,6 +35,7 @@ def searchLogic(mysql, mysql2):
     startYear = flask.request.form.get("startYear")
     endYear = flask.request.form.get("endYear")
     sortSelector = flask.request.form.get('sortSelector')
+    perPage = str(flask.request.form.get("perPage"))
     
     #print("Selection from hidden form is:", selection)
     #print("Search from hidden form is:", search)
@@ -51,6 +52,11 @@ def searchLogic(mysql, mysql2):
         endYear = str(flask.request.args.get("endYear"))
     if flask.request.form.get("sortSelector") is None:
         sortSelector = str(flask.request.args.get("sortSelector"))
+    if flask.request.form.get("perPage") is None:
+        if flask.request.args.get("perPage") is None:
+            perPage = "10"
+        else:
+            perPage = str(flask.request.args.get("perPage"))
 
     # Now that we have checked the form and URL for how the user would like to search, we can set it
     if (sortSelector == "PublicationYearAscending"):
@@ -327,13 +333,13 @@ def searchLogic(mysql, mysql2):
 #   Pagination and Return statements
 #
 ########################################################################
-    
-    per_page = 10 #article count per page
-    article_start = (page*per_page)-10 #calculate starting article index (for any given page)
-    article_end = article_start+10 #calculate ending article index (for any given page)
+
+    per_page = int(perPage)
+    article_start = (page * per_page) - per_page  # calculate starting article index (for any given page)
+    article_end = article_start + per_page  # calculate ending article index (for any given page)
 
     #form a URL for href with parameters
-    search_url_param = "/searchResultsPage?search=" + search + "&dropdownSearchBy=" + selection + "&page={0}" + "&startYear=" + str(startYear) + "&endYear=" + str(endYear) + "&sortSelector=" + sortSelector
+    search_url_param = "/searchResultsPage?search=" + search + "&dropdownSearchBy=" + selection + "&page={0}" + "&startYear=" + str(startYear) + "&endYear=" + str(endYear) + "&sortSelector=" + sortSelector +"&perPage=" + str(per_page)
 
     #Instantiate a pagination object
     pagination = Pagination(page=page, per_page=per_page, href=search_url_param,

@@ -460,3 +460,13 @@ table.table-bordered{
 p1{
   font-size: large;
 }
+
+/* Set font size for the charts - C3 creates charts as SVG */
+svg {
+  font: 16px sans-serif !important;
+}
+
+#YearRange{
+  text-align: center;
+}
+
