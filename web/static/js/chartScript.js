@@ -78,9 +78,18 @@ f1000event.unshift("F1000");
 
 // We need to set all these to "initial" now, so we can hide and reset them later on
 let elements = document.getElementsByClassName("eventItem");
-for(var i=0; i<elements.length; i++) {
+for (var i = 0; i < elements.length; i++) {
   elements[i].style.display = "initial";
 }
+
+
+
+// let xLabels = document.getElementsByClassName("tick")[0].getElementsByTagName("tspan")[0];
+// xLabels.style.backgroundColor = "pink";
+// for (var i = 0; i < textLabels.length; i++) {
+//   textLabels[i].style.backgroundColor = "pink";
+// }
+
 
 /*
 ----------- C3 Chart ------------------------------------
@@ -147,171 +156,171 @@ var chart = c3.generate({
   legend: {
     position: 'right',
     item: {
-        onclick: function (id) { 
+      onclick: function (id) {
 
-          // Switching on the column names - determine what is clicked
-          switch (id) {
+        // Switching on the column names - determine what is clicked
+        switch (id) {
 
-            case cambiaevent[0]:
-              if (cambiaBool) {
-                chart.hide(id);
-                cambiaBool = false;
-              } else {
-                chart.show(id);
-                cambiaBool = true;
-              }
-              hideElements(elements);
-              break;
+          case cambiaevent[0]:
+            if (cambiaBool) {
+              chart.hide(id);
+              cambiaBool = false;
+            } else {
+              chart.show(id);
+              cambiaBool = true;
+            }
+            hideElements(elements);
+            break;
 
-            case crossrefevent[0]:
-              if (crossrefBool) {
-                chart.hide(id);
-                crossrefBool = false;
-              } else {
-                chart.show(id);
-                crossrefBool = true;
-              }
-              hideElements(elements);
-              break;
+          case crossrefevent[0]:
+            if (crossrefBool) {
+              chart.hide(id);
+              crossrefBool = false;
+            } else {
+              chart.show(id);
+              crossrefBool = true;
+            }
+            hideElements(elements);
+            break;
 
-            case dataciteevent[0]:
-              if (dataciteBool) {
-                chart.hide(id);
-                dataciteBool = false;
-              } else {
-                chart.show(id);
-                dataciteBool = true;
-              }
-              hideElements(elements);
-              break;
+          case dataciteevent[0]:
+            if (dataciteBool) {
+              chart.hide(id);
+              dataciteBool = false;
+            } else {
+              chart.show(id);
+              dataciteBool = true;
+            }
+            hideElements(elements);
+            break;
 
-            case f1000event[0]:
-              if (wordpressBool) {
-                chart.hide(id);
-                wordpressBool = false;
-              } else {
-                chart.show(id);
-                wordpressBool = true;
-              }
-              hideElements(elements);
-              break;
+          case f1000event[0]:
+            if (wordpressBool) {
+              chart.hide(id);
+              wordpressBool = false;
+            } else {
+              chart.show(id);
+              wordpressBool = true;
+            }
+            hideElements(elements);
+            break;
 
-            case hypothesisevent[0]:
-              if (hypothesisBool) {
-                chart.hide(id);
-                hypothesisBool = false;
-              } else {
-                chart.show(id);
-                hypothesisBool = true;
-              }
-              hideElements(elements);
-              break;
+          case hypothesisevent[0]:
+            if (hypothesisBool) {
+              chart.hide(id);
+              hypothesisBool = false;
+            } else {
+              chart.show(id);
+              hypothesisBool = true;
+            }
+            hideElements(elements);
+            break;
 
-            case newsfeedevent[0]:
-              if (newsfeedBool) {
-                chart.hide(id);
-                newsfeedBool = false;
-              } else {
-                chart.show(id);
-                newsfeedBool = true;
-              }
-              hideElements(elements);
-              break;
-            
-            case redditevent[0]:
-              if (redditBool) {
-                chart.hide(id);
-                redditBool = false;
-              } else {
-                chart.show(id);
-                redditBool = true;
-              }
-              hideElements(elements);
-              break;
-            
-            case redditlinksevent[0]:
-              if (redditLinksBool) {
-                chart.hide(id);
-                redditLinksBool = false;
-              } else {
-                chart.show(id);
-                redditLinksBool = true;
-              }
-              hideElements(elements);
-              break;
+          case newsfeedevent[0]:
+            if (newsfeedBool) {
+              chart.hide(id);
+              newsfeedBool = false;
+            } else {
+              chart.show(id);
+              newsfeedBool = true;
+            }
+            hideElements(elements);
+            break;
 
-            case stackexchangeevent[0]:
-              if (stackExchangeBool) {
-                chart.hide(id);
-                stackExchangeBool = false;
-              } else {
-                chart.show(id);
-                stackExchangeBool = true;
-              }
-              hideElements(elements);
-              break;
+          case redditevent[0]:
+            if (redditBool) {
+              chart.hide(id);
+              redditBool = false;
+            } else {
+              chart.show(id);
+              redditBool = true;
+            }
+            hideElements(elements);
+            break;
 
-            case twitterevent[0]:
-              if (twitterBool) {
-                chart.hide(id);
-                twitterBool = false;
-              } else {
-                chart.show(id);
-                twitterBool = true;
-              }
-              hideElements(elements);
-              break;
+          case redditlinksevent[0]:
+            if (redditLinksBool) {
+              chart.hide(id);
+              redditLinksBool = false;
+            } else {
+              chart.show(id);
+              redditLinksBool = true;
+            }
+            hideElements(elements);
+            break;
 
-            case webevent[0]:
-              if (stackExchangeBool) {
-                chart.hide(id);
-                stackExchangeBool = false;
-              } else {
-                chart.show(id);
-                stackExchangeBool = true;
-              }
-              hideElements(elements);
-              break;
+          case stackexchangeevent[0]:
+            if (stackExchangeBool) {
+              chart.hide(id);
+              stackExchangeBool = false;
+            } else {
+              chart.show(id);
+              stackExchangeBool = true;
+            }
+            hideElements(elements);
+            break;
 
-            case wikipediaevent[0]:
-              if (wikipediaBool) {
-                chart.hide(id);
-                wikipediaBool = false;
-                console.log(wikipediaBool);
-              } else {
-                chart.show(id);
-                wikipediaBool = true;
-              }
-              hideElements(elements);
-              break;
+          case twitterevent[0]:
+            if (twitterBool) {
+              chart.hide(id);
+              twitterBool = false;
+            } else {
+              chart.show(id);
+              twitterBool = true;
+            }
+            hideElements(elements);
+            break;
 
-            case wordpressevent[0]:
-              if (wordpressBool) {
-                chart.hide(id);
-                wordpressBool = false;
-              } else {
-                chart.show(id);
-                wordpressBool = true;
-              }
-              hideElements(elements);
-              break;
-          }
-          /*
-          console.log('clicked');
-          if (id === 'Twitter' && twitterBool === true) {
-            chart.hide(id);
-            twitterBool = false;
-            console.log(twitterBool);
-          }
-          else if (id === 'Twitter' && twitterBool === false) {
-            chart.show(id);
-            twitterBool = true;
-            console.log(twitterBool);
-          }
-          */
+          case webevent[0]:
+            if (stackExchangeBool) {
+              chart.hide(id);
+              stackExchangeBool = false;
+            } else {
+              chart.show(id);
+              stackExchangeBool = true;
+            }
+            hideElements(elements);
+            break;
+
+          case wikipediaevent[0]:
+            if (wikipediaBool) {
+              chart.hide(id);
+              wikipediaBool = false;
+              console.log(wikipediaBool);
+            } else {
+              chart.show(id);
+              wikipediaBool = true;
+            }
+            hideElements(elements);
+            break;
+
+          case wordpressevent[0]:
+            if (wordpressBool) {
+              chart.hide(id);
+              wordpressBool = false;
+            } else {
+              chart.show(id);
+              wordpressBool = true;
+            }
+            hideElements(elements);
+            break;
         }
-      },
+        /*
+        console.log('clicked');
+        if (id === 'Twitter' && twitterBool === true) {
+          chart.hide(id);
+          twitterBool = false;
+          console.log(twitterBool);
+        }
+        else if (id === 'Twitter' && twitterBool === false) {
+          chart.show(id);
+          twitterBool = true;
+          console.log(twitterBool);
+        }
+        */
+      }
     },
+  },
   grid: {
     y: {
       show: false
@@ -332,15 +341,15 @@ var chart = c3.generate({
         position: 'outer-middle',
       },
       tick: {
-        format: function (d) { 
+        format: function (d) {
           if (d < 0) {
-              return null
+            return null
           }
           else if (d % 1 > 0) {
-              return null
+            return null
           }
           else {
-            return d ;  
+            return d;
           }
         }
       }
@@ -353,27 +362,30 @@ var chart = c3.generate({
   }
 });
 
+
 // This function hides the bar chart items the user clicks, both in the chart and in the events section below
 function hideElements(elements) {
   //elements = document.getElementsByClassName("eventItem");
-  for(var i=0; i<elements.length; i++) {
-   // If the element ID is twitter, and the twitterBool is false, hide twitter.
-   // False booleans mean we want to hide them.
+  for (var i = 0; i < elements.length; i++) {
+    // If the element ID is twitter, and the twitterBool is false, hide twitter.
+    // False booleans mean we want to hide them.
 
-  // WARNING - THIS TOOK FOREVER TO FIGURE OUT - CHANGE IT AT YOUR OWN RISK
-  // YOU ABSOLUTELY MUST USE  .style.display = "none" or .style.display = "initial"
-  if (elements[i].id === "twitter" && twitterBool === false) { elements[i].style.display = "none"; }
-  else if (elements[i].id === "wikipedia" && wikipediaBool === false) { elements[i].style.display = "none"; }
-  else if (elements[i].id === "reddit" && redditBool === false) { elements[i].style.display = "none"; }
-  else if (elements[i].id === "hypothesis" && hypothesisBool === false) { elements[i].style.display = "none"; }
-  else if (elements[i].id === "newsfeed" && newsfeedBool === false) { elements[i].style.display = "none"; }
-  else if (elements[i].id === "redditlinks" && redditLinksBool === false) { elements[i].style.display = "none"; }
-  else if (elements[i].id === "stackexchange" && stackExchangeBool === false) { elements[i].style.display = "none"; }
-  else if (elements[i].id === "web" && webBool === false) { elements[i].style.display = "none"; }
-  else if (elements[i].id === "wordpressdotcom" && wordpressBool === false) { elements[i].style.display = "none"; }
-  else { elements[i].style.display = "initial"; }
+    // WARNING - THIS TOOK FOREVER TO FIGURE OUT - CHANGE IT AT YOUR OWN RISK
+    // YOU ABSOLUTELY MUST USE  .style.display = "none" or .style.display = "initial"
+    if (elements[i].id === "twitter" && twitterBool === false) { elements[i].style.display = "none"; }
+    else if (elements[i].id === "wikipedia" && wikipediaBool === false) { elements[i].style.display = "none"; }
+    else if (elements[i].id === "reddit" && redditBool === false) { elements[i].style.display = "none"; }
+    else if (elements[i].id === "hypothesis" && hypothesisBool === false) { elements[i].style.display = "none"; }
+    else if (elements[i].id === "newsfeed" && newsfeedBool === false) { elements[i].style.display = "none"; }
+    else if (elements[i].id === "redditlinks" && redditLinksBool === false) { elements[i].style.display = "none"; }
+    else if (elements[i].id === "stackexchange" && stackExchangeBool === false) { elements[i].style.display = "none"; }
+    else if (elements[i].id === "web" && webBool === false) { elements[i].style.display = "none"; }
+    else if (elements[i].id === "wordpressdotcom" && wordpressBool === false) { elements[i].style.display = "none"; }
+    else { elements[i].style.display = "initial"; }
   }
 }
+
+
 
 // This function determines the tick values.
 // It looks at the booleans to determine what is being displayed, and then creates a list of tick values

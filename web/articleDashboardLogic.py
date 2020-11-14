@@ -1,7 +1,7 @@
 import flask
 
 
-def articleDashboardLogic(mysql, mysql2, years_list):
+def articleDashboardLogic(mysql, mysql2, years_list, yearInput):
 
     # connect to Dr Bowman's database
     cursor = mysql.connection.cursor()
@@ -170,69 +170,71 @@ def articleDashboardLogic(mysql, mysql2, years_list):
 
         cursor2.execute(boundsQuery)
         mainRow = cursor2.fetchone()
-        firstEventList = []
-        lastEventList = []
-        minimumBound = ""
-        maximumBound = ""
-        if mainRow is not None:
-            if mainRow['totalCambiaEvents'] is not None:
-                firstEventList.append(mainRow['firstCambiaEvent'])
-                lastEventList.append(mainRow['lastCambiaEvent'])
-            if mainRow['totalCrossrefEvents'] is not None:
-                firstEventList.append(mainRow['firstCrossrefEvent'])
-                lastEventList.append(mainRow['lastCrossrefEvent'])
-            if mainRow['totalDataciteEvents'] is not None:
-                firstEventList.append(mainRow['firstDataciteEvent'])
-                lastEventList.append(mainRow['lastDataciteEvent'])
-            if mainRow['totalF1000Events'] is not None:
-                firstEventList.append(mainRow['firstF1000Event'])
-                lastEventList.append(mainRow['lastF1000Event'])
-            if mainRow['totalHypothesisEvents'] is not None:
-                firstEventList.append(mainRow['firstHypothesisEvent'])
-                lastEventList.append(mainRow['lastHypothesisEvent'])
-            if mainRow['totalNewsfeedEvents'] is not None:
-                firstEventList.append(mainRow['firstNewsfeedEvent'])
-                lastEventList.append(mainRow['lastNewsfeedEvent'])
-            if mainRow['totalRedditEvents'] is not None:
-                firstEventList.append(mainRow['firstRedditEvent'])
-                lastEventList.append(mainRow['lastRedditEvent'])
-            if mainRow['totalRedditLinksEvents'] is not None:
-                firstEventList.append(mainRow['firstRedditLinksEvent'])
-                lastEventList.append(mainRow['lastRedditLinksEvent'])
-            if mainRow['totalStackExchangeEvents'] is not None:
-                firstEventList.append(mainRow['firstStackExchangeEvent'])
-                lastEventList.append(mainRow['lastStackExchangeEvent'])
-            if mainRow['totalTwitterEvents'] is not None:
-                firstEventList.append(mainRow['firstTwitterEvent'])
-                lastEventList.append(mainRow['lastTwitterEvent'])
-            if mainRow['totalWebEvents'] is not None:
-                firstEventList.append(mainRow['firstWebEvent'])
-                lastEventList.append(mainRow['lastWebEvent'])
-            if mainRow['totalWikipediaEvents'] is not None:
-                firstEventList.append(mainRow['firstWikipediaEvent'])
-                lastEventList.append(mainRow['lastWikipediaEvent'])
-            if mainRow['totalWordpressEvents'] is not None:
-                firstEventList.append(mainRow['firstWordpressEvent'])
-                lastEventList.append(mainRow['lastWordpressEvent'])
 
-            noEvents = False
-        else:
-            noEvents = True
+        # ***********Year Range Slider decomissioned until after P3 ***************
+        # firstEventList = []
+        # lastEventList = []
+        # minimumBound = ""
+        # maximumBound = ""
+        # if mainRow is not None:
+        #     if mainRow['totalCambiaEvents'] is not None:
+        #         firstEventList.append(mainRow['firstCambiaEvent'])
+        #         lastEventList.append(mainRow['lastCambiaEvent'])
+        #     if mainRow['totalCrossrefEvents'] is not None:
+        #         firstEventList.append(mainRow['firstCrossrefEvent'])
+        #         lastEventList.append(mainRow['lastCrossrefEvent'])
+        #     if mainRow['totalDataciteEvents'] is not None:
+        #         firstEventList.append(mainRow['firstDataciteEvent'])
+        #         lastEventList.append(mainRow['lastDataciteEvent'])
+        #     if mainRow['totalF1000Events'] is not None:
+        #         firstEventList.append(mainRow['firstF1000Event'])
+        #         lastEventList.append(mainRow['lastF1000Event'])
+        #     if mainRow['totalHypothesisEvents'] is not None:
+        #         firstEventList.append(mainRow['firstHypothesisEvent'])
+        #         lastEventList.append(mainRow['lastHypothesisEvent'])
+        #     if mainRow['totalNewsfeedEvents'] is not None:
+        #         firstEventList.append(mainRow['firstNewsfeedEvent'])
+        #         lastEventList.append(mainRow['lastNewsfeedEvent'])
+        #     if mainRow['totalRedditEvents'] is not None:
+        #         firstEventList.append(mainRow['firstRedditEvent'])
+        #         lastEventList.append(mainRow['lastRedditEvent'])
+        #     if mainRow['totalRedditLinksEvents'] is not None:
+        #         firstEventList.append(mainRow['firstRedditLinksEvent'])
+        #         lastEventList.append(mainRow['lastRedditLinksEvent'])
+        #     if mainRow['totalStackExchangeEvents'] is not None:
+        #         firstEventList.append(mainRow['firstStackExchangeEvent'])
+        #         lastEventList.append(mainRow['lastStackExchangeEvent'])
+        #     if mainRow['totalTwitterEvents'] is not None:
+        #         firstEventList.append(mainRow['firstTwitterEvent'])
+        #         lastEventList.append(mainRow['lastTwitterEvent'])
+        #     if mainRow['totalWebEvents'] is not None:
+        #         firstEventList.append(mainRow['firstWebEvent'])
+        #         lastEventList.append(mainRow['lastWebEvent'])
+        #     if mainRow['totalWikipediaEvents'] is not None:
+        #         firstEventList.append(mainRow['firstWikipediaEvent'])
+        #         lastEventList.append(mainRow['lastWikipediaEvent'])
+        #     if mainRow['totalWordpressEvents'] is not None:
+        #         firstEventList.append(mainRow['firstWordpressEvent'])
+        #         lastEventList.append(mainRow['lastWordpressEvent'])
 
-        if noEvents is False:
-            minimumBound = str(firstEventList[0])
-            maximumBound = str(lastEventList[0])
+        #     noEvents = False
+        # else:
+        #     noEvents = True
 
-        for time in firstEventList:
-            if minimumBound > str(time):
-                minimumBound = str(time)
-        for time in lastEventList:
-            if maximumBound < str(time):
-                maximumBound = str(time)
+        # if noEvents is False:
+        #     minimumBound = str(firstEventList[0])
+        #     maximumBound = str(lastEventList[0])
 
-        # Grab the years only
-        minimumBound = minimumBound[0:4]
-        maximumBound = maximumBound[0:4]
+        # for time in firstEventList:
+        #     if minimumBound > str(time):
+        #         minimumBound = str(time)
+        # for time in lastEventList:
+        #     if maximumBound < str(time):
+        #         maximumBound = str(time)
+
+        # # Grab the years only
+        # minimumBound = minimumBound[0:4]
+        # maximumBound = maximumBound[0:4]
 
     # ----------------------------- End of Dynamic Year Range Selector Bounds and Range --------------------------------
     # ----------------------------- Event Count for each platform across 5 years -------------------------------------
@@ -257,7 +259,9 @@ def articleDashboardLogic(mysql, mysql2, years_list):
         wordpressevent = []
 
         if mainRow is not None:
-            print("Years List passed: ", years_list)
+            # ***********Year Range Slider decomissioned until after P3 ***************
+            # print("Years List passed: ", years_list)
+
             # cambia event
             if mainRow['totalCambiaEvents'] is not None:
 
@@ -448,8 +452,10 @@ def articleDashboardLogic(mysql, mysql2, years_list):
     else:
         # An unbound local error of article_result was showing up here in the console but not in the flask debugger. This needed to be fixed by creating this else statement to handle a situation where article_result is a None type.
         # This error needed to be fixed for the 500 Internal Server Error when using an ajax call from articleDashboard.html
-        minimumBound = ''
-        maximumBound = ''
+        # *********** Year Range Slider decomissioned until after P3 ***************
+        # minimumBound = ''
+        # maximumBound = ''
+        # Make sure to add this to the render_template(minimumBound=minimumBound, maximumBound=maximumBound,) function call
         years_list = []
         article = {}
         eventsForArticle = []
@@ -468,7 +474,7 @@ def articleDashboardLogic(mysql, mysql2, years_list):
         wikipediaevent = []
         wordpressevent = []
 
-    return flask.render_template('articleDashboard.html', minimumBound=minimumBound, maximumBound=maximumBound, years_list=years_list, article_detail=article, events=eventsForArticle, totalEventsSum=totalEventsSum,
+    return flask.render_template('articleDashboard.html', years_list=years_list, yearInput=yearInput, article_detail=article, events=eventsForArticle, totalEventsSum=totalEventsSum,
                                  cambiaEventData=cambiaevent,
                                  crossrefEventData=crossrefevent,
                                  dataciteEventData=dataciteevent,
