@@ -105,6 +105,24 @@ table.table-bordered{
     font-size: 110%;
 }
 
+#searchFilter
+{
+    display: inline-block;
+}
+
+#searchFil1{
+    display: inline-block;
+}
+
+#searchFil2{
+    display: inline-block;
+}
+
+#searchFil3{
+    display: inline-block;
+}
+
+
 
 .JD_articleTitle {
     font-size: 20px;
