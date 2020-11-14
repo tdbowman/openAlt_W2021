@@ -4,28 +4,29 @@
 {% block head %}
 <script>
     $(function(){
-        $(document).keydown(function(event){
-            if(event.which == 70){
-                // $('#dropdownSearchBy').focus();
-                $('#dropdownSearchBy').click();
-            }
-        });
+        // If the F key(filter) is pressed....
+        // $(document).keydown(function(event){
+        //     if(event.which == 70){
+        //         // $('#dropdownSearchBy').focus();
+        //         $('#dropdownSearchBy').click();
+        //     }
+        // });
 
-        $('#search_input').keydown(function(event){
-            if (event.which == 13){
-                event.preventDefault();
-                alert("This is the enter button.");
-            }
+        // $('#search_input').keydown(function(event){
+        //     if (event.which == 13){
+        //         event.preventDefault();
+        //         alert("This is the enter button.");
+        //     }
                 
-        });
+        // });
 
-        $(document).keydown(function(){
-            if (event.which == 13){
-                $('#submitButton').click();
-            }
+        // $(document).keydown(function(){
+        //     if (event.which == 13){
+        //         $('#submitButton').click();
+        //     }
                 
 
-        });
+        // });
 
         // $('#submitButton').click(function(event){
         //     event.preventDefault();
