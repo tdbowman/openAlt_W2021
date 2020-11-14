@@ -13,7 +13,7 @@
     <div class = "searchFilters">
 
     <form class="form-inline" method="post" action="{{ url_for('search') }}" >
-        <h3 id="searchFil1">Filter by Year</h3>
+        <h3 id="searchFil1">Filter by Year:</h3>
       <!-- Keep these hidden fields, searchLogic.py needs them-->
       <input type="hidden" id="search" name="search" value= {{ search }} >
       <input type="hidden" id="dropdownSearchBy" name="dropdownSearchBy" value={{ dropdownSearchBy }}>
