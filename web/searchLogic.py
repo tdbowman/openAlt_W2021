@@ -13,6 +13,7 @@ def searchLogic(mysql, mysql2):
     cursor6 = mysql2.connection.cursor()
 
     row = "something not none"
+    totalEventsSum=0
     pagination = None
     s_years = None
     startYear = None
@@ -130,6 +131,7 @@ def searchLogic(mysql, mysql2):
                 # get list of authors for given fk
                 author_list = cursor.fetchall()
 
+           
             TotalEventsQuerySum = "SELECT totalEvents AS sumCount FROM crossrefeventdatamain.main WHERE objectID = 'https://doi.org/" + \
             row['doi'] + "';"
             cursor6.execute(TotalEventsQuerySum)
@@ -140,6 +142,7 @@ def searchLogic(mysql, mysql2):
                 totalEventsSum = 0
             else:
                 totalEventsSum = totalEventsSum['sumCount']
+                
             # create dict with _main_ table row and author list
             article = {'objectID': row['doi'], 'articleTitle': row['title'],
                        'journalName': row['container_title'],
