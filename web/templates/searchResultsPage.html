@@ -2,12 +2,7 @@
 
 <!-- Anything you put here will be in the HTML head tags-->
 {% block head %}
-<script>
-  $(function(){
-    // Change the case 'd' into a capital 'D'.
-    $(".pagination-page-info").html("Displaying <b>1 - 7</b> records in total <b> 7 </b>");
-  })
-</script>
+
 {% endblock %}
 
 <!-- Anything you put here will be in the body-->
@@ -18,7 +13,7 @@
     <div class = "searchFilters">
 
     <form class="form-inline" method="post" action="{{ url_for('search') }}" >
-        <h3 id="searchFil1">Filter by Year:</h3>
+      <h3 id="searchFil1">Filter By Year:</h3>
       <!-- Keep these hidden fields, searchLogic.py needs them-->
       <input type="hidden" id="search" name="search" value= {{ search }} >
       <input type="hidden" id="dropdownSearchBy" name="dropdownSearchBy" value={{ dropdownSearchBy }}>
@@ -26,10 +21,11 @@
         <label>-</label>
         <input type="text" class="resizedTextbox form-control" id="endYear" placeholder="To" name="endYear" maxlength="4" size="4">
       <!-- Determine how the user would like to sort. This is picked up by sortLogic.py and used to set the descending_or_ascending variable -->
-      <h3 id="searchFil2">Sort by:</h3>
+      <h3 id="searchFil2">Sort By:</h3>
       <select name="sortSelector" id="sortSelector" class="resizedTextbox form-control">
-        <option selected="selected" value="PublicationYearDescending">Publication year - Descending</option>
-        <option value="PublicationYearAscending">Publication year - Ascending</option>
+        <option selected="selected" value="PublicationYearDescending">Publication Year - Descending</option>
+        <option value="PublicationYearAscending">Publication Year - Ascending</option>
+        <!-- <option value="TotalEventsDescending">Popularity - Descending </option> -->
       </select>
 
       <h3 id="searchFil3">Per Page:</h3>
@@ -47,7 +43,7 @@
     <br>
 
     <div class="SR_boxed">
-    <th>Displaying Search Results for: {{search}}</th></div>
+    <th>Displaying Search Results For: {{search}}</th></div>
       <br>
       <!--Flask Pagination -->
       <div class="SR_boxed">
