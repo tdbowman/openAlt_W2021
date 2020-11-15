@@ -152,6 +152,8 @@ def searchLogic(mysql, mysql2):
             # append article dict to returnedQueries list
             returnedQueries.append(article)
 
+            # loop over returned queries and sort by totalEventSum - reorder it, ya know?
+
         returnedQueries.append(None)
         cursor.close()
         returnedQueries.pop()  # the last list item is always null so pop it
