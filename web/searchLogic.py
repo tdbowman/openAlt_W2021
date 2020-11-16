@@ -332,8 +332,8 @@ def searchLogic(mysql, mysql2):
 
         returnedQueries.pop()  # the last list item is always null so pop it
 
-#sort returnedQueries list by totalEventsSum
-    sorted_returnedQueries = sorted(returnedQueries, key=lambda x: x['totalEventsSum'], reverse=True)
+#sort returnedQueries list by totalEventsSum - commented out because when implemented it cancels out publicaton year filter
+    #sorted_returnedQueries = sorted(returnedQueries, key=lambda x: x['totalEventsSum'], reverse=True)
 
 ########################################################################
 #
@@ -352,4 +352,4 @@ def searchLogic(mysql, mysql2):
     pagination = Pagination(page=page, per_page=per_page, href=search_url_param,
                             total=len(returnedQueries), css_framework='bootstrap3')
 
-    return flask.render_template('searchResultsPage.html', totalEventsSum=totalEventsSum, listedSearchResults=sorted_returnedQueries, dropdownSearchBy=selection, article_start=article_start, article_end=article_end, search=search, pagination=pagination)
+    return flask.render_template('searchResultsPage.html', totalEventsSum=totalEventsSum, listedSearchResults=returnedQueries, dropdownSearchBy=selection, article_start=article_start, article_end=article_end, search=search, pagination=pagination)
