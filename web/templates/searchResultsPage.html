@@ -18,7 +18,7 @@
         let $submitButton = $("button[type='submit']");
 
 		// jQuery statement that references the year text boxes.
-        let $yearRangeBoxes = $("input[type='text']");
+        let $yearRangeBoxes = $(".yearRange");
 
 
 		// Grabs the oldest publication year from searchLogic.py.
@@ -125,9 +125,9 @@
       <!-- Keep these hidden fields, searchLogic.py needs them-->
       <input type="hidden" id="search" name="search" value= {{ search }} >
       <input type="hidden" id="dropdownSearchBy" name="dropdownSearchBy" value={{ dropdownSearchBy }}>
-        <input type="text" class=" resizedTextbox form-control" id="startYear" placeholder="From" name="startYear" maxlength="4" size="4">
+        <input type="text" class=" resizedTextbox form-control yearRange" id="startYear" placeholder="From" name="startYear" maxlength="4" size="4">
         <label>-</label>
-        <input type="text" class="resizedTextbox form-control" id="endYear" placeholder="To" name="endYear" maxlength="4" size="4">
+        <input type="text" class="resizedTextbox form-control yearRange" id="endYear" placeholder="To" name="endYear" maxlength="4" size="4">
       <!-- Determine how the user would like to sort. This is picked up by sortLogic.py and used to set the descending_or_ascending variable -->
       <h3 id="searchFil2">Sort By:</h3>
       <select name="sortSelector" id="sortSelector" class="resizedTextbox form-control">
