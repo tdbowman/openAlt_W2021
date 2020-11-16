@@ -75,6 +75,7 @@ For example, the event with ID `5dd6719b-8981-4712-988c-8c01f7ad760b` has a DOI(
 | C3 0.7.20                       | MIT License                        |
 | D3 v5                           | BSD-3-Clause License               |
 | jQuery 3.5.1                    | MIT License                        |
+| jQRangeSlider 5.7.2             | MIT & GPL License                  |
 <br>
 
 | Python Module             | License                    |

@@ -46,7 +46,7 @@
         for (let i = 0; i < x.length; i++) {
             // If the value of the text is equal to the input submitted by the user, change the color to red, increase the size and bold the label.
             if(x[i].innerHTML === '{{yearInput}}'){
-                x[i].style.fill = "red";
+                x[i].style.fill = "#A15951";
                 x[i].style.font = "bold 18px sans-serif";
             }     
         }
@@ -202,7 +202,7 @@
                 </div>
             </div> <!-- End the leftmost column-->
             <br><br><br><br><br>
-            <h3 style="text-align: center;">Events for {{author_name}} over time</h3>
+            <h3 style="text-align: center;">Events for {{author_name}} over {{years_list[0]}} - {{years_list[-1]}}</h3>
             <div class="col-sm-7" id="changeAfterChart">
                 <div id="chart"></div>
             </div>

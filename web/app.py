@@ -140,6 +140,7 @@ def authorDashboard():
     #     years_list = [2001, 2002, 2003, 2004, 2005]
 
     years_list = []
+    yearInput = ''
     print("This is the default year range.")
     currentYear = datetime.now().year
     for i in range(currentYear - 4, currentYear + 1):
@@ -147,9 +148,9 @@ def authorDashboard():
     print(years_list)
     if request.method == "POST":
         print("Received POST method request ")
-        print(request.form['year'])
-        if request.form['year'] is not None:
-            yearInput = request.form['year']
+        print(request.form.get('year'))
+        if request.form.get('year') is not None:
+            yearInput = request.form.get('year')
             yearInput = int(yearInput)
             years_list = []
             for i in range(yearInput - 2, yearInput + 3):

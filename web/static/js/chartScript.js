@@ -330,7 +330,7 @@ var chart = c3.generate({
     x: {
       label: {
         text: '',
-        position: 'outer-center'
+        position: 'outer-middle'
       },
       type: 'category',
       categories: [years_list[0], years_list[1], years_list[2], years_list[3], years_list[4]]
@@ -387,8 +387,7 @@ function hideElements(elements) {
 
 
 
-// This function determines the tick values.
-// It looks at the booleans to determine what is being displayed, and then creates a list of tick values
+// This function USED TO determine the tick values.
 function getTickValues() {
   return [0, 1, 5, 10, 15, 20, 40, 80, 100, 250, 500, 750, 1000, 2500, 5000, 10000, 30000, 50000, 100000];
 }

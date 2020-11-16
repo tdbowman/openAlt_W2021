@@ -211,6 +211,10 @@ table.table-bordered{
 /* Add a grey background color on mouse-over */
 .pagination a:hover:not(.active) {background-color: #ddd;}
 
+.pagination-page-info{
+  text-transform: capitalize;
+}
+
 #pHead{
   font-size: 30px;
   color: var(--accentColor2);

@@ -94,14 +94,11 @@ def searchLogic(mysql, mysql2):
             s_years = s_years + "'" + str(year) + "'" + ","
     s_years = s_years + ')'
 
-########################################################################
-#
-#   Select which SQL to execute, based on the drop-down selection,
-#   the search term, and the years selected, if any
-#
-########################################################################
 
-    # Search by DOI - WORKING
+    #   Select which SQL to execute, based on the drop-down selection,
+    #   the search term, and the years selected, if any
+
+    # Search by DOI
     if (selection == "DOI"):
 
         if not selected_years:
@@ -151,6 +148,8 @@ def searchLogic(mysql, mysql2):
                        'totalEventsSum':totalEventsSum}
             # append article dict to returnedQueries list
             returnedQueries.append(article)
+
+            # loop over returned queries and sort by totalEventSum - reorder it, ya know?
 
         returnedQueries.append(None)
         cursor.close()
@@ -330,13 +329,14 @@ def searchLogic(mysql, mysql2):
 
         returnedQueries.pop()  # the last list item is always null so pop it
 
+    #sort returnedQueries list by totalEventsSum - commented out because when implemented it cancels out publicaton year filter
+    sorted_returnedQueries = sorted(returnedQueries, key=lambda x: x['totalEventsSum'], reverse=True)
 
-########################################################################
-#
-#   Pagination and Return statements
-#
-########################################################################
+    # If the user has selected the "Sort by events descending" option, then use the above to sort
+    if sortSelector == "eventsDescending":
+        returnedQueries = sorted_returnedQueries
 
+    #   Pagination and Return statements
     per_page = int(perPage)
     article_start = (page * per_page) - per_page  # calculate starting article index (for any given page)
     article_end = article_start + per_page  # calculate ending article index (for any given page)
