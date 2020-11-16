@@ -2,7 +2,47 @@
 
 <!-- Anything you put here will be in the HTML head tags-->
 {% block head %}
+<script>
+  $(document).ready(function(){
+        
+        // sessionStorage is a property of the Web Storage API that creates an instance of a  Storage object. Storage objects are simple key-value stores but stay intact through page loads. The key and values are always strings.
+        // sessionStorage allows us to store data in the browser until the browser(or tab) is closed.
 
+        // Jquery statement that references the dropdown list.
+        let $sortDropdown = $("#sortSelector");
+        let $perPageDropdown = $("#perPage");
+
+        // // On initial entry of website, localStorage will be empty. If so, grab the default value of "Sort By:".
+        // if(JSON.parse(sessionStorage.getItem('selected')) === null){
+        //   sessionStorage.setItem("selected", JSON.stringify($sortDropdown.val("PublicationYearDescending")));
+        //   // sessionStorage.setItem("selected", $sortDropdown.val());
+        // }
+
+        // // On initial entry of website, localStorage will be empty. If so, grab the default value of "Per Page:".
+        // if(JSON.parse(sessionStorage.getItem('selectedPerPage')) === null){
+        //   sessionStorage.setItem("selectedPerPage", JSON.stringify($perPageDropdown.val("10")));
+        //   // sessionStorage.setItem("selectedPerPage", $perPageDropdown.val());
+        // }
+        
+        // Grab the values of keys 'selected' and 'selectedPerPage'.
+        selectedValue = JSON.parse(sessionStorage.getItem('selected')) || {};
+        selectedValuePerPage = JSON.parse(sessionStorage.getItem('selectedPerPage')) || {};
+
+        $("button[type='submit']").click(function(){
+        // Set value of the selected option to the key "selected" and send it to localStorage.
+        sessionStorage.setItem("selected", JSON.stringify($sortDropdown.val()));
+        sessionStorage.setItem("selectedPerPage", JSON.stringify($perPageDropdown.val()));
+        });
+
+        // Display the value of selectedValue in the "Sort By:" Dropdown window.
+        $sortDropdown.val(selectedValue);
+
+        // Display the value of selectedValuePerPage in the "Per Page:" Dropdown window.
+        $perPageDropdown.val(selectedValuePerPage);
+        
+        
+    });
+</script>
 {% endblock %}
 
 <!-- Anything you put here will be in the body-->
@@ -31,8 +71,8 @@
 
       <h3 id="searchFil3">Per Page:</h3>
         <select name="perPage" id="perPage" class="resizedTextbox form-control" >
-          <option value="" disabled selected>Rows per Page</option>
-          <option value="10">10</option>
+          <!-- <option value="" disabled selected>Rows per Page</option> -->
+          <option value="10" selected="selected">10</option>
           <option value="25">25</option>
           <option value="50">50</option>
           <option value="100">100</option>
