@@ -107,13 +107,13 @@ def searchLogic(mysql, mysql2):
         if not selected_years:
             # no year filter
             sql = "Select doi, title, container_title, published_print_date_parts, fk from _main_ where doi like '%" + \
-                search + "%\' order by published_print_date_parts" + descending_or_ascending
+                search + "%\' order by published_print_date_parts" + descending_or_ascending + ";"
         else:
             # with year filter
             sql = "Select doi, title, container_title, published_print_date_parts, fk from _main_ where doi like '%" + \
                 search + \
                 "%\' and substr(published_print_date_parts, 1,4) in " + \
-                s_years + " order by published_print_date_parts" + descending_or_ascending
+                s_years + " order by published_print_date_parts" + descending_or_ascending + ";"
 
         cursor.execute(sql)
         result_set = cursor.fetchall()
@@ -163,7 +163,7 @@ def searchLogic(mysql, mysql2):
         # get fk and name for searched author name
         given_author = []
         given_author = '( '
-        auth_sql = "SELECT fk, name FROM dr_bowman_doi_data_tables.author where name like'%" + search+"%';"
+        auth_sql = "SELECT fk, name FROM dr_bowman_doi_data_tables.author where name like'%" + search +"%';"
         cursor.execute(auth_sql)
         result_set = cursor.fetchall()
         # form a list of fk for the where statement (ex.) ('2005','2006')
@@ -179,13 +179,13 @@ def searchLogic(mysql, mysql2):
             if not selected_years:
                 # no year filter
                 sql = "Select doi, title, container_title, published_print_date_parts, fk from _main_ where fk in " + \
-                    given_author + " order by published_print_date_parts" + descending_or_ascending
+                    given_author + " order by published_print_date_parts" + descending_or_ascending + ";"
             else:
                 # with year filter
                 sql = "Select doi, title, container_title, published_print_date_parts, fk from _main_ where fk in " + \
                     given_author + \
                     " and substr(published_print_date_parts, 1,4) in" + \
-                    s_years + " order by published_print_date_parts" + descending_or_ascending
+                    s_years + " order by published_print_date_parts" + descending_or_ascending + ";"
 
             try:
                 cursor.execute(sql)
@@ -234,13 +234,13 @@ def searchLogic(mysql, mysql2):
         if not selected_years:
             # no year filter
             sql = "Select doi, title, container_title, published_print_date_parts, fk from _main_ where container_title like '%" + \
-                search + "%\' order by published_print_date_parts" + descending_or_ascending
+                search + "%\' order by published_print_date_parts" + descending_or_ascending + ";"
         else:
             # with year filter
             sql = "Select doi, title, container_title, published_print_date_parts, fk from _main_ where container_title like '%" + \
                 search + \
                 "%\' and substr(published_print_date_parts, 1,4) in" + \
-                s_years+" order by published_print_date_parts" + descending_or_ascending
+                s_years+" order by published_print_date_parts" + descending_or_ascending + ";"
 
         cursor.execute(sql)
         result_set = cursor.fetchall()
@@ -286,13 +286,13 @@ def searchLogic(mysql, mysql2):
         if not selected_years:
             # no year filter
             sql = "Select doi, title, container_title, published_print_date_parts, fk from _main_ where title like '%" + \
-                search + "%\' order by published_print_date_parts" + descending_or_ascending
+                search + "%\' order by published_print_date_parts" + descending_or_ascending + ";"
         else:
             # with year filter
             sql = "Select doi, title, container_title, published_print_date_parts, fk from _main_ where title like '%" + \
                 search + \
                 "%\' and substr(published_print_date_parts, 1,4) in" + \
-                s_years + " order by published_print_date_parts" + descending_or_ascending
+                s_years + " order by published_print_date_parts" + descending_or_ascending + ";"
 
         cursor.execute(sql)
         result_set = cursor.fetchall()
