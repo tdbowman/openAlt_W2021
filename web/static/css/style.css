@@ -488,3 +488,8 @@ svg {
   text-align: center;
 }
 
+p:empty{
+  width:20px;
+  height:40px;
+  border-radius: 70%;
+}
