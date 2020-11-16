@@ -25,7 +25,7 @@ var chart = c3.generate({
         x: {
           /* Might just want to comment this out because I cannot get it to work with larger font sizes. */
           label: {
-            text: 'Years',
+            text: '',
             position: 'outer-center'
           },
           tick: {
