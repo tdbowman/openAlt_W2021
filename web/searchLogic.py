@@ -3,17 +3,19 @@ from flask import Flask, session
 from datetime import datetime
 from flask_paginate import Pagination, get_page_parameter, get_per_page_parameter
 
+
 def searchLogic(mysql, mysql2):
 
     # Declare variables here for readability
     cursor = mysql.connection.cursor()
+    cursor2 = mysql.connection.cursor()
     cursor3 = mysql2.connection.cursor()
     cursor4 = mysql2.connection.cursor()
     cursor5 = mysql2.connection.cursor()
     cursor6 = mysql2.connection.cursor()
 
     row = "something not none"
-    totalEventsSum=0
+    totalEventsSum = 0
     pagination = None
     s_years = None
     startYear = None
@@ -21,11 +23,13 @@ def searchLogic(mysql, mysql2):
     sortSelector = None
     returnedQueries = []
     selected_years = []
-    descending_or_ascending = " desc;" # sort by descending by default, change to asc if user wants
+    # sort by descending by default, change to asc if user wants
+    descending_or_ascending = " desc;"
 
     # Get page number if it exists. If not, set to 1
     try:
-        page = flask.request.args.get(get_page_parameter(), type=int, default=1)
+        page = flask.request.args.get(
+            get_page_parameter(), type=int, default=1)
     except ValueError:
         page = 1
 
@@ -37,12 +41,12 @@ def searchLogic(mysql, mysql2):
     endYear = flask.request.form.get("endYear")
     sortSelector = flask.request.form.get('sortSelector')
     perPage = str(flask.request.form.get("perPage"))
-    
+
     #print("Selection from hidden form is:", selection)
     #print("Search from hidden form is:", search)
     #print("startYear from hidden form is:", startYear)
     #print("endYear from hidden form is:", endYear)
-    
+
     if flask.request.form.get("search") is None:
         search = str(flask.request.args.get("search"))
     if flask.request.form.get("dropdownSearchBy") is None:
@@ -63,7 +67,7 @@ def searchLogic(mysql, mysql2):
     if (sortSelector == "PublicationYearAscending"):
         descending_or_ascending = " asc;"
     else:
-        descending_or_ascending = " desc;" # redundant but having this here is clearer
+        descending_or_ascending = " desc;"  # redundant but having this here is clearer
 
     # Grab the years from the year form if they exist
     # Store these in selected_years list. This is related to the s_years string, but used in different ways
@@ -71,10 +75,10 @@ def searchLogic(mysql, mysql2):
         # used in the year range form
         startYear = int(startYear)
         endYear = int(endYear)
-        temp_year = startYear # We want to keep startYear unchanged from users input
+        temp_year = startYear  # We want to keep startYear unchanged from users input
         if temp_year > datetime.now().year:
             pass  # If user enters a year greater than this year, just proceed to the except block AKA execute search with no year filter
-        
+
         # Build up a list of selected years, ranging from startYear to endYear
         while (temp_year < endYear + 1):
             selected_years.append(temp_year)
@@ -94,7 +98,6 @@ def searchLogic(mysql, mysql2):
             s_years = s_years + "'" + str(year) + "'" + ","
     s_years = s_years + ')'
 
-
     #   Select which SQL to execute, based on the drop-down selection,
     #   the search term, and the years selected, if any
 
@@ -103,7 +106,8 @@ def searchLogic(mysql, mysql2):
 
         if not selected_years:
             # no year filter
-            sql = "Select doi, title, container_title, published_print_date_parts, fk from _main_ where doi like '%" + search + "%\' order by published_print_date_parts" + descending_or_ascending
+            sql = "Select doi, title, container_title, published_print_date_parts, fk from _main_ where doi like '%" + \
+                search + "%\' order by published_print_date_parts" + descending_or_ascending
         else:
             # with year filter
             sql = "Select doi, title, container_title, published_print_date_parts, fk from _main_ where doi like '%" + \
@@ -128,9 +132,8 @@ def searchLogic(mysql, mysql2):
                 # get list of authors for given fk
                 author_list = cursor.fetchall()
 
-           
             TotalEventsQuerySum = "SELECT totalEvents AS sumCount FROM crossrefeventdatamain.main WHERE objectID = 'https://doi.org/" + \
-            row['doi'] + "';"
+                row['doi'] + "';"
             cursor6.execute(TotalEventsQuerySum)
 
             totalEventsSum = cursor6.fetchone()
@@ -139,13 +142,13 @@ def searchLogic(mysql, mysql2):
                 totalEventsSum = 0
             else:
                 totalEventsSum = totalEventsSum['sumCount']
-                
+
             # create dict with _main_ table row and author list
             article = {'objectID': row['doi'], 'articleTitle': row['title'],
                        'journalName': row['container_title'],
                        'articleDate': row['published_print_date_parts'],
                        'author_list': author_list,
-                       'totalEventsSum':totalEventsSum}
+                       'totalEventsSum': totalEventsSum}
             # append article dict to returnedQueries list
             returnedQueries.append(article)
 
@@ -153,6 +156,7 @@ def searchLogic(mysql, mysql2):
 
         returnedQueries.append(None)
         cursor.close()
+        cursor6.close()
         returnedQueries.pop()  # the last list item is always null so pop it
 
     elif (selection == "Author"):
@@ -174,7 +178,8 @@ def searchLogic(mysql, mysql2):
         if result_set is not None:
             if not selected_years:
                 # no year filter
-                sql = "Select doi, title, container_title, published_print_date_parts, fk from _main_ where fk in " + given_author + " order by published_print_date_parts" + descending_or_ascending
+                sql = "Select doi, title, container_title, published_print_date_parts, fk from _main_ where fk in " + \
+                    given_author + " order by published_print_date_parts" + descending_or_ascending
             else:
                 # with year filter
                 sql = "Select doi, title, container_title, published_print_date_parts, fk from _main_ where fk in " + \
@@ -197,9 +202,9 @@ def searchLogic(mysql, mysql2):
                         cursor.execute(author_sql)
                         # get list of authors for given fk
                         author_list = cursor.fetchall()
-                    
+
                     TotalEventsQuerySum = "SELECT totalEvents AS sumCount FROM crossrefeventdatamain.main WHERE objectID = 'https://doi.org/" + \
-                    row['doi'] + "';"
+                        row['doi'] + "';"
                     cursor5.execute(TotalEventsQuerySum)
 
                     totalEventsSum = cursor5.fetchone()
@@ -207,19 +212,20 @@ def searchLogic(mysql, mysql2):
                     if totalEventsSum is None:
                         totalEventsSum = 0
                     else:
-                         totalEventsSum = totalEventsSum['sumCount']
+                        totalEventsSum = totalEventsSum['sumCount']
 
                     # create dict with _main_ table row and author list
                     article = {'objectID': row['doi'], 'articleTitle': row['title'],
                                'journalName': row['container_title'],
                                'articleDate': row['published_print_date_parts'],
                                'author_list': author_list,
-                               'totalEventsSum':totalEventsSum}
+                               'totalEventsSum': totalEventsSum}
                     # append article dict to returnedQueries list
                     returnedQueries.append(article)
 
                 returnedQueries.append(None)
                 cursor.close()
+                cursor5.close()
                 returnedQueries.pop()  # the last list item is always null so pop it
             except:
                 pass
@@ -227,7 +233,8 @@ def searchLogic(mysql, mysql2):
     elif (selection == "Journal"):
         if not selected_years:
             # no year filter
-            sql = "Select doi, title, container_title, published_print_date_parts, fk from _main_ where container_title like '%" + search + "%\' order by published_print_date_parts" + descending_or_ascending
+            sql = "Select doi, title, container_title, published_print_date_parts, fk from _main_ where container_title like '%" + \
+                search + "%\' order by published_print_date_parts" + descending_or_ascending
         else:
             # with year filter
             sql = "Select doi, title, container_title, published_print_date_parts, fk from _main_ where container_title like '%" + \
@@ -250,9 +257,9 @@ def searchLogic(mysql, mysql2):
                 cursor.execute(author_sql)
                 # get list of authors for given fk
                 author_list = cursor.fetchall()
-            
+
             TotalEventsQuerySum = "SELECT totalEvents AS sumCount FROM crossrefeventdatamain.main WHERE objectID = 'https://doi.org/" + \
-                    row['doi'] + "';"
+                row['doi'] + "';"
             cursor4.execute(TotalEventsQuerySum)
 
             totalEventsSum = cursor4.fetchone()
@@ -267,17 +274,19 @@ def searchLogic(mysql, mysql2):
                        'journalName': row['container_title'],
                        'articleDate': row['published_print_date_parts'],
                        'author_list': author_list,
-                       'totalEventsSum':totalEventsSum}
+                       'totalEventsSum': totalEventsSum}
             returnedQueries.append(article)
 
         returnedQueries.append(None)
         cursor.close()
+        cursor4.close()
         returnedQueries.pop()  # the last list item is always null so pop it
 
     elif (selection == "Article"):
         if not selected_years:
             # no year filter
-            sql = "Select doi, title, container_title, published_print_date_parts, fk from _main_ where title like '%" + search + "%\' order by published_print_date_parts" + descending_or_ascending
+            sql = "Select doi, title, container_title, published_print_date_parts, fk from _main_ where title like '%" + \
+                search + "%\' order by published_print_date_parts" + descending_or_ascending
         else:
             # with year filter
             sql = "Select doi, title, container_title, published_print_date_parts, fk from _main_ where title like '%" + \
@@ -302,7 +311,7 @@ def searchLogic(mysql, mysql2):
                 author_list = cursor.fetchall()
 
             TotalEventsQuerySum = "SELECT totalEvents AS sumCount FROM crossrefeventdatamain.main WHERE objectID ='https://doi.org/" + \
-            row['doi'] + "';"
+                row['doi'] + "';"
             cursor3.execute(TotalEventsQuerySum)
 
             totalEventsSum = cursor3.fetchone()
@@ -310,27 +319,32 @@ def searchLogic(mysql, mysql2):
             if totalEventsSum is None:
                 totalEventsSum = 0
             else:
-               totalEventsSum = totalEventsSum['sumCount']
-
+                totalEventsSum = totalEventsSum['sumCount']
 
             # create dict with _main_ table row and author list
             article = {'objectID': row['doi'], 'articleTitle': row['title'],
                        'journalName': row['container_title'],
                        'articleDate': row['published_print_date_parts'],
-                       'author_list': author_list, 'totalEventsSum':totalEventsSum}
+                       'author_list': author_list, 'totalEventsSum': totalEventsSum}
             returnedQueries.append(article)
 
         returnedQueries.append(None)
         cursor.close()
         cursor3.close()
-        cursor4.close()
-        cursor5.close()
-        cursor6.close()
-
         returnedQueries.pop()  # the last list item is always null so pop it
 
-    #sort returnedQueries list by totalEventsSum - commented out because when implemented it cancels out publicaton year filter
-    sorted_returnedQueries = sorted(returnedQueries, key=lambda x: x['totalEventsSum'], reverse=True)
+    # Get oldest publication date in database
+    oldestPubYearQuery = "SELECT published_print_date_parts FROM _main_ " + \
+        "WHERE published_print_date_parts IS NOT NULL " + \
+        "ORDER BY published_print_date_parts ASC;"
+
+    cursor2.execute(oldestPubYearQuery)
+    oldestPubYear = cursor2.fetchone()
+    oldestPubYear = oldestPubYear['published_print_date_parts']
+
+    # sort returnedQueries list by totalEventsSum - commented out because when implemented it cancels out publicaton year filter
+    sorted_returnedQueries = sorted(
+        returnedQueries, key=lambda x: x['totalEventsSum'], reverse=True)
 
     # If the user has selected the "Sort by events descending" option, then use the above to sort
     if sortSelector == "eventsDescending":
@@ -338,14 +352,18 @@ def searchLogic(mysql, mysql2):
 
     #   Pagination and Return statements
     per_page = int(perPage)
-    article_start = (page * per_page) - per_page  # calculate starting article index (for any given page)
-    article_end = article_start + per_page  # calculate ending article index (for any given page)
+    # calculate starting article index (for any given page)
+    article_start = (page * per_page) - per_page
+    # calculate ending article index (for any given page)
+    article_end = article_start + per_page
 
-    #form a URL for href with parameters
-    search_url_param = "/searchResultsPage?search=" + search + "&dropdownSearchBy=" + selection + "&page={0}" + "&startYear=" + str(startYear) + "&endYear=" + str(endYear) + "&sortSelector=" + sortSelector +"&perPage=" + str(per_page)
+    # form a URL for href with parameters
+    search_url_param = "/searchResultsPage?search=" + search + "&dropdownSearchBy=" + selection + \
+        "&page={0}" + "&startYear=" + str(startYear) + "&endYear=" + str(
+            endYear) + "&sortSelector=" + sortSelector + "&perPage=" + str(per_page)
 
-    #Instantiate a pagination object
+    # Instantiate a pagination object
     pagination = Pagination(page=page, per_page=per_page, href=search_url_param,
                             total=len(returnedQueries), css_framework='bootstrap3')
 
-    return flask.render_template('searchResultsPage.html', totalEventsSum=totalEventsSum, listedSearchResults=returnedQueries, dropdownSearchBy=selection, article_start=article_start, article_end=article_end, search=search, pagination=pagination)
+    return flask.render_template('searchResultsPage.html', totalEventsSum=totalEventsSum, listedSearchResults=returnedQueries, dropdownSearchBy=selection, article_start=article_start, article_end=article_end, search=search, pagination=pagination, oldestPubYear=oldestPubYear)
