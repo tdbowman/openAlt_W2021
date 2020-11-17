@@ -497,3 +497,7 @@ p:empty{
   height:40px;
   border-radius: 70%;
 }
+
+#search_input{
+  width:400px;
+}
