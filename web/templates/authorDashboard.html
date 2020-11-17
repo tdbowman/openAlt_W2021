@@ -162,15 +162,16 @@
                         <div class="AUD_articleTitle">
                             <a href="{{ url_for('articleDashboard') }}?DOI={{ author.objectID }}">{{ author.articleTitle }}</a>
                         </div>
+
                         <div class="AUD_journalName">
-                            Journal:
+                            <strong>Journal:</strong>
                             <a href="{{ url_for('journalDashboard') }}?journalName={{ author.journalName }}">{{ author.journalName }}</a>
                         </div>
                         <div class="AUD_articleDate">
-                            Date Published: {{ author.articleDate }}
+                            <strong>Date Published:</strong> {{ author.articleDate }}
                         </div>
                         <div class="AUD_authors">
-                                Author(s):
+                               <strong> Author(s):</strong>
                                 {% for auth in author.author_list%}
                                         {% if auth.name == author_name %}
                                                 {% if auth == author.author_list[-1] %}
@@ -190,7 +191,7 @@
 
                         </div>
                         <div class="AUD_DOI">
-                            DOI:
+                            <strong>DOI:</strong>
                             <a href="https://doi.org/{{ author.objectID }}"target="_blank">{{ author.objectID }} &#8599;</a>
                         </div>
                         <br>

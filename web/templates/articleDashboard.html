@@ -178,7 +178,7 @@
     <div class = "statsContainer">
         <div style="width:180px; border-radius: 25px; padding: 10px; background-color: rgba(208, 218, 230, 0.5); " class = "center-screen col-sm-6">
             <h2 style="text-align: center; color: black;">{{totalEventsSum}}</h2>
-            <p2>Events <a style="text-decoration: underline;" href="https://www.crossref.org/services/event-data/"target="_blank">(?)</a></p2>
+            <p2><strong>Events</strong> <a style="text-decoration: none;" href="https://www.crossref.org/services/event-data/"target="_blank">(?)</a></p2>
             <br>
         </div>
     </div>
@@ -196,13 +196,13 @@
                     </div>
                     <br>
                     <div class="AD_journalName">
-                        Journal: <a href="{{ url_for('journalDashboard') }}?journalName={{ article_detail.journalName }}">{{ article_detail.journalName }}</a>
+                        <strong>Journal:</strong> <a href="{{ url_for('journalDashboard') }}?journalName={{ article_detail.journalName }}">{{ article_detail.journalName }}</a>
                     </div>
                     <div class="AD_articleDate">
-                        Date Published: {{ article_detail.articleDate }}
+                        <strong>Date Published:</strong> {{ article_detail.articleDate }}
                     </div>
                     <div class="AD_authors">
-                        Author(s):
+                        <strong>Author(s):</strong>
                             {% for auth in article_detail.author_list %}
                                 {% if auth == article_detail.author_list[-1] %}
                                     <a href="{{ url_for('authorDashboard') }}?author_id={{ auth.id }}">{{ auth.name }}</a>
@@ -212,7 +212,7 @@
                             {% endfor %}
                     </div>
                     <div class="AD_DOI">
-                        DOI: <a href="https://doi.org/{{ article_detail.objectID }}"target="_blank">{{ article_detail.objectID }} &#8599;</a>
+                        <strong>DOI:</strong> <a href="https://doi.org/{{ article_detail.objectID }}"target="_blank">{{ article_detail.objectID }} &#8599;</a>
                     </div>
                     <br>
                     <br>
