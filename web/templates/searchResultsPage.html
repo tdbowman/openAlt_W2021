@@ -171,21 +171,21 @@
                 <a href="{{ url_for('articleDashboard') }}?DOI={{ result.objectID }}">{{ result.articleTitle }}</a>
             </div>
 
-            <div class="SR_journalName">
+            <div style="font-weight: bold;"class="SR_journalName">
                 Journal Name:
-                <a href="{{ url_for('journalDashboard') }}?journalName={{ result.journalName }}">{{ result.journalName }}</a>
+                <a style="font-weight: initial;" href="{{ url_for('journalDashboard') }}?journalName={{ result.journalName }}">{{ result.journalName }}</a>
             </div>
             
             <div class="SR_articleDate">
               {% if result.articleDate == None %}
-                Article Date: Unknown
+                <strong>Article Date:</strong> Unknown
               {% else %}
-                Article Date: {{ result.articleDate }}
+                <strong>Article Date:</strong> {{ result.articleDate }}
               {% endif %}
             </div>
 
             <div class="SR_authors">
-                Author(s):
+                <strong>Author(s):</strong>
                 
                 {% if not result.author_list %}
                   Unknown
@@ -201,13 +201,13 @@
             </div>
 
             <div class="DOI">
-                DOI:
+                <strong>DOI:</strong>
                 <a href="https://doi.org/{{ result.objectID }}"target="_blank">{{ result.objectID }} &#8599;</a>
             </div>
 
             
-            <div>
-              Total events: {{result.totalEventsSum}}
+            <div class="SR_authors">
+              <strong>Total events:</strong> {{result.totalEventsSum}}
             </div>
           
 

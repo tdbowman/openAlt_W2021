@@ -92,18 +92,18 @@
                 </div>
                 -->
                  <div class="JD_issue">
-                    Issue:
+                    <strong>Issue:</strong>
                     {{ journal.issue }}
                 </div>
                  <div class="JD_journalPage">
-                    Page Number:
+                    <strong>Page Number:</strong>
                     {{ journal.journalPage }}
                 </div>
                 <div class="JD_articleDate">
-                    Date Published: {{ journal.articleDate }}
+                    <strong>Date Published:</strong> {{ journal.articleDate }}
                 </div>
                 <div class="JD_authors">
-                    Author(s):
+                    <strong>Author(s):</strong>
                     {% for author in journal.author_list %}
                         {% if author == journal.author_list[-1]: %}
                             <a href="{{ url_for('authorDashboard') }}?author_id={{ author.id }}">{{ author.name }}</a>
@@ -113,7 +113,7 @@
                     {% endfor %}
                 </div>
                 <div class="JD_DOI">
-                    DOI:
+                    <strong>DOI:</strong>
                     <a href="https://doi.org/{{ journal.objectID }}"target="_blank">{{ journal.objectID }} &#8599;</a>                </div>
                 </td>
                 </tr>
