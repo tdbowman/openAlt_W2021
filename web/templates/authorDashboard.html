@@ -17,6 +17,18 @@
     // Only run this function when the document has fully loaded.
     $(document).ready(function(){
 
+        // Grab the elements in bold then the last bold element within the class ".pagination-page-info". 
+        let $paginationBoldText = $(".pagination-page-info").children("b");
+        let $lastPaginationBoldText = $paginationBoldText.last();
+
+        // If the total records are less than 11, hide the "Per Page" Form.
+        if(parseInt($lastPaginationBoldText.text(),10) < 11){
+            $(".form-inline").hide();
+        }
+        
+        // Change positioning of X-axis label. Will look into Bootstrap 4.0+ for row padding/margin manipulation to give more room for the X-axis label.
+        $(".c3-axis-x-label").attr("dy","36");
+
         // Create jQuery variables to reference the text box and the submit button
         let $yearInput = $("#yearBox");
         let $submitButton = $("input[type='submit']");
@@ -51,6 +63,37 @@
             }     
         }
 
+        // Grabs all elements (g) from the class ".c3-axis-y" and stores them as objects in $yAxis.
+        let $yAxis = $(".c3-axis-y");
+
+        // Grabs all the children elements (g) of class ".tick" and stores them as objects in $yAxisTicks. 
+        let $yAxisTicks = $yAxis.children(".tick");
+
+        // Grabs all the elements (g) of class ".c3-legend-item" and stores them as objects in $legendItems.
+        let $legendItems = $(".c3-legend-item");
+
+        // When you click on any of the platforms within the legend.
+        $legendItems.click(function(){
+
+            //  setTimeout(function,x) executes a function after x milliseconds.
+            setTimeout(function(){
+                // Grabs the tick elements after the page loads with the new chart data.
+                $yAxis = $(".c3-axis-y");
+                $yAxisTicks = $yAxis.children(".tick");
+                // Loop through each tick object..
+                $yAxisTicks.each(function(){
+                    // Store the label text of the tick into $tickText. 
+                    let $tickText = $(this).children("text").text();
+
+                    // If the label text is an empty string, remove the line associated with it.
+                    if($tickText === ''){
+                        $(this).children("line").remove();
+                    }
+                });
+            }, 500);
+                
+        });
+
         // When the user clicks on the submit button..
         $submitButton.click(function(){
             // If the year text box is empty, send an alert and don't allow the user to submit the form.
@@ -72,17 +115,17 @@
 
         // When the focus is inside the year text box...
         $yearInput.keydown(function(event){
-            // Disable shift key to stop special characters from entering text box.
-            if(event.shiftKey == true){
-                return false;
-            }
             // Allow numbers from the top row of the keyboard and numpad.
-            else if(event.keyCode >= 48 && event.keyCode <= 57 || event.keyCode >= 96 && event.keyCode <= 105){
+            if(event.keyCode >= 48 && event.keyCode <= 57 || event.keyCode >= 96 && event.keyCode <= 105){
                 return true;
             }
             // Allow backspace, tab or enter button.
             else if(event.keyCode == 8 || event.keyCode == 9 || event.keyCode == 13){
                 return true;
+            }
+            // Disable shift key to stop special characters from entering text box.
+            else if(event.shiftKey == true){
+                return false;
             }
             else{
                 return false;
@@ -91,33 +134,6 @@
 
         
     });
-    //     // Storing radio button values into the object radioValues
-    //     // localStorage is a property of the Web Storage API that creates an instance of a  Storage object. Storage objects are simple key-value stores but stay intact through page loads. The key and values are always strings.
-    //     // localStorage allows us to store data in the browser and retrieve it later.
-    //     // JSON.parse() converts the data which is a string and turns it into a JS object.
-    //     let radioValues = JSON.parse(localStorage.getItem('radioValues')) || {};
-    //     // Jquery statement that selects the radio buttons within the <div> yearFilter and stores them into $radioButtons.
-    //     let $radioButtons = $("#yearFilter :radio");
-
-    //     // When a radio button is pressed(changes)...
-    //     $radioButtons.on("change",function(){
-    //         // Debugging 
-    //         // alert("The radio button " + this.value + " was selected"); or this.id
-            
-    //         // Iterate through each radio button.....
-    //         $radioButtons.each(function(){
-    //             // This radio button is checked
-    //             radioValues[this.id] = this.checked;
-    //         });
-    //         // Stringify the values of each button and set them into the key radioValues in localStorage.
-    //         localStorage.setItem("radioValues", JSON.stringify(radioValues));
-    //     });
-
-    //     // On page load, check the radio button by ID .
-    //     $.each(radioValues,function(key, value){
-    //         $("#" + key).prop("checked", value);
-    //     });
-    // });
 </script>
 {% endblock %}
 
@@ -214,18 +230,10 @@
                 <!-- <div id="slider">
 
                 </div> -->
-                <label for="year">Select a year (YYYY):</label>
+                <label for="yearBox">Select a year (YYYY):</label>
                 <input type="text" name="year" id="yearBox" size="4" maxlength="4" pattern="\d{4}">
                 <input width="40%" type="submit" value="Update" class="form-control">
             </form>
-            <!-- This form determines the years used by the chart. Clicking submit refreshes the page by calling articleDashboard in the same way that the search results page does -->
-            <!-- <form method="post" action="{{ url_for('authorDashboard') }}?author_id={{ passed_author_id }}" class="form-inline">
-                <label class="radio-inline"><input type="radio" name="optradio" value="2001-2005" id="button1">2001-2005</label>
-                <label class="radio-inline"><input type="radio" name="optradio" value="2006-2010" id="button2">2006-2010</label>
-                <label class="radio-inline"><input type="radio" name="optradio" value="2011-2015" id="button3">2011-2015</label>
-                <label class="radio-inline"><input type="radio" name="optradio" value="2016-2020" id="button4">2016-2020</label>
-                <input width="40%" type="submit" value="Update" class="form-control">
-            </form> -->
         </div>
     </div>
 </div>
@@ -242,7 +250,6 @@
 {% for date in author_article_list %}
 <script>
     yearOnly = '{{date.articleDate}}';
-    console.log(yearOnly);
     yearOnly = yearOnly.slice(0,4);
     articleDates.push(parseInt(yearOnly,10));
 </script>

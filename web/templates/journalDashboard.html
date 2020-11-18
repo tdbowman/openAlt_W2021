@@ -12,6 +12,42 @@
 <!-- Load c3 last (because it depends on d3) -->
 <script src="../static/js/libraries/c3-0.7.20/c3.min.js"></script>
 <!-- END CHART SECTION -->
+
+<script>
+    $(function(){
+        // Grab the elements in bold then the last bold element within the class ".pagination-page-info". 
+        let $paginationBoldText = $(".pagination-page-info").children("b");
+        let $lastPaginationBoldText = $paginationBoldText.last();
+
+        // If the total records are less than 11, hide the "Per Page" Form.
+        if(parseInt($lastPaginationBoldText.text(),10) < 11){
+            $(".form-inline").hide();
+        }
+
+        // Grabs all elements (g) from the class ".c3-axis-y" and stores them as objects in $yAxis.
+        let $yAxis = $(".c3-axis-y");
+
+        // Grabs all the children elements (g) of class ".tick" and stores them as objects in $yAxisTicks. 
+        let $yAxisTicks = $yAxis.children(".tick");
+
+        //  setTimeout(function,x) executes a function after x milliseconds.
+        setTimeout(function(){
+            // Grabs the tick elements after the page loads with the new chart data.
+            $yAxis = $(".c3-axis-y");
+            $yAxisTicks = $yAxis.children(".tick");
+            // Loop through each tick object..
+            $yAxisTicks.each(function(){
+                // Store the label text of the tick into $tickText. 
+                let $tickText = $(this).children("text").text();
+
+                // If the label text is an empty string, remove the line associated with it.
+                if($tickText === ''){
+                    $(this).children("line").remove();
+                }
+            });
+        }, 500);
+    });
+</script>
 {% endblock %}
 
 <!-- Anything you put here will be in the body-->
