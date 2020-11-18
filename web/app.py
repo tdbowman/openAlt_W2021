@@ -81,19 +81,6 @@ def articleDashboard():
 
     # for i in range(bounds['min'], bounds['max'])
     # ------------------------------------------------
-    # THIS IS THE ENTRY POINT FOR THE YEAR CHECKBOX FORM ON THE DASHBOARD
-    # years_list = [2016, 2017, 2018, 2019, 2020]
-
-    # # radioYears will be None if this is the first page load. Then it will pickup the radio selection
-    # radioYears = str(flask.request.form.get("optradio"))
-    # if (radioYears == None):
-    #     years_list = [2016, 2017, 2018, 2019, 2020]
-    # elif (radioYears == "2011-2015"):
-    #     years_list = [2011, 2012, 2013, 2014, 2015]
-    # elif (radioYears == "2006-2010"):
-    #     years_list = [2006, 2007, 2008, 2009, 2010]
-    # elif (radioYears == "2001-2005"):
-    #     years_list = [2001, 2002, 2003, 2004, 2005]
 
     years_list = []
     print("This is the default year range.")
@@ -124,20 +111,6 @@ def journalDashboard():
 
 @ app.route('/authorDashboard', methods=["GET", "POST"])
 def authorDashboard():
-
-    # # THIS IS THE ENTRY POINT FOR THE YEAR CHECKBOX FORM ON THE DASHBOARD
-    # years_list = [2016, 2017, 2018, 2019, 2020]
-
-    # # radioYears will be None if this is the first page load. Then it will pickup the radio selection
-    # radioYears = str(flask.request.form.get("optradio"))
-    # if (radioYears == None):
-    #     years_list = [2016, 2017, 2018, 2019, 2020]
-    # elif (radioYears == "2011-2015"):
-    #     years_list = [2011, 2012, 2013, 2014, 2015]
-    # elif (radioYears == "2006-2010"):
-    #     years_list = [2006, 2007, 2008, 2009, 2010]
-    # elif (radioYears == "2001-2005"):
-    #     years_list = [2001, 2002, 2003, 2004, 2005]
 
     years_list = []
     yearInput = ''

@@ -329,8 +329,8 @@ var chart = c3.generate({
   axis: {
     x: {
       label: {
-        text: '',
-        position: 'outer-middle'
+        text: 'Years',
+        position: 'outer-center'
       },
       type: 'category',
       categories: [years_list[0], years_list[1], years_list[2], years_list[3], years_list[4]]
@@ -358,7 +358,8 @@ var chart = c3.generate({
   },
 
   size: {
-    width: 670
+    width: 670,
+    height: 575
   }
 });
 
