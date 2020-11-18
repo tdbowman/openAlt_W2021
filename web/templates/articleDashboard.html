@@ -21,6 +21,9 @@
 <script>
     $(function(){
 
+        // Change positioning of X-axis label. Will look into Bootstrap 4.0+ for row padding/margin manipulation to give more room for the X-axis label.
+        $(".c3-axis-x-label").attr("dy","36");
+
         // Create jQuery variables to reference the text box and the submit button.
         let $yearInput = $("#yearBox");
         let $submitButton = $("input[type='submit']");
