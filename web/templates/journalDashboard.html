@@ -23,6 +23,29 @@
         if(parseInt($lastPaginationBoldText.text(),10) < 11){
             $(".form-inline").hide();
         }
+
+        // Grabs all elements (g) from the class ".c3-axis-y" and stores them as objects in $yAxis.
+        let $yAxis = $(".c3-axis-y");
+
+        // Grabs all the children elements (g) of class ".tick" and stores them as objects in $yAxisTicks. 
+        let $yAxisTicks = $yAxis.children(".tick");
+
+        //  setTimeout(function,x) executes a function after x milliseconds.
+        setTimeout(function(){
+            // Grabs the tick elements after the page loads with the new chart data.
+            $yAxis = $(".c3-axis-y");
+            $yAxisTicks = $yAxis.children(".tick");
+            // Loop through each tick object..
+            $yAxisTicks.each(function(){
+                // Store the label text of the tick into $tickText. 
+                let $tickText = $(this).children("text").text();
+
+                // If the label text is an empty string, remove the line associated with it.
+                if($tickText === ''){
+                    $(this).children("line").remove();
+                }
+            });
+        }, 500);
     });
 </script>
 {% endblock %}
