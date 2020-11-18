@@ -12,6 +12,19 @@
 <!-- Load c3 last (because it depends on d3) -->
 <script src="../static/js/libraries/c3-0.7.20/c3.min.js"></script>
 <!-- END CHART SECTION -->
+
+<script>
+    $(function(){
+        // Grab the elements in bold then the last bold element within the class ".pagination-page-info". 
+        let $paginationBoldText = $(".pagination-page-info").children("b");
+        let $lastPaginationBoldText = $paginationBoldText.last();
+
+        // If the total records are less than 11, hide the "Per Page" Form.
+        if(parseInt($lastPaginationBoldText.text(),10) < 11){
+            $(".form-inline").hide();
+        }
+    });
+</script>
 {% endblock %}
 
 <!-- Anything you put here will be in the body-->

@@ -17,6 +17,15 @@
     // Only run this function when the document has fully loaded.
     $(document).ready(function(){
 
+        // Grab the elements in bold then the last bold element within the class ".pagination-page-info". 
+        let $paginationBoldText = $(".pagination-page-info").children("b");
+        let $lastPaginationBoldText = $paginationBoldText.last();
+
+        // If the total records are less than 11, hide the "Per Page" Form.
+        if(parseInt($lastPaginationBoldText.text(),10) < 11){
+            $(".form-inline").hide();
+        }
+        
         // Change positioning of X-axis label. Will look into Bootstrap 4.0+ for row padding/margin manipulation to give more room for the X-axis label.
         $(".c3-axis-x-label").attr("dy","36");
 
@@ -241,7 +250,6 @@
 {% for date in author_article_list %}
 <script>
     yearOnly = '{{date.articleDate}}';
-    console.log(yearOnly);
     yearOnly = yearOnly.slice(0,4);
     articleDates.push(parseInt(yearOnly,10));
 </script>
