@@ -63,51 +63,22 @@
         </div>
         <h4 style="text-align: center;">Years</h4>
     </div>
-            <!-- This goes below the chart
-            <div class="col-md-5" id="yearFilter">
-                <h3>Year</h3>
-                <hr>
-                <form action="">
-                    <label for="2020">
-                        <input type="checkbox" id="2020" name="2020"> 2020
-                    </label><br>
-                    <label for="2019">
-                        <input type="checkbox" id="2019" name="2019"> 2019
-                    </label><br>
-                    <label for="2018">
-                        <input type="checkbox" id="2018" name="2018"> 2018
-                    </label><br>
-                    <label for="2017">
-                        <input type="checkbox" id="2017" name="2017"> 2016
-                    </label><br>
-                </form>
-            </div> -->
 
     <div class="row">
-    <div class="col-md-12">
-        <!--
-        <div id="pHead">
-            {{ journal_name }}
-        </div>
-        -->
-        <hr>
-        <div id="pContent">
-            <!--<ul class="aInfo">
-                <li>Article Title: </li>
-                <li>Published in: </li>
-                <li>Journal Name: </li>
-                <li>Authors: </li>
-            </ul>-->
         <form class="form-inline" method="post" action="{{ url_for('journalDashboard') }}?journalName={{ journal_name }}" >
-        <select name="perPage" id="perPage" class="resizedTextbox form-control" >
-              <option value="" disabled selected>Per Page</option>
-              <option value="10">10</option>
-              <option value="25">25</option>
-              <option value="50">50</option>
-              <option value="100">100</option>
-        </select>
-        <button type="submit" class=" resizedTextbox btn btn-default">Apply</button>
+            <select name="perPage" id="perPage" class="resizedTextbox form-control" >
+                  <option value="" disabled selected>Per Page</option>
+                  <option value="10">10</option>
+                  <option value="25">25</option>
+                  <option value="50">50</option>
+                  <option value="100">100</option>
+            </select>
+            <button type="submit" class=" resizedTextbox btn btn-default">Apply</button>
         </form>
+    <div class="col-md-12">
+        <hr>
+        
+        <div id="pContent">
 
             <table id="noBorders">
             {{pagination.info}}
@@ -121,12 +92,7 @@
                 <div class="JD_articleTitle">
                     <a href="{{ url_for('articleDashboard') }}?DOI={{ journal.objectID }}">{{ journal.articleTitle }}</a>
                 </div>
-                <!--
-                <div class="JD_journalName">
-                    Journal Name:
-                    {{ journal.journalName }}
-                </div>
-                -->
+
                  <div class="JD_issue">
                     <strong>Issue:</strong>
                     {{ journal.issue }}

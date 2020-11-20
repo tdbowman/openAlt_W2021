@@ -16,7 +16,7 @@ except ImportError:
     exit
 
 # DO NOT CHANGE THESE
-email = "mitchfen@protonmail.com"
+email = "someone@email.com"
 source = "" # An empty string will cause it to pull from all sources
 rows = "10000" # number of Events to pull for today
 fetchURL = "https://api.eventdata.crossref.org/v1/events?mailto="
@@ -32,7 +32,7 @@ def main():
     # This loop causes the fetchData function to be called on a schedule
     # This allows us to get all the data for that day, while allowing some time for the server to be busy
     if (runOnSchedule == True):
-        schedule.every(10).minutes.do(fetchData)
+        schedule.every(1).hours.do(fetchData)
         while (True):
             schedule.run_pending()
             time.sleep(1)
