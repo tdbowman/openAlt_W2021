@@ -4,7 +4,7 @@ from datetime import datetime
 from flask_paginate import Pagination, get_page_parameter, get_per_page_parameter
 
 
-def searchLogic(mysql, mysql2):
+def searchLogic(mysql, mysql2, dropdownValue):
 
     # Declare variables here for readability
     cursor = mysql.connection.cursor()
@@ -163,7 +163,7 @@ def searchLogic(mysql, mysql2):
         # get fk and name for searched author name
         given_author = []
         given_author = '( '
-        auth_sql = "SELECT fk, name FROM dr_bowman_doi_data_tables.author where name like'%" + search +"%';"
+        auth_sql = "SELECT fk, name FROM dr_bowman_doi_data_tables.author where name like'%" + search + "%';"
         cursor.execute(auth_sql)
         result_set = cursor.fetchall()
         # form a list of fk for the where statement (ex.) ('2005','2006')
@@ -366,4 +366,4 @@ def searchLogic(mysql, mysql2):
     pagination = Pagination(page=page, per_page=per_page, href=search_url_param,
                             total=len(returnedQueries), css_framework='bootstrap3')
 
-    return flask.render_template('searchResultsPage.html', totalEventsSum=totalEventsSum, listedSearchResults=returnedQueries, dropdownSearchBy=selection, article_start=article_start, article_end=article_end, search=search, pagination=pagination, oldestPubYear=oldestPubYear)
+    return flask.render_template('searchResultsPage.html', totalEventsSum=totalEventsSum, listedSearchResults=returnedQueries, dropdownSearchBy=selection, article_start=article_start, article_end=article_end, search=search, pagination=pagination, oldestPubYear=oldestPubYear, dropdownValue=dropdownValue)

@@ -51,7 +51,13 @@ def index():
 
 @app.route('/searchResultsPage', methods=["GET", "POST"])
 def search():
-    return searchLogic(mysql, mysql2)
+
+    if(request.method == "POST"):
+        print("POST Method Received!")
+        dropdownValue = request.form.get('dropdownSearchBy')
+        print(dropdownValue)
+
+    return searchLogic(mysql, mysql2, dropdownValue)
 
 
 @app.route('/articleDashboard', methods=["GET", "POST"])
@@ -83,22 +89,26 @@ def articleDashboard():
     # ------------------------------------------------
 
     years_list = []
+    yearInput = ''
+
     print("This is the default year range.")
     currentYear = datetime.now().year
     for i in range(currentYear - 4, currentYear + 1):
         years_list.append(i)
     print(years_list)
     if request.method == "POST":
-        print("Received POST method request ")
-        print(request.form['year'])
-        if request.form['year'] is not None:
-            yearInput = request.form['year']
+        if request.form.get('year') is not None:
+            print("Received POST method request(year filter) ")
+            print("After I submit a year...")
+            print(request.form.get('year'))
+            yearInput = request.form.get('year')
             yearInput = int(yearInput)
             years_list = []
             for i in range(yearInput - 2, yearInput + 3):
                 years_list.append(i)
             print("New Years List: ", years_list)
     else:
+        print("No POST method (year filter) received")
         yearInput = ''
 
     return articleDashboardLogic(mysql, mysql2, years_list, yearInput)
@@ -121,8 +131,8 @@ def authorDashboard():
     print(years_list)
     if request.method == "POST":
         print("Received POST method request ")
-        print(request.form.get('year'))
         if request.form.get('year') is not None:
+            print(request.form.get('year'))
             yearInput = request.form.get('year')
             yearInput = int(yearInput)
             years_list = []

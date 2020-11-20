@@ -4,7 +4,11 @@
 {% block head %}
 <script>
   $(document).ready(function(){
-        
+
+	// Changes the current value of the dropdown window to whatever
+	let $searchFilter = $("#dropdownSearchBy"); 
+	$searchFilter.val("{{dropdownValue}}");
+
 	// sessionStorage is a property of the Web Storage API that creates an instance of a  Storage object. Storage objects are simple key-value stores but stay intact through page loads. The key and values are always strings.
 	// sessionStorage allows us to store data in the browser until the browser(or tab) is closed.
 
@@ -41,7 +45,7 @@
 
 	// When the focus is inside either of the year text boxes
 	$yearRangeBoxes.keydown(function(event){
-            
+		   
 		// Allow numbers from the top row of the keyboard and numpad.
 		if(event.keyCode >= 48 && event.keyCode <= 57 || event.keyCode >= 96 && event.keyCode <= 105){
 			return true;
@@ -124,9 +128,7 @@
 	// Display the value of selectedValuePerPage in the "Per Page:" Dropdown window.
 	$perPageDropdown.val(selectedValuePerPage);
 	
-
-        
-    });
+	});
 </script>
 {% endblock %}
 
@@ -134,123 +136,123 @@
 {% block body %}
 <div class="container">
   <div class="row">
-    <div class="col-sm-12">
-    <div class = "searchFilters">
+	<div class="col-sm-12">
+	<div class = "searchFilters">
 
-    <form class="form-inline" method="post" action="{{ url_for('search') }}" >
-      <h3 id="searchFil1">Filter By Year:</h3>
-      <!-- Keep these hidden fields, searchLogic.py needs them-->
-      <input type="hidden" id="search" name="search" value= {{ search }} >
-      <input type="hidden" id="dropdownSearchBy" name="dropdownSearchBy" value={{ dropdownSearchBy }}>
-        <input type="text" class=" resizedTextbox form-control yearRange" id="startYear" placeholder="From" name="startYear" maxlength="4" size="4">
-        <label>-</label>
-        <input type="text" class="resizedTextbox form-control yearRange" id="endYear" placeholder="To" name="endYear" maxlength="4" size="4">
-      <!-- Determine how the user would like to sort. This is picked up by sortLogic.py and used to set the descending_or_ascending variable -->
-      <h3 id="searchFil2">Sort By:</h3>
-      <select name="sortSelector" id="sortSelector" class="resizedTextbox form-control">
-        <option selected="selected" value="PublicationYearDescending">Publication Year - Descending</option>
-        <option value="PublicationYearAscending">Publication Year - Ascending</option>
-        <option value="eventsDescending">Total Events - Descending</option>
-        <!-- <option value="TotalEventsDescending">Popularity - Descending </option> -->
-      </select>
+	<form class="form-inline" method="post" action="{{ url_for('search') }}" >
+	  <h3 id="searchFil1">Filter By Year:</h3>
+	  <!-- Keep these hidden fields, searchLogic.py needs them-->
+	  <input type="hidden" id="search" name="search" value= {{ search }} >
+	  <input type="hidden" id="dropdownSearchBy" name="dropdownSearchBy" value={{ dropdownSearchBy }}>
+		<input type="text" class=" resizedTextbox form-control yearRange" id="startYear" placeholder="From" name="startYear" maxlength="4" size="4">
+		<label>-</label>
+		<input type="text" class="resizedTextbox form-control yearRange" id="endYear" placeholder="To" name="endYear" maxlength="4" size="4">
+	  <!-- Determine how the user would like to sort. This is picked up by sortLogic.py and used to set the descending_or_ascending variable -->
+	  <h3 id="searchFil2">Sort By:</h3>
+	  <select name="sortSelector" id="sortSelector" class="resizedTextbox form-control">
+		<option selected="selected" value="PublicationYearDescending">Publication Year - Descending</option>
+		<option value="PublicationYearAscending">Publication Year - Ascending</option>
+		<option value="eventsDescending">Total Events - Descending</option>
+		<!-- <option value="TotalEventsDescending">Popularity - Descending </option> -->
+	  </select>
 
-      <h3 id="searchFil3">Per Page:</h3>
-        <select name="perPage" id="perPage" class="resizedTextbox form-control" >
-          <!-- <option value="" disabled selected>Rows per Page</option> -->
-          <option value="10" selected="selected">10</option>
-          <option value="25">25</option>
-          <option value="50">50</option>
-          <option value="100">100</option>
-        </select>
-      <button type="submit" class=" resizedTextbox btn btn-default">Apply</button>
-    </form>
-    </div>
-    <br>
-    <br>
+	  <h3 id="searchFil3">Per Page:</h3>
+		<select name="perPage" id="perPage" class="resizedTextbox form-control" >
+		  <!-- <option value="" disabled selected>Rows per Page</option> -->
+		  <option value="10" selected="selected">10</option>
+		  <option value="25">25</option>
+		  <option value="50">50</option>
+		  <option value="100">100</option>
+		</select>
+	  <button type="submit" class=" resizedTextbox btn btn-default">Apply</button>
+	</form>
+	</div>
+	<br>
+	<br>
 
-    <div class="SR_boxed">
-    <th>Displaying Search Results For: {{search}}</th></div>
-      <br>
-      <!--Flask Pagination -->
-      <div class="SR_boxed">
-        {{pagination.info}}
-        {{pagination.links}}
-      </div>  
-      
+	<div class="SR_boxed">
+	<th>Displaying Search Results For: {{search}}</th></div>
+	  <br>
+	  <!--Flask Pagination -->
+	  <div class="SR_boxed">
+		{{pagination.info}}
+		{{pagination.links}}
+	  </div>  
+	  
 
-      <table style="width:1140px;" id="noBorders">
-        <!-- Pagination: List articles from article_start index to article_end index -->
-        {% for result in listedSearchResults[article_start:article_end] %}
-        <tr class="row row-bordered">
-        <td class='item-data'>
+	  <table style="width:1140px;" id="noBorders">
+		<!-- Pagination: List articles from article_start index to article_end index -->
+		{% for result in listedSearchResults[article_start:article_end] %}
+		<tr class="row row-bordered">
+		<td class='item-data'>
 
-            <div class="SR_articleTitle">
-                <a href="{{ url_for('articleDashboard') }}?DOI={{ result.objectID }}">{{ result.articleTitle }}</a>
-            </div>
+			<div class="SR_articleTitle">
+				<a href="{{ url_for('articleDashboard') }}?DOI={{ result.objectID }}" class="articleDashboard">{{ result.articleTitle }}</a>
+			</div>
 
-            <div style="font-weight: bold;"class="SR_journalName">
-                Journal Name:
-                <a style="font-weight: initial;" href="{{ url_for('journalDashboard') }}?journalName={{ result.journalName }}">{{ result.journalName }}</a>
-            </div>
-            
-            <div class="SR_articleDate">
-              {% if result.articleDate == None %}
-                <strong>Article Date:</strong> Unknown
-              {% else %}
-                <strong>Article Date:</strong> {{ result.articleDate }}
-              {% endif %}
-            </div>
+			<div style="font-weight: bold;"class="SR_journalName">
+				Journal Name:
+				<a style="font-weight: initial;" href="{{ url_for('journalDashboard') }}?journalName={{ result.journalName }}">{{ result.journalName }}</a>
+			</div>
+			
+			<div class="SR_articleDate">
+			  {% if result.articleDate == None %}
+				<strong>Article Date:</strong> Unknown
+			  {% else %}
+				<strong>Article Date:</strong> {{ result.articleDate }}
+			  {% endif %}
+			</div>
 
-            <div class="SR_authors">
-                <strong>Author(s):</strong>
-                
-                {% if not result.author_list %}
-                  Unknown
-                {% endif %}
+			<div class="SR_authors">
+				<strong>Author(s):</strong>
+				
+				{% if not result.author_list %}
+				  Unknown
+				{% endif %}
 
-                {% for author in result.author_list %}
-                    {% if author == result.author_list[-1] %}
-                      <a href="{{ url_for('authorDashboard') }}?author_id={{ author.id }}">{{ author.name }}</a>
-                    {% else %}
-                      <a href="{{ url_for('authorDashboard') }}?author_id={{ author.id }}">{{ author.name }},</a>
-                {% endif %}
-                {% endfor %}
-            </div>
+				{% for author in result.author_list %}
+					{% if author == result.author_list[-1] %}
+					  <a href="{{ url_for('authorDashboard') }}?author_id={{ author.id }}">{{ author.name }}</a>
+					{% else %}
+					  <a href="{{ url_for('authorDashboard') }}?author_id={{ author.id }}">{{ author.name }},</a>
+				{% endif %}
+				{% endfor %}
+			</div>
 
-            <div class="DOI">
-                <strong>DOI:</strong>
-                <a href="https://doi.org/{{ result.objectID }}"target="_blank">{{ result.objectID }} &#8599;</a>
-            </div>
+			<div class="DOI">
+				<strong>DOI:</strong>
+				<a href="https://doi.org/{{ result.objectID }}"target="_blank">{{ result.objectID }} &#8599;</a>
+			</div>
 
-            
-            <div class="SR_authors">
-              <strong>Total events:</strong> {{result.totalEventsSum}}
-            </div>
-          
+			
+			<div class="SR_authors">
+			  <strong>Total events:</strong> {{result.totalEventsSum}}
+			</div>
+		  
 
-          </td>
-          </tr>
-        {% endfor %}
+		  </td>
+		  </tr>
+		{% endfor %}
 
-      </table>
-    <!--Flask Pagination -->
-    {{pagination.links}}
+	  </table>
+	<!--Flask Pagination -->
+	{{pagination.links}}
 <!--
 <div>
  <nav aria-label="Page navigation example">
   <ul class="pagination pg-blue">
-    <li class="page-item"><a class="page-link">Previous</a></li>
-    <li class="page-item"><a class="page-link">1</a></li>
-    <li class="page-item"><a class="page-link">2</a></li>
-    <li class="page-item"><a class="page-link">3</a></li>
-    <li class="page-item"><a class="page-link">Next</a></li>
+	<li class="page-item"><a class="page-link">Previous</a></li>
+	<li class="page-item"><a class="page-link">1</a></li>
+	<li class="page-item"><a class="page-link">2</a></li>
+	<li class="page-item"><a class="page-link">3</a></li>
+	<li class="page-item"><a class="page-link">Next</a></li>
   </ul>
 </nav>
 </div>
 -->
 
-    {% endblock %}
+	{% endblock %}
 
-    </div> <!-- End the 12 width column -->
+	</div> <!-- End the 12 width column -->
   </div> <!-- End the row -->
 </div> <!-- End the container -->

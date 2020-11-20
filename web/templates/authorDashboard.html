@@ -23,7 +23,7 @@
 
         // If the total records are less than 11, hide the "Per Page" Form.
         if(parseInt($lastPaginationBoldText.text(),10) < 11){
-            $(".form-inline").hide();
+            $(".perPages").hide();
         }
         
         // Change positioning of X-axis label. Will look into Bootstrap 4.0+ for row padding/margin manipulation to give more room for the X-axis label.
@@ -156,7 +156,7 @@
                         <li>Authors: </li>
                     </ul>-->
 
-                    <form class="form-inline" method="post" action="{{ url_for('authorDashboard') }}?author_id={{ passed_author_id }}" >
+                    <form class="form-inline perPages" method="post" action="{{ url_for('authorDashboard') }}?author_id={{ passed_author_id }}" >
                     <select name="perPage" id="perPage" class="resizedTextbox form-control" >
                           <option value="" disabled selected>Per Page</option>
                           <option value="10">10</option>
