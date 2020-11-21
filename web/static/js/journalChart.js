@@ -34,7 +34,7 @@ var chart = c3.generate({
         },
         y: {
           label: {
-            text: 'Total Events',
+            text: 'Papers Published',
             position: 'outer-middle',
           },
           tick: {
