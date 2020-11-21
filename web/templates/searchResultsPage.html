@@ -4,9 +4,16 @@
 {% block head %}
 <script>
   $(document).ready(function(){
-        
+
+	// Changes the current value of the dropdown window to whatever
+	let $searchFilter = $("#dropdownSearchBy"); 
+	$searchFilter.val("{{dropdownValue}}");
+
 	// sessionStorage is a property of the Web Storage API that creates an instance of a  Storage object. Storage objects are simple key-value stores but stay intact through page loads. The key and values are always strings.
 	// sessionStorage allows us to store data in the browser until the browser(or tab) is closed.
+
+	let $startYearBox = $("#startYear");
+	let $endYearBox = $("#endYear");
 
 	// jquery statement that references the "Sort By:"dropdown list.
 	let $sortDropdown = $("#sortSelector");
@@ -29,13 +36,16 @@
 	let year = currentTime.getFullYear()
 
 
-	// Grab the values of keys 'selected' and 'selectedPerPage'.
-	selectedValue = JSON.parse(sessionStorage.getItem('selected')) || {};
-	selectedValuePerPage = JSON.parse(sessionStorage.getItem('selectedPerPage')) || {};
+	// Grab the values from the keys in sessionStorage.
+	let selectedValue = JSON.parse(sessionStorage.getItem('selected')) || "PublicationYearDescending";
+	let selectedValuePerPage = JSON.parse(sessionStorage.getItem('selectedPerPage')) || "10";
+
+	let startYear = JSON.parse(sessionStorage.getItem('startYear')) || "";
+	let endYear = JSON.parse(sessionStorage.getItem('endYear')) || "";
 
 	// When the focus is inside either of the year text boxes
 	$yearRangeBoxes.keydown(function(event){
-            
+		   
 		// Allow numbers from the top row of the keyboard and numpad.
 		if(event.keyCode >= 48 && event.keyCode <= 57 || event.keyCode >= 96 && event.keyCode <= 105){
 			return true;
@@ -55,18 +65,16 @@
 
 	$submitButton.click(function(){
 		// Grab the current value of the startYear and endYear text boxes
-		let $startYearCurrentValue = $("#startYear").val();
-		let $endYearCurrentValue = $("#endYear").val();
+		let $startYearCurrentValue = $startYearBox.val();
+		let $endYearCurrentValue = $endYearBox.val();
+		let $sortDropdownCurrentValue = $sortDropdown.val();
+		let $perPageDropdownCurrentValue = $perPageDropdown.val();
 
-		// If the current values of both text boxes not empty....
+		// If the current values of both text boxes are not empty....
 		if($startYearCurrentValue !== '' && $endYearCurrentValue !== '' ){
 			
-			if(parseInt($startYearCurrentValue,10) < oldPubYear && parseInt($endYearCurrentValue,10) > year){
-				alert("Please change your starting and end year so it satisfies this " + oldPubYear + " - " + year + " range.");
-				return false;
-			}
-			else if(parseInt($startYearCurrentValue,10) > year && parseInt($endYearCurrentValue,10) < oldPubYear){
-				alert("Please change your starting and end year so it satisfies this " + oldPubYear + " - " + year + " range.");
+			if(parseInt($startYearCurrentValue,10) > parseInt($endYearCurrentValue,10)){
+				alert("Please switch your years around.");
 				return false;
 			}
 			else if(parseInt($startYearCurrentValue,10) < oldPubYear || parseInt($startYearCurrentValue,10) > year ){
@@ -77,10 +85,7 @@
 				alert("Please change your end year so it satisfies this " + oldPubYear + " - " + year + " range.");
 				return false;
 			}
-			else if(parseInt($startYearCurrentValue,10) > parseInt($endYearCurrentValue,10)){
-				alert("Please switch your years around.");
-						return false;
-			}
+			
 				
 		}
 		// If either of the year text boxes are empty..... 
@@ -93,27 +98,37 @@
 				}
 			}
 			else if($endYearCurrentValue !== ''){
-				if(parseInt($endYearCurrentValue,10) < oldPubYear || parseInt($endYearCurrentValue,10) > year ){
+				if(parseInt($endYearCurrentValue,10) < oldPubYear && parseInt($endYearCurrentValue,10) > year ){
 					alert("Please change your end year to a year that's less than " + year + ".");
 					return false;
 				}
 			}
 		}
-	
 
-		// Set value of the selected option to the key "selected" and send it to localStorage.
-		sessionStorage.setItem("selected", JSON.stringify($sortDropdown.val()));
-		sessionStorage.setItem("selectedPerPage", JSON.stringify($perPageDropdown.val()));
+		// Stringify all values and set them to their respective keys in session storage.
+		sessionStorage.setItem("startYear", JSON.stringify($startYearCurrentValue));
+		sessionStorage.setItem("endYear", JSON.stringify($endYearCurrentValue));
+		sessionStorage.setItem("selected", JSON.stringify($sortDropdownCurrentValue));
+		sessionStorage.setItem("selectedPerPage", JSON.stringify($perPageDropdownCurrentValue));
 	});
-
+		
+	// If the "From" year box isn't empty, set the current value to startYear.
+	if(startYear !== ''){
+		$startYearBox.val(startYear);
+	}
+	
+	// If the "To" year box isn't empty, set the current value to endYear. 
+	if(endYear !== ''){
+		$endYearBox.val(endYear);
+	}
+	
 	// Display the value of selectedValue in the "Sort By:" Dropdown window.
 	$sortDropdown.val(selectedValue);
 
 	// Display the value of selectedValuePerPage in the "Per Page:" Dropdown window.
 	$perPageDropdown.val(selectedValuePerPage);
-
-        
-    });
+	
+	});
 </script>
 {% endblock %}
 
@@ -223,8 +238,8 @@
     <!--Flask Pagination -->
     {{pagination.links}}
 
-    {% endblock %}
+	{% endblock %}
 
-    </div> <!-- End the 12 width column -->
+	</div> <!-- End the 12 width column -->
   </div> <!-- End the row -->
 </div> <!-- End the container -->
