@@ -357,8 +357,7 @@ var chart = c3.generate({
     rotated: false
   },
   size: {
-    width: 670,
-    height: 500
+    width: 670
   }
 });
 
