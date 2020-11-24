@@ -1,5 +1,4 @@
 {% extends 'indexTemplate.html' %}
-
 <!-- Anything you put here will be in the HTML head tags-->
 {% block head %}
 <script>
@@ -35,60 +34,62 @@
     });
 </script>
 {% endblock %}
-
 <!-- Anything you put here will be in the body-->
 {% block body %}
 <br>
 <br>
+
 <div class="col-sm-3">
+    <!-- Empty column of size 3. Left of search bar -->
 </div>
 
 <div class = "center-screen col-sm-6">
-    <div style="border-radius: 25px; padding: 10px; background-color: rgba(60, 65, 70, 0.8); " >
-        <h1 style="text-align: center; color: aliceblue;">Crossref Event Data Dashboard</h1>
-        <p2 style="text-align: center; color: aliceblue;">Search for scholarly publications by the <a style="color: aliceblue; text-decoration: underline;" href="https://www.doi.org/doi_handbook/1_Introduction.html#1.6.1"target="_blank">Document Object Identifier (DOI) &#8599;</a>, journal, author, or article name</p2>
-        <br><br>
-        <form method="post" action="{{ url_for('search') }}" class="form-inline">
-          <div class="form-group" style="text-align: center">
-                  
-              <!-- Drop Down Search -->
-              <select name="dropdownSearchBy" id="dropdownSearchBy" class="form-control">
-                  <option selected="selected" value="DOI">DOI</option>
-                  <option value="Author">Author</option>
-                  <option value="Journal">Journal</option>
-                  <option value="Article">Article</option>
-              </select>
-      
-              <!-- Search bar - input text -->
-              <input type="text" id="search_input" name="search" placeholder="Search" class="form-control">
-              <input type="submit" value="&#128269" class="form-control">
-          </div>
-        </form>
-        <br>
-    </div>
+  <div style="border-radius: 25px; padding: 10px; background-color: rgba(60, 65, 70, 0.8); " >
+    <h1 style="text-align: center; color: aliceblue;">Crossref Event Data Dashboard</h1>
+    <p2 style="text-align: center; color: aliceblue;">Search for scholarly publications by the <a style="color: aliceblue; text-decoration: underline;" href="https://www.doi.org/doi_handbook/1_Introduction.html#1.6.1"target="_blank">Document Object Identifier (DOI) &#8599;</a>, journal, author, or article name</p2>
     <br><br>
-    <div class = "statsContainer">
+    <form method="post" action="{{ url_for('search') }}" class="form-inline">
+    <div class="form-group" style="text-align: center">          
+        <!-- Drop Down Search -->
+        <select name="dropdownSearchBy" id="dropdownSearchBy" class="form-control">
+            <option selected="selected" value="DOI">DOI</option>
+            <option value="Author">Author</option>
+            <option value="Journal">Journal</option>
+            <option value="Article">Article</option>
+        </select>
+        <!-- Search bar - input text -->
+        <input type="text" id="search_input" name="search" placeholder="Search" class="form-control">
+        <input type="submit" value="&#128269" class="form-control">
+    </div>
+    </form>
+    <br>
+  </div>
+    
+  <br><br>
+    
+  <div class = "statsContainer">
     <div style="margin-right: 85px; width:180px; border-radius: 25px; padding: 10px; background-color: rgba(60, 65, 70, 0.8); " class = "center-screen col-sm-6">
-        <h2 style="text-align: center; color: aliceblue;">{{totalSum}}</h2>
-        <p1 style="text-align: center; color: aliceblue;">Events <a style="color:aliceblue; text-decoration: none;" href="https://www.crossref.org/services/event-data/"target="_blank">(?)</a></p1>
-        <br>
+    <h2 style="text-align: center; color: aliceblue;">{{totalSum}}</h2>
+    <p1 style="text-align: center; color: aliceblue;">Events <a style="color:aliceblue; text-decoration: none;" href="https://www.crossref.org/services/event-data/"target="_blank">(?)</a></p1>
+    <br>
     </div>
     <div style="margin-right:85px; width:180px; border-radius: 25px; padding: 10px; background-color: rgba(60, 65, 70, 0.8); " class = "center-screen col-sm-6">
-        <h2 style="text-align: center; color: aliceblue;">{{totalSumArticles}}</h2>
-        <p1 style="text-align: center; color: aliceblue;">Articles</p1>
-        <br>
+    <h2 style="text-align: center; color: aliceblue;">{{totalSumArticles}}</h2>
+    <p1 style="text-align: center; color: aliceblue;">Articles</p1>
+    <br>
     </div>
     <div style="width:180px; border-radius: 25px; padding: 10px; background-color: rgba(60, 65, 70, 0.8); " class = "center-screen col-sm-6">
-        <h2 style="text-align: center; color: aliceblue;">{{totalSumJournals}}</h2>
-        <p1 style="text-align: center; color: aliceblue;">Journals</p1>
-        <br>
+    <h2 style="text-align: center; color: aliceblue;">{{totalSumJournals}}</h2>
+    <p1 style="text-align: center; color: aliceblue;">Journals</p1>
+    <br>
     </div>
-    </div>
-
+  </div>
 </div>
+
 <br>
 
 <div class="col-sm-3">
-    <!-- Empty column of size 2. Right of search bar -->
+    <!-- Empty column of size 3. Right of search bar -->
 </div>
+
 {% endblock %}

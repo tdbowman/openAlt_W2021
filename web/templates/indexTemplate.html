@@ -21,20 +21,19 @@
     <!-- Our CSS -->
     <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename = 'css/style.css')}}">
     
-    {% block head %}{% endblock %}
+    {% block head %}
+    <!-- This sets up the Jinja template head section so other pages can have their own head code -->
+    {% endblock %}
   </head>
   <body style="background-image: url('../static/images/104448.jpg'); background-repeat: no-repeat; background-size:cover;">
     <header>
-      
         <nav class="navbar navbar-inverse">
           <div class="container-fluid">
-            
+
           <!-- Website Title -->
           <ul class="nav navbar-nav navbar">
             <li><a style="margin-top:0px;" href= ><img alt = "GitHub Logo" src="../static/images/logos/negative/Logo_NEGATIVE_300x300.png" height="50px"></a></li>
           </ul>
-          
-          <!-- NO SEARCH FORM HERE -->
 
           <!-- Right aligned GitHub logo -->
           <ul class="nav navbar-nav navbar-right">
@@ -51,14 +50,12 @@
             </li>
           </div>
         </nav>
-
     </header>
-  
-    {% block body %}{% endblock %}
-  
+    {% block body %}
+    <!-- This sets up the body block so pages using this template can have their own body code -->
+    {% endblock %}
     <footer>
       <!-- Empty footer for now -->
     </footer>
-
   </body>
 </html>
