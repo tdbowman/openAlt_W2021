@@ -66,10 +66,6 @@ input[type="number"]{
   width: 500px;
 }
 
-/* #eventsDisplay{
-  overflow:scroll;
-} */
-
 table.table-bordered{
     background-color: rgba(208, 218, 230, 0.5);
     margin-top:20px;
@@ -121,8 +117,6 @@ table.table-bordered{
 #searchFil3{
     display: inline-block;
 }
-
-
 
 .JD_articleTitle {
     font-size: 20px;
@@ -202,13 +196,11 @@ table.table-bordered{
   transition: background-color .3s;
 }
 
-/* Style the active/current link */
 .pagination a.active {
   background-color: dodgerblue;
   color: white;
 }
 
-/* Add a grey background color on mouse-over */
 .pagination a:hover:not(.active) {background-color: #ddd;}
 
 .pagination-page-info{
@@ -222,7 +214,6 @@ table.table-bordered{
 
 #pContent{
   font-size: 20px;
-  /* Adds a scroll option */
   overflow:auto;
   height: 780px;  
 }
@@ -236,64 +227,76 @@ table.table-bordered{
   background: pink;
   text-align: left;
 }
+
 #legendHeader{
   text-align: center;
 }
+
 #graph{
   padding-right: 0;
   padding-left: 0;
 }
+
 #filter{
   border: solid;
   background: pink;
   text-align: left;
 }
-/* Color blocks */
+
 .colorLegend{
   height: 15px;
   width: 15px;
   display: inline-block;
 }
 
-
-
 #crossrefColor{
   background: red;
 }
+
 #redditColor{
   background: orange;
 }
+
 #stackexchangeColor{
   background:yellow;
 }
+
 #wikipediaColor{
   background:green;
 }
+
 #wordpressColor{
   background: blue;
 }
+
 #dataciteColor{
   background: indigo;
 }
+
 #twitterColor{
   background: violet;
 }
+
 #redditlinksColor{
   background: rgb(83, 5, 66);
 }
+
 #newsfeedColor{
   background: rgb(14, 214, 214);
 }
+
 #hypothesisColor{
   background: rgb(154, 230, 12);
 }
+
 #cambiaColor{
   background:rgba(87, 60, 9, 0.801);
 }
+
 #webColor{
   background: rgb(0, 0, 0);
 }
-/* Event Name */
+
 .tag{
   display: inline;
   font-size: 17px;
@@ -309,7 +312,6 @@ table.table-bordered{
   opacity: 0.7;
   z-index: 1;
 }
-
 
 .masthead {
   position: relative;
@@ -483,7 +485,6 @@ p1{
   font-size: large;
 }
 
-/* Set font size for the charts - C3 creates charts as SVG */
 svg {
   font: 16px sans-serif !important;
 }
