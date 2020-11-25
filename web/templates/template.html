@@ -21,7 +21,26 @@
     <!-- Our CSS -->
     <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename = 'css/style.css')}}">
     
-    {% block head %}{% endblock %}
+    <script>
+      $(function(){
+
+        // Initialize variables and reference to the searchButton and the current value of the search box
+      let $searchButton = $("#searchButton");
+      
+      // If the search box is empty, prompt the user to enter a query.
+      $searchButton.click(function(){
+
+        let $searchBoxValue = $("#search_input").val();
+
+        if($searchBoxValue === ''){
+          alert("Please enter a query.");
+          return false;
+        }
+      });
+      });
+    </script>
+    {% block head %}
+    {% endblock %}
   </head>
   <body>
     <header>
@@ -48,7 +67,7 @@
               </select>
               <input id="search_input" name="search" type="text" class="form-control" placeholder="Search">
             </div>
-            <button type="submit" class="btn btn-default">&#128269</button>
+            <button type="submit" class="btn btn-default" id="searchButton">&#128269</button>
           </form>
 
           <!-- Right aligned GitHub logo -->

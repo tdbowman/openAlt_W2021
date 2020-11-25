@@ -499,6 +499,7 @@ p:empty{
   border-radius: 70%;
 }
 
+/* Search Bar */
 #search_input{
   width:400px;
 }
