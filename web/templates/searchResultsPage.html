@@ -3,7 +3,7 @@
 <!-- Anything you put here will be in the HTML head tags-->
 {% block head %}
 <script>
-  $(document).ready(function(){
+  $(function(){
 
 	//Changes the current value of the dropdown window to whatever
 	let $searchFilter = $("#dropdownSearchBy");
@@ -66,40 +66,50 @@
 	$submitButton.click(function(){
 		// Grab the current value of the startYear and endYear text boxes
 		let $startYearCurrentValue = $startYearBox.val();
+		$startYearCurrentValue = parseInt($startYearCurrentValue,10);
+
 		let $endYearCurrentValue = $endYearBox.val();
+		$endYearCurrentValue = parseInt($endYearCurrentValue,10);
+
 		let $sortDropdownCurrentValue = $sortDropdown.val();
 		let $perPageDropdownCurrentValue = $perPageDropdown.val();
 
 		// If the current values of both text boxes are not empty....
-		if($startYearCurrentValue !== '' && $endYearCurrentValue !== '' ){
-
-			if(parseInt($startYearCurrentValue,10) > parseInt($endYearCurrentValue,10)){
+		// NaN = Not A Number = An empty text box
+		if(!(isNaN($startYearCurrentValue)) && !(isNaN($endYearCurrentValue))){
+			
+			if($startYearCurrentValue > $endYearCurrentValue){
 				alert("Please switch your years around.");
 				return false;
 			}
-			else if(parseInt($startYearCurrentValue,10) < oldPubYear || parseInt($startYearCurrentValue,10) > year ){
+			else if($startYearCurrentValue < oldPubYear || $startYearCurrentValue > year ){
 				alert("Please change your starting year so it satisfies this " + oldPubYear + " - " + year + " range.");
 				return false;
 			}
-			else if(parseInt($endYearCurrentValue,10) < oldPubYear || parseInt($endYearCurrentValue,10) > year ){
+			else if($endYearCurrentValue < oldPubYear || $endYearCurrentValue > year ){
 				alert("Please change your end year so it satisfies this " + oldPubYear + " - " + year + " range.");
 				return false;
 			}
 
 
 		}
-		// If either of the year text boxes are empty.....
-		else if($startYearCurrentValue !== '' || $endYearCurrentValue !== '' ){
+		// If either of the year text boxes aren't empty.....
+		// NaN = Not A Number = An empty text box 
+		else if(!(isNaN($startYearCurrentValue)) || !(isNaN($endYearCurrentValue))){
 
-			if($startYearCurrentValue !== ''){
-				if(parseInt($startYearCurrentValue,10) < oldPubYear || parseInt($startYearCurrentValue,10) > year ){
-					alert("Please change your starting year to a year that's greater than " + oldPubYear + ".");
+			// If the start year text box value isn't empty..
+			// NaN = Not A Number = An empty text box
+			if(!(isNaN($startYearCurrentValue))){
+				if((isNaN($endYearCurrentValue))){
+					alert("Please enter an end year.");
 					return false;
 				}
 			}
-			else if($endYearCurrentValue !== ''){
-				if(parseInt($endYearCurrentValue,10) < oldPubYear && parseInt($endYearCurrentValue,10) > year ){
-					alert("Please change your end year to a year that's less than " + year + ".");
+			// If the end year text box value isn't empty...
+			// NaN = Not A Number = An empty text box
+			else if(!(isNaN($endYearCurrentValue))){
+				if(isNaN($startYearCurrentValue)){
+					alert("Please enter an start year.");
 					return false;
 				}
 			}

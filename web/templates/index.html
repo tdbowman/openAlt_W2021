@@ -3,6 +3,20 @@
 {% block head %}
 <script>
     $(function(){
+
+        // Initialize variables and reference to the searchButton and the current value of the search box
+        let $searchButton = $("#searchButton");
+
+        // If the search box is empty, prompt the user to enter a query.
+        $searchButton.click(function(){
+            let $searchBoxValue = $("#search_input").val();
+
+            if($searchBoxValue === ''){
+                alert("Please enter a query.");
+                return false;
+            }
+        });
+
         // If the F key(filter) is pressed....
         // $(document).keydown(function(event){
         //     if(event.which == 70){

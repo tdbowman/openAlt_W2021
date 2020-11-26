@@ -9,12 +9,13 @@ def journalDashboardLogic(mysql):
     pagination = None
 
     try:
+        # Gets page parameter flask_paginate
         page = flask.request.args.get(
             get_page_parameter(), type=int, default=1)
-        print('--Page number-- ', page)
     except ValueError:
         page = 1
 
+    # Grab the form "perPage" value and store it in perPage
     perPage = str(flask.request.form.get("perPage"))
     if flask.request.form.get("perPage") is None:
         if flask.request.args.get("perPage") is None:
@@ -26,6 +27,7 @@ def journalDashboardLogic(mysql):
     journal_name = str(flask.request.args.get("journalName"))
     sql = "Select doi, title, container_title, issue, page, published_print_date_parts, fk from _main_ where container_title like '%" + journal_name + "%\';"
 
+    # Execute query and fetch all rows and store in result_set
     cursor.execute(sql)
     result_set = cursor.fetchall()
 
@@ -55,8 +57,9 @@ def journalDashboardLogic(mysql):
     start_year = 1995
     end_year = 2020
     publishedPerYear = []
+    # Grab all journal names from 1995 to 2020.
     while (start_year <= end_year):
-        articles_per_year_sql = "select count(*) count " \
+        articles_per_year_sql = "select count(*) AS count " \
                                 "from dr_bowman_doi_data_tables._main_ " \
                                 "where container_title like '%" + journal_name + "%' " \
                                 "and substr(published_print_date_parts,1,4)='" + str(
@@ -65,6 +68,8 @@ def journalDashboardLogic(mysql):
         yr_count = cursor.fetchone()
         publishedPerYear.append(yr_count["count"])
         start_year = start_year + 1
+
+    cursor.close()
 
     per_page = int(perPage)  # article count per page
     # calculate starting article index (for any given page)

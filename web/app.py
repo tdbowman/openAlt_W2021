@@ -1,7 +1,6 @@
 import flask
 from flask_mysqldb import MySQL
 from flask import request, jsonify
-import json
 from datetime import datetime
 
 # Import our functions for other pages
@@ -43,105 +42,86 @@ mysql2 = MySQL(app2)
 
 @app.route('/')
 def index():
+    # Go to landingPageStats.py
     totalSum = landingPageStats(mysql)
+
+    # Go to landingPageArticles.py
     totalSumArticles = landingPageArticles(mysql)
+
+    # Go to landingPageJournals.py
     totalSumJournals = landingPageJournals(mysql)
+
     return flask.render_template('index.html', totalSum=totalSum, totalSumArticles=totalSumArticles, totalSumJournals=totalSumJournals)
 
 
 @app.route('/searchResultsPage', methods=["GET", "POST"])
 def search():
 
+    # If a HTTPS POST Request is received...
     if(request.method == "POST"):
-        print("POST Method Received!")
         dropdownValue = request.form.get('dropdownSearchBy')
-        print(dropdownValue)
 
+    # Go to searchLogic.py
     return searchLogic(mysql, mysql2, dropdownValue)
 
 
 @app.route('/articleDashboard', methods=["GET", "POST"])
 def articleDashboard():
-    # TypeError: 'NoneType' object is not subscriptable
 
-    # ***********Year Range Slider decomissioned until after P3 ***************
-    # try:
-    #     years_list = []
-    #     print("This is the default year range.")
-    #     currentYear = datetime.now().year
-    #     for i in range(currentYear - 4, currentYear + 1):
-    #         years_list.append(i)
-    #     print(years_list)
-    #     if request.method == "POST":
-    #         print("Received POST method request ")
-    #         if request.get_json() is not None:
-    #             years_list = []
-    #             print("JSON is not None")
-    #             bounds = request.get_json()
-    #             print("Bounds grabbed from ajax call: ", bounds)
-    #             for i in range(bounds['min'], bounds['max'] + 1):
-    #                 years_list.append(i)
-    #             print(years_list)
-    # except Exception as e:
-    #     print("The error was " + str(e))
-
-    # for i in range(bounds['min'], bounds['max'])
-    # ------------------------------------------------
-
+    # Initialize years_list and yearInput.
     years_list = []
     yearInput = ''
 
-    print("This is the default year range.")
+    # Based on the current year, initialize the years_list list year range(5 years).
+    # This is the default year range.
     currentYear = datetime.now().year
     for i in range(currentYear - 4, currentYear + 1):
         years_list.append(i)
-    print(years_list)
+
+    # If a HTTPS POST Request is received...
     if request.method == "POST":
+        # Grab the year value from the year filter of the bar chart.
         if request.form.get('year') is not None:
-            print("Received POST method request(year filter) ")
-            print("After I submit a year...")
-            print(request.form.get('year'))
             yearInput = request.form.get('year')
             yearInput = int(yearInput)
             years_list = []
             for i in range(yearInput - 2, yearInput + 3):
                 years_list.append(i)
-            print("New Years List: ", years_list)
-    else:
-        print("No POST method (year filter) received")
-        yearInput = ''
 
+    # Go to articleDashboardLogic.py
     return articleDashboardLogic(mysql, mysql2, years_list, yearInput)
 
 
 @ app.route('/journalDashboard', methods=["GET", "POST"])
 def journalDashboard():
+    # Go to journalDashboardLogic.py
     return journalDashboardLogic(mysql)
 
 
 @ app.route('/authorDashboard', methods=["GET", "POST"])
 def authorDashboard():
 
+    # Initialize years_list and yearInput.
     years_list = []
     yearInput = ''
-    print("This is the default year range.")
+
+    # Based on the current year, initialize the years_list list year range(5 years).
+    # This is the default year range.
     currentYear = datetime.now().year
     for i in range(currentYear - 4, currentYear + 1):
         years_list.append(i)
-    print(years_list)
+
+    # If a HTTPS POST Request is received...
     if request.method == "POST":
-        print("Received POST method request ")
+        # Grab the year value from the year filter of the bar chart.
         if request.form.get('year') is not None:
-            print(request.form.get('year'))
             yearInput = request.form.get('year')
             yearInput = int(yearInput)
             years_list = []
             for i in range(yearInput - 2, yearInput + 3):
                 years_list.append(i)
-            print("New Years List: ", years_list)
-    else:
-        yearInput = ''
 
+    # Go to authorDashboardLogic.py
     return authorDashboardLogic(mysql, mysql2, years_list, yearInput)
 
 
@@ -160,5 +140,6 @@ def licenses():
     return flask.render_template('licenses.html')
 
 
+# If this is the main module or main program being run (app.py)......
 if __name__ == "__main__":
     app.run(host='localhost', port=5000, debug=True)
