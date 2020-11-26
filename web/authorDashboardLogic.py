@@ -6,22 +6,25 @@ def authorDashboardLogic(mysql, mysql2, years_list, yearInput):
 
     author_article_list = []
     author_doi_list = []
-    #global mysql
+
+    # Initialize our cursor to dr_bowman_doi_data_tables database
     cursor = mysql.connection.cursor()
 
     #global mysql2
-    # connect to crossrefeventdatamain
+    # Initialize our cursor to crossrefeventdatamain database
     cursor2 = mysql2.connection.cursor()
 
     pagination = None
 
     try:
+        # Gets page parameter flask_paginate
         page = flask.request.args.get(
             get_page_parameter(), type=int, default=1)
         print('--Page number-- ', page)
     except ValueError:
         page = 1
 
+    # Grab the form "perPage" value and store it in perPage
     perPage = str(flask.request.form.get("perPage"))
     if flask.request.form.get("perPage") is None:
         if flask.request.args.get("perPage") is None:
@@ -29,7 +32,7 @@ def authorDashboardLogic(mysql, mysql2, years_list, yearInput):
         else:
             perPage = str(flask.request.args.get("perPage"))
 
-    # fetch the query parameter author_id from searchResults page
+    # fetch the query parameter author_id from the searchResults page
     author_id = str(flask.request.args.get("author_id"))
 
     author_sql = "SELECT name FROM dr_bowman_doi_data_tables.author where id ="+author_id+";"
@@ -40,6 +43,7 @@ def authorDashboardLogic(mysql, mysql2, years_list, yearInput):
         author_name['name'] + "';"
     cursor.execute(author_sql)
     author_resultset = cursor.fetchall()
+
     # form a list of fk for the where statement (ex.) ('2005','2006')
     author_fk_list = '('
     for row in author_resultset:
@@ -79,13 +83,12 @@ def authorDashboardLogic(mysql, mysql2, years_list, yearInput):
                        'author_list': author_list}
             author_article_list.append(article)
             author_doi_list.append(row['doi'])
-        cursor.close()
+    cursor.close()
 
-    # Size of each list depends on how many years(in chartScript.js) you'd like to display.
     # Queries will be inserted within the array
     #years_list = [2016, 2017, 2018, 2019, 2020]
 
-    # form a list of just the DOIs
+    # Form a list of just the DOIs
     doi_list = '( '
     for doi in author_doi_list:
         if doi == author_doi_list[-1]:
@@ -94,7 +97,8 @@ def authorDashboardLogic(mysql, mysql2, years_list, yearInput):
             doi_list = doi_list + "'" + str(doi) + "'" + ","
     doi_list = doi_list + ')'
 
-    # cambia event
+    # ------------------------- Event count for each platform for the Bar Chart --------------------
+    # Cambia Event
     cambiaEvent = []
     for year in years_list:
         cambia_sql = "select count(objectID) count from crossrefeventdatamain.cambiaevent " \
@@ -102,12 +106,10 @@ def authorDashboardLogic(mysql, mysql2, years_list, yearInput):
                      "and substr(occurredAt,1,4)='" + str(year) + "';"
 
         cursor2.execute(cambia_sql)
-        mysql2.connection.commit()
         event_count = cursor2.fetchone()
         cambiaEvent.append(event_count['count'])
-    # cambiaEvent = [30, 20, 50, 10, 90]  # TBD - delete this line after we upload data in cambia event table for all these years
 
-    # crossrefevent
+    # Crossref Events
     crossrefevent = []
     for year in years_list:
         crossref_sql = "select count(objectID) count from crossrefeventdatamain.crossrefevent " \
@@ -115,12 +117,10 @@ def authorDashboardLogic(mysql, mysql2, years_list, yearInput):
                        "and substr(occurredAt,1,4)='" + str(year) + "';"
 
         cursor2.execute(crossref_sql)
-        mysql2.connection.commit()
         event_count = cursor2.fetchone()
         crossrefevent.append(event_count['count'])
-    # crossrefevent = [5, 7, 14, 18, 25]; # TBD - delete this line after we upload data in cambia event table for all these years
 
-    # dataciteevent
+    # Datacite Events
     dataciteevent = []
     for year in years_list:
         datacite_sql = "select count(objectID) count from crossrefeventdatamain.dataciteevent " \
@@ -128,12 +128,10 @@ def authorDashboardLogic(mysql, mysql2, years_list, yearInput):
                        "and substr(occurredAt,1,4)='" + str(year) + "';"
 
         cursor2.execute(datacite_sql)
-        mysql2.connection.commit()
         event_count = cursor2.fetchone()
         dataciteevent.append(event_count['count'])
-    # dataciteevent = [5, 10, 15, 20, 25];  # TBD - delete this line after we upload data in cambia event table for all these years
 
-    # f1000event
+    # F1000 Events
     f1000event = []
     for year in years_list:
         f1000_sql = "select count(objectID) count from crossrefeventdatamain.f1000event " \
@@ -141,11 +139,10 @@ def authorDashboardLogic(mysql, mysql2, years_list, yearInput):
             "and substr(occurredAt,1,4)='" + str(year) + "';"
 
         cursor2.execute(f1000_sql)
-        mysql2.connection.commit()
         event_count = cursor2.fetchone()
         f1000event.append(event_count['count'])
 
-    # hypothesisevent
+    # Hypothesis Event
     hypothesisevent = []
     for year in years_list:
         hypothesis_sql = "select count(objectID) count from crossrefeventdatamain.hypothesisevent " \
@@ -153,12 +150,10 @@ def authorDashboardLogic(mysql, mysql2, years_list, yearInput):
             "and substr(occurredAt,1,4)='" + str(year) + "';"
 
         cursor2.execute(hypothesis_sql)
-        mysql2.connection.commit()
         event_count = cursor2.fetchone()
         hypothesisevent.append(event_count['count'])
-    # hypothesisevent = [5, 10, 15, 20, 25];  # TBD - delete this line after we upload data in cambia event table for all these years
 
-    # newsfeedevent
+    # Newsfeed Event
     newsfeedevent = []
     for year in years_list:
         newsfeed_sql = "select count(objectID) count from crossrefeventdatamain.newsfeedevent " \
@@ -166,12 +161,10 @@ def authorDashboardLogic(mysql, mysql2, years_list, yearInput):
             "and substr(occurredAt,1,4)='" + str(year) + "';"
 
         cursor2.execute(newsfeed_sql)
-        mysql2.connection.commit()
         event_count = cursor2.fetchone()
         newsfeedevent.append(event_count['count'])
-    # newsfeedevent = [5, 10, 15, 20, 25];  # TBD - delete this line after we upload data in cambia event table for all these years
 
-    # redditevent
+    # Reddit Event
     redditevent = []
     for year in years_list:
         reddit_sql = "select count(objectID) count from crossrefeventdatamain.redditevent " \
@@ -179,12 +172,10 @@ def authorDashboardLogic(mysql, mysql2, years_list, yearInput):
             "and substr(occurredAt,1,4)='" + str(year) + "';"
 
         cursor2.execute(reddit_sql)
-        mysql2.connection.commit()
         event_count = cursor2.fetchone()
         redditevent.append(event_count['count'])
-    # redditevent = [5, 10, 15, 20, 25];  # TBD - delete this line after we upload data in cambia event table for all these years
 
-    # redditlinksevent
+    # Redditlinks Event
     redditlinksevent = []
     for year in years_list:
         redditlinks_sql = "select count(objectID) count from crossrefeventdatamain.redditlinksevent " \
@@ -192,12 +183,10 @@ def authorDashboardLogic(mysql, mysql2, years_list, yearInput):
             "and substr(occurredAt,1,4)='" + str(year) + "';"
 
         cursor2.execute(redditlinks_sql)
-        mysql2.connection.commit()
         event_count = cursor2.fetchone()
         redditlinksevent.append(event_count['count'])
-    # redditlinksevent = [5, 10, 15, 20, 25];  # TBD - delete this line after we upload data in cambia event table for all these years
 
-    # stackexchangeevent
+    # Stackexchange Event
     stackexchangeevent = []
     for year in years_list:
         stackexchange_sql = "select count(objectID) count from crossrefeventdatamain.stackexchangeevent " \
@@ -205,12 +194,10 @@ def authorDashboardLogic(mysql, mysql2, years_list, yearInput):
             "and substr(occurredAt,1,4)='" + str(year) + "';"
 
         cursor2.execute(stackexchange_sql)
-        mysql2.connection.commit()
         event_count = cursor2.fetchone()
         stackexchangeevent.append(event_count['count'])
-    # stackexchangeevent = [5, 10, 15, 20, 25];  # TBD - delete this line after we upload data in cambia event table for all these years
 
-    # twitterevent
+    # Twitter Event
     twitterevent = []
     for year in years_list:
         twitter_sql = "select count(objectID) count from crossrefeventdatamain.twitterevent " \
@@ -218,12 +205,10 @@ def authorDashboardLogic(mysql, mysql2, years_list, yearInput):
             "and substr(occurredAt,1,4)='" + str(year) + "';"
 
         cursor2.execute(twitter_sql)
-        mysql2.connection.commit()
         event_count = cursor2.fetchone()
         twitterevent.append(event_count['count'])
-    # twitterevent = [5, 10, 15, 20, 25];  # TBD - delete this line after we upload data in cambia event table for all these years
 
-    # webevent
+    # Web Event
     webevent = []
     for year in years_list:
         web_sql = "select count(objectID) count from crossrefeventdatamain.webevent " \
@@ -231,12 +216,10 @@ def authorDashboardLogic(mysql, mysql2, years_list, yearInput):
             "and substr(occurredAt,1,4)='" + str(year) + "';"
 
         cursor2.execute(web_sql)
-        mysql2.connection.commit()
         event_count = cursor2.fetchone()
         webevent.append(event_count['count'])
-    # webevent = [5, 10, 15, 20, 25];  # TBD - delete this line after we upload data in cambia event table for all these years
 
-    # wikipediaevent
+    # Wikipedia Event
     wikipediaevent = []
     for year in years_list:
         wikipedia_sql = "select count(objectID) count from crossrefeventdatamain.wikipediaevent " \
@@ -244,12 +227,10 @@ def authorDashboardLogic(mysql, mysql2, years_list, yearInput):
             "and substr(occurredAt,1,4)='" + str(year) + "';"
 
         cursor2.execute(wikipedia_sql)
-        mysql2.connection.commit()
         event_count = cursor2.fetchone()
         wikipediaevent.append(event_count['count'])
-    # wikipediaevent = [5, 10, 15, 20, 25];  # TBD - delete this line after we upload data in cambia event table for all these years
 
-    # wordpressevent
+    # Wordpress Event
     wordpressevent = []
     for year in years_list:
         wordpress_sql = "select count(objectID) count from crossrefeventdatamain.wordpressevent " \
@@ -257,10 +238,8 @@ def authorDashboardLogic(mysql, mysql2, years_list, yearInput):
                         "and substr(occurredAt,1,4)='" + str(year) + "';"
 
         cursor2.execute(wordpress_sql)
-        mysql2.connection.commit()
         event_count = cursor2.fetchone()
         wordpressevent.append(event_count['count'])
-    # wordpressevent = [5, 10, 15, 20, 25];  # TBD - delete this line after we upload data in cambia event table for all these years
 
     cursor2.close()
 

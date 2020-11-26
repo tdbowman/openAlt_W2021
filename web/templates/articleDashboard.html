@@ -13,9 +13,6 @@
 <script src="../static/js/libraries/c3-0.7.20/c3.min.js"></script>
 <!-- END CHART SECTION -->
 
-<!-- *********** jQRange Slider Scripts ************ -->
-<!-- <link rel="stylesheet" href="../static/js/libraries/jQRangeSlider/css/iThing.css" type="text/css" /> -->
-
 <script>
     $(function(){
 
@@ -120,48 +117,6 @@
 
         
     });
-
-        // ***********Year Range Slider decomissioned until after P3 ***************
-
-        // let $submitButton = $("input[type='submit']")
-        // let $yearRangeSelector = $("#slider")
-
-        // let minBound = parseInt('{{minimumBound}}',10)
-        // let maxBound = parseInt('{{maximumBound}}',10)
-
-        // if (minBound === maxBound || (isNaN(minBound) && isNaN(maxBound))){
-        //     $yearRangeSelector.hide();
-        //     $("input[type='submit']").hide();
-        // }
-        // else{
-        //     $yearRangeSelector.rangeSlider({
-        //     bounds: {min: minBound, max: maxBound},
-        //     range: {min: 5, max: 5},
-        //     arrows: false
-        // });
-        // }
-        
-        // let bounds = $yearRangeSelector.rangeSlider("option","bounds");
-        
-        // // let clicked;
-        //     // data: JSON.stringify({Bounds: bounds})
-        // $submitButton.click(function(event){
-        //     event.preventDefault();
-        //     $.ajax({
-        //         type: 'POST',
-        //         url: "{{ url_for('articleDashboard') }}?DOI={{ article_detail.objectID }}",
-        //         data: JSON.stringify(bounds),
-        //         contentType: 'application/json;charset=UTF-8',
-        //         dataType:"json",
-        //         success: function(response) {
-        //             console.log(response);
-        //         },
-        //         error: function(error){
-        //             console.log(error);
-        //         }
-        //     });
-
-        // });
 </script>
 {% endblock %}
 
@@ -236,21 +191,10 @@
         <div class="col-md-6" id="yearFilter">
 
             <form method="post" action="{{ url_for('articleDashboard') }}?DOI={{ article_detail.objectID }}" class="form-inline" name="YearRange">
-                <!-- ***********Year Range Slider decomissioned until after P3 *************** -->
-                <!-- <div id="slider">
-
-                </div> -->
                 <label for="yearBox">Select a year (YYYY):</label>
                 <input type="text" name="year" id="yearBox" size="4" maxlength="4" pattern="\d{4}">
                 <input width="40%" type="submit" value="Update" class="form-control">
             </form>
-
-            
-    
-            <!-- *********** jQRangeSlider Scripts *************** -->
-            <!-- <script src="../static/js/libraries/jQRangeSlider/demo/lib/jquery-ui/js/jQuery-ui-1.12.1.js"></script>
-            <script src="../static/js/libraries/jQRangeSlider/jQRangeSlider-min.js"></script> -->
-
 
         </div>
     </div>
