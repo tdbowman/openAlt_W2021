@@ -1,6 +1,6 @@
 {% extends 'template.html' %}
 
-<!-- Anything you put here will be in the HTML head tags-->
+<!-- HTML head tags-->
 {% block head %}
 <!-- FOR CHART -->
 <!-- Load c3.css first -->
@@ -54,6 +54,7 @@
 {% block body %}
 
 <div class = "container">
+    <!-- Headings -->
     <h1>Journal Dashboard</h1>
     
     <div class="row">
@@ -64,6 +65,7 @@
         <h4 style="text-align: center;">Years</h4>
     </div>
 
+    <!--Numbers of Pages dropdown menu -->
     <div class="row">
         <form class="form-inline" method="post" action="{{ url_for('journalDashboard') }}?journalName={{ journal_name }}" >
             <select name="perPage" id="perPage" class="resizedTextbox form-control" >
@@ -84,6 +86,7 @@
             {{pagination.info}}
             {{pagination.links}}
 
+            <!--Loop of article rows -->
             {% for journal in journal_list[article_start:article_end] %}
             <tr>
 
@@ -127,7 +130,7 @@
     </div>
     </div>
 </div>
-</div> <!-- end container wrapping entire page-->
+</div> <!-- End container wrapping entire page-->
 <br>
 <br>
 <br>
@@ -144,6 +147,6 @@
 </script>
 {% endfor %}
 
-<!-- Load Mitch JS for chart -->
+<!-- Load JS for chart -->
 <script src="../static/js/journalChart.js"></script>
 {% endblock %}

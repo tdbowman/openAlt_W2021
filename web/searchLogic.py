@@ -23,6 +23,7 @@ def searchLogic(mysql, mysql2, dropdownValue):
     sortSelector = None
     returnedQueries = []
     selected_years = []
+
     # sort by descending by default, change to asc if user wants
     descending_or_ascending = " desc;"
 
@@ -41,11 +42,6 @@ def searchLogic(mysql, mysql2, dropdownValue):
     endYear = flask.request.form.get("endYear")
     sortSelector = flask.request.form.get('sortSelector')
     perPage = str(flask.request.form.get("perPage"))
-
-    #print("Selection from hidden form is:", selection)
-    #print("Search from hidden form is:", search)
-    #print("startYear from hidden form is:", startYear)
-    #print("endYear from hidden form is:", endYear)
 
     if flask.request.form.get("search") is None:
         search = str(flask.request.args.get("search"))
@@ -151,8 +147,6 @@ def searchLogic(mysql, mysql2, dropdownValue):
                        'totalEventsSum': totalEventsSum}
             # append article dict to returnedQueries list
             returnedQueries.append(article)
-
-            # loop over returned queries and sort by totalEventSum - reorder it, ya know?
 
         returnedQueries.append(None)
         cursor.close()
