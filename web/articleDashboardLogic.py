@@ -236,13 +236,14 @@ def articleDashboardLogic(mysql, mysql2, years_list, yearInput):
         # minimumBound = minimumBound[0:4]
         # maximumBound = maximumBound[0:4]
 
-    # ----------------------------- End of Dynamic Year Range Selector Bounds and Range --------------------------------
-    # ----------------------------- Event Count for each platform across 5 years -------------------------------------
+        # ----------------------------- End of Dynamic Year Range Selector Bounds and Range --------------------------------
+        # ----------------------------- Event Count for each platform across 5 years -------------------------------------
 
-    # Size of each list depends on how many years(in chartScript.js) you'd like to display.
-    # Queries will be inserted within the array
-    #years_list = [2016, 2017, 2018, 2019, 2020]
+        # Size of each list depends on how many years(in chartScript.js) you'd like to display.
+        # Queries will be inserted within the array
+        # years_list = [2016, 2017, 2018, 2019, 2020]
 
+        #initialize social media event lists
         cambiaevent = []
         crossrefevent = []
         dataciteevent = []
@@ -258,9 +259,8 @@ def articleDashboardLogic(mysql, mysql2, years_list, yearInput):
         webevent = []
         wordpressevent = []
 
+        # ----------------------------- Event Count for each platform across 5 years ---------------------------------
         if mainRow is not None:
-            # ***********Year Range Slider decomissioned until after P3 ***************
-            # print("Years List passed: ", years_list)
 
             # cambia event
             if mainRow['totalCambiaEvents'] is not None:
@@ -274,7 +274,6 @@ def articleDashboardLogic(mysql, mysql2, years_list, yearInput):
 
                 event_count = cursor2.fetchone()
                 cambiaevent.append(event_count['count'])
-            # cambiaEvent = [30, 20, 50, 10, 90]  # TBD - delete this line after we upload data in cambia event table for all these years
 
             # crossrefevent
             if mainRow['totalCrossrefEvents'] is not None:
@@ -288,7 +287,6 @@ def articleDashboardLogic(mysql, mysql2, years_list, yearInput):
 
                     event_count = cursor2.fetchone()
                     crossrefevent.append(event_count['count'])
-                # crossrefevent = [5, 7, 14, 18, 25]; # TBD - delete this line after we upload data in cambia event table for all these years
 
             # dataciteevent
             if mainRow['totalDataciteEvents'] is not None:
@@ -302,7 +300,6 @@ def articleDashboardLogic(mysql, mysql2, years_list, yearInput):
 
                     event_count = cursor2.fetchone()
                     dataciteevent.append(event_count['count'])
-                # dataciteevent = [5, 10, 15, 20, 25];  # TBD - delete this line after we upload data in cambia event table for all these years
 
             # f1000event
             if mainRow['totalF1000Events'] is not None:
@@ -329,7 +326,6 @@ def articleDashboardLogic(mysql, mysql2, years_list, yearInput):
 
                     event_count = cursor2.fetchone()
                     hypothesisevent.append(event_count['count'])
-                # hypothesisevent = [5, 10, 15, 20, 25];  # TBD - delete this line after we upload data in cambia event table for all these years
 
             # newsfeedevent
             if mainRow['totalNewsfeedEvents'] is not None:
@@ -343,7 +339,6 @@ def articleDashboardLogic(mysql, mysql2, years_list, yearInput):
 
                     event_count = cursor2.fetchone()
                     newsfeedevent.append(event_count['count'])
-                # newsfeedevent = [5, 10, 15, 20, 25];  # TBD - delete this line after we upload data in cambia event table for all these years
 
             # redditevent
             if mainRow['totalRedditEvents'] is not None:
@@ -357,7 +352,6 @@ def articleDashboardLogic(mysql, mysql2, years_list, yearInput):
 
                     event_count = cursor2.fetchone()
                     redditevent.append(event_count['count'])
-                # redditevent = [5, 10, 15, 20, 25];  # TBD - delete this line after we upload data in cambia event table for all these years
 
             # redditlinksevent
             if mainRow['totalRedditLinksEvents'] is not None:
@@ -371,7 +365,6 @@ def articleDashboardLogic(mysql, mysql2, years_list, yearInput):
 
                     event_count = cursor2.fetchone()
                     redditlinksevent.append(event_count['count'])
-                # redditlinksevent = [5, 10, 15, 20, 25];  # TBD - delete this line after we upload data in cambia event table for all these years
 
             # stackexchangeevent
             if mainRow['totalStackExchangeEvents'] is not None:
@@ -386,7 +379,6 @@ def articleDashboardLogic(mysql, mysql2, years_list, yearInput):
 
                     event_count = cursor2.fetchone()
                     stackexchangeevent.append(event_count['count'])
-                # stackexchangeevent = [5, 10, 15, 20, 25];  # TBD - delete this line after we upload data in cambia event table for all these years
 
             # twitterevent
             if mainRow['totalTwitterEvents'] is not None:
@@ -400,7 +392,6 @@ def articleDashboardLogic(mysql, mysql2, years_list, yearInput):
 
                     event_count = cursor2.fetchone()
                     twitterevent.append(event_count['count'])
-                # twitterevent = [5, 10, 15, 20, 25];  # TBD - delete this line after we upload data in cambia event table for all these years
 
             # webevent
             if mainRow['totalWebEvents'] is not None:
@@ -414,7 +405,6 @@ def articleDashboardLogic(mysql, mysql2, years_list, yearInput):
 
                     event_count = cursor2.fetchone()
                     webevent.append(event_count['count'])
-                # webevent = [5, 10, 15, 20, 25];  # TBD - delete this line after we upload data in cambia event table for all these years
 
             # wikipediaevent
             if mainRow['totalWikipediaEvents'] is not None:
@@ -456,6 +446,7 @@ def articleDashboardLogic(mysql, mysql2, years_list, yearInput):
         # minimumBound = ''
         # maximumBound = ''
         # Make sure to add this to the render_template(minimumBound=minimumBound, maximumBound=maximumBound,) function call
+
         years_list = []
         article = {}
         eventsForArticle = []

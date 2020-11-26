@@ -169,7 +169,7 @@
 {% block body %}
 
 
-
+<!--Heading -->
 <div class = "container">
     <div class="row">
     <div class = "col-md-11">
@@ -184,7 +184,7 @@
     </div>
 
     <div class="row">
-        <!-- This is the left column-->
+        <!-- This is the left column - Information box-->
         <div class = "col-md-5">
             <div class="col">
                 <br><br><br>
@@ -221,7 +221,7 @@
                     </tr>
                 </table>
             </div> 
-        </div><!-- End 5 width column on the left -->
+        </div><!-- End column on the left -->
 
         <!-- This is the right column, first row containing the chart -->
         <br><br>
@@ -277,7 +277,7 @@
             </table>
             -->
             
-            <!-- Table which hides events properly but looks a little strange -->
+            <!-- Table - hides events -->
             {% for e in events %}
             <div class="row row-bordered eventItem" id="{{e.sourceID}}">
                 <table id ="noBorders" style="margin-bottom: 0px; margin-top: 0px; width:1170px;">
