@@ -1,8 +1,9 @@
 # User Manual
 This document details how to get set-up if you would like to clone the repository and run the web server yourself.  
+Please make sure you have installed the dependencies listed in the [README](https://github.com/tdbowman-CompSci-F2020/crossrefEventData/blob/master/README.md) before continuing.
 
 ## 1. Setting up the Databases 📊
-The Event data is ingested into a MySQL database titled `crossRefEventDataMain`. The script to create it can be found [here](https://github.com/tdbowman-CompSci-F2020/crossrefEventData/blob/master/SQL/CrossrefeventdataWithMain/crossrefeventdataWithMain.sql).  
+The Event data will be ingested into a MySQL database titled `crossRefEventDataMain`. The script to create it can be found [here](https://github.com/tdbowman-CompSci-F2020/crossrefEventData/blob/master/SQL/CrossrefeventdataWithMain/crossrefeventdataWithMain.sql).  
   
 The journal, publisher, author, title, and date information is stored in a seperate MySQL database titled `dr_bowman_doi_data_tables`. The script to create it can be found [here](https://github.com/tdbowman-CompSci-F2020/crossrefEventData/blob/master/SQL/DOI_Author_Database/dr_bowman_doi_data_tables.sql).
 
@@ -43,13 +44,13 @@ Downloaded JSON files will look similar to this. Each of the 13 Event types has 
 ```
 
 ## 3. Ingesting the Data 🗃️
-These files will now need to be ingested into the database by another script: `pythonScripts/Ingest/main.py`. This script reads each JSON in the data directory, and inserts it into our MySQL database. Because the Event data does not contain the journal, publisher, authors, or titles for the DOI's, we utilized Dr. Bowman's database which is already populated with this data. If you are cloning the repository, *WILL NEED TO SOURCE THIS DATA YOURSELF*. This GitHub [repository](https://github.com/fabiobatalha/crossrefapi) is a good place to start.
+These files will need to be ingested into the database by the following script: `pythonScripts/Ingest/main.py`. This script reads each JSON in the data directory, and inserts the events into the MySQL database. Again, the Event data does not contain the journal, publisher, authors, or titles for the DOI's. We utilized Dr. Bowman's database which was already populated with this data when we started this project. If you are cloning the repository, *you will need to source this data yourself*. This GitHub [repository](https://github.com/fabiobatalha/crossrefapi) is a good place to start.
 
 ### 3.1 Ingesting from JSON files
 #### Step by step guide:
-1. Create a file inside `crossrefeventdata/pythonScripts/Ingest` named `passwd.txt`. The only line in this file should be your MySQL password.
-2. Change the datadirectory for your JSON folder to suit your system (line 26).
-3. Run `python main.py`
+1. Create a file inside this folder: `crossrefeventdata/pythonScripts/Ingest` named `passwd.txt`. The only line in this file should be your MySQL password.
+2. Change the datadirectory for your JSON folder to suit your system (line 26). *note, if not using the root MySQL account, you will need to change the MySQL user on line 31*  
+3. Run `python main.py` in your preferred terminal.
 
 ### 3.2 Ingesting from PaperBuzz Data
 We were fortunate enough to be given a dump of Crossref JSON data from the nice folks at [Paperbuzz](http://paperbuzz.org/). This one time dump we recieved is simply Crossref Event data stored in a slighly different way. Here we document how we ingested this data, but can not provide a means for other to aquire this data. While the first 10,000 of such records are located in `crossrefeventdata/SQL/DOI_Author_Database/doi_json_dump_10k.csv`, we are not making the remaining data public at this time. Anyone cloning the repository will need to use see section 2.1 and ingest JSON data which they gather themselves.
@@ -65,7 +66,8 @@ We were fortunate enough to be given a dump of Crossref JSON data from the nice 
 4. Ignore steps 1 & 2 if you already have a database containing the paperbuzz data dump
 5. Execute this SQl command `DROP DATABASE crossrefeventdatawithmain`
 6. Execute the SQL script crossrefeventdataWithMain.sql to create all 13 tables.
-7. Run `python paperBuzzMain.py`.
+7. If you are not using the root MySQL user account, you will need to change the user on line 27.
+8. Run `python paperBuzzMain.py` in your preferred terminal.
 
 ### 4. Quirks of the Crossref API ❓
 * Some Events give a DOI(objectID) of simply https://doi.org. For example, the event with ID: `5c83ca20-d4a1-471b-a23f-f21486cefb5c`
