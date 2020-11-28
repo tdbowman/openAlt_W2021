@@ -15,6 +15,7 @@ import logging
 import sys
 import os
 import time
+from getPassword import getPassword
 
 logging.basicConfig(filename='./ingest.log', filemode='a', level=logging.INFO,
                     format='%(asctime)s - %(message)s', datefmt='%d-%b-%y %H:%M:%S')  # Set the logging parameters
@@ -25,7 +26,7 @@ except:
 
 # Change these to suit your system
 mysql_username = "root"
-mysql_password = "RiyaFoxMcCloud64"
+mysql_password = getPassword()
 
 
 def main():

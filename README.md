@@ -13,29 +13,29 @@ We are developing a website which will allow users to search our databases for D
 
 ## Dependencies and their Licenses 
 
-| Software                        | License                            |
-|:--------------------------------|:-----------------------------------|
-| MySQL 8.0.21                    | GPL-2.0 License                    |
-| MySQL Python Connector 8.0.21   | GPL-2.0 License                    |
-| Python 3.8                      | Python Software Foundation License |
-| Bootstrap 3.3.7                 | MIT License                        |
-| C3 0.7.20                       | MIT License                        |
-| D3 v5                           | BSD-3-Clause License               |
-| jQuery 3.5.1                    | MIT License                        |
-| jQRangeSlider 5.7.2             | MIT & GPL License                  |
+| Software                        | License                            | Version                         |
+|:--------------------------------|:-----------------------------------|:--------------------------------|
+| MySQL                           | GPL-2.0 License                    | 8.0.21                          |
+| MySQL Python Connector          | GPL-2.0 License                    | 8.0.21                          |
+| Python                          | Python Software Foundation License | 3.8.0                           |
+| Bootstrap                       | MIT License                        | 3.3.7                           |
+| C3                              | MIT License                        | 3.5.1                           |
+| D3                              | BSD-3-Clause License               | 5.7.2                           |
+| jQuery                          | MIT License                        | 0.7.20                          |
+| jQRangeSlider                   | MIT & GPL License                  | v5                              |
 
 <br>
 
-| Python Module             | License                    |
-|:--------------------------|:---------------------------|
-| schedule                  | MIT License                |
-| crossrefapi               | BSD-2-Clause License       |
-| mysql-connector-python    | GPL-2.0 License            |
-| flask                     | BSD-3-Clause License       |
-| flask-mysqldb             | MIT License                |
-| virtualenv                | MIT License                |
-| python-dateutil           | Apache-2.0 License         |
-| flask-paginate            | BSD-3-Clause License       |
+| Python Module             | License                    | Version                    |              
+|:--------------------------|:---------------------------|:---------------------------|
+| schedule                  | MIT License                | 0.6.0                      |
+| crossrefapi               | BSD-2-Clause License       | 1.5.0                      |
+| mysql-connector-python    | GPL-2.0 License            | 8.0.21                     |
+| flask                     | BSD-3-Clause License       | 1.1.2                      |
+| flask-mysqldb             | MIT License                | 0.2.0                      |
+| virtualenv                | MIT License                | 20.0.35                    |
+| python-dateutil           | Apache-2.0 License         | 2.8.1                      |
+| flask-paginate            | BSD-3-Clause License       | 0.7.1                      |
 
 <br>
 
