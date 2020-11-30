@@ -64,7 +64,8 @@ We were fortunate enough to be given a dump of Crossref JSON data from the nice 
 	    - Go to this directory: `crossrefEventData/SQL/paperbuzz_dump/`.
       - Open `paperbuzz.sql`.
     - Execute the script(⚡).
-    - (Recommendation) File -> New Query Tab(CTRL + T).
+    - Organization Tip **(Recommendation but not required)**
+      - File -> New Query Tab(CTRL + T).
       - This step is not required however it can be helpful. Any SQL commands that you want to execute for a database or table can be placed here. It allows you to use the script purely for creating the database/table while using another tab to execute commands for that database/table.
     - Execute this SQL query `SELECT * FROM event_data_json;`.
       - Import `json_dump_10k.csv` to the event_data_json table.
