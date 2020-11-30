@@ -93,7 +93,7 @@ This guide assumes you are using Python 3.8, and have established the `crossrefe
 If you have Python 2 installed, you will need to substitute Python3 for Python below.  
 
 ### 5.2 Step by Step Guide 📝
-These actions should be performed here, at this level in the folder.
+These actions should be performed inside the `crossrefEventData/web/` folder.
 1) Install virtualenv: `pip install virtualenv`
 2) Create a virtual environment: `python -m virtualenv venv`
 3) Activate the environment:
