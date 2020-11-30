@@ -40,7 +40,7 @@ Downloaded JSON files will look similar to this. Each of the 13 Event types has 
         },
         "timestamp": "2017-02-22T16:15:50Z",
         "relation_type_id": "discusses"
-      }
+}
 ```
 
 ## 3. Ingesting the Data 🗃️
