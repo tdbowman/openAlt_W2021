@@ -7,8 +7,6 @@ parser = argparse.ArgumentParser()
 parser.add_argument("doi")
 args = parser.parse_args()
 
-#doi = '10.1016/j.ymthe.2019.04.002'
-
 try:
     from crossref.restful import Works
     works = Works()
@@ -17,8 +15,6 @@ try:
     x = works.doi(args.doi)
     if (x['author']):
         authorList = x['author']
-        # Truncated example of what the x (json object) now looks like:
-        # [{'given': 'Tushar H.', 'family': 'Ganjawala', 'sequence': 'first', 'affiliation': []}, {'given': 'Qi', 'family': 'Lu', 'sequence': 'additional', 'affiliation': []}]
         for index, authorDetail in enumerate(authorList):
             first_name = authorDetail['given']
             last_name = authorDetail['family']
