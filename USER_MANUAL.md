@@ -49,25 +49,25 @@ These files will need to be ingested into the database by the following script: 
 ### 3.1 Ingesting from JSON files
 #### Step by step guide:
 1. Create a file inside this folder: `crossrefeventdata/pythonScripts/Ingest` named `passwd.txt`. The only line in this file should be your MySQL password.
-2. Change the datadirectory for your JSON folder to suit your system (line 26). *note, if not using the root MySQL account, you will need to change the MySQL user on line 31*  
+2. Change the datadirectory for your JSON folder to suit your system (line 30). *Note, if not using the root MySQL account, you will need to change the MySQL user on line 31*  
 3. Run `python main.py` in your preferred terminal.
 
 ### 3.2 Ingesting from PaperBuzz Data
-We were fortunate enough to be given a dump of Crossref JSON data from the nice folks at [Paperbuzz](http://paperbuzz.org/). This one time dump we recieved is simply Crossref Event data stored in a slighly different way. Here we document how we ingested this data, but can not provide a means for other to aquire this data. While the first 10,000 of such records are located in `crossrefeventdata/SQL/DOI_Author_Database/doi_json_dump_10k.csv`, we are not making the remaining data public at this time. Anyone cloning the repository will need to use see section 2.1 and ingest JSON data which they gather themselves.
+We were fortunate enough to be given a dump of Crossref JSON data from the nice folks at [Paperbuzz](http://paperbuzz.org/). This one time dump we recieved is simply Crossref Event data stored in a slighly different way. Here we document how we ingested this data, but can not provide a means for others to aquire this data. While the first 10,000 of such records are located in `crossrefeventdata/SQL/DOI_Author_Database/doi_json_dump_10k.csv`, we are not making the remaining data public at this time. Anyone cloning the repository will need to use see section 2.1 and ingest JSON data which they gather themselves.
 
-#### Step by step guide:
+#### Step By Step Guide:
 1. Create a file inside `crossrefeventdata/pythonScripts/Ingest` named `passwd.txt`. The only line in this file should be your MySQL password.
 2. Create a new database
 	- `CREATE DATABASE paperbuzzeventdata;`
-	- SQL -> eventData-json_dump10k -> CreateSyntax-event_data_json.sql
-		- Open CreateSyntax-event_data_json.sql
-3. Import json_dump_10k.csv to the event_data_json table in MySQL workbench
-	- SQL -> eventData-json_dump10k
-4. Ignore steps 1 & 2 if you already have a database containing the paperbuzz data dump
-5. Execute this SQl command `DROP DATABASE crossrefeventdatawithmain`
-6. Execute the SQL script crossrefeventdataWithMain.sql to create all 13 tables.
-7. If you are not using the root MySQL user account, you will need to change the user on line 27.
-8. Run `python paperBuzzMain.py` in your preferred terminal.
+	- `crossrefEventData/SQL/paperbuzz_dump/`
+		- Open `paperbuzz.sql`
+    - Import `json_dump_10k.csv` to the event_data_json table in MySQL workbench.
+3. Ignore steps 1 & 2 if you already have a database containing the paperbuzz data dump
+4. Execute this SQL command `DROP DATABASE crossrefeventdatawithmain`
+5. Go to this directory: `crossrefEventData\SQL\CrossrefeventdataWithMain`
+  - Execute the SQL script crossrefeventdataWithMain.sql to create all 13 tables.
+6. If you are not using the root MySQL user account, you will need to change the user on line 28.
+7. Run `python paperBuzzMain.py` in your preferred terminal.
 
 ### 4. Quirks of the Crossref API ❓
 * Some Events give a DOI(objectID) of simply https://doi.org. For example, the event with ID: `5c83ca20-d4a1-471b-a23f-f21486cefb5c`
@@ -77,12 +77,12 @@ For example, the event with ID `5dd6719b-8981-4712-988c-8c01f7ad760b` has a DOI(
  ```
  "obj_id": "https://doi.org/www.kau.edu.sa/content.aspx?pg=%d9%88%d8%b8%d8%a7%d8%a6%d9%81-%d8%b4%d8%a7%d8%ba%d8%b1%d8%a9-%d8%b9%d9%84%d9%89-%d8%a8%d9%86%d8%af-%d8%a7%d9%84%d8%a7%d8%ac%d9%88%d8%b1-%d8%a8%d9%88%d9%83%d8%a7%d9%84%d8%a9-%d8%b4%d8%b7%d8%b1-%d8%a7%d9%84%d8%b7%d8%a7%d9%84%d8%a8%d8%a7%d8%aa"
  ```
-* Many Twitter Events do not provide a link to the tweet as their subjectID. Instead, they have only `http://twitter.com` as their link.  Since these events do not contain useful links, we have designed the website to hide these events from the "100 recent events" section on the article dashboard. These events are still counted towards the author/article totals.
+* Many Twitter Events do not provide a link to the tweet as their subjectID. Instead, they have only `http://twitter.com` as their link.  Since these events do not contain useful links, we have designed the website to hide these events from the "Latest Events" section on the article dashboard. These events are still counted towards the total number of events for the author/article.
 
 ## 5. How to run the web server 🖥️
 
 ### 5.1 Before we Start ✋
-This guide assumes you are using Python 3.8, and have established the `crossrefeventdatamain` and `dr_bowman_doi_data_tables` databases in MySQL. See the SQL folder for the relevant scripts.  
+This guide assumes you are using Python 3.8, and have established the `crossrefeventdatamain` and `dr_bowman_doi_data_tables` databases in MySQL. Check `crossrefEventData/SQL/` for the relevant scripts.  
 If you have Python 2 installed, you will need to substitute Python3 for Python below.  
 
 ### 5.2 Step by Step Guide 📝
@@ -94,6 +94,9 @@ These actions should be performed here, at this level in the folder.
     - Linux/Mac: `./venv/bin/activate`
 4) Install Flask and our dependencies to this virtual environment:
     - `pip install flask mysql-connector-python flask-mysqldb python-dateutil flask-paginate`
-5) Create a new file named `passwd.txt`. Open the file, and type only your MySQL user password. Save and close. This file is ignored by git, but used by app.py to access your local MySQL server.
+5) Create a new file named `passwd.txt`. 
+    - Open the file, and type only your MySQL user password.
+    - Save and close. 
+    - This file is ignored by git, but used by app.py to access your local MySQL server.
 6) Start the web server using `python app.py`
 7) When the web server starts, navigate to [127.0.0.1:5000](127.0.0.1:5000)
