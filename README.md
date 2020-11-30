@@ -22,7 +22,6 @@ We are developing a website which will allow users to search our databases for D
 | C3                              | MIT License                        | 3.5.1                           |
 | D3                              | BSD-3-Clause License               | 5.7.2                           |
 | jQuery                          | MIT License                        | 0.7.20                          |
-| jQRangeSlider                   | MIT & GPL License                  | v5                              |
 
 <br>
 
