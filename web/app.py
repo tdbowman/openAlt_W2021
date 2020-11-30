@@ -60,6 +60,8 @@ def search():
     # If a HTTPS POST Request is received...
     if(request.method == "POST"):
         dropdownValue = request.form.get('dropdownSearchBy')
+    else:
+        dropdownValue = str(flask.request.args.get("dropdownSearchBy"))
 
     # Go to searchLogic.py
     return searchLogic(mysql, mysql2, dropdownValue)
