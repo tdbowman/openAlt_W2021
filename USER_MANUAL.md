@@ -58,20 +58,20 @@ We were fortunate enough to be given a dump of Crossref JSON data from the nice 
 #### Step By Step Guide:
 1. Create a file inside `crossrefeventdata/pythonScripts/Ingest` named `passwd.txt`. The only line in this file should be your MySQL password.
 2. Open up MySQL Workbench.
-  - Connect to your Local MySQL Connection.
+    - Connect to your Local MySQL Connection.
 3. Create a new database within Workbench.
-  - File -> Open SQL Script
-	  - Go to this directory: `crossrefEventData/SQL/paperbuzz_dump/`.
-    - Open `paperbuzz.sql`.
-  - Execute the script(⚡).
-  - (Recommendation) File -> New Query Tab(CTRL + T).
-    - This step is not required however it can be helpful. Any SQL commands that you want to execute for a database or table can be placed here. It allows you to use the script purely for creating the database/table while using another tab to execute commands for that database/table.
-  - Execute this SQL query `SELECT * FROM event_data_json;`.
-    - Import `json_dump_10k.csv` to the event_data_json table.
+    - File -> Open SQL Script
+	    - Go to this directory: `crossrefEventData/SQL/paperbuzz_dump/`.
+      - Open `paperbuzz.sql`.
+    - Execute the script(⚡).
+    - (Recommendation) File -> New Query Tab(CTRL + T).
+      - This step is not required however it can be helpful. Any SQL commands that you want to execute for a database or table can be placed here. It allows you to use the script purely for creating the database/table while using another tab to execute commands for that database/table.
+    - Execute this SQL query `SELECT * FROM event_data_json;`.
+      - Import `json_dump_10k.csv` to the event_data_json table.
 3. Ignore steps 1 - 3 if you already have a database containing the Paperbuzz data dump.
 4. Execute this SQL command `DROP DATABASE crossrefeventdatawithmain`.
 5. Go to this directory: `crossrefEventData\SQL\CrossrefeventdataWithMain`
-  - Execute the SQL script `crossrefeventdataWithMain.sql` to create all 13 tables.
+    - Execute the SQL script `crossrefeventdataWithMain.sql` to create all 13 tables.
 6. If you are not using the root MySQL user account, you will need to change the user on line 28.
 7. Run `python paperBuzzMain.py` in your preferred terminal.
 
