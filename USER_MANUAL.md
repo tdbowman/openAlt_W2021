@@ -44,7 +44,7 @@ Downloaded JSON files will look similar to this. Each of the 13 Event types has 
 ```
 
 ## 3. Ingesting the Data 🗃️
-These files will need to be ingested into the database by the following script: `pythonScripts/Ingest/main.py`. This script reads each JSON in the data directory, and inserts the events into the MySQL database. Again, the Event data does not contain the journal, publisher, authors, or titles for the DOI's. We utilized Dr. Bowman's database which was already populated with this data when we started this project. If you are cloning the repository, *you will need to source this data yourself*. This GitHub [repository](https://github.com/fabiobatalha/crossrefapi) is a good place to start.
+These files will need to be ingested into the database by the following script: `crossrefeventdata/pythonScripts/Ingest/main.py`. This script reads each JSON in the data directory, and inserts the events into the MySQL database. Again, the Event data does not contain the journal, publisher, authors, or titles for the DOI's. We utilized Dr. Bowman's database which was already populated with this data when we started this project. If you are cloning the repository, *you will need to source this data yourself*. This GitHub [repository](https://github.com/fabiobatalha/crossrefapi) is a good place to start.
 
 ### 3.1 Ingesting from JSON files
 #### Step by step guide:
