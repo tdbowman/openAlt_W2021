@@ -3,140 +3,157 @@
 <!-- Anything you put here will be in the HTML head tags-->
 {% block head %}
 <script>
-  $(function(){
+	$(function(){
 
-	//Changes the current value of the dropdown window to whatever
-	let $searchFilter = $("#dropdownSearchBy");
-	$searchFilter.val("{{dropdownValue}}");
+		//Changes the current value of the dropdown window to whatever
+		let $searchFilter = $("#dropdownSearchBy");
+		$searchFilter.val("{{dropdownValue}}");
 
-	// sessionStorage is a property of the Web Storage API that creates an instance of a  Storage object. Storage objects are simple key-value stores but stay intact through page loads. The key and values are always strings.
-	// sessionStorage allows us to store data in the browser until the browser(or tab) is closed.
+		// sessionStorage is a property of the Web Storage API that creates an instance of a  Storage object. Storage objects are simple key-value stores but stay intact through page loads. The key and values are always strings.
+		// sessionStorage allows us to store data in the browser until the browser(or tab) is closed.
 
-	let $startYearBox = $("#startYear");
-	let $endYearBox = $("#endYear");
+		let $startYearBox = $("#startYear");
+		let $endYearBox = $("#endYear");
 
-	// jquery statement that references the "Sort By:"dropdown list.
-	let $sortDropdown = $("#sortSelector");
+		// jquery statement that references the "Sort By:"dropdown list.
+		let $sortDropdown = $("#sortSelector");
 
-	// jQuery statement that references the "Per Page:" dropdown list.
-	let $perPageDropdown = $("#perPage");
+		// jQuery statement that references the "Per Page:" dropdown list.
+		let $perPageDropdown = $("#perPage");
 
-	// jQuery statement that references the submit button.
-	let $submitButton = $("button[type='submit']");
+		// jQuery statement that references the submit button.
+		let $submitButton = $("button[type='submit']");
 
-	// jQuery statement that references the year text boxes.
-	let $yearRangeBoxes = $(".yearRange");
-
-
-	// Grabs the oldest publication year from searchLogic.py.
-	let oldPubYear = parseInt("{{ oldestPubYear }}",10);
-
-	// Grabs the year from currentTime.
-	let currentTime = new Date()
-	let year = currentTime.getFullYear()
+		// jQuery statement that references the year text boxes.
+		let $yearRangeBoxes = $(".yearRange");
 
 
-	// Grab the values from the keys in sessionStorage.
-	let selectedValue = JSON.parse(sessionStorage.getItem('selected')) || "PublicationYearDescending";
-	let selectedValuePerPage = JSON.parse(sessionStorage.getItem('selectedPerPage')) || "10";
+		// Grabs the oldest publication year from searchLogic.py.
+		let oldPubYear = parseInt("{{ oldestPubYear }}",10);
 
-	let startYear = JSON.parse(sessionStorage.getItem('startYear')) || "";
-	let endYear = JSON.parse(sessionStorage.getItem('endYear')) || "";
+		// Grabs the year from currentTime.
+		let currentTime = new Date()
+		let year = currentTime.getFullYear()
 
-	// When the focus is inside either of the year text boxes
-	$yearRangeBoxes.keydown(function(event){
 
-		// Allow numbers from the top row of the keyboard and numpad.
-		if(event.keyCode >= 48 && event.keyCode <= 57 || event.keyCode >= 96 && event.keyCode <= 105){
-			return true;
-		}
-		// Allow backspace, tab or enter button.
-		else if(event.keyCode == 8 || event.keyCode == 9 || event.keyCode == 13){
-			return true;
-		}
-		// Disable shift key to stop special characters from entering text box.
-		else if(event.shiftKey == true){
-			return false;
-		}
-		else{
-			return false;
-		}
-	});
+		// Initialize variables and reference to the searchButton and the current value of the search box
+		let $searchButton = $("#searchButton");
 
-	$submitButton.click(function(){
-		// Grab the current value of the startYear and endYear text boxes
-		let $startYearCurrentValue = $startYearBox.val();
-		$startYearCurrentValue = parseInt($startYearCurrentValue,10);
+		// For issue #427
+		// // If the search box isn't empty, clear the sessionStorage.
+		// $searchButton.click(function(){
 
-		let $endYearCurrentValue = $endYearBox.val();
-		$endYearCurrentValue = parseInt($endYearCurrentValue,10);
+		// 	let $searchBoxValue = $("#search_input").val();
 
-		let $sortDropdownCurrentValue = $sortDropdown.val();
-		let $perPageDropdownCurrentValue = $perPageDropdown.val();
+		// 	if($searchBoxValue !== ''){
+		// 		setTimeout(function(){
+		// 			sessionStorage.clear();
+		// 		},2000);
+				
+		// 	}
+		// });
 
-		// If the current values of both text boxes are not empty....
-		// NaN = Not A Number = An empty text box
-		if(!(isNaN($startYearCurrentValue)) && !(isNaN($endYearCurrentValue))){
-			
-			if($startYearCurrentValue > $endYearCurrentValue){
-				alert("Please switch your years around.");
+		// Grab the values from the keys in sessionStorage.
+		let selectedValue = JSON.parse(sessionStorage.getItem('selected')) || "PublicationYearDescending";
+		let selectedValuePerPage = JSON.parse(sessionStorage.getItem('selectedPerPage')) || "10";
+
+		let startYear = JSON.parse(sessionStorage.getItem('startYear')) || "";
+		let endYear = JSON.parse(sessionStorage.getItem('endYear')) || "";
+
+		// When the focus is inside either of the year text boxes
+		$yearRangeBoxes.keydown(function(event){
+
+			// Allow numbers from the top row of the keyboard and numpad.
+			if(event.keyCode >= 48 && event.keyCode <= 57 || event.keyCode >= 96 && event.keyCode <= 105){
+				return true;
+			}
+			// Allow backspace, tab or enter button.
+			else if(event.keyCode == 8 || event.keyCode == 9 || event.keyCode == 13){
+				return true;
+			}
+			// Disable shift key to stop special characters from entering text box.
+			else if(event.shiftKey == true){
 				return false;
 			}
-			else if($startYearCurrentValue < oldPubYear || $startYearCurrentValue > year ){
-				alert("Please change your starting year so it satisfies this " + oldPubYear + " - " + year + " range.");
+			else{
 				return false;
 			}
-			else if($endYearCurrentValue < oldPubYear || $endYearCurrentValue > year ){
-				alert("Please change your end year so it satisfies this " + oldPubYear + " - " + year + " range.");
-				return false;
-			}
+		});
 
+		$submitButton.click(function(){
+			// Grab the current value of the startYear and endYear text boxes
+			let $startYearCurrentValue = $startYearBox.val();
+			$startYearCurrentValue = parseInt($startYearCurrentValue,10);
 
-		}
-		// If either of the year text boxes aren't empty.....
-		// NaN = Not A Number = An empty text box 
-		else if(!(isNaN($startYearCurrentValue)) || !(isNaN($endYearCurrentValue))){
+			let $endYearCurrentValue = $endYearBox.val();
+			$endYearCurrentValue = parseInt($endYearCurrentValue,10);
 
-			// If the start year text box value isn't empty..
+			let $sortDropdownCurrentValue = $sortDropdown.val();
+			let $perPageDropdownCurrentValue = $perPageDropdown.val();
+
+			// If the current values of both text boxes are not empty....
 			// NaN = Not A Number = An empty text box
-			if(!(isNaN($startYearCurrentValue))){
-				if((isNaN($endYearCurrentValue))){
-					alert("Please enter an end year.");
+			if(!(isNaN($startYearCurrentValue)) && !(isNaN($endYearCurrentValue))){
+
+				if($startYearCurrentValue > $endYearCurrentValue){
+					alert("Please switch your years around.");
 					return false;
 				}
-			}
-			// If the end year text box value isn't empty...
-			// NaN = Not A Number = An empty text box
-			else if(!(isNaN($endYearCurrentValue))){
-				if(isNaN($startYearCurrentValue)){
-					alert("Please enter an start year.");
+				else if($startYearCurrentValue < oldPubYear || $startYearCurrentValue > year ){
+					alert("Please change your starting year so it satisfies this " + oldPubYear + " - " + year + " range.");
 					return false;
 				}
+				else if($endYearCurrentValue < oldPubYear || $endYearCurrentValue > year ){
+					alert("Please change your end year so it satisfies this " + oldPubYear + " - " + year + " range.");
+					return false;
+				}
+
+
 			}
+			// If either of the year text boxes aren't empty.....
+			// NaN = Not A Number = An empty text box
+			else if(!(isNaN($startYearCurrentValue)) || !(isNaN($endYearCurrentValue))){
+
+				// If the start year text box value isn't empty..
+				// NaN = Not A Number = An empty text box
+				if(!(isNaN($startYearCurrentValue))){
+					if((isNaN($endYearCurrentValue))){
+						alert("Please enter an end year.");
+						return false;
+					}
+				}
+				// If the end year text box value isn't empty...
+				// NaN = Not A Number = An empty text box
+				else if(!(isNaN($endYearCurrentValue))){
+					if(isNaN($startYearCurrentValue)){
+						alert("Please enter an start year.");
+						return false;
+					}
+				}
+			}
+
+			// Stringify all values and set them to their respective keys in session storage.
+			sessionStorage.setItem("startYear", JSON.stringify($startYearCurrentValue));
+			sessionStorage.setItem("endYear", JSON.stringify($endYearCurrentValue));
+			sessionStorage.setItem("selected", JSON.stringify($sortDropdownCurrentValue));
+			sessionStorage.setItem("selectedPerPage", JSON.stringify($perPageDropdownCurrentValue));
+		});
+
+		// If the "From" year box isn't empty, set the current value to startYear.
+		if(startYear !== ''){
+			$startYearBox.val(startYear);
 		}
 
-		// Stringify all values and set them to their respective keys in session storage.
-		sessionStorage.setItem("startYear", JSON.stringify($startYearCurrentValue));
-		sessionStorage.setItem("endYear", JSON.stringify($endYearCurrentValue));
-		sessionStorage.setItem("selected", JSON.stringify($sortDropdownCurrentValue));
-		sessionStorage.setItem("selectedPerPage", JSON.stringify($perPageDropdownCurrentValue));
-	});
+		// If the "To" year box isn't empty, set the current value to endYear.
+		if(endYear !== ''){
+			$endYearBox.val(endYear);
+		}
 
-	// If the "From" year box isn't empty, set the current value to startYear.
-	if(startYear !== ''){
-		$startYearBox.val(startYear);
-	}
+		// Display the value of selectedValue in the "Sort By:" Dropdown window.
+		$sortDropdown.val(selectedValue);
 
-	// If the "To" year box isn't empty, set the current value to endYear.
-	if(endYear !== ''){
-		$endYearBox.val(endYear);
-	}
-
-	// Display the value of selectedValue in the "Sort By:" Dropdown window.
-	$sortDropdown.val(selectedValue);
-
-	// Display the value of selectedValuePerPage in the "Per Page:" Dropdown window.
-	$perPageDropdown.val(selectedValuePerPage);
+		// Display the value of selectedValuePerPage in the "Per Page:" Dropdown window.
+		$perPageDropdown.val(selectedValuePerPage);
 
 	});
 </script>
@@ -145,112 +162,115 @@
 <!-- Anything you put here will be in the body-->
 {% block body %}
 <div class="container">
-  <div class="row">
-    <div class="col-sm-12">
-    <div class = "searchFilters">
+	<div class="row searchFilters">
+		<div class="col-sm-4">
+			<form class="form-inline" method="post" action="{{ url_for('search') }}" >
+				<h3 id="searchFil1">Filter By Year:</h3>
 
-    <form class="form-inline" method="post" action="{{ url_for('search') }}" >
-      <h3 id="searchFil1">Filter By Year:</h3>
+				<!-- Keep these hidden fields, searchLogic.py needs them-->
+				<input type="hidden" id="search" name="search" value= "{{ search }}" >
+				<input type="hidden" id="dropdownSearchBy" name="dropdownSearchBy" value="{{ dropdownSearchBy }}">
+					<input type="text" class=" resizedTextbox form-control yearRange" id="startYear" placeholder="From" name="startYear" maxlength="4" size="4">
+					<label>-</label>
+					<input type="text" class="resizedTextbox form-control yearRange" id="endYear" placeholder="To" name="endYear" maxlength="4" size="4">
+		</div>
+		<div class="col-sm-4">
+					<!-- Determine how the user would like to sort. This is picked up by sortLogic.py and used to set the descending_or_ascending variable -->
+				<h3 id="searchFil2">Sort By:</h3>
+				<select name="sortSelector" id="sortSelector" class="resizedTextbox2 form-control">
+					<option selected="selected" value="PublicationYearDescending">Publication Year - Descending</option>
+					<option value="PublicationYearAscending">Publication Year - Ascending</option>
+					<option value="eventsDescending">Total Events - Descending</option>
+					<!-- <option value="TotalEventsDescending">Popularity - Descending </option> -->
+				</select>
+		</div>
+		<div class="col-sm-4">
+				<h3 id="searchFil3">Per Page:</h3>
+					<select name="perPage" id="perPage" class="resizedTextbox form-control" >
+					<!-- <option value="" disabled selected>Rows per Page</option> -->
+					<option value="10" selected="selected">10</option>
+					<option value="25">25</option>
+					<option value="50">50</option>
+					<option value="100">100</option>
+					</select>
+				<button type="submit" class=" resizedTextbox btn btn-default">Apply</button>
+			</form>
+		</div>
+	</div> <!-- End the row -->
+	<div class="row">
+		<div class="col-sm-12">
+			<br>
+			<br>
 
-      <!-- Keep these hidden fields, searchLogic.py needs them-->
-      <input type="hidden" id="search" name="search" value= {{ search }} >
-      <input type="hidden" id="dropdownSearchBy" name="dropdownSearchBy" value={{ dropdownSearchBy }}>
-        <input type="text" class=" resizedTextbox form-control yearRange" id="startYear" placeholder="From" name="startYear" maxlength="4" size="4">
-        <label>-</label>
-        <input type="text" class="resizedTextbox form-control yearRange" id="endYear" placeholder="To" name="endYear" maxlength="4" size="4">
+			<div class="SR_boxed">
+			<th>Displaying Search Results For: {{search}}</th></div>
+			<br>
+			<!--Flask Pagination -->
+			<div class="SR_boxed">
+				{{pagination.info}}
+				{{pagination.links}}
+			</div>
 
-        <!-- Determine how the user would like to sort. This is picked up by sortLogic.py and used to set the descending_or_ascending variable -->
-      <h3 id="searchFil2">Sort By:</h3>
-      <select name="sortSelector" id="sortSelector" class="resizedTextbox form-control">
-        <option selected="selected" value="PublicationYearDescending">Publication Year - Descending</option>
-        <option value="PublicationYearAscending">Publication Year - Ascending</option>
-        <option value="eventsDescending">Total Events - Descending</option>
-        <!-- <option value="TotalEventsDescending">Popularity - Descending </option> -->
-      </select>
+			<table style="width:1140px;" id="noBorders">
+				<!-- Pagination: List articles from article_start index to article_end index -->
+				{% for result in listedSearchResults[article_start:article_end] %}
+				<tr class="row row-bordered">
+				<td class='item-data'>
 
-      <h3 id="searchFil3">Per Page:</h3>
-        <select name="perPage" id="perPage" class="resizedTextbox form-control" >
-          <!-- <option value="" disabled selected>Rows per Page</option> -->
-          <option value="10" selected="selected">10</option>
-          <option value="25">25</option>
-          <option value="50">50</option>
-          <option value="100">100</option>
-        </select>
-      <button type="submit" class=" resizedTextbox btn btn-default">Apply</button>
-    </form>
-    </div>
-    <br>
-    <br>
+					<div class="SR_articleTitle">
+						<a href="{{ url_for('articleDashboard') }}?DOI={{ result.objectID }}">{{ result.articleTitle }}</a>
+					</div>
 
-    <div class="SR_boxed">
-    <th>Displaying Search Results For: {{search}}</th></div>
-      <br>
-      <!--Flask Pagination -->
-      <div class="SR_boxed">
-        {{pagination.info}}
-        {{pagination.links}}
-      </div>  
+					<div style="font-weight: bold;"class="SR_journalName">
+						Journal Name:
+						<a style="font-weight: initial;" href="{{ url_for('journalDashboard') }}?journalName={{ result.journalName }}">{{ result.journalName }}</a>
+					</div>
 
-      <table style="width:1140px;" id="noBorders">
-        <!-- Pagination: List articles from article_start index to article_end index -->
-        {% for result in listedSearchResults[article_start:article_end] %}
-        <tr class="row row-bordered">
-        <td class='item-data'>
+					<div class="SR_articleDate">
+					{% if result.articleDate == None %}
+						<strong>Article Date:</strong> Unknown
+					{% else %}
+						<strong>Article Date:</strong> {{ result.articleDate }}
+					{% endif %}
+					</div>
 
-            <div class="SR_articleTitle">
-                <a href="{{ url_for('articleDashboard') }}?DOI={{ result.objectID }}">{{ result.articleTitle }}</a>
-            </div>
+					<div class="SR_authors">
+						<strong>Author(s):</strong>
+						<!--For articles that have no authors in the database-->
+						{% if not result.author_list %}
+						Unknown
+						{% endif %}
 
-            <div style="font-weight: bold;"class="SR_journalName">
-                Journal Name:
-                <a style="font-weight: initial;" href="{{ url_for('journalDashboard') }}?journalName={{ result.journalName }}">{{ result.journalName }}</a>
-            </div>
-            
-            <div class="SR_articleDate">
-              {% if result.articleDate == None %}
-                <strong>Article Date:</strong> Unknown
-              {% else %}
-                <strong>Article Date:</strong> {{ result.articleDate }}
-              {% endif %}
-            </div>
+						{% for author in result.author_list %}
+							{% if author == result.author_list[-1] %}
+							<a href="{{ url_for('authorDashboard') }}?author_id={{ author.id }}">{{ author.name }}</a>
+							{% else %}
+							<a href="{{ url_for('authorDashboard') }}?author_id={{ author.id }}">{{ author.name }},</a>
+						{% endif %}
+						{% endfor %}
+					</div>
 
-            <div class="SR_authors">
-                <strong>Author(s):</strong>
-                <!--For articles that have no authors in the database-->
-                {% if not result.author_list %}
-                  Unknown
-                {% endif %}
+					<div class="DOI">
+						<strong>DOI:</strong>
+						<a href="https://doi.org/{{ result.objectID }}"target="_blank">{{ result.objectID }} &#8599;</a>
+					</div>
 
-                {% for author in result.author_list %}
-                    {% if author == result.author_list[-1] %}
-                      <a href="{{ url_for('authorDashboard') }}?author_id={{ author.id }}">{{ author.name }}</a>
-                    {% else %}
-                      <a href="{{ url_for('authorDashboard') }}?author_id={{ author.id }}">{{ author.name }},</a>
-                {% endif %}
-                {% endfor %}
-            </div>
 
-            <div class="DOI">
-                <strong>DOI:</strong>
-                <a href="https://doi.org/{{ result.objectID }}"target="_blank">{{ result.objectID }} &#8599;</a>
-            </div>
+					<div class="SR_authors">
+					<strong>Total Events:</strong> {{result.totalEventsSum}}
+					</div>
 
-            
-            <div class="SR_authors">
-              <strong>Total events:</strong> {{result.totalEventsSum}}
-            </div>
-          
 
-          </td>
-          </tr>
-        {% endfor %}
+				</td>
+				</tr>
+				{% endfor %}
 
-      </table>
-    <!--Flask Pagination -->
-    {{pagination.links}}
+			</table>
+			<!--Flask Pagination -->
+			{{pagination.links}}
 
-	{% endblock %}
+			{% endblock %}
 
-	</div> <!-- End the 12 width column -->
-  </div> <!-- End the row -->
+		</div> <!-- End the 12 width column -->
+	</div>
 </div> <!-- End the container -->

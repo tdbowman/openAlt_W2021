@@ -43,6 +43,10 @@ sub {
   width: 100px;
   height: 50px;
 }
+.resizedTextbox2{
+  width: 250px;
+  height: 50px;
+}
 
 input::-webkit-outer-spin-button,
 input::-webkit-inner-spin-button {
@@ -502,4 +506,8 @@ p:empty{
 /* Search Bar */
 #search_input{
   width:400px;
+}
+
+.form-control{
+  display: inline-block;
 }
