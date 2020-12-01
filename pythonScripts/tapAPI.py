@@ -1,7 +1,3 @@
-''' TODO:
-Implement sendFailureEmail function
-Need to delete the log file if it gets too big!
-'''
 from datetime import datetime as dt
 import time
 import requests
@@ -9,14 +5,14 @@ import json
 import logging
 import sys
 import os
+
 try:
     import schedule
 except ImportError:
     logging.info("You need to install the schedule module using \"pip install schedule\" before proceeding")
     exit
 
-# DO NOT CHANGE THESE
-email = "someone@email.com"
+email = "YOUR_EMAIL_HERE"
 source = "" # An empty string will cause it to pull from all sources
 rows = "10000" # number of Events to pull for today
 fetchURL = "https://api.eventdata.crossref.org/v1/events?mailto="
