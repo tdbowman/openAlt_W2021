@@ -15,16 +15,16 @@ We are developing a website which will allow users to search our databases for D
 Here are some screenshots taken with a small slice of the total data.
 
 ### Landing Page
-<img src="./screenshots/landingPage.png" alt="Landing Page" width=700 /> <br>
+<img src="./screenshots/landingPage.png" alt="Landing Page"/> <br>
 
 ### Search Results Page
-<img src="./screenshots/searchResultsPage.png" alt="Search Results Page" width=700/> <br>
+<img src="./screenshots/searchResultsPage.png" alt="Search Results Page"/> <br>
 
 ### Article Dashboard Page
-<img src="./screenshots/articleDashboard.png" alt="Article Dashboard Page" width=700/> <br>
+<img src="./screenshots/articleDashboard.png" alt="Article Dashboard Page"/> <br>
 
 ### Author Dashboard Page
-<img src="./screenshots/authorDashboard.png" alt="Author Dashboard Page" width=700/> <br>
+<img src="./screenshots/authorDashboard.png" alt="Author Dashboard Page"/> <br>
 
 ## Dependencies and their Licenses 
 
