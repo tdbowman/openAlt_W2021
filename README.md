@@ -11,6 +11,21 @@ These interactions can be in the form of tweets, reddit posts, or wikipedia refe
 ## The Website 
 We are developing a website which will allow users to search our databases for DOI's, authors, paper titles, or journals. Users will be able to see how many Events, and of which type, a given paper or author has generated. The number of papers published per year for a given journal will also be shown.
 
+## Screenshots
+Here are some screenshots taken with a small slice of the total data.
+
+### Landing Page
+<img src="./screenshots/landingPage.png" alt="Landing Page"/> <br>
+
+### Search Results Page
+<img src="./screenshots/searchResultsPage.png" alt="Search Results Page"/> <br>
+
+### Article Dashboard Page
+<img src="./screenshots/articleDashboard.png" alt="Article Dashboard Page"/> <br>
+
+### Author Dashboard Page
+<img src="./screenshots/authorDashboard.png" alt="Author Dashboard Page"/> <br>
+
 ## Dependencies and their Licenses 
 
 | Software                        | License                            | Version                         |
