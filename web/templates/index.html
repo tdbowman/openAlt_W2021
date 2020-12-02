@@ -17,34 +17,6 @@
             }
         });
 
-        // If the F key(filter) is pressed....
-        // $(document).keydown(function(event){
-        //     if(event.which == 70){
-        //         // $('#dropdownSearchBy').focus();
-        //         $('#dropdownSearchBy').click();
-        //     }
-        // });
-
-        // $('#search_input').keydown(function(event){
-        //     if (event.which == 13){
-        //         event.preventDefault();
-        //         alert("This is the enter button.");
-        //     }
-                
-        // });
-
-        // $(document).keydown(function(){
-        //     if (event.which == 13){
-        //         $('#submitButton').click();
-        //     }
-                
-
-        // });
-
-        // $('#submitButton').click(function(event){
-        //     event.preventDefault();
-        //     alert("This stops sending information.");
-        // });
     });
 </script>
 {% endblock %}
@@ -73,7 +45,7 @@
         </select>
         <!-- Search bar - input text -->
         <input type="text" id="search_input" name="search" placeholder="Search" class="form-control">
-        <input type="submit" value="&#128269" class="form-control">
+        <input type="submit" value="&#128269" class="form-control" id="searchButton">
     </div>
     </form>
     <br>

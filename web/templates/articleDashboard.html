@@ -33,7 +33,8 @@
 
         // If there are no events, hide the form.
         if('{{totalEventsSum}}' === '0'){
-            $("form").hide();
+            $(".form-inline").hide();
+            $("#LatestEvents").hide();
         }
 
         // Grab the tspan elements and search through the array.
@@ -55,10 +56,25 @@
         // Grabs all the elements (g) of class ".c3-legend-item" and stores them as objects in $legendItems.
         let $legendItems = $(".c3-legend-item");
 
+        // This is to get rid of floating point ticks when viewing articles that have a small amount of events to begin without clicking any platforms in the legend.
+        // Grabs the tick elements after the page loads with the new chart data.
+        $yAxis = $(".c3-axis-y");
+        $yAxisTicks = $yAxis.children(".tick");
+        // Loop through each tick object..
+        $yAxisTicks.each(function(){
+            // Store the label text of the tick into $tickText. 
+            let $tickText = $(this).children("text").text();
+
+            // If the label text is an empty string, remove the line associated with it.
+            if($tickText === ''){
+                $(this).children("line").remove();
+            }
+        });
+
         // When you click on any of the platforms within the legend.
         $legendItems.click(function(){
 
-            //  setTimeout(function,x) executes a function after x milliseconds.
+            // setTimeout(function,x) executes a function after x milliseconds.
             setTimeout(function(){
                 // Grabs the tick elements after the page loads with the new chart data.
                 $yAxis = $(".c3-axis-y");
@@ -200,7 +216,7 @@
     </div>
     <div class="row"> 
         <div class="col-md-12">
-            <h1>Latest Events</h1>
+            <h1 id="LatestEvents">Latest Events</h1>
             <hr>
             
             <!-- THIS WAS THE TABLE WITH THE NICE COLOR BLOCKS - IT DOES NOT RESPOND TO HIDING 
