@@ -96,8 +96,16 @@ def articleDashboard():
 
 @ app.route('/journalDashboard', methods=["GET", "POST"])
 def journalDashboard():
+
+    # Get the current year so we can pass it to the graph X axis
+    # The earliest year we consider is 1997
+    years_list = []
+    currentYear = datetime.now().year
+    for i in range(1997, currentYear + 1):
+        years_list.append(i)
+
     # Go to journalDashboardLogic.py
-    return journalDashboardLogic(mysql)
+    return journalDashboardLogic(mysql, years_list)
 
 
 @ app.route('/authorDashboard', methods=["GET", "POST"])

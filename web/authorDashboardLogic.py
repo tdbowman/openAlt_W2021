@@ -258,7 +258,8 @@ def authorDashboardLogic(mysql, mysql2, years_list, yearInput):
 
     return flask.render_template('authorDashboard.html',
                                  author_name=author_name['name'],
-                                 years_list=years_list, yearInput=yearInput,
+                                 years_list=years_list, 
+                                 yearInput=yearInput,
                                  passed_author_id=author_id,  # this is for the year filter!
                                  author_article_list=author_article_list,
                                  cambiaEventData=cambiaEvent,
