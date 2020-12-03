@@ -147,6 +147,16 @@
 </script>
 {% endfor %}
 
+<script>
+    years_list = [];
+</script>
+
+{% for year in years_list %}
+<script>
+    years_list.push("{{ year }}")
+</script>
+{% endfor %}
+
 <!-- Load JS for chart -->
 <script src="../static/js/journalChart.js"></script>
 {% endblock %}

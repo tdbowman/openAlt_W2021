@@ -1,6 +1,5 @@
-// These should not change - for now. Need to set dynamically in the future
-const xAxis = [1995,1996,1997,1998,1999,2000,2001,2002,2003,2004,2005,2006,2007,2008,2009,2010,2011,2012,2013,2014,2015,2016,2017,2018,2019,2020]
-
+// With Jinja templates, this is the best way to get the year list from Python -> JavaScript.
+const xAxis = years_list
 // 'x' needs to be in the [0] position, because it is the title of our array, and C3 demands the title be at [0].
 xAxis.unshift('x');
 

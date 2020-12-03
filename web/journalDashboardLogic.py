@@ -2,7 +2,7 @@ import flask
 from flask_paginate import Pagination, get_page_parameter, get_per_page_parameter
 
 
-def journalDashboardLogic(mysql):
+def journalDashboardLogic(mysql, years_list):
 
     journal_list = []  # list initializing
     cursor = mysql.connection.cursor()
@@ -91,5 +91,8 @@ def journalDashboardLogic(mysql):
                                  pagination=pagination,
                                  article_start=article_start,
                                  article_end=article_end,
-                                 perPage=perPage, start_year=copyStartYear, end_year=end_year
+                                 perPage=perPage, 
+                                 start_year=copyStartYear, 
+                                 end_year=end_year,
+                                 years_list=years_list,
                                  )
