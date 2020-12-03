@@ -48,18 +48,16 @@ These files will need to be ingested into the database by the following script: 
 
 ### 3.1 Ingesting from JSON files
 #### Step by step guide:
-1. Create a file inside this folder: `openAlt/pythonScripts/Ingest` named `passwd.txt`. The only line in this file should be your MySQL password.
-2. Change the datadirectory for your JSON folder to suit your system (line 30). *Note, if not using the root MySQL account, you will need to change the MySQL user on line 31*.  
-3. Run `python main.py` in your preferred terminal.
+1. Change the datadirectory for your JSON folder to suit your system (line 28). 
+2. Run `python ingestJSONMain.py` in your preferred terminal.
 
 ### 3.2 Ingesting from PaperBuzz Data
 We were fortunate enough to be given a dump of Crossref JSON data from the nice folks at [Paperbuzz](http://paperbuzz.org/). This one time dump we recieved is simply Crossref Event data stored in a slighly different way. Here we document how we ingested this data, but can not provide a means for others to aquire this data. While the first 10,000 of such records are located in `openAlt/SQL/DOI_Author_Database/doi_json_dump_10k.csv`, we are not making the remaining data public at this time. Anyone cloning the repository will need to use see section 2.1 and ingest JSON data which they gather themselves.
 
 #### Step By Step Guide:
-1. Create a file inside `openAlt/pythonScripts/Ingest` named `passwd.txt`. The only line in this file should be your MySQL password.
-2. Open up MySQL Workbench.
+1. Open up MySQL Workbench.
     - Connect to your Local MySQL Connection.
-3. Create a new database within Workbench.
+2. Create a new database within Workbench.
     - File -> Open SQL Script.
 	    - Go to this directory: `openAlt/SQL/paperbuzz_dump/`.
       - Open `paperbuzz.sql`.
@@ -69,12 +67,11 @@ We were fortunate enough to be given a dump of Crossref JSON data from the nice 
       - This step is not required however it can be helpful. Any SQL commands that you want to execute for a database or table can be placed here in the new tab. It allows you to use the script purely for creating the database/table(s) while using another tab to execute commands for that database.
     - Execute this SQL query `SELECT * FROM event_data_json;`.
       - Import `json_dump_10k.csv` to the event_data_json table.
-3. Ignore steps 1 - 3 if you already have a database containing the Paperbuzz data dump.
+3. Ignore steps 1 & 2 if you already have a database containing the Paperbuzz data dump.
 4. Execute this SQL command `DROP DATABASE crossrefeventdatawithmain`.
 5. Go to this directory: `openAlt\SQL\CrossrefeventdataWithMain`.
     - Execute the SQL script `crossrefeventdataWithMain.sql` to create all 13 tables.
-6. If you are not using the root MySQL user account, you will need to change the user on line 28.
-7. Run `python paperBuzzMain.py` in your preferred terminal.
+6. Run `python ingestPaperBuzzMain.py` in your preferred terminal.
 
 ### 4. Quirks of the Crossref API ❓
 * Some Events give a DOI(objectID) of simply https://doi.org. For example, the event with ID: `5c83ca20-d4a1-471b-a23f-f21486cefb5c`
@@ -101,9 +98,5 @@ These actions should be performed inside the `openAlt/web/` folder.
     - Linux/Mac: `./venv/bin/activate`.
 4) Install Flask and our dependencies to this virtual environment:
     - `pip install flask mysql-connector-python flask-mysqldb python-dateutil flask-paginate`.
-5) Create a new file named `passwd.txt`. 
-    - Open the file, and type only your MySQL user password.
-    - Save and close. 
-    - This file is ignored by git, but used by app.py to access your local MySQL server.
-6) Start the web server using `python app.py`.
-7) When the web server starts, navigate to [127.0.0.1:5000](127.0.0.1:5000).
+5) Start the web server using `python app.py`.
+6) When the web server starts, navigate to [127.0.0.1:5000](127.0.0.1:5000).
