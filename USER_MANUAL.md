@@ -48,7 +48,7 @@ These files will need to be ingested into the database by the following script: 
 
 ### 3.1 Ingesting from JSON files
 #### Step by step guide:
-1. Change the datadirectory for your JSON folder to suit your system (line 30). 
+1. Change the datadirectory for your JSON folder to suit your system (line 28). 
 2. Run `python ingestJSONMain.py` in your preferred terminal.
 
 ### 3.2 Ingesting from PaperBuzz Data
