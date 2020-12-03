@@ -40,18 +40,17 @@
 		let $searchButton = $("#searchButton");
 
 		// For issue #427
-		// // If the search box isn't empty, clear the sessionStorage.
-		// $searchButton.click(function(){
+		// If the search box isn't empty, clear the sessionStorage.
+		$searchButton.click(function(){
 
-		// 	let $searchBoxValue = $("#search_input").val();
+			let $searchBoxValue = $("#search_input").val();
 
-		// 	if($searchBoxValue !== ''){
-		// 		setTimeout(function(){
-		// 			sessionStorage.clear();
-		// 		},2000);
-				
-		// 	}
-		// });
+			if($searchBoxValue !== ''){
+				setTimeout(function(){
+					sessionStorage.clear();
+				},100);	
+			}
+		});
 
 		// Grab the values from the keys in sessionStorage.
 		let selectedValue = JSON.parse(sessionStorage.getItem('selected')) || "PublicationYearDescending";
