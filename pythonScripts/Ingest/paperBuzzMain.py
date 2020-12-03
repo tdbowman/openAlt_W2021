@@ -10,6 +10,7 @@ import newsfeed
 import hypothesis
 import datacite
 import crossref
+import f1000
 import json
 import logging
 import sys
@@ -83,7 +84,7 @@ def main():
                         break
                     elif (key == "source_id" and value == "f1000"):
                         print('F1000')
-                        datacite.dataciteIngest(
+                        f1000.F1000Ingest(
                             eventDict, cursor, connection)
                         break
                     elif (key == "source_id" and value == "hypothesis"):
