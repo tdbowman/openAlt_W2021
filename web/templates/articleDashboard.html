@@ -214,7 +214,9 @@
 
         </div>
     </div>
-    <div class="row"> 
+
+
+    <div class="row">
         <div class="col-md-12">
             <h1 id="LatestEvents">Latest Events</h1>
             <hr>
@@ -236,14 +238,16 @@
                 {% endfor %}
             </table>
             -->
-            
-            <!-- Table - hides events -->
+
+            <!-- Table - Latest Events -->
             {% for e in events %}
+
             <div class="row row-bordered eventItem" id="{{e.sourceID}}">
+
                 <table id ="noBorders" style="margin-bottom: 0px; margin-top: 0px; width:1170px;">
                     <tr class="row row-bordered eventItem" id="{{e.sourceID}}">
                         <td class="articleEventData">
-                            <h3 style="font-size:20px; margin-left:15px; width: 100%">{{e.sourceID}}  {{e.relationType}}
+                            <h3 style="font-size:20px; margin-left:15px; width: 100%"> {{e.count}}.  {{e.sourceID}}  {{e.relationType}}
                             </h3><br>
                             <a style="margin-left:15px;" href="{{e.subjectPID}}" target="_blank">{{e.subjectPID}} &#8599;</a>
                         </td>
@@ -253,7 +257,9 @@
                         </td>
                     </tr>
                 </table>
+
             </div>
+
             {% endfor %}
         </div>
     </div> <!-- End the row -->
