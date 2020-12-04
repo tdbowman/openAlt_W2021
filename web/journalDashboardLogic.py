@@ -53,11 +53,11 @@ def journalDashboardLogic(mysql, years_list):
                    'author_list': author_list}
         journal_list.append(article)
 
-    copyStartYear = 1995
-    start_year = 1995
+    copyStartYear = 1997
+    start_year = 1997
     end_year = 2020
     publishedPerYear = []
-    # Grab all journal names from 1995 to 2020.
+    # Grab all journal names from 1997 to 2020.
     while (start_year <= end_year):
         articles_per_year_sql = "select count(*) AS count " \
                                 "from dr_bowman_doi_data_tables._main_ " \
