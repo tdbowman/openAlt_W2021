@@ -16,9 +16,7 @@ import logging
 import sys
 import os
 import time
-from getPassword import getPassword
 
-# import git password thing
 logging.basicConfig(filename='./ingest.log', filemode='a', level=logging.INFO,
                     format='%(asctime)s - %(message)s', datefmt='%d-%b-%y %H:%M:%S')  # Set the logging parameters
 try:
@@ -28,8 +26,10 @@ except:
 
 # Change these to suit your system
 dataDirectory = "../JSON"
-mysql_username = "root"
-mysql_password = getPassword()
+print("MySQL Credentials")
+mysql_username = input("Username: ")
+mysql_password = input("Password: ")
+
 
 def main():
 

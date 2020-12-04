@@ -10,12 +10,12 @@ import newsfeed
 import hypothesis
 import datacite
 import crossref
+import f1000
 import json
 import logging
 import sys
 import os
 import time
-from getPassword import getPassword
 
 logging.basicConfig(filename='./ingest.log', filemode='a', level=logging.INFO,
                     format='%(asctime)s - %(message)s', datefmt='%d-%b-%y %H:%M:%S')  # Set the logging parameters
@@ -25,8 +25,9 @@ except:
     logging.info("Cannot determine how you intend to run the program")
 
 # Change these to suit your system
-mysql_username = "root"
-mysql_password = getPassword()
+print("MySQL Credentials")
+mysql_username = input("Username: ")
+mysql_password = input("Password: ")
 
 
 def main():
@@ -83,7 +84,7 @@ def main():
                         break
                     elif (key == "source_id" and value == "f1000"):
                         print('F1000')
-                        datacite.dataciteIngest(
+                        f1000.F1000Ingest(
                             eventDict, cursor, connection)
                         break
                     elif (key == "source_id" and value == "hypothesis"):

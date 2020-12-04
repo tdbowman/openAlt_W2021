@@ -8,18 +8,19 @@ from searchLogic import searchLogic
 from articleDashboardLogic import articleDashboardLogic
 from journalDashboardLogic import journalDashboardLogic
 from authorDashboardLogic import authorDashboardLogic
-from getPassword import getPassword
 from landingPageStats import landingPageStats
 from landingPageArticles import landingPageArticles
 from landingPageJournals import landingPageJournals
 
 # get the users password from crossrefeventdata/web/passwd.txt
-mysql_password = getPassword()
+print("MySQL Credentials")
+mysql_username = input("Username: ")
+mysql_password = input("Password: ")
 
 # Instantiate an object of class Flask
 app = flask.Flask(__name__)
 # Database connection settings
-app.config['MYSQL_USER'] = 'root'
+app.config['MYSQL_USER'] = mysql_username
 app.config['MYSQL_PASSWORD'] = mysql_password
 # Or use the database.table which will allow us to join the databases - the one with author, and the one with events
 app.config['MYSQL_DB'] = 'dr_bowman_doi_data_tables'
@@ -31,7 +32,7 @@ mysql = MySQL(app)
 # Instantiate a second object of class Flask
 app2 = flask.Flask(__name__)
 # Database connection settings
-app2.config['MYSQL_USER'] = 'root'
+app2.config['MYSQL_USER'] = mysql_username
 app2.config['MYSQL_PASSWORD'] = mysql_password
 # Or use the database.table which will allow us to join the databases - the one with author, and the one with events
 app2.config['MYSQL_DB'] = 'crossrefeventdatamain'
