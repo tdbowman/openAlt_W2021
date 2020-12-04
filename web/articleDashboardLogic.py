@@ -94,7 +94,7 @@ def articleDashboardLogic(mysql, mysql2, years_list, yearInput):
 
             cursor2.execute(rEventsQuery)
             eventRows = cursor2.fetchall()
-
+            count = 1
             for event in eventRows:
                 # grab each event's subjectPID
                 subjPID = event['subjectPID']
@@ -149,8 +149,10 @@ def articleDashboardLogic(mysql, mysql2, years_list, yearInput):
                                  'sourceID': event['sourceID'],
                                  'relationType': event['relationType'],
                                  'media': media,
-                                 'media_color': mediaColor}
+                                 'media_color': mediaColor,
+                                 'count': count}
                     eventsForArticle.append(eachEvent)
+                    count = count + 1
 
     # ---------------------------- End of Article Events ----------------------------------------
 
