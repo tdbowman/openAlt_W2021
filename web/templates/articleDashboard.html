@@ -215,29 +215,12 @@
         </div>
     </div>
 
-
     <div class="row">
         <div class="col-md-12">
             <h1 id="LatestEvents">Latest Events</h1>
             <hr>
-            
-            <!-- THIS WAS THE TABLE WITH THE NICE COLOR BLOCKS - IT DOES NOT RESPOND TO HIDING 
-            <table class="table table-bordered">
-                {% for e in events %}
-                <tr class="row row-bordered eventItem" id="{{e.sourceID}}" style='visibility:collapse'>
-                    <td class="articleEventData">
-                        {{e.sourceID}}  {{e.relationType}}
-                        <br>
-                        <a href="{{e.subjectPID}}" target="_blank">{{e.subjectPID}} &#8599;</a>
-                        <br>
-                    </td>
-                    <td style="background-color: {{e.media_color}};">
-
-                    </td>
-                </tr>
-                {% endfor %}
-            </table>
-            -->
+            <h4 style="text-align: center;">Some events obtained from the Crossref API have generic links e.g. "https://twitter.com". <br>
+            Events of this kind have been hidden below, but still appear and are counted in the chart.</h4>
 
             <!-- Table - Latest Events -->
             {% for e in events %}
@@ -257,7 +240,6 @@
                         </td>
                     </tr>
                 </table>
-
             </div>
 
             {% endfor %}
