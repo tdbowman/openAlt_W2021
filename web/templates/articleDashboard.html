@@ -214,37 +214,24 @@
 
         </div>
     </div>
-    <div class="row"> 
+
+    <div class="row">
         <div class="col-md-12">
             <h1 id="LatestEvents">Latest Events</h1>
             <hr>
-            
-            <!-- THIS WAS THE TABLE WITH THE NICE COLOR BLOCKS - IT DOES NOT RESPOND TO HIDING 
-            <table class="table table-bordered">
-                {% for e in events %}
-                <tr class="row row-bordered eventItem" id="{{e.sourceID}}" style='visibility:collapse'>
-                    <td class="articleEventData">
-                        {{e.sourceID}}  {{e.relationType}}
-                        <br>
-                        <a href="{{e.subjectPID}}" target="_blank">{{e.subjectPID}} &#8599;</a>
-                        <br>
-                    </td>
-                    <td style="background-color: {{e.media_color}};">
+            <h4 style="text-align: center;">Some events obtained from the Crossref API have generic links e.g. "https://twitter.com". <br>
+            Events of this kind have been hidden below, but still appear and are counted in the chart.</h4>
 
-                    </td>
-                </tr>
-                {% endfor %}
-            </table>
-            -->
-            
-            <!-- Table - hides events -->
+            <!-- Table - Latest Events -->
             {% for e in events %}
+
             <div class="row row-bordered eventItem" id="{{e.sourceID}}">
+
                 <table id ="noBorders" style="margin-bottom: 0px; margin-top: 0px; width:1170px;">
                     <tr class="row row-bordered eventItem" id="{{e.sourceID}}">
                         <td class="articleEventData">
-                            <h3 style="font-size:20px; margin-left:15px; width: 100%">{{e.sourceID}}  {{e.relationType}}
-                            </h3><br>
+                            <h3 style="font-size:20px; margin-top:5px; margin-left:15px; width: 100%">{{e.count}}. {{e.sourceID}}  {{e.relationType}}
+                            </h3>
                             <a style="margin-left:15px;" href="{{e.subjectPID}}" target="_blank">{{e.subjectPID}} &#8599;</a>
                         </td>
                     </tr>
@@ -254,6 +241,7 @@
                     </tr>
                 </table>
             </div>
+
             {% endfor %}
         </div>
     </div> <!-- End the row -->
