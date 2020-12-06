@@ -50,6 +50,7 @@ Here are some screenshots taken with a small slice of the total data.
 | virtualenv                | MIT License                | 20.0.35                    |
 | python-dateutil           | Apache-2.0 License         | 2.8.1                      |
 | flask-paginate            | BSD-3-Clause License       | 0.7.1                      |
+| pytz                      | MIT License                | 2020.1                     |
 
 <br>
 

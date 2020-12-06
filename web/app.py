@@ -12,10 +12,12 @@ from landingPageStats import landingPageStats
 from landingPageArticles import landingPageArticles
 from landingPageJournals import landingPageJournals
 
+from getPassword import getPassword
+
 # get the users password from crossrefeventdata/web/passwd.txt
-print("MySQL Credentials")
-mysql_username = input("Username: ")
-mysql_password = input("Password: ")
+
+mysql_username = 'root'
+mysql_password = getPassword()
 
 # Instantiate an object of class Flask
 app = flask.Flask(__name__)

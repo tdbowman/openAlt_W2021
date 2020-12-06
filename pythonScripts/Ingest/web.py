@@ -1,4 +1,6 @@
 import dateutil.parser
+import datetime
+import pytz
 
 
 def webIngest(uniqueEvent, cursor, connection):
@@ -107,9 +109,10 @@ def webIngest(uniqueEvent, cursor, connection):
     elif (len(t_obj_id) >= 100):
         return  # just return to main.py, this event will not be ingested
 
-    # Convert t_timestamp(timestamp) into t_dateTime(datetime)
+    # Convert t_timestamp(timestamp) into a localized time
     t_dateTime = dateutil.parser.isoparse(t_timestamp)
-    t_dateTime = str(t_dateTime)
+    t_dateTime = t_dateTime.astimezone(pytz.timezone("US/Michigan"))
+    t_dateTime = t_dateTime.strftime("%Y-%m-%d %H:%M:%S")
 
     # If t_dateTime is less than firstEvent or if firstEvent is NULL, update firstWebEvent with t_dateTime in the same row in the main table.
     if ((t_dateTime < str(firstEvent)) or (firstEvent == None)):

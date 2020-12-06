@@ -98,5 +98,9 @@ These actions should be performed inside the `openAlt/web/` folder.
     - Linux/Mac: `./venv/bin/activate`.
 4) Install Flask and our dependencies to this virtual environment:
     - `pip install flask mysql-connector-python flask-mysqldb python-dateutil flask-paginate`.
-5) Start the web server using `python app.py`.
-6) When the web server starts, navigate to [127.0.0.1:5000](127.0.0.1:5000).
+5) Create a new file named 'passwd.txt'.
+    - Open the file and type only your MySQL user password.
+    - Save and close.
+    - This file is ignored by git but used by app.py to access your local MySQL server.
+6) Start the web server using `python app.py`.
+7) When the web server starts, navigate to [127.0.0.1:5000](127.0.0.1:5000).
