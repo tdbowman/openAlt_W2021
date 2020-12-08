@@ -3,7 +3,8 @@ from flask_paginate import Pagination, get_page_parameter, get_per_page_paramete
 
 
 def journalDashboardLogic(mysql, years_list):
-
+    
+    totalEventsSum = 0
     journal_list = []  # list initializing
     cursor = mysql.connection.cursor()
     pagination = None
@@ -44,13 +45,26 @@ def journalDashboardLogic(mysql, years_list):
             # get list of authors for given fk
             author_list = cursor.fetchall()
 
+
+        TotalEventsQuerySum = "SELECT totalEvents AS sumCount FROM crossrefeventdatamain.main WHERE objectID = 'https://doi.org/" + \
+                row['doi'] + "';"
+        cursor.execute(TotalEventsQuerySum)
+
+        totalEventsSum = cursor.fetchone()
+
+        if totalEventsSum is None:
+                totalEventsSum = 0
+        else:
+                totalEventsSum = totalEventsSum['sumCount']
+
         # create dict with _main_ table row and author list
         article = {'objectID': row['doi'], 'articleTitle': row['title'],
                    'journalName': row['container_title'],
                    'issue': row['issue'],
                    'journalPage': row['page'],
                    'articleDate': row['published_print_date_parts'],
-                   'author_list': author_list}
+                   'author_list': author_list,
+                   'totalEventsSum':totalEventsSum}
         journal_list.append(article)
 
     copyStartYear = 1997
@@ -85,6 +99,7 @@ def journalDashboardLogic(mysql, years_list):
                             total=len(journal_list), css_framework='bootstrap3')
 
     return flask.render_template('journalDashboard.html',
+                                 totalEventsSum=totalEventsSum,
                                  journal_name=journal_name,
                                  journal_list=journal_list,
                                  publishedPerYear=publishedPerYear,

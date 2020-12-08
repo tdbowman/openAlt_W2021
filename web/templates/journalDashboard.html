@@ -119,7 +119,11 @@
                 </div>
                 <div class="JD_DOI">
                     <strong>DOI:</strong>
-                    <a href="https://doi.org/{{ journal.objectID }}"target="_blank">{{ journal.objectID }} &#8599;</a>                </div>
+                    <a href="https://doi.org/{{ journal.objectID }}"target="_blank">{{ journal.objectID }} &#8599;</a>
+                </div>
+                <div class="JD_DOI">
+					<strong>Total Events:</strong> {{journal.totalEventsSum}}
+				</div>
                 </td>
                 </tr>
             {% endfor %}
