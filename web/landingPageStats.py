@@ -18,9 +18,6 @@ def landingPageStats(mysql):
     #fetch result 
     totalSum = cursor.fetchone()
 
-    #print in terminal for testing purposes
-    print(totalSum)
-
     #close cursor
     cursor.close()
 

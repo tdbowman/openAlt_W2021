@@ -82,7 +82,7 @@ def F1000Ingest(uniqueEvent, cursor, connection):
 
         # Fetch all records from the 4 columns in the main table from t_obj_id and is placed into a list of tuples.
         # (firstF1000Event, lastF1000event, totalEvents, totalF1000Events)
-        listOfDictQuery = "SELECT firstF1000Event, lastF1000Event, totalEvents, totalF1000Events FROM Main WHERE objectID = \'" + t_obj_id + "\';"
+        listOfDictQuery = "SELECT firstF1000Event, lastF1000Event, totalEvents, totalF1000Events FROM main WHERE objectID = \'" + t_obj_id + "\';"
         cursor.execute(listOfDictQuery)
         row = cursor.fetchone()
 
@@ -147,7 +147,7 @@ def F1000Ingest(uniqueEvent, cursor, connection):
     # These statements are used to insert data into F1000 Event's Table
     # SQL which inserts into event table
     # This was a previous layout of columns in the F1000 event table before we remodeled the database
-    add_event = ("INSERT IGNORE INTO F1000event " "(sourceID, objectID, subjectID, eventID, occurredAt, timeObserved, relationType, sourceToken, license, termsOfUse, evidenceRecord, eventAction, subjectPID, subjectURL, alternativeID, workTypeID, objectPID, objectURL)" "VALUES(%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s)")
+    add_event = ("INSERT IGNORE INTO f1000event " "(sourceID, objectID, subjectID, eventID, occurredAt, timeObserved, relationType, sourceToken, license, termsOfUse, evidenceRecord, eventAction, subjectPID, subjectURL, alternativeID, workTypeID, objectPID, objectURL)" "VALUES(%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s)")
 
     # Values to insert into F1000 event table
     data_event = (t_source_id, t_obj_id, t_subj_id, t_id, t_occurred_at, t_dateTime, t_relation_type_id, t_source_token, t_license,

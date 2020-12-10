@@ -55,7 +55,7 @@ def crossrefIngest(uniqueEvent, cursor, connection):
 
         # Fetch all records from the 4 columns in the main table from t_obj_id and is placed into a list of tuples.
         # (firstCrossrefEvent, lastCrossrefevent, totalEvents, totalCrossrefEvents)
-        listOfDictQuery = "SELECT firstCrossrefEvent, lastCrossrefEvent, totalEvents, totalCrossrefEvents FROM Main WHERE objectID = \'" + t_obj_id + "\';"
+        listOfDictQuery = "SELECT firstCrossrefEvent, lastCrossrefEvent, totalEvents, totalCrossrefEvents FROM main WHERE objectID = \'" + t_obj_id + "\';"
         cursor.execute(listOfDictQuery)
         row = cursor.fetchone()
 

@@ -15,7 +15,6 @@ from landingPageJournals import landingPageJournals
 from getPassword import getPassword
 
 # get the users password from crossrefeventdata/web/passwd.txt
-
 mysql_username = 'root'
 mysql_password = getPassword()
 
@@ -36,6 +35,7 @@ app2 = flask.Flask(__name__)
 # Database connection settings
 app2.config['MYSQL_USER'] = mysql_username
 app2.config['MYSQL_PASSWORD'] = mysql_password
+
 # Or use the database.table which will allow us to join the databases - the one with author, and the one with events
 app2.config['MYSQL_DB'] = 'crossrefeventdatamain'
 app2.config['MYSQL_CURSORCLASS'] = 'DictCursor'

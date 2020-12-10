@@ -199,11 +199,18 @@
         <div class="col-sm-7" id="changeAfterChart">
             <h3 style="text-align: center;">Events for this article over {{years_list[0]}} - {{years_list[-1]}} </h3>
             <div id="chart"></div>
-
+            <div id="yearFilter" style="text-align: center;">
+                <form method="post" action="{{ url_for('articleDashboard') }}?DOI={{ article_detail.objectID }}" class="form-inline" name="YearRange">
+                    <label for="yearBox">Select a year (YYYY):</label>
+                    <input type="text" name="year" id="yearBox" size="4" maxlength="4" pattern="\d{4}">
+                    <input width="40%" type="submit" value="Update" class="form-control">
+                </form>
+            </div>
         </div>
     </div> <!-- end of row -->
     <div class="row">
         <div class="col-md-6"></div>
+        <!--
         <div class="col-md-6" id="yearFilter">
 
             <form method="post" action="{{ url_for('articleDashboard') }}?DOI={{ article_detail.objectID }}" class="form-inline" name="YearRange">
@@ -213,6 +220,7 @@
             </form>
 
         </div>
+        -->
     </div>
 
     <div class="row">

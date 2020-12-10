@@ -1,5 +1,5 @@
-CREATE DATABASE paperbuzzEventData;
-USE paperbuzzEventData;
+CREATE DATABASE paperbuzzeventdata;
+USE paperbuzzeventdata;
 
 CREATE TABLE `event_data_json` (
   `json` longtext CHARACTER SET utf8mb4 COLLATE utf8mb4_bin,

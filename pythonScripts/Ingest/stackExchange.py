@@ -90,7 +90,7 @@ def stackExchangeIngest(uniqueEvent, cursor, connection):
 
         # Fetch all records from the 4 columns in the main table from t_obj_id and is placed into a list of tuples.
         # (firststackExchangeEvent, laststackExchangeevent, totalEvents, totalstackExchangeEvents)
-        listOfDictQuery = "SELECT firststackExchangeEvent, laststackExchangeEvent, totalEvents, totalstackExchangeEvents FROM Main WHERE objectID = \'" + t_obj_id + "\';"
+        listOfDictQuery = "SELECT firststackExchangeEvent, laststackExchangeEvent, totalEvents, totalstackExchangeEvents FROM main WHERE objectID = \'" + t_obj_id + "\';"
         cursor.execute(listOfDictQuery)
         row = cursor.fetchone()
 
@@ -155,7 +155,7 @@ def stackExchangeIngest(uniqueEvent, cursor, connection):
     # These statements are used to insert data into stackExchange Event's Table
     # SQL which inserts into event table
     # This was a previous layout of columns in the stackExchange event table before we remodeled the database
-    add_event = ("INSERT IGNORE INTO stackExchangeevent " "(license, termsOfUse, objectID, sourceToken, occurredAt, subjectID, eventID, evidenceRecord,  subjectPID, subjectTitle, subjectIssuedDate, subjectType, subjectAuthorURL, subjectAuthorName, subjectAuthorID, sourceID, objectPID, objectURL, timeObserved, relationType) " "VALUES(%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s)")
+    add_event = ("INSERT IGNORE INTO stackexchangeevent " "(license, termsOfUse, objectID, sourceToken, occurredAt, subjectID, eventID, evidenceRecord,  subjectPID, subjectTitle, subjectIssuedDate, subjectType, subjectAuthorURL, subjectAuthorName, subjectAuthorID, sourceID, objectPID, objectURL, timeObserved, relationType) " "VALUES(%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s)")
 
     # Values to insert into stackExchange event table
     data_event = (t_license, t_terms, t_obj_id, t_source_token, t_occurred_at, t_subj_id, t_id, t_evidence_record, t_subj_pid,

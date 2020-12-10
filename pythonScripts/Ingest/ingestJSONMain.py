@@ -25,7 +25,7 @@ except:
     logging.info("Cannot determine how you intend to run the program")
 
 # Change these to suit your system
-dataDirectory = "../JSON"
+dataDirectory = "./JSON"
 print("MySQL Credentials")
 mysql_username = input("Username: ")
 mysql_password = input("Password: ")
@@ -40,7 +40,6 @@ def main():
         mysql_password), host='127.0.0.1', database='crossrefeventdatamain')
     cursor = connection.cursor()  # Allows us to have multiple seperate working environments through the same connection. Can create individual cursors for each (event) table? redditC = cnx.cursor()?
 
-    # dataDirectory = "/home/fg7626/crossrefDataDumps"
     for (path, dirnames, filenames) in os.walk(dataDirectory):
         files.extend(os.path.join(path, name) for name in sorted(filenames))
 

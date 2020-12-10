@@ -87,7 +87,7 @@ def wikipediaIngest(uniqueEvent, cursor, connection):
 
         # Fetch all records from the 4 columns in the main table from t_obj_id and is placed into a list of tuples.
         # (firstWikipediaEvent, lastWikipediaevent, totalEvents, totalWikipediaEvents)
-        listOfDictQuery = "SELECT firstWikipediaEvent, lastWikipediaEvent, totalEvents, totalWikipediaEvents FROM Main WHERE objectID = \'" + t_obj_id + "\';"
+        listOfDictQuery = "SELECT firstWikipediaEvent, lastWikipediaEvent, totalEvents, totalWikipediaEvents FROM main WHERE objectID = \'" + t_obj_id + "\';"
         cursor.execute(listOfDictQuery)
         row = cursor.fetchone()
 
@@ -152,7 +152,7 @@ def wikipediaIngest(uniqueEvent, cursor, connection):
     # SQL which inserts into event table
     # This was a previous layout of columns in the Wikipedia event table before we remodeled the database
     add_event = (
-        "INSERT IGNORE INTO WikipediaEvent " "(license, termsOfUse, updatedDate, updatedReason, objectID, sourceToken, occurredAt, subjectID, eventID, evidenceRecord, eventAction, subjectPID, subjectTitle, subjectURL, subjectAPIURL, sourceID, objectPID, objectURL, timeObserved, relationType) " "VALUES(%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s)")
+        "INSERT IGNORE INTO wikipediaevent " "(license, termsOfUse, updatedDate, updatedReason, objectID, sourceToken, occurredAt, subjectID, eventID, evidenceRecord, eventAction, subjectPID, subjectTitle, subjectURL, subjectAPIURL, sourceID, objectPID, objectURL, timeObserved, relationType) " "VALUES(%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s)")
     # Values to insert into wikipediaevent table  - LEAVE OUT THE OBJECT ID
     data_event = (t_license, t_terms, t_updated_date, t_updated_reason, t_obj_id, t_source_token, t_occurred_at, t_subj_id, t_id, t_evidence_record,
                   t_action, t_subj_pid, t_subj_title, t_subj_url, t_api_url, t_source_id, t_obj_pid, t_obj_url, t_dateTime, t_relation_type_id)

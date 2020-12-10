@@ -89,7 +89,7 @@ def newsfeedIngest(uniqueEvent, cursor, connection):
 
         # Fetch all records from the 4 columns in the main table from t_obj_id and is placed into a list of tuples.
         # (firstNewsfeedEvent, lastNewsfeedevent, totalEvents, totalNewsfeedEvents)
-        listOfDictQuery = "SELECT firstNewsfeedEvent, lastNewsfeedEvent, totalEvents, totalNewsfeedEvents FROM Main WHERE objectID = \'" + t_obj_id + "\';"
+        listOfDictQuery = "SELECT firstNewsfeedEvent, lastNewsfeedEvent, totalEvents, totalNewsfeedEvents FROM main WHERE objectID = \'" + t_obj_id + "\';"
         cursor.execute(listOfDictQuery)
         row = cursor.fetchone()
 
@@ -154,7 +154,7 @@ def newsfeedIngest(uniqueEvent, cursor, connection):
     # These statements are used to insert data into Newsfeed Event's Table
     # SQL which inserts into event table
     # This was a previous layout of columns in the Newsfeed event table before we remodeled the database
-    add_event = ("INSERT IGNORE INTO NewsfeedEvent " "(eventID, objectID, occurredAt, license, termsOfUse, updatedReason, updated, sourceToken, subjectID, evidenceRecord, eventAction, subjectPID, subjectType, subjectTitle, subjectURL, sourceID, objectPID, objectURL, timeObserved, updatedDate, relationType) " "VALUES(%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s)")
+    add_event = ("INSERT IGNORE INTO newsfeedevent " "(eventID, objectID, occurredAt, license, termsOfUse, updatedReason, updated, sourceToken, subjectID, evidenceRecord, eventAction, subjectPID, subjectType, subjectTitle, subjectURL, sourceID, objectPID, objectURL, timeObserved, updatedDate, relationType) " "VALUES(%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s)")
 
     # Values to insert into Newsfeed event table
     data_event = (t_id, t_obj_id, t_occurred_at, t_license, t_terms, t_updated_reason, t_updated, t_source_token, t_subj_id, t_evidence_record,

@@ -80,7 +80,7 @@ def wordpressIngest(uniqueEvent, cursor, connection):
 
             # Fetch all records from the 4 columns in the main table from t_obj_id and is placed into a list of tuples.
             # (firstWordpressEvent, lastWordpressevent, totalEvents, totalWordpressEvents)
-            listOfDictQuery = "SELECT firstWordpressEvent, lastWordpressEvent, totalEvents, totalWordpressEvents FROM Main WHERE objectID = \'" + t_obj_id + "\';"
+            listOfDictQuery = "SELECT firstWordpressEvent, lastWordpressEvent, totalEvents, totalWordpressEvents FROM main WHERE objectID = \'" + t_obj_id + "\';"
             cursor.execute(listOfDictQuery)
             row = cursor.fetchone()
 
@@ -144,7 +144,7 @@ def wordpressIngest(uniqueEvent, cursor, connection):
 
         # SQL which inserts into dataciteevent table
         # This was a previous layout of columns in the Wordpress event table before we remodeled the database
-        add_event = ("INSERT IGNORE INTO WordPressEvent " "(license, termsOfUse, objectID, sourceToken, occurredAt, subjectID, eventID, evidenceRecord, eventAction, subjectPID, subjectTitle, subjectType, sourceID, objectPID, objectURL, timeObserved, relationType) " "VALUES(%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s)")
+        add_event = ("INSERT IGNORE INTO wordpressevent " "(license, termsOfUse, objectID, sourceToken, occurredAt, subjectID, eventID, evidenceRecord, eventAction, subjectPID, subjectTitle, subjectType, sourceID, objectPID, objectURL, timeObserved, relationType) " "VALUES(%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s)")
 
         # Values to insert into wordpressevent tabls
         data_event = (t_license, t_terms, t_obj_id, t_source_token, t_occurred_at, t_subj_id, t_id, t_evidence_record, t_action,

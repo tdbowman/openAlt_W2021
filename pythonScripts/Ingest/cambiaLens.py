@@ -83,7 +83,7 @@ def cambiaLensIngest(uniqueEvent, cursor, connection):
 
         # Fetch all records from the 4 columns in the main table from t_obj_id and is placed into a list of tuples.
         # (firstCambiaEvent, lastCambiaevent, totalEvents, totalCambiaEvents)
-        listOfDictQuery = "SELECT firstCambiaEvent, lastCambiaEvent, totalEvents, totalCambiaEvents FROM Main WHERE objectID = \'" + t_obj_id + "\';"
+        listOfDictQuery = "SELECT firstCambiaEvent, lastCambiaEvent, totalEvents, totalCambiaEvents FROM main WHERE objectID = \'" + t_obj_id + "\';"
         cursor.execute(listOfDictQuery)
         row = cursor.fetchone()
 
@@ -147,7 +147,7 @@ def cambiaLensIngest(uniqueEvent, cursor, connection):
 
     # These statements are used to insert data into Cambia Event's Table
     # SQL which inserts into event table
-    add_event = ("INSERT IGNORE INTO CambiaEvent " "(sourceID, objectID, subjectID, eventID, occurredAt, timeObserved, relationType, sourceToken, license, termsOfUse, updatedReason, updated, eventAction, workSubtypeID, workTypeID, subjectTitle, subjectPID, jurisdiction, updatedDate) " "VALUES(%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s);")
+    add_event = ("INSERT IGNORE INTO cambiaevent " "(sourceID, objectID, subjectID, eventID, occurredAt, timeObserved, relationType, sourceToken, license, termsOfUse, updatedReason, updated, eventAction, workSubtypeID, workTypeID, subjectTitle, subjectPID, jurisdiction, updatedDate) " "VALUES(%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s);")
 
     # Values to insert into Cambia Event Table
     data_event = (t_source_id, t_obj_id, t_subj_id, t_id, t_occurred_at, t_dateTime, t_relation_type_id, t_source_token, t_license, t_terms, t_updated_reason, t_updated, t_action,

@@ -83,7 +83,7 @@ def redditLinksIngest(uniqueEvent, cursor, connection):
 
         # Fetch all records from the 4 columns in the main table from t_obj_id and is placed into a list of tuples.
         # (firstRedditLinksEvent, lastRedditLinksevent, totalEvents, totalRedditLinksEvents)
-        listOfDictQuery = "SELECT firstRedditLinksEvent, lastRedditLinksEvent, totalEvents, totalRedditLinksEvents FROM Main WHERE objectID = \'" + t_obj_id + "\';"
+        listOfDictQuery = "SELECT firstRedditLinksEvent, lastRedditLinksEvent, totalEvents, totalRedditLinksEvents FROM main WHERE objectID = \'" + t_obj_id + "\';"
         cursor.execute(listOfDictQuery)
         row = cursor.fetchone()
 
@@ -148,7 +148,7 @@ def redditLinksIngest(uniqueEvent, cursor, connection):
     # These statements are used to insert data into RedditLinks Event's Table
     # SQL which inserts into event table
     # This was a previous layout of columns in the RedditLinks event table before we remodeled the database
-    add_event = ("INSERT IGNORE INTO RedditLinksevent " "(eventID, objectID, occurredAt, license, termsOfUse, updatedReason, updated, sourceToken, subjectID, evidenceRecord, eventAction, subjectPID, subjectURL, sourceID, objectPID, objectURL, timeObserved, updatedDate, relationType) " "VALUES(%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s)")
+    add_event = ("INSERT IGNORE INTO redditlinksevent " "(eventID, objectID, occurredAt, license, termsOfUse, updatedReason, updated, sourceToken, subjectID, evidenceRecord, eventAction, subjectPID, subjectURL, sourceID, objectPID, objectURL, timeObserved, updatedDate, relationType) " "VALUES(%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s)")
 
     # Values to insert into redditLinks event table
     data_event = (t_id, t_obj_id, t_occurred_at, t_license, t_terms, t_updated_reason, t_updated, t_source_token, t_subj_id, t_evidence_record,

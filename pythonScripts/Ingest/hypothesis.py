@@ -89,7 +89,7 @@ def hypothesisIngest(uniqueEvent, cursor, connection):
 
             # Fetch all records from the 4 columns in the main table from t_obj_id and is placed into a list of tuples.
             # (firstHypothesisEvent, lastHypothesisevent, totalEvents, totalHypothesisEvents)
-            listOfDictQuery = "SELECT firsthypothesisEvent, lasthypothesisEvent, totalEvents, totalHypothesisEvents FROM Main WHERE objectID = \'" + t_obj_id + "\';"
+            listOfDictQuery = "SELECT firsthypothesisEvent, lasthypothesisEvent, totalEvents, totalHypothesisEvents FROM main WHERE objectID = \'" + t_obj_id + "\';"
             cursor.execute(listOfDictQuery)
             row = cursor.fetchone()
 
@@ -156,7 +156,7 @@ def hypothesisIngest(uniqueEvent, cursor, connection):
     # These statements are used to insert data into Hypothesis Event's Table
     # SQL which inserts into event table
     # This was a previous layout of columns in the Hypothesis event table before we remodeled the database
-    add_event = ("INSERT IGNORE INTO hypothesisEvent " "(eventID, objectID, occurredAt, license, sourceToken, subjectID, evidenceRecord, termsOfUse, eventAction, subjectPID, subj_json_url, subjectURL, subjectType, subjectTitle, subjectIssued, sourceID, objectPID, objectURL, timeObserved, relationType ) " "VALUES(%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s, %s)")
+    add_event = ("INSERT IGNORE INTO hypothesisevent " "(eventID, objectID, occurredAt, license, sourceToken, subjectID, evidenceRecord, termsOfUse, eventAction, subjectPID, subj_json_url, subjectURL, subjectType, subjectTitle, subjectIssued, sourceID, objectPID, objectURL, timeObserved, relationType ) " "VALUES(%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s, %s)")
 
     # Values to insert into Hypothesis event table
     data_event = (t_id, t_obj_id, t_occurred_at, t_license, t_source_token, t_subj_id, t_evidence_record, t_terms, t_action,
