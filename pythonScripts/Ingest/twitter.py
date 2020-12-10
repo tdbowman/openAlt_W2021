@@ -104,7 +104,7 @@ def twitterIngest(uniqueEvent, cursor, connection):
 
         # Fetch all records from the 4 columns in the main table from t_obj_id and is placed into a list of tuples.
         # (firstTwitterEvent, lastTwitterevent, totalEvents, totalTwitterEvents)
-        listOfDictQuery = "SELECT firstTwitterEvent, lastTwitterEvent, totalEvents, totalTwitterEvents FROM Main WHERE objectID = \'" + t_obj_id + "\';"
+        listOfDictQuery = "SELECT firstTwitterEvent, lastTwitterEvent, totalEvents, totalTwitterEvents FROM main WHERE objectID = \'" + t_obj_id + "\';"
         cursor.execute(listOfDictQuery)
         row = cursor.fetchone()
 
@@ -169,7 +169,7 @@ def twitterIngest(uniqueEvent, cursor, connection):
     # These statements are used to insert data into Twitter Event's Table
     # SQL which inserts into event table
     # This was a previous layout of columns in the Twitter event table before we remodeled the database
-    add_event = ("INSERT IGNORE INTO TwitterEvent " "(eventID, objectID, tweetAuthor, originalTweetAuthor, occurredAt, license, termsOfUse, updatedReason, updated, sourceToken, evidenceRecord, eventAction, subjectID, subjectPID, originalTweetURL, alternativeID, title, issued, sourceID, objectPID, objectURL, timeObserved, updatedDate, relationType)" "VALUES(%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s)")
+    add_event = ("INSERT IGNORE INTO twitterevent " "(eventID, objectID, tweetAuthor, originalTweetAuthor, occurredAt, license, termsOfUse, updatedReason, updated, sourceToken, evidenceRecord, eventAction, subjectID, subjectPID, originalTweetURL, alternativeID, title, issued, sourceID, objectPID, objectURL, timeObserved, updatedDate, relationType)" "VALUES(%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s)")
 
     # Values to insert into Twitter event table
     data_event = (t_id, t_obj_id, t_author_url, t_original_tweet_author, t_occurred_at, t_license, t_terms, t_updated_reason, t_updated, t_source_token, t_evidence_record, t_action, t_subj_id,

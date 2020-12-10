@@ -1,7 +1,7 @@
-CREATE DATABASE crossRefEventDataMain;
-USE crossRefEventDataMain;
+CREATE DATABASE crossrefeventdatamain;
+USE crossrefeventdatamain;
 
-CREATE TABLE IF NOT EXISTS Main
+CREATE TABLE IF NOT EXISTS main
 (
 	-- To uniquely identify each row. Autoincrements for an easy primary key.
 	increment				BIGINT AUTO_INCREMENT,
@@ -143,7 +143,7 @@ CREATE TABLE IF NOT EXISTS Main
 
 
 
-CREATE TABLE IF NOT EXISTS CambiaEvent(
+CREATE TABLE IF NOT EXISTS cambiaevent(
 
     -- To uniquely identify each row.
     cambiaIncrement         INTEGER AUTO_INCREMENT  PRIMARY KEY,
@@ -211,7 +211,7 @@ CREATE TABLE IF NOT EXISTS CambiaEvent(
 
 
 
-CREATE TABLE IF NOT EXISTS CrossRefEvent
+CREATE TABLE IF NOT EXISTS crossrefevent
 (
 
     -- Auto increment for easy primary keys
@@ -256,7 +256,7 @@ CREATE TABLE IF NOT EXISTS CrossRefEvent
 
 
 
-CREATE TABLE IF NOT EXISTS DataCiteEvent(
+CREATE TABLE IF NOT EXISTS dataciteevent(
 
     --   Auto increment for easy primary keys.
     dataCiteIncrement       INTEGER AUTO_INCREMENT PRIMARY KEY,
@@ -296,7 +296,7 @@ CREATE TABLE IF NOT EXISTS DataCiteEvent(
 );
 
 
-CREATE TABLE IF NOT EXISTS F1000Event(
+CREATE TABLE IF NOT EXISTS f1000event(
 
     -- To uniquely identify each row.
     f1000Increment  		INTEGER AUTO_INCREMENT  PRIMARY KEY,
@@ -360,7 +360,7 @@ CREATE TABLE IF NOT EXISTS F1000Event(
 );
 
 
-CREATE TABLE IF NOT EXISTS HypothesisEvent(
+CREATE TABLE IF NOT EXISTS hypothesisevent(
 
     -- To uniquely identify each row.
     hypothesisIncrement     INTEGER AUTO_INCREMENT  PRIMARY KEY,
@@ -431,7 +431,7 @@ CREATE TABLE IF NOT EXISTS HypothesisEvent(
 
 
 
-CREATE TABLE IF NOT EXISTS NewsfeedEvent(
+CREATE TABLE IF NOT EXISTS newsfeedevent(
 
     -- To uniquely identify each row.
     newsfeedIncrement       INTEGER AUTO_INCREMENT  PRIMARY KEY,
@@ -506,7 +506,7 @@ CREATE TABLE IF NOT EXISTS NewsfeedEvent(
 
 
 
-CREATE TABLE IF NOT EXISTS RedditEvent(   
+CREATE TABLE IF NOT EXISTS redditevent(   
 
     --  Auto increment for easy primary keys.
     redditIncrement         INTEGER AUTO_INCREMENT PRIMARY KEY,
@@ -575,12 +575,12 @@ CREATE TABLE IF NOT EXISTS RedditEvent(
     subjectIssuedDate       datetime,
     
     --  Foreign key to reference the doi
-	FOREIGN KEY (objectID) REFERENCES Main(objectID) ON DELETE CASCADE
+	FOREIGN KEY (objectID) REFERENCES main(objectID) ON DELETE CASCADE
     );
 
 
 
-CREATE TABLE IF NOT EXISTS RedditLinksEvent(
+CREATE TABLE IF NOT EXISTS redditlinksevent(
 
     -- To uniquely identify each row.
     redditLinksIncrement    INTEGER AUTO_INCREMENT  PRIMARY KEY,
@@ -648,7 +648,7 @@ CREATE TABLE IF NOT EXISTS RedditLinksEvent(
 
 
 
-CREATE TABLE IF NOT EXISTS StackexchangeEvent(
+CREATE TABLE IF NOT EXISTS stackexchangeevent(
 
     --  Auto increment for easy primary keys.
     stackExchangeIncrement  INTEGER AUTO_INCREMENT PRIMARY KEY,
@@ -719,7 +719,7 @@ CREATE TABLE IF NOT EXISTS StackexchangeEvent(
 );
 
 
-CREATE TABLE IF NOT EXISTS TwitterEvent(
+CREATE TABLE IF NOT EXISTS twitterevent(
 
     -- Uniquely identify each row.
     twitterIncrement 		INTEGER AUTO_INCREMENT PRIMARY KEY,
@@ -803,7 +803,7 @@ CREATE TABLE IF NOT EXISTS TwitterEvent(
 
 
 
-CREATE TABLE IF NOT EXISTS WebEvent(
+CREATE TABLE IF NOT EXISTS webevent(
 
     -- To uniquely identify each row.
     webIncrement            INTEGER AUTO_INCREMENT  PRIMARY KEY,
@@ -868,7 +868,7 @@ CREATE TABLE IF NOT EXISTS WebEvent(
 
 
 
-    CREATE TABLE IF NOT EXISTS WikipediaEvent(
+    CREATE TABLE IF NOT EXISTS wikipediaevent(
     
     --  Auto increment for easy primary keys
     wikipediaIncrement      INTEGER AUTO_INCREMENT PRIMARY KEY,
@@ -939,7 +939,7 @@ CREATE TABLE IF NOT EXISTS WebEvent(
 
 
 
-    CREATE TABLE IF NOT EXISTS WordpressEvent(
+    CREATE TABLE IF NOT EXISTS wordpressevent(
 
     --  Auto increment for easy primary keys.
     wordPressIncrement      INTEGER AUTO_INCREMENT PRIMARY KEY,

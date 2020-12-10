@@ -89,7 +89,7 @@ def redditIngest(uniqueEvent, cursor, connection):
 
         # Fetch all records from the 4 columns in the main table from t_obj_id and is placed into a list of tuples.
         # (firstRedditEvent, lastRedditevent, totalEvents, totalRedditEvents)
-        listOfDictQuery = "SELECT firstRedditEvent, lastRedditEvent, totalEvents, totalRedditEvents FROM Main WHERE objectID = \'" + t_obj_id + "\';"
+        listOfDictQuery = "SELECT firstRedditEvent, lastRedditEvent, totalEvents, totalRedditEvents FROM main WHERE objectID = \'" + t_obj_id + "\';"
         cursor.execute(listOfDictQuery)
         row = cursor.fetchone()
 

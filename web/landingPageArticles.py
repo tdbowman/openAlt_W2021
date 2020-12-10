@@ -17,9 +17,6 @@ def landingPageArticles(mysql):
     
     #fetch result
     totalSumArticles = cursor.fetchone()
-    
-    #print result in terminal for testing purposes
-    print(totalSumArticles)
 
     #close cursor
     cursor.close()
