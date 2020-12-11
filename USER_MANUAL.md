@@ -1,20 +1,48 @@
 # User Manual
 This document details how to get set-up if you would like to clone the repository and run the web server yourself.  
-Please make sure you have installed the dependencies listed in the [README](https://github.com/tdbowman-CompSci-F2020/openAlt/blob/master/README.md) before continuing.
 
-## 1. Setting up the Databases 📊
+## 1. Install the Dependencies
+### 1.1 Windows
+  * Install [Python 3.8.6](https://www.python.org/downloads/) and add it to your PATH.
+  * Install MySQL using the [Windows Installer](https://dev.mysql.com/downloads/installer/). Be sure to install the Python connector and workbench.
+  * Use pip to install the needed Python modules. This command will install them all at once:    
+    `pip install schedule crossrefapi flask virtualenv python-dateutil flask-paginate pytz`
+### 1.2 Ubuntu
+  * Install Python 3:  
+  `sudo apt install Python3`
+  * Python for Windows includes pip3 but on Ubuntu we need to install it with:  
+  `sudo apt install python3-pip`
+  * Install the first set of needed Python modules:  
+  `pip3 install schedule crossrefapi flask virtualenv python-dateutil flask-paginate pytz`
+  * Add the [mysql apt repository](https://dev.mysql.com/downloads/repo/apt/) to your sources. You can use `dkpg -i` or just use Gnome Software Center to install it by double clicking it.
+  * Update and install mysql-community-server:  
+  `sudo apt update && sudo apt install mysql-community-server`
+  * Check systemd to ensure the MySQL daemon is enabled and active:  
+  `sudo systemctl status mysql ---- check that daemon is active and enabled`
+  * Install the config will get the config you need for the last two pip modules:  
+  `sudo apt-get install libmysqlclient-dev` 
+  * Install the last of the Python modules:  
+  `pip3 install flask-mysqldb mysql-connector-python`
+  * Install the mysql-connector:  
+  `sudo apt install mysql-connector-python-py3`
+  * Install MySQL shell:  
+  `sudo apt install mysql-shell`
+  * Go into mysql shell by executing this command: `mysql --user root -p` and then execute  
+  `SET GLOBAL sql_mode=(SELECT REPLACE(@@sql_mode,'ONLY_FULL_GROUP_BY',''));`
+
+## 2. Setting up the Databases 📊
 The Event data will be ingested into a MySQL database titled `crossRefEventDataMain`. The script to create it can be found [here](https://github.com/tdbowman-CompSci-F2020/openAlt/blob/master/SQL/CrossrefeventdataWithMain/crossrefeventdataWithMain.sql).  
   
 The journal, publisher, author, title, and date information is stored in a seperate MySQL database titled `dr_bowman_doi_data_tables`. The script to create it can be found [here](https://github.com/tdbowman-CompSci-F2020/openAlt/blob/master/SQL/DOI_Author_Database/dr_bowman_doi_data_tables.sql).
 
 Anyone can use our scripts and database schemas to create and fill in `crossRefEventDataMain`, but you will need to use other methods to fill in the needed fields for `dr_bowman_doi_data_tables`. This [GitHub repository](https://github.com/fabiobatalha/crossrefapi) is a good place to start.
 
-## 2. Collecting and Organizing the Events 🏷️
+## 3. Collecting and Organizing the Events 🏷️
 Before we can run the web server, we need to collect the data from the Crossref API. This will take some time, as there are millions of events to collect. We highly recommend reading Crossref's [guide](https://www.eventdata.crossref.org/guide/) before continuing.  
 
 Our Python script `openAlt/pythonScripts/tapAPI.py` grabs new Event data from the Crossref API on a schedule. This data is stored as a dated JSON file, where each file contains 10,000 Events. You will need to enter your email on line 19, and can modify the schedule on line 35.
 
-### 2.1 Example JSON Format:
+### 3.1 Example JSON Format:
 Downloaded JSON files will look similar to this. Each of the 13 Event types has a unique format.  
 ```JSON
 {
@@ -43,15 +71,15 @@ Downloaded JSON files will look similar to this. Each of the 13 Event types has 
 }
 ```
 
-## 3. Ingesting the Data 🗃️
+## 4. Ingesting the Data 🗃️
 These files will need to be ingested into the database by the following script: `openAlt/pythonScripts/Ingest/main.py`. This script reads each JSON in the data directory, and inserts the events into the MySQL database. Again, the Event data does not contain the journal, publisher, authors, or titles for the DOI's. We utilized Dr. Bowman's database which was already populated with this data when we started this project. If you are cloning the repository, *you will need to source this data yourself*. This GitHub [repository](https://github.com/fabiobatalha/crossrefapi) is a good place to start.
 
-### 3.1 Ingesting from JSON files
+### 4.1 Ingesting from JSON files
 #### Step by step guide:
 1. Change the datadirectory for your JSON folder to suit your system (line 28). 
 2. Run `python ingestJSONMain.py` in your preferred terminal.
 
-### 3.2 Ingesting from PaperBuzz Data
+### 4.2 Ingesting from PaperBuzz Data
 We were fortunate enough to be given a dump of Crossref JSON data from the nice folks at [Paperbuzz](http://paperbuzz.org/). This one time dump we recieved is simply Crossref Event data stored in a slighly different way. Here we document how we ingested this data, but can not provide a means for others to aquire this data. While the first 10,000 of such records are located in `openAlt/SQL/DOI_Author_Database/doi_json_dump_10k.csv`, we are not making the remaining data public at this time. Anyone cloning the repository will need to use see section 2.1 and ingest JSON data which they gather themselves.
 
 #### Step By Step Guide:
@@ -73,7 +101,7 @@ We were fortunate enough to be given a dump of Crossref JSON data from the nice 
     - Execute the SQL script `crossrefeventdataWithMain.sql` to create all 13 tables.
 6. Run `python ingestPaperBuzzMain.py` in your preferred terminal.
 
-### 4. Quirks of the Crossref API ❓
+### 5. Quirks of the Crossref API ❓
 * Some Events give a DOI(objectID) of simply https://doi.org. For example, the event with ID: `5c83ca20-d4a1-471b-a23f-f21486cefb5c`
 * Some DOI's in the Crossref Event data are malformed.  
 This appears to be an inability of the Crossref agent to process Arabic text. We have only observed this for Twitter events so far.  
@@ -83,13 +111,13 @@ For example, the event with ID `5dd6719b-8981-4712-988c-8c01f7ad760b` has a DOI(
  ```
 * Many Twitter Events do not provide a link to the tweet as their subjectID. Instead, they have only `http://twitter.com` as their link.  Since these events do not contain useful links, we have designed the website to hide these events from the "Latest Events" section on the article dashboard. These events are still counted towards the total number of events for the author/article.
 
-## 5. How to run the web server 🖥️
+## 6. How to run the web server 🖥️
 
-### 5.1 Before we Start ✋
+### 6.1 Before we Start ✋
 This guide assumes you are using Python 3.8, and have established the `crossrefeventdatamain` and `dr_bowman_doi_data_tables` databases in MySQL. Check `openAlt/SQL/` for the relevant scripts.  
 If you have Python 2 installed, you will need to substitute Python3 for Python below.  
 
-### 5.2 Step by Step Guide 📝
+### 6.2 Step by Step Guide 📝
 These actions should be performed inside the `openAlt/web/` folder.
 1) Install virtualenv: `pip install virtualenv`.
 2) Create a virtual environment: `python -m virtualenv venv`.
