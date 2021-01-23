@@ -25,7 +25,7 @@ except:
     logging.info("Cannot determine how you intend to run the program")
 
 # Change these to suit your system
-dataDirectory = "./JSON"
+dataDirectory = "C:\\Users\\darpa\\Documents\\CrossRefData"
 print("MySQL Credentials")
 mysql_username = input("Username: ")
 mysql_password = input("Password: ")
