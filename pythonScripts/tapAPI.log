@@ -3,3 +3,20 @@ curl "https://api.eventdata.crossref.org/v1/events?mailto=darpan.shah@wayne.edu&
 22-Jan-21 23:20:16 -  - Successfully wrote data to tempFile.json 
 22-Jan-21 23:20:16 -  - Beginning JSON formatting
 22-Jan-21 23:20:16 -  - Failure in beautifyJSON step - Was the server down?
+25-Jan-21 12:32:03 -  - Downloading Data using query: 
+curl "https://api.eventdata.crossref.org/v1/events?mailto=darpanshah7@gmail.com&rows=10000&cursor=" > tempFile.json
+25-Jan-21 12:32:05 -  - Successfully wrote data to tempFile.json 
+25-Jan-21 12:32:05 -  - Beginning JSON formatting
+25-Jan-21 12:32:05 -  - Failure in beautifyJSON step - Was the server down?
+25-Jan-21 12:33:23 -  - Downloading Data using query: 
+curl "https://api.eventdata.crossref.org/v1/events?mailto=darpanshah7@gmail.com&rows=10000&cursor=" > tempFile.json
+25-Jan-21 12:33:24 -  - Successfully wrote data to tempFile.json 
+25-Jan-21 12:33:24 -  - Beginning JSON formatting
+25-Jan-21 12:33:24 -  - Failure in beautifyJSON step - Was the server down?
+25-Jan-21 12:33:26 -  - Downloading Data using query: 
+curl "https://api.eventdata.crossref.org/v1/events?mailto=darpanshah7@gmail.com&rows=10000&cursor=" > tempFile.json
+25-Jan-21 12:33:45 -  - Successfully wrote data to tempFile.json 
+25-Jan-21 12:33:45 -  - Beginning JSON formatting
+25-Jan-21 12:33:45 -  - Cursor for this retrieval was 064c7f27-3f13-4080-b472-f15d0f0991df
+25-Jan-21 12:33:45 -  - Writing JSON data to 01-25-21--12-33.json
+25-Jan-21 12:33:45 -  - Waiting for next scheduled run...

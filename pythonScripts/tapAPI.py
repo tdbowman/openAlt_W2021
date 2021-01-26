@@ -12,7 +12,7 @@ except ImportError:
     logging.info("You need to install the schedule module using \"pip install schedule\" before proceeding")
     exit
 
-email = "darpan.shah@wayne.edu"
+email = "darpanshah7@gmail.com"
 source = "" # An empty string will cause it to pull from all sources
 rows = "10000" # number of Events to pull for today
 fetchURL = "https://api.eventdata.crossref.org/v1/events?mailto="
@@ -80,7 +80,7 @@ def beautifyJSON():
         with open(tempFileName) as json_file:
             data = json.load(json_file)
             cursor = data.get("message").get("next-cursor")
-        os.system("cat " + tempFileName + " | python3 -mjson.tool > " + fileName)
+        os.system("cat " + tempFileName + " | python -mjson.tool > " + fileName)
         logging.info(" - Cursor for this retrieval was " + str(cursor))
         if (cursor == "" or cursor == None):
             logging.info(" - Null cursor - done collecting data - check log for last cursor used")
