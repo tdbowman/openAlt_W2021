@@ -5,6 +5,7 @@ import json
 import logging
 import sys
 import os
+import platform
 
 try:
     import schedule
@@ -80,7 +81,13 @@ def beautifyJSON():
         with open(tempFileName) as json_file:
             data = json.load(json_file)
             cursor = data.get("message").get("next-cursor")
-        os.system("cat " + tempFileName + " | python3 -mjson.tool > " + fileName)
+        
+        #Added 1/24/2021 for run command for OS type
+        if (platform.system() == 'Linux'):
+            os.system("cat " + tempFileName + " | python3 -mjson.tool > " + fileName)
+        elif(platform.system() == 'Windows'):
+            os.system("cat " + tempFileName + " | python -mjson.tool > " + fileName)
+
         logging.info(" - Cursor for this retrieval was " + str(cursor))
         if (cursor == "" or cursor == None):
             logging.info(" - Null cursor - done collecting data - check log for last cursor used")
