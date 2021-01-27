@@ -30,6 +30,25 @@ for x in range(len(doi_list)):
 
 #print(doi_arr)
 
+## End of Darpan's Work
+
+
+## Start of Salsabil's Work ##
+
+# Parsing doi input to only include number
+doi = "doi:"
+url = "http://dx.doi.org/"    
+
+for values in doi_arr:
+    values = values.replace(doi,'')
+    values = values.replace(url,'')
+    #values = "\'" + values + "\'"
+    
+
+joinedArr = "\'" + "','".join(doi_arr) + "\'"
+print(joinedArr)
+print("\n")
+
 #Getting MySQL database credentials
 print("\nMySQL Credentials")
 mysql_username = input("Username: ")
@@ -41,8 +60,12 @@ connection = mysql.connector.connect(user=str(mysql_username), password=str(
 
 cursor = connection.cursor()  
 
+## End of Salsabil's Work ##
+
+
+## Start of Darpan's Work
 #Execution of query and output of result + log
-query = 'SELECT COUNT(DOI) FROM dr_bowman_doi_data_tables._main_'
+query = 'SELECT DOI FROM dr_bowman_doi_data_tables._main_ WHERE DOI IN (' + joinedArr + ');'
 
 print('\n',query)
 logging.info(query)
@@ -51,7 +74,8 @@ logging.info(cursor.fetchall())
 cursor.execute(query)
 print(cursor.fetchall())
 
-
-
-
 ## End of Darpan's Work
+
+
+
+
