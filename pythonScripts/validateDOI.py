@@ -1,43 +1,43 @@
+import re 
 
-## text = "doi:10.1038/nphys1170"
-## url = "http://dx.doi.org/10.1192/bjp.171.6.519"
+mylines = []
+with open ('ListDOI.txt', 'rt') as myfile:
+    for myline in myfile:
+        mylines.append(myline)
+# print(mylines)
 
-fields = []
-IDSplit = "doi:"
-urlSplit = "http://dx.doi.org/"
+str = "doi:"
+url = "http://dx.doi.org/"
+character = "10."
 
-file = open("ListDOI.txt","r")
-
-for line in file:
-    ##fields = line.split(IDSplit)
-
-    if(file.read(4) == "doi:"):
-        fields = line.split(IDSplit)
-    elif(file.read(18) == "http://dx.doi.org/"):
-        fields = line.split(urlSplit)
-    elif(file.read(3) == "10."):
-        fields = line
+for index in mylines:
+    if  index.find(str) != -1:
+        search = index.split(str)
+        print("Found doi " + search[1])
+    elif index.find(url) != -1:
+        search = index.split(url)
+        print("Found url " + search[1])
+    elif index.find(character) != -1:
+        search = index.split(character)
+        print("Found pattern " + search[1])
     else:
-        print("Error retrieving DOI.")
+        print("Not Found.\n")
 
     try:
         from crossref.restful import Works
         works = Works()
 
         # Request data from the crossref API, save json as x
-        x = works.doi(fields[1])
+        x = works.doi(search[1])
         if (x['author']):
             authorList = x['author']
             for index, authorDetail in enumerate(authorList):
                 first_name = authorDetail['given']
                 last_name = authorDetail['family']
-                print(first_name + ' ' + last_name)
+                print(first_name + ' ' + last_name + "\n")
                 
     except ImportError:
-        print("You need to install the crossref api with 'pip install crossrefapi' first")
+        print("You need to install the crossref api with 'pip install crossrefapi' first\n")
     except:
-        print("Unspecified error")
-
-file.close()
-
-
+        print("Unspecified error\n")
+    
