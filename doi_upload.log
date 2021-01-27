@@ -1,0 +1,4 @@
+26-Jan-21 14:10:40 - SELECT COUNT(DOI) FROM dr_bowman_doi_data_tables._main_
+26-Jan-21 14:10:40 - [(9751,)]
+26-Jan-21 14:11:25 - SELECT COUNT(DOI) FROM dr_bowman_doi_data_tables._main_
+26-Jan-21 14:11:25 - [(9751,)]

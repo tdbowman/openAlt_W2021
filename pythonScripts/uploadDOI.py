@@ -41,12 +41,16 @@ connection = mysql.connector.connect(user=str(mysql_username), password=str(
 
 cursor = connection.cursor()  
 
-#Execution of query and output of result
+#Execution of query and output of result + log
 query = 'SELECT COUNT(DOI) FROM dr_bowman_doi_data_tables._main_'
 
 print('\n',query)
+logging.info(query)
+cursor.execute(query)
+logging.info(cursor.fetchall())
 cursor.execute(query)
 print(cursor.fetchall())
+
 
 
 
