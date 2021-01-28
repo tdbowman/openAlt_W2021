@@ -1,26 +1,62 @@
 import mysql.connector
 import os
+import platform
 
-db = mysql.connector.connect(host = "localhost", user = "root", passwd = "Dsus1209.", database = "dr_bowman_doi_data_tables")
-db2 = mysql.connector.connect(host = "localhost", user = "root", passwd = "Dsus1209.", database = "crossrefeventdatamain")
+mysql_username = "root"
+mysql_password = "Dsus1209."
 
-mycursor = db.cursor()
-mycursor2 = db2.cursor()
+# print("MySQL Credentials")
+# mysql_username = input("Username: ")
+# mysql_password = input("Password: ")
 
-mycursor.execute("Select DOI FROM _main_")
-records = mycursor.fetchall()
+# connect to dr_bowman_doi_data_tables database
+drBowmanDatabase = mysql.connector.connect(host = "localhost", user = mysql_username, passwd = mysql_password, database = "dr_bowman_doi_data_tables")
 
-temp = (None, )
-source = ""
-cursor = ""
+# connect to crossrefeventdatamain database
+eventDatabase = mysql.connector.connect(host = "localhost", user = mysql_username, passwd = mysql_password, database = "crossrefeventdatamain")
 
-for i in range(500):
-    if (records[i] != temp):
-        print (records[i])
-        temp = records[i]
-        testString = temp[0]
-        filename = "data\\test" + str(i) + ".json"
-        query = "curl " + "\"" + "https://api.eventdata.crossref.org/v1/events?mailto=YOUR_EMAIL_HERE&rows=10&obj-id=" + testString + "\"" + " > " + filename
+drBowmanDatabaseCursor = drBowmanDatabase.cursor()
+eventDatabaseCursor = eventDatabase.cursor()
+
+drBowmanDatabaseCursor.execute("Select DOI FROM _main_")
+articles = drBowmanDatabaseCursor.fetchall()
+
+# To fetch event data for all articles, set numberOfArticlesToFetch = articles.length
+numberOfArticlesToFetch = 500 
+
+# create directory to store temporary JSON files
+eventDataDirectory = 'eventData'
+
+emptyDOI = (None, )
+
+
+if platform.system() == "Windows":
+    directory = "eventData\\events_"
+
+elif platform.system() == "Darwin" | "Linux":
+    "eventData/events_"
+
+if not os.path.exists("eventData"):
+    os.makedirs(eventDataDirectory)
+
+fileCounter = 1
+
+
+for i in range(numberOfArticlesToFetch):
+
+    if (articles[i] != emptyDOI):
+
+        article = articles[i]
+        articleDOI = article[0]
+
+        print(articleDOI)
+
+        fileName = directory + str(fileCounter) + ".json"
+        fileCounter += 1
+        print(fileName)
+
+        query = "curl " + "\"" + "https://api.eventdata.crossref.org/v1/events?mailto=YOUR_EMAIL_HERE&obj-id=" + articleDOI + "\"" + " > " + fileName
         os.system(query)
-        mycursor2.execute("DELETE FROM crossrefeventdatamain.main WHERE objectID = 'https://doi.org/" + testString + "';")
-        db2.commit()
+
+        eventDatabaseCursor.execute("DELETE FROM crossrefeventdatamain.main WHERE objectID = 'https://doi.org/" + articleDOI + "';")
+        eventDatabase.commit()
