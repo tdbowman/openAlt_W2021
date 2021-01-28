@@ -25,7 +25,9 @@ except:
     logging.info("Cannot determine how you intend to run the program")
 
 # Change these to suit your system
-dataDirectory = "./JSON"
+# dataDirectory = "./JSON"
+
+dataDirectory = "C:\\Users\\rihat\Documents\\academic\\senior_project\\test_script_drafts\\eventData"
 print("MySQL Credentials")
 mysql_username = input("Username: ")
 mysql_password = input("Password: ")

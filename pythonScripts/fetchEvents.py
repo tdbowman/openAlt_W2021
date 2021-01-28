@@ -1,6 +1,7 @@
 import mysql.connector
 import os
 import platform
+import csv
 
 mysql_username = "root"
 mysql_password = "Dsus1209."
@@ -39,24 +40,31 @@ elif platform.system() == "Darwin" | "Linux":
 if not os.path.exists("eventData"):
     os.makedirs(eventDataDirectory)
 
-fileCounter = 1
+
+with open("json_info.csv", "w", newline="") as jsonInfoFile:
+    writer = csv.writer(jsonInfoFile)
+    writer.writerow(["File Name", "DOI"])
+
+    fileCounter = 1
 
 
-for i in range(numberOfArticlesToFetch):
+    for i in range(numberOfArticlesToFetch):
 
-    if (articles[i] != emptyDOI):
+        if (articles[i] != emptyDOI):
 
-        article = articles[i]
-        articleDOI = article[0]
+            article = articles[i]
+            articleDOI = article[0]
 
-        print(articleDOI)
+            print(articleDOI)
 
-        fileName = directory + str(fileCounter) + ".json"
-        fileCounter += 1
-        print(fileName)
+            fileName = directory + str(fileCounter) + ".json"
+            fileCounter += 1
+            print(fileName)
 
-        query = "curl " + "\"" + "https://api.eventdata.crossref.org/v1/events?mailto=YOUR_EMAIL_HERE&obj-id=" + articleDOI + "\"" + " > " + fileName
-        os.system(query)
+            query = "curl " + "\"" + "https://api.eventdata.crossref.org/v1/events?mailto=YOUR_EMAIL_HERE&obj-id=" + articleDOI + "\"" + " > " + fileName
+            os.system(query)
 
-        eventDatabaseCursor.execute("DELETE FROM crossrefeventdatamain.main WHERE objectID = 'https://doi.org/" + articleDOI + "';")
-        eventDatabase.commit()
+            writer.writerow([fileName[10:], articleDOI])
+
+            eventDatabaseCursor.execute("DELETE FROM crossrefeventdatamain.main WHERE objectID = 'https://doi.org/" + articleDOI + "';")
+            eventDatabase.commit()
