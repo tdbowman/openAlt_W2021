@@ -17,10 +17,11 @@ except:
 #directory of doi list
 #CHANGE DIRECTORY TO YOUR DOI LIST CSV
 dir = 'C:\\Users\\darpa\\Desktop\\openAlt_W2021\\pythonScripts\\template_doi.csv'
+
 doi_arr = []
 
 #pandas library reads doi list
-doi_list = pandas.read_csv(dir)
+doi_list = pandas.read_csv(dir, header=None)
 
 
 #adds doi values into array and prints the array
@@ -65,7 +66,7 @@ cursor = connection.cursor()
 
 ## Start of Darpan's Work
 #Execution of query and output of result + log
-query = 'SELECT DOI FROM dr_bowman_doi_data_tables._main_ WHERE DOI IN (' + joinedArr + ');'
+query = 'SELECT DOI FROM dr_bowman_doi_ data_tables._main_ WHERE DOI IN (' + joinedArr + ');'
 
 print('\n',query)
 logging.info(query)
