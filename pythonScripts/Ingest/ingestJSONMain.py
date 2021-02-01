@@ -27,7 +27,7 @@ except:
 # Change these to suit your system
 # dataDirectory = "./JSON"
 
-dataDirectory = "C:\\Users\\rihat\Documents\\academic\\senior_project\\test_script_drafts\\eventData"
+dataDirectory = "eventData"
 print("MySQL Credentials")
 mysql_username = input("Username: ")
 mysql_password = input("Password: ")

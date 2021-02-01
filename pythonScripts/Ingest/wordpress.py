@@ -69,6 +69,23 @@ def wordpressIngest(uniqueEvent, cursor, connection):
         elif (key == 'relation_type_id'):
             t_relation_type_id = value
 
+
+    # author: Rihat Rahman
+    #--------------------------------------------------------------------------------------------------------------------------------------------
+
+    table = 'wordpressevent'
+    
+    # checks if duplicate event exists, returns [(1,)] if true
+    cursor.execute ("SELECT 1 FROM crossrefeventdatamain." + table + " WHERE subjectID = '" + t_subj_id + "' AND objectID = '" + t_obj_id + "'")
+    exists = cursor.fetchall()
+
+    # return to the main program if
+    if exists == [(1,)]:
+        return
+
+    #--------------------------------------------------------------------------------------------------------------------------------------------
+
+
     # Wordpress is unique - needs more work
     if (t_obj_id != None):
         if(len(t_obj_id) < 100):

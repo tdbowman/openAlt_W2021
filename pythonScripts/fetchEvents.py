@@ -1,3 +1,5 @@
+# Author: Rihat Rahman
+
 import mysql.connector
 import os
 import platform
