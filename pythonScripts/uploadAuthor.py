@@ -76,7 +76,7 @@ cursor = connection.cursor()
 
 for values in author_arr:
 
-    query = 'SELECT * FROM dr_bowman_doi_data_tables.author WHERE family LIKE ' + "\'%" + values + "%\'" + ';' #### will need to change query based on how author information is retrieved ####
+    query = 'SELECT * FROM dr_bowman_doi_data_tables.author WHERE name LIKE ' + "\'%" + values + "%\'" + ';' #### will need to change query based on how author information is retrieved ####
 
     print('\n',query)
     logging.info(query)

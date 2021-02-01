@@ -7,7 +7,7 @@ def landingPageStats(mysql):
     cursor = mysql.connection.cursor()
     
     #string to query the database to sum up all events from all 13 sources listed below
-    totalSumQuery= 'SELECT SUM(totalEvents) FROM crossrefeventdatamain.main;'
+    totalSumQuery= 'SELECT SUM(totalEvents) AS sumCount FROM crossrefeventdatamain.main;'
 
     #execute string's query using cursor
     cursor.execute(totalSumQuery)
