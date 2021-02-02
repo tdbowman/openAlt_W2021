@@ -1,11 +1,8 @@
+import os
 import csv
 import pandas
 import logging
 
-
-# Set the logging parameters
-logging.basicConfig(filename='./doi_upload.log', filemode='a', level=logging.INFO,
-    format='%(asctime)s - %(message)s', datefmt='%d-%b-%y %H:%M:%S')  
 
 try:
     import mysql.connector
@@ -14,9 +11,14 @@ except:
     logging.info("Cannot determine how you intend to run the program")
 
 # directories
-# CHANGE DIRECTORY TO YOUR DOI LIST CSV AND CONFIG FILE
-dir_template = 'C:\\Users\\darpa\\Desktop\\openAlt_W2021\\pythonScripts\\template_doi.csv'
-dir_config = 'C:\\Users\\darpa\\Desktop\\openAlt_W2021\\pythonScripts\\config_doi.txt'
+dir_file = str(os.path.dirname(os.path.realpath(__file__)))
+dir_template = dir_file + '\\Templates\\uploadDOI_template.csv'
+dir_config = dir_file + '\\uploadDOI_config.txt'
+dir_results = dir_file + '\\Results\\uploadDOI_results.csv'
+
+# Set the logging parameters
+logging.basicConfig(filename= dir_file + '\\Logs\\uploadDOI.log', filemode='a', level=logging.INFO,
+    format='%(asctime)s - %(message)s', datefmt='%d-%b-%y %H:%M:%S')  
 
 
 doi_arr = []
@@ -72,11 +74,17 @@ cursor = connection.cursor()
 
 # Execution of query and output of result + log
 query = 'SELECT DOI FROM dr_bowman_doi_data_tables._main_ WHERE DOI IN (' + joinedArr + ');'
+cursor.execute(query)
+resultSet = cursor.fetchall()
 
 print('\n',query)
 logging.info(query)
-cursor.execute(query)
-logging.info(cursor.fetchall())
-cursor.execute(query)
-print(cursor.fetchall())
+print(resultSet)
+logging.info(resultSet)
+
+resultCSV = csv.writer(open(dir_results,'a'))
+for x in resultSet:
+    resultCSV.writerow(x)
+
+
 

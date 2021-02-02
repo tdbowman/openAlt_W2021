@@ -27,3 +27,9 @@
 02-Feb-21 12:10:50 - [(2, None, None, 'Doe', 'John', 'John Doe', None, None, None, None)]
 02-Feb-21 12:10:50 - SELECT * FROM dr_bowman_doi_data_tables.author WHERE name LIKE '%Darpan Shah%';
 02-Feb-21 12:10:50 - [(1, None, None, 'Shah', 'Darpan', 'Darpan Shah', None, None, None, None)]
+02-Feb-21 14:47:53 - SELECT * FROM dr_bowman_doi_data_tables.author WHERE name LIKE '%Jane Doe%';
+02-Feb-21 14:47:53 - []
+02-Feb-21 14:47:53 - SELECT * FROM dr_bowman_doi_data_tables.author WHERE name LIKE '%John Doe%';
+02-Feb-21 14:47:53 - [(2, None, None, 'Doe', 'John', 'John Doe', None, None, None, None)]
+02-Feb-21 14:47:53 - SELECT * FROM dr_bowman_doi_data_tables.author WHERE name LIKE '%Darpan Shah%';
+02-Feb-21 14:47:53 - [(1, None, None, 'Shah', 'Darpan', 'Darpan Shah', None, None, None, None)]
