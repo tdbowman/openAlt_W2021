@@ -1,66 +1,34 @@
+import os
+import platform
 import json
 import argparse
-import pandas as pd
 import csv 
-import os
+import pandas as pd
 import crossref
-import platform
 import mysql.connector
+
+#Author: Mohammad Tahmid
+#Date: 01/31/2021
+#Description: Takes "works" object metadata about author information and inserts it into the author table in the databaase
 
 given_name = ""
 family_name = ""
-full_name = ""
 sequence = ""
 affiliation = ""
 
-'''
-mysql_username = "root"
-mysql_password = "Hamtramck#1999"
-connection = mysql.connector.connect(user=str(mysql_username), password=str(
-        mysql_password), host='127.0.0.1', database='crossrefeventdatamain')
-cursor = connection.cursor()
-cursor2 = connection.cursor()
-'''
-'''
-#query = "SELECT fk FROM dr_bowman_doi_data_tables._main_ WHERE DOI=?"
-
-doi = "10.1177/070674379704200909"
-query = "SELECT fk FROM dr_bowman_doi_data_tables._main_ WHERE DOI = '%s'" % (doi)
-cursor.execute(query)
-fk = cursor.fetchall()
-
-
-print(fk)
-numba = fk[0][0]
-#numba = 0 + numba
-
-print(numba)
-#nameA = ("tim turner", 2)
-
-
-#query2 = "insert into dr_bowman_doi_data_tables.author(name, fk) values('%s')" % (nameA)
-
-
-sql = "INSERT INTO dr_bowman_doi_data_tables.author(name, fk) VALUES (%s, %s) ON DUPLICATE KEY UPDATE id=id"
-nameA = ("tim turner", )
-cursor.execute(sql, nameA)
-connection.commit()
-'''
-
 def authorIngest(connection, cursor, doi, authorData):
 
+    #Query to get the foreign key when looking up a DOI
     query = "SELECT fk FROM dr_bowman_doi_data_tables._main_ WHERE DOI = '%s'" % (doi)
     cursor.execute(query)
     resultSet = cursor.fetchall()
     fk = resultSet[0][0]
 
-    #print(authorData)
-
-    
+    #From the "works" object for DOI, the data is split and saved to be used to query the databse to insert the information
     for index, authorValue in enumerate(authorData):
+
         given_name = authorValue['given']
         family_name = authorValue['family']
-        full_name = given_name + " " + family_name
         sequence = authorValue['sequence']
         affiliation = authorValue['affiliation']
         affiliationToInsert = ""
@@ -68,17 +36,19 @@ def authorIngest(connection, cursor, doi, authorData):
         for index, affiliationData in enumerate(affiliation):
             affiliationToInsert= affiliationData['name']
 
-        #print(given_name)
-        #print(family_name)
-        #print(full_name)
-        #print(sequence)
-
-        queryValues = (given_name, family_name, full_name, sequence, affiliationToInsert, fk)
-        query = "INSERT INTO dr_bowman_doi_data_tables.author(given, family, name, sequence, affiliation, fk) VALUES (%s, %s, %s, %s, %s, %s) ON DUPLICATE KEY UPDATE id=id"
-
+        ##################
         # TODO: 
         # 1. Split affilication infomration and adjust author table to account for the split in university, state, etc.
+        ##################
 
+        #Query the database to insert the values as a row into the table
+        query = "INSERT INTO dr_bowman_doi_data_tables.author(given, family, sequence, affiliation, fk) VALUES (%s, %s, %s, %s, %s) ON DUPLICATE KEY UPDATE id=id"
+        queryValues = (given_name, family_name, sequence, affiliationToInsert, fk)
         cursor.execute(query, queryValues)
+        connection.commit()
+
+        #Does a MySQL concatenation query to fill in the "name" column in the table
+        query = "UPDATE dr_bowman_doi_data_tables.author SET name = concat(given,' ',family)"
+        cursor.execute(query)
         connection.commit()
     
