@@ -1,3 +1,4 @@
+import os
 import csv
 import pandas
 import logging
@@ -27,9 +28,14 @@ import logging
 #                     }
 #                 ]
 
+# Directories 
+dir_file = str(os.path.dirname(os.path.realpath(__file__)))
+dir_template = dir_file + '\\Templates\\uploadAuthor_template.csv'
+dir_results = dir_file + '\\Results\\uploadAuthor_results.csv'
 
-#Set the logging parameters
-logging.basicConfig(filename='./author_upload.log', filemode='a', level=logging.INFO,
+
+# Set the logging parameters
+logging.basicConfig(filename=dir_file + '\\Logs\\uploadAuthor.log', filemode='a', level=logging.INFO,
     format='%(asctime)s - %(message)s', datefmt='%d-%b-%y %H:%M:%S')  
 
 try:
@@ -38,14 +44,10 @@ except:
     print("MySQL Connector Exception")
     logging.info("Cannot determine how you intend to run the program")
 
-#directory of doi list
-#CHANGE DIRECTORY TO YOUR DOI LIST CSV
-dir = 'C:\\Users\\darpa\\Desktop\\openAlt_W2021\\pythonScripts\\template_author.csv'
 author_arr = []
 
 #pandas library reads doi list
-doi_list = pandas.read_csv(dir, header=None)
-
+doi_list = pandas.read_csv(dir_template, header=None)
 
 
 #adds doi values into array and prints the array
@@ -73,17 +75,27 @@ cursor = connection.cursor()
 
 
 #Execution of query and output of result + log
-
+resultSet = []
 for values in author_arr:
 
     query = 'SELECT * FROM dr_bowman_doi_data_tables.author WHERE name LIKE ' + "\'%" + values + "%\'" + ';' #### will need to change query based on how author information is retrieved ####
+    cursor.execute(query)
+    result = cursor.fetchall()
+    resultSet.append(result)
 
     print('\n',query)
     logging.info(query)
-    cursor.execute(query)
-    logging.info(cursor.fetchall())
-    cursor.execute(query)
-    print(cursor.fetchall())
+    print(result)
+    logging.info(result)
+
+    # Write result to file.
+    with open(dir_results, 'a', newline='') as resultCSV:
+        resultCSV = csv.writer(resultCSV, delimiter=',', quotechar='"', quoting=csv.QUOTE_MINIMAL)
+        for row in result:
+            resultCSV.writerow(row)
+    
+
+
 
 
 

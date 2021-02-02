@@ -82,9 +82,11 @@ logging.info(query)
 print(resultSet)
 logging.info(resultSet)
 
-resultCSV = csv.writer(open(dir_results,'a'))
-for x in resultSet:
-    resultCSV.writerow(x)
 
+# Write result to file.
+with open(dir_results, 'a', newline='') as resultCSV:
+    resultCSV = csv.writer(resultCSV, delimiter=',', quotechar='"', quoting=csv.QUOTE_MINIMAL)
+    for row in resultSet:
+        resultCSV.writerow(row)
 
 
