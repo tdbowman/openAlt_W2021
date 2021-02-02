@@ -80,8 +80,3 @@ logging.info(cursor.fetchall())
 cursor.execute(query)
 print(cursor.fetchall())
 
-
-
-
-
-
