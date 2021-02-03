@@ -1,32 +1,44 @@
-# Tabish Shaikh 1/26/21
+# Tabish Shaikh's work
+
 import zipfile
-import time
+import zlib
+import urllib.request
+import json
 import csv
 import requests
 import os
-import sys
+import pandas
 
-email = "tabishshaikh97@gmail.com"
-source = ""
-fetchurl = "https://api.eventdata.crossref.org/v1/events?mailto="
-tempFileName = "tempfile.csv"
+# Modified version of downloadResultsJSON.py
+# Could be refactored
 
-def downloadResults():
-    query = "curl" + "\"" + fetchurl + email + source + "\"" + " > " + tempFileName
-    os.system(query)
-    serverBusy = True
-    while (serverBusy):
-       file = open(tempFileName, "r")
-       if (file.read(6) == "Server"):
-           file.close()
-           time.sleep(20)
-           os.system(query)
-       else:
-           file.close()
-           serverBusy = False
+def downloadResultsAsCSV():
+    # Download search results as json
+    # and save it in tempFile.json
 
-def compressFile():
-    ZipFile.write(tempFileName, "test.zip", compress_type=None)
+    with urllib.request.urlopen("https://api.crossref.org/works?sample=10") as url:
+        f = open('tempFile.json', 'w')
+        tempfile = json.loads(url.read().decode())
+        tempfile = json.dumps(tempfile)
+        f.write(str(tempfile))
+        f.close()
 
-if __name__ == '__main__':
-    downloadResults()
+        # Translate json file into a csv file
+
+        tempfile=pandas.read_json('tempFile.json')
+        tempfile=pandas.DataFrame(tempfile)
+        tempfile.to_csv('tempFile.csv')
+
+    # Zip newly created csv file
+
+    zipfile.ZipFile('yourSearchInCSV.zip', mode = 'w', compression = zipfile.ZIP_DEFLATED).write('tempFile.csv')
+
+    # Delete the copy of the files that were not zipped
+
+    if os.path.exists('tempFile.json'):
+        os.remove('tempFile.json')
+    if os.path.exists('tempFile.csv'):
+        os.remove('tempFile.csv')
+
+if __name__=='__main__':
+    downloadResultsAsCSV()
