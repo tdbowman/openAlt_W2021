@@ -152,6 +152,9 @@ def team():
 def licenses():
     return flask.render_template('licenses.html')
 
+@ app.route('/upload', methods=["GET", "POST"])
+def upload():
+    return flask.render_template('upload.html')
 
 # If this is the main module or main program being run (app.py)......
 if __name__ == "__main__":
