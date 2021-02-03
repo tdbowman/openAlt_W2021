@@ -1,0 +1,5 @@
+25-Jan-21 16:21:31 -  - Downloading Data using query: 
+curl "https://api.eventdata.crossref.org/v1/events?mailto=darpanshah7@gmail.com&rows=10000&cursor=" > tempFile.json
+25-Jan-21 16:21:32 -  - Successfully wrote data to tempFile.json 
+25-Jan-21 16:21:32 -  - Beginning JSON formatting
+25-Jan-21 16:21:32 -  - Failure in beautifyJSON step - Was the server down?

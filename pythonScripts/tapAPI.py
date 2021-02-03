@@ -12,7 +12,7 @@ except ImportError:
     logging.info("You need to install the schedule module using \"pip install schedule\" before proceeding")
     exit
 
-email = "YOUR_EMAIL_HERE"
+email = "darpanshah7@gmail.com"
 source = "" # An empty string will cause it to pull from all sources
 rows = "10000" # number of Events to pull for today
 fetchURL = "https://api.eventdata.crossref.org/v1/events?mailto="
@@ -20,7 +20,7 @@ tempFileName = "tempFile.json" # file which it writes data to before formatting.
 logging.basicConfig(filename='tapAPI.log', filemode='a', level=logging.INFO, format='%(asctime)s - %(message)s', datefmt='%d-%b-%y %H:%M:%S') # Set the logging parameters
 
 # THESE MAY BE CHANGED
-runOnSchedule = True # False if you want to run it right now, or True if you want it to run on the regular schedule
+runOnSchedule = False # False if you want to run it right now, or True if you want it to run on the regular schedule
 cursor = "" # Always the first cursor, but you can change it if starting the script from a later point
 
 def main():
@@ -80,7 +80,7 @@ def beautifyJSON():
         with open(tempFileName) as json_file:
             data = json.load(json_file)
             cursor = data.get("message").get("next-cursor")
-        os.system("cat " + tempFileName + " | python3 -mjson.tool > " + fileName)
+        os.system("cat " + tempFileName + " | python -mjson.tool > " + fileName)
         logging.info(" - Cursor for this retrieval was " + str(cursor))
         if (cursor == "" or cursor == None):
             logging.info(" - Null cursor - done collecting data - check log for last cursor used")
