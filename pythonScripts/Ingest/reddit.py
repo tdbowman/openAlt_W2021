@@ -39,10 +39,12 @@ def redditIngest(uniqueEvent, cursor, connection):
             t_updated = value
         elif (key == "obj_id"):
             t_obj_id = value
+            t_doi = t_obj_id[16:] # parses url to doi
         elif (key == "source_token"):
             t_source_token = value
         elif (key == "occurred_at"):
             t_occurred_at = value
+            t_year = t_occurred_at[0:3] # parses datetime to year
         elif (key == "subj_id"):
             t_subj_id = value
         elif (key == "id"):
@@ -154,10 +156,10 @@ def redditIngest(uniqueEvent, cursor, connection):
     # These statements are used to insert data into Reddit Event's Table
     # SQL which inserts into event table
     # This was a previous layout of columns in the Reddit event table before we remodeled the database
-    add_event = ("INSERT IGNORE INTO redditevent " "(license, termsOfUse, updatedReason, updated, updatedDate, objectID, objectPID, objectURL, sourceToken, occurredAt, subjectID, eventID, evidenceRecord, eventAction, sourceID, subjectPID, subjectType, subjectTitle, subjectIssuedDate, timeObserved, relationType) " "VALUES(%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s)")
+    add_event = ("INSERT IGNORE INTO redditevent " "(license, termsOfUse, updatedReason, updated, updatedDate, objectID, doi, objectPID, objectURL, sourceToken, occurredAt, year, subjectID, eventID, evidenceRecord, eventAction, sourceID, subjectPID, subjectType, subjectTitle, subjectIssuedDate, timeObserved, relationType) " "VALUES(%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s)")
 
     # Values to insert into Newsfeed event table
-    data_event = (t_license, t_terms, t_updated_reason, t_updated, t_updated_date, t_obj_id, t_obj_pid, t_obj_url, t_source_token, t_occurred_at,
+    data_event = (t_license, t_terms, t_updated_reason, t_updated, t_updated_date, t_obj_id, t_doi, t_obj_pid, t_obj_url, t_source_token, t_occurred_at, t_year,
                   t_subj_id, t_id, t_evidence_record, t_action, t_source_id, t_subj_pid, t_subj_type, t_subj_title, t_subj_issued, t_dateTime, t_relation_type_id)
 
     # Execute query to add information to Reddit event table

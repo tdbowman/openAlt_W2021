@@ -39,10 +39,12 @@ def wikipediaIngest(uniqueEvent, cursor, connection):
             t_updated_reason = value
         elif (key == "obj_id"):
             t_obj_id = value
+            t_doi = t_obj_id[16:] # parses url to doi
         elif (key == "source_token"):
             t_source_token = value
         elif (key == "occurred_at"):
             t_occurred_at = value
+            t_year = t_occurred_at[0:3] # parses datetime to year
         elif (key == "subj_id"):
             t_subj_id = value
         elif (key == "id"):
@@ -152,9 +154,9 @@ def wikipediaIngest(uniqueEvent, cursor, connection):
     # SQL which inserts into event table
     # This was a previous layout of columns in the Wikipedia event table before we remodeled the database
     add_event = (
-        "INSERT IGNORE INTO wikipediaevent " "(license, termsOfUse, updatedDate, updatedReason, objectID, sourceToken, occurredAt, subjectID, eventID, evidenceRecord, eventAction, subjectPID, subjectTitle, subjectURL, subjectAPIURL, sourceID, objectPID, objectURL, timeObserved, relationType) " "VALUES(%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s)")
+        "INSERT IGNORE INTO wikipediaevent " "(license, termsOfUse, updatedDate, updatedReason, objectID, doi, sourceToken, occurredAt, year, subjectID, eventID, evidenceRecord, eventAction, subjectPID, subjectTitle, subjectURL, subjectAPIURL, sourceID, objectPID, objectURL, timeObserved, relationType) " "VALUES(%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s)")
     # Values to insert into wikipediaevent table  - LEAVE OUT THE OBJECT ID
-    data_event = (t_license, t_terms, t_updated_date, t_updated_reason, t_obj_id, t_source_token, t_occurred_at, t_subj_id, t_id, t_evidence_record,
+    data_event = (t_license, t_terms, t_updated_date, t_updated_reason, t_obj_id, t_doi, t_source_token, t_occurred_at, t_year, t_subj_id, t_id, t_evidence_record,
                   t_action, t_subj_pid, t_subj_title, t_subj_url, t_api_url, t_source_id, t_obj_pid, t_obj_url, t_dateTime, t_relation_type_id)
 
     # add information to wikipediaevent table

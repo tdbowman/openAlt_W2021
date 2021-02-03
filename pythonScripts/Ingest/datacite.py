@@ -25,8 +25,10 @@ def dataciteIngest(uniqueEvent, cursor, connection):
             t_license = value
         elif key == "obj_id":
             t_obj_id = value
+            t_doi = t_obj_id[16:] # parses url to doi
         elif (key == "occurred_at"):
             t_occurred_at = value
+            t_year = t_occurred_at[0:3] # parses datetime to year
         elif (key == "subj_id"):
             t_subj_id = value
         elif (key == "id"):
@@ -116,10 +118,10 @@ def dataciteIngest(uniqueEvent, cursor, connection):
     # These statements are used to insert data into Crossref Event's Table
     # SQL which inserts into event table
     # This was a previous layout of columns in the Datacite event table before we remodeled the database
-    add_event = ("INSERT IGNORE INTO dataciteevent " "(license, objectID, occurredAt, subjectID, eventID, termsOfUse, messageAction, sourceID, timeObserved, relationType) " "VALUES(%s,%s,%s,%s,%s,%s,%s,%s,%s, %s)")
+    add_event = ("INSERT IGNORE INTO dataciteevent " "(license, objectID, doi, occurredAt, year, subjectID, eventID, termsOfUse, messageAction, sourceID, timeObserved, relationType) " "VALUES(%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s, %s)")
 
     # Values to insert into Datacite event table
-    data_event = (t_license, t_obj_id, t_occurred_at, t_subj_id, t_id, t_terms,
+    data_event = (t_license, t_obj_id, t_doi, t_occurred_at, t_year, t_subj_id, t_id, t_terms,
                   t_message_action, t_source_id, t_dateTime, t_relation_type_id)
 
     # Execute query to add information to Datacite event table

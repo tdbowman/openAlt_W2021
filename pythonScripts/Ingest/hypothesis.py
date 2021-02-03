@@ -36,10 +36,12 @@ def hypothesisIngest(uniqueEvent, cursor, connection):
             t_license = value
         elif (key == "obj_id"):
             t_obj_id = value
+            t_doi = t_obj_id[16:] # parses url to doi
         elif (key == "source_token"):
             t_source_token = value
         elif (key == "occurred_at"):
             t_occurred_at = value
+            t_year = t_occurred_at[0:3] # parses datetime to year
         elif (key == "subj_id"):
             t_subj_id = value
         elif (key == "id"):
@@ -156,10 +158,10 @@ def hypothesisIngest(uniqueEvent, cursor, connection):
     # These statements are used to insert data into Hypothesis Event's Table
     # SQL which inserts into event table
     # This was a previous layout of columns in the Hypothesis event table before we remodeled the database
-    add_event = ("INSERT IGNORE INTO hypothesisevent " "(eventID, objectID, occurredAt, license, sourceToken, subjectID, evidenceRecord, termsOfUse, eventAction, subjectPID, subj_json_url, subjectURL, subjectType, subjectTitle, subjectIssued, sourceID, objectPID, objectURL, timeObserved, relationType ) " "VALUES(%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s, %s)")
+    add_event = ("INSERT IGNORE INTO hypothesisevent " "(eventID, objectID, doi, occurredAt, year, license, sourceToken, subjectID, evidenceRecord, termsOfUse, eventAction, subjectPID, subj_json_url, subjectURL, subjectType, subjectTitle, subjectIssued, sourceID, objectPID, objectURL, timeObserved, relationType ) " "VALUES(%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s, %s)")
 
     # Values to insert into Hypothesis event table
-    data_event = (t_id, t_obj_id, t_occurred_at, t_license, t_source_token, t_subj_id, t_evidence_record, t_terms, t_action,
+    data_event = (t_id, t_obj_id, t_doi, t_occurred_at, t_year, t_license, t_source_token, t_subj_id, t_evidence_record, t_terms, t_action,
                   t_pid, t_json_url, t_url, t_type, t_title, t_issued, t_source_id, t_obj_pid, t_obj_url, t_dateTime, t_relation_type_id)
 
     # Execute query to add information to Hypothesis event table

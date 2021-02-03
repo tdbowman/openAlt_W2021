@@ -39,10 +39,12 @@ def cambiaLensIngest(uniqueEvent, cursor, connection):
             t_updated = value
         elif (key == "obj_id"):
             t_obj_id = value
+            t_doi = t_obj_id[16:] # parses url to doi
         elif (key == "source_token"):
             t_source_token = value
         elif (key == "occurred_at"):
             t_occurred_at = value
+            t_year = t_occurred_at[0:3] # parses datetime to year
         elif (key == "subj_id"):
             t_subj_id = value
         elif (key == "id"):
@@ -147,12 +149,13 @@ def cambiaLensIngest(uniqueEvent, cursor, connection):
 
     # These statements are used to insert data into Cambia Event's Table
     # SQL which inserts into event table
-    add_event = ("INSERT IGNORE INTO cambiaevent " "(sourceID, objectID, subjectID, eventID, occurredAt, timeObserved, relationType, sourceToken, license, termsOfUse, updatedReason, updated, eventAction, workSubtypeID, workTypeID, subjectTitle, subjectPID, jurisdiction, updatedDate) " "VALUES(%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s);")
+    add_event = ("INSERT IGNORE INTO cambiaevent " "(sourceID, objectID, doi, subjectID, eventID, occurredAt, year, timeObserved, relationType, sourceToken, license, termsOfUse, updatedReason, updated, eventAction, workSubtypeID, workTypeID, subjectTitle, subjectPID, jurisdiction, updatedDate) " "VALUES(%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s);")
 
     # Values to insert into Cambia Event Table
-    data_event = (t_source_id, t_obj_id, t_subj_id, t_id, t_occurred_at, t_dateTime, t_relation_type_id, t_source_token, t_license, t_terms, t_updated_reason, t_updated, t_action,
+    data_event = (t_source_id, t_obj_id, t_doi, t_subj_id, t_id, t_occurred_at, t_year, t_dateTime, t_relation_type_id, t_source_token, t_license, t_terms, t_updated_reason, t_updated, t_action,
                   t_work_subtype_id, t_work_id, t_title, t_pid, t_jurisdiction,  t_updated_date)
 
     # Execute query to add information to Cambia event table
     cursor.execute(add_event, data_event)
     connection.commit()
+

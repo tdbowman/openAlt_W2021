@@ -34,10 +34,12 @@ def F1000Ingest(uniqueEvent, cursor, connection):
             t_license = value
         elif (key == "obj_id"):
             t_obj_id = value
+            t_doi = t_obj_id[16:] # parses url to doi
         elif (key == "source_token"):
             t_source_token = value
         elif (key == "occurred_at"):
             t_occurred_at = value
+            t_year = t_occurred_at[0:3] # parses datetime to year
         elif (key == "subj_id"):
             t_subj_id = value
         elif (key == "id"):
@@ -147,10 +149,10 @@ def F1000Ingest(uniqueEvent, cursor, connection):
     # These statements are used to insert data into F1000 Event's Table
     # SQL which inserts into event table
     # This was a previous layout of columns in the F1000 event table before we remodeled the database
-    add_event = ("INSERT IGNORE INTO f1000event " "(sourceID, objectID, subjectID, eventID, occurredAt, timeObserved, relationType, sourceToken, license, termsOfUse, evidenceRecord, eventAction, subjectPID, subjectURL, alternativeID, workTypeID, objectPID, objectURL)" "VALUES(%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s)")
+    add_event = ("INSERT IGNORE INTO f1000event " "(sourceID, objectID, doi, subjectID, eventID, occurredAt, year, timeObserved, relationType, sourceToken, license, termsOfUse, evidenceRecord, eventAction, subjectPID, subjectURL, alternativeID, workTypeID, objectPID, objectURL)" "VALUES(%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s)")
 
     # Values to insert into F1000 event table
-    data_event = (t_source_id, t_obj_id, t_subj_id, t_id, t_occurred_at, t_dateTime, t_relation_type_id, t_source_token, t_license,
+    data_event = (t_source_id, t_obj_id, t_doi, t_subj_id, t_id, t_occurred_at, t_year, t_dateTime, t_relation_type_id, t_source_token, t_license,
                   t_terms, t_evidence_record, t_action, t_subject_pid, t_subject_url, t_alternative_id, t_work_type_id, t_obj_pid, t_obj_url)
 
     # Execute query to add information to F1000 event table
