@@ -18,15 +18,17 @@ def downloadResultsAsCSV():
 
     with urllib.request.urlopen("https://api.crossref.org/works?sample=10") as url:
         f = open('tempFile.json', 'w')
-        tempfile = json.loads(url.read().decode())
+        tempfile = json.loads(url.read())
         tempfile = json.dumps(tempfile)
         f.write(str(tempfile))
         f.close()
 
         # Translate json file into a csv file
 
-        tempfile=pandas.read_json('tempFile.json')
-        tempfile=pandas.DataFrame(tempfile)
+        tempfile = pandas.read_json('tempFile.json')
+        tempfile = tempfile['message']
+        tempfile = tempfile['items']
+        tempfile = pandas.DataFrame(tempfile)
         tempfile.to_csv('tempFile.csv')
 
     # Zip newly created csv file
