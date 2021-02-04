@@ -27,7 +27,7 @@ except:
 # Change these to suit your system
 # dataDirectory = "./JSON"
 
-dataDirectory = "eventData"
+dataDirectory = "C:\\Users\\rihat\\Documents\\GitHub\\openAlt_W2021\\eventData"
 print("MySQL Credentials")
 mysql_username = input("Username: ")
 mysql_password = input("Password: ")
