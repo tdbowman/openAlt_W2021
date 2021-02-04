@@ -8,6 +8,7 @@ import crossref
 import mysql.connector
 import getpass
 import authorMetaDataIngest
+import contentDomainMetaDataIngest
 
 #Author: Mohammad Tahmid
 #Date: 01/30/2021
@@ -81,6 +82,12 @@ def main():
                         authorInfo = doiMetaData['author']
                         print("Author information for DOI: " + csvLineString + " found") 
                         authorMetaDataIngest.authorIngest(connection, cursor, csvLineString, authorInfo)
+
+                    if (doiMetaData['content-domain']):
+
+                        contentDomainInfo = doiMetaData['content-domain']
+                        print("Content Domain information for DOI: " + csvLineString + " found") 
+                        contentDomainMetaDataIngest.contentDomainIngest(connection, cursor, csvLineString, contentDomainInfo)
 
                 except ImportError:
                     print("Installation of the Crossref API is needed")
