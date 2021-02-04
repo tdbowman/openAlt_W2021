@@ -1,6 +1,6 @@
 :root {
   --bg-color: #aliceblue;
-  --textColor: #b91a1a;
+  --textColor: #333333;
   --accentColor: #375edd;
   --accentColor2: #A15951;
   --hoverColor: #268bd2;
@@ -228,7 +228,7 @@ table.table-bordered{
 
 #legend{
   border: solid;
-  background: pink;
+  background: rgb(255, 255, 255);
   text-align: left;
 }
 
@@ -517,7 +517,7 @@ body {
 }
 
 .file-upload {
-  background-color: #83215d;
+  background-color: #ffffff;
   width: 600px;
   margin: 0 auto;
   padding: 20px;
@@ -575,7 +575,7 @@ body {
 .image-dropping,
 .image-upload-wrap:hover {
   background-color: #aeb4b1;
-  border: 4px dashed #991f1f;
+  border: 4px dashed #663232;
 }
 
 .image-title-wrap {

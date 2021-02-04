@@ -30,3 +30,11 @@ function readURL(input) {
     $('.image-upload-wrap').bind('dragleave', function () {
       $('.image-upload-wrap').removeClass('image-dropping');
   });
+
+  function submitUpload() {
+    const submitBtn = document.getElementById("submission");
+    const customBtn= document.getElementById("custom-Submission-btn");
+    customBtn.addEventListener("click", function(){
+      submitBtn.click();
+    });
+  }

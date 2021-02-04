@@ -1,3 +1,5 @@
+import os
+from flask import Flask
 import flask
 from flask_mysqldb import MySQL
 from flask import request, jsonify
@@ -154,6 +156,29 @@ def licenses():
 
 @ app.route('/upload', methods=["GET", "POST"])
 def upload():
+
+    app.config["UPLOAD_FILES"] = "../web/uploadFiles"
+
+    if request.method=="POST":
+        if request.files:
+            uploadFiles = request.files["csv/json"]
+            print(uploadFiles)
+            uploadFiles.save(os.path.join(app.config["UPLOAD_FILES"], uploadFiles.filename))
+            print("File saved.")
+
+    # APP_ROOT = os.path.dirname(os.path.abspath(__file__))
+    # target = os.path.join(APP_ROOT, 'uploadFiles')
+    # print(target)
+
+    # if not os.path.isdir(target):
+    #     os.mkdir(target)
+
+    # for file in request.files.getlist("file"):
+    #     filename = file.filename
+    #     destination = "/".join([target, filename])
+    #     print(destination)
+    #     file.save(destination)
+
     return flask.render_template('upload.html')
 
 # If this is the main module or main program being run (app.py)......
