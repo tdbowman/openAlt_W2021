@@ -1,6 +1,7 @@
 import os
-from flask import Flask
 import flask
+from flask import Flask
+from flask import send_file
 from flask_mysqldb import MySQL
 from flask import request, jsonify
 from datetime import datetime
@@ -159,12 +160,20 @@ def upload():
 
     app.config["UPLOAD_FILES"] = "../web/uploadFiles"
 
+    # APP_ROOT = os.path.dirname(os.path.abspath(__file__))
+    # target = os.path.join(APP_ROOT, 'uploadFiles')
+    # print(target)
+
+    # if not os.path.isdir(target):
+    #     os.mkdir(target)
+
     if request.method=="POST":
         if request.files:
             uploadFiles = request.files["csv/json"]
             print(uploadFiles)
             uploadFiles.save(os.path.join(app.config["UPLOAD_FILES"], uploadFiles.filename))
             print("File saved.")
+            return flask.render_template('download.html')
 
     # APP_ROOT = os.path.dirname(os.path.abspath(__file__))
     # target = os.path.join(APP_ROOT, 'uploadFiles')
@@ -180,6 +189,14 @@ def upload():
     #     file.save(destination)
 
     return flask.render_template('upload.html')
+
+@ app.route('/download', methods=["GET", "POST"])
+def download():
+    return flask.render_template('download.html')
+
+@ app.route('/downloadfile', methods=["GET", "POST"])
+def downloadfile():
+    return send_file('../web/downloadFiles/greencheek.gif', as_attachment=True)
 
 # If this is the main module or main program being run (app.py)......
 if __name__ == "__main__":
