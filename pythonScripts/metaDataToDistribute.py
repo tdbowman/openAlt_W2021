@@ -41,7 +41,7 @@ try:
     os.chdir(directoryName)
 
     #Reads in the DOI list from "gatherDOI.py" to find metadata on from Crossref
-    csvData = pd.read_csv("DOIValues.csv", header = None)
+    csvData = pd.read_csv("gatherDOI_csv.csv", header = None)
     csvLineCount = len(list(csvData.index))
 except OSError:
     print("Cannot change directory to the location of this file")
