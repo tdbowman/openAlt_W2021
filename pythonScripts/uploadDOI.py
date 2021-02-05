@@ -3,6 +3,9 @@ import csv
 import pandas
 import logging
 
+# importing download function to download zip folder containing results CSV file
+from downloadResultsCSV import downloadResultsAsCSV
+
 
 try:
     import mysql.connector
@@ -14,7 +17,7 @@ except:
 dir_file = str(os.path.dirname(os.path.realpath(__file__)))
 dir_template = dir_file + '\\Templates\\uploadDOI_template.csv'
 dir_config = dir_file + '\\uploadDOI_config.txt'
-dir_results = dir_file + '\\Results\\uploadDOI_results.csv'
+dir_results = dir_file  + '\\Results\\uploadDOI_results.csv'
 
 # Set the logging parameters
 logging.basicConfig(filename= dir_file + '\\Logs\\uploadDOI.log', filemode='a', level=logging.INFO,
@@ -73,7 +76,7 @@ cursor = connection.cursor()
 
 
 # Execution of query and output of result + log
-query = 'SELECT DOI FROM dr_bowman_doi_data_tables._main_ WHERE DOI IN (' + joinedArr + ');'
+query = 'SELECT * FROM dr_bowman_doi_data_tables._main_ WHERE DOI IN (' + joinedArr + ');'
 cursor.execute(query)
 resultSet = cursor.fetchall()
 
@@ -90,3 +93,5 @@ with open(dir_results, 'a', newline='') as resultCSV:
         resultCSV.writerow(row)
 
 
+
+downloadResultsAsCSV(dir_results,'uploadDOI_Results.zip','uploadDOI_Results.csv')
