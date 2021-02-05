@@ -6,6 +6,7 @@ import csv
 import pandas as pd
 import crossref
 import mysql.connector
+import logging
 
 #Author: Mohammad Tahmid
 #Date: 02/03/2021
@@ -15,6 +16,8 @@ crossmark_restriction = ""
 domain = ""
 
 def contentDomainIngest(connection, cursor, doi, contentDomainData):
+
+    logging.basicConfig(filename='contentDomainMetaDataIngest_log.log', filemode='a', level=logging.INFO, format='%(asctime)s - %(message)s', datefmt='%d-%b-%y %H:%M:%S')
 
     #Query to get the foreign key when looking up a DOI
     query = "SELECT fk FROM dr_bowman_doi_data_tables._main_ WHERE DOI = '%s'" % (doi)
@@ -40,13 +43,24 @@ def contentDomainIngest(connection, cursor, doi, contentDomainData):
     except:
         print("Unknown error in \"contentDomainMetaDataIngest.py\" for DOI: " + doi)
 
-    
-    #Query the database to insert the values as a row into the table
-    query = "INSERT IGNORE INTO dr_bowman_doi_data_tables.content_domain(crossmark_restriction, domain, fk) VALUES (%s, %s, %s)"
-    queryValues = (crossmark_restriction, domain, fk)
-    cursor.execute(query, queryValues)
-    connection.commit()
+    #Query to check if the record exists in the database
+    query = """SELECT count(*) FROM dr_bowman_doi_data_tables.content_domain WHERE 
+            crossmark_restriction = '%s' AND 
+            domain = '%s' AND  
+            fk = '%s'""" % (crossmark_restriction, domain, fk)
+    cursor.execute(query)
+    resultSet = cursor.fetchall()
+    count = resultSet[0][0]
 
+    if not count > 0:
+        #Query the database to insert the values as a row into the table
+        query = "INSERT IGNORE INTO dr_bowman_doi_data_tables.content_domain(crossmark_restriction, domain, fk) VALUES (%s, %s, %s)"
+        queryValues = (crossmark_restriction, domain, fk)
+        cursor.execute(query, queryValues)
+        connection.commit()
+        logging.info("Author metadata inserted for DOI: " + doi + " fk: " + str(fk))
+
+    '''
     #Delete duplicate values if they exist in the table
     query = """DELETE t1 FROM dr_bowman_doi_data_tables.content_domain t1 INNER JOIN dr_bowman_doi_data_tables.content_domain t2 
                 WHERE 
@@ -56,3 +70,4 @@ def contentDomainIngest(connection, cursor, doi, contentDomainData):
                 t1.fk = t2.fk;"""
     cursor.execute(query)
     connection.commit()
+    '''
