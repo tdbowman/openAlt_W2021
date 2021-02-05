@@ -14,6 +14,7 @@ from authorDashboardLogic import authorDashboardLogic
 from landingPageStats import landingPageStats
 from landingPageArticles import landingPageArticles
 from landingPageJournals import landingPageJournals
+from searchByDOI import searchByDOI
 
 from getPassword import getPassword
 
@@ -171,9 +172,11 @@ def upload():
         if request.files:
             uploadFiles = request.files["csv/json"]
             print(uploadFiles)
-            uploadFiles.save(os.path.join(app.config["UPLOAD_FILES"], uploadFiles.filename))
+            fileName = uploadFiles.filename
+            uploadFiles.save(os.path.join(app.config["UPLOAD_FILES"], fileName))
             print("File saved.")
-            return flask.render_template('download.html')
+            return searchByDOI(mysql, fileName)
+            # return flask.render_template('download.html')
 
     # APP_ROOT = os.path.dirname(os.path.abspath(__file__))
     # target = os.path.join(APP_ROOT, 'uploadFiles')

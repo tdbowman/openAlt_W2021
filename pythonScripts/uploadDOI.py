@@ -16,7 +16,7 @@ except:
 
 #directory of doi list
 #CHANGE DIRECTORY TO YOUR DOI LIST CSV
-dir = 'C:\\Users\\darpa\\Desktop\\openAlt_W2021\\pythonScripts\\template_doi.csv'
+dir = 'C:\\Users\\salsa\\Documents\\GitHub\\openAlt_W2021\\web\\uploadFiles\\template_doi.csv'
 doi_arr = []
 
 #pandas library reads doi list

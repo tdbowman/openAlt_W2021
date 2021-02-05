@@ -25,7 +25,7 @@ except:
     logging.info("Cannot determine how you intend to run the program")
 
 # Change these to suit your system
-dataDirectory = "C:\\Users\\darpa\\Documents\\CrossRefData"
+dataDirectory = "C:\\Users\\salsa\\Documents\\GitHub\\openAlt_W2021\\eventData"
 print("MySQL Credentials")
 mysql_username = input("Username: ")
 mysql_password = input("Password: ")

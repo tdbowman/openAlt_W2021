@@ -14,7 +14,7 @@ except ImportError:
 
 email = "darpanshah7@gmail.com"
 source = "" # An empty string will cause it to pull from all sources
-rows = "10000" # number of Events to pull for today
+rows = "100" # number of Events to pull for today
 fetchURL = "https://api.eventdata.crossref.org/v1/events?mailto="
 tempFileName = "tempFile.json" # file which it writes data to before formatting. Overwritten on each fetchData call
 logging.basicConfig(filename='tapAPI.log', filemode='a', level=logging.INFO, format='%(asctime)s - %(message)s', datefmt='%d-%b-%y %H:%M:%S') # Set the logging parameters
