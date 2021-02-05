@@ -9,9 +9,6 @@ CREATE TABLE IF NOT EXISTS main
     -- A link that contains the Document Object Identifier(DOI) or the scholarly content that was registered at CrossRef.
     objectID 				VARCHAR(100) UNIQUE,
     
-    -- Contains the parsed DOI from the objectID. Created column for easier searching.
-    doi						VARCHAR(100) UNIQUE,
-    
     -- Total number of events of all the event tables in the database
     totalEvents 			BIGINT,
     
@@ -157,9 +154,6 @@ CREATE TABLE IF NOT EXISTS cambiaevent(
     -- A link that contains the Document Object Identifier(DOI) or the scholarly content that was registered at CrossRef.
     objectID                VARCHAR(100),
     
-    -- Contains the parsed DOI from the objectID. Created column for easier searching.
-    doi						VARCHAR(100),
-    
     -- Subject ID is similar to the object ID, since most events have a URL as a subject ID and the DOI as object ID. The agent that processes the data decides on each event. As for the type of URL, it's usually the Canonical URL of a webpage, if one is available. If not, then it's a URL of a webpage.
     subjectID               VARCHAR(200),
     
@@ -168,9 +162,6 @@ CREATE TABLE IF NOT EXISTS cambiaevent(
     
     -- datetime of when the Event was reported to have occurred.
     occurredAt              datetime,
-    
-    -- year of then the Event was reported to have occured. Created column for easier searching.
-    year					year,
     
     -- datetime of when the Event was created.
     timeObserved            datetime,
@@ -229,23 +220,17 @@ CREATE TABLE IF NOT EXISTS crossrefevent
 	--  The original source of the input data. Source could be any of the 13 sources listed in CrossRef's guide.
     sourceID                VARCHAR(100),
     
-	-- A link that contains the Document Object Identifier(DOI) or the scholarly content that was registered at CrossRef.
+	--  Link to the scholarly writing.
     objectID                VARCHAR(100),
     
-    -- Contains the parsed DOI from the objectID. Created column for easier searching.
-    doi						VARCHAR(100),
+	--  Subject ID is similar to the object ID, since most events have a URL as a subject ID and the DOI as object ID. The agent that processes the data decides on each event.
+    subjectID               VARCHAR(100),
     
-    -- Subject ID is similar to the object ID, since most events have a URL as a subject ID and the DOI as object ID. The agent that processes the data decides on each event. As for the type of URL, it's usually the Canonical URL of a webpage, if one is available. If not, then it's a URL of a webpage.
-    subjectID               VARCHAR(200),
-    
-    -- Unique ID of each event.
+	--  Every event is assigned a unique ID. Used for reference.
     eventID                 VARCHAR(50),
     
-    -- datetime of when the Event was reported to have occurred.
+    --  The date and time the event was "REPORTED" to have been published by users. CONFORMS TO ISO8601.
     occurredAt              datetime,
-    
-    -- year of then the Event was reported to have occured. Created column for easier searching.
-    year					year,
     
 	--  datetime shortly after the event was observed, CONFORMS TO ISO8601.
     timeObserved            datetime,
@@ -279,23 +264,17 @@ CREATE TABLE IF NOT EXISTS dataciteevent(
 	--  The original source of the input data. Source could be any of the 13 sources listed in CrossRef's guide.
     sourceID                VARCHAR (20),
     
-    -- A link that contains the Document Object Identifier(DOI) or the scholarly content that was registered at CrossRef.
+    --  Link to the scholarly writing.
     objectID                VARCHAR(100),
     
-    -- Contains the parsed DOI from the objectID. Created column for easier searching.
-    doi						VARCHAR(100),
+    --  Subject ID is similar to the object ID, since most events have a URL as a subject ID and the DOI as object ID. The agent that processes the data decides on each event.
+    subjectID               VARCHAR(100),
     
-    -- Subject ID is similar to the object ID, since most events have a URL as a subject ID and the DOI as object ID. The agent that processes the data decides on each event. As for the type of URL, it's usually the Canonical URL of a webpage, if one is available. If not, then it's a URL of a webpage.
-    subjectID               VARCHAR(200),
-    
-    -- Unique ID of each event.
+    --  Every event is assigned a unique ID. Used for reference.
     eventID                 VARCHAR(50),
     
-    -- datetime of when the Event was reported to have occurred.
+    --  The date and time the event was "REPORTED" to have been published by users. CONFORMS TO ISO8601.
     occurredAt              datetime,
-    
-    -- year of then the Event was reported to have occured. Created column for easier searching.
-    year					year,
     
     --  datetime shortly after the event was spotted.
     timeObserved            datetime,
@@ -325,23 +304,17 @@ CREATE TABLE IF NOT EXISTS f1000event(
     -- Name of source that event came from.
     sourceID       	 		VARCHAR(100),
 
-    -- A link that contains the Document Object Identifier(DOI) or the scholarly content that was registered at CrossRef.
-    objectID                VARCHAR(100),
-    
-    -- Contains the parsed DOI from the objectID. Created column for easier searching.
-    doi						VARCHAR(100),
-    
-    -- Subject ID is similar to the object ID, since most events have a URL as a subject ID and the DOI as object ID. The agent that processes the data decides on each event. As for the type of URL, it's usually the Canonical URL of a webpage, if one is available. If not, then it's a URL of a webpage.
-    subjectID               VARCHAR(200),
-    
-    -- Unique ID of each event.
-    eventID                 VARCHAR(50),
-    
-    -- datetime of when the Event was reported to have occurred.
-    occurredAt              datetime,
-    
-    -- year of then the Event was reported to have occured. Created column for easier searching.
-    year					year,
+    --  Link to the scholarly writing.
+    objectID        		VARCHAR(100),
+
+    --  Subject ID is similar to the object ID, since most events have a URL as a subject ID and the DOI as object ID. The agent that processes the data decides on each event.
+    subjectID       		VARCHAR(100),
+
+    --  Every event is assigned a unique ID. Used for reference.
+    eventID         		VARCHAR(100),
+
+    --  The date and time the event was "REPORTED" to have been published by users. CONFORMS TO ISO8601.
+    occurredAt      		datetime,
 
     --  datetime shortly after the event was spotted.
     timeObserved    		datetime,
@@ -398,20 +371,17 @@ CREATE TABLE IF NOT EXISTS hypothesisevent(
 	-- A link that contains the Document Object Identifier(DOI) or the scholarly content that was registered at CrossRef.
     objectID                VARCHAR(100),
     
-    -- Contains the parsed DOI from the objectID. Created column for easier searching.
-    doi						VARCHAR(100),
-    
     -- Subject ID is similar to the object ID, since most events have a URL as a subject ID and the DOI as object ID. The agent that processes the data decides on each event. As for the type of URL, it's usually the Canonical URL of a webpage, if one is available. If not, then it's a URL of a webpage.
     subjectID               VARCHAR(200),
     
     -- Unique ID of each event.
     eventID                 VARCHAR(50),
-    
+
     -- datetime of when the Event was reported to have occurred.
     occurredAt              datetime,
     
-    -- year of then the Event was reported to have occured. Created column for easier searching.
-    year					year,
+    -- datetime of when the Event was created.
+    timeObserved            datetime,
     
     -- Nature of the discussion on the doi (discusses, mentions, etc.).
     relationType            VARCHAR(50),
@@ -469,23 +439,17 @@ CREATE TABLE IF NOT EXISTS newsfeedevent(
 	-- Name of source that event came from.
     sourceID                VARCHAR(100),
     
-   -- A link that contains the Document Object Identifier(DOI) or the scholarly content that was registered at CrossRef.
+    -- A link that contains the Document Object Identifier(DOI) or the scholarly content that was registered at CrossRef.
     objectID                VARCHAR(100),
-    
-    -- Contains the parsed DOI from the objectID. Created column for easier searching.
-    doi						VARCHAR(100),
     
     -- Subject ID is similar to the object ID, since most events have a URL as a subject ID and the DOI as object ID. The agent that processes the data decides on each event. As for the type of URL, it's usually the Canonical URL of a webpage, if one is available. If not, then it's a URL of a webpage.
     subjectID               VARCHAR(200),
     
     -- Unique ID of each event.
     eventID                 VARCHAR(50),
-    
+
     -- datetime of when the Event was reported to have occurred.
     occurredAt              datetime,
-    
-    -- year of then the Event was reported to have occured. Created column for easier searching.
-    year					year,
     
     -- datetime of when the Event was created.
     timeObserved            datetime,
@@ -550,23 +514,17 @@ CREATE TABLE IF NOT EXISTS redditevent(
     --  The original source of the input data. Source could be any of the 13 sources listed in CrossRef's guide.
     sourceID                VARCHAR(100),
     
-	-- A link that contains the Document Object Identifier(DOI) or the scholarly content that was registered at CrossRef.
+	--  ID of the scholarly writing.
     objectID                VARCHAR(100),
     
-    -- Contains the parsed DOI from the objectID. Created column for easier searching.
-    doi						VARCHAR(100),
+    --  Subject ID is similar to the object ID, since most events have a URL as a subject ID and the DOI as object ID. The agent that processes the data decides on each event
+    subjectID               VARCHAR(100),
     
-    -- Subject ID is similar to the object ID, since most events have a URL as a subject ID and the DOI as object ID. The agent that processes the data decides on each event. As for the type of URL, it's usually the Canonical URL of a webpage, if one is available. If not, then it's a URL of a webpage.
-    subjectID               VARCHAR(200),
-    
-    -- Unique ID of each event.
+    --  Every event is assigned a unique ID. Used for reference.
     eventID                 VARCHAR(50),
     
-    -- datetime of when the Event was reported to have occurred.
+    --  The date and time the event was "REPORTED" to have been published by users. CONFORMS TO ISO8601.
     occurredAt              datetime,
-    
-    -- year of then the Event was reported to have occured. Created column for easier searching.
-    year					year,
     
     --  datetime shortly after the event was observed, CONFORMS TO ISO8601.
     timeObserved            datetime,
@@ -630,23 +588,17 @@ CREATE TABLE IF NOT EXISTS redditlinksevent(
     -- Name of source that event came from.
     sourceID                VARCHAR(100),
     
-    -- A link that contains the Document Object Identifier(DOI) or the scholarly content that was registered at CrossRef.
+    -- A link that contains the Document Object Identifier(DOI) or the scholary content that was registered at CrossRef.
     objectID                VARCHAR(100),
-    
-    -- Contains the parsed DOI from the objectID. Created column for easier searching.
-    doi						VARCHAR(100),
     
     -- Subject ID is similar to the object ID, since most events have a URL as a subject ID and the DOI as object ID. The agent that processes the data decides on each event. As for the type of URL, it's usually the Canonical URL of a webpage, if one is available. If not, then it's a URL of a webpage.
     subjectID               VARCHAR(200),
-    
+
     -- Unique ID of each event.
     eventID                 VARCHAR(50),
-    
+
     -- datetime of when the Event was reported to have occurred.
     occurredAt              datetime,
-    
-    -- year of then the Event was reported to have occured. Created column for easier searching.
-    year					year,
     
     -- datetime of when the Event was created.
     timeObserved            datetime,
@@ -704,23 +656,17 @@ CREATE TABLE IF NOT EXISTS stackexchangeevent(
 	--  The original source of the input data. Source could be any of the 13 sources listed in CrossRef's guide.
     sourceID                VARCHAR(100),
     
-	-- A link that contains the Document Object Identifier(DOI) or the scholarly content that was registered at CrossRef.
+	--  Link to the scholarly writing.
     objectID                VARCHAR(100),
     
-    -- Contains the parsed DOI from the objectID. Created column for easier searching.
-    doi						VARCHAR(100),
+    --  Subject ID is similar to the object ID, since most events have a URL as a subject ID and the DOI as object ID. The agent that processes the data decides on each event.
+    subjectID               VARCHAR(100),
     
-    -- Subject ID is similar to the object ID, since most events have a URL as a subject ID and the DOI as object ID. The agent that processes the data decides on each event. As for the type of URL, it's usually the Canonical URL of a webpage, if one is available. If not, then it's a URL of a webpage.
-    subjectID               VARCHAR(200),
-    
-    -- Unique ID of each event.
+    --  Every event is assigned a unique ID. Used for reference.
     eventID                 VARCHAR(50),
     
-    -- datetime of when the Event was reported to have occurred.
+    --  The date and time the event was "REPORTED" to have been published by users. CONFORMS TO ISO8601.
     occurredAt              datetime,
-    
-    -- year of then the Event was reported to have occured. Created column for easier searching.
-    year					year,
     
     --  datetime shortly after the event was spotted.
     timeObserved            datetime,
@@ -781,23 +727,17 @@ CREATE TABLE IF NOT EXISTS twitterevent(
 	-- Name of source that event came from.
     sourceID                VARCHAR(50),
     
+    -- Captures URL of retweet. If there is no retweet, captures URL of tweet. If value is just 'http://twitter.com', everything within subject is NULL.
+    subjectID               VARCHAR(100),
+    
     -- A link that contains the Document Object Identifier(DOI) or the scholarly content that was registered at CrossRef.
     objectID                VARCHAR(100),
-    
-    -- Contains the parsed DOI from the objectID. Created column for easier searching.
-    doi						VARCHAR(100),
-    
-    -- Subject ID is similar to the object ID, since most events have a URL as a subject ID and the DOI as object ID. The agent that processes the data decides on each event. As for the type of URL, it's usually the Canonical URL of a webpage, if one is available. If not, then it's a URL of a webpage.
-    subjectID               VARCHAR(200),
     
     -- Unique ID of each event.
     eventID                 VARCHAR(50),
     
     -- datetime of when the Event was reported to have occurred.
     occurredAt              datetime,
-    
-    -- year of then the Event was reported to have occured. Created column for easier searching.
-    year					year,
     
     -- datetime of when the Event was created. This field was originally called datetime.
     timeObserved            datetime,
@@ -871,23 +811,17 @@ CREATE TABLE IF NOT EXISTS webevent(
     -- Name of source that event came from.
     sourceID                VARCHAR(100),
     
-   -- A link that contains the Document Object Identifier(DOI) or the scholarly content that was registered at CrossRef.
+    -- A link that contains the Document Object Identifier(DOI) or the scholarly content that was registered at CrossRef.
     objectID                VARCHAR(100),
-    
-    -- Contains the parsed DOI from the objectID. Created column for easier searching.
-    doi						VARCHAR(100),
     
     -- Subject ID is similar to the object ID, since most events have a URL as a subject ID and the DOI as object ID. The agent that processes the data decides on each event. As for the type of URL, it's usually the Canonical URL of a webpage, if one is available. If not, then it's a URL of a webpage.
     subjectID               VARCHAR(200),
-    
+
     -- Unique ID of each event.
     eventID                 VARCHAR(50),
-    
+
     -- datetime of when the Event was reported to have occurred.
     occurredAt              datetime,
-    
-    -- year of then the Event was reported to have occured. Created column for easier searching.
-    year					year,
     
     -- datetime of when the Event was created.
     timeObserved            datetime,
@@ -942,23 +876,17 @@ CREATE TABLE IF NOT EXISTS webevent(
 	--  The original source of the input data. Source could be any of the 13 sources listed in CrossRef's guide.
     sourceID                VARCHAR(100),
     
-    -- A link that contains the Document Object Identifier(DOI) or the scholarly content that was registered at CrossRef.
+    --  Link to the scholarly writing.
     objectID                VARCHAR(100),
     
-    -- Contains the parsed DOI from the objectID. Created column for easier searching.
-    doi						VARCHAR(100),
+    --  Subject ID is similar to the object ID, since most events have a URL as a subject ID and the DOI as object ID. The agent that processes the data decides on each event.
+    subjectID               VARCHAR(100),
     
-    -- Subject ID is similar to the object ID, since most events have a URL as a subject ID and the DOI as object ID. The agent that processes the data decides on each event. As for the type of URL, it's usually the Canonical URL of a webpage, if one is available. If not, then it's a URL of a webpage.
-    subjectID               VARCHAR(200),
-    
-    -- Unique ID of each event.
+    --  Every event is assigned a unique ID. Used for reference.
     eventID                 VARCHAR(50),
     
-    -- datetime of when the Event was reported to have occurred.
+    --  The date and time the event was "REPORTED" to have been published by users. CONFORMS TO ISO8601.
     occurredAt              datetime,
-    
-    -- year of then the Event was reported to have occured. Created column for easier searching.
-    year					year,
     
     --  datetime shortly after the event was spotted.
     timeObserved            datetime,
@@ -1019,23 +947,17 @@ CREATE TABLE IF NOT EXISTS webevent(
     --  The original source of the input data. Source could be any of the 13 sources listed in CrossRef's guide.
     sourceID                VARCHAR(100),
     
-	-- A link that contains the Document Object Identifier(DOI) or the scholarly content that was registered at CrossRef.
+	--  Link to the scholarly writing.
     objectID                VARCHAR(100),
     
-    -- Contains the parsed DOI from the objectID. Created column for easier searching.
-    doi						VARCHAR(100),
-    
-    -- Subject ID is similar to the object ID, since most events have a URL as a subject ID and the DOI as object ID. The agent that processes the data decides on each event. As for the type of URL, it's usually the Canonical URL of a webpage, if one is available. If not, then it's a URL of a webpage.
+    --  Subject ID is similar to the object ID, since most events have a URL as a subject ID and the DOI as object ID. The agent that processes the data decides on each event.
     subjectID               VARCHAR(200),
     
-    -- Unique ID of each event.
+    --  Every event is assigned a unique ID. Used for reference.
     eventID                 VARCHAR(50),
     
-    -- datetime of when the Event was reported to have occurred.
+    --  The date and time the event was "REPORTED" to have been published by users. CONFORMS TO ISO8601.
     occurredAt              datetime,
-    
-    -- year of then the Event was reported to have occured. Created column for easier searching.
-    year					year,
     
     --  datetime shortly after the event was spotted.
     timeObserved            datetime,

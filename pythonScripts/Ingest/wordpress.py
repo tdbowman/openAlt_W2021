@@ -32,12 +32,10 @@ def wordpressIngest(uniqueEvent, cursor, connection):
             t_license = value
         elif (key == "obj_id"):
             t_obj_id = value
-            t_doi = t_obj_id[16:] # parses url to doi
         elif (key == "source_token"):
             t_source_token = value
         elif (key == "occurred_at"):
             t_occurred_at = value
-            t_year = t_occurred_at[0:3] # parses datetime to year
         elif (key == "subj_id"):
             t_subj_id = value
         elif (key == "id"):
@@ -146,10 +144,10 @@ def wordpressIngest(uniqueEvent, cursor, connection):
 
         # SQL which inserts into dataciteevent table
         # This was a previous layout of columns in the Wordpress event table before we remodeled the database
-        add_event = ("INSERT IGNORE INTO wordpressevent " "(license, termsOfUse, objectID, doi, sourceToken, occurredAt, year, subjectID, eventID, evidenceRecord, eventAction, subjectPID, subjectTitle, subjectType, sourceID, objectPID, objectURL, timeObserved, relationType) " "VALUES(%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s)")
+        add_event = ("INSERT IGNORE INTO wordpressevent " "(license, termsOfUse, objectID, sourceToken, occurredAt, subjectID, eventID, evidenceRecord, eventAction, subjectPID, subjectTitle, subjectType, sourceID, objectPID, objectURL, timeObserved, relationType) " "VALUES(%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s)")
 
         # Values to insert into wordpressevent tabls
-        data_event = (t_license, t_terms, t_obj_id, t_doi, t_source_token, t_occurred_at, t_year, t_subj_id, t_id, t_evidence_record, t_action,
+        data_event = (t_license, t_terms, t_obj_id, t_source_token, t_occurred_at, t_subj_id, t_id, t_evidence_record, t_action,
                       t_subj_pid, t_subj_title, t_subj_type, t_source_id, t_obj_pid, t_obj_url, t_dateTime, t_relation_type_id)
 
         cursor.execute(add_event, data_event)

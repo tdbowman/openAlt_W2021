@@ -14,10 +14,8 @@ def twitterIngest(uniqueEvent, cursor, connection):
     t_updated_reason = None
     t_updated = None
     t_obj_id = None
-    t_doi = None
     t_source_token = None
     t_occurred_at = None
-    t_year = None
     t_subj_id = None
     t_id = None
     t_evidence_record = None
@@ -48,12 +46,10 @@ def twitterIngest(uniqueEvent, cursor, connection):
             t_updated = value
         elif (key == "obj_id"):
             t_obj_id = value
-            t_doi = str(t_obj_id)[16:] # parses url to doi
         elif (key == "source_token"):
             t_source_token = value
         elif (key == "occurred_at"):
             t_occurred_at = value
-            t_year = str(t_occurred_at)[0:4] # parses datetime to year
         elif (key == "subj_id"):
             t_subj_id = value
         elif (key == "id"):
@@ -173,10 +169,10 @@ def twitterIngest(uniqueEvent, cursor, connection):
     # These statements are used to insert data into Twitter Event's Table
     # SQL which inserts into event table
     # This was a previous layout of columns in the Twitter event table before we remodeled the database
-    add_event = ("INSERT IGNORE INTO twitterevent " "(eventID, objectID, doi, tweetAuthor, originalTweetAuthor, occurredAt, year, license, termsOfUse, updatedReason, updated, sourceToken, evidenceRecord, eventAction, subjectID, subjectPID, originalTweetURL, alternativeID, title, issued, sourceID, objectPID, objectURL, timeObserved, updatedDate, relationType)" "VALUES(%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s)")
+    add_event = ("INSERT IGNORE INTO twitterevent " "(eventID, objectID, tweetAuthor, originalTweetAuthor, occurredAt, license, termsOfUse, updatedReason, updated, sourceToken, evidenceRecord, eventAction, subjectID, subjectPID, originalTweetURL, alternativeID, title, issued, sourceID, objectPID, objectURL, timeObserved, updatedDate, relationType)" "VALUES(%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s)")
 
     # Values to insert into Twitter event table
-    data_event = (t_id, t_obj_id, t_doi, t_author_url, t_original_tweet_author, t_occurred_at, t_year, t_license, t_terms, t_updated_reason, t_updated, t_source_token, t_evidence_record, t_action, t_subj_id,
+    data_event = (t_id, t_obj_id, t_author_url, t_original_tweet_author, t_occurred_at, t_license, t_terms, t_updated_reason, t_updated, t_source_token, t_evidence_record, t_action, t_subj_id,
                   t_subject_pid, t_original_tweet_url, t_alternative_id, t_subject_title, t_subject_issued, t_source_id, t_obj_pid, t_obj_url, t_dateTime, t_updated_date, t_relation_type_id)
 
     # Execute query to add information to Twitter event table

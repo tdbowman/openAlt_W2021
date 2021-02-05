@@ -1,0 +1,62 @@
+03-Feb-21 15:41:46 -  - Downloading Data using query: 
+curl "https://api.eventdata.crossref.org/v1/events?mailto=darpanshah7@gmail.com&rows=10000&cursor=" > tempFile.json
+03-Feb-21 15:41:47 -  - Successfully wrote data to tempFile.json 
+03-Feb-21 15:41:47 -  - Beginning JSON formatting
+03-Feb-21 15:41:47 -  - Failure in beautifyJSON step - Was the server down?
+03-Feb-21 15:41:53 -  - Downloading Data using query: 
+curl "https://api.eventdata.crossref.org/v1/events?mailto=darpanshah7@gmail.com&rows=10000&cursor=" > tempFile.json
+03-Feb-21 15:41:54 -  - Successfully wrote data to tempFile.json 
+03-Feb-21 15:41:54 -  - Beginning JSON formatting
+03-Feb-21 15:41:54 -  - Failure in beautifyJSON step - Was the server down?
+03-Feb-21 15:41:56 -  - Downloading Data using query: 
+curl "https://api.eventdata.crossref.org/v1/events?mailto=darpanshah7@gmail.com&rows=10000&cursor=" > tempFile.json
+03-Feb-21 15:41:56 -  - Successfully wrote data to tempFile.json 
+03-Feb-21 15:41:56 -  - Beginning JSON formatting
+03-Feb-21 15:41:56 -  - Failure in beautifyJSON step - Was the server down?
+03-Feb-21 15:41:58 -  - Downloading Data using query: 
+curl "https://api.eventdata.crossref.org/v1/events?mailto=darpanshah7@gmail.com&rows=10000&cursor=" > tempFile.json
+03-Feb-21 15:41:58 -  - Successfully wrote data to tempFile.json 
+03-Feb-21 15:41:58 -  - Beginning JSON formatting
+03-Feb-21 15:41:58 -  - Failure in beautifyJSON step - Was the server down?
+03-Feb-21 15:42:01 -  - Downloading Data using query: 
+curl "https://api.eventdata.crossref.org/v1/events?mailto=darpanshah7@gmail.com&rows=10000&cursor=" > tempFile.json
+03-Feb-21 15:42:02 -  - Successfully wrote data to tempFile.json 
+03-Feb-21 15:42:02 -  - Beginning JSON formatting
+03-Feb-21 15:42:02 -  - Failure in beautifyJSON step - Was the server down?
+03-Feb-21 15:42:08 -  - Downloading Data using query: 
+curl "https://api.eventdata.crossref.org/v1/events?mailto=darpanshah7@gmail.com&rows=10000&cursor=" > tempFile.json
+03-Feb-21 15:42:09 -  - Successfully wrote data to tempFile.json 
+03-Feb-21 15:42:09 -  - Beginning JSON formatting
+03-Feb-21 15:42:09 -  - Failure in beautifyJSON step - Was the server down?
+03-Feb-21 15:42:11 -  - Downloading Data using query: 
+curl "https://api.eventdata.crossref.org/v1/events?mailto=darpanshah7@gmail.com&rows=10000&cursor=" > tempFile.json
+03-Feb-21 15:42:12 -  - Successfully wrote data to tempFile.json 
+03-Feb-21 15:42:12 -  - Beginning JSON formatting
+03-Feb-21 15:42:12 -  - Failure in beautifyJSON step - Was the server down?
+03-Feb-21 15:42:12 -  - Downloading Data using query: 
+curl "https://api.eventdata.crossref.org/v1/events?mailto=darpanshah7@gmail.com&rows=10000&cursor=" > tempFile.json
+03-Feb-21 15:42:13 -  - Successfully wrote data to tempFile.json 
+03-Feb-21 15:42:13 -  - Beginning JSON formatting
+03-Feb-21 15:42:13 -  - Failure in beautifyJSON step - Was the server down?
+03-Feb-21 15:42:14 -  - Downloading Data using query: 
+curl "https://api.eventdata.crossref.org/v1/events?mailto=darpanshah7@gmail.com&rows=10000&cursor=" > tempFile.json
+03-Feb-21 15:42:14 -  - Successfully wrote data to tempFile.json 
+03-Feb-21 15:42:14 -  - Beginning JSON formatting
+03-Feb-21 15:42:14 -  - Failure in beautifyJSON step - Was the server down?
+03-Feb-21 15:42:15 -  - Downloading Data using query: 
+curl "https://api.eventdata.crossref.org/v1/events?mailto=darpanshah7@gmail.com&rows=10000&cursor=" > tempFile.json
+03-Feb-21 15:42:16 -  - Successfully wrote data to tempFile.json 
+03-Feb-21 15:42:16 -  - Beginning JSON formatting
+03-Feb-21 15:42:16 -  - Failure in beautifyJSON step - Was the server down?
+03-Feb-21 15:42:17 -  - Downloading Data using query: 
+curl "https://api.eventdata.crossref.org/v1/events?mailto=darpanshah7@gmail.com&rows=10000&cursor=" > tempFile.json
+03-Feb-21 15:42:17 -  - Successfully wrote data to tempFile.json 
+03-Feb-21 15:42:17 -  - Beginning JSON formatting
+03-Feb-21 15:42:17 -  - Failure in beautifyJSON step - Was the server down?
+03-Feb-21 15:42:53 -  - Downloading Data using query: 
+curl "https://api.eventdata.crossref.org/v1/events?mailto=darpanshah7@gmail.com&rows=1000&cursor=" > tempFile.json
+03-Feb-21 15:43:20 -  - Successfully wrote data to tempFile.json 
+03-Feb-21 15:43:20 -  - Beginning JSON formatting
+03-Feb-21 15:43:20 -  - Cursor for this retrieval was ada84433-da03-4352-bd73-8a7be9a5586a
+03-Feb-21 15:43:20 -  - Writing JSON data to 02-03-21--03-43.json
+03-Feb-21 15:43:20 -  - Waiting for next scheduled run...

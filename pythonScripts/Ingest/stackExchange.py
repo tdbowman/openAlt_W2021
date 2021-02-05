@@ -34,12 +34,10 @@ def stackExchangeIngest(uniqueEvent, cursor, connection):
             t_license = value
         elif (key == "obj_id"):
             t_obj_id = value
-            t_doi = t_obj_id[16:] # parses url to doi
         elif (key == "source_token"):
             t_source_token = value
         elif (key == "occurred_at"):
             t_occurred_at = value
-            t_year = t_occurred_at[0:3] # parses datetime to year
         elif (key == "subj_id"):
             t_subj_id = value
         elif (key == "id"):
@@ -157,10 +155,10 @@ def stackExchangeIngest(uniqueEvent, cursor, connection):
     # These statements are used to insert data into stackExchange Event's Table
     # SQL which inserts into event table
     # This was a previous layout of columns in the stackExchange event table before we remodeled the database
-    add_event = ("INSERT IGNORE INTO stackexchangeevent " "(license, termsOfUse, objectID, doi, sourceToken, occurredAt, year, subjectID, eventID, evidenceRecord,  subjectPID, subjectTitle, subjectIssuedDate, subjectType, subjectAuthorURL, subjectAuthorName, subjectAuthorID, sourceID, objectPID, objectURL, timeObserved, relationType) " "VALUES(%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s)")
+    add_event = ("INSERT IGNORE INTO stackexchangeevent " "(license, termsOfUse, objectID, sourceToken, occurredAt, subjectID, eventID, evidenceRecord,  subjectPID, subjectTitle, subjectIssuedDate, subjectType, subjectAuthorURL, subjectAuthorName, subjectAuthorID, sourceID, objectPID, objectURL, timeObserved, relationType) " "VALUES(%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s)")
 
     # Values to insert into stackExchange event table
-    data_event = (t_license, t_terms, t_obj_id, t_doi, t_source_token, t_occurred_at, t_year, t_subj_id, t_id, t_evidence_record, t_subj_pid,
+    data_event = (t_license, t_terms, t_obj_id, t_source_token, t_occurred_at, t_subj_id, t_id, t_evidence_record, t_subj_pid,
                   t_subj_title, t_subj_issued, t_subj_type, t_author_url, t_author_name, t_author_id, t_source_id, t_obj_pid, t_obj_url, t_dateTime, t_relation_type_id)
 
     # Execute query to add information to Stackexchange event table

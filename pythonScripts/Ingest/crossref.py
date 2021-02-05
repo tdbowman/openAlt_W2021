@@ -27,12 +27,10 @@ def crossrefIngest(uniqueEvent, cursor, connection):
             t_license = value
         elif key == "obj_id":
             t_obj_id = value
-            t_doi = t_obj_id[16:] # parses url to doi
         elif (key == "source_token"):
             t_source_token = value
         elif (key == "occurred_at"):
             t_occurred_at = value
-            t_year = t_occurred_at[0:3] # parses datetime to year
         elif (key == "subj_id"):
             t_subj_id = value
         elif (key == "id"):
@@ -122,10 +120,10 @@ def crossrefIngest(uniqueEvent, cursor, connection):
     # These statements are used to insert data into Crossref Event's Table
     # SQL which inserts into event table
     # This was a previous layout of columns in the Crossref event table before we remodeled the database
-    add_event = ("INSERT IGNORE INTO crossrefevent " "(license, objectID, doi, sourceToken, occurredAt, year, subjectID, eventID, crossrefTermsOfUse, messageAction, sourceID, timeObserved, relationType) " "VALUES(%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s)")
+    add_event = ("INSERT IGNORE INTO crossrefevent " "(license, objectID, sourceToken, occurredAt, subjectID, eventID, crossrefTermsOfUse, messageAction, sourceID, timeObserved, relationType) " "VALUES(%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s)")
 
     # Values to insert into Crossref event table
-    data_event = (t_license, t_obj_id, t_doi, t_source_token, t_occurred_at, t_year, t_subj_id,
+    data_event = (t_license, t_obj_id, t_source_token, t_occurred_at, t_subj_id,
                   t_id, t_terms, t_message_action, t_source_id, t_dateTime, t_relation_type_id)
 
     # Execute query to add information to Crossref event table
