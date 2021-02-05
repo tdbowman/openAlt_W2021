@@ -175,8 +175,10 @@ def upload():
             fileName = uploadFiles.filename
             uploadFiles.save(os.path.join(app.config["UPLOAD_FILES"], fileName))
             print("File saved.")
-            return searchByDOI(mysql, fileName)
+            downloadfile(fileName)
             # return flask.render_template('download.html')
+        
+        return searchByDOI(mysql, fileName)
 
     # APP_ROOT = os.path.dirname(os.path.abspath(__file__))
     # target = os.path.join(APP_ROOT, 'uploadFiles')
@@ -198,8 +200,8 @@ def download():
     return flask.render_template('download.html')
 
 @ app.route('/downloadfile', methods=["GET", "POST"])
-def downloadfile():
-    return send_file('../web/downloadFiles/greencheek.gif', as_attachment=True)
+def downloadfile(fileName):
+    return send_file('../web/downloadFiles/' + fileName, as_attachment=True)
 
 # If this is the main module or main program being run (app.py)......
 if __name__ == "__main__":

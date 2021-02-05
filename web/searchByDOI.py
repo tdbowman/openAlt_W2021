@@ -20,6 +20,7 @@ def searchByDOI(mysql, fileName):
     #directory of doi list
     #CHANGE DIRECTORY TO YOUR DOI LIST CSV
     dir = '../web/uploadFiles/' + fileName
+    csv_file_path = '../web/downloadFiles/' + fileName
     doi_arr = []
 
     #pandas library reads doi list
@@ -76,10 +77,16 @@ def searchByDOI(mysql, fileName):
     cursor.execute(query)
     logging.info(cursor.fetchall())
     cursor.execute(query)
+    result = cursor.fetchall()
     print(cursor.fetchall())
     cursor.close()
 
+    with open(csv_file_path, 'w', newline='') as csvfile:
+        csvwriter = csv.writer(csvfile, delimiter=',', quotechar='"', quoting=csv.QUOTE_MINIMAL)
+        csvwriter.writerow(result)
+
     ## End of Darpan's Work
+    
     return flask.render_template('download.html')
 
 
