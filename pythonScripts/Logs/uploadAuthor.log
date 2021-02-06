@@ -1,0 +1,56 @@
+02-Feb-21 15:54:35 - SELECT * FROM dr_bowman_doi_data_tables.author WHERE name LIKE '%Jane Doe%';
+02-Feb-21 15:54:35 - []
+02-Feb-21 15:54:35 - SELECT * FROM dr_bowman_doi_data_tables.author WHERE name LIKE '%John Doe%';
+02-Feb-21 15:54:35 - [(2, None, None, 'Doe', 'John', 'John Doe', None, None, None, None)]
+02-Feb-21 15:54:35 - SELECT * FROM dr_bowman_doi_data_tables.author WHERE name LIKE '%Darpan Shah%';
+02-Feb-21 15:54:35 - [(1, None, None, 'Shah', 'Darpan', 'Darpan Shah', None, None, None, None)]
+02-Feb-21 15:54:35 - SELECT * FROM dr_bowman_doi_data_tables.author WHERE name LIKE '%Smith%';
+02-Feb-21 15:54:35 - [(3, None, None, 'Smith', 'Jane', 'Jane Smith', None, None, None, None), (58, 'The University of Iowa Iowa City', None, 'Smith', 'Elaine', 'Elaine Smith', None, 'additional', None, 13), (123, '', None, 'Smith', 'G. D.', 'G. D. Smith', None, 'first', None, 38), (137, 'Health Psychology Research Unit, Department of Psychology, University of Bristol, Bristol BS8 1TN, UK', None, 'Smith', 'Andrew', 'Andrew Smith', None, 'first', None, 44), (148, '', None, 'Smith', 'R.D.', 'R.D. Smith', None, 'additional', None, 49), (522, '', None, 'Smith', 'P.', 'P. Smith', None, 'additional', None, 165)]
+02-Feb-21 15:58:11 - SELECT * FROM dr_bowman_doi_data_tables.author WHERE name LIKE '%Jane Doe%';
+02-Feb-21 15:58:11 - []
+02-Feb-21 15:58:11 - SELECT * FROM dr_bowman_doi_data_tables.author WHERE name LIKE '%John Doe%';
+02-Feb-21 15:58:11 - [(2, None, None, 'Doe', 'John', 'John Doe', None, None, None, None)]
+02-Feb-21 15:58:11 - SELECT * FROM dr_bowman_doi_data_tables.author WHERE name LIKE '%Darpan Shah%';
+02-Feb-21 15:58:12 - [(1, None, None, 'Shah', 'Darpan', 'Darpan Shah', None, None, None, None)]
+02-Feb-21 15:58:12 - SELECT * FROM dr_bowman_doi_data_tables.author WHERE name LIKE '%Smith%';
+02-Feb-21 15:58:12 - [(3, None, None, 'Smith', 'Jane', 'Jane Smith', None, None, None, None), (58, 'The University of Iowa Iowa City', None, 'Smith', 'Elaine', 'Elaine Smith', None, 'additional', None, 13), (123, '', None, 'Smith', 'G. D.', 'G. D. Smith', None, 'first', None, 38), (137, 'Health Psychology Research Unit, Department of Psychology, University of Bristol, Bristol BS8 1TN, UK', None, 'Smith', 'Andrew', 'Andrew Smith', None, 'first', None, 44), (148, '', None, 'Smith', 'R.D.', 'R.D. Smith', None, 'additional', None, 49), (522, '', None, 'Smith', 'P.', 'P. Smith', None, 'additional', None, 165)]
+02-Feb-21 16:04:16 - SELECT * FROM dr_bowman_doi_data_tables.author WHERE name LIKE '%Jane Doe%';
+02-Feb-21 16:04:16 - []
+02-Feb-21 16:04:16 - SELECT * FROM dr_bowman_doi_data_tables.author WHERE name LIKE '%John Doe%';
+02-Feb-21 16:04:16 - [(2, None, None, 'Doe', 'John', 'John Doe', None, None, None, None)]
+02-Feb-21 16:04:16 - SELECT * FROM dr_bowman_doi_data_tables.author WHERE name LIKE '%Darpan Shah%';
+02-Feb-21 16:04:16 - [(1, None, None, 'Shah', 'Darpan', 'Darpan Shah', None, None, None, None)]
+02-Feb-21 16:04:16 - SELECT * FROM dr_bowman_doi_data_tables.author WHERE name LIKE '%Smith%';
+02-Feb-21 16:04:17 - [(3, None, None, 'Smith', 'Jane', 'Jane Smith', None, None, None, None), (58, 'The University of Iowa Iowa City', None, 'Smith', 'Elaine', 'Elaine Smith', None, 'additional', None, 13), (123, '', None, 'Smith', 'G. D.', 'G. D. Smith', None, 'first', None, 38), (137, 'Health Psychology Research Unit, Department of Psychology, University of Bristol, Bristol BS8 1TN, UK', None, 'Smith', 'Andrew', 'Andrew Smith', None, 'first', None, 44), (148, '', None, 'Smith', 'R.D.', 'R.D. Smith', None, 'additional', None, 49), (522, '', None, 'Smith', 'P.', 'P. Smith', None, 'additional', None, 165)]
+02-Feb-21 16:05:36 - SELECT * FROM dr_bowman_doi_data_tables.author WHERE name LIKE '%Jane Doe%';
+02-Feb-21 16:05:36 - []
+02-Feb-21 16:05:36 - SELECT * FROM dr_bowman_doi_data_tables.author WHERE name LIKE '%John Doe%';
+02-Feb-21 16:05:36 - [(2, None, None, 'Doe', 'John', 'John Doe', None, None, None, None)]
+02-Feb-21 16:05:36 - SELECT * FROM dr_bowman_doi_data_tables.author WHERE name LIKE '%Darpan Shah%';
+02-Feb-21 16:05:36 - [(1, None, None, 'Shah', 'Darpan', 'Darpan Shah', None, None, None, None)]
+02-Feb-21 16:05:36 - SELECT * FROM dr_bowman_doi_data_tables.author WHERE name LIKE '%Smith%';
+02-Feb-21 16:05:36 - [(3, None, None, 'Smith', 'Jane', 'Jane Smith', None, None, None, None), (58, 'The University of Iowa Iowa City', None, 'Smith', 'Elaine', 'Elaine Smith', None, 'additional', None, 13), (123, '', None, 'Smith', 'G. D.', 'G. D. Smith', None, 'first', None, 38), (137, 'Health Psychology Research Unit, Department of Psychology, University of Bristol, Bristol BS8 1TN, UK', None, 'Smith', 'Andrew', 'Andrew Smith', None, 'first', None, 44), (148, '', None, 'Smith', 'R.D.', 'R.D. Smith', None, 'additional', None, 49), (522, '', None, 'Smith', 'P.', 'P. Smith', None, 'additional', None, 165)]
+02-Feb-21 16:07:01 - SELECT * FROM dr_bowman_doi_data_tables.author WHERE name LIKE '%Jane Doe%';
+02-Feb-21 16:07:01 - []
+02-Feb-21 16:07:01 - SELECT * FROM dr_bowman_doi_data_tables.author WHERE name LIKE '%John Doe%';
+02-Feb-21 16:07:01 - [(2, None, None, 'Doe', 'John', 'John Doe', None, None, None, None)]
+02-Feb-21 16:07:01 - SELECT * FROM dr_bowman_doi_data_tables.author WHERE name LIKE '%Darpan Shah%';
+02-Feb-21 16:07:01 - [(1, None, None, 'Shah', 'Darpan', 'Darpan Shah', None, None, None, None)]
+02-Feb-21 16:07:01 - SELECT * FROM dr_bowman_doi_data_tables.author WHERE name LIKE '%Smith%';
+02-Feb-21 16:07:01 - [(3, None, None, 'Smith', 'Jane', 'Jane Smith', None, None, None, None), (58, 'The University of Iowa Iowa City', None, 'Smith', 'Elaine', 'Elaine Smith', None, 'additional', None, 13), (123, '', None, 'Smith', 'G. D.', 'G. D. Smith', None, 'first', None, 38), (137, 'Health Psychology Research Unit, Department of Psychology, University of Bristol, Bristol BS8 1TN, UK', None, 'Smith', 'Andrew', 'Andrew Smith', None, 'first', None, 44), (148, '', None, 'Smith', 'R.D.', 'R.D. Smith', None, 'additional', None, 49), (522, '', None, 'Smith', 'P.', 'P. Smith', None, 'additional', None, 165)]
+06-Feb-21 13:07:31 - SELECT * FROM dr_bowman_doi_data_tables.author WHERE name LIKE '%Jane Doe%';
+06-Feb-21 13:07:31 - []
+06-Feb-21 13:07:31 - SELECT * FROM dr_bowman_doi_data_tables.author WHERE name LIKE '%John Doe%';
+06-Feb-21 13:07:31 - [(2, None, None, 'Doe', 'John', 'John Doe', None, None, None, None)]
+06-Feb-21 13:07:31 - SELECT * FROM dr_bowman_doi_data_tables.author WHERE name LIKE '%Darpan Shah%';
+06-Feb-21 13:07:31 - [(1, None, None, 'Shah', 'Darpan', 'Darpan Shah', None, None, None, None)]
+06-Feb-21 13:07:32 - SELECT * FROM dr_bowman_doi_data_tables.author WHERE name LIKE '%Smith%';
+06-Feb-21 13:07:32 - [(3, None, None, 'Smith', 'Jane', 'Jane Smith', None, None, None, None), (58, 'The University of Iowa Iowa City', None, 'Smith', 'Elaine', 'Elaine Smith', None, 'additional', None, 13), (123, '', None, 'Smith', 'G. D.', 'G. D. Smith', None, 'first', None, 38), (137, 'Health Psychology Research Unit, Department of Psychology, University of Bristol, Bristol BS8 1TN, UK', None, 'Smith', 'Andrew', 'Andrew Smith', None, 'first', None, 44), (148, '', None, 'Smith', 'R.D.', 'R.D. Smith', None, 'additional', None, 49), (522, '', None, 'Smith', 'P.', 'P. Smith', None, 'additional', None, 165)]
+06-Feb-21 13:09:17 - SELECT * FROM dr_bowman_doi_data_tables.author WHERE name LIKE '%Jane Doe%';
+06-Feb-21 13:09:17 - []
+06-Feb-21 13:09:17 - SELECT * FROM dr_bowman_doi_data_tables.author WHERE name LIKE '%John Doe%';
+06-Feb-21 13:09:17 - [(2, None, None, 'Doe', 'John', 'John Doe', None, None, None, None)]
+06-Feb-21 13:09:17 - SELECT * FROM dr_bowman_doi_data_tables.author WHERE name LIKE '%Darpan Shah%';
+06-Feb-21 13:09:17 - [(1, None, None, 'Shah', 'Darpan', 'Darpan Shah', None, None, None, None)]
+06-Feb-21 13:09:17 - SELECT * FROM dr_bowman_doi_data_tables.author WHERE name LIKE '%Smith%';
+06-Feb-21 13:09:18 - [(3, None, None, 'Smith', 'Jane', 'Jane Smith', None, None, None, None), (58, 'The University of Iowa Iowa City', None, 'Smith', 'Elaine', 'Elaine Smith', None, 'additional', None, 13), (123, '', None, 'Smith', 'G. D.', 'G. D. Smith', None, 'first', None, 38), (137, 'Health Psychology Research Unit, Department of Psychology, University of Bristol, Bristol BS8 1TN, UK', None, 'Smith', 'Andrew', 'Andrew Smith', None, 'first', None, 44), (148, '', None, 'Smith', 'R.D.', 'R.D. Smith', None, 'additional', None, 49), (522, '', None, 'Smith', 'P.', 'P. Smith', None, 'additional', None, 165)]

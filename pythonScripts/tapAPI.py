@@ -5,6 +5,7 @@ import json
 import logging
 import sys
 import os
+import platform
 
 try:
     import schedule
@@ -12,11 +13,24 @@ except ImportError:
     logging.info("You need to install the schedule module using \"pip install schedule\" before proceeding")
     exit
 
+<<<<<<< HEAD
 email = "darpanshah7@gmail.com"
 source = "" # An empty string will cause it to pull from all sources
+<<<<<<< HEAD
+rows = "1000" # number of Events to pull for today
+=======
+
+email = "rihat.rafi@gmail.com"
+source = "" # An empty string will cause it to pull from all sources
+rows = "500" # number of Events to pull for today
+>>>>>>> origin/rihatDev
+=======
 rows = "100" # number of Events to pull for today
+>>>>>>> origin/salsabilDev
 fetchURL = "https://api.eventdata.crossref.org/v1/events?mailto="
-tempFileName = "tempFile.json" # file which it writes data to before formatting. Overwritten on each fetchData call
+
+# file which it writes data to before formatting. Overwritten on each fetchData call
+tempFileName = "tempFile.json" 
 logging.basicConfig(filename='tapAPI.log', filemode='a', level=logging.INFO, format='%(asctime)s - %(message)s', datefmt='%d-%b-%y %H:%M:%S') # Set the logging parameters
 
 # THESE MAY BE CHANGED
@@ -80,7 +94,17 @@ def beautifyJSON():
         with open(tempFileName) as json_file:
             data = json.load(json_file)
             cursor = data.get("message").get("next-cursor")
-        os.system("cat " + tempFileName + " | python -mjson.tool > " + fileName)
+<<<<<<< HEAD
+
+=======
+>>>>>>> origin/rihatDev
+        
+        #Added 1/24/2021 for run command for OS type
+        if (platform.system() == 'Linux'):
+            os.system("cat " + tempFileName + " | python3 -mjson.tool > " + fileName)
+        elif(platform.system() == 'Windows'):
+            os.system("cat " + tempFileName + " | python -mjson.tool > " + fileName)
+
         logging.info(" - Cursor for this retrieval was " + str(cursor))
         if (cursor == "" or cursor == None):
             logging.info(" - Null cursor - done collecting data - check log for last cursor used")

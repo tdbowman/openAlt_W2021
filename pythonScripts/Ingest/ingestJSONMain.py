@@ -25,7 +25,11 @@ except:
     logging.info("Cannot determine how you intend to run the program")
 
 # Change these to suit your system
+
+# dataDirectory = "./JSON"
+
 dataDirectory = "C:\\Users\\salsa\\Documents\\GitHub\\openAlt_W2021\\eventData"
+
 print("MySQL Credentials")
 mysql_username = input("Username: ")
 mysql_password = input("Password: ")
@@ -141,3 +145,4 @@ def main():
 if __name__ == '__main__':
     start_time = time.time()
     main()
+
