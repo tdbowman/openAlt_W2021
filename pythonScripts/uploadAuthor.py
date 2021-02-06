@@ -3,6 +3,9 @@ import csv
 import pandas
 import logging
 
+# importing download function to download zip folder containing results CSV file
+from downloadResultsCSV import downloadResultsAsCSV
+
 ### SAMPLE AUTHOR API INFO ###
 ### https://api.crossref.org/works?query=renear+ontologies ###
 # "author": [
@@ -94,6 +97,8 @@ for values in author_arr:
         for row in result:
             resultCSV.writerow(row)
     
+    # send results to zip (directory, zip file name, csv name)
+    downloadResultsAsCSV(dir_results,'uploadAuthor_Results.zip','uploadDOI_Author.csv')
 
 
 

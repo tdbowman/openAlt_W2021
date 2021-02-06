@@ -20,7 +20,7 @@ mysql_password = getpass.getpass("Password: ")
 
 #Set directory path
 directoryName = os.path.dirname(os.path.realpath(__file__))
-savingFilePath = str(directoryName) + str("\\DOIValues.csv")
+savingFilePath = str(directoryName) + str("\\gatherDOI_csv.csv")
 
 #Establish a connection to the databse
 connection = mysql.connector.connect(user=str(mysql_username), password=str(

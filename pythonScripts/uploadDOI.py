@@ -93,5 +93,5 @@ with open(dir_results, 'a', newline='') as resultCSV:
         resultCSV.writerow(row)
 
 
-
+# send results to zip (directory, zip file name, csv name)
 downloadResultsAsCSV(dir_results,'uploadDOI_Results.zip','uploadDOI_Results.csv')

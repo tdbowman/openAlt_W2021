@@ -42,6 +42,24 @@ def dataciteIngest(uniqueEvent, cursor, connection):
         elif (key == "relation_type_id"):
             t_relation_type_id = value
 
+
+    # author: Rihat Rahman
+    #--------------------------------------------------------------------------------------------------------------------------------------------
+
+    table = 'dataciteevent'
+    
+    # checks if duplicate event exists, returns [(1,)] if true
+    cursor.execute ("SELECT 1 FROM crossrefeventdatamain." + table + " WHERE subjectID = '" + t_subj_id + "' AND objectID = '" + t_obj_id + "'")
+    exists = cursor.fetchall()
+
+    # return to the main program if
+    if exists == [(1,)]:
+        return
+
+    #--------------------------------------------------------------------------------------------------------------------------------------------
+
+
+
     if(len(t_obj_id) < 100):
         # Insert t_obj_id from the event of the JSON file into the main table
         objectIDInsertionQuery = "INSERT IGNORE INTO main (objectID) VALUES(\'" + \

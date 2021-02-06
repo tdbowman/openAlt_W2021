@@ -8,6 +8,7 @@ import crossref
 import mysql.connector
 import getpass
 import authorMetaDataIngest
+import contentDomainMetaDataIngest
 
 #Author: Mohammad Tahmid
 #Date: 01/30/2021
@@ -40,7 +41,7 @@ try:
     os.chdir(directoryName)
 
     #Reads in the DOI list from "gatherDOI.py" to find metadata on from Crossref
-    csvData = pd.read_csv("DOIValues.csv", header = None)
+    csvData = pd.read_csv("gatherDOI_csv.csv", header = None)
     csvLineCount = len(list(csvData.index))
 except OSError:
     print("Cannot change directory to the location of this file")
@@ -81,6 +82,12 @@ def main():
                         authorInfo = doiMetaData['author']
                         print("Author information for DOI: " + csvLineString + " found") 
                         authorMetaDataIngest.authorIngest(connection, cursor, csvLineString, authorInfo)
+
+                    if (doiMetaData['content-domain']):
+
+                        contentDomainInfo = doiMetaData['content-domain']
+                        print("Content Domain information for DOI: " + csvLineString + " found") 
+                        contentDomainMetaDataIngest.contentDomainIngest(connection, cursor, csvLineString, contentDomainInfo)
 
                 except ImportError:
                     print("Installation of the Crossref API is needed")
