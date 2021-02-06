@@ -29,8 +29,8 @@ def downloadResultsAsCSV(csvDir,zipName,csvName):
 
     # Delete the copy of the files that were not zipped
 
-    # if os.path.exists(csvDir):
-    #     os.remove(csvDir)
+    if os.path.exists(csvDir):
+         os.remove(csvDir)
 
 if __name__=='__main__':
     downloadResultsAsCSV('placeholder.csv','testName','testCSVName')
