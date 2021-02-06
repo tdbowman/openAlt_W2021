@@ -6,3 +6,4 @@ ingest.log*
 passwd.txt*
 /web/env
 /web/venv
+.log
