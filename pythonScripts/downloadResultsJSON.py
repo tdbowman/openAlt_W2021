@@ -4,6 +4,7 @@ import zipfile
 import zlib
 import json
 import os
+import pandas
 
 # directories
 dir_file = str(os.path.dirname(os.path.realpath(__file__)))
