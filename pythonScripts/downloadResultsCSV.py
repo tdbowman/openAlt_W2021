@@ -19,15 +19,14 @@ def downloadResultsAsCSV(csvDir,zipName,csvName):
     tempFile = pandas.read_csv(csvDir)
     tempFile.to_csv(csvName)
 
-
     # Zip newly created csv file
 
     zipfile.ZipFile(zipPath, mode = 'w', compression = zipfile.ZIP_DEFLATED).write(csvName)
 
     # Delete the copy of the files that were not zipped
 
-    # if os.path.exists(csvDir):
-    #     os.remove(csvDir)
+    if os.path.exists(csvDir):
+        os.remove(csvDir)
 
 if __name__=='__main__':
     downloadResultsAsCSV('placeholder.csv','testName','testCSVName')
