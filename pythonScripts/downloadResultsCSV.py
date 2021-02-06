@@ -2,10 +2,7 @@
 
 import zipfile
 import zlib
-import urllib.request
-import json
 import csv
-import requests
 import os
 import pandas
 
@@ -22,7 +19,7 @@ def downloadResultsAsCSV(csvDir,zipName,csvName):
     tempFile = pandas.read_csv(csvDir)
     tempFile.to_csv(csvName)
 
-    
+
     # Zip newly created csv file
 
     zipfile.ZipFile(zipPath, mode = 'w', compression = zipfile.ZIP_DEFLATED).write(csvName)
