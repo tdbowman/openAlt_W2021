@@ -14,7 +14,7 @@ from authorDashboardLogic import authorDashboardLogic
 from landingPageStats import landingPageStats
 from landingPageArticles import landingPageArticles
 from landingPageJournals import landingPageJournals
-from searchByDOI import searchByDOI
+from uploadDOI import searchByDOI
 
 from getPassword import getPassword
 
@@ -177,8 +177,8 @@ def upload():
             fileName = uploadFiles.filename
             uploadFiles.save(os.path.join(destination, fileName))
             print("File saved.")
-            downloadfile(fileName)
 
+            #downloadfile(fileName)
             # return flask.render_template('download.html')
         
         return searchByDOI(mysql, fileName)
