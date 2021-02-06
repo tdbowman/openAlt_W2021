@@ -25,9 +25,11 @@ except:
     logging.info("Cannot determine how you intend to run the program")
 
 # Change these to suit your system
+
 # dataDirectory = "./JSON"
 
-dataDirectory = "C:\\Users\\rihat\\Documents\\GitHub\\openAlt_W2021\\eventData"
+dataDirectory = "C:\\Users\\salsa\\Documents\\GitHub\\openAlt_W2021\\eventData"
+
 print("MySQL Credentials")
 mysql_username = input("Username: ")
 mysql_password = input("Password: ")

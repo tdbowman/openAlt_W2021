@@ -13,6 +13,7 @@ except:
     print("MySQL Connector Exception")
     logging.info("Cannot determine how you intend to run the program")
 
+
 # directories
 dir_file = str(os.path.dirname(os.path.realpath(__file__)))
 dir_template = dir_file + '\\Templates\\uploadDOI_template.csv'

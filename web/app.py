@@ -1,4 +1,7 @@
+import os
 import flask
+from flask import Flask
+from flask import send_file
 from flask_mysqldb import MySQL
 from flask import request, jsonify
 from datetime import datetime
@@ -11,6 +14,7 @@ from authorDashboardLogic import authorDashboardLogic
 from landingPageStats import landingPageStats
 from landingPageArticles import landingPageArticles
 from landingPageJournals import landingPageJournals
+from searchByDOI import searchByDOI
 
 from getPassword import getPassword
 
@@ -152,6 +156,52 @@ def team():
 def licenses():
     return flask.render_template('licenses.html')
 
+@ app.route('/upload', methods=["GET", "POST"])
+def upload():
+
+    app.config["UPLOAD_FILES"] = "../web/uploadFiles"
+
+    # APP_ROOT = os.path.dirname(os.path.abspath(__file__))
+    # target = os.path.join(APP_ROOT, 'uploadFiles')
+    # print(target)
+
+    # if not os.path.isdir(target):
+    #     os.mkdir(target)
+
+    if request.method=="POST":
+        if request.files:
+            uploadFiles = request.files["csv/json"]
+            print(uploadFiles)
+            fileName = uploadFiles.filename
+            uploadFiles.save(os.path.join(app.config["UPLOAD_FILES"], fileName))
+            print("File saved.")
+            downloadfile(fileName)
+            # return flask.render_template('download.html')
+        
+        return searchByDOI(mysql, fileName)
+
+    # APP_ROOT = os.path.dirname(os.path.abspath(__file__))
+    # target = os.path.join(APP_ROOT, 'uploadFiles')
+    # print(target)
+
+    # if not os.path.isdir(target):
+    #     os.mkdir(target)
+
+    # for file in request.files.getlist("file"):
+    #     filename = file.filename
+    #     destination = "/".join([target, filename])
+    #     print(destination)
+    #     file.save(destination)
+
+    return flask.render_template('upload.html')
+
+@ app.route('/download', methods=["GET", "POST"])
+def download():
+    return flask.render_template('download.html')
+
+@ app.route('/downloadfile', methods=["GET", "POST"])
+def downloadfile(fileName):
+    return send_file('../web/downloadFiles/' + fileName, as_attachment=True)
 
 # If this is the main module or main program being run (app.py)......
 if __name__ == "__main__":
