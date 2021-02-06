@@ -167,15 +167,18 @@ def upload():
 
     # if not os.path.isdir(target):
     #     os.mkdir(target)
+    destination = app.config["UPLOAD_FILES"]
 
     if request.method=="POST":
         if request.files:
             uploadFiles = request.files["csv/json"]
             print(uploadFiles)
+
             fileName = uploadFiles.filename
-            uploadFiles.save(os.path.join(app.config["UPLOAD_FILES"], fileName))
+            uploadFiles.save(os.path.join(destination, fileName))
             print("File saved.")
             downloadfile(fileName)
+
             # return flask.render_template('download.html')
         
         return searchByDOI(mysql, fileName)

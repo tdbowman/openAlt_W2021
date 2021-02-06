@@ -2,6 +2,7 @@ import csv
 import pandas
 import logging
 import flask
+from flask import send_file
 
 def searchByDOI(mysql, fileName):
     ### Start of Darpan's Work ###
@@ -87,8 +88,9 @@ def searchByDOI(mysql, fileName):
 
     ## End of Darpan's Work
     
-    return flask.render_template('download.html')
+    # return flask.render_template('download.html')
 
+    return send_file('../web/downloadFiles/' + fileName, as_attachment=True)
 
 
 

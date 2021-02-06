@@ -38,3 +38,7 @@ function readURL(input) {
       submitBtn.click();
     });
   }
+
+  function uploadMessage(){
+    alert("File uploaded successfully.")
+  }
