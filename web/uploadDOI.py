@@ -19,9 +19,18 @@ def downloadDOI(mysql, dir_csv):
 
     # directories
     dir_file = str(os.path.dirname(os.path.realpath(__file__)))
+
+    # path of uploaded file
     dir_template = dir_csv
+
+    # path of config file
     dir_config = dir_file + '\\uploadDOI_config.txt'
+
+    # path of file to print results to
     dir_results = dir_file  + '\\Results\\uploadDOI_results.csv'
+
+    # # create result file and open it in write mode
+    # dir_results = open("dir_results", "w+")
 
     # Set the logging parameters
     logging.basicConfig(filename= dir_file + '\\Logs\\uploadDOI.log', filemode='a', level=logging.INFO,
@@ -91,7 +100,7 @@ def downloadDOI(mysql, dir_csv):
 
 
     # Write result to file.
-    with open(dir_results, 'a', newline='') as resultCSV:
+    with open(dir_results, 'w+', newline='') as resultCSV:
         resultCSV = csv.writer(resultCSV, delimiter=',', quotechar='"', quoting=csv.QUOTE_MINIMAL)
         for row in resultSet:
             resultCSV.writerow(row)
@@ -103,9 +112,11 @@ def downloadDOI(mysql, dir_csv):
 
 def searchByDOI(mysql, fileName):
     
-    #directory of doi list
+    #directories
     dir = '../web/uploadFiles/' + fileName
+    dir_file = str(os.path.dirname(os.path.realpath(__file__)))
+    dir_results = dir_file + '\\Results\\uploadDOI_Results.zip'
 
     downloadDOI(mysql, dir)
    
-    return flask.render_template('download.html')
+    return flask.render_template('download.html', dir_zip = dir_results)
