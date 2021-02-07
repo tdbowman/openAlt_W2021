@@ -94,14 +94,12 @@ def downloadAuthor(mysql,dir_csv):
         print(result)
         logging.info(result)
 
-        # Write result to file.
-        with open(dir_results, 'a', newline='') as resultCSV:
-            resultCSV = csv.writer(resultCSV, delimiter=',', quotechar='"', quoting=csv.QUOTE_MINIMAL)
-            for row in result:
-                resultCSV.writerow(row)
+    # Write result to file.
+    df = pandas.DataFrame(resultSet)
+    df.to_csv(dir_results)
         
-        # send results to zip (directory, zip file name, csv name)
-        downloadResultsAsCSV(dir_results,'uploadAuthor_Results.zip','uploadDOI_Author.csv')
+    # send results to zip (directory, zip file name, csv name)
+    downloadResultsAsCSV(dir_results,'uploadAuthor_Results.zip','uploadDOI_Author.csv')
 
     
 def searchByAuthor(mysql, fileName):

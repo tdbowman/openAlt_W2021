@@ -95,15 +95,13 @@ def downloadDOI(mysql, dir_csv):
 
     print('\n',query)
     logging.info(query)
-    print(resultSet)
+    print('RESULT SET',resultSet)
     logging.info(resultSet)
 
 
     # Write result to file.
-    with open(dir_results, 'w+', newline='') as resultCSV:
-        resultCSV = csv.writer(resultCSV, delimiter=',', quotechar='"', quoting=csv.QUOTE_MINIMAL)
-        for row in resultSet:
-            resultCSV.writerow(row)
+    df = pandas.DataFrame(resultSet)
+    df.to_csv(dir_results)
 
 
     # send results to zip (directory, zip file name, csv name)
