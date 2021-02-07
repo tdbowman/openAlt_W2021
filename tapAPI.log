@@ -4,6 +4,7 @@ curl "https://api.eventdata.crossref.org/v1/events?mailto=darpanshah7@gmail.com&
 25-Jan-21 16:21:32 -  - Successfully wrote data to tempFile.json 
 25-Jan-21 16:21:32 -  - Beginning JSON formatting
 25-Jan-21 16:21:32 -  - Failure in beautifyJSON step - Was the server down?
+<<<<<<< HEAD
 =======
 27-Jan-21 01:28:29 -  - Downloading Data using query: 
 curl "https://api.eventdata.crossref.org/v1/events?mailto=rihat.rafi@gmail.com&rows=10000&cursor=" > data\tempFile.json
@@ -22,3 +23,15 @@ curl "https://api.eventdata.crossref.org/v1/events?mailto=rihat.rafi@gmail.com&r
 27-Jan-21 01:35:13 -  - Beginning JSON formatting
 27-Jan-21 01:35:13 -  - Failure in beautifyJSON step - Was the server down?
 >>>>>>> origin/rihatDev
+=======
+04-Feb-21 23:17:55 -  - Downloading Data using query: 
+curl "https://api.eventdata.crossref.org/v1/events?mailto=darpanshah7@gmail.com&rows=100&cursor=" > tempFile.json
+04-Feb-21 23:17:56 -  - Successfully wrote data to tempFile.json 
+04-Feb-21 23:17:56 -  - Beginning JSON formatting
+04-Feb-21 23:17:56 -  - Failure in beautifyJSON step - Was the server down?
+04-Feb-21 23:19:08 -  - Downloading Data using query: 
+curl "https://api.eventdata.crossref.org/v1/events?mailto=darpanshah7@gmail.com&rows=100&cursor=" > tempFile.json
+04-Feb-21 23:19:09 -  - Successfully wrote data to tempFile.json 
+04-Feb-21 23:19:09 -  - Beginning JSON formatting
+04-Feb-21 23:19:09 -  - Failure in beautifyJSON step - Was the server down?
+>>>>>>> origin/salsabilDev
