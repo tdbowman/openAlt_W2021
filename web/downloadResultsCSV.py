@@ -28,6 +28,5 @@ def downloadResultsAsCSV(csvDir,zipName,csvName):
     if os.path.exists(csvDir):
         os.remove(csvDir)
 
-
-if __name__=='__main__':
+if __name__ == '__main__':
     downloadResultsAsCSV('placeholder.csv','testName','testCSVName')
