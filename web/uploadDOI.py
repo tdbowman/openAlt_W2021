@@ -3,6 +3,7 @@ import csv
 import pandas
 import logging
 import flask
+from flask import redirect
 
 # importing download function to download zip folder containing results CSV file
 from downloadResultsCSV import downloadResultsAsCSV

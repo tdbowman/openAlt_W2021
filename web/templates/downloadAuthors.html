@@ -3,7 +3,7 @@
 
 <!-- Anything you put here will be in the HTML head tags-->
 {% block head %}
-<script class="jsbin" src="https://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
+
 {% endblock %}
 
 <!-- Anything you put here will be in the body-->
@@ -21,7 +21,11 @@
     </form>
 </div> --> -->
 
-<form action="{{ url_for('download') }}" method="POST">
+<!-- <div class="container">
+    <a href="/downloadAuthorZip" target="blank"><button class="button">Download File</button></a>
+</div> -->
+
+<form action="{{ url_for('downloadAuthors') }}" method="POST">
     <div class="container">
         <button class="file-upload-btn">Download File</button></a>
     </div>

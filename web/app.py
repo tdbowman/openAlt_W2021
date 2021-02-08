@@ -3,7 +3,7 @@ import flask
 from flask import Flask
 from flask import send_file
 from flask_mysqldb import MySQL
-from flask import request, jsonify
+from flask import request, jsonify, redirect
 from datetime import datetime
 
 # Import our functions for other pages
@@ -204,7 +204,7 @@ def upload():
     return flask.render_template('upload.html')
 
 @ app.route('/uploadAuthors', methods=["GET", "POST"])
-def uploadAuthor():
+def uploadAuthors():
 
     app.config["UPLOAD_FILES"] = "../web/uploadFiles"
     destination = app.config["UPLOAD_FILES"]
@@ -233,11 +233,28 @@ def download():
         return send_file(dir_results, as_attachment=True)
     return flask.render_template('download.html')
 
-@ app.route('/downloadfile', methods=["GET", "POST"])
-def downloadfile():
-    dir_file = str(os.path.dirname(os.path.realpath(__file__)))
-    dir_results = dir_file + '\\Results\\uploadDOI_Results.zip'
-    return send_file(dir_results, as_attachment=True)
+# @ app.route('/downloadfile', methods=["GET", "POST"])
+# def downloadfile():
+#     dir_file = str(os.path.dirname(os.path.realpath(__file__)))
+#     dir_results = dir_file + '\\Results\\uploadDOI_Results.zip'
+#     return send_file(dir_results, as_attachment=True)
+
+@ app.route('/downloadAuthors', methods=["GET", "POST"])
+def downloadAuthors():
+    # dir_file = str(os.path.dirname(os.path.realpath(__file__)))
+    # dir_results = dir_file + '\\Results\\uploadDOI_Results.zip'
+    # return send_file(dir_results, as_attachment=True)
+    if request.method=="POST":
+        dir_file = str(os.path.dirname(os.path.realpath(__file__)))
+        dir_results = dir_file + '\\Results\\uploadAuthor_Results.zip'
+        return send_file(dir_results, as_attachment=True)
+    return flask.render_template('downloadAuthors.html')
+
+# @ app.route('/downloadAuthorZip', methods=["GET", "POST"])
+# def downloadAuthorZip():
+#     dir_file = str(os.path.dirname(os.path.realpath(__file__)))
+#     dir_results = dir_file + '\\Results\\uploadAuthor_results.csv'
+#     return send_file(dir_results, as_attachment=True)
 
 
 @ app.route('/searchByOptions', methods=["GET", "POST"])
@@ -247,9 +264,9 @@ def searchByOptions():
         select = request.form.get("uploadList")
 
         if select == "DOI":
-            return flask.render_template('upload.html')
-        elif select == "Author":
-            return flask.render_template('uploadAuthors.html')
+            return redirect('/upload')
+        else:
+            return redirect('/uploadAuthors')
     
     return flask.render_template('searchByOptions.html')
         

@@ -37,7 +37,7 @@ def downloadAuthor(mysql,dir_csv):
     # Directories 
     dir_file = str(os.path.dirname(os.path.realpath(__file__)))
     dir_template = dir_csv
-    dir_results = dir_file + '\\Results\\uploadAuthor_results.csv'
+    dir_results = dir_file + '\\Results\\uploadAuthor_Results.csv'
 
 
     # Set the logging parameters
@@ -99,7 +99,7 @@ def downloadAuthor(mysql,dir_csv):
     df.to_csv(dir_results)
         
     # send results to zip (directory, zip file name, csv name)
-    downloadResultsAsCSV(dir_results,'uploadAuthor_Results.zip','uploadDOI_Author.csv')
+    downloadResultsAsCSV(dir_results,'uploadAuthor_Results.zip','uploadAuthor_Results.csv')
 
     
 def searchByAuthor(mysql, fileName):
@@ -109,7 +109,7 @@ def searchByAuthor(mysql, fileName):
 
     downloadAuthor(mysql, dir)
 
-    return flask.render_template('download.html')
+    return flask.render_template('downloadAuthors.html')
 
 
 
