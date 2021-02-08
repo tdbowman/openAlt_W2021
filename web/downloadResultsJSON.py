@@ -26,4 +26,4 @@ def downloadResultsAsJSON(csvDir,zipName,jsonName):
         os.remove('tempFile.json')
 
 if __name__ == '__main__':
-    downloadResultsAsJSON('placeholder.json','testName','testJSONName')
+    downloadResultsAsJSON(dir_results,'uploadDOI_ResultsJSON.zip','uploadDOI_Results.json')

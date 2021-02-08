@@ -29,4 +29,4 @@ def downloadResultsAsCSV(csvDir,zipName,csvName):
         os.remove(csvDir)
 
 if __name__ == '__main__':
-    downloadResultsAsCSV('placeholder.csv','testName','testCSVName')
+    downloadResultsAsCSV(dir_results,'uploadDOI_ResultsCSV.zip','uploadDOI_Results.csv')
