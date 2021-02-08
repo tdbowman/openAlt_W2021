@@ -1,7 +1,7 @@
 # author: Rihat Rahman
 # This script extracts university information from affiliation data
 # returns name of university
-# returns None of university information doesn't exist
+# returns empty string of university information doesn't exist
 
 import pandas as pd
 
@@ -22,4 +22,4 @@ def extract_university(affiliation):
             if attribute.strip().upper() == university_name.strip().upper():
                 return university_name
 
-    return None
+    return ""

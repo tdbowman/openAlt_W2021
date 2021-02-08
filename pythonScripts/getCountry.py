@@ -1,7 +1,7 @@
 # author: Rihat Rahman
 # This script extracts country information from affiliation data (may contain country or state name) 
 # and returns country name.
-# returns None if country infromation doesn't exist
+# returns empty string if country infromation doesn't exist
 # date: February 6, 2021
 
 from iso3166 import countries
@@ -45,6 +45,10 @@ def extract_country(affiliation):
             return "Brazil"
 
 
+        elif "RUSSIA" in location.upper():
+            return "Russia"
+
+
     states = us.states.STATES
 
     # check by US states
@@ -57,4 +61,4 @@ def extract_country(affiliation):
             if (location[0:2] == str(state.abbr)) & ((location[2] == " ") | (location[2] == "-") | (location[2].isdigit())):
                 return 'United States'
 
-    return None
+    return ""
