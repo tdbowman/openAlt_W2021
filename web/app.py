@@ -160,6 +160,10 @@ def licenses():
 def upload():
 
     app.config["UPLOAD_FILES"] = "../web/uploadFiles"
+    target = app.config["UPLOAD_FILES"]
+
+    if not os.path.isdir(target):
+        os.mkdir(target)
 
     # APP_ROOT = os.path.dirname(os.path.abspath(__file__))
     # target = os.path.join(APP_ROOT, 'uploadFiles')
@@ -200,12 +204,32 @@ def upload():
 
 @ app.route('/download', methods=["GET", "POST"])
 def download():
+    if request.method=="POST":
+        dir_file = str(os.path.dirname(os.path.realpath(__file__)))
+        dir_results = dir_file + '\\Results\\uploadDOI_Results.zip'
+        return send_file(dir_results, as_attachment=True)
     return flask.render_template('download.html')
 
 @ app.route('/downloadfile', methods=["GET", "POST"])
-def downloadfile(fileName):
-    return send_file('../web/downloadFiles/' + fileName, as_attachment=True)
+def downloadfile():
+    dir_file = str(os.path.dirname(os.path.realpath(__file__)))
+    dir_results = dir_file + '\\Results\\uploadDOI_Results.zip'
+    return send_file(dir_results, as_attachment=True)
 
+
+@ app.route('/searchByOptions', methods=["GET", "POST"])
+def searchByOptions():
+    
+    if request.method=="POST":
+        select = request.form.get("uploadList")
+
+        if select == "DOI":
+            return flask.render_template('upload.html')
+        elif select == "Author":
+            return flask.render_template('uploadAuthors.html')
+    
+    return flask.render_template('searchByOptions.html')
+        
 # If this is the main module or main program being run (app.py)......
 if __name__ == "__main__":
     app.run(host='localhost', port=5000, debug=True)

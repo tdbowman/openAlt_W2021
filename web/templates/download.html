@@ -8,17 +8,33 @@
 
 <!-- Anything you put here will be in the body-->
 {% block body %}
-
-<!-- <div class="container">
-    <a href="/downloadfile" target="blank"><button class="button">Download File</button></a>
-</div> -->
+<!-- <div class="file-upload">  
+    <form action="{{ url_for('download') }}" method="POST" enctype="multipart/form-data">
+        <!-- <div class="container">
+        <a href="/downloadfile" target="blank"><button class="button">Download File</button></a>
+        </div> -->
+        <!-- <div class="file-upload-content">
+            <div class="image-title-wrap">
+            <button type="submit" class="button">Download File</button>
+            </div>
+        </div>
+    </form>
+</div> --> -->
 
 <div class="container">
+    <a href="/downloadfile" target="blank"><button class="button">Download File</button></a>
+</div>
+
+<!-- <div class="container">
     <h3>
         The path of the zipped result folder is in:
         <br>
         {{dir_zip}}
+        <br>
+        Total results found: {{sumQuery}}
     </h3>
-</div>
+</div> -->
+
+
 
 {% endblock %}

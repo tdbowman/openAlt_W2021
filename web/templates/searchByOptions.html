@@ -1,0 +1,32 @@
+{% extends 'template.html' %}
+
+<!-- Anything you put here will be in the HTML head tags-->
+{% block head %}
+<script src="../static/js/list.js"></script>
+{% endblock %}
+
+<!-- Anything you put here will be in the body-->
+{% block body %}
+<div class="col-sm-3">
+  <!-- Empty column of size 3. Right of search bar -->
+</div>
+
+<div class = "center-screen col-sm-6">
+  <div style="border-radius: 25px; padding: 10px; background-color: rgba(60, 65, 70, 0.8); " >
+    <h1 style="text-align: center; color: aliceblue;">OpenAlt</h1>
+    <p2 style="text-align: center; color: aliceblue;">Search for scholarly publications by uploading a list of Authors or a list of DOIs</p2>
+    <br><br>
+    <form method="POST" action="{{ url_for('searchByOptions') }}" class="form-inline">
+    <div class="form-group" style="text-align: center">          
+        <!-- Drop Down Search -->
+        <select name="uploadList" id="dropdownSearchBy" class="form-control">
+            <option value="Author">Author</option>
+            <option value="DOI">DOI</option>
+        </select>
+        <input type="submit" value="&#128269" class="form-control" id="searchButton">
+    </div>
+    </form>
+    <br>
+  </div>
+
+{% endblock %}
