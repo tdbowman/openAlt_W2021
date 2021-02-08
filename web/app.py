@@ -15,6 +15,7 @@ from landingPageStats import landingPageStats
 from landingPageArticles import landingPageArticles
 from landingPageJournals import landingPageJournals
 from uploadDOI import searchByDOI
+from uploadAuthor import searchByAuthor
 
 from getPassword import getPassword
 
@@ -201,6 +202,28 @@ def upload():
     #     file.save(destination)
 
     return flask.render_template('upload.html')
+
+@ app.route('/uploadAuthors', methods=["GET", "POST"])
+def uploadAuthor():
+
+    app.config["UPLOAD_FILES"] = "../web/uploadFiles"
+    destination = app.config["UPLOAD_FILES"]
+
+    if not os.path.isdir(destination):
+        os.mkdir(destination)
+
+    if request.method=="POST":
+        if request.files:
+            uploadFiles = request.files["csv/json"]
+            print(uploadFiles)
+
+            fileName = uploadFiles.filename
+            uploadFiles.save(os.path.join(destination, fileName))
+            print("File saved.")
+        
+        return searchByAuthor(mysql, fileName)
+
+    return flask.render_template('uploadAuthors.html')
 
 @ app.route('/download', methods=["GET", "POST"])
 def download():
