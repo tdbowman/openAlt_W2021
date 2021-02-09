@@ -589,11 +589,11 @@ body {
   width: 100%;
   margin: 0;
   color: #fff;
-  background: #1FB264;
+  background: #000000;
   border: none;
   padding: 10px;
   border-radius: 4px;
-  border-bottom: 4px solid #15824B;
+  border-bottom: 4px solid #181818;
   transition: all .2s ease;
   outline: none;
   text-transform: uppercase;
@@ -601,7 +601,7 @@ body {
 }
 
 .file-upload-btn:hover {
-  background: #1AA059;
+  background: #313131;
   color: #ffffff;
   transition: all .2s ease;
   cursor: pointer;
@@ -630,7 +630,7 @@ body {
 
 .image-upload-wrap {
   margin-top: 20px;
-  border: 4px dashed #228051;
+  border: 4px dashed #000000;
   position: relative;
 }
 

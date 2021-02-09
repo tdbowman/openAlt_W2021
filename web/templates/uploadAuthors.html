@@ -10,10 +10,10 @@
 <!-- Anything you put here will be in the body-->
 {% block body %}
 <h1>
-  Upload List of DOIs
+  Upload List of Authors
 </h1>
 <div class="file-upload">
-  <form action="{{ url_for('upload') }}" method="POST" enctype="multipart/form-data">
+  <form action="{{ url_for('uploadAuthors') }}" method="POST" enctype="multipart/form-data">
     <div class="image-upload-wrap">
       <input class="file-upload-input" name="csv/json" type='file' onchange="readURL(this);" accept=".csv" />
       <div class="drag-text">

@@ -3,19 +3,13 @@ import csv
 import pandas
 import logging
 import flask
+from flask import redirect
 
 # importing download function to download zip folder containing results CSV file
 from downloadResultsCSV import downloadResultsAsCSV
 from downloadResultsJSON import downloadResultsAsJSON
 
 def downloadDOI(mysql, dir_csv):
-
-    # try:
-    #     import mysql.connector
-    # except:
-    #     print("MySQL Connector Exception")
-    #     logging.info("Cannot determine how you intend to run the program")
-
 
     # directories
     dir_file = str(os.path.dirname(os.path.realpath(__file__)))
@@ -29,13 +23,13 @@ def downloadDOI(mysql, dir_csv):
     # path of file to print results to
     dir_results = dir_file  + '\\Results\\uploadDOI_results.csv'
 
-    # # create result file and open it in write mode
-    # dir_results = open("dir_results", "w+")
+    #Delete temp CSV file if exists
+    if os.path.exists(dir_results):
+        os.remove(dir_results)
 
     # Set the logging parameters
     logging.basicConfig(filename= dir_file + '\\Logs\\uploadDOI.log', filemode='a', level=logging.INFO,
         format='%(asctime)s - %(message)s', datefmt='%d-%b-%y %H:%M:%S')
-
 
     doi_arr = []
 
@@ -47,9 +41,7 @@ def downloadDOI(mysql, dir_csv):
     for x in range(len(doi_list)):
         doi_arr.append(doi_list.values[x][0])
 
-
     # print(doi_arr)
-
 
     # Reading config file to parse doi input to only include number
     config_arr = []
@@ -76,17 +68,8 @@ def downloadDOI(mysql, dir_csv):
     #print("\nJOINED ARRAY:",joinedArr)
     print("\n")
 
-    # Getting MySQL database credentials
-    # print("\nMySQL Credentials")
-    # mysql_username = input("Username: ")
-    # mysql_password = input("Password: ")
-
-    # Connecting to database
-    # connection = mysql.connector.connect(user=str(mysql_username), password=str(
-    #         mysql_password), host='127.0.0.1', database='crossrefeventdatamain')
-
+    #Cursor makes connection with the db
     cursor = mysql.connection.cursor()
-
 
     # Execution of query and output of result + log
     query = 'SELECT * FROM dr_bowman_doi_data_tables._main_ WHERE DOI IN (' + joinedArr + ');'
@@ -101,7 +84,7 @@ def downloadDOI(mysql, dir_csv):
 
     # Write result to file.
     df = pandas.DataFrame(resultSet)
-    df.to_csv(dir_results)
+    df.to_csv(dir_results,index=False)
 
 
     # send results to zip (directory, zip file name, csv name)

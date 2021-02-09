@@ -37,7 +37,7 @@ def downloadAuthor(mysql,dir_csv):
     # Directories 
     dir_file = str(os.path.dirname(os.path.realpath(__file__)))
     dir_template = dir_csv
-    dir_results = dir_file + '\\Results\\uploadAuthor_results.csv'
+    dir_results = dir_file + '\\Results\\uploadAuthor_Results.csv'
 
 
     # Set the logging parameters
@@ -80,11 +80,19 @@ def downloadAuthor(mysql,dir_csv):
     cursor = mysql.connection.cursor()  
 
 
+    
+    
+    #Delete temp CSV file if exists 
+    if os.path.exists(dir_results):
+        os.remove(dir_results)
+
     #Execution of query and output of result + log
     resultSet = []
+    index = 0
+
     for values in author_arr:
 
-        query = 'SELECT * FROM dr_bowman_doi_data_tables.author WHERE name LIKE ' + "\'%" + values + "%\'" + ';' #### will need to change query based on how author information is retrieved ####
+        query = 'SELECT * FROM dr_bowman_doi_data_tables.author WHERE name LIKE ' + "\'%" + values + "%\'" + ';'
         cursor.execute(query)
         result = cursor.fetchall()
         resultSet.append(result)
@@ -94,12 +102,27 @@ def downloadAuthor(mysql,dir_csv):
         print(result)
         logging.info(result)
 
-    # Write result to file.
-    df = pandas.DataFrame(resultSet)
-    df.to_csv(dir_results)
+        print(index)
+    
+        
+        # Write result to file. If first record, include header, else append without header
+        if index == 0:
+            df = pandas.DataFrame(result)
+            df.to_csv(dir_results,mode='a',index=False)    
+        else:
+            df = pandas.DataFrame(result)
+            df.to_csv(dir_results,header=False,mode='a',index=False)
+            
+        index += 1
+    
+    
+
+   
+
+    
         
     # send results to zip (directory, zip file name, csv name)
-    downloadResultsAsCSV(dir_results,'uploadAuthor_Results.zip','uploadDOI_Author.csv')
+    downloadResultsAsCSV(dir_results,'uploadAuthor_Results.zip','uploadAuthor_Results.csv')
 
     
 def searchByAuthor(mysql, fileName):
@@ -109,7 +132,7 @@ def searchByAuthor(mysql, fileName):
 
     downloadAuthor(mysql, dir)
 
-    return flask.render_template('download.html')
+    return flask.render_template('downloadAuthors.html')
 
 
 

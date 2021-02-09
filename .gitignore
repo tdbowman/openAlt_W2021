@@ -7,3 +7,4 @@ passwd.txt*
 /web/env
 /web/venv
 .log
+.zip
