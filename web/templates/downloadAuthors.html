@@ -24,12 +24,29 @@
 <!-- <div class="container">
     <a href="/downloadAuthorZip" target="blank"><button class="button">Download File</button></a>
 </div> -->
+<br>
+<br>
+<body style="background-image: url('../static/images/library.jpg'); background-repeat: no-repeat; background-size:cover;">
+  <div class="col-sm-3">
+    <!-- Empty column of size 3. Left of search bar -->
+  </div>
+  
+  <div class = "center-screen col-sm-6">
+      <div style="border-radius: 25px; padding: 10px; background-color: rgba(60, 65, 70, 0.8); " >
+            <h1 style="text-align: center; color: aliceblue;">Download Results for List of Authors</h1>
+            <form action="{{ url_for('downloadAuthors') }}" method="POST">
+                    <div class="image-title-wrap">
+                        <button class="file-upload-btn">Download File</button>
+                    </div> 
+            </form>
+        </div>
+    </div>  
+  
 
-<form action="{{ url_for('downloadAuthors') }}" method="POST">
-    <div class="container">
-        <button class="file-upload-btn">Download File</button></a>
+    <div class="col-sm-3">
+    <!-- Empty column of size 3. Left of search bar -->
     </div>
-</form>
+</body>
 
 <!-- <div class="container">
     <h3>
