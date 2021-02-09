@@ -86,3 +86,16 @@
 08-Feb-21 17:17:56 - ()
 08-Feb-21 17:17:56 - 127.0.0.1 - - [08/Feb/2021 17:17:56] "[37mPOST /uploadAuthors HTTP/1.1[0m" 200 -
 08-Feb-21 17:17:57 - 127.0.0.1 - - [08/Feb/2021 17:17:57] "[37mPOST /downloadAuthors HTTP/1.1[0m" 200 -
+08-Feb-21 17:19:44 - 127.0.0.1 - - [08/Feb/2021 17:19:44] "[37mGET /searchByOptions HTTP/1.1[0m" 200 -
+08-Feb-21 17:19:44 - 127.0.0.1 - - [08/Feb/2021 17:19:44] "[33mGET /static/js/list.js HTTP/1.1[0m" 404 -
+08-Feb-21 17:19:47 - 127.0.0.1 - - [08/Feb/2021 17:19:47] "[32mPOST /searchByOptions HTTP/1.1[0m" 302 -
+08-Feb-21 17:19:47 - 127.0.0.1 - - [08/Feb/2021 17:19:47] "[37mGET /uploadAuthors HTTP/1.1[0m" 200 -
+08-Feb-21 17:20:06 - SELECT * FROM dr_bowman_doi_data_tables.author WHERE name LIKE '%Jane Doe%';
+08-Feb-21 17:20:06 - ()
+08-Feb-21 17:20:06 - SELECT * FROM dr_bowman_doi_data_tables.author WHERE name LIKE '%John Doe%';
+08-Feb-21 17:20:06 - ()
+08-Feb-21 17:20:06 - SELECT * FROM dr_bowman_doi_data_tables.author WHERE name LIKE '%Darpan Shah%';
+08-Feb-21 17:20:06 - ()
+08-Feb-21 17:20:06 - SELECT * FROM dr_bowman_doi_data_tables.author WHERE name LIKE '%Smith%';
+08-Feb-21 17:20:06 - ()
+08-Feb-21 17:20:06 - 127.0.0.1 - - [08/Feb/2021 17:20:06] "[37mPOST /uploadAuthors HTTP/1.1[0m" 200 -
