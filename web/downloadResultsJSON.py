@@ -17,15 +17,12 @@ def downloadResultsAsJSON(csvDir,zipName,jsonName):
         os.remove(zipName)
     # Folder where zip file will be stored
     zipPath = dir_results + str(zipName)
-    # Convert file to json
+    # Convert file from DataFrame to json
     tempFile = pandas.read_csv(csvDir)
     tempFile.to_json(jsonName)
     # Zip downloaded json file
     zipfile.ZipFile(zipPath, mode = 'w', compression = zipfile.ZIP_DEFLATED).write(jsonName)
-    # Delete the copy of the downloaded file that was not zipped
-    if os.path.exists('tempFile.json'):
-        os.remove('tempFile.json')
 
 if __name__ == '__main__':
-    # Top level code if file is run independently
+    # Filler top level code
     downloadResultsAsJSON('uploadDOI_Results.json','uploadDOI_ResultsJSON.zip','uploadDOI_Results.json')
