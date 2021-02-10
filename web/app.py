@@ -1,6 +1,9 @@
+import os
 import flask
+from flask import Flask
+from flask import send_file
 from flask_mysqldb import MySQL
-from flask import request, jsonify
+from flask import request, jsonify, redirect
 from datetime import datetime
 
 # Import our functions for other pages
@@ -11,6 +14,8 @@ from authorDashboardLogic import authorDashboardLogic
 from landingPageStats import landingPageStats
 from landingPageArticles import landingPageArticles
 from landingPageJournals import landingPageJournals
+from uploadDOI import searchByDOI
+from uploadAuthor import searchByAuthor
 
 from getPassword import getPassword
 
@@ -152,7 +157,119 @@ def team():
 def licenses():
     return flask.render_template('licenses.html')
 
+@ app.route('/upload', methods=["GET", "POST"])
+def upload():
 
+    app.config["UPLOAD_FILES"] = "../web/uploadFiles"
+    target = app.config["UPLOAD_FILES"]
+
+    if not os.path.isdir(target):
+        os.mkdir(target)
+
+    # APP_ROOT = os.path.dirname(os.path.abspath(__file__))
+    # target = os.path.join(APP_ROOT, 'uploadFiles')
+    # print(target)
+
+    # if not os.path.isdir(target):
+    #     os.mkdir(target)
+    destination = app.config["UPLOAD_FILES"]
+
+    if request.method=="POST":
+        if request.files:
+            uploadFiles = request.files["csv/json"]
+            print(uploadFiles)
+
+            fileName = uploadFiles.filename
+            uploadFiles.save(os.path.join(destination, fileName))
+            print("File saved.")
+
+            #downloadfile(fileName)
+            # return flask.render_template('download.html')
+        
+        return searchByDOI(mysql, fileName)
+
+    # APP_ROOT = os.path.dirname(os.path.abspath(__file__))
+    # target = os.path.join(APP_ROOT, 'uploadFiles')
+    # print(target)
+
+    # if not os.path.isdir(target):
+    #     os.mkdir(target)
+
+    # for file in request.files.getlist("file"):
+    #     filename = file.filename
+    #     destination = "/".join([target, filename])
+    #     print(destination)
+    #     file.save(destination)
+
+    return flask.render_template('upload.html')
+
+@ app.route('/uploadAuthors', methods=["GET", "POST"])
+def uploadAuthors():
+
+    app.config["UPLOAD_FILES"] = "../web/uploadFiles"
+    destination = app.config["UPLOAD_FILES"]
+
+    if not os.path.isdir(destination):
+        os.mkdir(destination)
+
+    if request.method=="POST":
+        if request.files:
+            uploadFiles = request.files["csv/json"]
+            print(uploadFiles)
+
+            fileName = uploadFiles.filename
+            uploadFiles.save(os.path.join(destination, fileName))
+            print("File saved.")
+        
+        return searchByAuthor(mysql, fileName)
+
+    return flask.render_template('uploadAuthors.html')
+
+@ app.route('/download', methods=["GET", "POST"])
+def download():
+    if request.method=="POST":
+        dir_file = str(os.path.dirname(os.path.realpath(__file__)))
+        dir_results = dir_file + '\\Results\\uploadDOI_Results.zip'
+        return send_file(dir_results, as_attachment=True)
+    return flask.render_template('download.html')
+
+# @ app.route('/downloadfile', methods=["GET", "POST"])
+# def downloadfile():
+#     dir_file = str(os.path.dirname(os.path.realpath(__file__)))
+#     dir_results = dir_file + '\\Results\\uploadDOI_Results.zip'
+#     return send_file(dir_results, as_attachment=True)
+
+@ app.route('/downloadAuthors', methods=["GET", "POST"])
+def downloadAuthors():
+    # dir_file = str(os.path.dirname(os.path.realpath(__file__)))
+    # dir_results = dir_file + '\\Results\\uploadDOI_Results.zip'
+    # return send_file(dir_results, as_attachment=True)
+    if request.method=="POST":
+        dir_file = str(os.path.dirname(os.path.realpath(__file__)))
+        dir_results = dir_file + '\\Results\\uploadAuthor_Results.zip'
+        return send_file(dir_results, as_attachment=True)
+    return flask.render_template('downloadAuthors.html')
+
+# @ app.route('/downloadAuthorZip', methods=["GET", "POST"])
+# def downloadAuthorZip():
+#     dir_file = str(os.path.dirname(os.path.realpath(__file__)))
+#     dir_results = dir_file + '\\Results\\uploadAuthor_results.csv'
+#     return send_file(dir_results, as_attachment=True)
+
+
+@ app.route('/searchByOptions', methods=["GET", "POST"])
+def searchByOptions():
+    
+    if request.method=="POST":
+        select = request.form.get("uploadList")
+
+        if select == "DOI":
+            return redirect('/upload')
+        else:
+            return redirect('/uploadAuthors')
+    
+    return flask.render_template('searchByOptions.html')
+        
 # If this is the main module or main program being run (app.py)......
 if __name__ == "__main__":
     app.run(host='localhost', port=5000, debug=True)

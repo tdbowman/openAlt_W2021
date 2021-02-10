@@ -1,0 +1,63 @@
+
+{% extends 'template.html' %}
+
+<!-- Anything you put here will be in the HTML head tags-->
+{% block head %}
+
+{% endblock %}
+
+<!-- Anything you put here will be in the body-->
+{% block body %}
+<!-- <div class="file-upload">  
+    <form action="{{ url_for('download') }}" method="POST" enctype="multipart/form-data">
+        <div class="container">
+        <a href="/downloadfile" target="blank"><button class="button">Download File</button></a>
+        </div> -->
+        <!-- <div class="file-upload-content">
+            <div class="image-title-wrap">
+            <button type="submit" class="button">Download File</button>
+            </div>
+        </div>
+    </form>
+</div> --> -->
+
+<!-- <div class="container">
+    <a href="/downloadAuthorZip" target="blank"><button class="button">Download File</button></a>
+</div> -->
+<br>
+<br>
+<body style="background-image: url('../static/images/library.jpg'); background-repeat: no-repeat; background-size:cover;">
+  <div class="col-sm-3">
+    <!-- Empty column of size 3. Left of search bar -->
+  </div>
+  
+  <div class = "center-screen col-sm-6">
+      <div style="border-radius: 25px; padding: 10px; background-color: rgba(60, 65, 70, 0.8); " >
+            <h1 style="text-align: center; color: aliceblue;">Download Results for List of Authors</h1>
+            <form action="{{ url_for('downloadAuthors') }}" method="POST">
+                    <div class="image-title-wrap">
+                        <button class="file-upload-btn">Download File</button>
+                    </div> 
+            </form>
+        </div>
+    </div>  
+  
+
+    <div class="col-sm-3">
+    <!-- Empty column of size 3. Left of search bar -->
+    </div>
+</body>
+
+<!-- <div class="container">
+    <h3>
+        The path of the zipped result folder is in:
+        <br>
+        {{dir_zip}}
+        <br>
+        Total results found: {{sumQuery}}
+    </h3>
+</div> -->
+
+
+
+{% endblock %}
