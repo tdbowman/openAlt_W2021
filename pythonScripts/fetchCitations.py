@@ -4,8 +4,6 @@ import mysql.connector
 import requests
 import json
 
-# TODO
-# from ingestCitations import ingestCitationData
 
 
 def getCitationData(mysql_username, mysql_password):
@@ -42,7 +40,7 @@ def getCitationData(mysql_username, mysql_password):
 
             if response.json() != []:
 
-                ingestCitationData(citationDatabase, response.json())
+                # TODO: Call ingest script
                 print(response.json())
                 
 
