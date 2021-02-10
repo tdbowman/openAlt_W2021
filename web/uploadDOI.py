@@ -39,9 +39,9 @@ def downloadDOI(mysql, dir_csv):
 
     # adds doi values into array and prints the array
     for x in range(len(doi_list)):
-        doi_arr.append(doi_list.values[x][0])
+        if x not in doi_arr:
+            doi_arr.append(doi_list.values[x][0])
 
-    # print(doi_arr)
 
     # Reading config file to parse doi input to only include number
     config_arr = []
@@ -52,27 +52,23 @@ def downloadDOI(mysql, dir_csv):
     for line in config_file:
         config_arr.append(line.rstrip('\n'))  
 
-    # print('\nCONFIG ARR:',config_arr)
-    # print('\nDOI ARR:', doi_arr)
-
-
     # Parse out doi formatting
     for config in config_arr:
         doi_arr = [doi.replace(config,'') for doi in doi_arr]
 
+    # Remove duplicates from the doi array
+    doi_arr = list(dict.fromkeys(doi_arr))
 
-    #print("\nPARSED DOI ARR:", doi_arr)
-        
-
+    # Join array for sql query
     joinedArr = "\'" + "','".join(doi_arr) + "\'"
-    #print("\nJOINED ARRAY:",joinedArr)
-    print("\n")
 
     #Cursor makes connection with the db
     cursor = mysql.connection.cursor() 
 
     # Execution of query and output of result + log
-    query = 'SELECT * FROM dr_bowman_doi_data_tables._main_ WHERE DOI IN (' + joinedArr + ');'
+    query = "SELECT DOI, url, container_title, created_date_parts, issued_date_parts, language, publisher, title " \
+            "FROM dr_bowman_doi_data_tables._main_ WHERE DOI IN " \
+            "(" + joinedArr + ");"
     cursor.execute(query)
     resultSet = cursor.fetchall()
 

@@ -52,47 +52,34 @@ def downloadAuthor(mysql,dir_csv):
 
     author_arr = []
 
-    #pandas library reads doi list
+    # Pandas library reads doi list
     doi_list = pandas.read_csv(dir_template, header=None)
 
 
-    #adds doi values into array and prints the array
+    # Adds doi values into array and prints the array
     for x in range(len(doi_list)):
-        author_arr.append(doi_list.values[x][0])
+        author_arr.append(doi_list.values[x][0].lower())
 
+    # Remove duplicates from author array
+    author_arr = list(dict.fromkeys(author_arr))
 
-    #print(author_arr)
-
-
-    # joinedArr = "\'" + "','".join(author_arr) + "\'"
-    # print(joinedArr)
-    # print("\n")
-
-    # #Getting MySQL database credentials
-    # print("\nMySQL Credentials")
-    # mysql_username = input("Username: ")
-    # mysql_password = input("Password: ")
-
-    # #Connecting to database
-    # connection = mysql.connector.connect(user=str(mysql_username), password=str(
-    #         mysql_password), host='127.0.0.1', database='crossrefeventdatamain')
-
+    # Set up cursor to run SQL query
     cursor = mysql.connection.cursor()  
 
 
-    
-    
-    #Delete temp CSV file if exists 
+    # Delete temp CSV file if exists 
     if os.path.exists(dir_results):
         os.remove(dir_results)
 
-    #Execution of query and output of result + log
+    # Execution of query and output of result + log
     resultSet = []
     index = 0
 
     for values in author_arr:
 
-        query = 'SELECT * FROM dr_bowman_doi_data_tables.author WHERE name LIKE ' + "\'%" + values + "%\'" + ';'
+        query = "SELECT affiliation, authenticated_orcid, family, given, name, orcid, sequence, suffix " \
+                "FROM dr_bowman_doi_data_tables.author where name LIKE " \
+                "\'%" + values + "%\'" + ';'
         cursor.execute(query)
         result = cursor.fetchall()
         resultSet.append(result)
@@ -116,18 +103,13 @@ def downloadAuthor(mysql,dir_csv):
         index += 1
     
     
-
-   
-
-    
-        
     # send results to zip (directory, zip file name, csv name)
     downloadResultsAsCSV(dir_results,'uploadAuthor_Results.zip','uploadAuthor_Results.csv')
 
     
 def searchByAuthor(mysql, fileName):
 
-    #directory of doi list
+    # Directory of doi list
     dir = '../web/uploadFiles/' + fileName
 
     downloadAuthor(mysql, dir)
