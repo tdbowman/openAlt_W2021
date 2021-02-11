@@ -28,7 +28,7 @@ except:
 
 # dataDirectory = "./JSON"
 
-dataDirectory = "C:\\Users\\salsa\\Documents\\GitHub\\openAlt_W2021\\eventData"
+dataDirectory = "C:\\Users\\tasha\\Documents\\GitHub\\openAlt_W2021\\eventData"
 
 print("MySQL Credentials")
 mysql_username = input("Username: ")
@@ -145,4 +145,3 @@ def main():
 if __name__ == '__main__':
     start_time = time.time()
     main()
-
