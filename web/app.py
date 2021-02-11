@@ -164,6 +164,12 @@ def upload():
     app.config["UPLOAD_FILES"] = "../web/uploadFiles"
     target = app.config["UPLOAD_FILES"]
 
+    # Allowed extensions of file
+    ALLOWED_EXTENSIONS = {'csv'}
+
+    # Limit of the file size to 16 MB
+    app.config['MAX_CONTENT_LENGTH'] = 16 * 1024 * 1024 
+
     # If directory does not exist, create it
     if not os.path.isdir(target):
         os.mkdir(target)
@@ -176,13 +182,24 @@ def upload():
 
             # Retrieve the uploaded file 
             uploadFiles = request.files["csv/json"]
-
-            # Save the file to the directory
             fileName = uploadFiles.filename
-            uploadFiles.save(os.path.join(target, fileName))
-        
-        # Send the file to uploadDOI.py
-        return searchByDOI(mysql, fileName)
+
+            # Check extension of file
+            fileExtension = fileName.rsplit('.',1)[1].lower() in ALLOWED_EXTENSIONS
+
+
+            # Check file submission
+            if uploadFiles and fileExtension:
+
+                # Save the file to the directory
+                uploadFiles.save(os.path.join(target, fileName))
+
+                # Send the file to uploadDOI.py
+                return searchByDOI(mysql, fileName)
+
+            else:
+                return flask.render_template('upload.html')
+
 
     return flask.render_template('upload.html')
 
