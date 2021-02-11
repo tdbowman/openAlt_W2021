@@ -8,7 +8,7 @@ import pandas as pd
 
 def extract_university(affiliation):
 
-    df = pd.read_csv('world-universities.csv')
+    df = pd.read_csv('universities.csv')
 
     affiliation_attributes = affiliation.split(",")
 
@@ -19,7 +19,7 @@ def extract_university(affiliation):
             university = (index, row['university_name'])
             university_name = university[1]
 
-            if attribute.strip().upper() == university_name.strip().upper():
+            if attribute.strip().upper() in university_name.strip().upper():
                 return university_name
 
     return ""
