@@ -160,115 +160,125 @@ def licenses():
 @ app.route('/upload', methods=["GET", "POST"])
 def upload():
 
+    # Directory of where to put the uploaded file
     app.config["UPLOAD_FILES"] = "../web/uploadFiles"
     target = app.config["UPLOAD_FILES"]
 
+    # If directory does not exist, create it
     if not os.path.isdir(target):
         os.mkdir(target)
 
-    # APP_ROOT = os.path.dirname(os.path.abspath(__file__))
-    # target = os.path.join(APP_ROOT, 'uploadFiles')
-    # print(target)
-
-    # if not os.path.isdir(target):
-    #     os.mkdir(target)
-    destination = app.config["UPLOAD_FILES"]
-
+    # If a HTTPS POST Request is received...
     if request.method=="POST":
+
+        # If file is received...
         if request.files:
+
+            # Retrieve the uploaded file 
             uploadFiles = request.files["csv/json"]
-            print(uploadFiles)
 
+            # Save the file to the directory
             fileName = uploadFiles.filename
-            uploadFiles.save(os.path.join(destination, fileName))
-            print("File saved.")
-
-            #downloadfile(fileName)
-            # return flask.render_template('download.html')
+            uploadFiles.save(os.path.join(target, fileName))
         
+        # Send the file to uploadDOI.py
         return searchByDOI(mysql, fileName)
-
-    # APP_ROOT = os.path.dirname(os.path.abspath(__file__))
-    # target = os.path.join(APP_ROOT, 'uploadFiles')
-    # print(target)
-
-    # if not os.path.isdir(target):
-    #     os.mkdir(target)
-
-    # for file in request.files.getlist("file"):
-    #     filename = file.filename
-    #     destination = "/".join([target, filename])
-    #     print(destination)
-    #     file.save(destination)
 
     return flask.render_template('upload.html')
 
 @ app.route('/uploadAuthors', methods=["GET", "POST"])
 def uploadAuthors():
 
+     # Directory of where to put the uploaded file
     app.config["UPLOAD_FILES"] = "../web/uploadFiles"
     destination = app.config["UPLOAD_FILES"]
 
+    # If directory does not exist, create it
     if not os.path.isdir(destination):
         os.mkdir(destination)
 
+    # If a HTTPS POST Request is received...
     if request.method=="POST":
-        if request.files:
-            uploadFiles = request.files["csv/json"]
-            print(uploadFiles)
 
+        # If file is received...
+        if request.files:
+
+            # Retrieve the uploaded file 
+            uploadFiles = request.files["csv/json"]
+
+            # Save the file to the directory
             fileName = uploadFiles.filename
             uploadFiles.save(os.path.join(destination, fileName))
-            print("File saved.")
-        
+
+        # Send the file to uploadDOI.py
         return searchByAuthor(mysql, fileName)
 
     return flask.render_template('uploadAuthors.html')
 
 @ app.route('/download', methods=["GET", "POST"])
 def download():
+
+    # If a HTTPS POST Request is received...
     if request.method=="POST":
+
+        # Directory of results zipped folder
         dir_file = str(os.path.dirname(os.path.realpath(__file__)))
         dir_results = dir_file + '\\Results\\uploadDOI_Results.zip'
-        return send_file(dir_results, as_attachment=True)
-    return flask.render_template('download.html')
 
-# @ app.route('/downloadfile', methods=["GET", "POST"])
-# def downloadfile():
-#     dir_file = str(os.path.dirname(os.path.realpath(__file__)))
-#     dir_results = dir_file + '\\Results\\uploadDOI_Results.zip'
-#     return send_file(dir_results, as_attachment=True)
+        # Download folder onto local machine
+        return send_file(dir_results, as_attachment=True)
+    
+    return flask.render_template('download.html')
 
 @ app.route('/downloadAuthors', methods=["GET", "POST"])
 def downloadAuthors():
-    # dir_file = str(os.path.dirname(os.path.realpath(__file__)))
-    # dir_results = dir_file + '\\Results\\uploadDOI_Results.zip'
-    # return send_file(dir_results, as_attachment=True)
+
+    # If a HTTPS POST Request is received...
     if request.method=="POST":
+
+        # Directory of results zipped folder
         dir_file = str(os.path.dirname(os.path.realpath(__file__)))
         dir_results = dir_file + '\\Results\\uploadAuthor_Results.zip'
+
+        # Download folder onto local machine
         return send_file(dir_results, as_attachment=True)
+
     return flask.render_template('downloadAuthors.html')
-
-# @ app.route('/downloadAuthorZip', methods=["GET", "POST"])
-# def downloadAuthorZip():
-#     dir_file = str(os.path.dirname(os.path.realpath(__file__)))
-#     dir_results = dir_file + '\\Results\\uploadAuthor_results.csv'
-#     return send_file(dir_results, as_attachment=True)
-
 
 @ app.route('/searchByOptions', methods=["GET", "POST"])
 def searchByOptions():
     
+    # If a HTTPS POST Request is received...
     if request.method=="POST":
+
+        # Retrieve selection from form
         select = request.form.get("uploadList")
 
+        # If selection is DOI, send to upload.html
         if select == "DOI":
             return redirect('/upload')
+
+        # If selection is Author (only other option), send to uploadAuthors.html
         else:
             return redirect('/uploadAuthors')
     
     return flask.render_template('searchByOptions.html')
+
+# @ app.route('/upload_file_validation', methods=['POST'])
+# def upload_file_validation():
+#     options = {
+#         'validation': {
+#             'allowedExts': ['csv']
+#         }
+#     }
+
+#     try:
+#         response = File.upload(FlaskAdapter(request), '/public/', options)
+    
+#     except Exception: 
+#         response = {'error': str(sys.exc_info()[1])}
+        
+#     return json.dumps(response)
         
 # If this is the main module or main program being run (app.py)......
 if __name__ == "__main__":
