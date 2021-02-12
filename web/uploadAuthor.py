@@ -1,3 +1,4 @@
+###### Darpan Start ######
 import os
 import csv
 import pandas
@@ -106,7 +107,8 @@ def downloadAuthor(mysql,dir_csv):
     # send results to zip (directory, zip file name, csv name)
     downloadResultsAsCSV(dir_results,'uploadAuthor_Results.zip','uploadAuthor_Results.csv')
 
-    
+###### Darpan End ######
+
 def searchByAuthor(mysql, fileName):
 
     # Directory of doi list
