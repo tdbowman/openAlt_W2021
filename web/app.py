@@ -168,7 +168,7 @@ def upload():
     ALLOWED_EXTENSIONS = {'csv'}
 
     # Limit of the file size to 16 MB
-    app.config['MAX_CONTENT_LENGTH'] = 16 * 1024 * 1024 
+    app.config['MAX_CONTENT_LENGTH'] = 2 * 1024 * 1024 
 
     # If directory does not exist, create it
     if not os.path.isdir(target):
@@ -280,6 +280,11 @@ def searchByOptions():
             return redirect('/uploadAuthors')
     
     return flask.render_template('searchByOptions.html')
+
+@ app.errorhandler(413)
+def too_large(e):
+    return "File is too large!", 413
+
 
 # @ app.route('/upload_file_validation', methods=['POST'])
 # def upload_file_validation():
