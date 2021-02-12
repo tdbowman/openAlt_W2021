@@ -125,11 +125,13 @@ def downloadAuthor(mysql,dir_csv):
     downloadResultsAsCSV(dir_results,'uploadAuthor_Results.zip','uploadAuthor_Results.csv')
 
     
+# Salsabil's code from line 129-137
 def searchByAuthor(mysql, fileName):
 
     #directory of doi list
     dir = '../web/uploadFiles/' + fileName
 
+    # Send directory and mysql information from flask to script
     downloadAuthor(mysql, dir)
 
     return flask.render_template('downloadAuthors.html')

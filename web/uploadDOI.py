@@ -91,13 +91,13 @@ def downloadDOI(mysql, dir_csv):
     downloadResultsAsCSV(dir_results,'uploadDOI_Results.zip','uploadDOI_Results.csv')
 
 
+# Salsabil's code from line 95-103
 def searchByDOI(mysql, fileName):
     
     #directories
     dir = '../web/uploadFiles/' + fileName
-    dir_file = str(os.path.dirname(os.path.realpath(__file__)))
-    dir_results = dir_file + '\\Results\\uploadDOI_Results.zip'
 
+    # Send directory and mysql information from flask to script
     downloadDOI(mysql, dir)
    
-    return flask.render_template('download.html', dir_zip = dir_results)
+    return flask.render_template('download.html')

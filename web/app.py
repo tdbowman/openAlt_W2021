@@ -157,6 +157,9 @@ def team():
 def licenses():
     return flask.render_template('licenses.html')
 
+# Salsabil's code from line 162-288
+# Beginning of Salsabil's Code
+
 @ app.route('/upload', methods=["GET", "POST"])
 def upload():
 
@@ -284,6 +287,8 @@ def searchByOptions():
 @ app.errorhandler(413)
 def too_large(e):
     return "File is too large!", 413
+
+# End of Salsabil's Code
 
 
 # @ app.route('/upload_file_validation', methods=['POST'])

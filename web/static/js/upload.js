@@ -1,3 +1,5 @@
+// Salsabil's code from line 3 -46
+
 function readURL(input) {
     if (input.files && input.files[0]) {
   
@@ -42,14 +44,3 @@ function readURL(input) {
   function uploadMessage(){
     alert("File uploaded successfully.")
   }
-
-  // function fileValidation(){
-  //   var allowed_Extensions = ('.csv');
-
-  //   if (!allowed_Extensions.exec(input.files)){
-  //     alert('Invalid file type');
-  //   }
-  //   else{
-  //     alert('File accepted.');
-  //   }
-  // }

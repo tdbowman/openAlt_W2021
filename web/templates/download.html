@@ -1,3 +1,4 @@
+<!-- Salsabil's code from line 3 - 36 -->
 
 {% extends 'template.html' %}
 
@@ -8,28 +9,17 @@
 
 <!-- Anything you put here will be in the body-->
 {% block body %}
-<!-- <div class="file-upload">  
-    <form action="{{ url_for('download') }}" method="POST" enctype="multipart/form-data">
-        <div class="container">
-        <a href="/downloadfile" target="blank"><button class="button">Download File</button></a>
-        </div> -->
-        <!-- <div class="file-upload-content">
-            <div class="image-title-wrap">
-            <button type="submit" class="button">Download File</button>
-            </div>
-        </div>
-    </form>
-</div> --> -->
-<br>
-<br>
+<br> <br>
 <body style="background-image: url('../static/images/library.jpg'); background-repeat: no-repeat; background-size:cover;">
   <div class="col-sm-3">
-    <!-- Empty column of size 3. Left of search bar -->
+    <!-- Empty column of size 3. Left of box. -->
   </div>
 
   <div class = "center-screen col-sm-6">
     <div style="border-radius: 25px; padding: 10px; background-color: rgba(60, 65, 70, 0.8); " >
         <h1 style="text-align: center; color: aliceblue;">Download Results for List of DOIs</h1>
+        
+        <!-- Download button -->
         <form action="{{ url_for('download') }}" method="POST">
             <div class="image-title-wrap">
                 <button class="file-upload-btn">Download File</button></a>
@@ -39,23 +29,8 @@
   </div>
 
     <div class="col-sm-3">
-     <!-- Empty column of size 3. Left of search bar -->
+     <!-- Empty column of size 3. Right of box. -->
     </div>
 </body>
-      
-    
-    
-
-<!-- <div class="container">
-    <h3>
-        The path of the zipped result folder is in:
-        <br>
-        {{dir_zip}}
-        <br>
-        Total results found: {{sumQuery}}
-    </h3>
-</div> -->
-
-
 
 {% endblock %}

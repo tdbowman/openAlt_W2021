@@ -1,3 +1,5 @@
+<!-- Salsabil's code from line 3 - 51 -->
+
 {% extends 'template.html' %}
 
 <!-- Anything you put here will be in the HTML head tags-->
@@ -13,7 +15,7 @@
 <br>
 <body style="background-image: url('../static/images/library.jpg'); background-repeat: no-repeat; background-size:cover;">
   <div class="col-sm-3">
-    <!-- Empty column of size 3. Left of search bar -->
+    <!-- Empty column of size 3. Left of box. -->
   </div>
 
   <div class = "center-screen col-sm-6">
@@ -21,6 +23,8 @@
       <h1 style="text-align: center; color: aliceblue;">Upload List of Authors</h1>
         <form action="{{ url_for('uploadAuthors') }}" method="POST" enctype="multipart/form-data">
           <div style="color:black;" class="image-upload-wrap">
+
+            <!-- Drag and drop form for uploading files   -->
             <input class="file-upload-input" name="csv/json" type='file' onchange="readURL(this);" accept=".csv" />
             <div class="drag-text">
               <h3 style="color:aliceblue;">Drag and drop a file or Select Box</h3>
@@ -29,6 +33,7 @@
           
           <div class="file-upload-content">
             <div class="image-title-wrap">
+               <!-- Display message after clicking submit -->
               <button type="submit" onclick="uploadMessage()" class="file-upload-btn">Upload File</button>
             </div>
           </div>
@@ -38,7 +43,7 @@
   </div>
 
   <div class="col-sm-3">
-    <!-- Empty column of size 3. Left of search bar -->
+    <!-- Empty column of size 3. Right of box. -->
   </div>
 </body>
 
