@@ -83,7 +83,7 @@ def downloadDOI(mysql, dir_csv):
     df = pandas.DataFrame(resultSet)
     df.to_csv(dir_results,index=False)
 
-
+    
     # send results to zip (directory, zip file name, csv name)
     downloadResultsAsCSV(dir_results,'uploadDOI_Results.zip','uploadDOI_Results.csv')
 
