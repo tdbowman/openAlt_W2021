@@ -7,6 +7,10 @@ import pandas as pd
 import crossref
 import mysql.connector
 import logging
+from getCountry import extract_country
+from getUniversity import extract_university
+
+
 
 #Author: Mohammad Tahmid
 #Date: 01/31/2021
@@ -41,8 +45,11 @@ def authorIngest(connection, cursor, doi, authorData):
             affiliationToInsert= affiliationData['name']
 
         ##################
-        # TODO: 
-        # 1. Split affilication infomration and adjust author table to account for the split in university, state, etc.
+        # Split affiliation information into country and university
+
+        country = extract_country(affiliation)
+        university = extract_university(affiliation)
+        
         ##################
 
         #Query to check if the record exists in the database
@@ -52,7 +59,9 @@ def authorIngest(connection, cursor, doi, authorData):
             name = '%s' AND
             sequence = '%s' AND 
             affiliation = '%s' AND 
-            fk = '%s'""" % (given_name, family_name, full_name, sequence, affiliationToInsert, fk)
+            country = '%s' AND
+            university = '%s' AND
+            fk = '%s'""" % (given_name, family_name, full_name, sequence, affiliationToInsert, country, university, fk)
         cursor.execute(query)
         resultSet = cursor.fetchall()
         count = resultSet[0][0]
@@ -60,8 +69,8 @@ def authorIngest(connection, cursor, doi, authorData):
         if not count > 0:
 
             #Query the database to insert the values as a row into the table
-            query = "INSERT IGNORE INTO dr_bowman_doi_data_tables.author(given, family, name, sequence, affiliation, fk) VALUES (%s, %s, %s, %s, %s, %s)"
-            queryValues = (given_name, family_name, full_name, sequence, affiliationToInsert, fk)
+            query = "INSERT IGNORE INTO dr_bowman_doi_data_tables.author(given, family, name, sequence, affiliation, country, university, fk) VALUES (%s, %s, %s, %s, %s, %s)"
+            queryValues = (given_name, family_name, full_name, sequence, affiliationToInsert, country, university, fk)
             cursor.execute(query, queryValues)
             connection.commit()
             logging.info("Author metadata inserted for DOI: " + doi + " Name: " + full_name + " fk: " + str(fk))
