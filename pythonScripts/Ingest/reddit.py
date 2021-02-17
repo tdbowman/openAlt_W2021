@@ -83,8 +83,8 @@ def redditIngest(uniqueEvent, cursor, connection):
 
 
     # author: Rihat Rahman
+    # Lines 85-97
     #--------------------------------------------------------------------------------------------------------------------------------------------
-
     table = 'redditevent'
     
     # checks if duplicate event exists, returns [(1,)] if true
@@ -94,7 +94,6 @@ def redditIngest(uniqueEvent, cursor, connection):
     # return to the main program if
     if exists == [(1,)]:
         return
-
     #--------------------------------------------------------------------------------------------------------------------------------------------
 
 

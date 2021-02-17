@@ -81,8 +81,8 @@ def hypothesisIngest(uniqueEvent, cursor, connection):
 
 
     # author: Rihat Rahman
+    # Lines 83-95
     #--------------------------------------------------------------------------------------------------------------------------------------------
-
     table = 'hypothesisevent'
     
     # checks if duplicate event exists, returns [(1,)] if true
@@ -92,7 +92,6 @@ def hypothesisIngest(uniqueEvent, cursor, connection):
     # return to the main program if
     if exists == [(1,)]:
         return
-
     #--------------------------------------------------------------------------------------------------------------------------------------------
 
     try:

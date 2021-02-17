@@ -1,5 +1,7 @@
-# author: Rihat Rahman
 # This script will fetch citation data from OpenCitations API
+# author: Rihat Rahman
+# Lines 1-63
+#-------------------------------------------------------------
 import mysql.connector
 import requests
 import json
@@ -58,3 +60,4 @@ if __name__ == '__main__':
     mysql_username = input("Username: ")
     mysql_password = input("Password: ")
     getCitationData(mysql_username, mysql_password)
+#-------------------------------------------------------------

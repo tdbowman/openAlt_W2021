@@ -75,8 +75,8 @@ def cambiaLensIngest(uniqueEvent, cursor, connection):
             t_relation_type_id = value
 
     # author: Rihat Rahman
+    # Lines 77-89
     #--------------------------------------------------------------------------------------------------------------------------------------------
-
     table = 'cambiaevent'
     
     # checks if duplicate event exists, returns [(1,)] if true
@@ -86,7 +86,6 @@ def cambiaLensIngest(uniqueEvent, cursor, connection):
     # return to the main program if
     if exists == [(1,)]:
         return
-
     #--------------------------------------------------------------------------------------------------------------------------------------------
     
 

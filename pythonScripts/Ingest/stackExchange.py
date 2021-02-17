@@ -83,8 +83,8 @@ def stackExchangeIngest(uniqueEvent, cursor, connection):
 
 
     # author: Rihat Rahman
+    # Lines 85-97
     #--------------------------------------------------------------------------------------------------------------------------------------------
-
     table = 'stackexchangeevent'
     
     # checks if duplicate event exists, returns [(1,)] if true
@@ -94,7 +94,6 @@ def stackExchangeIngest(uniqueEvent, cursor, connection):
     # return to the main program if
     if exists == [(1,)]:
         return
-
     #--------------------------------------------------------------------------------------------------------------------------------------------
 
 

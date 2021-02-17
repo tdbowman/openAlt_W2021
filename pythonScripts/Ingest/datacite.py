@@ -44,8 +44,8 @@ def dataciteIngest(uniqueEvent, cursor, connection):
 
 
     # author: Rihat Rahman
+    # Lines 46-58
     #--------------------------------------------------------------------------------------------------------------------------------------------
-
     table = 'dataciteevent'
     
     # checks if duplicate event exists, returns [(1,)] if true
@@ -55,7 +55,6 @@ def dataciteIngest(uniqueEvent, cursor, connection):
     # return to the main program if
     if exists == [(1,)]:
         return
-
     #--------------------------------------------------------------------------------------------------------------------------------------------
 
 

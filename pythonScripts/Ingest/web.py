@@ -71,8 +71,8 @@ def webIngest(uniqueEvent, cursor, connection):
 
 
     # author: Rihat Rahman
+    # Lines 73-85
     #--------------------------------------------------------------------------------------------------------------------------------------------
-
     table = 'webevent'
     
     # checks if duplicate event exists, returns [(1,)] if true
@@ -82,7 +82,6 @@ def webIngest(uniqueEvent, cursor, connection):
     # return to the main program if
     if exists == [(1,)]:
         return
-
     #--------------------------------------------------------------------------------------------------------------------------------------------
 
 

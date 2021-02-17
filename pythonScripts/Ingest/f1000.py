@@ -75,8 +75,8 @@ def F1000Ingest(uniqueEvent, cursor, connection):
 
 
     # author: Rihat Rahman
+    # Lines 77-89
     #--------------------------------------------------------------------------------------------------------------------------------------------
-
     table = 'f1000event'
     
     # checks if duplicate event exists, returns [(1,)] if true
@@ -86,7 +86,6 @@ def F1000Ingest(uniqueEvent, cursor, connection):
     # return to the main program if
     if exists == [(1,)]:
         return
-
     #--------------------------------------------------------------------------------------------------------------------------------------------
 
     if(len(t_obj_id) < 100):

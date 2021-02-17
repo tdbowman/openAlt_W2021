@@ -1,5 +1,5 @@
-# author: rihat rahman
 # inserts a sample from OpenCitations into MongoDB
+# author: Rihat Rahman
 # Lines 1-24
 #-------------------------------------------------------------
 import requests

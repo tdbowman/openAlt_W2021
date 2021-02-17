@@ -71,8 +71,8 @@ def wordpressIngest(uniqueEvent, cursor, connection):
 
 
     # author: Rihat Rahman
+    # Lines 73-85
     #--------------------------------------------------------------------------------------------------------------------------------------------
-
     table = 'wordpressevent'
     
     # checks if duplicate event exists, returns [(1,)] if true
@@ -82,7 +82,6 @@ def wordpressIngest(uniqueEvent, cursor, connection):
     # return to the main program if
     if exists == [(1,)]:
         return
-
     #--------------------------------------------------------------------------------------------------------------------------------------------
 
 

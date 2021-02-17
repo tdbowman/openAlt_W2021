@@ -1,9 +1,10 @@
-# Author: Rihat Rahman
 # This scripts fetches events for papers from dr_bowman_doi_data_tables database and stores event information 
 # in JSON files. It also creates a CSV filecontaining information about which JSON file belongs to what DOI.
 # After running this script, change dataDirectory of IngestJSONMain.py to eventData folder and run that script 
 # to ingest data into crossrefevent database
-
+# author: Rihat Rahman
+# Lines 1-63
+#-------------------------------------------------------------
 import mysql.connector
 import os
 import platform
@@ -83,3 +84,4 @@ def fetch_events():
 
 if __name__ == '__main__':
     fetch_events()
+#-------------------------------------------------------------

@@ -82,8 +82,8 @@ def newsfeedIngest(uniqueEvent, cursor, connection):
 
 
     # author: Rihat Rahman
+    # Lines 84-96
     #--------------------------------------------------------------------------------------------------------------------------------------------
-
     table = 'newsfeedevent'
     
     # checks if duplicate event exists, returns [(1,)] if true
@@ -93,7 +93,6 @@ def newsfeedIngest(uniqueEvent, cursor, connection):
     # return to the main program if
     if exists == [(1,)]:
         return
-
     #--------------------------------------------------------------------------------------------------------------------------------------------
 
 
