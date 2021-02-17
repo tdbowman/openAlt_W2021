@@ -141,6 +141,9 @@ CREATE TABLE IF NOT EXISTS citation_count
 	-- To uniquely identify each row. Autoincrements for an easy primary key.
 	id				BIGINT AUTO_INCREMENT,
     
+    -- digital object identifier
+    doi			varchar(255),
+    
     -- the number of incoming citations to the input bibliographic entity.
     count			bigint,
 	
@@ -151,6 +154,9 @@ CREATE TABLE IF NOT EXISTS reference_count
 (
 	-- To uniquely identify each row. Autoincrements for an easy primary key.
 	id				BIGINT AUTO_INCREMENT,
+    
+    -- digital object identifier
+    doi			varchar(255),
     
     -- the number of incoming citations to the input bibliographic entity.
     count			bigint,
