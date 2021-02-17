@@ -38,13 +38,18 @@ def getCitationData(mysql_username, mysql_password):
             citationResponse = requests.get('https://opencitations.net/index/croci/api/v1/citations/' + articleDOI)
             citationCountsResponse = requests.get('https://opencitations.net/index/croci/api/v1/citation-count/' + articleDOI)
 
+            referenceResponse = requests.get('https://opencitations.net/index/croci/api/v1/references/' + articleDOI)
+            referenceCountsResponse = requests.get('https://opencitations.net/index/croci/api/v1/reference-count/' + articleDOI)
+
             citationsJSON = citationResponse.json()
             countJSON = citationCountsResponse.json()
+            referenceJSON = referenceResponse.json()
+            referenceCountsJson = referenceCountsResponse.json()
 
             if response.json() != []:
 
                 # Passing data to ingest script
-                OCIngest(citationDatabase, openCitationsCursor, articleDOI, citationsJSON, countJSON)
+                OCIngest(citationDatabase, openCitationsCursor, articleDOI, citationsJSON, countJSON, referenceJSON, referenceCountsResponse)
                 
 
 if __name__ == '__main__':
