@@ -121,6 +121,9 @@ shutil.make_archive(str(dir_results),'zip',dir_results)
 if os.path.exists(dir_results):
     shutil.rmtree(dir_results)
 
+zipResults = dir_results + '.zip'
+print("RESULTS ZIP",zipResults)
+
 
 
 ###### Darpan End ######

@@ -4,6 +4,10 @@ import csv
 import pandas
 import logging
 import flask
+import platform
+import mysql
+import shutil
+import datetime as dt
 from flask import redirect
 
 # importing download function to download zip folder containing results CSV file
@@ -22,11 +26,11 @@ def downloadDOI(mysql, dir_csv):
     dir_config = dir_file + '\\uploadDOI_config.txt'
 
     # path of file to print results to
-    dir_results = dir_file  + '\\Results\\uploadDOI_results.csv'
+    dir_results = dir_file  + '\\Results\\doiEvents_' + str(dt.datetime.now().strftime("%Y-%m-%d_%H-%M-%S"))
 
-    #Delete temp CSV file if exists 
-    if os.path.exists(dir_results):
-        os.remove(dir_results)
+    # Create folder to hold results
+    if not os.path.exists(dir_results):
+        os.mkdir(dir_results)
 
     # Set the logging parameters
     logging.basicConfig(filename= dir_file + '\\Logs\\uploadDOI.log', filemode='a', level=logging.INFO,
@@ -60,32 +64,52 @@ def downloadDOI(mysql, dir_csv):
     # Remove duplicates from the doi array
     doi_arr = list(dict.fromkeys(doi_arr))
 
-    # Join array for sql query
-    joinedArr = "\'" + "','".join(doi_arr) + "\'"
+    # # Join array for sql query
+    # joinedArr = "\'" + "','".join(doi_arr) + "\'"
 
     #Cursor makes connection with the db
     cursor = mysql.connection.cursor() 
 
     # Execution of query and output of result + log
-    query = "SELECT DOI, url, container_title, created_date_parts, issued_date_parts, language, publisher, title " \
-            "FROM dr_bowman_doi_data_tables._main_ WHERE DOI IN " \
-            "(" + joinedArr + ");"
-    cursor.execute(query)
-    resultSet = cursor.fetchall()
+    
+    for doi in doi_arr:
+        query = "SELECT * FROM crossrefeventdatamain.main WHERE objectID LIKE '%" + doi + "%'"
+        cursor.execute(query)
+        resultSet = cursor.fetchall()
 
-    print('\n',query)
-    logging.info(query)
-    print('RESULT SET',resultSet)
-    logging.info(resultSet)
+        # Print queries and results in console and log
+        print('\n',query)
+        logging.info(query)
+        print('RESULT SET:', resultSet)
+        logging.info(resultSet)
 
+        # Replace invalid chars for file name
+        file_id = doi.replace('/','-')
+        file_id = file_id.replace('.','-')
+        print('FILE ID:', file_id)
 
-    # Write result to file.
-    df = pandas.DataFrame(resultSet)
-    df.to_csv(dir_results,index=False)
+        resultPath = dir_results + '\\doiEvent_' + str(file_id) + '.csv'
+
+        # Write result to file.
+        df = pandas.DataFrame(resultSet)
+        df.columns = [i[0] for i in cursor.description]
+        df.to_csv(resultPath,index=False)
+
+        # # send results to zip (directory, zip file name, csv name)
+        # downloadResultsAsCSV(dir_results,'uploadDOI_Results.zip','uploadDOI_Results.csv')
 
     
-    # send results to zip (directory, zip file name, csv name)
-    downloadResultsAsCSV(dir_results,'uploadDOI_Results.zip','uploadDOI_Results.csv')
+    # Zip folder containing the CSV files
+    shutil.make_archive(str(dir_results),'zip',dir_results)
+
+    # Delete unzipped folder
+    if os.path.exists(dir_results):
+        shutil.rmtree(dir_results)
+
+    # Path of zip folder
+    zipResults = str(dir_results + '.zip')
+    return zipResults
+        
 
 ###### Darpan End ######
 
@@ -94,8 +118,9 @@ def searchByDOI(mysql, fileName):
     #directories
     dir = '../web/uploadFiles/' + fileName
     dir_file = str(os.path.dirname(os.path.realpath(__file__)))
-    dir_results = dir_file + '\\Results\\uploadDOI_Results.zip'
+    #dir_results = dir_file + '\\Results\\uploadDOI_Results.zip'
 
-    downloadDOI(mysql, dir)
+    eventZip = downloadDOI(mysql, dir)
+    print("EVENT DATA:",eventZip)
    
-    return flask.render_template('download.html', dir_zip = dir_results)
+    return flask.render_template('download.html', dir_zip = eventZip)
