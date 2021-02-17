@@ -28,7 +28,7 @@ except:
 
 # dataDirectory = "./JSON"
 
-dataDirectory = "C:\\Users\\salsa\\Documents\\GitHub\\openAlt_W2021\\eventData"
+dataDirectory = "C:\\Users\\darpa\\Desktop\\openAlt_W2021\\eventData"
 
 print("MySQL Credentials")
 mysql_username = input("Username: ")
