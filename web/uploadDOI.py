@@ -13,6 +13,17 @@ from flask import redirect
 # importing download function to download zip folder containing results CSV file
 from downloadResultsCSV import downloadResultsAsCSV
 
+# Global Variable
+zipEvents = ''
+
+# Setter for zip directory
+def setEventPath(path):
+    zipEvents = path
+    print("SET EVENT PATH:",zipEvents)
+
+# Getter for zip directory, used to retrieve directory in front end
+def getEventPath():
+    return zipEvents
 
 def downloadDOI(mysql, dir_csv):
 
@@ -107,8 +118,9 @@ def downloadDOI(mysql, dir_csv):
         shutil.rmtree(dir_results)
 
     # Path of zip folder
-    zipResults = str(dir_results + '.zip')
-    return zipResults
+    zipEvents = str(dir_results + '.zip')
+    setEventPath(zipEvents)
+    return zipEvents
         
 
 ###### Darpan End ######
