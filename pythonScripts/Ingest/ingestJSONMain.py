@@ -26,9 +26,9 @@ except:
 
 # Change these to suit your system
 
-# dataDirectory = "./JSON"
+dataDirectory = "./JSON"
 
-dataDirectory = "C:\\Users\\tasha\\Documents\\GitHub\\openAlt_W2021\\eventData"
+# dataDirectory = "C:\\Users\\tasha\\Documents\\GitHub\\openAlt_W2021\\eventData"
 
 print("MySQL Credentials")
 mysql_username = input("Username: ")
