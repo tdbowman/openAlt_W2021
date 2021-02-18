@@ -5,7 +5,8 @@
 import mysql.connector
 import requests
 import json
-from OpenCitataionsIngest import OCIngest
+from OpenCitationsCitationIngest import OCCitationIngest
+from OpenCitationsReferenceIngest import OCReferenceIngest
 
 def getCitationData(mysql_username, mysql_password):
 
@@ -50,8 +51,11 @@ def getCitationData(mysql_username, mysql_password):
 
             if response.json() != []:
 
-                # Passing data to ingest script
-                OCIngest(citationDatabase, openCitationsCursor, articleDOI, citationsJSON, countJSON, referenceJSON, referenceCountsResponse)
+                # Passing data to citation ingest script
+                OCCitationIngest(citationDatabase, openCitationsCursor, articleDOI, citationsJSON, countJSON)
+
+                # passing data to reference ingest script
+                OCReferenceIngest(citationDatabase, openCitationsCursor, articleDOI, referenceJSON, referenceCountsJson)
                 
 
 if __name__ == '__main__':
