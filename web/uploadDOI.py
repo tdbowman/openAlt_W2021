@@ -13,16 +13,14 @@ from flask import redirect
 # importing download function to download zip folder containing results CSV file
 from downloadResultsCSV import downloadResultsAsCSV
 
-# Global Variable
-zipEvents = ''
-
 # Setter for zip directory
-def setEventPath(path):
+def setZipEvents(path):
+    global zipEvents
     zipEvents = path
     print("SET EVENT PATH:",zipEvents)
 
 # Getter for zip directory, used to retrieve directory in front end
-def getEventPath():
+def getZipEvents():
     return zipEvents
 
 def downloadDOI(mysql, dir_csv):
@@ -81,8 +79,10 @@ def downloadDOI(mysql, dir_csv):
     #Cursor makes connection with the db
     cursor = mysql.connection.cursor() 
 
+    # Count of DOIs found in database
+    count = 0
+
     # Execution of query and output of result + log
-    
     for doi in doi_arr:
         query = "SELECT * FROM crossrefeventdatamain.main WHERE objectID LIKE '%" + doi + "%'"
         cursor.execute(query)
@@ -100,16 +100,30 @@ def downloadDOI(mysql, dir_csv):
         print('FILE ID:', file_id)
 
         resultPath = dir_results + '\\doiEvent_' + str(file_id) + '.csv'
+        emptyResultPath = dir_results + '\\NotFound.csv'
 
+       
         # Write result to file.
         df = pandas.DataFrame(resultSet)
-        df.columns = [i[0] for i in cursor.description]
-        df.to_csv(resultPath,index=False)
 
-        # # send results to zip (directory, zip file name, csv name)
-        # downloadResultsAsCSV(dir_results,'uploadDOI_Results.zip','uploadDOI_Results.csv')
+        
+        # If query outputs no results, add to not found csv, else write
+        if df.empty:
+            # CSV containing list of results not found
+            with open(emptyResultPath,'a',newline='') as emptyCSV:
+                writer = csv.writer(emptyCSV)
+                writer.writerow([doi])
+            print("DOI NOT FOUND:", doi)
+            logging.info("DOI NOT FOUND: " + doi)
+        else:
+            df.columns = [i[0] for i in cursor.description]  ###### CAUSED ISSUE ON SALSBILS MACHINE #######
+            df.to_csv(resultPath,index=False)
+            count = count + 1
+
+        
 
     
+    print(count, "results found out of", len(doi_arr))
     # Zip folder containing the CSV files
     shutil.make_archive(str(dir_results),'zip',dir_results)
 
@@ -119,9 +133,11 @@ def downloadDOI(mysql, dir_csv):
 
     # Path of zip folder
     zipEvents = str(dir_results + '.zip')
-    setEventPath(zipEvents)
+    setZipEvents(zipEvents)
+
     return zipEvents
         
+
 
 ###### Darpan End ######
 
@@ -135,4 +151,4 @@ def searchByDOI(mysql, fileName):
     eventZip = downloadDOI(mysql, dir)
     print("EVENT DATA:",eventZip)
    
-    return flask.render_template('download.html', dir_zip = eventZip)
+    return flask.render_template('download.html')

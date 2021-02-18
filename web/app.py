@@ -14,7 +14,8 @@ from authorDashboardLogic import authorDashboardLogic
 from landingPageStats import landingPageStats
 from landingPageArticles import landingPageArticles
 from landingPageJournals import landingPageJournals
-from uploadDOI import searchByDOI, getEventPath
+from uploadDOI import searchByDOI, getZipEvents
+#import uploadDOI
 from uploadAuthor import searchByAuthor
 
 from getPassword import getPassword
@@ -231,7 +232,7 @@ def download():
         # dir_file = str(os.path.dirname(os.path.realpath(__file__)))
         # dir_results = dir_file + '\\Results\\uploadDOI_Results.zip'
         
-        test = getEventPath()
+        test = getZipEvents()
         print("ZIP EVENTS", test)
         return send_file(test, as_attachment=True)
     return flask.render_template('download.html')
