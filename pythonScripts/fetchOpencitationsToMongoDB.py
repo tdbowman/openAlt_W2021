@@ -1,3 +1,5 @@
+# author: Rihat Rahman
+# Lines 1-111
 import json
 import requests
 import pymongo
@@ -34,12 +36,7 @@ def fetchCitationData (doi, openCitationsCursor):
 
     # collections
     citationCollections = citationsDatabase["citations"]
-    citationCountCollections = citationsDatabase["citation_counts"]
     referenceCollections = citationsDatabase["references"]
-    referenceCountsCollections = citationsDatabase["reference_counts"]
-
-
-
 
 
     # get list of citations that already exist in MySQL
@@ -96,7 +93,7 @@ def fetchCitationData (doi, openCitationsCursor):
 
 
 if __name__ == '__main__':
-    
+
     # mysql credentials
     mysql_username ='root'
     mysql_password = 'Dsus1209.'
