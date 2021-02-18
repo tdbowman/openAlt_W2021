@@ -17,7 +17,7 @@ from downloadResultsCSV import downloadResultsAsCSV
 def setZipEvents(path):
     global zipEvents
     zipEvents = path
-    print("SET EVENT PATH:",zipEvents)
+    print("RESULTS DIRECTORY:", zipEvents)
 
 # Getter for zip directory, used to retrieve directory in front end
 def getZipEvents():
@@ -92,15 +92,7 @@ def downloadDOI(mysql, dir_csv):
         print('\n',query)
         logging.info(query)
         print('RESULT SET:', resultSet)
-        logging.info(resultSet)
-
-        # Replace invalid chars for file name
-        file_id = doi.replace('/','-')
-        file_id = file_id.replace('.','-')
-        print('FILE ID:', file_id)
-
-        resultPath = dir_results + '\\doiEvent_' + str(file_id) + '.csv'
-        emptyResultPath = dir_results + '\\NotFound.csv'
+        logging.info(resultSet)   
 
        
         # Write result to file.
@@ -110,20 +102,32 @@ def downloadDOI(mysql, dir_csv):
         # If query outputs no results, add to not found csv, else write
         if df.empty:
             # CSV containing list of results not found
+            emptyResultPath = dir_results + '\\NotFound.csv'
+            
             with open(emptyResultPath,'a',newline='') as emptyCSV:
                 writer = csv.writer(emptyCSV)
                 writer.writerow([doi])
+           
             print("DOI NOT FOUND:", doi)
             logging.info("DOI NOT FOUND: " + doi)
+
         else:
+            # Replace invalid chars for file name
+            file_id = doi.replace('/','-')
+            file_id = file_id.replace('.','-')
+            print('FILE ID:', file_id)
+
+            resultPath = dir_results + '\\doiEvent_' + str(file_id) + '.csv'
             df.columns = [i[0] for i in cursor.description]  ###### CAUSED ISSUE ON SALSBILS MACHINE #######
             df.to_csv(resultPath,index=False)
             count = count + 1
 
         
 
-    
-    print(count, "results found out of", len(doi_arr))
+    # Stats of query
+    print('\n')
+    print(count, 'results found out of', len(doi_arr))
+   
     # Zip folder containing the CSV files
     shutil.make_archive(str(dir_results),'zip',dir_results)
 
@@ -137,18 +141,13 @@ def downloadDOI(mysql, dir_csv):
 
     return zipEvents
         
-
-
 ###### Darpan End ######
 
 def searchByDOI(mysql, fileName):
     
-    #directories
+    # Directory of uploaded file 
     dir = '../web/uploadFiles/' + fileName
-    dir_file = str(os.path.dirname(os.path.realpath(__file__)))
-    #dir_results = dir_file + '\\Results\\uploadDOI_Results.zip'
 
-    eventZip = downloadDOI(mysql, dir)
-    print("EVENT DATA:",eventZip)
+    downloadDOI(mysql, dir)
    
     return flask.render_template('download.html')
