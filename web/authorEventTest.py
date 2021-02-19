@@ -69,9 +69,11 @@ cursor = connection.cursor()
 
 print(author_arr)
 
-count = 1
+#Count of authors found
+count = 0
+
 for author in author_arr:
-    # Execution of query and output of result + log
+    # Author Info Query
     query = "SELECT affiliation, authenticated_orcid, family, given, name, orcid, sequence, suffix " \
                 "FROM doidata.author where name LIKE " \
                 "\'%" + author + "%\'" + ';'
@@ -83,22 +85,60 @@ for author in author_arr:
     print('RESULT SET:',resultSet)
     logging.info(resultSet)
 
-   
-    file_id = author.replace(' ','-')
-    file_id = file_id.replace('.','')
-    print('FILE ID:', file_id)
-
-    resultPath = dir_results + '\\authorEvent_' + str(file_id) + '.csv'
-
     # Write result to file.
     df = pandas.DataFrame(resultSet)
-    df.columns = [i[0] for i in cursor.description]
-    df.to_csv(resultPath,index=False)
 
-    count = count + 1
+    # If query outputs no results, then author not in database
+    if df.empty:
+        # CSV containing list of results not found
+        emptyResultPath = dir_results + '\\NotFound.csv'
+        
+        with open(emptyResultPath,'a',newline='') as emptyCSV:
+            writer = csv.writer(emptyCSV)
+            writer.writerow([author])
+        
+        print("AUTHOR NOT FOUND:", author)
+        logging.info("AUTHOR NOT FOUND: " + author)
 
-    # send results to zip (directory, zip file name, csv name)
-    # downloadResultsAsCSV(dir_results,'uploadDOI_Results.zip','uploadDOI_Results.csv')
+    else:
+        count = count + 1
+        # Replace invalid chars for file name
+        file_id = author.replace(' ','-')
+        file_id = file_id.replace('.','')
+        print('FILE ID:', file_id)
+
+        resultPath = dir_results + '\\' + str(file_id) + '_authorInfo.csv'
+        df.columns = [i[0] for i in cursor.description]  ###### CAUSED ISSUE ON SALSBILS MACHINE #######
+        df.to_csv(resultPath,index=False)
+        
+    
+
+        # Author Associated DOIs Query
+        query = "SELECT * FROM doidata._main_ JOIN doidata.author ON doidata._main_.id = doidata.author.fk WHERE doidata.author.name  LIKE " \
+                    "\'%" + author + "%\'" + ';'
+        cursor.execute(query)
+        resultSet = cursor.fetchall()
+
+  
+        print('\n',query)
+        logging.info(query)
+        print('RESULT SET:',resultSet)
+        logging.info(resultSet)
+
+        resultPath = dir_results + '\\' + str(file_id) + '_authorDOIs.csv'
+
+        # Write associated DOI info to file.
+        df = pandas.DataFrame(resultSet)
+        
+        if not df.empty:
+            df.columns = [i[0] for i in cursor.description]
+            df.to_csv(resultPath,index=False)
+
+
+
+# Stats of query
+print('\n')
+print(count, 'results found out of', len(author_arr))   
 
 shutil.make_archive(str(dir_results),'zip',dir_results)
 
