@@ -15,3 +15,39 @@
 10-Feb-21 17:26:50 - 127.0.0.1 - - [10/Feb/2021 17:26:50] "[37mPOST /uploadAuthors HTTP/1.1[0m" 200 -
 10-Feb-21 17:26:52 - 127.0.0.1 - - [10/Feb/2021 17:26:52] "[37mPOST /downloadAuthors HTTP/1.1[0m" 200 -
 10-Feb-21 17:28:40 -  * Detected change in 'C:\\Users\\darpa\\Desktop\\openAlt_W2021\\web\\uploadDOI.py', reloading
+19-Feb-21 15:38:13 - SELECT affiliation, authenticated_orcid, family, given, name, orcid, sequence, suffix FROM dr_bowman_doi_data_tables.author where name LIKE '%smith%';
+19-Feb-21 15:38:13 - [(None, None, 'Smith', 'Jane', 'Jane Smith', None, None, None), ('The University of Iowa Iowa City', None, 'Smith', 'Elaine', 'Elaine Smith', None, 'additional', None), ('', None, 'Smith', 'G. D.', 'G. D. Smith', None, 'first', None), ('Health Psychology Research Unit, Department of Psychology, University of Bristol, Bristol BS8 1TN, UK', None, 'Smith', 'Andrew', 'Andrew Smith', None, 'first', None), ('', None, 'Smith', 'R.D.', 'R.D. Smith', None, 'additional', None), ('', None, 'Smith', 'P.', 'P. Smith', None, 'additional', None)]
+19-Feb-21 15:38:13 - SELECT affiliation, authenticated_orcid, family, given, name, orcid, sequence, suffix FROM dr_bowman_doi_data_tables.author where name LIKE '%zhang%';
+19-Feb-21 15:38:13 - [('The University of Iowa Iowa City', None, 'Zhang', 'Xuyang', 'Xuyang Zhang', None, 'additional', None), ('', None, 'Zhang', 'Yi-Cheng', 'Yi-Cheng Zhang', None, 'additional', None)]
+19-Feb-21 15:38:13 - SELECT affiliation, authenticated_orcid, family, given, name, orcid, sequence, suffix FROM dr_bowman_doi_data_tables.author where name LIKE '%darpan shah%';
+19-Feb-21 15:38:13 - [(None, None, 'Shah', 'Darpan', 'Darpan Shah', None, None, None)]
+19-Feb-21 15:38:13 - SELECT affiliation, authenticated_orcid, family, given, name, orcid, sequence, suffix FROM dr_bowman_doi_data_tables.author where name LIKE '%allen h. renear%';
+19-Feb-21 15:38:13 - [(None, None, 'Renear', 'Allen H.', 'Allen H. Renear', None, None, None)]
+19-Feb-21 15:38:13 - SELECT affiliation, authenticated_orcid, family, given, name, orcid, sequence, suffix FROM dr_bowman_doi_data_tables.author where name LIKE '%hardy%';
+19-Feb-21 15:38:13 - [('', None, 'Hardy', 'G.E.', 'G.E. Hardy', None, 'additional', None)]
+19-Feb-21 15:38:13 - SELECT affiliation, authenticated_orcid, family, given, name, orcid, sequence, suffix FROM dr_bowman_doi_data_tables.author where name LIKE '%jane smith%';
+19-Feb-21 15:38:13 - [(None, None, 'Smith', 'Jane', 'Jane Smith', None, None, None)]
+19-Feb-21 15:38:13 - SELECT affiliation, authenticated_orcid, family, given, name, orcid, sequence, suffix FROM dr_bowman_doi_data_tables.author where name LIKE '%wickett%';
+19-Feb-21 15:38:13 - [(None, None, 'Wickett', 'Karen M.', 'Karen M. Wickett', None, None, None)]
+19-Feb-21 15:38:13 - SELECT affiliation, authenticated_orcid, family, given, name, orcid, sequence, suffix FROM dr_bowman_doi_data_tables.author where name LIKE '%okamoto%';
+19-Feb-21 15:38:13 - [('', None, 'Okamoto', 'K.', 'K. Okamoto', None, 'first', None)]
+19-Feb-21 15:38:14 - SELECT affiliation, authenticated_orcid, family, given, name, orcid, sequence, suffix FROM dr_bowman_doi_data_tables.author where name LIKE '%d.a. golya%';
+19-Feb-21 15:38:14 - [('', None, 'Golya', 'D.A.', 'D.A. Golya', None, 'additional', None)]
+19-Feb-21 15:38:45 - SELECT affiliation, authenticated_orcid, family, given, name, orcid, sequence, suffix FROM dr_bowman_doi_data_tables.author where name LIKE '%smith%';
+19-Feb-21 15:38:45 - [(None, None, 'Smith', 'Jane', 'Jane Smith', None, None, None), ('The University of Iowa Iowa City', None, 'Smith', 'Elaine', 'Elaine Smith', None, 'additional', None), ('', None, 'Smith', 'G. D.', 'G. D. Smith', None, 'first', None), ('Health Psychology Research Unit, Department of Psychology, University of Bristol, Bristol BS8 1TN, UK', None, 'Smith', 'Andrew', 'Andrew Smith', None, 'first', None), ('', None, 'Smith', 'R.D.', 'R.D. Smith', None, 'additional', None), ('', None, 'Smith', 'P.', 'P. Smith', None, 'additional', None)]
+19-Feb-21 15:38:45 - SELECT affiliation, authenticated_orcid, family, given, name, orcid, sequence, suffix FROM dr_bowman_doi_data_tables.author where name LIKE '%zhang%';
+19-Feb-21 15:38:45 - [('The University of Iowa Iowa City', None, 'Zhang', 'Xuyang', 'Xuyang Zhang', None, 'additional', None), ('', None, 'Zhang', 'Yi-Cheng', 'Yi-Cheng Zhang', None, 'additional', None)]
+19-Feb-21 15:38:45 - SELECT affiliation, authenticated_orcid, family, given, name, orcid, sequence, suffix FROM dr_bowman_doi_data_tables.author where name LIKE '%darpan shah%';
+19-Feb-21 15:38:45 - [(None, None, 'Shah', 'Darpan', 'Darpan Shah', None, None, None)]
+19-Feb-21 15:38:45 - SELECT affiliation, authenticated_orcid, family, given, name, orcid, sequence, suffix FROM dr_bowman_doi_data_tables.author where name LIKE '%allen h. renear%';
+19-Feb-21 15:38:45 - [(None, None, 'Renear', 'Allen H.', 'Allen H. Renear', None, None, None)]
+19-Feb-21 15:38:46 - SELECT affiliation, authenticated_orcid, family, given, name, orcid, sequence, suffix FROM dr_bowman_doi_data_tables.author where name LIKE '%hardy%';
+19-Feb-21 15:38:46 - [('', None, 'Hardy', 'G.E.', 'G.E. Hardy', None, 'additional', None)]
+19-Feb-21 15:38:46 - SELECT affiliation, authenticated_orcid, family, given, name, orcid, sequence, suffix FROM dr_bowman_doi_data_tables.author where name LIKE '%jane smith%';
+19-Feb-21 15:38:46 - [(None, None, 'Smith', 'Jane', 'Jane Smith', None, None, None)]
+19-Feb-21 15:38:46 - SELECT affiliation, authenticated_orcid, family, given, name, orcid, sequence, suffix FROM dr_bowman_doi_data_tables.author where name LIKE '%wickett%';
+19-Feb-21 15:38:46 - [(None, None, 'Wickett', 'Karen M.', 'Karen M. Wickett', None, None, None)]
+19-Feb-21 15:38:46 - SELECT affiliation, authenticated_orcid, family, given, name, orcid, sequence, suffix FROM dr_bowman_doi_data_tables.author where name LIKE '%okamoto%';
+19-Feb-21 15:38:46 - [('', None, 'Okamoto', 'K.', 'K. Okamoto', None, 'first', None)]
+19-Feb-21 15:38:46 - SELECT affiliation, authenticated_orcid, family, given, name, orcid, sequence, suffix FROM dr_bowman_doi_data_tables.author where name LIKE '%d.a. golya%';
+19-Feb-21 15:38:46 - [('', None, 'Golya', 'D.A.', 'D.A. Golya', None, 'additional', None)]

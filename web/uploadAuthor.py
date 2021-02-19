@@ -54,12 +54,12 @@ def downloadAuthor(mysql,dir_csv):
     author_arr = []
 
     # Pandas library reads doi list
-    doi_list = pandas.read_csv(dir_template, header=None)
+    author_list = pandas.read_csv(dir_template, header=None)
 
 
     # Adds doi values into array and prints the array
-    for x in range(len(doi_list)):
-        author_arr.append(doi_list.values[x][0].lower())
+    for x in range(len(author_list)):
+        author_arr.append(author_list.values[x][0].lower())
 
     # Remove duplicates from author array
     author_arr = list(dict.fromkeys(author_arr))
@@ -76,11 +76,11 @@ def downloadAuthor(mysql,dir_csv):
     resultSet = []
     index = 0
 
-    for values in author_arr:
+    for author in author_arr:
 
         query = "SELECT affiliation, authenticated_orcid, family, given, name, orcid, sequence, suffix " \
                 "FROM dr_bowman_doi_data_tables.author where name LIKE " \
-                "\'%" + values + "%\'" + ';'
+                "\'%" + author + "%\'" + ';'
         cursor.execute(query)
         result = cursor.fetchall()
         resultSet.append(result)
