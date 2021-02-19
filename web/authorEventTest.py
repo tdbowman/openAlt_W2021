@@ -73,7 +73,7 @@ count = 1
 for author in author_arr:
     # Execution of query and output of result + log
     query = "SELECT affiliation, authenticated_orcid, family, given, name, orcid, sequence, suffix " \
-                "FROM dr_bowman_doi_data_tables.author where name LIKE " \
+                "FROM doidata.author where name LIKE " \
                 "\'%" + author + "%\'" + ';'
     cursor.execute(query)
     resultSet = cursor.fetchall()

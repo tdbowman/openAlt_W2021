@@ -79,7 +79,7 @@ def downloadAuthor(mysql,dir_csv):
     for author in author_arr:
 
         query = "SELECT affiliation, authenticated_orcid, family, given, name, orcid, sequence, suffix " \
-                "FROM dr_bowman_doi_data_tables.author where name LIKE " \
+                "FROM doidata.author where name LIKE " \
                 "\'%" + author + "%\'" + ';'
         cursor.execute(query)
         result = cursor.fetchall()

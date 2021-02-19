@@ -30,7 +30,7 @@ app = flask.Flask(__name__)
 app.config['MYSQL_USER'] = mysql_username
 app.config['MYSQL_PASSWORD'] = mysql_password
 # Or use the database.table which will allow us to join the databases - the one with author, and the one with events
-app.config['MYSQL_DB'] = 'dr_bowman_doi_data_tables'
+app.config['MYSQL_DB'] = 'doidata'
 app.config['MYSQL_CURSORCLASS'] = 'DictCursor'
 
 # Database initialization and cursor
