@@ -1,5 +1,6 @@
-create database dr_bowman_doi_data_tables;
-use dr_bowman_doi_data_tables;
+-- Darpan (changed schema name)
+create database doidata;
+use doidata;
 
 CREATE TABLE `_main_` (
   `id` int unsigned NOT NULL AUTO_INCREMENT,
