@@ -149,5 +149,9 @@ def searchByDOI(mysql, fileName):
     dir = '../web/uploadFiles/' + fileName
 
     downloadDOI(mysql, dir)
+
+    # Delete uploaded file
+    if os.path.exists(dir):
+        os.remove(dir)
    
     return flask.render_template('download.html')

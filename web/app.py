@@ -15,8 +15,7 @@ from landingPageStats import landingPageStats
 from landingPageArticles import landingPageArticles
 from landingPageJournals import landingPageJournals
 from uploadDOI import searchByDOI, getZipEvents
-#import uploadDOI
-from uploadAuthor import searchByAuthor
+from uploadAuthor import searchByAuthor, getZipAuthor
 
 from getPassword import getPassword
 
@@ -233,7 +232,7 @@ def download():
         # dir_results = dir_file + '\\Results\\uploadDOI_Results.zip'
         
         test = getZipEvents()
-        print("ZIP EVENTS", test)
+        print("ZIP EVENTS:", test)
         return send_file(test, as_attachment=True)
     return flask.render_template('download.html')
 
@@ -245,13 +244,10 @@ def download():
 
 @ app.route('/downloadAuthors', methods=["GET", "POST"])
 def downloadAuthors():
-    # dir_file = str(os.path.dirname(os.path.realpath(__file__)))
-    # dir_results = dir_file + '\\Results\\uploadDOI_Results.zip'
-    # return send_file(dir_results, as_attachment=True)
     if request.method=="POST":
-        dir_file = str(os.path.dirname(os.path.realpath(__file__)))
-        dir_results = dir_file + '\\Results\\uploadAuthor_Results.zip'
-        return send_file(dir_results, as_attachment=True)
+        
+        print("ZIP AUTHOR:",getZipAuthor())
+        return send_file(getZipAuthor(), as_attachment=True)
     return flask.render_template('downloadAuthors.html')
 
 # @ app.route('/downloadAuthorZip', methods=["GET", "POST"])

@@ -4,53 +4,51 @@ import csv
 import pandas
 import logging
 import flask
+import platform
+import mysql
+import shutil
+import datetime as dt
+from flask import redirect
 
 # importing download function to download zip folder containing results CSV file
 from downloadResultsCSV import downloadResultsAsCSV
 
 ### SAMPLE AUTHOR API INFO ###
 ### https://api.crossref.org/works?query=renear+ontologies ###
-# "author": [
-#                     {
-#                         "given": "Allen H.",
-#                         "family": "Renear",
-#                         "sequence": "first",
-#                         "affiliation": [
-#                             {
-#                                 "name": "Graduate School of Library and Information Science, University of Illinois at Urbana-Champaign"
-#                             }
-#                         ]
-#                     },
-#                     {
-#                         "given": "Karen M.",
-#                         "family": "Wickett",
-#                         "sequence": "additional",
-#                         "affiliation": [
-#                             {
-#                                 "name": "Graduate School of Library and Information Science, University of Illinois at Urbana-Champaign"
-#                             }
-#                         ]
-#                     }
-#                 ]
+
+
+# Setter for zip directory
+def setZipAuthor(path):
+    global zipAuthor
+    zipAuthor = path
+    print("RESULTS DIRECTORY:", zipAuthor)
+
+
+# Getter for zip directory, used to retrieve directory in front end
+def getZipAuthor():
+    return zipAuthor
+
 
 def downloadAuthor(mysql,dir_csv):
 
     # Directories 
     dir_file = str(os.path.dirname(os.path.realpath(__file__)))
-    dir_template = dir_csv
-    dir_results = dir_file + '\\Results\\uploadAuthor_Results.csv'
 
+    # Path of uploaded file
+    dir_template = dir_csv
+
+    # Path of results folde with current time
+    dir_results = dir_file + '\\Results\\authorEvents_' + str(dt.datetime.now().strftime("%Y-%m-%d_%H-%M-%S"))
+
+    # Create folder to hold results
+    if not os.path.exists(dir_results):
+        os.mkdir(dir_results)
 
     # Set the logging parameters
     logging.basicConfig(filename=dir_file + '\\Logs\\uploadAuthor.log', filemode='a', level=logging.INFO,
         format='%(asctime)s - %(message)s', datefmt='%d-%b-%y %H:%M:%S')  
 
-    # try:
-    #     import mysql.connector
-    # except:
-    #     print("MySQL Connector Exception")
-    #     logging.info("Cannot determine how you intend to run the program")
-
+    # Array containing authors listed in uploaded file
     author_arr = []
 
     # Pandas library reads doi list
@@ -68,44 +66,89 @@ def downloadAuthor(mysql,dir_csv):
     cursor = mysql.connection.cursor()  
 
 
-    # Delete temp CSV file if exists 
-    if os.path.exists(dir_results):
-        os.remove(dir_results)
-
     # Execution of query and output of result + log
     resultSet = []
-    index = 0
+    count = 0
 
     for author in author_arr:
-
+        # Author Info Query
         query = "SELECT affiliation, authenticated_orcid, family, given, name, orcid, sequence, suffix " \
-                "FROM doidata.author where name LIKE " \
-                "\'%" + author + "%\'" + ';'
+                    "FROM doidata.author where name LIKE " \
+                    "\'%" + author + "%\'" + ';'
         cursor.execute(query)
-        result = cursor.fetchall()
-        resultSet.append(result)
+        resultSet = cursor.fetchall()
 
         print('\n',query)
         logging.info(query)
-        print(result)
-        logging.info(result)
+        print('RESULT SET:',resultSet)
+        logging.info(resultSet)
 
-        print(index)
-    
-        
-        # Write result to file. If first record, include header, else append without header
-        if index == 0:
-            df = pandas.DataFrame(result)
-            df.to_csv(dir_results,mode='a',index=False)    
+        # Write result to file.
+        df = pandas.DataFrame(resultSet)
+
+        # If query outputs no results, then author not in database
+        if df.empty:
+            # CSV containing list of results not found
+            emptyResultPath = dir_results + '\\NotFound.csv'
+
+            with open(emptyResultPath,'a',newline='') as emptyCSV:
+                writer = csv.writer(emptyCSV)
+                writer.writerow([author])
+
+            print("AUTHOR NOT FOUND:", author)
+            logging.info("AUTHOR NOT FOUND: " + author)
+
         else:
-            df = pandas.DataFrame(result)
-            df.to_csv(dir_results,header=False,mode='a',index=False)
-            
-        index += 1
+            count = count + 1
+            # Replace invalid chars for file name
+            file_id = author.replace(' ','-')
+            file_id = file_id.replace('.','')
+            print('FILE ID:', file_id)
+
+            resultPath = dir_results + '\\' + str(file_id) + '_authorInfo.csv'
+            df.columns = [i[0] for i in cursor.description]  ###### CAUSED ISSUE ON SALSBILS MACHINE #######
+            df.to_csv(resultPath,index=False)
+
+
+            # Author Associated DOIs Query
+            query = "SELECT * FROM doidata._main_ JOIN doidata.author ON doidata._main_.id = doidata.author.fk WHERE doidata.author.name  LIKE " \
+                        "\'%" + author + "%\'" + ';'
+            cursor.execute(query)
+            resultSet = cursor.fetchall()
+
+
+            print('\n',query)
+            logging.info(query)
+            print('RESULT SET:',resultSet)
+            logging.info(resultSet)
+
+            resultPath = dir_results + '\\' + str(file_id) + '_authorDOIs.csv'
+
+            # Write associated DOI info to file.
+            df = pandas.DataFrame(resultSet)
+
+            if not df.empty:
+                df.columns = [i[0] for i in cursor.description]
+                df.to_csv(resultPath,index=False)
+
+    
+    # Stats of query
+    print('\n')
+    print(count, 'results found out of', len(author_arr))
+
+    shutil.make_archive(str(dir_results),'zip',dir_results)
+
+    # Delete unzipped folder
+    if os.path.exists(dir_results):
+        shutil.rmtree(dir_results)
+
+    # Path of zip folder
+    zipAuthor = dir_results + '.zip'
+    setZipAuthor(zipAuthor)
+
+    return zipAuthor
     
     
-    # send results to zip (directory, zip file name, csv name)
-    downloadResultsAsCSV(dir_results,'uploadAuthor_Results.zip','uploadAuthor_Results.csv')
 
 ###### Darpan End ######
 
@@ -115,6 +158,10 @@ def searchByAuthor(mysql, fileName):
     dir = '../web/uploadFiles/' + fileName
 
     downloadAuthor(mysql, dir)
+
+    # Delete uploaded file
+    if os.path.exists(dir):
+        os.remove(dir)
 
     return flask.render_template('downloadAuthors.html')
 

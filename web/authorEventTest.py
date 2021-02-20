@@ -19,9 +19,6 @@ dir_file = str(os.path.dirname(os.path.realpath(__file__)))
 # path of uploaded file
 dir_template = 'C:\\Users\\darpa\\Desktop\\authorTest.csv'
 
-# path of config file
-dir_config = dir_file + '\\uploadAuthor_config.txt'
-
 # path of results folder with current time
 dir_results = dir_file  + '\\Results\\authorEvents_' + str(dt.datetime.now().strftime("%Y-%m-%d_%H-%M-%S"))
 
@@ -31,13 +28,13 @@ dir_results = dir_file  + '\\Results\\authorEvents_' + str(dt.datetime.now().str
 if not os.path.exists(dir_results):
     os.mkdir(dir_results)
 
-#Delete temp CSV file if exists 
+#Delete temp CSV file if exists
 # if os.path.exists(dir_results):
 #     os.remove(dir_results)
 
 # Set the logging parameters
 logging.basicConfig(filename= dir_file + '\\Logs\\uploadAuthor.log', filemode='a', level=logging.INFO,
-format='%(asctime)s - %(message)s', datefmt='%d-%b-%y %H:%M:%S')  
+format='%(asctime)s - %(message)s', datefmt='%d-%b-%y %H:%M:%S')
 
 author_arr = []
 
@@ -65,7 +62,7 @@ connection = mysql.connector.connect(user=str('root'), password=str(
         'pass'), host='127.0.0.1', database='crossrefeventdatamain')
 
 #Cursor makes connection with the db
-cursor = connection.cursor() 
+cursor = connection.cursor()
 
 print(author_arr)
 
@@ -92,11 +89,11 @@ for author in author_arr:
     if df.empty:
         # CSV containing list of results not found
         emptyResultPath = dir_results + '\\NotFound.csv'
-        
+
         with open(emptyResultPath,'a',newline='') as emptyCSV:
             writer = csv.writer(emptyCSV)
             writer.writerow([author])
-        
+
         print("AUTHOR NOT FOUND:", author)
         logging.info("AUTHOR NOT FOUND: " + author)
 
@@ -110,8 +107,8 @@ for author in author_arr:
         resultPath = dir_results + '\\' + str(file_id) + '_authorInfo.csv'
         df.columns = [i[0] for i in cursor.description]  ###### CAUSED ISSUE ON SALSBILS MACHINE #######
         df.to_csv(resultPath,index=False)
-        
-    
+
+
 
         # Author Associated DOIs Query
         query = "SELECT * FROM doidata._main_ JOIN doidata.author ON doidata._main_.id = doidata.author.fk WHERE doidata.author.name  LIKE " \
@@ -119,7 +116,7 @@ for author in author_arr:
         cursor.execute(query)
         resultSet = cursor.fetchall()
 
-  
+
         print('\n',query)
         logging.info(query)
         print('RESULT SET:',resultSet)
@@ -129,7 +126,7 @@ for author in author_arr:
 
         # Write associated DOI info to file.
         df = pandas.DataFrame(resultSet)
-        
+
         if not df.empty:
             df.columns = [i[0] for i in cursor.description]
             df.to_csv(resultPath,index=False)
@@ -138,7 +135,7 @@ for author in author_arr:
 
 # Stats of query
 print('\n')
-print(count, 'results found out of', len(author_arr))   
+print(count, 'results found out of', len(author_arr))
 
 shutil.make_archive(str(dir_results),'zip',dir_results)
 
@@ -152,4 +149,3 @@ print("RESULTS ZIP",zipResults)
 
 
 ###### Darpan End ######
-
