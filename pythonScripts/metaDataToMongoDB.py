@@ -1,13 +1,9 @@
 # Tabish's work
 import pymongo
 import os
-import pandas
-import json
 import requests
-import mysql.connector
-from getPassword import getPassword
 
-def main():
+def storeMetaDatainMongoDB():
     r = requests.get('https://api.crossref.org/works?sample=10')
 
     try:
@@ -21,7 +17,7 @@ def main():
 
     coll=dbs.my_coll
 
-    id1 = coll.insert_one(r.json())
+    coll.insert_one(r.json())
 
 if __name__=='__main__':
-    main()
+    storeMetaDatainMongoDB()
