@@ -1,5 +1,6 @@
 # author: Rihat Rahman
 # Lines 1-111
+#-------------------------------------------------------------
 import json
 import requests
 import pymongo
@@ -21,18 +22,21 @@ def fetchDOICitations ():
     drBowmanDatabaseCursor.execute("Select DOI FROM _main_ WHERE DOI IS NOT NULL")
     articles = drBowmanDatabaseCursor.fetchall()
 
-    for article in articles:
-        fetchCitationData(article[0], openCitationsCursor)
-
-
-
-def fetchCitationData (doi, openCitationsCursor):
-
+    
     # connect to MongoDB
     myclient = pymongo.MongoClient("mongodb://localhost:27017/")
 
     # database
     citationsDatabase = myclient["cDatabase"]
+
+    fetchCitationData('10.1002/adfm.201505328', openCitationsCursor, citationsDatabase)
+
+    for article in articles:
+        fetchCitationData(article[0], openCitationsCursor, citationsDatabase)
+
+
+
+def fetchCitationData (doi, openCitationsCursor, citationsDatabase):
 
     # collections
     citationCollections = citationsDatabase["citations"]
@@ -50,7 +54,6 @@ def fetchCitationData (doi, openCitationsCursor):
         listOfOCIs.append(oci[0])
 
     # citations (list of publications that cited this DOI)
-    doi = '10.1002/adfm.201505328'
     citationResponse = requests.get('https://w3id.org/oc/index/api/v1/citations/' + doi)
     citationsJSON = citationResponse.json()
     print(citationsJSON)
@@ -103,4 +106,11 @@ if __name__ == '__main__':
 
     openCitationsCursor = openCitationsDatabase.cursor()
 
-    fetchCitationData('10.1002/adfm.201505328', openCitationsCursor)
+    # connect to MongoDB
+    myclient = pymongo.MongoClient("mongodb://localhost:27017/")
+
+    # database
+    citationsDatabase = myclient["cDatabase"]
+
+    fetchCitationData('10.1002/adfm.201505328', openCitationsCursor, citationsDatabase)
+#-------------------------------------------------------------
