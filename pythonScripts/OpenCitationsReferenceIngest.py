@@ -7,15 +7,32 @@ import getpass
 
 #Author: 
     #Name: Mohammad Tahmid 
-    #Lines 1-64
+    #Lines 1-113
     #---------------------
 #Date: 02/16/2021
 #Description: Takes in reference JSON from the OpenCitations API to be filtered and then later inserted into the citations database.
 
 def OCReferenceIngest(connection, cursor, doi, referenceData, referenceCount):\
 
+    #Log file name can be set here
+    logFile = 'OpenCitationsReferenceIngest_log.log'
+
+    #Log file size is set in MB
+    LogFileSizeLimit = 100
+
+    try:
+        #The log file size is checked 
+        logFileSize = os.path.getsize(logFile)
+
+        if logFileSize > (LogFileSizeLimit * 1024):
+
+            #File if deleted if it is over the size limit
+            os.remove(logFile)
+    except FileNotFoundError:
+        print("Log not found, will be created")
+        
     #Creation of log file for the citations code to allow for troubleshooting later on
-    logging.basicConfig(filename='OpenCitationsReferenceIngest_log.log', filemode='a', level=logging.INFO, format='%(asctime)s - %(message)s', datefmt='%d-%b-%y %H:%M:%S')
+    logging.basicConfig(filename=logFile, filemode='a', level=logging.INFO, format='%(asctime)s - %(message)s', datefmt='%d-%b-%y %H:%M:%S')
 
     #Creation of variables to stop any errors where a variable is not declared if empty
     OCINumber = ""
@@ -61,4 +78,36 @@ def OCReferenceIngest(connection, cursor, doi, referenceData, referenceCount):\
             queryValues = (OCINumber, citing, cited, creation, timespan, journal_sc, author_sc)
             cursor.execute(query, queryValues)
             connection.commit()
-            logging.info("DOI: " + cited + " Cited By: " + citing)
+            logging.info("DOI: " + cited + " Referenced By: " + citing)
+    
+    OCReferenceCountIngest(connection, cursor, doi, referenceCount)
+
+def OCReferenceCountIngest(connection, cursor, doi, referenceCount):
+
+    #Check database to see if the citation count exists already and if it does, what is the value and does it need to be updated
+    query = """SELECT count(*), count FROM opencitations.reference_count WHERE doi = '%s'""" % (doi)
+    cursor.execute(query)
+    resultSet = cursor.fetchall()
+
+    #Result is the count of rows 
+    count = resultSet[0][0]
+
+    #Result is the actual count value from the count column if it already exists
+    DBReferenceCount = resultSet[0][1]
+
+    #If a entry for the doi does not exist then one is made and the citation count is added to the database
+    if not count > 0:
+
+        query = "INSERT IGNORE INTO opencitations.reference_count(doi, count) VALUES (%s, %s)"
+        queryValues = (doi, referenceCount)
+        cursor.execute(query, queryValues)
+        connection.commit()
+        logging.info("DOI: " + doi + " Reference Count Added: " + str(referenceCount))
+
+    #If the entry already exists then it is checked to see if it is the same, if it is not then the citation count value is updated
+    elif DBReferenceCount != referenceCount:
+
+        query = """UPDATE opencitations.reference_count SET count = '%s'  WHERE doi = '%s'""" % (referenceCount, doi)
+        cursor.execute(query)
+        connection.commit()  
+        logging.info("DOI: " + doi + " Reference Count Modified: " + str(referenceCount))
