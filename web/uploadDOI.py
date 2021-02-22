@@ -23,6 +23,16 @@ def setZipEvents(path):
 def getZipEvents():
     return zipEvents
 
+# Setter for stats
+def setStats(x,y):
+    global stats
+    stats = 'RESULTS: ' + str(x) + '/' + str(y) + ' FOUND'
+    print(stats)
+
+# Getter for stats
+def getStats():
+    return stats
+
 def downloadDOI(mysql, dir_csv):
 
     # directories
@@ -126,9 +136,9 @@ def downloadDOI(mysql, dir_csv):
 
     # Stats of query
     print('\n')
-    print(count, 'results found out of', len(doi_arr))
+    setStats(count, len(doi_arr))
    
-    # Zip folder containing the CSV files
+    # Zip folder containing the CSV files=
     shutil.make_archive(str(dir_results),'zip',dir_results)
 
     # Delete unzipped folder
@@ -154,4 +164,4 @@ def searchByDOI(mysql, fileName):
     if os.path.exists(dir):
         os.remove(dir)
    
-    return flask.render_template('download.html')
+    return flask.render_template('download.html', results = getStats())

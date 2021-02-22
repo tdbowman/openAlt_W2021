@@ -28,6 +28,15 @@ def setZipAuthor(path):
 def getZipAuthor():
     return zipAuthor
 
+# Setter for stats
+def setStats(x,y):
+    global stats
+    stats = 'RESULTS: ' + str(x) + '/' + str(y) + ' FOUND'
+    print(stats)
+
+# Getter for stats
+def getStats():
+    return stats
 
 def downloadAuthor(mysql,dir_csv):
 
@@ -134,7 +143,7 @@ def downloadAuthor(mysql,dir_csv):
     
     # Stats of query
     print('\n')
-    print(count, 'results found out of', len(author_arr))
+    setStats(count, len(author_arr))
 
     shutil.make_archive(str(dir_results),'zip',dir_results)
 
@@ -163,7 +172,7 @@ def searchByAuthor(mysql, fileName):
     if os.path.exists(dir):
         os.remove(dir)
 
-    return flask.render_template('downloadAuthors.html')
+    return flask.render_template('downloadAuthors.html', results = getStats())
 
 
 
