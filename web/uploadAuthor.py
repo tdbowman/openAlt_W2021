@@ -74,6 +74,19 @@ def downloadAuthor(mysql,dir_csv):
     # Set up cursor to run SQL query
     cursor = mysql.connection.cursor()  
 
+    # Creating text file with API instructions
+    f = open(dir_results + '\\API_Instructions.txt','w+')
+    f.write("Thank you for using OpenAlt v2.0!\n" \
+            "We do not provide the complete information listed from the APIs. For more complete and raw information, consider using the CrossRef API with the instructions listed below\n\n" \
+            "1) Download Postman from https://www.postman.com/downloads/\n" \
+            "2) Run a GET Request on Postman, enter a link listed below and hit send\n"
+            "3) You will see the output in the body section on the lower third half of the window. Make sure that the *Body* setting is set to *Pretty* and the dropdown to *JSON*\n\n" \
+            "You may also use any other API retrieval method, Postman happens to be the method the developers here at OpenAlt use to test APIs\n\n" \
+            "For more information about the CrossRef API, checkout the links listed below:\n" \
+            "https://www.crossref.org/education/retrieve-metadata/rest-api/\n" \
+            "https://github.com/CrossRef/rest-api-doc\n\n\n" \
+            "YOUR API QUERIES: \n")
+
 
     # Execution of query and output of result + log
     resultSet = []
@@ -91,6 +104,10 @@ def downloadAuthor(mysql,dir_csv):
         logging.info(query)
         print('RESULT SET:',resultSet)
         logging.info(resultSet)
+
+        # Writing API query to API_Instructions.txt
+        author_api = author.replace(' ','+')
+        f.write("https://api.crossref.org/works?query.author=" + author_api + "\n")
 
         # Write result to file.
         df = pandas.DataFrame(resultSet)
@@ -140,7 +157,10 @@ def downloadAuthor(mysql,dir_csv):
                 df.columns = [i[0] for i in cursor.description]
                 df.to_csv(resultPath,index=False)
 
-    
+
+    # Close API_Instructions.txt
+    f.close()
+
     # Stats of query
     print('\n')
     setStats(count, len(author_arr))

@@ -53,7 +53,7 @@ def downloadDOI(mysql, dir_csv):
 
     # Set the logging parameters
     logging.basicConfig(filename= dir_file + '\\Logs\\uploadDOI.log', filemode='a', level=logging.INFO,
-        format='%(asctime)s - %(message)s', datefmt='%d-%b-%y %H:%M:%S')  
+        format='%(asctime)s - %(message)s', datefmt='%d-%b-%y %H:%M:%S')
 
     doi_arr = []
 
@@ -74,7 +74,7 @@ def downloadDOI(mysql, dir_csv):
     # Reading config file line by line
     # Without the r strip, '\n' is added on to the value -> Ex. 'doi:\n'
     for line in config_file:
-        config_arr.append(line.rstrip('\n'))  
+        config_arr.append(line.rstrip('\n'))
 
     # Parse out doi formatting
     for config in config_arr:
@@ -86,8 +86,23 @@ def downloadDOI(mysql, dir_csv):
     # # Join array for sql query
     # joinedArr = "\'" + "','".join(doi_arr) + "\'"
 
-    #Cursor makes connection with the db
-    cursor = mysql.connection.cursor() 
+    # Cursor makes connection with the db
+    cursor = mysql.connection.cursor()
+
+    # Creating text file with API instructions
+    f = open(dir_results + '\\API_Instructions.txt','w+')
+    f.write("Thank you for using OpenAlt v2.0!\n" \
+            "We do not provide the complete information listed from the APIs. For more complete and raw information, consider using the CrossRef API with the instructions listed below\n\n" \
+            "1) Download Postman from https://www.postman.com/downloads/\n" \
+            "2) Run a GET Request on Postman, enter a link listed below and hit send\n"
+            "3) You will see the output in the body section on the lower third half of the window. Make sure that the *Body* setting is set to *Pretty* and the dropdown to *JSON*\n\n" \
+            "You may also use any other API retrieval method, Postman happens to be the method the developers here at OpenAlt use to test APIs\n\n" \
+            "For more information about the CrossRef API, checkout the links listed below:\n" \
+            "https://www.crossref.org/education/retrieve-metadata/rest-api/\n" \
+            "https://github.com/CrossRef/rest-api-doc\n\n\n" \
+            "YOUR API QUERIES: \n")
+
+
 
     # Count of DOIs found in database
     count = 0
@@ -102,22 +117,24 @@ def downloadDOI(mysql, dir_csv):
         print('\n',query)
         logging.info(query)
         print('RESULT SET:', resultSet)
-        logging.info(resultSet)   
+        logging.info(resultSet)
 
-       
+        # Writing API query to API_Instructions.txt
+        f.write("https://api.crossref.org/works/" + doi + "\n")
+
         # Write result to file.
         df = pandas.DataFrame(resultSet)
 
-        
+
         # If query outputs no results, add to not found csv, else write
         if df.empty:
             # CSV containing list of results not found
             emptyResultPath = dir_results + '\\NotFound.csv'
-            
+
             with open(emptyResultPath,'a',newline='') as emptyCSV:
                 writer = csv.writer(emptyCSV)
                 writer.writerow([doi])
-           
+
             print("DOI NOT FOUND:", doi)
             logging.info("DOI NOT FOUND: " + doi)
 
@@ -132,12 +149,13 @@ def downloadDOI(mysql, dir_csv):
             df.to_csv(resultPath,index=False)
             count = count + 1
 
-        
+    # Close API_Instructions.txt
+    f.close()
 
     # Stats of query
     print('\n')
     setStats(count, len(doi_arr))
-   
+
     # Zip folder containing the CSV files=
     shutil.make_archive(str(dir_results),'zip',dir_results)
 
@@ -149,13 +167,14 @@ def downloadDOI(mysql, dir_csv):
     zipEvents = str(dir_results + '.zip')
     setZipEvents(zipEvents)
 
+
     return zipEvents
-        
+
 ###### Darpan End ######
 
 def searchByDOI(mysql, fileName):
-    
-    # Directory of uploaded file 
+
+    # Directory of uploaded file
     dir = '../web/uploadFiles/' + fileName
 
     downloadDOI(mysql, dir)
@@ -163,5 +182,5 @@ def searchByDOI(mysql, fileName):
     # Delete uploaded file
     if os.path.exists(dir):
         os.remove(dir)
-   
+
     return flask.render_template('download.html', results = getStats())
