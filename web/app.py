@@ -225,22 +225,39 @@ def uploadAuthors():
 
     return flask.render_template('uploadAuthors.html')
 
+@ app.route('/uploadUni', methods=["GET", "POST"])
+def uploadUni():
+
+    app.config["UPLOAD_FILES"] = "../web/uploadFiles"
+    destination = app.config["UPLOAD_FILES"]
+
+    if not os.path.isdir(destination):
+        os.mkdir(destination)
+
+    if request.method=="POST":
+        if request.files:
+            uploadFiles = request.files["csv/json"]
+            print(uploadFiles)
+
+            fileName = uploadFiles.filename
+            uploadFiles.save(os.path.join(destination, fileName))
+            print("File saved.")
+        
+        return searchByAuthor(mysql, fileName) ## return searchByUni()
+
+    return flask.render_template('uploadUni.html')
+
+
+
 @ app.route('/download', methods=["GET", "POST"])
 def download():
     if request.method=="POST":
-        # dir_file = str(os.path.dirname(os.path.realpath(__file__)))
-        # dir_results = dir_file + '\\Results\\uploadDOI_Results.zip'
-        
+                
         test = getZipEvents()
         print("ZIP EVENTS:", test)
         return send_file(test, as_attachment=True)
     return flask.render_template('download.html')
 
-# @ app.route('/downloadfile', methods=["GET", "POST"])
-# def downloadfile():
-#     dir_file = str(os.path.dirname(os.path.realpath(__file__)))
-#     dir_results = dir_file + '\\Results\\uploadDOI_Results.zip'
-#     return send_file(dir_results, as_attachment=True)
 
 @ app.route('/downloadAuthors', methods=["GET", "POST"])
 def downloadAuthors():
@@ -249,6 +266,14 @@ def downloadAuthors():
         print("ZIP AUTHOR:",getZipAuthor())
         return send_file(getZipAuthor(), as_attachment=True)
     return flask.render_template('downloadAuthors.html')
+
+@ app.route('/downloadUni', methods=["GET", "POST"])
+def downloadUni():
+    if request.method=="POST":
+        
+        print("ZIP University:","getZipUni()")
+        #return send_file(getZipAuthor(), as_attachment=True)
+    return flask.render_template('downloadUni.html')
 
 # @ app.route('/downloadAuthorZip', methods=["GET", "POST"])
 # def downloadAuthorZip():
@@ -265,8 +290,10 @@ def searchByOptions():
 
         if select == "DOI":
             return redirect('/upload')
-        else:
+        elif select == "Author":
             return redirect('/uploadAuthors')
+        elif select == "University":
+            return redirect('/uploadUni')
     
     return flask.render_template('searchByOptions.html')
         

@@ -1,0 +1,44 @@
+<!--Author: Darpan (Lines 34-40)-->
+{% extends 'template.html' %}
+
+<!-- Anything you put here will be in the HTML head tags-->
+{% block head %}
+
+{% endblock %}
+
+<!-- Anything you put here will be in the body-->
+{% block body %}
+
+<br>
+<br>
+<body style="background-image: url('../static/images/library.jpg'); background-repeat: no-repeat; background-size:cover;">
+  <div class="col-sm-3">
+    <!-- Empty column of size 3. Left of search bar -->
+  </div>
+  
+  <div class="center-screen col-sm-6">
+    <div style="border-radius: 25px; padding: 10px; background-color: rgba(60, 65, 70, 0.8); ">
+        <h1 style="text-align: center; color: aliceblue;">{{ results }}</h1>
+    </div>
+    <br>
+    <br>
+    <br>
+
+  <div class = "center-screen col-sm-10">
+      <div style="border-radius: 25px; padding: 10px; background-color: rgba(60, 65, 70, 0.8); " >
+            <h1 style="text-align: center; color: aliceblue;">Download University Results</h1>
+            <form action="{{ url_for('downloadUni') }}" method="POST">
+                    <div class="image-title-wrap">
+                        <button class="file-upload-btn">Download File</button>
+                    </div> 
+            </form>
+        </div>
+    </div>  
+  
+
+    <div class="col-sm-3">
+    <!-- Empty column of size 3. Left of search bar -->
+    </div>
+</body>
+
+{% endblock %}

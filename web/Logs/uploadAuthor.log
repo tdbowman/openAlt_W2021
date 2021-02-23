@@ -1462,3 +1462,11 @@
 22-Feb-21 18:34:54 - 127.0.0.1 - - [22/Feb/2021 18:34:54] "[37mPOST /downloadAuthors HTTP/1.1[0m" 200 -
 22-Feb-21 19:56:56 - 127.0.0.1 - - [22/Feb/2021 19:56:56] "[37mGET / HTTP/1.1[0m" 200 -
 22-Feb-21 19:56:56 - 127.0.0.1 - - [22/Feb/2021 19:56:56] "[37mGET /static/images/104448.jpg HTTP/1.1[0m" 200 -
+23-Feb-21 16:21:33 - SELECT affiliation, authenticated_orcid, family, given, name, orcid, sequence, suffix FROM doidata.author where name LIKE '%michigan%';
+23-Feb-21 16:21:33 - ()
+23-Feb-21 16:21:33 - AUTHOR NOT FOUND: michigan
+23-Feb-21 16:21:33 - SELECT affiliation, authenticated_orcid, family, given, name, orcid, sequence, suffix FROM doidata.author where name LIKE '%university of michigan%';
+23-Feb-21 16:21:33 - ()
+23-Feb-21 16:21:33 - AUTHOR NOT FOUND: university of michigan
+23-Feb-21 16:21:33 - 127.0.0.1 - - [23/Feb/2021 16:21:33] "[37mPOST /uploadUni HTTP/1.1[0m" 200 -
+23-Feb-21 16:23:44 -  * Detected change in 'C:\\Users\\darpa\\Desktop\\openAlt_W2021\\web\\app.py', reloading
