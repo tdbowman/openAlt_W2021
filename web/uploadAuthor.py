@@ -137,7 +137,9 @@ def downloadAuthor(mysql,dir_csv):
 
 
             # Author Associated DOIs Query
-            query = "SELECT * FROM doidata._main_ JOIN doidata.author ON doidata._main_.id = doidata.author.fk WHERE doidata.author.name  LIKE " \
+            query = "SELECT DOI, URL, title, container_title, name as author, page, publisher, language, alternative_id, created_date_time, " \
+                        "deposited_date_time, is_referenced_by_count, issue, issued_date_parts, prefix, published_online_date_parts, published_print_date_parts " \
+                    "FROM doidata._main_ JOIN doidata.author ON doidata._main_.id = doidata.author.fk WHERE doidata.author.name  LIKE " \
                         "\'%" + author + "%\'" + ';'
             cursor.execute(query)
             resultSet = cursor.fetchall()
