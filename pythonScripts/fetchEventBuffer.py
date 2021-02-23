@@ -42,8 +42,8 @@ def fetch_events():
     articles = drBowmanDatabaseCursor.fetchall()
 
 
-    # loops for each DOI 
-    for i in range(len(articles)):
+    # loops for each DOI (for all articles use len(articles))
+    for i in range(2):
         article = articles[i]
 
         # access the DOI from set
@@ -65,20 +65,26 @@ def fetch_events():
         uniqueEvents = data.get("message").get("events")
         print("Print event: ", uniqueEvents)
 
-        # check to see if events are empty
-        if (uniqueEvents != []):
+        transfer_buffer(uniqueEvents)
 
-            # setup localization
-            myclient = pymongo.MongoClient("mongodb://localhost:27017/")
+    
 
-            # reference MongoDB database
-            eventDatabase = myclient["EventDatabase"]
+def transfer_buffer(uniqueEvents):
+     # check to see if events are empty
+    if (uniqueEvents != []):
 
-            # reference MongoDB collection
-            events = eventDatabase["Event"]
+        # setup localization
+        myclient = pymongo.MongoClient("mongodb://localhost:27017/")
 
-            # insert data
-            events.insert_many(uniqueEvents)
+        # reference MongoDB database
+        eventDatabase = myclient["EventDatabase"]
+
+        # reference MongoDB collection
+        events = eventDatabase["EventTest"]
+
+        # insert data
+        events.insert_many(uniqueEvents)    
+
 
 if __name__ == '__main__':
     fetch_events()
