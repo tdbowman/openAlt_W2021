@@ -245,6 +245,18 @@ table.table-bordered{
     font-size: 20px;
     font-style: normal;}
 
+/*Author: 
+    #Name: Mohammad Tahmid 
+    #Lines 257-259
+    #---------------------
+#Date: 02/23/2021
+#Description: Sets the style of the new section on the article landing page match the style set by the first group.
+*/
+
+.AD_citations {
+    font-size: 20px;
+    font-style: normal;}
+
 #score{
     width: 50px;
     height: 50px;

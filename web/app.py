@@ -19,6 +19,13 @@ from uploadAuthor import searchByAuthor
 
 from getPassword import getPassword
 
+#Author: 
+    #Name: Mohammad Tahmid 
+    #Lines 57-69, 123
+    #---------------------
+#Date: 02/23/2021
+#Description: Passes a connection for a opencitations database
+
 # get the users password from crossrefeventdata/web/passwd.txt
 mysql_username = 'root'
 mysql_password = getPassword()
@@ -46,6 +53,20 @@ app2.config['MYSQL_DB'] = 'crossrefeventdatamain'
 app2.config['MYSQL_CURSORCLASS'] = 'DictCursor'
 # Database initialization and cursor
 mysql2 = MySQL(app2)
+
+#-----------------------------------------------------------
+# Instantiate a third object of class Flask
+app3 = flask.Flask(__name__)
+# Database connection settings
+app3.config['MYSQL_USER'] = mysql_username
+app3.config['MYSQL_PASSWORD'] = mysql_password
+
+# Or use the database.table which will allow us to join the databases - the one with author, and the one with events
+app3.config['MYSQL_DB'] = 'opencitations'
+app3.config['MYSQL_CURSORCLASS'] = 'DictCursor'
+# Database initialization and cursor
+mysql3 = MySQL(app3)
+#-----------------------------------------------------------
 
 
 @app.route('/')
@@ -99,7 +120,7 @@ def articleDashboard():
                 years_list.append(i)
 
     # Go to articleDashboardLogic.py
-    return articleDashboardLogic(mysql, mysql2, years_list, yearInput)
+    return articleDashboardLogic(mysql, mysql2, mysql3, years_list, yearInput)
 
 
 @ app.route('/journalDashboard', methods=["GET", "POST"])

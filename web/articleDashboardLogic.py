@@ -1,5 +1,11 @@
 import flask
 
+#Author: 
+    #Name: Mohammad Tahmid 
+    #Lines 391-395, 417
+    #---------------------
+#Date: 02/23/2021
+#Description: Fetches data from database per every article in the article landing page
 
 def articleDashboardLogic(mysql, mysql2, years_list, yearInput):
 
@@ -388,6 +394,12 @@ def articleDashboardLogic(mysql, mysql2, years_list, yearInput):
         wikipediaevent = []
         wordpressevent = []
 
+	citationCountquery ="""SELECT count FROM opencitations.citation_count 
+        WHERE doi = '%s'""" % (search)
+    cursor3 = mysql3.connection.cursor()
+    cursor3.execute(citationCountquery)
+    citationCountResult = cursor3.fetchone()
+
     return flask.render_template('articleDashboard.html', years_list=years_list, yearInput=yearInput, article_detail=article, events=eventsForArticle, totalEventsSum=totalEventsSum,
                                  cambiaEventData=cambiaevent,
                                  crossrefEventData=crossrefevent,
@@ -401,4 +413,5 @@ def articleDashboardLogic(mysql, mysql2, years_list, yearInput):
                                  twitterEventData=twitterevent,
                                  webEventData=webevent,
                                  wikipediaEventData=wikipediaevent,
-                                 wordpressEventData=wordpressevent)
+                                 wordpressEventData=wordpressevent,
+								 citationCount=citationCountResult)

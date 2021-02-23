@@ -1,5 +1,12 @@
 {% extends 'template.html' %}
 
+<!--#Author: 
+    #Name: Mohammad Tahmid 
+    #Lines 195-197
+    #---------------------
+#Date: 02/23/2021
+#Description: Displays citations section onto the website on the article landing page.-->
+
 <!-- Anything you put here will be in the HTML head tags-->
 {% block head %}
 <!-- FOR CHART -->
@@ -184,6 +191,9 @@
                     </div>
                     <div class="AD_DOI">
                         <strong>DOI:</strong> <a href="https://doi.org/{{ article_detail.objectID }}"target="_blank">{{ article_detail.objectID }} &#8599;</a>
+                    </div>
+					<div class="AD_citations">
+                        <strong>Citation(s):</strong> {{ citationCount.count }}
                     </div>
                     <br>
                     <br>
