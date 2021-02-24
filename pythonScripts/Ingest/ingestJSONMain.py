@@ -132,6 +132,7 @@ def main():
                                     uniqueEvent, cursor, connection)
                                 break
                     except Exception as e:
+						########
                         logging.info("Failed Ingest. Failed on file" + i)
                         logging.info("The error was " + str(e))
                         cursor.close()

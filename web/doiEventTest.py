@@ -31,13 +31,13 @@ dir_results = dir_file  + '\\Results\\doiEvents_' + str(dt.datetime.now().strfti
 if not os.path.exists(dir_results):
     os.mkdir(dir_results)
 
-#Delete temp CSV file if exists 
+#Delete temp CSV file if exists
 # if os.path.exists(dir_results):
 #     os.remove(dir_results)
 
 # Set the logging parameters
 logging.basicConfig(filename= dir_file + '\\Logs\\uploadDOI.log', filemode='a', level=logging.INFO,
-format='%(asctime)s - %(message)s', datefmt='%d-%b-%y %H:%M:%S')  
+format='%(asctime)s - %(message)s', datefmt='%d-%b-%y %H:%M:%S')
 
 doi_arr = []
 
@@ -58,7 +58,7 @@ config_file = open(dir_config,'r')
 # Reading config file line by line
 # Without the r strip, '\n' is added on to the value -> Ex. 'doi:\n'
 for line in config_file:
-    config_arr.append(line.rstrip('\n'))  
+    config_arr.append(line.rstrip('\n'))
 
 # Parse out doi formatting
 for config in config_arr:
@@ -82,7 +82,7 @@ connection = mysql.connector.connect(user=str('root'), password=str(
         'pass'), host='127.0.0.1', database='crossrefeventdatamain')
 
 #Cursor makes connection with the db
-cursor = connection.cursor() 
+cursor = connection.cursor()
 
 print(doi_arr)
 
@@ -98,7 +98,7 @@ for doi in doi_arr:
     print('RESULT SET:',resultSet)
     logging.info(resultSet)
 
-   
+
     file_id = doi.replace('/','-')
     file_id = file_id.replace('.','-')
     print('FILE ID:', file_id)
@@ -127,4 +127,3 @@ print("RESULTS ZIP",zipResults)
 
 
 ###### Darpan End ######
-

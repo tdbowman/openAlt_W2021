@@ -144,9 +144,33 @@ def downloadDOI(mysql, dir_csv):
             file_id = file_id.replace('.','-')
             print('FILE ID:', file_id)
 
-            resultPath = dir_results + '\\doiEvent_' + str(file_id) + '.csv'
+            resultPath = dir_results + '\\' + str(file_id) + '_doiEvents.csv'
             df.columns = [i[0] for i in cursor.description]  ###### CAUSED ISSUE ON SALSBILS MACHINE #######
             df.to_csv(resultPath,index=False)
+
+            # DOI Info Query
+            query = "SELECT DOI, URL, title, container_title, group_concat(name separator ', ') as authors, page, publisher, language, alternative_id, created_date_time, " \
+                        "deposited_date_time, is_referenced_by_count, issue, issued_date_parts, prefix, published_online_date_parts, published_print_date_parts " \
+	                "FROM doidata._main_ JOIN doidata.author ON doidata._main_.id = doidata.author.fk " \
+                    "WHERE DOI = '" + doi + "'" 
+                        
+            cursor.execute(query)
+            resultSet = cursor.fetchall()
+
+            print('\n',query)
+            logging.info(query)
+            print('RESULT SET:',resultSet)
+            logging.info(resultSet)
+
+            resultPath = dir_results + '\\' + str(file_id) + '_doiInfo.csv'
+
+            # Write associated DOI info to file.
+            df = pandas.DataFrame(resultSet)
+
+            if not df.empty:
+                df.columns = [i[0] for i in cursor.description]
+                df.to_csv(resultPath,index=False)
+
             count = count + 1
 
     # Close API_Instructions.txt
