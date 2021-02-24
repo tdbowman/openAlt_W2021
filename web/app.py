@@ -16,6 +16,7 @@ from landingPageArticles import landingPageArticles
 from landingPageJournals import landingPageJournals
 from uploadDOI import searchByDOI, getZipEvents
 from uploadAuthor import searchByAuthor, getZipAuthor
+from uploadUni import searchByUni, getZipUni
 
 from getPassword import getPassword
 
@@ -243,7 +244,7 @@ def uploadUni():
             uploadFiles.save(os.path.join(destination, fileName))
             print("File saved.")
         
-        return searchByAuthor(mysql, fileName) ## return searchByUni()
+        return searchByUni(mysql, fileName)
 
     return flask.render_template('uploadUni.html')
 
@@ -271,8 +272,9 @@ def downloadAuthors():
 def downloadUni():
     if request.method=="POST":
         
-        print("ZIP University:","getZipUni()")
-        #return send_file(getZipAuthor(), as_attachment=True)
+        test = getZipEvents()
+        print("ZIP EVENTS:", test)
+        return send_file(test, as_attachment=True)
     return flask.render_template('downloadUni.html')
 
 # @ app.route('/downloadAuthorZip', methods=["GET", "POST"])

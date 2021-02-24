@@ -37,8 +37,9 @@ myresult = cursor.fetchall()
 for count in myresult:
     totalRows = count[0]
 
-def main():
 
+def main():
+    
     #Tracks the row that is entered in from the DOI list.
     currentRows = 0
     
@@ -47,6 +48,8 @@ def main():
   
         #Query to get DOI's from the database with 1000 rows at a time
         query = "SELECT DOI FROM doidata._main_ WHERE DOI IS NOT NULL ORDER BY id LIMIT 1000 OFFSET " + str(currentRows)
+        print('\n' + str(currentRows) + '/' + str(totalRows) + '\n')
+        print(query)
         cursor.execute(query)
         resultSet = cursor.fetchall()
 
@@ -62,6 +65,7 @@ def main():
         currentRows = currentRows + 1000
         if currentRows > totalRows:
             currentRows = totalRows
+            print('\n' + str(currentRows) + '/' + str(totalRows) + '\n')
 
 if __name__ == '__main__':
     main()
