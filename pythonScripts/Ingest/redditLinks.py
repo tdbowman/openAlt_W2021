@@ -75,20 +75,29 @@ def redditLinksIngest(uniqueEvent, cursor, connection):
             t_relation_type_id = value
 
 
-    # author: Rihat Rahman
-    #--------------------------------------------------------------------------------------------------------------------------------------------
+    # # author: Rihat Rahman
+    # #--------------------------------------------------------------------------------------------------------------------------------------------
 
-    table = 'redditlinksevent'
+    # table = 'redditlinksevent'
     
-    # checks if duplicate event exists, returns [(1,)] if true
-    cursor.execute ("SELECT 1 FROM crossrefeventdatamain." + table + " WHERE subjectID = '" + t_subj_id + "' AND objectID = '" + t_obj_id + "'")
+    # # checks if duplicate event exists, returns [(1,)] if true
+    # cursor.execute ("SELECT 1 FROM crossrefeventdatamain." + table + " WHERE subjectID = '" + t_subj_id + "' AND objectID = '" + t_obj_id + "'")
+    # exists = cursor.fetchall()
+
+    # # return to the main program if
+    # if exists == [(1,)]:
+    #     return
+
+    # #--------------------------------------------------------------------------------------------------------------------------------------------
+
+    # Author: Salsabil Bakth (lines 93-100)
+    # Checks to see if the eventID exists in the table (since it is a unique value)
+    # If it exists, exit from the ingest function
+    cursor.execute ("SELECT 1 FROM crossrefeventdatamain.redditlinksevent WHERE eventID = '" + t_id + "'")
     exists = cursor.fetchall()
 
-    # return to the main program if
-    if exists == [(1,)]:
+    if exists != None:
         return
-
-    #--------------------------------------------------------------------------------------------------------------------------------------------
 
 
     if(len(t_obj_id) < 100):
