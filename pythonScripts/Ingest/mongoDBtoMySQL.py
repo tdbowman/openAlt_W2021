@@ -6,6 +6,7 @@ import json
 import requests
 import mysql.connector
 from metaDataToMongoDB import storeMetaDatainMongoDB
+import crossref
 
 def retrieveFromMongoDB():
     client = pymongo.MongoClient('mongodb://localhost:27017/')
@@ -82,8 +83,8 @@ def storeinmysql(data):
         print("Could not connect to MySQL")
         return
     myCursor=drBowmanDatabase.cursor()
-    #myCursor.execute("INSERT INTO _test_ VALUES %s", json_object)
-
+    print(data)
+    #crossref.crossrefIngest(data,myCursor,drBowmanDatabase)
 
 
 
