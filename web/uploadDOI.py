@@ -118,7 +118,7 @@ def downloadDOI(mysql, dir_csv):
         progress = progress + 1
         print("PROGRESS: " + str(progress) + "/" + str(len(doi_arr)))
         
-        resultSet = dbQuery.getEventCounts(doi, cursor)
+        resultSet = dbQuery.getDOIEventCounts(doi, cursor)
         logging.info(resultSet)
 
         
@@ -177,7 +177,7 @@ def downloadDOI(mysql, dir_csv):
 
                 logging.info(resultSet)
 
-                resultSet, headers = dbQuery.getEvents(doi,cursor)
+                resultSet, headers = dbQuery.getDOIEvents(doi,cursor)
                 
                 for table in event_tables:
                 # Getting specific event data

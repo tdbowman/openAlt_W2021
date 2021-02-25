@@ -107,7 +107,7 @@ for doi in doi_arr:
     progress = progress + 1
     print("PROGRESS: " + str(progress) + "/" + str(len(doi_arr)))
     
-    resultSet = dbQuery.getEventCounts(doi, cursor)
+    resultSet = dbQuery.getDOIEventCounts(doi, cursor)
     logging.info(resultSet)
 
     
@@ -166,7 +166,7 @@ for doi in doi_arr:
 
             logging.info(resultSet)
 
-            resultSet, headers = dbQuery.getEvents(doi,cursor)
+            resultSet, headers = dbQuery.getDOIEvents(doi,cursor)
             
             for table in event_tables:
             # Getting specific event data

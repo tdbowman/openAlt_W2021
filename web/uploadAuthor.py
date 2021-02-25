@@ -7,6 +7,8 @@ import flask
 import platform
 import mysql
 import shutil
+import time
+import dbQuery
 import datetime as dt
 from flask import redirect
 
@@ -93,27 +95,19 @@ def downloadAuthor(mysql,dir_csv):
     count = 0
 
     for author in author_arr:
+        
         # Author Info Query
-        query = "SELECT affiliation, authenticated_orcid, family, given, name, orcid, sequence, suffix " \
-                    "FROM doidata.author where name LIKE " \
-                    "\'%" + author + "%\'" + ';'
-        cursor.execute(query)
-        resultSet = cursor.fetchall()
-
-        print('\n',query)
-        logging.info(query)
-        print('RESULT SET:',resultSet)
+        resultSet = dbQuery.getAuthorMetadata(author, cursor)
         logging.info(resultSet)
 
         # Writing API query to API_Instructions.txt
         author_api = author.replace(' ','+')
         f.write("https://api.crossref.org/works?query.author=" + author_api + "\n")
 
-        # Write result to file.
-        df = pandas.DataFrame(resultSet)
+        
 
         # If query outputs no results, then author not in database
-        if df.empty:
+        if len(resultSet) == 0:
             # CSV containing list of results not found
             emptyResultPath = dir_results + '\\NotFound.csv'
 
@@ -121,15 +115,20 @@ def downloadAuthor(mysql,dir_csv):
                 writer = csv.writer(emptyCSV)
                 writer.writerow([author])
 
-            print("AUTHOR NOT FOUND:", author)
-            logging.info("AUTHOR NOT FOUND: " + author)
+            print("AUTHOR NOT FOUND: " + author + "\n")
+            logging.info("AUTHOR NOT FOUND: " + author + "\n")
 
         else:
+            # Stat updater
             count = count + 1
+            
+            # Write result to file.
+            df = pandas.DataFrame(resultSet)
+
             # Replace invalid chars for file name
             file_id = author.replace(' ','-')
             file_id = file_id.replace('.','')
-            print('FILE ID:', file_id)
+            #print('FILE ID:', file_id)
 
             resultPath = dir_results + '\\' + str(file_id) + '_authorInfo.csv'
             df.columns = [i[0] for i in cursor.description]  ###### CAUSED ISSUE ON SALSBILS MACHINE #######
@@ -137,17 +136,7 @@ def downloadAuthor(mysql,dir_csv):
 
 
             # Author Associated DOIs Query
-            query = "SELECT DOI, URL, title, container_title, name as author, page, publisher, language, alternative_id, created_date_time, " \
-                        "deposited_date_time, is_referenced_by_count, issue, issued_date_parts, prefix, published_online_date_parts, published_print_date_parts " \
-                    "FROM doidata._main_ JOIN doidata.author ON doidata._main_.id = doidata.author.fk WHERE doidata.author.name  LIKE " \
-                        "\'%" + author + "%\'" + ';'
-            cursor.execute(query)
-            resultSet = cursor.fetchall()
-
-
-            print('\n',query)
-            logging.info(query)
-            print('RESULT SET:',resultSet)
+            resultSet = dbQuery.getAuthorArticles(author, cursor)
             logging.info(resultSet)
 
             resultPath = dir_results + '\\' + str(file_id) + '_authorDOIs.csv'

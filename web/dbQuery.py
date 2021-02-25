@@ -4,8 +4,9 @@
 import pandas
 
 # Gets DOI event counts
-def getEventCounts(doi, cursor):
+def getDOIEventCounts(doi, cursor):
     query = "SELECT * FROM crossrefeventdatamain.main WHERE objectID LIKE '%" + doi + "%'"
+    
     print('\n',"Retrieving Event Counts: " + doi)
     #print('\n',query)
 
@@ -24,6 +25,7 @@ def getDOIMetadata(doi, cursor):
                 "deposited_date_time, is_referenced_by_count, issue, issued_date_parts, prefix, published_online_date_parts, published_print_date_parts " \
             "FROM doidata._main_ JOIN doidata.author ON doidata._main_.id = doidata.author.fk " \
             "WHERE DOI = '" + doi + "'"
+    
     print("Retrieving Metadata: " + doi)
     #print('\n',query)
 
@@ -36,20 +38,20 @@ def getDOIMetadata(doi, cursor):
 
 # Gets all event data for a DOI. Ex: wikipediaevent, twitterevent, redditevent, etc.
 # Returns TWO dictionaries
-def getEvents(doi, cursor):
+def getDOIEvents(doi, cursor):
     # Array containing table names found in crossrefeventdatamain (except main)
     event_tables = ['cambiaevent','crossrefevent','dataciteevent', 'f1000event','hypothesisevent','newsfeedevent','redditevent','redditlinksevent','stackexchangeevent','twitterevent','webevent','wikipediaevent','wordpressevent']
     result = {}
     header = {}
     for table in event_tables:
         query = "SELECT * FROM crossrefeventdatamain." + table + " WHERE objectID LIKE '%" + doi + "%'"
+        
         print("Retrieving " + table + " Event Data: " + doi)
         #print(query)
 
         cursor.execute(query)
         resultSet = cursor.fetchall()
 
-        x = 0
         headers = [i[0] for i in cursor.description]
         header[table] = headers
         result[table] = resultSet
@@ -60,6 +62,45 @@ def getEvents(doi, cursor):
     #print('\nRESULT SET:',result)
     
     return(result,header)
+
+# Gets author information
+def getAuthorMetadata(author,cursor):
+    # Author Info Query
+    query = "SELECT affiliation, authenticated_orcid, family, given, name, orcid, sequence, suffix " \
+                "FROM doidata.author where name LIKE " \
+                "\'%" + author + "%\'" + ';'
+    
+    print("Retrieving Metadata: " + author)
+    #print('\n',query)
+    
+    cursor.execute(query)    
+    resultSet = cursor.fetchall()
+
+    print("Metadata Recieved!\n")
+
+    return resultSet
+
+# Gets DOIs associated with an author
+def getAuthorArticles(author, cursor):
+
+    # Author Associated DOIs Query
+    query = "SELECT DOI, URL, title, container_title, name as author, page, publisher, language, alternative_id, created_date_time, " \
+                "deposited_date_time, is_referenced_by_count, issue, issued_date_parts, prefix, published_online_date_parts, published_print_date_parts " \
+            "FROM doidata._main_ JOIN doidata.author ON doidata._main_.id = doidata.author.fk WHERE doidata.author.name  LIKE " \
+                "\'%" + author + "%\'" + ';'
+
+    print("Retrieving Articles: " + author)
+    #print('\n',query)
+    
+
+    cursor.execute(query)
+    resultSet = cursor.fetchall()
+
+    print("Articles Recieved!\n")
+
+    return resultSet
+
+
 
 
 
