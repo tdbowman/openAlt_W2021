@@ -82,21 +82,29 @@ def redditIngest(uniqueEvent, cursor, connection):
 
 
 
-    # author: Rihat Rahman
-    # Lines 85-97
-    #--------------------------------------------------------------------------------------------------------------------------------------------
-    table = 'redditevent'
+    # # author: Rihat Rahman
+    # #--------------------------------------------------------------------------------------------------------------------------------------------
+
+    # table = 'redditevent'
     
-    # checks if duplicate event exists, returns [(1,)] if true
-    cursor.execute ("SELECT 1 FROM crossrefeventdatamain." + table + " WHERE subjectID = '" + t_subj_id + "' AND objectID = '" + t_obj_id + "'")
+    # # checks if duplicate event exists, returns [(1,)] if true
+    # cursor.execute ("SELECT 1 FROM crossrefeventdatamain." + table + " WHERE subjectID = '" + t_subj_id + "' AND objectID = '" + t_obj_id + "'")
+    # exists = cursor.fetchall()
+
+    # # return to the main program if
+    # if exists == [(1,)]:
+    #     return
+
+    # #--------------------------------------------------------------------------------------------------------------------------------------------
+
+    # Author: Salsabil Bakth (lines 100-107)
+    # Checks to see if the eventID exists in the table (since it is a unique value)
+    # If it exists, exit from the ingest function
+    cursor.execute ("SELECT 1 FROM crossrefeventdatamain.redditevent WHERE eventID = '" + t_id + "'")
     exists = cursor.fetchall()
 
-    # return to the main program if
-    if exists == [(1,)]:
+    if exists != None:
         return
-    #--------------------------------------------------------------------------------------------------------------------------------------------
-
-
 
     if(len(t_obj_id) < 100):
         # Insert t_obj_id from the event of the JSON file into the main table

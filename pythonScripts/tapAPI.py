@@ -16,6 +16,7 @@ except ImportError:
 <<<<<<< HEAD
 email = "darpanshah7@gmail.com"
 source = "" # An empty string will cause it to pull from all sources
+<<<<<<< HEAD
 rows = "1000" # number of Events to pull for today
 =======
 
@@ -23,6 +24,9 @@ email = "rihat.rafi@gmail.com"
 source = "" # An empty string will cause it to pull from all sources
 rows = "500" # number of Events to pull for today
 >>>>>>> origin/rihatDev
+=======
+rows = "100" # number of Events to pull for today
+>>>>>>> origin/salsabilDev
 fetchURL = "https://api.eventdata.crossref.org/v1/events?mailto="
 
 # file which it writes data to before formatting. Overwritten on each fetchData call
