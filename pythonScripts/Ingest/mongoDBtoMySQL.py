@@ -82,8 +82,6 @@ def storeinmysql(data):
         print("Could not connect to MySQL")
         return
     myCursor=drBowmanDatabase.cursor()
-    df=pandas.DataFrame(data)
-    print(type(df))
     #myCursor.execute("INSERT INTO _test_ VALUES %s", json_object)
 
 
