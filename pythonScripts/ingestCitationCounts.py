@@ -1,5 +1,7 @@
 # author: Rihat Rahman
-
+# Lines: 1 - 34
+# scipt to insert citation counts and check if citations need to be updated
+#-------------------------------------------------------------
 def ingestCitationCounts(doi, openCitationsCursor, citationCountsJSON, openCitationsDatabase):
 
 
@@ -7,7 +9,6 @@ def ingestCitationCounts(doi, openCitationsCursor, citationCountsJSON, openCitat
 
     if count == 0:
         return False
-
 
     query = ("SELECT count FROM citation_count WHERE doi = '" + doi + "'")
 
@@ -29,5 +30,5 @@ def ingestCitationCounts(doi, openCitationsCursor, citationCountsJSON, openCitat
         query = ("UPDATE citation_count SET count = '" + str(count) + "' WHERE doi = '" + doi + "'")
         openCitationsCursor.execute(query)
 
-    
     openCitationsDatabase.commit()
+#-------------------------------------------------------------

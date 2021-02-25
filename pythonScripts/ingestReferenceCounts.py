@@ -1,4 +1,7 @@
 # author: Rihat Rahman
+# Lines: 1 - 33
+# scipt to insert reference counts and check if references need to be updated
+#-------------------------------------------------------------
 
 def ingestReferenceCounts (doi, openCitationsCursor, referenceCountsJson, openCitationsDatabase):
 
@@ -7,14 +10,11 @@ def ingestReferenceCounts (doi, openCitationsCursor, referenceCountsJson, openCi
     if count == 0:
         return False
 
-
     query = ("SELECT count FROM reference_count WHERE doi = '" + doi + "'")
 
     openCitationsCursor.execute(query)
 
     previous_count = openCitationsCursor.fetchall()
-
-
 
     if previous_count == []:
 
@@ -29,5 +29,5 @@ def ingestReferenceCounts (doi, openCitationsCursor, referenceCountsJson, openCi
         query = ("UPDATE reference_count SET count = '" + str(count) + "' WHERE doi = '" + doi + "'")
         openCitationsCursor.execute(query)
     
-    
     openCitationsDatabase.commit()
+#-------------------------------------------------------------

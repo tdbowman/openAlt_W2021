@@ -1,11 +1,11 @@
 # author: Rihat Rahman
-
+# Lines: 1-54
+# script to ingest references from MongoDB to MySQL
+#-------------------------------------------------------------
 
 def ingestReferences (doi, openCitationsCursor, referenceCollections, openCitationsDatabase):
-
     
     listOfReferences = referenceCollections.find()
-
 
     for citation in listOfReferences:
 
@@ -44,6 +44,6 @@ def ingestReferences (doi, openCitationsCursor, referenceCollections, openCitati
         query = ("Insert IGNORE INTO ref " " (oci, citing, cited, creation, timespan, journal_sc, author_sc) " " VALUES (%s,%s,%s,%s,%s,%s,%s)")
         data = (oci, citing, cited, creation, timespan, journal_sc, author_sc)
 
-
         openCitationsCursor.execute(query, data)
         openCitationsDatabase.commit()
+#-------------------------------------------------------------

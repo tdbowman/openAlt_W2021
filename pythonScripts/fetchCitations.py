@@ -1,4 +1,4 @@
-# This script will fetch citation data from OpenCitations API
+# This script will fetch citation data from OpenCitations API and call ingest scripts to ingest data into MySQL
 # author: Rihat Rahman
 # Lines 1-63
 #-------------------------------------------------------------
