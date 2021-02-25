@@ -43,7 +43,7 @@ def fetch_events():
 
 
     # loops for each DOI (for all articles use len(articles))
-    for i in range(2):
+    for i in range(len(articles)):
         article = articles[i]
 
         # access the DOI from set
@@ -80,7 +80,7 @@ def transfer_buffer(uniqueEvents):
         eventDatabase = myclient["EventDatabase"]
 
         # reference MongoDB collection
-        events = eventDatabase["EventTest"]
+        events = eventDatabase["Event"]
 
         # insert data
         events.insert_many(uniqueEvents)    

@@ -59,7 +59,7 @@ def ingestEvents():
     eventDatabase = myclient["EventDatabase"]
 
     # reference MongoDB collection
-    events = eventDatabase["EventTest"]
+    events = eventDatabase["Event"]
 
     # Iterate through the event list
     for uniqueEvent in events.find({}):

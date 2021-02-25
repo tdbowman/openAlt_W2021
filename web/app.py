@@ -170,8 +170,8 @@ def upload():
     # Allowed extensions of file
     ALLOWED_EXTENSIONS = {'csv'}
 
-    # Limit of the file size to 16 MB
-    app.config['MAX_CONTENT_LENGTH'] = 2 * 1024 * 1024 
+    # Limit of the file size to 1 GB
+    # app.config['MAX_CONTENT_LENGTH'] = 2 * 1024 * 1024 
 
     # If directory does not exist, create it
     if not os.path.isdir(target):
