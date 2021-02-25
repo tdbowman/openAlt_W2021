@@ -192,9 +192,22 @@
                     <div class="AD_DOI">
                         <strong>DOI:</strong> <a href="https://doi.org/{{ article_detail.objectID }}"target="_blank">{{ article_detail.objectID }} &#8599;</a>
                     </div>
+					<!--Author: Mohammad Tahmid
+						Lines: 196-211
+						Description: This is the addition to display the citation information from the database and the button to download info about a DOI-->
 					<div class="AD_citations">
                         <strong>Citation(s):</strong> {{ citationCount.count }}
                     </div>
+					<form method="POST" action="{{ url_for('articleDashboard') }}?DOI={{ article_detail.objectID }}" class="form-inline">
+                        <div class="form-group" style="text-align: center">          
+                            <!-- Drop Down Search -->
+                            <select name="articleDLChoice" id="form-control" class="form-control">
+                              <option value="CSV">CSV</option>
+                              <option value="JSON">JSON</option>
+                            </select>
+                            <button type="submit" name="articleDLDOI" value="{{ article_detail.objectID }}" class="form-control" id="form-control">
+                        </div>
+                    </form>
                     <br>
                     <br>
                     <br>
