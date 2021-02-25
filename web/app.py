@@ -164,7 +164,7 @@ def licenses():
 def upload():
 
     # Directory of where to put the uploaded file
-    app.config["UPLOAD_FILES"] = "../web/uploadFiles"
+    app.config["UPLOAD_FILES"] = "./web/uploadFiles"
     target = app.config["UPLOAD_FILES"]
 
     # Allowed extensions of file
@@ -210,7 +210,7 @@ def upload():
 def uploadAuthors():
 
      # Directory of where to put the uploaded file
-    app.config["UPLOAD_FILES"] = "../web/uploadFiles"
+    app.config["UPLOAD_FILES"] = "./web/uploadFiles"
     destination = app.config["UPLOAD_FILES"]
 
     # If directory does not exist, create it
@@ -265,6 +265,47 @@ def downloadAuthors():
 
     return flask.render_template('downloadAuthors.html')
 
+
+# author: Rihat Rahman
+# Lines: 270-305
+#--------------------------------------------------
+
+@ app.route('/downloadDOITemplate', methods=["GET", "POST"])
+def downloadDOITemplate ():
+
+    # If a HTTPS POST Request is received...
+    if request.method=="POST":
+
+        # Directory of template file
+        dir_file = str(os.path.dirname(os.path.realpath(__file__)))
+        dir_results = dir_file + '\\CSV_templates\\DOI_upload_template.csv'
+
+        # Download folder onto local machine
+        return send_file(dir_results, as_attachment=True)
+
+    return flask.render_template('upload.html')
+
+
+
+
+@ app.route('/downloadAuthorTemplate', methods=["GET", "POST"])
+def downloadAuthorTemplate ():
+
+    # If a HTTPS POST Request is received...
+    if request.method=="POST":
+
+        # Directory of template file
+        dir_file = str(os.path.dirname(os.path.realpath(__file__)))
+        dir_results = dir_file + '\\CSV_templates\\author_upload_template.csv'
+
+        # Download folder onto local machine
+        return send_file(dir_results, as_attachment=True)
+
+    return flask.render_template('uploadAuthors.html')
+#--------------------------------------------------
+
+
+
 @ app.route('/searchByOptions', methods=["GET", "POST"])
 def searchByOptions():
     
@@ -283,6 +324,10 @@ def searchByOptions():
             return redirect('/uploadAuthors')
     
     return flask.render_template('searchByOptions.html')
+
+
+
+
 
 @ app.errorhandler(413)
 def too_large(e):

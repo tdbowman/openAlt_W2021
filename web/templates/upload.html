@@ -40,7 +40,22 @@
           </div>
 
         </form>
+
+
     </div>  
+
+    <div style = "margin: 10px; border-radius: 25px; background-color: rgba(60, 65, 70, 0.8);">
+      <h4 style = "color: rgba(255,255,255, 255)">
+        You may download the following template file to get a list of accepted formats.
+      </h4>
+
+      <form action="{{ url_for('downloadDOITemplate') }}" method="POST">
+        <div class="image-title-wrap">
+            <button class="file-upload-btn">Download Template</button></a>
+        </div>
+    </form>
+    </div>
+
   </div>
 
   <div class="col-sm-3">
