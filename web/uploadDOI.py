@@ -7,7 +7,9 @@ import flask
 import platform
 import mysql
 import shutil
+import time
 import datetime as dt
+import dbQuery
 from flask import redirect
 
 # importing download function to download zip folder containing results CSV file
@@ -34,6 +36,9 @@ def getStats():
     return stats
 
 def downloadDOI(mysql, dir_csv):
+
+    # time execution of script
+    start_time = time.time()
 
     # path of this file
     dir_file = str(os.path.dirname(os.path.realpath(__file__)))
@@ -106,17 +111,14 @@ def downloadDOI(mysql, dir_csv):
 
     # Count of DOIs found in database
     count = 0
+    progress = 0
 
     # Execution of query and output of result + log
     for doi in doi_arr:
-        query = "SELECT * FROM crossrefeventdatamain.main WHERE objectID LIKE '%" + doi + "%'"
-        cursor.execute(query)
-        resultSet = cursor.fetchall()
-
-        # Print queries and results in console and log
-        print('\n',query)
-        logging.info(query)
-        print('\nRESULT SET:', resultSet)
+        progress = progress + 1
+        print("PROGRESS: " + str(progress) + "/" + str(len(doi_arr)))
+        
+        resultSet = dbQuery.getEventCounts(doi, cursor)
         logging.info(resultSet)
 
         
@@ -124,7 +126,6 @@ def downloadDOI(mysql, dir_csv):
         # Writing API query to API_Instructions.txt
         f.write("https://api.crossref.org/works/" + doi + "\n")
 
-       
 
         # If query outputs no results, add to not found csv, else write
         if len(resultSet) == 0:
@@ -145,7 +146,7 @@ def downloadDOI(mysql, dir_csv):
             # Replace invalid chars for file name
             file_id = doi.replace('/','-')
             file_id = file_id.replace('.','-')
-            print('FILE ID:', file_id)
+            #print('FILE ID:', file_id)
 
             # Create folder to hold results
             dir_doi = dir_results + '\\' + str(file_id)
@@ -154,23 +155,15 @@ def downloadDOI(mysql, dir_csv):
 
             resultPath = dir_doi + '\\eventCounts_' + str(file_id) + '.csv'
             df.columns = [i[0] for i in cursor.description]  ###### CAUSED ISSUE ON SALSBILS MACHINE #######
+            #print("DF COLUMNS",[i[0] for i in cursor.description])
             df.to_csv(resultPath,index=False)
 
             # DOI Info Query
-            query = "SELECT DOI, URL, title, container_title, group_concat(name separator ', ') as authors, page, publisher, language, alternative_id, created_date_time, " \
-                        "deposited_date_time, is_referenced_by_count, issue, issued_date_parts, prefix, published_online_date_parts, published_print_date_parts " \
-	                "FROM doidata._main_ JOIN doidata.author ON doidata._main_.id = doidata.author.fk " \
-                    "WHERE DOI = '" + doi + "'" 
-                        
-            cursor.execute(query)
-            resultSet = cursor.fetchall()
-
-            print('\n',query)
-            logging.info(query)
-            print('\nRESULT SET:',resultSet)
+            resultSet = dbQuery.getDOIMetadata(doi, cursor)
+            
             logging.info(resultSet)
             
-
+            
             # if results not empty
             if len(resultSet) > 0:
 
@@ -182,21 +175,16 @@ def downloadDOI(mysql, dir_csv):
                 resultPath = dir_doi + '\\doiInfo_' + str(file_id) + '.csv'
                 df.to_csv(resultPath,index=False)
 
-                # Getting specific event data
+                logging.info(resultSet)
+
+                resultSet, headers = dbQuery.getEvents(doi,cursor)
+                
                 for table in event_tables:
-                    query = "SELECT * FROM crossrefeventdatamain." + table + " WHERE objectID LIKE '%" + doi + "%'"
-                    cursor.execute(query)
-                    resultSet = cursor.fetchall()
-
-                    print('\n',query)
-                    logging.info(query)
-                    print('\nRESULT SET:',resultSet)
-                    logging.info(resultSet)
-
-                    if len(resultSet) > 0:
+                # Getting specific event data
+                    if len(resultSet[table]) > 0:
                         # Write associated DOI info to file.
-                        df = pandas.DataFrame(resultSet)
-                        df.columns = [i[0] for i in cursor.description]
+                        df = pandas.DataFrame(resultSet[table])
+                        df.columns = headers[table]
 
                         # Writing CSV containing DOI metadata
                         resultPath = dir_doi + '\\' + table + '_' + str(file_id) + '.csv'
@@ -217,6 +205,9 @@ def downloadDOI(mysql, dir_csv):
     # Stats of query
     print('\n')
     setStats(count, len(doi_arr))
+
+    # Time taken to execute script
+    print("--- %s seconds ---" % (time.time() - start_time))
 
     # Zip folder containing the CSV files=
     shutil.make_archive(str(dir_results),'zip',dir_results)

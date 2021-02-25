@@ -9,13 +9,15 @@ import mysql
 import shutil
 import datetime as dt
 import dbQuery
+import time
 from flask import redirect
 
 
 # importing download function to download zip folder containing results CSV file
 from downloadResultsCSV import downloadResultsAsCSV
 
-
+# time execution of script
+start_time = time.time()
 
 # path of this file
 dir_file = str(os.path.dirname(os.path.realpath(__file__)))
@@ -98,9 +100,12 @@ event_tables = ['cambiaevent','crossrefevent','dataciteevent', 'f1000event','hyp
 
 # Count of DOIs found in database
 count = 0
+progress = 0
 
 # Execution of query and output of result + log
 for doi in doi_arr:
+    progress = progress + 1
+    print("PROGRESS: " + str(progress) + "/" + str(len(doi_arr)))
     
     resultSet = dbQuery.getEventCounts(doi, cursor)
     logging.info(resultSet)
@@ -185,6 +190,9 @@ for doi in doi_arr:
 
 # Close API_Instructions.txt
 f.close()
+
+# Time taken to execute script
+print("--- %s seconds ---" % (time.time() - start_time))
 
 # Stats of query
 print('\n')
