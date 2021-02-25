@@ -38,3 +38,11 @@
 24-Feb-21 16:59:45 - 127.0.0.1 - - [24/Feb/2021 16:59:45] "[32mPOST /searchByOptions HTTP/1.1[0m" 302 -
 24-Feb-21 16:59:45 - 127.0.0.1 - - [24/Feb/2021 16:59:45] "[37mGET /uploadUni HTTP/1.1[0m" 200 -
 24-Feb-21 17:30:27 -  * Detected change in 'C:\\Users\\darpa\\Desktop\\openAlt_W2021\\web\\uploadDOI.py', reloading
+25-Feb-21 11:26:35 - 127.0.0.1 - - [25/Feb/2021 11:26:35] "[35m[1mPOST /uploadUni HTTP/1.1[0m" 500 -
+25-Feb-21 11:26:35 - 127.0.0.1 - - [25/Feb/2021 11:26:35] "[37mGET /uploadUni?__debugger__=yes&cmd=resource&f=style.css HTTP/1.1[0m" 200 -
+25-Feb-21 11:26:35 - 127.0.0.1 - - [25/Feb/2021 11:26:35] "[37mGET /uploadUni?__debugger__=yes&cmd=resource&f=debugger.js HTTP/1.1[0m" 200 -
+25-Feb-21 11:26:35 - 127.0.0.1 - - [25/Feb/2021 11:26:35] "[37mGET /uploadUni?__debugger__=yes&cmd=resource&f=jquery.js HTTP/1.1[0m" 200 -
+25-Feb-21 11:26:35 - 127.0.0.1 - - [25/Feb/2021 11:26:35] "[37mGET /uploadUni?__debugger__=yes&cmd=resource&f=ubuntu.ttf HTTP/1.1[0m" 200 -
+25-Feb-21 11:26:35 - 127.0.0.1 - - [25/Feb/2021 11:26:35] "[37mGET /uploadUni?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1[0m" 200 -
+25-Feb-21 11:26:35 - 127.0.0.1 - - [25/Feb/2021 11:26:35] "[37mGET /uploadUni?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1[0m" 200 -
+25-Feb-21 11:27:01 -  * Detected change in 'C:\\Users\\darpa\\Desktop\\openAlt_W2021\\web\\uploadUni.py', reloading

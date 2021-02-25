@@ -8,6 +8,8 @@ import platform
 import mysql
 import shutil
 import datetime as dt
+import time
+import dbQuery
 from flask import redirect
 
 # importing download function to download zip folder containing results CSV file
@@ -40,6 +42,9 @@ def getStats():
 
 
 def downloadUni(mysql, dir_csv):
+
+    # time execution of script
+    start_time = time.time()
 
     # Directories
     dir_file = str(os.path.dirname(os.path.realpath(__file__)))
@@ -95,16 +100,8 @@ def downloadUni(mysql, dir_csv):
     count = 0
 
     for uni in uni_arr:
-        # Author Info Query
-        query = "SELECT affiliation, authenticated_orcid, family, given, name, orcid, sequence, suffix " \
-                    "FROM doidata.author where affiliation LIKE " \
-                    "\'%" + uni + "%\'" + ';'
-        cursor.execute(query)
-        resultSet = cursor.fetchall()
-
-        print('\n',query)
-        logging.info(query)
-        print('RESULT SET:',resultSet)
+        # Get university Authors
+        resultSet = dbQuery.getUniAuthors(uni, cursor)
         logging.info(resultSet)
 
         # Writing API query to API_Instructions.txt
@@ -140,17 +137,7 @@ def downloadUni(mysql, dir_csv):
 
 
             # Author Associated DOIs Query
-            query = "SELECT DOI, URL, title, container_title, group_concat(name separator ', ') as authors, page, publisher, language, alternative_id, created_date_time, " \
-                            "deposited_date_time, is_referenced_by_count, issue, issued_date_parts, prefix, published_online_date_parts, published_print_date_parts " \
-                        "FROM doidata._main_ JOIN doidata.author ON doidata._main_.id = doidata.author.fk WHERE doidata.author.affiliation  LIKE " \
-                            "\'%" + uni + "%\'" + ';'
-            cursor.execute(query)
-            resultSet = cursor.fetchall()
-
-
-            print('\n',query)
-            logging.info(query)
-            print('RESULT SET:',resultSet)
+            resultSet = dbQuery.getUniArticles(uni, cursor)
             logging.info(resultSet)
 
             resultPath = dir_results + '\\' + str(file_id) + '_DOIs.csv'
@@ -168,6 +155,9 @@ def downloadUni(mysql, dir_csv):
     # Stats of query
     print('\n')
     setStats(count, len(uni_arr))
+
+    # Time taken to execute script
+    print("--- %s seconds ---" % (time.time() - start_time))
 
     shutil.make_archive(str(dir_results), 'zip', dir_results)
 

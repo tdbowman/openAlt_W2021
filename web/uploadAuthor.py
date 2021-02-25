@@ -42,6 +42,9 @@ def getStats():
 
 def downloadAuthor(mysql,dir_csv):
 
+    # time execution of script
+    start_time = time.time()
+
     # Directories 
     dir_file = str(os.path.dirname(os.path.realpath(__file__)))
 
@@ -155,6 +158,9 @@ def downloadAuthor(mysql,dir_csv):
     # Stats of query
     print('\n')
     setStats(count, len(author_arr))
+
+    # Time taken to execute script
+    print("--- %s seconds ---" % (time.time() - start_time))
 
     shutil.make_archive(str(dir_results),'zip',dir_results)
 

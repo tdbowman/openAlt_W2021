@@ -17,6 +17,7 @@ def getDOIEventCounts(doi, cursor):
     print("Event Counts Recieved!\n")
     return resultSet
 
+
 # Gets DOI metadata
 def getDOIMetadata(doi, cursor):
 
@@ -35,6 +36,7 @@ def getDOIMetadata(doi, cursor):
     #print('\nRESULT SET:',resultSet)
     print("Metadata Recieved!\n")
     return resultSet
+
 
 # Gets all event data for a DOI. Ex: wikipediaevent, twitterevent, redditevent, etc.
 # Returns TWO dictionaries
@@ -63,6 +65,7 @@ def getDOIEvents(doi, cursor):
     
     return(result,header)
 
+
 # Gets author information
 def getAuthorMetadata(author,cursor):
     # Author Info Query
@@ -79,6 +82,7 @@ def getAuthorMetadata(author,cursor):
     print("Metadata Recieved!\n")
 
     return resultSet
+
 
 # Gets DOIs associated with an author
 def getAuthorArticles(author, cursor):
@@ -99,6 +103,47 @@ def getAuthorArticles(author, cursor):
     print("Articles Recieved!\n")
 
     return resultSet
+
+
+# Gets Authors associated with a university
+def getUniAuthors(uni, cursor):
+    # Author Info Query
+        query = "SELECT affiliation, authenticated_orcid, family, given, name, orcid, sequence, suffix " \
+                    "FROM doidata.author where affiliation LIKE " \
+                    "\'%" + uni + "%\'" + ';'
+
+        print("Retrieving Authors: " + uni)
+        #print('\n',query)
+
+        cursor.execute(query)
+        resultSet = cursor.fetchall()
+
+        print("Authors Recieved!\n")
+
+        return resultSet
+
+
+# Gets DOIs associated with university
+def getUniArticles(uni, cursor):
+    query = "SELECT DOI, URL, title, container_title, group_concat(name separator ', ') as authors, page, publisher, language, alternative_id, created_date_time, " \
+                "deposited_date_time, is_referenced_by_count, issue, issued_date_parts, prefix, published_online_date_parts, published_print_date_parts " \
+            "FROM doidata._main_ JOIN doidata.author ON doidata._main_.id = doidata.author.fk WHERE doidata.author.affiliation  LIKE " \
+                "\'%" + uni + "%\'" + ';'
+    
+    print("Retrieving DOIs: " + uni)
+    #print('\n',query)
+
+    cursor.execute(query)
+    resultSet = cursor.fetchall()
+
+    print("DOIs Recieved!\n")
+
+    return resultSet
+
+
+
+
+
 
 
 
