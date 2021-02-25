@@ -6,7 +6,7 @@ import json
 import requests
 import mysql.connector
 from metaDataToMongoDB import storeMetaDatainMongoDB
-import crossref
+import ingestCrossrefMetadata
 
 def retrieveFromMongoDB():
     client = pymongo.MongoClient('mongodb://localhost:27017/')
@@ -43,7 +43,7 @@ def checkmysqlforlist(li):
         for j in li:
             if i[0]==j.get("DOI"):
                 print("found dupe")
-                dupe[j]=True
+                dupe[li.index(j)]=True
     for j in dupe:
         if dupe[j]==False:
             print("no dice")
@@ -83,14 +83,10 @@ def storeinmysql(data):
         print("Could not connect to MySQL")
         return
     myCursor=drBowmanDatabase.cursor()
-    print(data)
-    #crossref.crossrefIngest(data,myCursor,drBowmanDatabase)
-
-
-
-
-
-    return
+    ingestCrossrefMetadata.crossrefMetadataIngest(data,myCursor,drBowmanDatabase)
+    # End the connection to the MySQL database
+    myCursor.close()
+    drBowmanDatabase.close()
 
 if __name__=='__main__':
     #storeMetaDatainMongoDB()
