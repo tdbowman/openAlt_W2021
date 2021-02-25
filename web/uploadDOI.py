@@ -35,7 +35,7 @@ def getStats():
 
 def downloadDOI(mysql, dir_csv):
 
-    # directories
+    # path of this file
     dir_file = str(os.path.dirname(os.path.realpath(__file__)))
 
     # path of uploaded file
@@ -178,7 +178,7 @@ def downloadDOI(mysql, dir_csv):
                 df = pandas.DataFrame(resultSet)
                 df.columns = [i[0] for i in cursor.description]
 
-                # Writing CSv containing DOI metadata
+                # Writing CSV containing DOI metadata
                 resultPath = dir_doi + '\\doiInfo_' + str(file_id) + '.csv'
                 df.to_csv(resultPath,index=False)
 
@@ -198,7 +198,7 @@ def downloadDOI(mysql, dir_csv):
                         df = pandas.DataFrame(resultSet)
                         df.columns = [i[0] for i in cursor.description]
 
-                        # Writing CSv containing DOI metadata
+                        # Writing CSV containing DOI metadata
                         resultPath = dir_doi + '\\' + table + '_' + str(file_id) + '.csv'
                         df.to_csv(resultPath,index=False)
 

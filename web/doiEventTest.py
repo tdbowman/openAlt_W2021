@@ -8,36 +8,34 @@ import platform
 import mysql
 import shutil
 import datetime as dt
+import dbQuery
 from flask import redirect
+
 
 # importing download function to download zip folder containing results CSV file
 from downloadResultsCSV import downloadResultsAsCSV
 
-# directories
+
+
+# path of this file
 dir_file = str(os.path.dirname(os.path.realpath(__file__)))
 
 # path of uploaded file
-dir_template = 'C:\\Users\\darpa\\Desktop\\doiTest.csv'
+dir_template = 'C:\\Users\\darpa\\OneDrive - Wayne State University\\openAlt\\doiTest.csv'
 
 # path of config file
 dir_config = dir_file + '\\uploadDOI_config.txt'
 
-# path of results folder with current time
+# path of file to print results to
 dir_results = dir_file  + '\\Results\\doiEvents_' + str(dt.datetime.now().strftime("%Y-%m-%d_%H-%M-%S"))
-
-
 
 # Create folder to hold results
 if not os.path.exists(dir_results):
     os.mkdir(dir_results)
 
-#Delete temp CSV file if exists
-# if os.path.exists(dir_results):
-#     os.remove(dir_results)
-
 # Set the logging parameters
 logging.basicConfig(filename= dir_file + '\\Logs\\uploadDOI.log', filemode='a', level=logging.INFO,
-format='%(asctime)s - %(message)s', datefmt='%d-%b-%y %H:%M:%S')
+    format='%(asctime)s - %(message)s', datefmt='%d-%b-%y %H:%M:%S')
 
 doi_arr = []
 
@@ -67,8 +65,6 @@ for config in config_arr:
 # Remove duplicates from the doi array
 doi_arr = list(dict.fromkeys(doi_arr))
 
-# # Join array for sql query
-# joinedArr = "\'" + "','".join(doi_arr) + "\'"
 
 try:
     import mysql.connector
@@ -81,49 +77,126 @@ except:
 connection = mysql.connector.connect(user=str('root'), password=str(
         'pass'), host='127.0.0.1', database='crossrefeventdatamain')
 
-#Cursor makes connection with the db
-cursor = connection.cursor()
+cursor = connection.cursor() 
 
-print(doi_arr)
+# Creating text file with API instructions
+f = open(dir_results + '\\API_Instructions.txt','w+')
+f.write("Thank you for using OpenAlt v2.0!\n" \
+        "We do not provide the complete information listed from the APIs. For more complete and raw information, consider using the CrossRef API with the instructions listed below\n\n" \
+        "1) Download Postman from https://www.postman.com/downloads/\n" \
+        "2) Run a GET Request on Postman, enter a link listed below and hit send\n"
+        "3) You will see the output in the body section on the lower third half of the window. Make sure that the *Body* setting is set to *Pretty* and the dropdown to *JSON*\n\n" \
+        "You may also use any other API retrieval method, Postman happens to be the method the developers here at OpenAlt use to test APIs\n\n" \
+        "For more information about the CrossRef API, checkout the links listed below:\n" \
+        "https://www.crossref.org/education/retrieve-metadata/rest-api/\n" \
+        "https://github.com/CrossRef/rest-api-doc\n\n\n" \
+        "YOUR API QUERIES: \n")
 
-count = 1
+
+# Array containing table names found in crossrefeventdatamain (except main)
+event_tables = ['cambiaevent','crossrefevent','dataciteevent', 'f1000event','hypothesisevent','newsfeedevent','redditevent','redditlinksevent','stackexchangeevent','twitterevent','webevent','wikipediaevent','wordpressevent']
+
+# Count of DOIs found in database
+count = 0
+
+# Execution of query and output of result + log
 for doi in doi_arr:
-    # Execution of query and output of result + log
-    query = "SELECT * FROM crossrefeventdatamain.main WHERE objectID LIKE '%" + doi + "%'"
-    cursor.execute(query)
-    resultSet = cursor.fetchall()
-
-    print('\n',query)
-    logging.info(query)
-    print('RESULT SET:',resultSet)
+    
+    resultSet = dbQuery.getEventCounts(doi, cursor)
     logging.info(resultSet)
 
+    
 
-    file_id = doi.replace('/','-')
-    file_id = file_id.replace('.','-')
-    print('FILE ID:', file_id)
+    # Writing API query to API_Instructions.txt
+    f.write("https://api.crossref.org/works/" + doi + "\n")
 
-    resultPath = dir_results + '\\doiEvent_' + str(file_id) + '.csv'
 
-    # Write result to file.
-    df = pandas.DataFrame(resultSet)
-    df.columns = [i[0] for i in cursor.description]
-    df.to_csv(resultPath,index=False)
+    # If query outputs no results, add to not found csv, else write
+    if len(resultSet) == 0:
+        # CSV containing list of results not found
+        emptyResultPath = dir_results + '\\NotFound.csv'
 
-    count = count + 1
+        with open(emptyResultPath,'a',newline='') as emptyCSV:
+            writer = csv.writer(emptyCSV)
+            writer.writerow([doi])
 
-    # send results to zip (directory, zip file name, csv name)
-    # downloadResultsAsCSV(dir_results,'uploadDOI_Results.zip','uploadDOI_Results.csv')
+        print("DOI NOT FOUND:", doi)
+        logging.info("DOI NOT FOUND: " + doi)
 
+    else:
+        # Write result to file.
+        df = pandas.DataFrame(resultSet)
+
+        # Replace invalid chars for file name
+        file_id = doi.replace('/','-')
+        file_id = file_id.replace('.','-')
+        #print('FILE ID:', file_id)
+
+        # Create folder to hold results
+        dir_doi = dir_results + '\\' + str(file_id)
+        if not os.path.exists(dir_doi):
+            os.mkdir(dir_doi)
+
+        resultPath = dir_doi + '\\eventCounts_' + str(file_id) + '.csv'
+        df.columns = [i[0] for i in cursor.description]  ###### CAUSED ISSUE ON SALSBILS MACHINE #######
+        #print("DF COLUMNS",[i[0] for i in cursor.description])
+        df.to_csv(resultPath,index=False)
+
+        # DOI Info Query
+        resultSet = dbQuery.getDOIMetadata(doi, cursor)
+        
+        logging.info(resultSet)
+        
+        
+        # if results not empty
+        if len(resultSet) > 0:
+
+            # Write associated DOI info to file.
+            df = pandas.DataFrame(resultSet)
+            df.columns = [i[0] for i in cursor.description]
+
+            # Writing CSV containing DOI metadata
+            resultPath = dir_doi + '\\doiInfo_' + str(file_id) + '.csv'
+            df.to_csv(resultPath,index=False)
+
+            logging.info(resultSet)
+
+            resultSet, headers = dbQuery.getEvents(doi,cursor)
+            
+            for table in event_tables:
+            # Getting specific event data
+                if len(resultSet[table]) > 0:
+                    # Write associated DOI info to file.
+                    df = pandas.DataFrame(resultSet[table])
+                    df.columns = headers[table]
+
+                    # Writing CSV containing DOI metadata
+                    resultPath = dir_doi + '\\' + table + '_' + str(file_id) + '.csv'
+                    df.to_csv(resultPath,index=False)
+
+        else:
+            # CSV containing list of results not found
+            emptyResult = open(dir_doi + '\\doiInfo_NotFound.txt','w+')
+            emptyResult.write("DOI: " + doi + "\nDOI Information Not Found\n")
+            emptyResult.close()
+
+
+        count = count + 1
+
+# Close API_Instructions.txt
+f.close()
+
+# Stats of query
+print('\n')
+
+# Zip folder containing the CSV files=
 shutil.make_archive(str(dir_results),'zip',dir_results)
 
 # Delete unzipped folder
 if os.path.exists(dir_results):
     shutil.rmtree(dir_results)
 
-zipResults = dir_results + '.zip'
-print("RESULTS ZIP",zipResults)
-
-
 
 ###### Darpan End ######
+
+
