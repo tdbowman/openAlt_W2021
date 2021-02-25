@@ -83,9 +83,7 @@ def downloadDOI(mysql, dir_csv):
     # Remove duplicates from the doi array
     doi_arr = list(dict.fromkeys(doi_arr))
 
-    # # Join array for sql query
-    # joinedArr = "\'" + "','".join(doi_arr) + "\'"
-
+   
     # Cursor makes connection with the db
     cursor = mysql.connection.cursor()
 
@@ -103,6 +101,8 @@ def downloadDOI(mysql, dir_csv):
             "YOUR API QUERIES: \n")
 
 
+    # Array containing table names found in crossrefeventdatamain (except main)
+    event_tables = ['cambiaevent','crossrefevent','dataciteevent', 'f1000event','hypothesisevent','newsfeedevent','redditevent','redditlinksevent','stackexchangeevent','twitterevent','webevent','wikipediaevent','wordpressevent']
 
     # Count of DOIs found in database
     count = 0
@@ -116,18 +116,18 @@ def downloadDOI(mysql, dir_csv):
         # Print queries and results in console and log
         print('\n',query)
         logging.info(query)
-        print('RESULT SET:', resultSet)
+        print('\nRESULT SET:', resultSet)
         logging.info(resultSet)
+
+        
 
         # Writing API query to API_Instructions.txt
         f.write("https://api.crossref.org/works/" + doi + "\n")
 
-        # Write result to file.
-        df = pandas.DataFrame(resultSet)
-
+       
 
         # If query outputs no results, add to not found csv, else write
-        if df.empty:
+        if len(resultSet) == 0:
             # CSV containing list of results not found
             emptyResultPath = dir_results + '\\NotFound.csv'
 
@@ -139,12 +139,20 @@ def downloadDOI(mysql, dir_csv):
             logging.info("DOI NOT FOUND: " + doi)
 
         else:
+            # Write result to file.
+            df = pandas.DataFrame(resultSet)
+
             # Replace invalid chars for file name
             file_id = doi.replace('/','-')
             file_id = file_id.replace('.','-')
             print('FILE ID:', file_id)
 
-            resultPath = dir_results + '\\' + str(file_id) + '_doiEvents.csv'
+            # Create folder to hold results
+            dir_doi = dir_results + '\\' + str(file_id)
+            if not os.path.exists(dir_doi):
+                os.mkdir(dir_doi)
+
+            resultPath = dir_doi + '\\eventCounts_' + str(file_id) + '.csv'
             df.columns = [i[0] for i in cursor.description]  ###### CAUSED ISSUE ON SALSBILS MACHINE #######
             df.to_csv(resultPath,index=False)
 
@@ -159,17 +167,47 @@ def downloadDOI(mysql, dir_csv):
 
             print('\n',query)
             logging.info(query)
-            print('RESULT SET:',resultSet)
+            print('\nRESULT SET:',resultSet)
             logging.info(resultSet)
+            
 
-            resultPath = dir_results + '\\' + str(file_id) + '_doiInfo.csv'
+            # if results not empty
+            if len(resultSet) > 0:
 
-            # Write associated DOI info to file.
-            df = pandas.DataFrame(resultSet)
-
-            if not df.empty:
+                # Write associated DOI info to file.
+                df = pandas.DataFrame(resultSet)
                 df.columns = [i[0] for i in cursor.description]
+
+                # Writing CSv containing DOI metadata
+                resultPath = dir_doi + '\\doiInfo_' + str(file_id) + '.csv'
                 df.to_csv(resultPath,index=False)
+
+                # Getting specific event data
+                for table in event_tables:
+                    query = "SELECT * FROM crossrefeventdatamain." + table + " WHERE objectID LIKE '%" + doi + "%'"
+                    cursor.execute(query)
+                    resultSet = cursor.fetchall()
+
+                    print('\n',query)
+                    logging.info(query)
+                    print('\nRESULT SET:',resultSet)
+                    logging.info(resultSet)
+
+                    if len(resultSet) > 0:
+                        # Write associated DOI info to file.
+                        df = pandas.DataFrame(resultSet)
+                        df.columns = [i[0] for i in cursor.description]
+
+                        # Writing CSv containing DOI metadata
+                        resultPath = dir_doi + '\\' + table + '_' + str(file_id) + '.csv'
+                        df.to_csv(resultPath,index=False)
+
+            else:
+                # CSV containing list of results not found
+                emptyResult = open(dir_doi + '\\doiInfo_NotFound.txt','w+')
+                emptyResult.write("DOI: " + doi + "\nDOI Information Not Found\n")
+                emptyResult.close()
+
 
             count = count + 1
 

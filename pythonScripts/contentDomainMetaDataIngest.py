@@ -60,14 +60,14 @@ def contentDomainIngest(connection, cursor, doi, contentDomainData):
         connection.commit()
         logging.info("Author metadata inserted for DOI: " + doi + " fk: " + str(fk))
 
-    '''
-    #Delete duplicate values if they exist in the table
-    query = """DELETE t1 FROM doidata.content_domain t1 INNER JOIN doidata.content_domain t2 
-                WHERE 
-                t1.id < t2.id AND
-                t1.crossmark_restriction = t2.crossmark_restriction AND
-                t1.domain = t2.domain AND
-                t1.fk = t2.fk;"""
-    cursor.execute(query)
-    connection.commit()
-    '''
+    # '''
+    # #Delete duplicate values if they exist in the table
+    # query = """DELETE t1 FROM doidata.content_domain t1 INNER JOIN doidata.content_domain t2 
+    #             WHERE 
+    #             t1.id < t2.id AND
+    #             t1.crossmark_restriction = t2.crossmark_restriction AND
+    #             t1.domain = t2.domain AND
+    #             t1.fk = t2.fk;"""
+    # cursor.execute(query)
+    # connection.commit()
+    # '''

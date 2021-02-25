@@ -47,8 +47,8 @@ def authorIngest(connection, cursor, doi, authorData):
         ##################
         # Split affiliation information into country and university
 
-        country = 'dummy country'
-        university = 'dummy uni'
+        country = 'test country'
+        university = 'test uni'
         #country = extract_country(str(affiliation))
         #university = extract_university(str(affiliation))
         
