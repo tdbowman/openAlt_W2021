@@ -110,6 +110,7 @@ def downloadUni(mysql, dir_csv):
 
         # Write result to file.
         df = pandas.DataFrame(resultSet)
+        df = df.drop_duplicates()
 
         # If query outputs no results, then author not in database
         if df.empty:
@@ -120,7 +121,6 @@ def downloadUni(mysql, dir_csv):
                 writer = csv.writer(emptyCSV)
                 writer.writerow([uni])
 
-            print("UNIVERSITY NOT FOUND:", uni)
             logging.info("UNIVERSITY NOT FOUND: " + uni)
 
         else:
@@ -128,7 +128,7 @@ def downloadUni(mysql, dir_csv):
             # Replace invalid chars for file name
             file_id = uni.replace(' ','-')
             file_id = file_id.replace('.','')
-            print('FILE ID:', file_id)
+            #print('FILE ID:', file_id)
 
             resultPath = dir_results + '\\' + str(file_id) + '_authorInfo.csv'
             df.columns = [i[0] for i in cursor.description]  ###### CAUSED ISSUE ON SALSBILS MACHINE #######
@@ -144,6 +144,7 @@ def downloadUni(mysql, dir_csv):
 
             # Write associated DOI info to file.
             df = pandas.DataFrame(resultSet)
+            df = df.drop_duplicates()
 
             if not df.empty:
                 df.columns = [i[0] for i in cursor.description]

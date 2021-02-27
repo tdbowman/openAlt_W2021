@@ -25,15 +25,24 @@ def setZipEvents(path):
 def getZipEvents():
     return zipEvents
 
-# Setter for stats
-def setStats(x,y):
-    global stats
-    stats = 'RESULTS: ' + str(x) + '/' + str(y) + ' FOUND'
-    print(stats)
+# Setters for stats
+def setEventStats(eventCount, total):
+    global eventStats
+    eventStats = 'EVENTS FOUND: ' + str(eventCount) + '/' + str(total) + ' DOIs'
+    print(eventStats)
 
-# Getter for stats
-def getStats():
-    return stats
+def setMetadataStats(metadataCount, total):
+    global metadataStats
+    metadataStats = 'METADATA FOUND: ' + str(metadataCount) + '/' + str(total) + ' DOIs' 
+    print(metadataStats)
+
+# Getters for stats
+def getEventStats():
+    return eventStats
+
+def getMetadataStats():
+    return metadataStats
+
 
 def downloadDOI(mysql, dir_csv):
 
@@ -110,43 +119,43 @@ def downloadDOI(mysql, dir_csv):
     event_tables = ['cambiaevent','crossrefevent','dataciteevent', 'f1000event','hypothesisevent','newsfeedevent','redditevent','redditlinksevent','stackexchangeevent','twitterevent','webevent','wikipediaevent','wordpressevent']
 
     # Count of DOIs found in database
-    count = 0
+    eventsFound = 0
+    metadataFound = 0
     progress = 0
 
-    # Execution of query and output of result + log
+    # Execution of queries and output of result + log
     for doi in doi_arr:
         progress = progress + 1
         print("PROGRESS: " + str(progress) + "/" + str(len(doi_arr)))
         
-        resultSet = dbQuery.getDOIEventCounts(doi, cursor)
-        logging.info(resultSet)
-
-        
-
         # Writing API query to API_Instructions.txt
         f.write("https://api.crossref.org/works/" + doi + "\n")
 
+        # Replace invalid chars for file name
+        file_id = doi.replace('/','-')
+        file_id = file_id.replace('.','-')
+        #print('FILE ID:', file_id)
+
+        
+        # Getting event counts
+        resultSet = dbQuery.getDOIEventCounts(doi, cursor)
+        logging.info(resultSet)
 
         # If query outputs no results, add to not found csv, else write
         if len(resultSet) == 0:
             # CSV containing list of results not found
-            emptyResultPath = dir_results + '\\NotFound.csv'
+            emptyResultPath = dir_results + '\\NotFound_Events.csv'
 
             with open(emptyResultPath,'a',newline='') as emptyCSV:
                 writer = csv.writer(emptyCSV)
                 writer.writerow([doi])
 
-            print("DOI NOT FOUND:", doi)
-            logging.info("DOI NOT FOUND: " + doi)
-
+            logging.info("DOI EVENT NOT FOUND: " + doi)
         else:
+            eventsFound = eventsFound + 1
             # Write result to file.
             df = pandas.DataFrame(resultSet)
-
-            # Replace invalid chars for file name
-            file_id = doi.replace('/','-')
-            file_id = file_id.replace('.','-')
-            #print('FILE ID:', file_id)
+            df = df.drop_duplicates()
 
             # Create folder to hold results
             dir_doi = dir_results + '\\' + str(file_id)
@@ -155,56 +164,66 @@ def downloadDOI(mysql, dir_csv):
 
             resultPath = dir_doi + '\\eventCounts_' + str(file_id) + '.csv'
             df.columns = [i[0] for i in cursor.description]  ###### CAUSED ISSUE ON SALSBILS MACHINE #######
-            #print("DF COLUMNS",[i[0] for i in cursor.description])
             df.to_csv(resultPath,index=False)
 
-            # DOI Info Query
-            resultSet = dbQuery.getDOIMetadata(doi, cursor)
+            # Retreiving Specific DOI Events
+            resultSet, headers = dbQuery.getDOIEvents(doi,cursor)
+            #logging.info(resultSet)
             
-            logging.info(resultSet)
+            for table in event_tables:
+            # Getting specific event data
+                if len(resultSet[table]) > 0:
+                    # Write associated DOI info to file.
+                    df = pandas.DataFrame(resultSet[table])
+                    df.columns = headers[table]
+
+                    # Writing CSV containing DOI metadata
+                    resultPath = dir_doi + '\\' + table + '_' + str(file_id) + '.csv'
+                    df.to_csv(resultPath,index=False)
+
+       
+        # DOI Info Query
+        resultSet = dbQuery.getDOIMetadata(doi, cursor)
+        logging.info(resultSet)
+
+        # if results not empty
+        if len(resultSet) > 0:
+            metadataFound = metadataFound + 1
+            # Write associated DOI info to file.
+            df = pandas.DataFrame(resultSet)
+            #df = df.drop_duplicates()
+            df.columns = [i[0] for i in cursor.description]
+
+            # Create folder to hold results
+            dir_doi = dir_results + '\\' + str(file_id)
+            if not os.path.exists(dir_doi):
+                os.mkdir(dir_doi)
+
+            # Writing CSV containing DOI metadata
+            resultPath = dir_doi + '\\doiInfo_' + str(file_id) + '.csv'
+            df.to_csv(resultPath,index=False)
+        else:
+            # CSV containing list of results not found
+            emptyResultPath = dir_results + '\\NotFound_doiInfo.csv'
+            with open(emptyResultPath,'a',newline='') as emptyCSV:
+                writer = csv.writer(emptyCSV)
+                writer.writerow([doi])
             
-            
-            # if results not empty
-            if len(resultSet) > 0:
+            logging.info("DOI INFO NOT FOUND: " + doi)
 
-                # Write associated DOI info to file.
-                df = pandas.DataFrame(resultSet)
-                df.columns = [i[0] for i in cursor.description]
-
-                # Writing CSV containing DOI metadata
-                resultPath = dir_doi + '\\doiInfo_' + str(file_id) + '.csv'
-                df.to_csv(resultPath,index=False)
-
-                logging.info(resultSet)
-
-                resultSet, headers = dbQuery.getDOIEvents(doi,cursor)
-                
-                for table in event_tables:
-                # Getting specific event data
-                    if len(resultSet[table]) > 0:
-                        # Write associated DOI info to file.
-                        df = pandas.DataFrame(resultSet[table])
-                        df.columns = headers[table]
-
-                        # Writing CSV containing DOI metadata
-                        resultPath = dir_doi + '\\' + table + '_' + str(file_id) + '.csv'
-                        df.to_csv(resultPath,index=False)
-
-            else:
-                # CSV containing list of results not found
-                emptyResult = open(dir_doi + '\\doiInfo_NotFound.txt','w+')
-                emptyResult.write("DOI: " + doi + "\nDOI Information Not Found\n")
-                emptyResult.close()
-
-
-            count = count + 1
+            # # Txt showing DOI info was not found in doi folder
+            # emptyResult = open(dir_doi + '\\doiInfo_NotFound.txt','w+')
+            # emptyResult.write("DOI: " + doi + "\nDOI Information Not Found\n")
+            # emptyResult.close()
+        
 
     # Close API_Instructions.txt
     f.close()
 
     # Stats of query
     print('\n')
-    setStats(count, len(doi_arr))
+    setEventStats(eventsFound, len(doi_arr))
+    setMetadataStats(metadataFound, len(doi_arr))
 
     # Time taken to execute script
     print("--- %s seconds ---" % (time.time() - start_time))
@@ -236,4 +255,4 @@ def searchByDOI(mysql, fileName):
     if os.path.exists(dir):
         os.remove(dir)
 
-    return flask.render_template('download.html', results = getStats())
+    return flask.render_template('download.html', eventStats = getEventStats(), metadataStats = getMetadataStats())

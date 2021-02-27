@@ -118,7 +118,6 @@ def downloadAuthor(mysql,dir_csv):
                 writer = csv.writer(emptyCSV)
                 writer.writerow([author])
 
-            print("AUTHOR NOT FOUND: " + author + "\n")
             logging.info("AUTHOR NOT FOUND: " + author + "\n")
 
         else:
@@ -127,6 +126,7 @@ def downloadAuthor(mysql,dir_csv):
             
             # Write result to file.
             df = pandas.DataFrame(resultSet)
+            df = df.drop_duplicates()
 
             # Replace invalid chars for file name
             file_id = author.replace(' ','-')
@@ -146,6 +146,7 @@ def downloadAuthor(mysql,dir_csv):
 
             # Write associated DOI info to file.
             df = pandas.DataFrame(resultSet)
+            df = df.drop_duplicates()
 
             if not df.empty:
                 df.columns = [i[0] for i in cursor.description]

@@ -1,8 +1,6 @@
 # Author: Darpan
 ######## Darpan Start ########
 
-import pandas
-
 # Gets DOI event counts
 def getDOIEventCounts(doi, cursor):
     query = "SELECT * FROM crossrefeventdatamain.main WHERE objectID LIKE '%" + doi + "%'"
@@ -13,8 +11,11 @@ def getDOIEventCounts(doi, cursor):
     cursor.execute(query)
     resultSet = cursor.fetchall()
     
-    #print('\nRESULT SET:',resultSet)
-    print("Event Counts Recieved!\n")
+    if len(resultSet) == 0:
+        print("DOI Event Counts Not Found\n")
+    else:
+        print("Event Counts Recieved!\n")
+    
     return resultSet
 
 
@@ -34,7 +35,11 @@ def getDOIMetadata(doi, cursor):
     resultSet = cursor.fetchall()
 
     #print('\nRESULT SET:',resultSet)
-    print("Metadata Recieved!\n")
+    if len(resultSet) == 0:
+        print("DOI Metadata Not Found\n")
+    else:
+        print("DOI Metadata Recieved!\n")
+    
     return resultSet
 
 
@@ -54,11 +59,18 @@ def getDOIEvents(doi, cursor):
         cursor.execute(query)
         resultSet = cursor.fetchall()
 
+        if len(resultSet) == 0:
+            print(table + " Event Data Not Found\n")
+        else:
+            print(table + " Event Data recieved!\n")
+
+
         headers = [i[0] for i in cursor.description]
         header[table] = headers
         result[table] = resultSet
+
+              
         
-        print(table + " Event Data recieved!\n")
         
     
     #print('\nRESULT SET:',result)
@@ -79,7 +91,10 @@ def getAuthorMetadata(author,cursor):
     cursor.execute(query)    
     resultSet = cursor.fetchall()
 
-    print("Metadata Recieved!\n")
+    if len(resultSet) == 0:
+        print("Author Not Found\n")
+    else:
+        print("Author Metadata Recieved!\n")
 
     return resultSet
 
@@ -100,44 +115,53 @@ def getAuthorArticles(author, cursor):
     cursor.execute(query)
     resultSet = cursor.fetchall()
 
-    print("Articles Recieved!\n")
-
+    if len(resultSet) == 0:
+        print("Author Articles Not Found\n")
+    else:
+        print("Author Articles Recieved!\n")
+    
     return resultSet
 
 
 # Gets Authors associated with a university
 def getUniAuthors(uni, cursor):
     # Author Info Query
-        query = "SELECT affiliation, authenticated_orcid, family, given, name, orcid, sequence, suffix " \
-                    "FROM doidata.author where affiliation LIKE " \
-                    "\'%" + uni + "%\'" + ';'
-
-        print("Retrieving Authors: " + uni)
-        #print('\n',query)
-
-        cursor.execute(query)
-        resultSet = cursor.fetchall()
-
-        print("Authors Recieved!\n")
-
-        return resultSet
-
-
-# Gets DOIs associated with university
-def getUniArticles(uni, cursor):
-    query = "SELECT DOI, URL, title, container_title, group_concat(name separator ', ') as authors, page, publisher, language, alternative_id, created_date_time, " \
-                "deposited_date_time, is_referenced_by_count, issue, issued_date_parts, prefix, published_online_date_parts, published_print_date_parts " \
-            "FROM doidata._main_ JOIN doidata.author ON doidata._main_.id = doidata.author.fk WHERE doidata.author.affiliation  LIKE " \
+    query = "SELECT affiliation, authenticated_orcid, family, given, name, orcid, sequence, suffix " \
+                "FROM doidata.author where affiliation LIKE " \
                 "\'%" + uni + "%\'" + ';'
-    
-    print("Retrieving DOIs: " + uni)
+
+    print("Retrieving University Authors: " + uni)
     #print('\n',query)
 
     cursor.execute(query)
     resultSet = cursor.fetchall()
 
-    print("DOIs Recieved!\n")
+    if len(resultSet) == 0:
+        print("University Authors Not Found\n")
+    else:
+        print("University Authors Recieved!\n")
 
+    return resultSet
+
+
+# Gets DOIs associated with university
+def getUniArticles(uni, cursor):
+    query = "SELECT DOI, URL, title, container_title, name as authors, affiliation, page, publisher, language, alternative_id, created_date_time, " \
+                "deposited_date_time, is_referenced_by_count, issue, issued_date_parts, prefix, published_online_date_parts, published_print_date_parts " \
+            "FROM doidata._main_ JOIN doidata.author ON doidata._main_.id = doidata.author.fk WHERE doidata.author.affiliation  LIKE " \
+                "\'%" + uni + "%\'" + ';'
+    
+    print("Retrieving University DOIs: " + uni)
+    #print('\n',query)
+
+    cursor.execute(query)
+    resultSet = cursor.fetchall()
+
+    if len(resultSet) == 0:
+        print("University DOIs Not Found\n")
+    else:
+        print("University DOIs Recieved!\n")
+    
     return resultSet
 
 

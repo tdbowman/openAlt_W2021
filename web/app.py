@@ -1,3 +1,5 @@
+# Author: Darpan (Lines 231-251, 273-280)
+
 import os
 import flask
 from flask import Flask
@@ -272,7 +274,7 @@ def downloadAuthors():
 def downloadUni():
     if request.method=="POST":
         
-        test = getZipEvents()
+        test = getZipUni()
         print("ZIP EVENTS:", test)
         return send_file(test, as_attachment=True)
     return flask.render_template('downloadUni.html')
