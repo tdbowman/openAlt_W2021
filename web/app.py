@@ -50,6 +50,9 @@ app2.config['MYSQL_CURSORCLASS'] = 'DictCursor'
 # Database initialization and cursor
 mysql2 = MySQL(app2)
 
+# Pass on vars between pages
+session = {}
+
 
 @app.route('/')
 def index():
@@ -160,8 +163,24 @@ def team():
 def licenses():
     return flask.render_template('licenses.html')
 
-@ app.route('/upload', methods=["GET", "POST"])
-def upload():
+
+@ app.route('/searchByOptions', methods=["GET", "POST"])
+def searchByOptions():
+    
+    if request.method=="POST":
+        select = request.form.get("uploadList")
+
+        if select == "DOI":
+            return redirect('/uploadDOI')
+        elif select == "Author":
+            return redirect('/uploadAuthors')
+        elif select == "University":
+            return redirect('/uploadUni')
+    
+    return flask.render_template('searchByOptions.html')
+
+@ app.route('/uploadDOI', methods=["GET", "POST"])
+def uploadDOI():
 
     app.config["UPLOAD_FILES"] = "../web/uploadFiles"
     target = app.config["UPLOAD_FILES"]
@@ -169,12 +188,6 @@ def upload():
     if not os.path.isdir(target):
         os.mkdir(target)
 
-    # APP_ROOT = os.path.dirname(os.path.abspath(__file__))
-    # target = os.path.join(APP_ROOT, 'uploadFiles')
-    # print(target)
-
-    # if not os.path.isdir(target):
-    #     os.mkdir(target)
     destination = app.config["UPLOAD_FILES"]
 
     if request.method=="POST":
@@ -186,25 +199,23 @@ def upload():
             uploadFiles.save(os.path.join(destination, fileName))
             print("File saved.")
 
-            #downloadfile(fileName)
-            # return flask.render_template('download.html')
+            session['doiPath'] = fileName
+                      
+        return flask.render_template('downloadDOI.html')
+    
+    return flask.render_template('uploadDOI.html')
+
+
+@ app.route('/downloadDOI', methods=["GET", "POST"])
+def downloadDOI():
+    if request.method=="POST":
+                
+        filepath = session.get('doiPath')
         
-        return searchByDOI(mysql, fileName)
+        return searchByDOI(mysql, filepath)
+    
+    return flask.render_template('downloadDOI.html')
 
-    # APP_ROOT = os.path.dirname(os.path.abspath(__file__))
-    # target = os.path.join(APP_ROOT, 'uploadFiles')
-    # print(target)
-
-    # if not os.path.isdir(target):
-    #     os.mkdir(target)
-
-    # for file in request.files.getlist("file"):
-    #     filename = file.filename
-    #     destination = "/".join([target, filename])
-    #     print(destination)
-    #     file.save(destination)
-
-    return flask.render_template('upload.html')
 
 @ app.route('/uploadAuthors', methods=["GET", "POST"])
 def uploadAuthors():
@@ -223,10 +234,24 @@ def uploadAuthors():
             fileName = uploadFiles.filename
             uploadFiles.save(os.path.join(destination, fileName))
             print("File saved.")
+
+            session['authorPath'] = fileName
         
-        return searchByAuthor(mysql, fileName)
+        return flask.render_template('downloadAuthors.html')
 
     return flask.render_template('uploadAuthors.html')
+
+
+@ app.route('/downloadAuthors', methods=["GET", "POST"])
+def downloadAuthors():
+    if request.method=="POST":
+        
+        filepath = session.get('authorPath')
+        
+        return searchByAuthor(mysql, filepath)
+
+    return flask.render_template('downloadAuthors.html')
+
 
 @ app.route('/uploadUni', methods=["GET", "POST"])
 def uploadUni():
@@ -245,61 +270,27 @@ def uploadUni():
             fileName = uploadFiles.filename
             uploadFiles.save(os.path.join(destination, fileName))
             print("File saved.")
+
+            session['uniPath'] = fileName
         
-        return searchByUni(mysql, fileName)
+        return flask.render_template('downloadUni.html')
 
     return flask.render_template('uploadUni.html')
 
-
-
-@ app.route('/download', methods=["GET", "POST"])
-def download():
-    if request.method=="POST":
-                
-        test = getZipEvents()
-        print("ZIP EVENTS:", test)
-        return send_file(test, as_attachment=True)
-    return flask.render_template('download.html')
-
-
-@ app.route('/downloadAuthors', methods=["GET", "POST"])
-def downloadAuthors():
-    if request.method=="POST":
-        
-        print("ZIP AUTHOR:",getZipAuthor())
-        return send_file(getZipAuthor(), as_attachment=True)
-    return flask.render_template('downloadAuthors.html')
 
 @ app.route('/downloadUni', methods=["GET", "POST"])
 def downloadUni():
     if request.method=="POST":
         
-        test = getZipUni()
-        print("ZIP EVENTS:", test)
-        return send_file(test, as_attachment=True)
+        filepath = session.get('uniPath')
+        
+        return searchByUni(mysql, filepath)
+
+
     return flask.render_template('downloadUni.html')
 
-# @ app.route('/downloadAuthorZip', methods=["GET", "POST"])
-# def downloadAuthorZip():
-#     dir_file = str(os.path.dirname(os.path.realpath(__file__)))
-#     dir_results = dir_file + '\\Results\\uploadAuthor_results.csv'
-#     return send_file(dir_results, as_attachment=True)
 
 
-@ app.route('/searchByOptions', methods=["GET", "POST"])
-def searchByOptions():
-    
-    if request.method=="POST":
-        select = request.form.get("uploadList")
-
-        if select == "DOI":
-            return redirect('/upload')
-        elif select == "Author":
-            return redirect('/uploadAuthors')
-        elif select == "University":
-            return redirect('/uploadUni')
-    
-    return flask.render_template('searchByOptions.html')
         
 # If this is the main module or main program being run (app.py)......
 if __name__ == "__main__":

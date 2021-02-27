@@ -692,3 +692,14 @@
 27-Feb-21 12:34:22 - ()
 27-Feb-21 12:34:22 - DOI INFO NOT FOUND: fake/doi
 27-Feb-21 12:34:22 - 127.0.0.1 - - [27/Feb/2021 12:34:22] "[37mPOST /upload HTTP/1.1[0m" 200 -
+27-Feb-21 16:46:32 - ({'increment': 14105, 'objectID': 'https://doi.org/10.1001/archinte.159.10.1082', 'totalEvents': 370, 'totalCambiaEvents': None, 'firstCambiaEvent': None, 'lastCambiaEvent': None, 'totalCrossrefEvents': None, 'firstCrossrefEvent': None, 'lastCrossrefEvent': None, 'totalDataciteEvents': None, 'firstDataciteEvent': None, 'lastDataciteEvent': None, 'totalF1000Events': None, 'firstF1000Event': None, 'lastF1000Event': None, 'totalHypothesisEvents': None, 'firstHypothesisEvent': None, 'lastHypothesisEvent': None, 'totalNewsfeedEvents': None, 'firstNewsfeedEvent': None, 'lastNewsfeedEvent': None, 'totalRedditEvents': None, 'firstRedditEvent': None, 'lastRedditEvent': None, 'totalRedditLinksEvents': None, 'firstRedditLinksEvent': None, 'lastRedditLinksEvent': None, 'totalStackExchangeEvents': None, 'firstStackExchangeEvent': None, 'lastStackExchangeEvent': None, 'totalTwitterEvents': 3, 'firstTwitterEvent': datetime.datetime(2020, 10, 15, 3, 21, 7), 'lastTwitterEvent': datetime.datetime(2020, 10, 15, 3, 21, 7), 'totalWebEvents': None, 'firstWebEvent': None, 'lastWebEvent': None, 'totalWikipediaEvents': 367, 'firstWikipediaEvent': datetime.datetime(2017, 8, 29, 16, 27, 25), 'lastWikipediaEvent': datetime.datetime(2021, 2, 19, 9, 42, 51), 'totalWordpressEvents': None, 'firstWordpressEvent': None, 'lastWordPressEvent': None},)
+27-Feb-21 16:46:35 - ()
+27-Feb-21 16:46:35 - DOI INFO NOT FOUND: 10.1001/archinte.159.10.1082
+27-Feb-21 16:46:35 - ()
+27-Feb-21 16:46:35 - DOI EVENT NOT FOUND: fake/doi
+27-Feb-21 16:46:35 - ()
+27-Feb-21 16:46:35 - DOI INFO NOT FOUND: fake/doi
+27-Feb-21 16:46:35 - 127.0.0.1 - - [27/Feb/2021 16:46:35] "[37mPOST /download HTTP/1.1[0m" 200 -
+27-Feb-21 16:47:19 - 127.0.0.1 - - [27/Feb/2021 16:47:19] "[37mGET /searchByOptions HTTP/1.1[0m" 200 -
+27-Feb-21 16:47:19 - 127.0.0.1 - - [27/Feb/2021 16:47:19] "[33mGET /static/js/list.js HTTP/1.1[0m" 404 -
+27-Feb-21 16:47:39 -  * Detected change in 'C:\\Users\\darpa\\Desktop\\openAlt_W2021\\web\\app.py', reloading

@@ -29,20 +29,23 @@
         <!-- Empty column of size 3. Left of search bar -->
     </div>
 
+
+
     <div class="center-screen col-sm-6">
-        <div style="border-radius: 25px; padding: 10px; background-color: rgba(60, 65, 70, 0.8); ">
-            <h1 style="text-align: center; color: aliceblue;">{{ eventStats }}</h1>
-            <h1 style="text-align: center; color: aliceblue;">{{ metadataStats }}</h1>
-        </div>
-        <br>
-        <br>
-        <br>
+        <div style="border-radius: 25px; padding: 10px; background-color: rgba(60, 65, 70, 0.8); text-align: center;">
 
-
-        <div style="border-radius: 25px; padding: 10px; background-color: rgba(60, 65, 70, 0.8); ">
             <h1 style="text-align: center; color: aliceblue;">Download DOI Results</h1>
-            <form action="{{ url_for('download') }}" method="POST">
+            <br>
+
+            <input type="text" id="email_input" name="email_input" placeholder="Email Address:" class="form-control">
+            <br>
+
+            <form action="{{ url_for('downloadDOI') }}" method="POST" style="text-align: center; align-items: center;">
                 <div class="image-title-wrap">
+                    <select name="dropdownSearchBy" id="dropdownSearchBy" class="form-control">
+                        <option selected="selected" value="CSV" style="text-align: center; align-items: center;">CSV</option>
+                        <option value="JSON" style="text-align: center; align-items: center;">JSON</option>
+                    </select>
                     <button class="file-upload-btn">Download File</button></a>
                 </div>
             </form>

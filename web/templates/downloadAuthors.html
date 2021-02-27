@@ -8,52 +8,42 @@
 
 <!-- Anything you put here will be in the body-->
 {% block body %}
-<!-- <div class="file-upload">  
-    <form action="{{ url_for('download') }}" method="POST" enctype="multipart/form-data">
-        <div class="container">
-        <a href="/downloadfile" target="blank"><button class="button">Download File</button></a>
-        </div> -->
-        <!-- <div class="file-upload-content">
-            <div class="image-title-wrap">
-            <button type="submit" class="button">Download File</button>
-            </div>
-        </div>
-    </form>
-</div> --> -->
 
-<!-- <div class="container">
-    <a href="/downloadAuthorZip" target="blank"><button class="button">Download File</button></a>
-</div> -->
 <br>
 <br>
-<body style="background-image: url('../static/images/library.jpg'); background-repeat: no-repeat; background-size:cover;">
-  <div class="col-sm-3">
-    <!-- Empty column of size 3. Left of search bar -->
-  </div>
-  
-  <div class="center-screen col-sm-6">
-    <div style="border-radius: 25px; padding: 10px; background-color: rgba(60, 65, 70, 0.8); ">
-        <h1 style="text-align: center; color: aliceblue;">{{ results }}</h1>
+<body
+    style="background-image: url('../static/images/library.jpg'); background-repeat: no-repeat; background-size:cover;">
+    <div class="col-sm-3">
+        <!-- Empty column of size 3. Left of search bar -->
     </div>
-    <br>
-    <br>
-    <br>
 
-  <div class = "center-screen col-sm-10">
-      <div style="border-radius: 25px; padding: 10px; background-color: rgba(60, 65, 70, 0.8); " >
+
+
+    <div class="center-screen col-sm-6">
+        <div style="border-radius: 25px; padding: 10px; background-color: rgba(60, 65, 70, 0.8); text-align: center;">
+
             <h1 style="text-align: center; color: aliceblue;">Download Author Results</h1>
-            <form action="{{ url_for('downloadAuthors') }}" method="POST">
-                    <div class="image-title-wrap">
-                        <button class="file-upload-btn">Download File</button>
-                    </div> 
+            <br>
+
+            <input type="text" id="email_input" name="email_input" placeholder="Email Address:" class="form-control">
+            <br>
+
+            <form action="{{ url_for('downloadAuthors') }}" method="POST" style="text-align: center; align-items: center;">
+                <div class="image-title-wrap">
+                    <select name="dropdownSearchBy" id="dropdownSearchBy" class="form-control">
+                        <option selected="selected" value="CSV" style="text-align: center; align-items: center;">CSV</option>
+                        <option value="JSON" style="text-align: center; align-items: center;">JSON</option>
+                    </select>
+                    <button class="file-upload-btn">Download File</button></a>
+                </div>
             </form>
         </div>
-    </div>  
-  
+    </div>
 
     <div class="col-sm-3">
-    <!-- Empty column of size 3. Left of search bar -->
+        <!-- Empty column of size 3. Left of search bar -->
     </div>
+
 </body>
 
 <!-- <div class="container">
