@@ -11,6 +11,7 @@ import time
 import datetime as dt
 import dbQuery
 from flask import redirect
+import emailResults as er
 
 # importing download function to download zip folder containing results CSV file
 from downloadResultsCSV import downloadResultsAsCSV
@@ -239,6 +240,7 @@ def downloadDOI(mysql, dir_csv):
     zipEvents = str(dir_results + '.zip')
     setZipEvents(zipEvents)
 
+    er.emailResults(zipEvents, 'darpanshah7@gmail.com', 'doi')
 
     return zipEvents
 
@@ -255,4 +257,4 @@ def searchByDOI(mysql, fileName):
     if os.path.exists(dir):
         os.remove(dir)
 
-    return flask.render_template('download.html', eventStats = getEventStats(), metadataStats = getMetadataStats())
+    return flask.render_template('downloadDOI.html', eventStats = getEventStats(), metadataStats = getMetadataStats())

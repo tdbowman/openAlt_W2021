@@ -209,10 +209,14 @@ def uploadDOI():
 @ app.route('/downloadDOI', methods=["GET", "POST"])
 def downloadDOI():
     if request.method=="POST":
-                
+       
         filepath = session.get('doiPath')
+        #session['type'] = 'doi'
         
-        return searchByDOI(mysql, filepath)
+        searchByDOI(mysql, filepath)
+        
+        return redirect('/thankYou')
+        #return flask.render_template('searchComplete.html')
     
     return flask.render_template('downloadDOI.html')
 
@@ -248,7 +252,10 @@ def downloadAuthors():
         
         filepath = session.get('authorPath')
         
-        return searchByAuthor(mysql, filepath)
+        searchByAuthor(mysql, filepath)
+
+        return redirect('/thankYou')
+        #return flask.render_template('searchComplete.html')
 
     return flask.render_template('downloadAuthors.html')
 
@@ -284,10 +291,29 @@ def downloadUni():
         
         filepath = session.get('uniPath')
         
-        return searchByUni(mysql, filepath)
+        searchByUni(mysql, filepath)
+        
+        return redirect('/thankYou')
+        #return flask.render_template('searchComplete.html')
+
 
 
     return flask.render_template('downloadUni.html')
+
+@ app.route('/thankYou', methods=["GET", "POST"])
+def thankYou():
+
+    # redirect('/thankYou')    
+
+    # if session['type'] == 'doi':
+    #     filepath = session.get('doiPath')
+    #     searchByDOI(mysql, filepath)
+    
+    
+    return flask.render_template('searchComplete.html')
+
+
+    
 
 
 

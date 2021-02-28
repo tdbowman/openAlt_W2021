@@ -11,6 +11,7 @@ import time
 import dbQuery
 import datetime as dt
 from flask import redirect
+import emailResults as er
 
 # importing download function to download zip folder containing results CSV file
 from downloadResultsCSV import downloadResultsAsCSV
@@ -172,6 +173,8 @@ def downloadAuthor(mysql,dir_csv):
     # Path of zip folder
     zipAuthor = dir_results + '.zip'
     setZipAuthor(zipAuthor)
+
+    er.emailResults(zipAuthor, 'darpanshah7@gmail.com', 'author')
 
     return zipAuthor
     
