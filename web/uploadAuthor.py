@@ -41,7 +41,7 @@ def setStats(x,y):
 def getStats():
     return stats
 
-def downloadAuthor(mysql,dir_csv):
+def downloadAuthor(mysql, dir_csv, type):
 
     # time execution of script
     start_time = time.time()
@@ -136,16 +136,19 @@ def downloadAuthor(mysql,dir_csv):
                 file_id = file_id.replace(char,'-')
             #print('FILE ID:', file_id)
 
-            resultPath = dir_results + '\\' + str(file_id) + '_authorInfo.csv'
             df.columns = [i[0] for i in cursor.description]  ###### CAUSED ISSUE ON SALSBILS MACHINE #######
-            df.to_csv(resultPath,index=False)
+            
+            if type == 'csv':
+                resultPath = dir_results + '\\' + str(file_id) + '_authorInfo.csv'
+                df.to_csv(resultPath,index=False)
+            elif type == 'json':
+                resultPath = dir_results + '\\' + str(file_id) + '_authorInfo.json'
+                df.to_json(resultPath, orient='index', indent=2)
 
 
             # Author Associated DOIs Query
             resultSet = dbQuery.getAuthorArticles(author, cursor)
             logging.info(resultSet)
-
-            resultPath = dir_results + '\\' + str(file_id) + '_authorDOIs.csv'
 
             # Write associated DOI info to file.
             df = pandas.DataFrame(resultSet)
@@ -153,7 +156,13 @@ def downloadAuthor(mysql,dir_csv):
 
             if not df.empty:
                 df.columns = [i[0] for i in cursor.description]
-                df.to_csv(resultPath,index=False)
+
+                if type == 'csv':
+                    resultPath = dir_results + '\\' + str(file_id) + '_authorDOIs.csv'
+                    df.to_csv(resultPath,index=False)
+                elif type == 'json':
+                    resultPath = dir_results + '\\' + str(file_id) + '_authorDOIs.json'
+                    df.to_json(resultPath, orient='index', indent=2)
 
 
     # Close API_Instructions.txt
@@ -184,12 +193,12 @@ def downloadAuthor(mysql,dir_csv):
 
 ###### Darpan End ######
 
-def searchByAuthor(mysql, fileName):
+def searchByAuthor(mysql, fileName, type):
 
     # Directory of doi list
     dir = '../web/uploadFiles/' + fileName
 
-    downloadAuthor(mysql, dir)
+    downloadAuthor(mysql, dir, type)
 
     # Delete uploaded file
     if os.path.exists(dir):

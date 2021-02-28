@@ -45,7 +45,7 @@ def getMetadataStats():
     return metadataStats
 
 
-def downloadDOI(mysql, dir_csv):
+def downloadDOI(mysql, dir_csv, type):
 
     # time execution of script
     start_time = time.time()
@@ -166,9 +166,14 @@ def downloadDOI(mysql, dir_csv):
             if not os.path.exists(dir_doi):
                 os.mkdir(dir_doi)
 
-            resultPath = dir_doi + '\\eventCounts_' + str(file_id) + '.csv'
             df.columns = [i[0] for i in cursor.description]  ###### CAUSED ISSUE ON SALSBILS MACHINE #######
-            df.to_csv(resultPath,index=False)
+
+            if type == 'doi':
+                resultPath = dir_doi + '\\eventCounts_' + str(file_id) + '.csv'
+                df.to_csv(resultPath,index=False)
+            elif type == 'json':
+                resultPath = dir_doi + '\\eventCounts_' + str(file_id) + '.json'
+                df.to_json(resultPath, orient='index', indent=2)
 
             # Retreiving Specific DOI Events
             resultSet, headers = dbQuery.getDOIEvents(doi,cursor)
@@ -182,8 +187,12 @@ def downloadDOI(mysql, dir_csv):
                     df.columns = headers[table]
 
                     # Writing CSV containing DOI metadata
-                    resultPath = dir_doi + '\\' + table + '_' + str(file_id) + '.csv'
-                    df.to_csv(resultPath,index=False)
+                    if type == 'doi':
+                        resultPath = dir_doi + '\\' + table + '_' + str(file_id) + '.csv'
+                        df.to_csv(resultPath,index=False)
+                    elif type == 'json':
+                        resultPath = dir_doi + '\\' + table + '_' + str(file_id) + '.json'
+                        df.to_json(resultPath, orient='index', indent=2)
 
        
         # DOI Info Query
@@ -203,9 +212,13 @@ def downloadDOI(mysql, dir_csv):
             if not os.path.exists(dir_doi):
                 os.mkdir(dir_doi)
 
-            # Writing CSV containing DOI metadata
-            resultPath = dir_doi + '\\doiInfo_' + str(file_id) + '.csv'
-            df.to_csv(resultPath,index=False)
+            # Writing CSV/JSON containing DOI metadata
+            if type == 'doi':
+                resultPath = dir_doi + '\\doiInfo_' + str(file_id) + '.csv'
+                df.to_csv(resultPath,index=False)
+            elif type == 'json':
+                resultPath = dir_doi + '\\doiInfo_' + str(file_id) + '.json'
+                df.to_json(resultPath, orient='index', indent=2)
         else:
             # CSV containing list of results not found
             emptyResultPath = dir_results + '\\NotFound_doiInfo.csv'
@@ -249,12 +262,12 @@ def downloadDOI(mysql, dir_csv):
 
 ###### Darpan End ######
 
-def searchByDOI(mysql, fileName):
+def searchByDOI(mysql, fileName, type):
 
     # Directory of uploaded file
     dir = '../web/uploadFiles/' + fileName
 
-    downloadDOI(mysql, dir)
+    downloadDOI(mysql, dir, type)
 
     # Delete uploaded file
     if os.path.exists(dir):

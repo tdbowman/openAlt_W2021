@@ -42,7 +42,7 @@ def getStats():
     return stats
 
 
-def downloadUni(mysql, dir_csv):
+def downloadUni(mysql, dir_csv, type):
 
     # time execution of script
     start_time = time.time()
@@ -133,9 +133,14 @@ def downloadUni(mysql, dir_csv):
                 file_id = file_id.replace(char,'-')
             #print('FILE ID:', file_id)
 
-            resultPath = dir_results + '\\' + str(file_id) + '_authorInfo.csv'
             df.columns = [i[0] for i in cursor.description]  ###### CAUSED ISSUE ON SALSBILS MACHINE #######
-            df.to_csv(resultPath,index=False)
+            
+            if type == 'csv':
+                resultPath = dir_results + '\\' + str(file_id) + '_authorInfo.csv'
+                df.to_csv(resultPath,index=False)
+            elif type == 'json':
+                resultPath = dir_results + '\\' + str(file_id) + '_authorInfo.json'
+                df.to_json(resultPath, orient='index', indent=2)
 
 
 
@@ -143,15 +148,20 @@ def downloadUni(mysql, dir_csv):
             resultSet = dbQuery.getUniArticles(uni, cursor)
             logging.info(resultSet)
 
-            resultPath = dir_results + '\\' + str(file_id) + '_DOIs.csv'
-
             # Write associated DOI info to file.
             df = pandas.DataFrame(resultSet)
             df = df.drop_duplicates()
 
             if not df.empty:
                 df.columns = [i[0] for i in cursor.description]
-                df.to_csv(resultPath,index=False)
+
+                if type == 'csv':
+                    resultPath = dir_results + '\\' + str(file_id) + '_DOIs.csv'
+                    df.to_csv(resultPath,index=False)
+                elif type == 'json':
+                    resultPath = dir_results + '\\' + str(file_id) + '_DOIs.json'
+                    df.to_json(resultPath, orient='index', indent=2)
+
 
     # Close API_Instructions.txt
     f.close()
@@ -180,12 +190,12 @@ def downloadUni(mysql, dir_csv):
 
 ###### Darpan End ######
 
-def searchByUni(mysql, fileName):
+def searchByUni(mysql, fileName, type):
 
     # Directory of doi list
     dir = '../web/uploadFiles/' + fileName
 
-    downloadUni(mysql, dir)
+    downloadUni(mysql, dir, type)
 
     # Delete uploaded file
     if os.path.exists(dir):

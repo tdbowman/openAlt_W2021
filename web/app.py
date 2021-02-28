@@ -213,7 +213,7 @@ def downloadDOI():
         filepath = session.get('doiPath')
         #session['type'] = 'doi'
         
-        searchByDOI(mysql, filepath)
+        searchByDOI(mysql, filepath, 'json')
         
         return redirect('/thankYou')
         #return flask.render_template('searchComplete.html')
@@ -252,7 +252,7 @@ def downloadAuthors():
         
         filepath = session.get('authorPath')
         
-        searchByAuthor(mysql, filepath)
+        searchByAuthor(mysql, filepath, 'json')
 
         return redirect('/thankYou')
         #return flask.render_template('searchComplete.html')
@@ -291,7 +291,7 @@ def downloadUni():
         
         filepath = session.get('uniPath')
         
-        searchByUni(mysql, filepath)
+        searchByUni(mysql, filepath, 'json')
         
         return redirect('/thankYou')
         #return flask.render_template('searchComplete.html')
