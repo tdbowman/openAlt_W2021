@@ -127,8 +127,10 @@ def downloadUni(mysql, dir_csv):
         else:
             count = count + 1
             # Replace invalid chars for file name
-            file_id = uni.replace(' ','-')
-            file_id = file_id.replace('.','')
+            invalid_chars = ['/','.','(',')',':','<','>','?','|','\"','*']
+            file_id = uni.replace(' ', '-')
+            for char in invalid_chars:
+                file_id = file_id.replace(char,'-')
             #print('FILE ID:', file_id)
 
             resultPath = dir_results + '\\' + str(file_id) + '_authorInfo.csv'

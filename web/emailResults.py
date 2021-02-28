@@ -20,7 +20,7 @@ import os
 ## For SMTP Info -> https://support.google.com/mail/answer/7126229?hl=en
 
 
-def emailResults(zipPath, recipient, type):
+def emailResults(zipPath, recipient, type): #add csv, json parameter
     zipPath = zipPath
 
     SMTP_SERVER = 'smtp.gmail.com'
@@ -33,6 +33,7 @@ def emailResults(zipPath, recipient, type):
     msg['To'] = recipient
 
     if type == 'doi':
+        #if csv else use json functions
         metadataStats = uploadDOI.getMetadataStats()
         eventStats = uploadDOI.getEventStats()
         msg['Subject'] = 'OpenAlt v2.0: Your DOI Results Are Ready!'
@@ -41,12 +42,12 @@ def emailResults(zipPath, recipient, type):
     if type == 'author':
         authorStats = uploadAuthor.getStats()
         msg['Subject'] = 'OpenAlt v2.0: Your Author Results Are Ready!'
-        body = 'Thank You for using OpenAlt! You will find your results attached to this email.\n\n\nRESULTS:\n' + authorStats
+        body = 'Thank You for using OpenAlt! You will find your results attached to this email.\n\n\n\n' + authorStats
     
     if type == 'uni':
         uniStats = uploadUni.getStats()
         msg['Subject'] = 'OpenAlt v2.0: Your University Results Are Ready!'
-        body = 'Thank You for using OpenAlt! You will find your results attached to this email.\n\n\nRESULTS:\n' + uniStats
+        body = 'Thank You for using OpenAlt! You will find your results attached to this email.\n\n\n\n' + uniStats
 
 
     body_part = MIMEText(body, 'plain')

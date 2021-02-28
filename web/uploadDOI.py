@@ -133,8 +133,11 @@ def downloadDOI(mysql, dir_csv):
         f.write("https://api.crossref.org/works/" + doi + "\n")
 
         # Replace invalid chars for file name
-        file_id = doi.replace('/','-')
-        file_id = file_id.replace('.','-')
+        invalid_chars = ['/','.','(',')',':','<','>','?','|','\"','*']
+        file_id = doi.replace(' ', '-')
+        for char in invalid_chars:
+            file_id = file_id.replace(char,'-')
+        
         #print('FILE ID:', file_id)
 
         
