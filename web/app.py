@@ -3,7 +3,7 @@ import flask
 from flask import Flask
 from flask import send_file
 from flask_mysqldb import MySQL
-from flask import request, jsonify, redirect
+from flask import request, jsonify, redirect, flash
 from datetime import datetime
 
 # Import our functions for other pages
@@ -201,7 +201,9 @@ def upload():
                 return searchByDOI(mysql, fileName)
 
             else:
-                return flask.render_template('upload.html')
+                app.logger.error('Wrong file type uploaded.')
+                # flash('No file part')
+                return flask.render_template('validateDOI.html')
 
 
     return flask.render_template('upload.html')
@@ -213,6 +215,9 @@ def uploadAuthors():
     app.config["UPLOAD_FILES"] = "../web/uploadFiles"
     destination = app.config["UPLOAD_FILES"]
 
+     # Allowed extensions of file
+    ALLOWED_EXTENSIONS = {'csv'}
+
     # If directory does not exist, create it
     if not os.path.isdir(destination):
         os.mkdir(destination)
@@ -220,18 +225,49 @@ def uploadAuthors():
     # If a HTTPS POST Request is received...
     if request.method=="POST":
 
+        # # If file is received...
+        # if request.files:
+
+        #     # Retrieve the uploaded file 
+        #     uploadFiles = request.files["csv/json"]
+        #     fileName = uploadFiles.filename
+
+        #     # Check extension of file
+        #     fileExtension = fileName.rsplit('.',1)[1].lower() in ALLOWED_EXTENSIONS
+            
+        #     if uploadFiles and fileExtension:
+        #         uploadFiles.save(os.path.join(destination, fileName) 
+        #         return searchByAuthor(mysql, fileName)
+
+        #     else:
+        #         app.logger.error('Wrong file type uploaded.')
+        #         # flash('No file part')
+        #         return flask.render_template('validateAuthor.html')
+
         # If file is received...
         if request.files:
 
             # Retrieve the uploaded file 
             uploadFiles = request.files["csv/json"]
-
-            # Save the file to the directory
             fileName = uploadFiles.filename
-            uploadFiles.save(os.path.join(destination, fileName))
 
-        # Send the file to uploadDOI.py
-        return searchByAuthor(mysql, fileName)
+            # Check extension of file
+            fileExtension = fileName.rsplit('.',1)[1].lower() in ALLOWED_EXTENSIONS
+
+
+            # Check file submission
+            if uploadFiles and fileExtension:
+
+                # Save the file to the directory
+                uploadFiles.save(os.path.join(destination, fileName))
+
+                # Send the file to uploadDOI.py
+                return searchByAuthor(mysql, fileName)
+
+            else:
+                app.logger.error('Wrong file type uploaded.')
+                # flash('No file part')
+                return flask.render_template('validateAuthor.html')
 
     return flask.render_template('uploadAuthors.html')
 

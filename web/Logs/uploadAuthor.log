@@ -1,0 +1,15 @@
+28-Feb-21 21:56:59 - SELECT * FROM dr_bowman_doi_data_tables.author WHERE name LIKE '%Jane Doe%';
+28-Feb-21 21:56:59 - ()
+28-Feb-21 21:56:59 - SELECT * FROM dr_bowman_doi_data_tables.author WHERE name LIKE '%John Doe%';
+28-Feb-21 21:56:59 - ()
+28-Feb-21 21:56:59 - SELECT * FROM dr_bowman_doi_data_tables.author WHERE name LIKE '%Darpan Shah%';
+28-Feb-21 21:56:59 - ()
+28-Feb-21 21:56:59 - SELECT * FROM dr_bowman_doi_data_tables.author WHERE name LIKE '%Smith%';
+28-Feb-21 21:56:59 - ()
+28-Feb-21 21:56:59 - 127.0.0.1 - - [28/Feb/2021 21:56:59] "[35m[1mPOST /uploadAuthors HTTP/1.1[0m" 500 -
+28-Feb-21 21:56:59 - 127.0.0.1 - - [28/Feb/2021 21:56:59] "[37mGET /uploadAuthors?__debugger__=yes&cmd=resource&f=style.css HTTP/1.1[0m" 200 -
+28-Feb-21 21:56:59 - 127.0.0.1 - - [28/Feb/2021 21:56:59] "[37mGET /uploadAuthors?__debugger__=yes&cmd=resource&f=jquery.js HTTP/1.1[0m" 200 -
+28-Feb-21 21:56:59 - 127.0.0.1 - - [28/Feb/2021 21:56:59] "[37mGET /uploadAuthors?__debugger__=yes&cmd=resource&f=debugger.js HTTP/1.1[0m" 200 -
+28-Feb-21 21:56:59 - 127.0.0.1 - - [28/Feb/2021 21:56:59] "[37mGET /uploadAuthors?__debugger__=yes&cmd=resource&f=ubuntu.ttf HTTP/1.1[0m" 200 -
+28-Feb-21 21:56:59 - 127.0.0.1 - - [28/Feb/2021 21:56:59] "[37mGET /uploadAuthors?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1[0m" 200 -
+28-Feb-21 21:57:00 - 127.0.0.1 - - [28/Feb/2021 21:57:00] "[37mGET /uploadAuthors?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1[0m" 200 -
