@@ -41,7 +41,7 @@ def setStats(x,y):
 def getStats():
     return stats
 
-def downloadAuthor(mysql, dir_csv, type):
+def downloadAuthor(mysql, dir_csv, type, email):
 
     # time execution of script
     start_time = time.time()
@@ -172,9 +172,7 @@ def downloadAuthor(mysql, dir_csv, type):
     print('\n')
     setStats(count, len(author_arr))
 
-    # Time taken to execute script
-    print("--- %s seconds ---" % (time.time() - start_time))
-
+    # Zip the folder
     shutil.make_archive(str(dir_results),'zip',dir_results)
 
     # Delete unzipped folder
@@ -185,7 +183,11 @@ def downloadAuthor(mysql, dir_csv, type):
     zipAuthor = dir_results + '.zip'
     setZipAuthor(zipAuthor)
 
-    er.emailResults(zipAuthor, 'darpanshah7@gmail.com', 'author')
+    # Send Results via email
+    er.emailResults(zipAuthor, email, 'author')
+
+    # Time taken to execute script
+    print("--- %s seconds ---" % (time.time() - start_time))
 
     return zipAuthor
     
@@ -193,12 +195,12 @@ def downloadAuthor(mysql, dir_csv, type):
 
 ###### Darpan End ######
 
-def searchByAuthor(mysql, fileName, type):
+def searchByAuthor(mysql, fileName, type, email):
 
     # Directory of doi list
     dir = '../web/uploadFiles/' + fileName
 
-    downloadAuthor(mysql, dir, type)
+    downloadAuthor(mysql, dir, type, email)
 
     # Delete uploaded file
     if os.path.exists(dir):

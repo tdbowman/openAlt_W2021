@@ -1,9 +1,37 @@
-<!--Author: Darpan (Lines 32-37)-->
+<!--Author: Darpan (Lines 6-25, 32-37)-->
 {% extends 'template.html' %}
 
 <!-- Anything you put here will be in the HTML head tags-->
 {% block head %}
-<script class="jsbin" src="https://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
+<script>
+
+    $(function () {
+
+        // Initialize variables and reference to the resultsButton and the current value of the email box
+        let $resultsButton = $("#resultsButton");
+
+        // If the email box is empty, prompt the user to enter a query.
+        $resultsButton.click(function () {
+            let $emailValue = $("#email_input").val();
+
+            // check if empty
+            if ($emailValue === '') {
+                alert("Please enter an email address.");
+                return false;
+            }
+            // check if entered email is valid       
+            else if (/^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/.test($emailValue)) {
+                return (true)
+            }
+            alert("You have entered an invalid email address!")
+            return (false)
+
+
+        });
+
+    });
+
+</script>
 {% endblock %}
 
 <!-- Anything you put here will be in the body-->
@@ -37,16 +65,18 @@
             <h1 style="text-align: center; color: aliceblue;">Download DOI Results</h1>
             <br>
 
-            <input type="text" id="email_input" name="email_input" placeholder="Email Address:" class="form-control">
-            <br>
-
             <form action="{{ url_for('downloadDOI') }}" method="POST" style="text-align: center; align-items: center;">
+                <input type="text" id="email_input" name="email_input" placeholder="Email Address:"
+                    class="form-control">
+                <br>
+
                 <div class="image-title-wrap">
                     <select name="dropdownSearchBy" id="dropdownSearchBy" class="form-control">
-                        <option selected="selected" value="CSV" style="text-align: center; align-items: center;">CSV</option>
-                        <option value="JSON" style="text-align: center; align-items: center;">JSON</option>
+                        <option selected="selected" value="csv" style="text-align: center; align-items: center;">CSV
+                        </option>
+                        <option value="json" style="text-align: center; align-items: center;">JSON</option>
                     </select>
-                    <button class="file-upload-btn">Download File</button></a>
+                    <button class="file-upload-btn" id="resultsButton">Download File</button></a>
                 </div>
             </form>
         </div>

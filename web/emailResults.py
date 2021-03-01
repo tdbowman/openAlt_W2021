@@ -20,7 +20,7 @@ import os
 ## For SMTP Info -> https://support.google.com/mail/answer/7126229?hl=en
 
 
-def emailResults(zipPath, recipient, type): #add csv, json parameter
+def emailResults(zipPath, recipient, type):
     zipPath = zipPath
 
     SMTP_SERVER = 'smtp.gmail.com'
@@ -29,11 +29,10 @@ def emailResults(zipPath, recipient, type): #add csv, json parameter
     SMTP_PASSWORD = 'bowmanwsu'
 
     msg = MIMEMultipart()
-    msg['From'] = 'OpenAlt v2.0' #SMTP_USERNAME
+    msg['From'] = 'OpenAlt v2.0'
     msg['To'] = recipient
 
     if type == 'doi':
-        #if csv else use json functions
         metadataStats = uploadDOI.getMetadataStats()
         eventStats = uploadDOI.getEventStats()
         msg['Subject'] = 'OpenAlt v2.0: Your DOI Results Are Ready!'
@@ -61,7 +60,7 @@ def emailResults(zipPath, recipient, type): #add csv, json parameter
     smtp_obj = smtplib.SMTP_SSL(SMTP_SERVER, SMTP_PORT)
 
     # Login to the server
-    print("Logging in...")
+    print("\nLogging in...")
     smtp_obj.login(SMTP_USERNAME, SMTP_PASSWORD)
 
     # Convert the message to a string and send it

@@ -42,7 +42,7 @@ def getStats():
     return stats
 
 
-def downloadUni(mysql, dir_csv, type):
+def downloadUni(mysql, dir_csv, type, email):
 
     # time execution of script
     start_time = time.time()
@@ -170,9 +170,7 @@ def downloadUni(mysql, dir_csv, type):
     print('\n')
     setStats(count, len(uni_arr))
 
-    # Time taken to execute script
-    print("--- %s seconds ---" % (time.time() - start_time))
-
+    # Zip the folder
     shutil.make_archive(str(dir_results), 'zip', dir_results)
 
     # Delete unzipped folder
@@ -183,19 +181,23 @@ def downloadUni(mysql, dir_csv, type):
     zipUni = dir_results + '.zip'
     setZipUni(zipUni)
     
-    er.emailResults(zipUni, 'darpanshah7@gmail.com', 'uni')
+    # Send Results via email
+    er.emailResults(zipUni, email, 'uni')
+
+    # Time taken to execute script
+    print("--- %s seconds ---" % (time.time() - start_time))
 
     return zipUni
 
 
 ###### Darpan End ######
 
-def searchByUni(mysql, fileName, type):
+def searchByUni(mysql, fileName, type, email):
 
     # Directory of doi list
     dir = '../web/uploadFiles/' + fileName
 
-    downloadUni(mysql, dir, type)
+    downloadUni(mysql, dir, type, email)
 
     # Delete uploaded file
     if os.path.exists(dir):

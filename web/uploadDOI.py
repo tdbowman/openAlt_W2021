@@ -45,7 +45,7 @@ def getMetadataStats():
     return metadataStats
 
 
-def downloadDOI(mysql, dir_csv, type):
+def downloadDOI(mysql, dir_csv, type, email):
 
     # time execution of script
     start_time = time.time()
@@ -242,9 +242,6 @@ def downloadDOI(mysql, dir_csv, type):
     setEventStats(eventsFound, len(doi_arr))
     setMetadataStats(metadataFound, len(doi_arr))
 
-    # Time taken to execute script
-    print("--- %s seconds ---" % (time.time() - start_time))
-
     # Zip folder containing the CSV files=
     shutil.make_archive(str(dir_results),'zip',dir_results)
 
@@ -256,21 +253,27 @@ def downloadDOI(mysql, dir_csv, type):
     zipEvents = str(dir_results + '.zip')
     setZipEvents(zipEvents)
 
-    er.emailResults(zipEvents, 'darpanshah7@gmail.com', 'doi')
+    # Send Results via email
+    er.emailResults(zipEvents, email, 'doi')
+
+    # Time taken to execute script
+    print("--- %s seconds ---" % (time.time() - start_time))
 
     return zipEvents
 
 ###### Darpan End ######
 
-def searchByDOI(mysql, fileName, type):
+def searchByDOI(mysql, fileName, type, email):
 
     # Directory of uploaded file
     dir = '../web/uploadFiles/' + fileName
 
-    downloadDOI(mysql, dir, type)
+    redirect('/thankYou')
+    downloadDOI(mysql, dir, type, email)
 
-    # Delete uploaded file
+    # Delete uploaded files
     if os.path.exists(dir):
         os.remove(dir)
 
-    return flask.render_template('downloadDOI.html', eventStats = getEventStats(), metadataStats = getMetadataStats())
+    #return flask.render_template('searchComplete.html', mysql, dir, type, email, type = 'doi')
+    return flask.render_template('downloadDOI.html')

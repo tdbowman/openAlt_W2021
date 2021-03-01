@@ -212,8 +212,15 @@ def downloadDOI():
        
         filepath = session.get('doiPath')
         #session['type'] = 'doi'
+
+        dropdownValue = request.form.get('dropdownSearchBy')
+        print("Download Type:",dropdownValue)
+
+        emailVal = request.form.get('email_input')
+        print("Recipient: ", emailVal)
         
-        searchByDOI(mysql, filepath, 'json')
+       
+        searchByDOI(mysql, filepath, dropdownValue, emailVal)
         
         return redirect('/thankYou')
         #return flask.render_template('searchComplete.html')
@@ -251,8 +258,14 @@ def downloadAuthors():
     if request.method=="POST":
         
         filepath = session.get('authorPath')
+
+        dropdownValue = request.form.get('dropdownSearchBy')
+        print("Download Type:",dropdownValue)
+
+        emailVal = request.form.get('email_input')
+        print("Recipient: ", emailVal)
         
-        searchByAuthor(mysql, filepath, 'json')
+        searchByAuthor(mysql, filepath, dropdownValue, emailVal)
 
         return redirect('/thankYou')
         #return flask.render_template('searchComplete.html')
@@ -291,7 +304,13 @@ def downloadUni():
         
         filepath = session.get('uniPath')
         
-        searchByUni(mysql, filepath, 'json')
+        dropdownValue = request.form.get('dropdownSearchBy')
+        print("Download Type:",dropdownValue)
+
+        emailVal = request.form.get('email_input')
+        print("Recipient: ", emailVal)
+
+        searchByUni(mysql, filepath, dropdownValue, emailVal)
         
         return redirect('/thankYou')
         #return flask.render_template('searchComplete.html')
@@ -302,13 +321,11 @@ def downloadUni():
 
 @ app.route('/thankYou', methods=["GET", "POST"])
 def thankYou():
-
     # redirect('/thankYou')    
 
     # if session['type'] == 'doi':
     #     filepath = session.get('doiPath')
     #     searchByDOI(mysql, filepath)
-    
     
     return flask.render_template('searchComplete.html')
 
