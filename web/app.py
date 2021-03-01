@@ -266,44 +266,6 @@ def downloadAuthors():
     return flask.render_template('downloadAuthors.html')
 
 
-# author: Rihat Rahman
-# Lines: 270-305
-#--------------------------------------------------
-
-@ app.route('/downloadDOITemplate', methods=["GET", "POST"])
-def downloadDOITemplate ():
-
-    # If a HTTPS POST Request is received...
-    if request.method=="POST":
-
-        # Directory of template file
-        dir_file = str(os.path.dirname(os.path.realpath(__file__)))
-        dir_results = dir_file + '\\CSV_templates\\DOI_upload_template.csv'
-
-        # Download folder onto local machine
-        return send_file(dir_results, as_attachment=True)
-
-    return flask.render_template('upload.html')
-
-
-
-
-@ app.route('/downloadAuthorTemplate', methods=["GET", "POST"])
-def downloadAuthorTemplate ():
-
-    # If a HTTPS POST Request is received...
-    if request.method=="POST":
-
-        # Directory of template file
-        dir_file = str(os.path.dirname(os.path.realpath(__file__)))
-        dir_results = dir_file + '\\CSV_templates\\author_upload_template.csv'
-
-        # Download folder onto local machine
-        return send_file(dir_results, as_attachment=True)
-
-    return flask.render_template('uploadAuthors.html')
-#--------------------------------------------------
-
 
 
 @ app.route('/searchByOptions', methods=["GET", "POST"])
