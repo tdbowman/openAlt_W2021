@@ -65,10 +65,11 @@ def fetchCitationData (doi, openCitationsCursor, citationsDatabase, openCitation
     openCitationsCursor.execute("Select oci FROM citations WHERE cited = 'coci => " + doi + "'")
     citationsOCI = openCitationsCursor.fetchall()
 
-    listOfOCIs = []
+    # dictionary
+    listOfOCIs = {}
 
     for oci in citationsOCI:
-        listOfOCIs.append(oci[0])
+        listOfOCIs[oci[0]] = None
 
     # citations (list of publications that cited this DOI)
     citationResponse = requests.get('https://w3id.org/oc/index/api/v1/citations/' + doi)
@@ -122,10 +123,11 @@ def fetchReferenceData (doi, openCitationsCursor, citationsDatabase, openCitatio
     openCitationsCursor.execute("Select oci FROM ref WHERE citing = 'coci => " + doi + "'")
     referencesOCI = openCitationsCursor.fetchall()
 
-    listOfOCIs = []
+    # dictionary
+    listOfOCIs = {}
 
     for oci in referencesOCI:
-        listOfOCIs.append(oci[0])
+        listOfOCIs[oci[0]] = None
 
     # citations (list of publications that cited this DOI)
     # doi = '10.1002/adfm.201505328'
