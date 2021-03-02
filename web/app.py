@@ -222,7 +222,7 @@ def downloadDOI():
        
         searchByDOI(mysql, filepath, dropdownValue, emailVal)
         
-        return redirect('/thankYou')
+        return redirect('/searchComplete')
         #return flask.render_template('searchComplete.html')
     
     return flask.render_template('downloadDOI.html')
@@ -312,7 +312,7 @@ def downloadUni():
 
         searchByUni(mysql, filepath, dropdownValue, emailVal)
         
-        return redirect('/thankYou')
+        return redirect('/searchComplete')
         #return flask.render_template('searchComplete.html')
 
 
@@ -321,7 +321,7 @@ def downloadUni():
 
 @ app.route('/searchComplete', methods=["GET", "POST"])
 def searchComplete():
-    # redirect('/thankYou')    
+    # redirect('/searchComplete')    
 
     # if session['type'] == 'doi':
     #     filepath = session.get('doiPath')
