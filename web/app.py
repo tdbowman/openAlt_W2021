@@ -267,7 +267,7 @@ def downloadAuthors():
         
         searchByAuthor(mysql, filepath, dropdownValue, emailVal)
 
-        return redirect('/thankYou')
+        return redirect('/searchComplete')
         #return flask.render_template('searchComplete.html')
 
     return flask.render_template('downloadAuthors.html')
@@ -319,8 +319,8 @@ def downloadUni():
 
     return flask.render_template('downloadUni.html')
 
-@ app.route('/thankYou', methods=["GET", "POST"])
-def thankYou():
+@ app.route('/searchComplete', methods=["GET", "POST"])
+def searchComplete():
     # redirect('/thankYou')    
 
     # if session['type'] == 'doi':
