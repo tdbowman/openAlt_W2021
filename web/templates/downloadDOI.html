@@ -14,7 +14,7 @@
         // If the email box is empty, prompt the user to enter a query.
         $resultsButton.click(function () {
             let $emailValue = $("#email_input").val();
-            
+
             // check if email field is empty
             if ($emailValue === '') {
                 alert("Please enter an email address.");
@@ -59,13 +59,16 @@
     </div>
 
     <div class="center-screen">
-        <div style="width: 750px; border-radius: 25px; padding: 5px; background-color: rgba(60, 65, 70, 0.8); "
+        <div style="width: 550px; border-radius: 25px; padding: 0px; background-color: rgba(60, 65, 70, 0.8); "
             class="center-screen">
             <h3 style="text-align: center; color: aliceblue;"><b>Instructions</b></h3>
-            <p1 style="text-align: left; color: aliceblue;">
-                <b>1.</b>  Enter your email address in the box labeled "Email Address". <br>
-                <b>2.</b>  Select whether you want your results in CSV format or JSON format. <br>
-                <b>3.</b> Click the "Get Results!" button and the results will be sent to you in an email when we retreive all the data!
+            <p1 style="text-align:left; color: aliceblue;">
+                <ol>
+                    <li>Enter your email address in the box labeled "Email Address".</li>
+                    <li style="padding-top: 5px;">Select whether you want your results in CSV or JSON format.</li>
+                    <li style="padding-top: 5px;">Click the "Get Results!" button and the results will be sent to you in an email when we retrieve
+                        all the data!</li>
+                </ol>
             </p1>
             <br>
         </div>
@@ -74,13 +77,14 @@
     <br><br>
 
     <div class="center-screen">
-        <div style="width: 500px; border-radius: 25px; padding: 10px; background-color: rgba(60, 65, 70, 0.8); text-align: center;">
+        <div
+            style="width: 500px; border-radius: 25px; padding: 10px; background-color: rgba(60, 65, 70, 0.8); text-align: center;">
 
             <h1 style="text-align: center; color: aliceblue;"><b>Retreive DOI Results</b></h1>
-            
+
             <form action="{{ url_for('downloadDOI') }}" method="POST" style="text-align: center; align-items: center;">
-                <input type="text" id="email_input" name="email_input" placeholder="Email Address:" style="width: 350px;"
-                    class="form-control">
+                <input type="text" id="email_input" name="email_input" placeholder="Email Address:"
+                    style="width: 350px;" class="form-control">
                 <br><br>
 
                 <div class="image-title-wrap">
@@ -101,7 +105,8 @@
             <div style="width: 550px; border-radius: 25px; padding: 0px; background-color: rgba(60, 65, 70, 0.8); "
                 class="center-screen col-sm-6">
                 <h3 style="text-align: center; color: aliceblue; font-size: large;">Privacy Statement</h3>
-                <p1 style="text-align: center; color: aliceblue; font-size: small;"><i>OpenAlt does not store your email information and is strictly only used to send your results.</i></p1>
+                <p1 style="text-align: center; color: aliceblue; font-size: small;"><i>OpenAlt does not store your email
+                        information and is strictly only used to send your results.</i></p1>
                 <br>
             </div>
         </div>
