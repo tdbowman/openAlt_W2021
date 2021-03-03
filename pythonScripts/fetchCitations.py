@@ -11,8 +11,8 @@ from OpenCitationsReferenceIngest import OCReferenceIngest
 def getCitationData(mysql_username, mysql_password):
 
     try:
-        # connect to dr_bowman_doi_data_tables database
-        drBowmanDatabase = mysql.connector.connect(host = "localhost", user = mysql_username, passwd = mysql_password, database = "dr_bowman_doi_data_tables")
+        # connect to doidata database
+        drBowmanDatabase = mysql.connector.connect(host = "localhost", user = mysql_username, passwd = mysql_password, database = "doidata")
 
         # connect to citatons database
         citationDatabase = mysql.connector.connect(host = "localhost", user = mysql_username, passwd = mysql_password, database = "opencitations")

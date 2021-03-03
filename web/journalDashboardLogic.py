@@ -74,7 +74,7 @@ def journalDashboardLogic(mysql, years_list):
     # Grab all journal names from 1997 to 2020.
     while (start_year <= end_year):
         articles_per_year_sql = "select count(*) AS count " \
-                                "from dr_bowman_doi_data_tables._main_ " \
+                                "from doidata._main_ " \
                                 "where container_title like '%" + journal_name + "%' " \
                                 "and substr(published_print_date_parts,1,4)='" + str(
                                     start_year) + "' ;"

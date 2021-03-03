@@ -1,3 +1,5 @@
+# Author: Darpan (Lines 231-251, 273-280)
+
 import os
 import flask
 from flask import Flask
@@ -14,8 +16,9 @@ from authorDashboardLogic import authorDashboardLogic
 from landingPageStats import landingPageStats
 from landingPageArticles import landingPageArticles
 from landingPageJournals import landingPageJournals
-from uploadDOI import searchByDOI
-from uploadAuthor import searchByAuthor
+from uploadDOI import searchByDOI, getZipEvents
+from uploadAuthor import searchByAuthor, getZipAuthor
+from uploadUni import searchByUni, getZipUni
 
 from getPassword import getPassword
 
@@ -29,7 +32,7 @@ app = flask.Flask(__name__)
 app.config['MYSQL_USER'] = mysql_username
 app.config['MYSQL_PASSWORD'] = mysql_password
 # Or use the database.table which will allow us to join the databases - the one with author, and the one with events
-app.config['MYSQL_DB'] = 'dr_bowman_doi_data_tables'
+app.config['MYSQL_DB'] = 'doidata'
 app.config['MYSQL_CURSORCLASS'] = 'DictCursor'
 
 # Database initialization and cursor
@@ -157,162 +160,146 @@ def team():
 def licenses():
     return flask.render_template('licenses.html')
 
-# Salsabil's code from line 162-288
-# Beginning of Salsabil's Code
-
 @ app.route('/upload', methods=["GET", "POST"])
 def upload():
 
-    # Directory of where to put the uploaded file
-    app.config["UPLOAD_FILES"] = "./web/uploadFiles"
+    app.config["UPLOAD_FILES"] = "../web/uploadFiles"
     target = app.config["UPLOAD_FILES"]
 
-    # Allowed extensions of file
-    ALLOWED_EXTENSIONS = {'csv'}
-
-    # Limit of the file size to 16 MB
-    app.config['MAX_CONTENT_LENGTH'] = 2 * 1024 * 1024 
-
-    # If directory does not exist, create it
     if not os.path.isdir(target):
         os.mkdir(target)
 
-    # If a HTTPS POST Request is received...
+    # APP_ROOT = os.path.dirname(os.path.abspath(__file__))
+    # target = os.path.join(APP_ROOT, 'uploadFiles')
+    # print(target)
+
+    # if not os.path.isdir(target):
+    #     os.mkdir(target)
+    destination = app.config["UPLOAD_FILES"]
+
     if request.method=="POST":
-
-        # If file is received...
         if request.files:
-
-            # Retrieve the uploaded file 
             uploadFiles = request.files["csv/json"]
+            print(uploadFiles)
+
             fileName = uploadFiles.filename
+            uploadFiles.save(os.path.join(destination, fileName))
+            print("File saved.")
 
-            # Check extension of file
-            fileExtension = fileName.rsplit('.',1)[1].lower() in ALLOWED_EXTENSIONS
+            #downloadfile(fileName)
+            # return flask.render_template('download.html')
+        
+        return searchByDOI(mysql, fileName)
 
+    # APP_ROOT = os.path.dirname(os.path.abspath(__file__))
+    # target = os.path.join(APP_ROOT, 'uploadFiles')
+    # print(target)
 
-            # Check file submission
-            if uploadFiles and fileExtension:
+    # if not os.path.isdir(target):
+    #     os.mkdir(target)
 
-                # Save the file to the directory
-                uploadFiles.save(os.path.join(target, fileName))
-
-                # Send the file to uploadDOI.py
-                return searchByDOI(mysql, fileName)
-
-            else:
-                return flask.render_template('upload.html')
-
+    # for file in request.files.getlist("file"):
+    #     filename = file.filename
+    #     destination = "/".join([target, filename])
+    #     print(destination)
+    #     file.save(destination)
 
     return flask.render_template('upload.html')
 
 @ app.route('/uploadAuthors', methods=["GET", "POST"])
 def uploadAuthors():
 
-     # Directory of where to put the uploaded file
-    app.config["UPLOAD_FILES"] = "./web/uploadFiles"
+    app.config["UPLOAD_FILES"] = "../web/uploadFiles"
     destination = app.config["UPLOAD_FILES"]
 
-    # If directory does not exist, create it
     if not os.path.isdir(destination):
         os.mkdir(destination)
 
-    # If a HTTPS POST Request is received...
     if request.method=="POST":
-
-        # If file is received...
         if request.files:
-
-            # Retrieve the uploaded file 
             uploadFiles = request.files["csv/json"]
+            print(uploadFiles)
 
-            # Save the file to the directory
             fileName = uploadFiles.filename
             uploadFiles.save(os.path.join(destination, fileName))
-
-        # Send the file to uploadDOI.py
+            print("File saved.")
+        
         return searchByAuthor(mysql, fileName)
 
     return flask.render_template('uploadAuthors.html')
 
+@ app.route('/uploadUni', methods=["GET", "POST"])
+def uploadUni():
+
+    app.config["UPLOAD_FILES"] = "../web/uploadFiles"
+    destination = app.config["UPLOAD_FILES"]
+
+    if not os.path.isdir(destination):
+        os.mkdir(destination)
+
+    if request.method=="POST":
+        if request.files:
+            uploadFiles = request.files["csv/json"]
+            print(uploadFiles)
+
+            fileName = uploadFiles.filename
+            uploadFiles.save(os.path.join(destination, fileName))
+            print("File saved.")
+        
+        return searchByUni(mysql, fileName)
+
+    return flask.render_template('uploadUni.html')
+
+
+
 @ app.route('/download', methods=["GET", "POST"])
 def download():
-
-    # If a HTTPS POST Request is received...
     if request.method=="POST":
-
-        # Directory of results zipped folder
-        dir_file = str(os.path.dirname(os.path.realpath(__file__)))
-        dir_results = dir_file + '\\Results\\uploadDOI_Results.zip'
-
-        # Download folder onto local machine
-        return send_file(dir_results, as_attachment=True)
-    
+                
+        test = getZipEvents()
+        print("ZIP EVENTS:", test)
+        return send_file(test, as_attachment=True)
     return flask.render_template('download.html')
+
 
 @ app.route('/downloadAuthors', methods=["GET", "POST"])
 def downloadAuthors():
-
-    # If a HTTPS POST Request is received...
     if request.method=="POST":
-
-        # Directory of results zipped folder
-        dir_file = str(os.path.dirname(os.path.realpath(__file__)))
-        dir_results = dir_file + '\\Results\\uploadAuthor_Results.zip'
-
-        # Download folder onto local machine
-        return send_file(dir_results, as_attachment=True)
-
+        
+        print("ZIP AUTHOR:",getZipAuthor())
+        return send_file(getZipAuthor(), as_attachment=True)
     return flask.render_template('downloadAuthors.html')
 
+@ app.route('/downloadUni', methods=["GET", "POST"])
+def downloadUni():
+    if request.method=="POST":
+        
+        test = getZipUni()
+        print("ZIP EVENTS:", test)
+        return send_file(test, as_attachment=True)
+    return flask.render_template('downloadUni.html')
 
+# @ app.route('/downloadAuthorZip', methods=["GET", "POST"])
+# def downloadAuthorZip():
+#     dir_file = str(os.path.dirname(os.path.realpath(__file__)))
+#     dir_results = dir_file + '\\Results\\uploadAuthor_results.csv'
+#     return send_file(dir_results, as_attachment=True)
 
 
 @ app.route('/searchByOptions', methods=["GET", "POST"])
 def searchByOptions():
     
-    # If a HTTPS POST Request is received...
     if request.method=="POST":
-
-        # Retrieve selection from form
         select = request.form.get("uploadList")
 
-        # If selection is DOI, send to upload.html
         if select == "DOI":
             return redirect('/upload')
-
-        # If selection is Author (only other option), send to uploadAuthors.html
-        else:
+        elif select == "Author":
             return redirect('/uploadAuthors')
+        elif select == "University":
+            return redirect('/uploadUni')
     
     return flask.render_template('searchByOptions.html')
-
-
-
-
-
-@ app.errorhandler(413)
-def too_large(e):
-    return "File is too large!", 413
-
-# End of Salsabil's Code
-
-
-# @ app.route('/upload_file_validation', methods=['POST'])
-# def upload_file_validation():
-#     options = {
-#         'validation': {
-#             'allowedExts': ['csv']
-#         }
-#     }
-
-#     try:
-#         response = File.upload(FlaskAdapter(request), '/public/', options)
-    
-#     except Exception: 
-#         response = {'error': str(sys.exc_info()[1])}
-        
-#     return json.dumps(response)
         
 # If this is the main module or main program being run (app.py)......
 if __name__ == "__main__":
