@@ -265,11 +265,9 @@ def downloadDOI(mysql, dir_csv, type, email):
 
 def searchByDOI(mysql, fileName, type, email):
 
-<<<<<<< HEAD
     # Directory of uploaded file
     dir = '../web/uploadFiles/' + fileName
 
-    redirect('/thankYou')
     downloadDOI(mysql, dir, type, email)
 
     # Delete uploaded files
@@ -278,15 +276,3 @@ def searchByDOI(mysql, fileName, type, email):
 
     #return flask.render_template('searchComplete.html', mysql, dir, type, email, type = 'doi')
     return flask.render_template('downloadDOI.html')
-=======
-# Salsabil's code from line 95-103
-def searchByDOI(mysql, fileName):
-    
-    #directories
-    dir = '../web/uploadFiles/' + fileName
-
-    # Send directory and mysql information from flask to script
-    downloadDOI(mysql, dir)
-   
-    return flask.render_template('download.html')
->>>>>>> origin/salsaBilDev
