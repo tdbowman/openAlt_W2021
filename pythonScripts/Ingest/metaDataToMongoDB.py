@@ -16,8 +16,6 @@ def storeMetaDatainMongoDB(DOI):
     # cursor to specified collection; create if it doesn't exist
     coll=dbs["MetaData"]
     data=r.json()
-    print(type(data))
-    print(data.get("message-type"))
     if data.get("message-type")=="work":
         check(coll, data.get("message"))
     else:
@@ -29,7 +27,7 @@ def check(coll, li):
     x=coll.find({})
     for y in x:
         if li.get("DOI")==y.get("DOI"):
-            print("Duplicate")
+            # If data exists in Mongo, it will not be inserted
             dupe=True
     if dupe==False:
         coll.insert_one(i)
