@@ -1,0 +1,37 @@
+03-Mar-21 13:51:40 - ({'increment': 14105, 'objectID': 'https://doi.org/10.1001/archinte.159.10.1082', 'totalEvents': 370, 'totalCambiaEvents': None, 'firstCambiaEvent': None, 'lastCambiaEvent': None, 'totalCrossrefEvents': None, 'firstCrossrefEvent': None, 'lastCrossrefEvent': None, 'totalDataciteEvents': None, 'firstDataciteEvent': None, 'lastDataciteEvent': None, 'totalF1000Events': None, 'firstF1000Event': None, 'lastF1000Event': None, 'totalHypothesisEvents': None, 'firstHypothesisEvent': None, 'lastHypothesisEvent': None, 'totalNewsfeedEvents': None, 'firstNewsfeedEvent': None, 'lastNewsfeedEvent': None, 'totalRedditEvents': None, 'firstRedditEvent': None, 'lastRedditEvent': None, 'totalRedditLinksEvents': None, 'firstRedditLinksEvent': None, 'lastRedditLinksEvent': None, 'totalStackExchangeEvents': None, 'firstStackExchangeEvent': None, 'lastStackExchangeEvent': None, 'totalTwitterEvents': 3, 'firstTwitterEvent': datetime.datetime(2020, 10, 15, 3, 21, 7), 'lastTwitterEvent': datetime.datetime(2020, 10, 15, 3, 21, 7), 'totalWebEvents': None, 'firstWebEvent': None, 'lastWebEvent': None, 'totalWikipediaEvents': 367, 'firstWikipediaEvent': datetime.datetime(2017, 8, 29, 16, 27, 25), 'lastWikipediaEvent': datetime.datetime(2021, 2, 19, 9, 42, 51), 'totalWordpressEvents': None, 'firstWordpressEvent': None, 'lastWordPressEvent': None},)
+03-Mar-21 13:51:43 - ()
+03-Mar-21 13:51:43 - DOI INFO NOT FOUND: 10.1001/archinte.159.10.1082
+03-Mar-21 13:51:43 - ()
+03-Mar-21 13:51:43 - DOI EVENT NOT FOUND: fake/doi
+03-Mar-21 13:51:43 - ()
+03-Mar-21 13:51:43 - DOI INFO NOT FOUND: fake/doi
+03-Mar-21 13:51:48 - 127.0.0.1 - - [03/Mar/2021 13:51:48] "[32mPOST /downloadDOI HTTP/1.1[0m" 302 -
+03-Mar-21 13:51:48 - 127.0.0.1 - - [03/Mar/2021 13:51:48] "[37mGET /searchComplete HTTP/1.1[0m" 200 -
+03-Mar-21 13:52:04 - 127.0.0.1 - - [03/Mar/2021 13:52:04] "[37mGET /searchByOptions HTTP/1.1[0m" 200 -
+03-Mar-21 13:52:05 - 127.0.0.1 - - [03/Mar/2021 13:52:05] "[33mGET /static/js/list.js HTTP/1.1[0m" 404 -
+03-Mar-21 13:52:08 - 127.0.0.1 - - [03/Mar/2021 13:52:08] "[32mPOST /searchByOptions HTTP/1.1[0m" 302 -
+03-Mar-21 13:52:08 - 127.0.0.1 - - [03/Mar/2021 13:52:08] "[37mGET /uploadDOI HTTP/1.1[0m" 200 -
+03-Mar-21 13:52:33 - 127.0.0.1 - - [03/Mar/2021 13:52:33] "[37mGET /uploadDOI HTTP/1.1[0m" 200 -
+03-Mar-21 13:52:34 - 127.0.0.1 - - [03/Mar/2021 13:52:34] "[37mGET /static/favicon.ico HTTP/1.1[0m" 200 -
+03-Mar-21 13:54:15 - 127.0.0.1 - - [03/Mar/2021 13:54:15] "[37mGET / HTTP/1.1[0m" 200 -
+03-Mar-21 13:55:04 - 127.0.0.1 - - [03/Mar/2021 13:55:04] "[37mGET /searchByOptions HTTP/1.1[0m" 200 -
+03-Mar-21 13:55:04 - 127.0.0.1 - - [03/Mar/2021 13:55:04] "[33mGET /static/js/list.js HTTP/1.1[0m" 404 -
+03-Mar-21 13:55:07 - 127.0.0.1 - - [03/Mar/2021 13:55:07] "[32mPOST /searchByOptions HTTP/1.1[0m" 302 -
+03-Mar-21 13:55:07 - 127.0.0.1 - - [03/Mar/2021 13:55:07] "[37mGET /uploadAuthors HTTP/1.1[0m" 200 -
+03-Mar-21 13:55:29 - 127.0.0.1 - - [03/Mar/2021 13:55:29] "[37mGET /uploadAuthors HTTP/1.1[0m" 200 -
+03-Mar-21 13:55:29 - 127.0.0.1 - - [03/Mar/2021 13:55:29] "[37mGET /static/favicon.ico HTTP/1.1[0m" 200 -
+03-Mar-21 13:55:41 - 127.0.0.1 - - [03/Mar/2021 13:55:41] "[37mPOST /uploadAuthors HTTP/1.1[0m" 200 -
+03-Mar-21 13:55:46 - 127.0.0.1 - - [03/Mar/2021 13:55:46] "[35m[1mPOST /downloadAuthors HTTP/1.1[0m" 500 -
+03-Mar-21 13:55:46 - 127.0.0.1 - - [03/Mar/2021 13:55:46] "[37mGET /downloadAuthors?__debugger__=yes&cmd=resource&f=style.css HTTP/1.1[0m" 200 -
+03-Mar-21 13:55:46 - 127.0.0.1 - - [03/Mar/2021 13:55:46] "[37mGET /downloadAuthors?__debugger__=yes&cmd=resource&f=jquery.js HTTP/1.1[0m" 200 -
+03-Mar-21 13:55:46 - 127.0.0.1 - - [03/Mar/2021 13:55:46] "[37mGET /downloadAuthors?__debugger__=yes&cmd=resource&f=debugger.js HTTP/1.1[0m" 200 -
+03-Mar-21 13:55:46 - 127.0.0.1 - - [03/Mar/2021 13:55:46] "[37mGET /downloadAuthors?__debugger__=yes&cmd=resource&f=ubuntu.ttf HTTP/1.1[0m" 200 -
+03-Mar-21 13:55:47 - 127.0.0.1 - - [03/Mar/2021 13:55:47] "[37mGET /downloadAuthors?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1[0m" 200 -
+03-Mar-21 13:55:47 - 127.0.0.1 - - [03/Mar/2021 13:55:47] "[37mGET /downloadAuthors?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1[0m" 200 -
+03-Mar-21 13:58:29 - 127.0.0.1 - - [03/Mar/2021 13:58:29] "[37mGET / HTTP/1.1[0m" 200 -
+03-Mar-21 13:58:32 - 127.0.0.1 - - [03/Mar/2021 13:58:32] "[37mGET /searchByOptions HTTP/1.1[0m" 200 -
+03-Mar-21 13:58:32 - 127.0.0.1 - - [03/Mar/2021 13:58:32] "[33mGET /static/js/list.js HTTP/1.1[0m" 404 -
+03-Mar-21 13:58:35 - 127.0.0.1 - - [03/Mar/2021 13:58:35] "[32mPOST /searchByOptions HTTP/1.1[0m" 302 -
+03-Mar-21 13:58:35 - 127.0.0.1 - - [03/Mar/2021 13:58:35] "[37mGET /uploadAuthors HTTP/1.1[0m" 200 -
+03-Mar-21 13:58:41 - 127.0.0.1 - - [03/Mar/2021 13:58:41] "[37mPOST /uploadAuthors HTTP/1.1[0m" 200 -
+03-Mar-21 13:59:02 -  * Detected change in 'C:\\Users\\darpa\\Desktop\\openAlt_W2021\\web\\app.py', reloading

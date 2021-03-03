@@ -1,9 +1,11 @@
+# Author: Darpan (Lines 231-251, 273-280)
+
 import os
 import flask
 from flask import Flask
 from flask import send_file
 from flask_mysqldb import MySQL
-from flask import request, jsonify, redirect
+from flask import request, jsonify, redirect, flash
 from datetime import datetime
 
 # Import our functions for other pages
@@ -14,8 +16,9 @@ from authorDashboardLogic import authorDashboardLogic
 from landingPageStats import landingPageStats
 from landingPageArticles import landingPageArticles
 from landingPageJournals import landingPageJournals
-from uploadDOI import searchByDOI
-from uploadAuthor import searchByAuthor
+from uploadDOI import searchByDOI, getZipEvents
+from uploadAuthor import searchByAuthor, getZipAuthor
+from uploadUni import searchByUni, getZipUni
 
 from getPassword import getPassword
 
@@ -29,7 +32,7 @@ app = flask.Flask(__name__)
 app.config['MYSQL_USER'] = mysql_username
 app.config['MYSQL_PASSWORD'] = mysql_password
 # Or use the database.table which will allow us to join the databases - the one with author, and the one with events
-app.config['MYSQL_DB'] = 'dr_bowman_doi_data_tables'
+app.config['MYSQL_DB'] = 'doidata'
 app.config['MYSQL_CURSORCLASS'] = 'DictCursor'
 
 # Database initialization and cursor
@@ -46,6 +49,9 @@ app2.config['MYSQL_DB'] = 'crossrefeventdatamain'
 app2.config['MYSQL_CURSORCLASS'] = 'DictCursor'
 # Database initialization and cursor
 mysql2 = MySQL(app2)
+
+# Pass on vars between pages
+session = {}
 
 
 @app.route('/')
@@ -157,51 +163,88 @@ def team():
 def licenses():
     return flask.render_template('licenses.html')
 
-@ app.route('/upload', methods=["GET", "POST"])
-def upload():
 
+@ app.route('/searchByOptions', methods=["GET", "POST"])
+def searchByOptions():
+
+    if request.method == "POST":
+        select = request.form.get("uploadList")
+
+        if select == "DOI":
+            return redirect('/uploadDOI')
+        elif select == "Author":
+            return redirect('/uploadAuthors')
+        elif select == "University":
+            return redirect('/uploadUni')
+
+    return flask.render_template('searchByOptions.html')
+
+
+@ app.route('/uploadDOI', methods=["GET", "POST"])
+def uploadDOI():
+
+    # Directory of where to put the uploaded file
     app.config["UPLOAD_FILES"] = "../web/uploadFiles"
     target = app.config["UPLOAD_FILES"]
 
+    # Allowed extensions of file
+    ALLOWED_EXTENSIONS = {'csv'}
+
+    destination = app.config["UPLOAD_FILES"]
+
+    # Limit of the file size to 1 GB
+    app.config['MAX_CONTENT_LENGTH'] = 1 * 1024 * 1024
+
+    # If directory does not exist, create it
     if not os.path.isdir(target):
         os.mkdir(target)
 
-    # APP_ROOT = os.path.dirname(os.path.abspath(__file__))
-    # target = os.path.join(APP_ROOT, 'uploadFiles')
-    # print(target)
+    # If a HTTPS POST Request is received...
+    if request.method == "POST":
 
-    # if not os.path.isdir(target):
-    #     os.mkdir(target)
-    destination = app.config["UPLOAD_FILES"]
-
-    if request.method=="POST":
+        # If file is received...
         if request.files:
+
+            # Retrieve the uploaded file
             uploadFiles = request.files["csv/json"]
-            print(uploadFiles)
-
             fileName = uploadFiles.filename
-            uploadFiles.save(os.path.join(destination, fileName))
-            print("File saved.")
 
-            #downloadfile(fileName)
-            # return flask.render_template('download.html')
-        
-        return searchByDOI(mysql, fileName)
+            # Check extension of file
+            fileExtension = fileName.rsplit(
+                '.', 1)[1].lower() in ALLOWED_EXTENSIONS
 
-    # APP_ROOT = os.path.dirname(os.path.abspath(__file__))
-    # target = os.path.join(APP_ROOT, 'uploadFiles')
-    # print(target)
+            # Check file submission
+            if uploadFiles and fileExtension:
+                # Save the file to the directory
+                uploadFiles.save(os.path.join(target, fileName))
 
-    # if not os.path.isdir(target):
-    #     os.mkdir(target)
+            session['doiPath'] = fileName
 
-    # for file in request.files.getlist("file"):
-    #     filename = file.filename
-    #     destination = "/".join([target, filename])
-    #     print(destination)
-    #     file.save(destination)
+        return flask.render_template('downloadDOI.html')
 
-    return flask.render_template('upload.html')
+    return flask.render_template('uploadDOI.html')
+
+
+@ app.route('/downloadDOI', methods=["GET", "POST"])
+def downloadDOI():
+    if request.method == "POST":
+
+        filepath = session.get('doiPath')
+        # session['type'] = 'doi'
+
+        dropdownValue = request.form.get('dropdownSearchBy')
+        print("Download Type:", dropdownValue)
+
+        emailVal = request.form.get('email_input')
+        print("Recipient: ", emailVal)
+
+        searchByDOI(mysql, filepath, dropdownValue, emailVal)
+
+        return redirect('/searchComplete')
+        # return flask.render_template('searchComplete.html')
+
+    return flask.render_template('downloadDOI.html')
+
 
 @ app.route('/uploadAuthors', methods=["GET", "POST"])
 def uploadAuthors():
@@ -220,55 +263,95 @@ def uploadAuthors():
             fileName = uploadFiles.filename
             uploadFiles.save(os.path.join(destination, fileName))
             print("File saved.")
+
+            session['authorPath'] = fileName
         
-        return searchByAuthor(mysql, fileName)
+        return flask.render_template('downloadAuthors.html')
 
     return flask.render_template('uploadAuthors.html')
 
-@ app.route('/download', methods=["GET", "POST"])
-def download():
-    if request.method=="POST":
-        dir_file = str(os.path.dirname(os.path.realpath(__file__)))
-        dir_results = dir_file + '\\Results\\uploadDOI_Results.zip'
-        return send_file(dir_results, as_attachment=True)
-    return flask.render_template('download.html')
 
-# @ app.route('/downloadfile', methods=["GET", "POST"])
-# def downloadfile():
-#     dir_file = str(os.path.dirname(os.path.realpath(__file__)))
-#     dir_results = dir_file + '\\Results\\uploadDOI_Results.zip'
-#     return send_file(dir_results, as_attachment=True)
+                
+
 
 @ app.route('/downloadAuthors', methods=["GET", "POST"])
 def downloadAuthors():
-    # dir_file = str(os.path.dirname(os.path.realpath(__file__)))
-    # dir_results = dir_file + '\\Results\\uploadDOI_Results.zip'
-    # return send_file(dir_results, as_attachment=True)
     if request.method=="POST":
-        dir_file = str(os.path.dirname(os.path.realpath(__file__)))
-        dir_results = dir_file + '\\Results\\uploadAuthor_Results.zip'
-        return send_file(dir_results, as_attachment=True)
+        
+        filepath = session.get('authorPath')
+
+        dropdownValue = request.form.get('dropdownSearchBy')
+        print("Download Type:",dropdownValue)
+
+        emailVal = request.form.get('email_input')
+        print("Recipient: ", emailVal)
+        
+        searchByAuthor(mysql, filepath, dropdownValue, emailVal)
+
+        return redirect('/searchComplete')
+        # return flask.render_template('searchComplete.html')
+
     return flask.render_template('downloadAuthors.html')
 
-# @ app.route('/downloadAuthorZip', methods=["GET", "POST"])
-# def downloadAuthorZip():
-#     dir_file = str(os.path.dirname(os.path.realpath(__file__)))
-#     dir_results = dir_file + '\\Results\\uploadAuthor_results.csv'
-#     return send_file(dir_results, as_attachment=True)
 
+@ app.route('/uploadUni', methods=["GET", "POST"])
+def uploadUni():
 
-@ app.route('/searchByOptions', methods=["GET", "POST"])
-def searchByOptions():
-    
+    app.config["UPLOAD_FILES"] = "../web/uploadFiles"
+    destination = app.config["UPLOAD_FILES"]
+
+    if not os.path.isdir(destination):
+        os.mkdir(destination)
+
     if request.method=="POST":
-        select = request.form.get("uploadList")
+        if request.files:
+            uploadFiles = request.files["csv/json"]
+            print(uploadFiles)
 
-        if select == "DOI":
-            return redirect('/upload')
-        else:
-            return redirect('/uploadAuthors')
+            fileName = uploadFiles.filename
+            uploadFiles.save(os.path.join(destination, fileName))
+            print("File saved.")
+
+            session['uniPath'] = fileName
+        
+        return flask.render_template('downloadUni.html')
+
+    return flask.render_template('uploadUni.html')
+
+
+@ app.route('/downloadUni', methods=["GET", "POST"])
+def downloadUni():
+    if request.method=="POST":
+        
+        filepath = session.get('uniPath')
+        
+        dropdownValue = request.form.get('dropdownSearchBy')
+        print("Download Type:",dropdownValue)
+
+        emailVal = request.form.get('email_input')
+        print("Recipient: ", emailVal)
+
+        searchByUni(mysql, filepath, dropdownValue, emailVal)
+        
+        return redirect('/searchComplete')
+        # return flask.render_template('searchComplete.html')
+
+
+
+    return flask.render_template('downloadUni.html')
+
+@ app.route('/searchComplete', methods=["GET", "POST"])
+def searchComplete():
+    # redirect('/searchComplete')    
+
+    # if session['type'] == 'doi':
+    #     filepath = session.get('doiPath')
+    #     searchByDOI(mysql, filepath)
     
-    return flask.render_template('searchByOptions.html')
+    return flask.render_template('searchComplete.html')
+
+         
+
         
 # If this is the main module or main program being run (app.py)......
 if __name__ == "__main__":

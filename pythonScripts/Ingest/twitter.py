@@ -97,20 +97,19 @@ def twitterIngest(uniqueEvent, cursor, connection):
 
 
 
-    # # author: Rihat Rahman
-    # #--------------------------------------------------------------------------------------------------------------------------------------------
-
-    # table = 'twitterevent'
+    # author: Rihat Rahman
+    # Lines 100-112
+    #--------------------------------------------------------------------------------------------------------------------------------------------
+    table = 'twitterevent'
     
-    # # checks if duplicate event exists, returns [(1,)] if true
-    # cursor.execute ("SELECT 1 FROM crossrefeventdatamain." + table + " WHERE subjectID = '" + t_subj_id + "' AND objectID = '" + t_obj_id + "'")
-    # exists = cursor.fetchall()
+    # checks if duplicate event exists, returns [(1,)] if true
+    cursor.execute ("SELECT 1 FROM crossrefeventdatamain." + table + " WHERE subjectID = '" + t_subj_id + "' AND objectID = '" + t_obj_id + "'")
+    exists = cursor.fetchall()
 
-    # # return to the main program if
-    # if exists == [(1,)]:
-    #     return
-
-    # #--------------------------------------------------------------------------------------------------------------------------------------------
+    # return to the main program if
+    if exists == [(1,)]:
+        return
+    #--------------------------------------------------------------------------------------------------------------------------------------------
 
 
     if(len(t_obj_id) < 100):
