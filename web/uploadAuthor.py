@@ -206,6 +206,7 @@ def searchByAuthor(mysql, fileName, type, email):
     if os.path.exists(dir):
         os.remove(dir)
 
+
     return flask.render_template('downloadAuthors.html', results = getStats())
 
 

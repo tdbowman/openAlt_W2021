@@ -1,3 +1,5 @@
+<!-- Salsabil's code from line 3 - 46 -->
+
 {% extends 'template.html' %}
 
 <!-- Anything you put here will be in the HTML head tags-->
@@ -12,7 +14,7 @@
 <body style="background-image: url('../static/images/books.jpg'); background-repeat: no-repeat; background-size:cover;">
   
   <div class="col-sm-3">
-    <!-- Empty column of size 3. Left of search bar -->
+    <!-- Empty column of size 3. Left of form. -->
   </div>
 
   <div class = "center-screen col-sm-6">
@@ -20,6 +22,8 @@
       <h1 style="text-align: center; color: aliceblue;">OpenAlt</h1>
       <p2 style="text-align: center; color: aliceblue;">Search for scholarly publications by uploading a list of Authors or a list of DOIs</p2>
       <br><br>
+
+      <!-- Form to indicate choice of user -->
       <form method="POST" action="{{ url_for('searchByOptions') }}" class="form-inline">
       <div class="form-group" style="text-align: center">          
           <!-- Drop Down Search -->
@@ -29,13 +33,15 @@
             <option value="University">University</option>
           </select>
           <input type="submit" value="&#10003" class="form-control" id="searchButton">
+
       </div>
       </form>
+
       <br>
     </div>
 
     <div class="col-sm-3">
-      <!-- Empty column of size 3. Right of search bar -->
+      <!-- Empty column of size 3. Right of form. -->
     </div>
 </body>
 
