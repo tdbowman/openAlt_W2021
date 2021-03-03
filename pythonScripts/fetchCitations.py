@@ -1,9 +1,12 @@
+# This script will fetch citation data from OpenCitations API and call ingest scripts to ingest data into MySQL
 # author: Rihat Rahman
-# This script will fetch citation data from OpenCitations API
+# Lines 1-63
+#-------------------------------------------------------------
 import mysql.connector
 import requests
 import json
-from OpenCitataionsIngest import OCIngest
+from OpenCitationsCitationIngest import OCCitationIngest
+from OpenCitationsReferenceIngest import OCReferenceIngest
 
 def getCitationData(mysql_username, mysql_password):
 
@@ -38,13 +41,21 @@ def getCitationData(mysql_username, mysql_password):
             citationResponse = requests.get('https://opencitations.net/index/croci/api/v1/citations/' + articleDOI)
             citationCountsResponse = requests.get('https://opencitations.net/index/croci/api/v1/citation-count/' + articleDOI)
 
+            referenceResponse = requests.get('https://opencitations.net/index/croci/api/v1/references/' + articleDOI)
+            referenceCountsResponse = requests.get('https://opencitations.net/index/croci/api/v1/reference-count/' + articleDOI)
+
             citationsJSON = citationResponse.json()
             countJSON = citationCountsResponse.json()
+            referenceJSON = referenceResponse.json()
+            referenceCountsJson = referenceCountsResponse.json()
 
             if response.json() != []:
 
-                # Passing data to ingest script
-                OCIngest(citationDatabase, openCitationsCursor, articleDOI, citationsJSON, countJSON)
+                # Passing data to citation ingest script
+                OCCitationIngest(citationDatabase, openCitationsCursor, articleDOI, citationsJSON, countJSON)
+
+                # passing data to reference ingest script
+                OCReferenceIngest(citationDatabase, openCitationsCursor, articleDOI, referenceJSON, referenceCountsJson)
                 
 
 if __name__ == '__main__':
@@ -53,3 +64,4 @@ if __name__ == '__main__':
     mysql_username = input("Username: ")
     mysql_password = input("Password: ")
     getCitationData(mysql_username, mysql_password)
+#-------------------------------------------------------------
