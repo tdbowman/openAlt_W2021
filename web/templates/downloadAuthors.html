@@ -1,4 +1,4 @@
-
+<!--Author: Darpan (Lines 34-40)-->
 {% extends 'template.html' %}
 
 <!-- Anything you put here will be in the HTML head tags-->
@@ -31,9 +31,17 @@
     <!-- Empty column of size 3. Left of search bar -->
   </div>
   
-  <div class = "center-screen col-sm-6">
+  <div class="center-screen col-sm-6">
+    <div style="border-radius: 25px; padding: 10px; background-color: rgba(60, 65, 70, 0.8); ">
+        <h1 style="text-align: center; color: aliceblue;">{{ results }}</h1>
+    </div>
+    <br>
+    <br>
+    <br>
+
+  <div class = "center-screen col-sm-10">
       <div style="border-radius: 25px; padding: 10px; background-color: rgba(60, 65, 70, 0.8); " >
-            <h1 style="text-align: center; color: aliceblue;">Download Results for List of Authors</h1>
+            <h1 style="text-align: center; color: aliceblue;">Download Author Results</h1>
             <form action="{{ url_for('downloadAuthors') }}" method="POST">
                     <div class="image-title-wrap">
                         <button class="file-upload-btn">Download File</button>

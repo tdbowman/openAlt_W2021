@@ -1,5 +1,5 @@
 # Author: Rihat Rahman
-# This scripts fetches events for papers from dr_bowman_doi_data_tables database and stores event information 
+# This scripts fetches events for papers from doidata database and stores event information 
 # in JSON files. It also creates a CSV filecontaining information about which JSON file belongs to what DOI.
 # After running this script, change dataDirectory of IngestJSONMain.py to eventData folder and run that script 
 # to ingest data into crossrefevent database
@@ -18,8 +18,8 @@ def fetch_events():
 
 
     try:
-        # connect to dr_bowman_doi_data_tables database
-        drBowmanDatabase = mysql.connector.connect(host = "localhost", user = mysql_username, passwd = mysql_password, database = "dr_bowman_doi_data_tables")
+        # connect to doidata database
+        drBowmanDatabase = mysql.connector.connect(host = "localhost", user = mysql_username, passwd = mysql_password, database = "doidata")
 
 
     except:
@@ -33,8 +33,8 @@ def fetch_events():
     drBowmanDatabaseCursor.execute("Select DOI FROM _main_")
     articles = drBowmanDatabaseCursor.fetchall()
 
-    # To fetch event data for all articles, set numberOfArticlesToFetch = articles.length
-    numberOfArticlesToFetch = 500 
+    # To fetch event data for all articles, set numberOfArticlesToFetch = len(articles)
+    numberOfArticlesToFetch = len(articles)
 
     # create directory to store temporary JSON files
     eventDataDirectory = 'eventData'

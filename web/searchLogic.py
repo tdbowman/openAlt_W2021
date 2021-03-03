@@ -157,7 +157,7 @@ def searchLogic(mysql, mysql2, dropdownValue):
         # get fk and name for searched author name
         given_author = []
         given_author = '( '
-        auth_sql = "SELECT fk, name FROM dr_bowman_doi_data_tables.author where name like'%" + search + "%';"
+        auth_sql = "SELECT fk, name FROM doidata.author where name like'%" + search + "%';"
         cursor.execute(auth_sql)
         result_set = cursor.fetchall()
         # form a list of fk for the where statement (ex.) ('2005','2006')

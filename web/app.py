@@ -1,3 +1,5 @@
+# Author: Darpan (Lines 231-251, 273-280)
+
 import os
 import flask
 from flask import Flask
@@ -14,8 +16,9 @@ from authorDashboardLogic import authorDashboardLogic
 from landingPageStats import landingPageStats
 from landingPageArticles import landingPageArticles
 from landingPageJournals import landingPageJournals
-from uploadDOI import searchByDOI
-from uploadAuthor import searchByAuthor
+from uploadDOI import searchByDOI, getZipEvents
+from uploadAuthor import searchByAuthor, getZipAuthor
+from uploadUni import searchByUni, getZipUni
 
 from getPassword import getPassword
 
@@ -36,7 +39,7 @@ app = flask.Flask(__name__)
 app.config['MYSQL_USER'] = mysql_username
 app.config['MYSQL_PASSWORD'] = mysql_password
 # Or use the database.table which will allow us to join the databases - the one with author, and the one with events
-app.config['MYSQL_DB'] = 'dr_bowman_doi_data_tables'
+app.config['MYSQL_DB'] = 'doidata'
 app.config['MYSQL_CURSORCLASS'] = 'DictCursor'
 
 # Database initialization and cursor
@@ -262,30 +265,56 @@ def uploadAuthors():
 
     return flask.render_template('uploadAuthors.html')
 
+@ app.route('/uploadUni', methods=["GET", "POST"])
+def uploadUni():
+
+    app.config["UPLOAD_FILES"] = "../web/uploadFiles"
+    destination = app.config["UPLOAD_FILES"]
+
+    if not os.path.isdir(destination):
+        os.mkdir(destination)
+
+    if request.method=="POST":
+        if request.files:
+            uploadFiles = request.files["csv/json"]
+            print(uploadFiles)
+
+            fileName = uploadFiles.filename
+            uploadFiles.save(os.path.join(destination, fileName))
+            print("File saved.")
+        
+        return searchByUni(mysql, fileName)
+
+    return flask.render_template('uploadUni.html')
+
+
+
 @ app.route('/download', methods=["GET", "POST"])
 def download():
     if request.method=="POST":
-        dir_file = str(os.path.dirname(os.path.realpath(__file__)))
-        dir_results = dir_file + '\\Results\\uploadDOI_Results.zip'
-        return send_file(dir_results, as_attachment=True)
+                
+        test = getZipEvents()
+        print("ZIP EVENTS:", test)
+        return send_file(test, as_attachment=True)
     return flask.render_template('download.html')
 
-# @ app.route('/downloadfile', methods=["GET", "POST"])
-# def downloadfile():
-#     dir_file = str(os.path.dirname(os.path.realpath(__file__)))
-#     dir_results = dir_file + '\\Results\\uploadDOI_Results.zip'
-#     return send_file(dir_results, as_attachment=True)
 
 @ app.route('/downloadAuthors', methods=["GET", "POST"])
 def downloadAuthors():
-    # dir_file = str(os.path.dirname(os.path.realpath(__file__)))
-    # dir_results = dir_file + '\\Results\\uploadDOI_Results.zip'
-    # return send_file(dir_results, as_attachment=True)
     if request.method=="POST":
-        dir_file = str(os.path.dirname(os.path.realpath(__file__)))
-        dir_results = dir_file + '\\Results\\uploadAuthor_Results.zip'
-        return send_file(dir_results, as_attachment=True)
+        
+        print("ZIP AUTHOR:",getZipAuthor())
+        return send_file(getZipAuthor(), as_attachment=True)
     return flask.render_template('downloadAuthors.html')
+
+@ app.route('/downloadUni', methods=["GET", "POST"])
+def downloadUni():
+    if request.method=="POST":
+        
+        test = getZipUni()
+        print("ZIP EVENTS:", test)
+        return send_file(test, as_attachment=True)
+    return flask.render_template('downloadUni.html')
 
 # @ app.route('/downloadAuthorZip', methods=["GET", "POST"])
 # def downloadAuthorZip():
@@ -302,8 +331,10 @@ def searchByOptions():
 
         if select == "DOI":
             return redirect('/upload')
-        else:
+        elif select == "Author":
             return redirect('/uploadAuthors')
+        elif select == "University":
+            return redirect('/uploadUni')
     
     return flask.render_template('searchByOptions.html')
         

@@ -1,4 +1,4 @@
-
+<!--Author: Darpan (Lines 32-37)-->
 {% extends 'template.html' %}
 
 <!-- Anything you put here will be in the HTML head tags-->
@@ -8,12 +8,12 @@
 
 <!-- Anything you put here will be in the body-->
 {% block body %}
-<!-- <div class="file-upload">  
+<!-- <div class="file-upload">
     <form action="{{ url_for('download') }}" method="POST" enctype="multipart/form-data">
         <div class="container">
         <a href="/downloadfile" target="blank"><button class="button">Download File</button></a>
         </div> -->
-        <!-- <div class="file-upload-content">
+<!-- <div class="file-upload-content">
             <div class="image-title-wrap">
             <button type="submit" class="button">Download File</button>
             </div>
@@ -22,29 +22,42 @@
 </div> --> -->
 <br>
 <br>
-<body style="background-image: url('../static/images/library.jpg'); background-repeat: no-repeat; background-size:cover;">
-  <div class="col-sm-3">
-    <!-- Empty column of size 3. Left of search bar -->
-  </div>
 
-  <div class = "center-screen col-sm-6">
-    <div style="border-radius: 25px; padding: 10px; background-color: rgba(60, 65, 70, 0.8); " >
-        <h1 style="text-align: center; color: aliceblue;">Download Results for List of DOIs</h1>
-        <form action="{{ url_for('download') }}" method="POST">
-            <div class="image-title-wrap">
-                <button class="file-upload-btn">Download File</button></a>
-            </div>
-        </form>
+<body
+    style="background-image: url('../static/images/library.jpg'); background-repeat: no-repeat; background-size:cover;">
+    <div class="col-sm-3">
+        <!-- Empty column of size 3. Left of search bar -->
     </div>
-  </div>
+
+    <div class="center-screen col-sm-6">
+        <div style="border-radius: 25px; padding: 10px; background-color: rgba(60, 65, 70, 0.8); ">
+            <h1 style="text-align: center; color: aliceblue;">{{ eventStats }}</h1>
+            <h1 style="text-align: center; color: aliceblue;">{{ metadataStats }}</h1>
+        </div>
+        <br>
+        <br>
+        <br>
+
+
+        <div style="border-radius: 25px; padding: 10px; background-color: rgba(60, 65, 70, 0.8); ">
+            <h1 style="text-align: center; color: aliceblue;">Download DOI Results</h1>
+            <form action="{{ url_for('download') }}" method="POST">
+                <div class="image-title-wrap">
+                    <button class="file-upload-btn">Download File</button></a>
+                </div>
+            </form>
+        </div>
+    </div>
 
     <div class="col-sm-3">
-     <!-- Empty column of size 3. Left of search bar -->
+        <!-- Empty column of size 3. Left of search bar -->
     </div>
+
 </body>
-      
-    
-    
+
+
+
+
 
 <!-- <div class="container">
     <h3>

@@ -30,15 +30,16 @@ connection = mysql.connector.connect(user=str(mysql_username), password=str(
 cursor = connection.cursor()
 
 #Find the total number of DOI's from the database
-cursor.execute("SELECT COUNT(id) FROM dr_bowman_doi_data_tables._main_")
+cursor.execute("SELECT COUNT(id) FROM doidata._main_")
 myresult = cursor.fetchall()
 
 #Store the DOI count into a variable
 for count in myresult:
     totalRows = count[0]
 
-def main():
 
+def main():
+    
     #Tracks the row that is entered in from the DOI list.
     currentRows = 0
     
@@ -46,7 +47,9 @@ def main():
     while currentRows < totalRows:
   
         #Query to get DOI's from the database with 1000 rows at a time
-        query = "SELECT DOI FROM dr_bowman_doi_data_tables._main_ WHERE DOI IS NOT NULL ORDER BY id LIMIT 1000 OFFSET " + str(currentRows)
+        query = "SELECT DOI FROM doidata._main_ WHERE DOI IS NOT NULL ORDER BY id LIMIT 1000 OFFSET " + str(currentRows)
+        print('\n' + str(currentRows) + '/' + str(totalRows) + '\n')
+        print(query)
         cursor.execute(query)
         resultSet = cursor.fetchall()
 
@@ -62,6 +65,7 @@ def main():
         currentRows = currentRows + 1000
         if currentRows > totalRows:
             currentRows = totalRows
+            print('\n' + str(currentRows) + '/' + str(totalRows) + '\n')
 
 if __name__ == '__main__':
     main()
