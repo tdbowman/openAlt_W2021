@@ -1,6 +1,6 @@
 # Author: Salsabil Bakth
 # The purpose of this script is to retrieve all of the unique events per each DOI 
-# corresponding to the DOIs listed in dr_bowman_doi_data_tables database.
+# corresponding to the DOIs listed in doidata database.
 # The script runs so that it retrieves all of the DOIs from the MySQL database and 
 # looks for the corresponding events. Once the events are found, they are inserted 
 # into MongoDB. 
@@ -24,8 +24,8 @@ def fetch_events():
 
 
     try:
-        # connect to dr_bowman_doi_data_tables database
-        drBowmanDatabase = mysql.connector.connect(host = "localhost", user = mysql_username, passwd = mysql_password, database = "dr_bowman_doi_data_tables")
+        # connect to doidata database
+        drBowmanDatabase = mysql.connector.connect(host = "localhost", user = mysql_username, passwd = mysql_password, database = "doidata")
 
 
     except:

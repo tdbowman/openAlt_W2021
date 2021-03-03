@@ -13,10 +13,8 @@ import csv
 def fetch_events():
 
     print("MySQL Credentials")
-    # mysql_username = input("Username: ")
-    # mysql_password = input("Password: ")
-    mysql_username = "root"
-    mysql_password = "pass1234"
+    mysql_username = input("Username: ")
+    mysql_password = input("Password: ")
 
 
     try:

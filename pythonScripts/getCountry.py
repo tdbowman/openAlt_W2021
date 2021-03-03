@@ -1,8 +1,9 @@
-# author: Rihat Rahman
 # This script extracts country information from affiliation data (may contain country or state name) 
 # and returns country name.
 # returns empty string if country infromation doesn't exist
-# date: February 6, 2021
+# author: Rihat Rahman
+# Lines 1-66
+#-------------------------------------------------------------
 
 from iso3166 import countries
 import us
@@ -62,3 +63,4 @@ def extract_country(affiliation):
                 return 'United States'
 
     return ""
+#-------------------------------------------------------------
