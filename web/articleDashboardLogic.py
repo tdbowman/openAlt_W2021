@@ -7,7 +7,7 @@ import flask
 #Date: 02/23/2021
 #Description: Fetches data from database per every article in the article landing page
 
-def articleDashboardLogic(mysql, mysql2, years_list, yearInput):
+def articleDashboardLogic(mysql, mysql2, mysql3, years_list, yearInput):
 
     # connect to Dr Bowman's database
     cursor = mysql.connection.cursor()
@@ -394,8 +394,7 @@ def articleDashboardLogic(mysql, mysql2, years_list, yearInput):
         wikipediaevent = []
         wordpressevent = []
 
-	citationCountquery ="""SELECT count FROM opencitations.citation_count 
-        WHERE doi = '%s'""" % (search)
+	citationCountquery ="""SELECT count FROM opencitations.citation_count WHERE doi = '%s'""" % (search)
     cursor3 = mysql3.connection.cursor()
     cursor3.execute(citationCountquery)
     citationCountResult = cursor3.fetchone()
