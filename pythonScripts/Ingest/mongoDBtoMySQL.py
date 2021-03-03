@@ -17,11 +17,6 @@ def retrieveFromMongoDB():
     storeinmysql(coll)
     return
 
-def checkmysqlforentry(cursor, data, check):
-    query=("SELECT WHERE DOI LIKE '%s%'")
-    f=data.get("DOI")
-    return check
-
 def storeinmysql(coll):
     mysql_username = "root"
     mysql_password = "pass"
@@ -37,10 +32,7 @@ def storeinmysql(coll):
     myCursor.execute("SELECT DOI FROM _metadata_")
     for data in coll.find({},{"_id":1,"DOI":1, "URL":1, "abstract":1, "created":1, "language":1, "author":1, "subject":1, "publisher":1,
     "reference-count":1, "is-referenced-by-count":1, "references-count":1, "score":1, "source":1, "title":1, "type":1}):
-        check=False
-        #check=checkmysqlforentry(myCursor,data,check)
-        if check==False:
-            crossrefMetadataIngest(data, myCursor, drBowmanDatabase)
+        crossrefMetadataIngest(data, myCursor, drBowmanDatabase)
     # End the connection to the MySQL database
     myCursor.close()
     drBowmanDatabase.close()
