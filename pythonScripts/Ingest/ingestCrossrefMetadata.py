@@ -20,7 +20,6 @@ def crossrefMetadataIngest(data, cursor, connection):
     t_id=None
     # Enter the objects with the values of the fields in the JSON file.
     for key, value in data.items():
-        #print(value)
         if (key == "DOI"):
             t_DOI = value
             print(t_DOI)

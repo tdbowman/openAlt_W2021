@@ -3,7 +3,6 @@ import pymongo
 import requests
 
 def storeMetaDatainMongoDB():
-    # hard code for testing; change later
     # retrieve metadata from api
     r = requests.get('https://api.crossref.org/works?sample=100&mailto=tabishshaikh97@gmail.com')
     # connect to localhost MongoDB
