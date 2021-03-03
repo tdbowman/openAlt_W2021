@@ -22,7 +22,6 @@ def crossrefMetadataIngest(data, cursor, connection):
     for key, value in data.items():
         if (key == "DOI"):
             t_DOI = value
-            print(t_DOI)
             if (len(t_DOI) >= 100):
                 return
         elif (key == "URL"):
@@ -69,5 +68,4 @@ def crossrefMetadataIngest(data, cursor, connection):
     # Execute query to add information to _metadata_ event table
     cursor.execute(add_event, data_event)
     connection.commit()
-    print("data stored")
     return

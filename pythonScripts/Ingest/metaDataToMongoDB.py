@@ -2,9 +2,9 @@
 import pymongo
 import requests
 
-def storeMetaDatainMongoDB():
+def storeMetaDatainMongoDB(DOI):
     # retrieve metadata from api
-    r = requests.get('https://api.crossref.org/works?sample=100&mailto=tabishshaikh97@gmail.com')
+    r = requests.get('https://api.crossref.org/works/'+ DOI)
     # connect to localhost MongoDB
     try:
         client = pymongo.MongoClient('mongodb://localhost:27017/')
@@ -18,22 +18,23 @@ def storeMetaDatainMongoDB():
     data=r.json()
     print(type(data))
     print(data.get("message-type"))
-    if data.get("message-type")=="work-list":
-        check(coll, data.get("message").get("items"))
+    if data.get("message-type")=="work":
+        check(coll, data.get("message"))
     else:
         print("Invalid data")
+    return DOI
 
 def check(coll, li):
-    for i in li:
-        dupe=False
-        x=coll.find({})
-        for y in x:
-            if i.get("DOI")==y.get("DOI"):
-                print("Duplicate")
-                dupe=True
-        if dupe==False:
-            coll.insert_one(i)
+    dupe=False
+    x=coll.find({})
+    for y in x:
+        if li.get("DOI")==y.get("DOI"):
+            print("Duplicate")
+            dupe=True
+    if dupe==False:
+        coll.insert_one(i)
     return
 
 if __name__=='__main__':
-    storeMetaDatainMongoDB()
+    # Contains placeholder string
+    storeMetaDatainMongoDB("10.1093/jn/128.10.1731")
