@@ -7,6 +7,47 @@
 <script class="jsbin" src="https://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
 <script src="../static/js/upload.js"></script>
 
+<script>
+  $(function () {
+  let $uploadButton = $("#uploadButton");
+
+    $uploadButton.click(function () {
+      var size = $("#fileUpload")[0].files[0].size;
+      size = size / 1048576;
+
+      if (size > 1){
+        alert("File is too large!")
+        location.reload();
+        return false;
+      }
+
+      return (true)
+  });
+
+});
+</script>
+
+<script>
+  $(function () {
+  let $uploadButton = $("#uploadButton");
+
+    $uploadButton.click(function () {
+      let $fileName = $("#fileUpload");
+
+      var fileExtension = ['csv'];
+
+      if ($.inArray($fileName.val().split('.').pop().toLowerCase(), fileExtension) == -1) {
+          alert("Only formats are allowed : "+fileExtension.join(', '));
+          location.reload();
+          return false;
+      }
+
+      return (true);
+  });
+
+});
+</script>
+
 {% endblock %}
 
 <!-- Anything you put here will be in the body-->
@@ -26,7 +67,7 @@
       <!-- Drag and drop form for uploading files   -->
       <form action="{{ url_for('upload') }}" method="POST" enctype="multipart/form-data">
           <div style="color:black;" class="image-upload-wrap">
-            <input class="file-upload-input" name="csv/json" type='file' onchange="readURL(this);" accept=".csv" />
+            <input class="file-upload-input" id="fileUpload" name="csv/json" type='file' onchange="readURL(this);" accept=".csv" />
             <div class="drag-text">
               <h3 style="color:aliceblue;">Drag and drop a file or Select Box</h3>
             </div>
@@ -35,7 +76,7 @@
           <div class="file-upload-content">
             <div class="image-title-wrap">
               <!-- Display message after clicking submit -->
-              <button type="submit" input onchange="uploadMessage(this)" class="file-upload-btn" type="file">Upload File</button>
+              <button type="submit" id="uploadButton" input onchange="uploadMessage()" class="file-upload-btn" type="file">Upload File</button>
             </div>
           </div>
 

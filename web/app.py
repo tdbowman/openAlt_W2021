@@ -171,7 +171,7 @@ def upload():
     ALLOWED_EXTENSIONS = {'csv'}
 
     # Limit of the file size to 1 GB
-    # app.config['MAX_CONTENT_LENGTH'] = 2 * 1024 * 1024 
+    app.config['MAX_CONTENT_LENGTH'] = 1 * 1024 * 1024 
 
     # If directory does not exist, create it
     if not os.path.isdir(target):
@@ -200,12 +200,6 @@ def upload():
                 # Send the file to uploadDOI.py
                 return searchByDOI(mysql, fileName)
 
-            else:
-                app.logger.error('Wrong file type uploaded.')
-                # flash('No file part')
-                return flask.render_template('validateDOI.html')
-
-
     return flask.render_template('upload.html')
 
 @ app.route('/uploadAuthors', methods=["GET", "POST"])
@@ -218,31 +212,16 @@ def uploadAuthors():
      # Allowed extensions of file
     ALLOWED_EXTENSIONS = {'csv'}
 
+    
+    # Limit of the file size to 1 GB
+    app.config['MAX_CONTENT_LENGTH'] = 1 * 1024 * 1024 
+
     # If directory does not exist, create it
     if not os.path.isdir(destination):
         os.mkdir(destination)
 
     # If a HTTPS POST Request is received...
     if request.method=="POST":
-
-        # # If file is received...
-        # if request.files:
-
-        #     # Retrieve the uploaded file 
-        #     uploadFiles = request.files["csv/json"]
-        #     fileName = uploadFiles.filename
-
-        #     # Check extension of file
-        #     fileExtension = fileName.rsplit('.',1)[1].lower() in ALLOWED_EXTENSIONS
-            
-        #     if uploadFiles and fileExtension:
-        #         uploadFiles.save(os.path.join(destination, fileName) 
-        #         return searchByAuthor(mysql, fileName)
-
-        #     else:
-        #         app.logger.error('Wrong file type uploaded.')
-        #         # flash('No file part')
-        #         return flask.render_template('validateAuthor.html')
 
         # If file is received...
         if request.files:
@@ -263,11 +242,6 @@ def uploadAuthors():
 
                 # Send the file to uploadDOI.py
                 return searchByAuthor(mysql, fileName)
-
-            else:
-                app.logger.error('Wrong file type uploaded.')
-                # flash('No file part')
-                return flask.render_template('validateAuthor.html')
 
     return flask.render_template('uploadAuthors.html')
 
@@ -320,28 +294,7 @@ def searchByOptions():
     
     return flask.render_template('searchByOptions.html')
 
-@ app.errorhandler(413)
-def too_large(e):
-    return "File is too large!", 413
-
 # End of Salsabil's Code
-
-
-# @ app.route('/upload_file_validation', methods=['POST'])
-# def upload_file_validation():
-#     options = {
-#         'validation': {
-#             'allowedExts': ['csv']
-#         }
-#     }
-
-#     try:
-#         response = File.upload(FlaskAdapter(request), '/public/', options)
-    
-#     except Exception: 
-#         response = {'error': str(sys.exc_info()[1])}
-        
-#     return json.dumps(response)
         
 # If this is the main module or main program being run (app.py)......
 if __name__ == "__main__":
