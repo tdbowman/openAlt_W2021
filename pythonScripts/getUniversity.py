@@ -1,10 +1,11 @@
-# author: Rihat Rahman
 # This script extracts university information from affiliation data
 # returns name of university
 # returns empty string of university information doesn't exist
+# author: Rihat Rahman
+# Lines 1-28
+#-------------------------------------------------------------
 
 import pandas as pd
-
 
 def extract_university(affiliation):
 
@@ -23,3 +24,4 @@ def extract_university(affiliation):
                 return university_name
 
     return ""
+#-------------------------------------------------------------

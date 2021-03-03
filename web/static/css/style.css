@@ -582,6 +582,8 @@ p:empty{
   width:400px;
 }
 
+/* Salsabil's code from line 575-693 */
+/* Beginning of Salsabil's code */
 .form-control{
   display: inline-block;
 }
@@ -701,3 +703,4 @@ body {
   border: 0;
   transition: all .2s ease;
 }
+/* End of Salsabil's Code */

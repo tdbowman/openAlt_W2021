@@ -3,6 +3,36 @@
 
 <!-- Anything you put here will be in the HTML head tags-->
 {% block head %}
+<script>
+
+    $(function () {
+
+        // Initialize variables and reference to the resultsButton and the current value of the email box
+        let $resultsButton = $("#resultsButton");
+        
+
+        // If the email box is empty, prompt the user to enter a query.
+        $resultsButton.click(function () {
+            let $emailValue = $("#email_input").val();
+
+            // check if empty
+            if ($emailValue === '') {
+                alert("Please enter an email address.");
+                return false;
+            }
+            // check if entered email is valid       
+            else if (/^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/.test($emailValue)) {
+                return (true)
+            }
+            alert("You have entered an invalid email address!")
+            return (false)
+
+
+        });
+
+    });
+
+</script>
 
 {% endblock %}
 <!-- Author: Darpan (whole file)-->
@@ -11,34 +41,42 @@
 
 <br>
 <br>
-<body style="background-image: url('../static/images/library.jpg'); background-repeat: no-repeat; background-size:cover;">
-  <div class="col-sm-3">
-    <!-- Empty column of size 3. Left of search bar -->
-  </div>
-  
-  <div class="center-screen col-sm-6">
-    <div style="border-radius: 25px; padding: 10px; background-color: rgba(60, 65, 70, 0.8); ">
-        <h1 style="text-align: center; color: aliceblue;">{{ results }}</h1>
-    </div>
-    <br>
-    <br>
-    <br>
 
-  <div class = "center-screen col-sm-10">
-      <div style="border-radius: 25px; padding: 10px; background-color: rgba(60, 65, 70, 0.8); " >
+<body
+    style="background-image: url('../static/images/library.jpg'); background-repeat: no-repeat; background-size:cover;">
+    <div class="col-sm-3">
+        <!-- Empty column of size 3. Left of search bar -->
+    </div>
+
+
+
+    <div class="center-screen col-sm-6">
+        <div style="border-radius: 25px; padding: 10px; background-color: rgba(60, 65, 70, 0.8); text-align: center;">
+
             <h1 style="text-align: center; color: aliceblue;">Download University Results</h1>
-            <form action="{{ url_for('downloadUni') }}" method="POST">
-                    <div class="image-title-wrap">
-                        <button class="file-upload-btn">Download File</button>
-                    </div> 
+            <br>
+
+            <form action="{{ url_for('downloadUni') }}" method="POST" style="text-align: center; align-items: center;">
+                <input type="text" id="email_input" name="email_input" placeholder="Email Address:"
+                    class="form-control">
+                <br>
+
+                <div class="image-title-wrap">
+                    <select name="dropdownSearchBy" id="dropdownSearchBy" class="form-control">
+                        <option selected="selected" value="csv" style="text-align: center; align-items: center;">CSV
+                        </option>
+                        <option value="json" style="text-align: center; align-items: center;">JSON</option>
+                    </select>
+                    <button class="file-upload-btn" id="resultsButton">Download File</button></a>
+                </div>
             </form>
         </div>
-    </div>  
-  
+    </div>
 
     <div class="col-sm-3">
-    <!-- Empty column of size 3. Left of search bar -->
+        <!-- Empty column of size 3. Left of search bar -->
     </div>
+
 </body>
 
 {% endblock %}

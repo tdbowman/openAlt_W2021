@@ -11,6 +11,7 @@ import datetime as dt
 import time
 import dbQuery
 from flask import redirect
+import emailResults as er
 
 # importing download function to download zip folder containing results CSV file
 from downloadResultsCSV import downloadResultsAsCSV
@@ -41,7 +42,7 @@ def getStats():
     return stats
 
 
-def downloadUni(mysql, dir_csv):
+def downloadUni(mysql, dir_csv, type, email):
 
     # time execution of script
     start_time = time.time()
@@ -126,13 +127,20 @@ def downloadUni(mysql, dir_csv):
         else:
             count = count + 1
             # Replace invalid chars for file name
-            file_id = uni.replace(' ','-')
-            file_id = file_id.replace('.','')
+            invalid_chars = ['/','.','(',')',':','<','>','?','|','\"','*']
+            file_id = uni.replace(' ', '-')
+            for char in invalid_chars:
+                file_id = file_id.replace(char,'-')
             #print('FILE ID:', file_id)
 
-            resultPath = dir_results + '\\' + str(file_id) + '_authorInfo.csv'
             df.columns = [i[0] for i in cursor.description]  ###### CAUSED ISSUE ON SALSBILS MACHINE #######
-            df.to_csv(resultPath,index=False)
+            
+            if type == 'csv':
+                resultPath = dir_results + '\\' + str(file_id) + '_authorInfo.csv'
+                df.to_csv(resultPath,index=False)
+            elif type == 'json':
+                resultPath = dir_results + '\\' + str(file_id) + '_authorInfo.json'
+                df.to_json(resultPath, orient='index', indent=2)
 
 
 
@@ -140,15 +148,20 @@ def downloadUni(mysql, dir_csv):
             resultSet = dbQuery.getUniArticles(uni, cursor)
             logging.info(resultSet)
 
-            resultPath = dir_results + '\\' + str(file_id) + '_DOIs.csv'
-
             # Write associated DOI info to file.
             df = pandas.DataFrame(resultSet)
             df = df.drop_duplicates()
 
             if not df.empty:
                 df.columns = [i[0] for i in cursor.description]
-                df.to_csv(resultPath,index=False)
+
+                if type == 'csv':
+                    resultPath = dir_results + '\\' + str(file_id) + '_DOIs.csv'
+                    df.to_csv(resultPath,index=False)
+                elif type == 'json':
+                    resultPath = dir_results + '\\' + str(file_id) + '_DOIs.json'
+                    df.to_json(resultPath, orient='index', indent=2)
+
 
     # Close API_Instructions.txt
     f.close()
@@ -157,9 +170,7 @@ def downloadUni(mysql, dir_csv):
     print('\n')
     setStats(count, len(uni_arr))
 
-    # Time taken to execute script
-    print("--- %s seconds ---" % (time.time() - start_time))
-
+    # Zip the folder
     shutil.make_archive(str(dir_results), 'zip', dir_results)
 
     # Delete unzipped folder
@@ -169,18 +180,24 @@ def downloadUni(mysql, dir_csv):
     # Path of zip folder
     zipUni = dir_results + '.zip'
     setZipUni(zipUni)
+    
+    # Send Results via email
+    er.emailResults(zipUni, email, 'uni')
+
+    # Time taken to execute script
+    print("--- %s seconds ---" % (time.time() - start_time))
 
     return zipUni
 
 
 ###### Darpan End ######
 
-def searchByUni(mysql, fileName):
+def searchByUni(mysql, fileName, type, email):
 
     # Directory of doi list
     dir = '../web/uploadFiles/' + fileName
 
-    downloadUni(mysql, dir)
+    downloadUni(mysql, dir, type, email)
 
     # Delete uploaded file
     if os.path.exists(dir):

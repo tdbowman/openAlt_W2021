@@ -11,6 +11,7 @@ import time
 import datetime as dt
 import dbQuery
 from flask import redirect
+import emailResults as er
 
 # importing download function to download zip folder containing results CSV file
 from downloadResultsCSV import downloadResultsAsCSV
@@ -44,7 +45,7 @@ def getMetadataStats():
     return metadataStats
 
 
-def downloadDOI(mysql, dir_csv):
+def downloadDOI(mysql, dir_csv, type, email):
 
     # time execution of script
     start_time = time.time()
@@ -132,8 +133,11 @@ def downloadDOI(mysql, dir_csv):
         f.write("https://api.crossref.org/works/" + doi + "\n")
 
         # Replace invalid chars for file name
-        file_id = doi.replace('/','-')
-        file_id = file_id.replace('.','-')
+        invalid_chars = ['/','.','(',')',':','<','>','?','|','\"','*']
+        file_id = doi.replace(' ', '-')
+        for char in invalid_chars:
+            file_id = file_id.replace(char,'-')
+        
         #print('FILE ID:', file_id)
 
         
@@ -162,9 +166,14 @@ def downloadDOI(mysql, dir_csv):
             if not os.path.exists(dir_doi):
                 os.mkdir(dir_doi)
 
-            resultPath = dir_doi + '\\eventCounts_' + str(file_id) + '.csv'
             df.columns = [i[0] for i in cursor.description]  ###### CAUSED ISSUE ON SALSBILS MACHINE #######
-            df.to_csv(resultPath,index=False)
+
+            if type == 'doi':
+                resultPath = dir_doi + '\\eventCounts_' + str(file_id) + '.csv'
+                df.to_csv(resultPath,index=False)
+            elif type == 'json':
+                resultPath = dir_doi + '\\eventCounts_' + str(file_id) + '.json'
+                df.to_json(resultPath, orient='index', indent=2)
 
             # Retreiving Specific DOI Events
             resultSet, headers = dbQuery.getDOIEvents(doi,cursor)
@@ -178,8 +187,12 @@ def downloadDOI(mysql, dir_csv):
                     df.columns = headers[table]
 
                     # Writing CSV containing DOI metadata
-                    resultPath = dir_doi + '\\' + table + '_' + str(file_id) + '.csv'
-                    df.to_csv(resultPath,index=False)
+                    if type == 'doi':
+                        resultPath = dir_doi + '\\' + table + '_' + str(file_id) + '.csv'
+                        df.to_csv(resultPath,index=False)
+                    elif type == 'json':
+                        resultPath = dir_doi + '\\' + table + '_' + str(file_id) + '.json'
+                        df.to_json(resultPath, orient='index', indent=2)
 
        
         # DOI Info Query
@@ -199,9 +212,13 @@ def downloadDOI(mysql, dir_csv):
             if not os.path.exists(dir_doi):
                 os.mkdir(dir_doi)
 
-            # Writing CSV containing DOI metadata
-            resultPath = dir_doi + '\\doiInfo_' + str(file_id) + '.csv'
-            df.to_csv(resultPath,index=False)
+            # Writing CSV/JSON containing DOI metadata
+            if type == 'doi':
+                resultPath = dir_doi + '\\doiInfo_' + str(file_id) + '.csv'
+                df.to_csv(resultPath,index=False)
+            elif type == 'json':
+                resultPath = dir_doi + '\\doiInfo_' + str(file_id) + '.json'
+                df.to_json(resultPath, orient='index', indent=2)
         else:
             # CSV containing list of results not found
             emptyResultPath = dir_results + '\\NotFound_doiInfo.csv'
@@ -225,9 +242,6 @@ def downloadDOI(mysql, dir_csv):
     setEventStats(eventsFound, len(doi_arr))
     setMetadataStats(metadataFound, len(doi_arr))
 
-    # Time taken to execute script
-    print("--- %s seconds ---" % (time.time() - start_time))
-
     # Zip folder containing the CSV files=
     shutil.make_archive(str(dir_results),'zip',dir_results)
 
@@ -239,20 +253,40 @@ def downloadDOI(mysql, dir_csv):
     zipEvents = str(dir_results + '.zip')
     setZipEvents(zipEvents)
 
+    # Send Results via email
+    er.emailResults(zipEvents, email, 'doi')
+
+    # Time taken to execute script
+    print("--- %s seconds ---" % (time.time() - start_time))
 
     return zipEvents
 
 ###### Darpan End ######
 
-def searchByDOI(mysql, fileName):
+def searchByDOI(mysql, fileName, type, email):
 
+<<<<<<< HEAD
     # Directory of uploaded file
     dir = '../web/uploadFiles/' + fileName
 
-    downloadDOI(mysql, dir)
+    redirect('/thankYou')
+    downloadDOI(mysql, dir, type, email)
 
-    # Delete uploaded file
+    # Delete uploaded files
     if os.path.exists(dir):
         os.remove(dir)
 
-    return flask.render_template('download.html', eventStats = getEventStats(), metadataStats = getMetadataStats())
+    #return flask.render_template('searchComplete.html', mysql, dir, type, email, type = 'doi')
+    return flask.render_template('downloadDOI.html')
+=======
+# Salsabil's code from line 95-103
+def searchByDOI(mysql, fileName):
+    
+    #directories
+    dir = '../web/uploadFiles/' + fileName
+
+    # Send directory and mysql information from flask to script
+    downloadDOI(mysql, dir)
+   
+    return flask.render_template('download.html')
+>>>>>>> origin/salsaBilDev

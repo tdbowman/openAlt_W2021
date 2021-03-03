@@ -11,6 +11,7 @@ import time
 import dbQuery
 import datetime as dt
 from flask import redirect
+import emailResults as er
 
 # importing download function to download zip folder containing results CSV file
 from downloadResultsCSV import downloadResultsAsCSV
@@ -40,7 +41,7 @@ def setStats(x,y):
 def getStats():
     return stats
 
-def downloadAuthor(mysql,dir_csv):
+def downloadAuthor(mysql, dir_csv, type, email):
 
     # time execution of script
     start_time = time.time()
@@ -129,20 +130,25 @@ def downloadAuthor(mysql,dir_csv):
             df = df.drop_duplicates()
 
             # Replace invalid chars for file name
-            file_id = author.replace(' ','-')
-            file_id = file_id.replace('.','')
+            invalid_chars = ['/','.','(',')',':','<','>','?','|','\"','*']
+            file_id = author.replace(' ', '-')
+            for char in invalid_chars:
+                file_id = file_id.replace(char,'-')
             #print('FILE ID:', file_id)
 
-            resultPath = dir_results + '\\' + str(file_id) + '_authorInfo.csv'
             df.columns = [i[0] for i in cursor.description]  ###### CAUSED ISSUE ON SALSBILS MACHINE #######
-            df.to_csv(resultPath,index=False)
+            
+            if type == 'csv':
+                resultPath = dir_results + '\\' + str(file_id) + '_authorInfo.csv'
+                df.to_csv(resultPath,index=False)
+            elif type == 'json':
+                resultPath = dir_results + '\\' + str(file_id) + '_authorInfo.json'
+                df.to_json(resultPath, orient='index', indent=2)
 
 
             # Author Associated DOIs Query
             resultSet = dbQuery.getAuthorArticles(author, cursor)
             logging.info(resultSet)
-
-            resultPath = dir_results + '\\' + str(file_id) + '_authorDOIs.csv'
 
             # Write associated DOI info to file.
             df = pandas.DataFrame(resultSet)
@@ -150,7 +156,13 @@ def downloadAuthor(mysql,dir_csv):
 
             if not df.empty:
                 df.columns = [i[0] for i in cursor.description]
-                df.to_csv(resultPath,index=False)
+
+                if type == 'csv':
+                    resultPath = dir_results + '\\' + str(file_id) + '_authorDOIs.csv'
+                    df.to_csv(resultPath,index=False)
+                elif type == 'json':
+                    resultPath = dir_results + '\\' + str(file_id) + '_authorDOIs.json'
+                    df.to_json(resultPath, orient='index', indent=2)
 
 
     # Close API_Instructions.txt
@@ -160,9 +172,7 @@ def downloadAuthor(mysql,dir_csv):
     print('\n')
     setStats(count, len(author_arr))
 
-    # Time taken to execute script
-    print("--- %s seconds ---" % (time.time() - start_time))
-
+    # Zip the folder
     shutil.make_archive(str(dir_results),'zip',dir_results)
 
     # Delete unzipped folder
@@ -173,22 +183,29 @@ def downloadAuthor(mysql,dir_csv):
     zipAuthor = dir_results + '.zip'
     setZipAuthor(zipAuthor)
 
+    # Send Results via email
+    er.emailResults(zipAuthor, email, 'author')
+
+    # Time taken to execute script
+    print("--- %s seconds ---" % (time.time() - start_time))
+
     return zipAuthor
     
     
 
 ###### Darpan End ######
 
-def searchByAuthor(mysql, fileName):
+def searchByAuthor(mysql, fileName, type, email):
 
     # Directory of doi list
     dir = '../web/uploadFiles/' + fileName
 
-    downloadAuthor(mysql, dir)
+    downloadAuthor(mysql, dir, type, email)
 
     # Delete uploaded file
     if os.path.exists(dir):
         os.remove(dir)
+
 
     return flask.render_template('downloadAuthors.html', results = getStats())
 
