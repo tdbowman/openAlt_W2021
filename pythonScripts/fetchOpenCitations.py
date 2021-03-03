@@ -2,9 +2,11 @@
 # Lines 1-159
 # Script to fetch citation and reference data from OpenCitations and call ingest scripts to ingest data into MySQL
 #-------------------------------------------------------------
+import os
 import json
 import requests
 import pymongo
+import configparser
 import mysql.connector
 from ingestCitations import ingestCitations
 from ingestCitationCounts import ingestCitationCounts
@@ -13,12 +15,14 @@ from ingestReferences import ingestReferences
 
 
 def fetchDOICitations ():
+
+
     # mysql credentials
     mysql_username ='root'
     mysql_password = 'Dsus1209.'
 
     # connect to doi database
-    drBowmanDatabase = mysql.connector.connect(host = "localhost", user = mysql_username, passwd = mysql_password, database = "dr_bowman_doi_data_tables")
+    drBowmanDatabase = mysql.connector.connect(host = "localhost", user = mysql_username, passwd = mysql_password, database = "doidata")
     drBowmanDatabaseCursor = drBowmanDatabase.cursor()
 
     # connect to OpenCitations database
