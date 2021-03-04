@@ -394,7 +394,7 @@ def articleDashboardLogic(mysql, mysql2, mysql3, years_list, yearInput):
         wikipediaevent = []
         wordpressevent = []
 
-    citationCountquery = """SELECT count FROM opencitations.citation_count WHERE doi = '%s'""" % (search)
+        citationCountquery ="""SELECT count FROM opencitations.citation_count WHERE doi = '%s'""" % (search)
 
     cursor3 = mysql3.connection.cursor()
     cursor3.execute(citationCountquery)
