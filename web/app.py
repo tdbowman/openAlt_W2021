@@ -115,11 +115,11 @@ def articleDashboard():
     for i in range(currentYear - 4, currentYear + 1):
         years_list.append(i)
 
-	# If a HTTPS POST Request is received...
-	#Author: Mohammad Tahmid
-	#Lines: 113-127
-	#Description: Gets the DOI from the article landing page and downloads the information to the users computer
-	if request.form.get('articleDLChoice') is not None:
+        # If a HTTPS POST Request is received...
+        #Author: Mohammad Tahmid
+        #Lines: 113-127
+        #Description: Gets the DOI from the article landing page and downloads the information to the users computer
+        if request.form.get('articleDLChoice') is not None:
 			#File type user wants the information dowloaded as
             fileChoice = str(request.form.get("articleDLChoice"))
 			
