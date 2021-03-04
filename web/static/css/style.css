@@ -547,6 +547,22 @@ table.table-bordered{
   text-align: center;
 }
 
+.left-screen {
+  display: flex;
+  flex-direction: column;
+  justify-content: left;
+  align-items: left;
+  text-align: left;
+}
+
+.right-screen {
+  display: flex;
+  flex-direction: column;
+  justify-content: right;
+  align-items: right;
+  text-align: right;
+}
+
 .hideBullets{
   list-style-type: none;
   padding: 0px;
