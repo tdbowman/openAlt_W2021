@@ -5,7 +5,9 @@ def eventHashMap():
 
     for key in eventDict:
         if (key == "123"):
-            print(eventDict[key])
+            print(key)
+        else:
+            print("Key not found!")
 
   
 if __name__ == '__main__':
