@@ -119,21 +119,23 @@ def articleDashboard():
 	#Author: Mohammad Tahmid
 	#Lines: 113-127
 	#Description: Gets the DOI from the article landing page and downloads the information to the users computer
-	if request.form.get('articleDLChoice') is not None:
-			#File type user wants the information dowloaded as
-            fileChoice = str(request.form.get("articleDLChoice"))
-			
-			#The DOI of the aritcle that the user was viewing and wants the information of
-            fileDOI = str(request.form.get("articleDLDOI"))
-			
-			#Zipped up contents of the data from the database
-            zipEvents = articleLandingDownload(fileDOI, fileChoice, mysql)
-			
-			#The zipped up files are downloaded onto the user's desktop
-            return send_file(zipEvents, as_attachment=True)
-			
+    		
     # If a HTTPS POST Request is received...
     if request.method == "POST":
+
+        if request.form.get('articleDLChoice') is not None:
+		    #File type user wants the information dowloaded as
+            fileChoice = str(request.form.get("articleDLChoice"))
+			
+		    #The DOI of the aritcle that the user was viewing and wants the information of
+            #fileDOI = str(request.form.get("articleDLDOI"))
+			
+		    #Zipped up contents of the data from the database
+            #zipEvents = articleLandingDownload(fileDOI, fileChoice, mysql)
+			
+		    #The zipped up files are downloaded onto the user's desktop
+            #return send_file(zipEvents, as_attachment=True)
+
         # Grab the year value from the year filter of the bar chart.
         if request.form.get('year') is not None:
             yearInput = request.form.get('year')
