@@ -50,6 +50,27 @@ app2.config['MYSQL_CURSORCLASS'] = 'DictCursor'
 # Database initialization and cursor
 mysql2 = MySQL(app2)
 
+#Author: 
+    #Name: Mohammad Tahmid 
+    #Lines 57-69, 123
+    #---------------------
+#Date: 02/23/2021
+#Description: Passes a connection for a opencitations database
+#-----------------------------------------------------------
+# Instantiate a third object of class Flask
+app3 = flask.Flask(__name__)
+# Database connection settings
+app3.config['MYSQL_USER'] = mysql_username
+app3.config['MYSQL_PASSWORD'] = mysql_password
+
+# Or use the database.table which will allow us to join the databases - the one with author, and the one with events
+app3.config['MYSQL_DB'] = 'opencitations'
+app3.config['MYSQL_CURSORCLASS'] = 'DictCursor'
+# Database initialization and cursor
+mysql3 = MySQL(app3)
+#-----------------------------------------------------------
+
+
 # Pass on vars between pages
 session = {}
 
@@ -94,8 +115,27 @@ def articleDashboard():
     for i in range(currentYear - 4, currentYear + 1):
         years_list.append(i)
 
+	# If a HTTPS POST Request is received...
+	#Author: Mohammad Tahmid
+	#Lines: 113-127
+	#Description: Gets the DOI from the article landing page and downloads the information to the users computer
+    		
     # If a HTTPS POST Request is received...
     if request.method == "POST":
+
+        if request.form.get('articleDLChoice') is not None:
+		    #File type user wants the information dowloaded as
+            fileChoice = str(request.form.get("articleDLChoice"))
+			
+		    #The DOI of the aritcle that the user was viewing and wants the information of
+            #fileDOI = str(request.form.get("articleDLDOI"))
+			
+		    #Zipped up contents of the data from the database
+            #zipEvents = articleLandingDownload(fileDOI, fileChoice, mysql)
+			
+		    #The zipped up files are downloaded onto the user's desktop
+            #return send_file(zipEvents, as_attachment=True)
+
         # Grab the year value from the year filter of the bar chart.
         if request.form.get('year') is not None:
             yearInput = request.form.get('year')
@@ -105,7 +145,7 @@ def articleDashboard():
                 years_list.append(i)
 
     # Go to articleDashboardLogic.py
-    return articleDashboardLogic(mysql, mysql2, years_list, yearInput)
+    return articleDashboardLogic(mysql, mysql2, mysql3, years_list, yearInput)
 
 
 @ app.route('/journalDashboard', methods=["GET", "POST"])

@@ -208,11 +208,3 @@ def searchByAuthor(mysql, fileName, type, email):
 
 
     return flask.render_template('downloadAuthors.html', results = getStats())
-
-
-
-
-
-
-
-

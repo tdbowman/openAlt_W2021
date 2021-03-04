@@ -55,7 +55,7 @@ def main():
     #Tracks the row that is entered in from the DOI list.
     currentRows = 0
 
-    with open('gatherDOI_csv.csv', newline='') as csvFile:
+    with open('DOIValues.csv', newline='') as csvFile:
 
             #A line is read in from file instead of the whole file in order to be memory efficient 
             lineIn = csv.reader(csvFile)
@@ -91,11 +91,10 @@ def main():
 
                 except ImportError:
                     print("Installation of the Crossref API is needed")
-                except Exception as e:
-                    print(e)
+                except:
+                    print("Unknown Error")
 
                 #Increases counter to keep track of whether at the end of .csv file
-                print('\n' + str(currentRows) + '/' + str(csvLineCount))
                 currentRows += 1
                 if currentRows > csvLineCount:
                     currentRows = csvLineCount

@@ -1,6 +1,6 @@
 <!-- Salsabil's code from line 3 - 51 -->
 
-{% extends 'template.html' %}
+{% extends 'bulkSearchTemplate.html' %}
 
 <!-- Anything you put here will be in the HTML head tags-->
 {% block head %}
@@ -9,27 +9,27 @@
 
 <script>
   $(function () {
-  let $uploadButton = $("#uploadButton");
+    let $uploadButton = $("#uploadButton");
 
     $uploadButton.click(function () {
       var size = $("#fileUpload")[0].files[0].size;
       size = size / 1048576;
 
-      if (size > 1){
+      if (size > 1) {
         alert("File is too large!")
         location.reload();
         return false;
       }
 
       return (true)
-  });
+    });
 
-});
+  });
 </script>
 
 <script>
   $(function () {
-  let $uploadButton = $("#uploadButton");
+    let $uploadButton = $("#uploadButton");
 
     $uploadButton.click(function () {
       let $fileName = $("#fileUpload");
@@ -37,83 +37,76 @@
       var fileExtension = ['csv'];
 
       if ($.inArray($fileName.val().split('.').pop().toLowerCase(), fileExtension) == -1) {
-          alert("Only formats are allowed : "+fileExtension.join(', '));
-          location.reload();
-          return false;
+        alert("Only formats are allowed : " + fileExtension.join(', '));
+        location.reload();
+        return false;
       }
 
       return (true);
-  });
+    });
 
-});
+  });
 </script>
 
 {% endblock %}
 
 <!-- Anything you put here will be in the body-->
 {% block body %}
-<br>
-<br>
-<body style="background-image: url('../static/images/library.jpg'); background-repeat: no-repeat; background-size:cover;">
-  
-  <div class="col-sm-3">
-    <!-- Empty column of size 3. Left of box. -->
-  </div>
 
-  <div class = "center-screen col-sm-6">
-    <div style="border-radius: 25px; padding: 10px; background-color: rgba(60, 65, 70, 0.8); " >
-      <h1 style="text-align: center; color: aliceblue;">Upload List of DOIs</h1>
-  
+<body style="background-image: url('../static/images/library.jpg'); background-repeat: no-repeat; background-size:cover;">
+
+  <div class="center-screen">
+    
+    <div class="center-screen">
+      <div style="width:750px; border-radius: 25px; padding: 15px; background-color: rgba(60, 65, 70, 0.8); ">
+        <h1 style="text-align: center; color: aliceblue;"><b>Upload List of DOIs</b></h1>
         <form action="{{ url_for('uploadDOI') }}" method="POST" enctype="multipart/form-data">
           <div style="color:black;" class="image-upload-wrap">
-            <input class="file-upload-input" id="fileUpload" name="csv/json" type='file' onchange="readURL(this);" accept=".csv" />
+            <input class="file-upload-input" id="fileUpload" name="csv/json" type='file' onchange="readURL(this);"
+              accept=".csv" />
             <div class="drag-text">
               <h3 style="color:aliceblue;">Drag and drop a file or Select Box</h3>
             </div>
           </div>
-          
+
           <div class="file-upload-content">
             <div class="image-title-wrap">
               <!-- Display message after clicking submit -->
-              <button type="submit" id="uploadButton" input onchange="uploadMessage()" class="file-upload-btn" type="file">Upload File</button>
+              <button type="submit" id="uploadButton" style="width: 350px;" input onchange="uploadMessage()" class="file-upload-btn"
+                type="file">Upload File</button>
             </div>
           </div>
-
         </form>
+      </div>
+
+      <br>
+
+      <div class="center-screen;">
+        <div style="width: 750px; border-radius: 25px; padding: 0px; background-color: rgba(60, 65, 70, 0.8); "
+          class="center-screen">
+          <h3 style="text-align: center; color: aliceblue;"><b>Instructions</b></h3>
+          <p1 style="text-align:left; color: aliceblue;">
+            <ol>
+              <li>Create a CSV file with a Microsoft Excel or a text editor such as Notepad++.</li>
+              <li style="padding-top: 5px;">Enter your list of DOIs in the <em>first</em> column and save the
+                file. </li>
+              <div style="text-align: center;"><img src="../static/images/doiTemplate.jpg" style="padding: 10px;"></div>
+              <li style="padding-top: 5px;">Click the box above and select your file. You may also drag the file directly
+                into the box.</li>
+            </ol>
+          </p1>
+          <br>
+        </div>
+      </div>
 
 
-    </div>  
-
-    <!--author: Rihat Rahman-->
-    <!--Lines: 47-70 -->
-    <div style = "margin: 10px; padding: 10px; border-radius: 25px; background-color: rgba(60, 65, 70, 0.85); color: rgba(255,255,255, 255)">
-
-      <h3 style = "color: rgba(255,255,255, 255)">
-        How to Upload a List of DOIs
-      </h3>
-
-      <h5 style = "text-align: left">
-        <ul style = "line-height: 1.5;">
-          <li> Open a blank workbook in Microsoft Excel. </li>
-          <li> In the first column, list the DOIs you want to search. The following formats can be used: 
-            <ul>
-              <li> 10.1001/jama.280.3.229 </li>
-              <li> doi:10.1001/jama.280.3.231 </li>
-              <li> https://doi.org/10.1001/archinte.159.10.1082 </li>
-            </ul>
-          </li>
-          <li> Save and Upload. </li>
-        </ul>
-      </h5>
+      
 
     </div>
-    <!---->
 
   </div>
 
-  <div class="col-sm-3">
-    <!-- Empty column of size 3. Right of box. -->
-  </div>
+
 </body>
 
 {% endblock %}

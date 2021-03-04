@@ -41,13 +41,11 @@
           </ul>
           <!-- Right aligned Drop-down menu logo -->
           <ul class="nav navbar-nav navbar-right">
-            <li style="margin-top:15px;"class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#"><b>Menu</b><span class="caret"></span></a>
+            <li style="margin-top:15px;"class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">Menu<span class="caret"></span></a>
               <ul class="dropdown-menu">
                 <li><a href="{{ url_for('team') }}">Meet the Team</a></li>
                 <li><a href="{{ url_for('about') }}">About the Project</a></li>
                 <li><a href="{{ url_for('licenses') }}">License and Dependency Info</a></li>
-
-                <!-- Salsabil's code commit (line 51) -->
                 <li><a href="{{ url_for('searchByOptions') }}">Search by CSV</a></li>
               </ul>
             </li>

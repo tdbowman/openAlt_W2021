@@ -1,5 +1,5 @@
 <!--Author: Darpan (Lines 34-40)-->
-{% extends 'template.html' %}
+{% extends 'bulkSearchTemplate.html' %}
 
 <!-- Anything you put here will be in the HTML head tags-->
 {% block head %}
@@ -9,7 +9,7 @@
 
         // Initialize variables and reference to the resultsButton and the current value of the email box
         let $resultsButton = $("#resultsButton");
-        
+
 
         // If the email box is empty, prompt the user to enter a query.
         $resultsButton.click(function () {
@@ -39,57 +39,67 @@
 <!-- Anything you put here will be in the body-->
 {% block body %}
 
-<br>
-<br>
-
 <body
     style="background-image: url('../static/images/library.jpg'); background-repeat: no-repeat; background-size:cover;">
-    <div class="col-sm-3">
-        <!-- Empty column of size 3. Left of search bar -->
+
+    <div class="center-screen">
+        <div style="width: 550px; border-radius: 25px; padding: 0px; background-color: rgba(60, 65, 70, 0.8); "
+            class="center-screen">
+            <h3 style="text-align: center; color: aliceblue;"><b>Instructions</b></h3>
+            <p1 style="text-align:left; color: aliceblue;">
+                <ol>
+                    <li>Enter your email address in the box labeled "Email Address".</li>
+                    <li style="padding-top: 5px;">Select whether you want your results in CSV or JSON format.</li>
+                    <li style="padding-top: 5px;">Click the "Get Results!" button and the results will be sent to you in
+                        an email when we retrieve
+                        all the data!</li>
+                </ol>
+            </p1>
+            <br>
+        </div>
     </div>
 
+    <br><br>
 
+    <div class="center-screen">
+        <div
+            style="width: 550px; border-radius: 25px; padding: 10px; background-color: rgba(60, 65, 70, 0.8); text-align: center;">
 
-    <div class="center-screen col-sm-6">
-        <div style="border-radius: 25px; padding: 10px; background-color: rgba(60, 65, 70, 0.8); text-align: center;">
-
-            <h1 style="text-align: center; color: aliceblue;">Download Author Results</h1>
-            <br>
-
+            <h1 style="text-align: center; color: aliceblue; padding-bottom: 10px;"><b>Retreive Author Results</b></h1>
 
             <form action="{{ url_for('downloadAuthors') }}" method="POST"
                 style="text-align: center; align-items: center;">
                 <input type="text" id="email_input" name="email_input" placeholder="Email Address:"
-                    class="form-control">
-                <br>
+                    style="width: 350px;" class="form-control">
+                <br><br>
 
                 <div class="image-title-wrap">
-                    <select name="dropdownSearchBy" id="dropdownSearchBy" class="form-control">
-                        <option selected="selected" value="csv" style="text-align: center; align-items: center;">CSV
-                        </option>
+                    <select name="dropdownSearchBy" id="dropdownSearchBy" class="form-control" style="width: 350px;">
+                        <option value="csv" style="text-align: center; align-items: center;">CSV</option>
                         <option value="json" style="text-align: center; align-items: center;">JSON</option>
                     </select>
-                    <button class="file-upload-btn" id="resultsButton">Download File</button></a>
+                    <br><br>
+                    <button class="file-upload-btn" id="resultsButton" style="width: 350px;">Get Results!</button></a>
                 </div>
             </form>
         </div>
-    </div>
 
-    <div class="col-sm-3">
-        <!-- Empty column of size 3. Left of search bar -->
+
+        <br><br><br><br><br><br>
+
+        <div class="center-screen">
+            <div style="width: 550px; border-radius: 25px; padding: 0px; background-color: rgba(60, 65, 70, 0.8); "
+                class="center-screen col-sm-6">
+                <h3 style="text-align: center; color: aliceblue; font-size: large;">Privacy Statement</h3>
+                <p1 style="text-align: center; color: aliceblue; font-size: small;"><i>OpenAlt does not store your email
+                        information and is strictly only used to send your results.</i></p1>
+                <br>
+            </div>
+        </div>
+
     </div>
 
 </body>
-
-<!-- <div class="container">
-    <h3>
-        The path of the zipped result folder is in:
-        <br>
-        {{dir_zip}}
-        <br>
-        Total results found: {{sumQuery}}
-    </h3>
-</div> -->
 
 
 

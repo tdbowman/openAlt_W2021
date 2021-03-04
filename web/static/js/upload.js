@@ -1,5 +1,3 @@
-// Salsabil's code from line 3 -46
-
 function readURL(input) {
     if (input.files && input.files[0]) {
   

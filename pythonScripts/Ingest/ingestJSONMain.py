@@ -26,9 +26,9 @@ except:
 
 # Change these to suit your system
 
-# dataDirectory = "./JSON"
+dataDirectory = "./JSON"
 
-dataDirectory = "C:\\Users\\darpa\\Desktop\\openAlt_W2021\\pythonScripts\\eventData"
+# dataDirectory = "C:\\Users\\tasha\\Documents\\GitHub\\openAlt_W2021\\eventData"
 
 print("MySQL Credentials")
 mysql_username = input("Username: ")
@@ -68,78 +68,75 @@ def main():
                             pass
                         else:
                             if (key == "source_id" and value == "cambia-lens"):
-                                print(i,'cambia')
+                                print('cambia')
                                 cambiaLens.cambiaLensIngest(
                                     uniqueEvent, cursor, connection)
                                 break
                             elif (key == "source_id" and value == "crossref"):
-                                print(i,'crossref')
+                                print('crossref')
                                 crossref.crossrefIngest(
                                     uniqueEvent, cursor, connection)
                                 break
                             elif (key == "source_id" and value == "datacite"):
-                                print(i,'datacite')
+                                print('datacite')
                                 datacite.dataciteIngest(
                                     uniqueEvent, cursor, connection)
                                 break
                             elif (key == "source_id" and value == "f1000"):
-                                print(i,'F1000')
+                                print('F1000')
                                 f1000.F1000Ingest(
                                     uniqueEvent, cursor, connection)
                                 break
                             elif (key == "source_id" and value == "hypothesis"):
-                                print(i,'hypothesis')
+                                print('hypothesis')
                                 hypothesis.hypothesisIngest(
                                     uniqueEvent, cursor, connection)
                                 break
                             elif (key == "source_id" and value == "newsfeed"):
-                                print(i,'newsfeed')
+                                print('newsfeed')
                                 newsfeed.newsfeedIngest(
                                     uniqueEvent, cursor, connection)
                                 break
                             elif (key == "source_id" and value == "reddit"):
-                                print(i,'reddit')
+                                print('reddit')
                                 reddit.redditIngest(
                                     uniqueEvent, cursor, connection)
                                 break
                             elif (key == "source_id" and value == "reddit-links"):
-                                print(i,'redditlinks')
+                                print('redditlinks')
                                 redditLinks.redditLinksIngest(
                                     uniqueEvent, cursor, connection)
                                 break
                             elif (key == "source_id" and value == "stackexchange"):
-                                print(i,'stackexchange')
+                                print('stackexchange')
                                 stackExchange.stackExchangeIngest(
                                     uniqueEvent, cursor, connection)
                                 break
                             elif (key == "source_id" and value == "twitter"):
-                                print(i,'twitter')
+                                print('twitter')
                                 twitter.twitterIngest(
                                     uniqueEvent, cursor, connection)
                                 break
                             elif (key == "source_id" and value == "web"):
-                                print(i,'web')
+                                print('web')
                                 web.webIngest(uniqueEvent, cursor, connection)
                                 break
                             elif (key == "source_id" and value == "wikipedia"):
-                                print(i,'wikipedia')
+                                print('wikipedia')
                                 wikipedia.wikipediaIngest(
                                     uniqueEvent, cursor, connection)
                                 break
                             elif (key == "source_id" and value == "wordpressdotcom"):
-                                print(i,'wordpress.com')
+                                print('wordpress.com')
                                 wordpress.wordpressIngest(
                                     uniqueEvent, cursor, connection)
-                                break        
+                                break
                     except Exception as e:
-                        print('------FAILED INGEST------',i)
-                        break
-						########
-                        # logging.info("Failed Ingest. Failed on file" + i)
-                        # logging.info("The error was " + str(e))
-                        # cursor.close()
-                        # connection.close()
-                        # sys.exit()
+                        logging.info("Failed Ingest. Failed on file" + i)
+                        logging.info("The error was " + str(e))
+                        cursor.close()
+                        connection.close()
+                        sys.exit()
     cursor.close()
     connection.close()
     print("--- %s seconds ---" % (time.time() - start_time))
@@ -148,4 +145,3 @@ def main():
 if __name__ == '__main__':
     start_time = time.time()
     main()
-

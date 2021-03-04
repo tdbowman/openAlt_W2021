@@ -33,8 +33,8 @@ def fetch_events():
     drBowmanDatabaseCursor.execute("Select DOI FROM _main_")
     articles = drBowmanDatabaseCursor.fetchall()
 
-    # To fetch event data for all articles, set numberOfArticlesToFetch = len(articles)
-    numberOfArticlesToFetch = len(articles)
+    # To fetch event data for all articles, set numberOfArticlesToFetch = articles.length
+    numberOfArticlesToFetch = 500 
 
     # create directory to store temporary JSON files
     eventDataDirectory = 'eventData'

@@ -7,10 +7,6 @@ import pandas as pd
 import crossref
 import mysql.connector
 import logging
-from getCountry import extract_country
-from getUniversity import extract_university
-
-
 
 #Author: Mohammad Tahmid
 #Date: 01/31/2021
@@ -45,13 +41,8 @@ def authorIngest(connection, cursor, doi, authorData):
             affiliationToInsert= affiliationData['name']
 
         ##################
-        # Split affiliation information into country and university
-
-        country = 'test country'
-        university = 'test uni'
-        #country = extract_country(str(affiliation))
-        #university = extract_university(str(affiliation))
-        
+        # TODO: 
+        # 1. Split affilication infomration and adjust author table to account for the split in university, state, etc.
         ##################
 
         #Query to check if the record exists in the database
@@ -61,9 +52,7 @@ def authorIngest(connection, cursor, doi, authorData):
             name = '%s' AND
             sequence = '%s' AND 
             affiliation = '%s' AND 
-            country = '%s' AND
-            university = '%s' AND
-            fk = '%s'""" % (given_name, family_name, full_name, sequence, affiliationToInsert, country, university, fk)
+            fk = '%s'""" % (given_name, family_name, full_name, sequence, affiliationToInsert, fk)
         cursor.execute(query)
         resultSet = cursor.fetchall()
         count = resultSet[0][0]
@@ -71,26 +60,25 @@ def authorIngest(connection, cursor, doi, authorData):
         if not count > 0:
 
             #Query the database to insert the values as a row into the table
-            query = "INSERT IGNORE INTO doidata.author(given, family, name, sequence, affiliation, country, university, fk) VALUES (%s, %s, %s, %s, %s, %s,%s,%s)"
-            queryValues = (given_name, family_name, full_name, sequence, affiliationToInsert, country, university, fk)
+            query = "INSERT IGNORE INTO doidata.author(given, family, name, sequence, affiliation, fk) VALUES (%s, %s, %s, %s, %s, %s)"
+            queryValues = (given_name, family_name, full_name, sequence, affiliationToInsert, fk)
             cursor.execute(query, queryValues)
             connection.commit()
             logging.info("Author metadata inserted for DOI: " + doi + " Name: " + full_name + " fk: " + str(fk))
-        
-        # '''
-        # #Does a MySQL concatenation query to fill in the "name" column in the table
-        # query = "UPDATE doidata.author SET name = concat(given,' ',family)"
-        # cursor.execute(query)
-        # connection.commit()
+        '''
+        #Does a MySQL concatenation query to fill in the "name" column in the table
+        query = "UPDATE doidata.author SET name = concat(given,' ',family)"
+        cursor.execute(query)
+        connection.commit()
 
-		# #Delete duplicate values if they exist in the table 
-        # query = """DELETE t1 FROM doidata.author t1 INNER JOIN doidata.author t2 WHERE 
-        # t1.id < t2.id AND 
-        # t1.family = t2.family AND 
-        # t1.given = t2.given AND 
-        # t1.name = t2.name AND 
-        # t1.sequence = t2.sequence AND 
-        # t1.fk = t2.fk"""
-        # cursor.execute(query)
-        # connection.commit()
-        # '''
+		#Delete duplicate values if they exist in the table 
+        query = """DELETE t1 FROM doidata.author t1 INNER JOIN doidata.author t2 WHERE 
+        t1.id < t2.id AND 
+        t1.family = t2.family AND 
+        t1.given = t2.given AND 
+        t1.name = t2.name AND 
+        t1.sequence = t2.sequence AND 
+        t1.fk = t2.fk"""
+        cursor.execute(query)
+        connection.commit()
+        '''
