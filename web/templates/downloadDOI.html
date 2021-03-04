@@ -39,25 +39,10 @@
 
 <!-- Anything you put here will be in the body-->
 {% block body %}
-<!-- <div class="file-upload">
-    <form action="{{ url_for('downloadDOI') }}" method="POST" enctype="multipart/form-data">
-        <div class="container">
-        <a href="/downloadfile" target="blank"><button class="button">Download File</button></a>
-        </div> -->
-<!-- <div class="file-upload-content">
-            <div class="image-title-wrap">
-            <button type="submit" class="button">Download File</button>
-            </div>
-        </div>
-    </form>
-</div> --> -->
 
 <body
     style="background-image: url('../static/images/library.jpg'); background-repeat: no-repeat; background-size:cover;">
-    <div class="center-screen">
-        <!-- Empty column of size 3. Left of search bar -->
-    </div>
-
+    
     <div class="center-screen">
         <div style="width: 550px; border-radius: 25px; padding: 0px; background-color: rgba(60, 65, 70, 0.8); "
             class="center-screen">
@@ -78,9 +63,9 @@
 
     <div class="center-screen">
         <div
-            style="width: 500px; border-radius: 25px; padding: 10px; background-color: rgba(60, 65, 70, 0.8); text-align: center;">
+            style="width: 550px; border-radius: 25px; padding: 10px; background-color: rgba(60, 65, 70, 0.8); text-align: center;">
 
-            <h1 style="text-align: center; color: aliceblue;"><b>Retreive DOI Results</b></h1>
+            <h1 style="text-align: center; color: aliceblue; padding-bottom: 10px;"><b>Retreive DOI Results</b></h1>
 
             <form action="{{ url_for('downloadDOI') }}" method="POST" style="text-align: center; align-items: center;">
                 <input type="text" id="email_input" name="email_input" placeholder="Email Address:"
@@ -110,15 +95,6 @@
                 <br>
             </div>
         </div>
-
-
-
-    </div>
-
-
-
-    <div class="col-sm-3">
-        <!-- Empty column of size 3. Left of search bar -->
 
     </div>
 
