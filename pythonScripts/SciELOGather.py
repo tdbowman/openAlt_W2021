@@ -48,7 +48,6 @@ def PIDSetup():
     database_host = configFile["DOI-Database"]["address"]
     database_name = configFile["DOI-Database"]["name"]
 
-    database_password = "Hamtramck#1999"
 
     '''
     print(database_user)
