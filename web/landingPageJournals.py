@@ -7,7 +7,7 @@ def landingPageJournals(mysql):
     cursor = mysql.connection.cursor()
 
     #string to query the database to sum up all journals from _main_ table
-    totalSumQuery="SELECT (SELECT COUNT( DISTINCT container_title) FROM dr_bowman_doi_data_tables._main_ ) AS sumCountJournal"
+    totalSumQuery="SELECT (SELECT COUNT( DISTINCT container_title) FROM doidata._main_ ) AS sumCountJournal"
 
     #execute string's query using cursor 
     cursor.execute(totalSumQuery)

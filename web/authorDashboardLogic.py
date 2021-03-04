@@ -7,7 +7,7 @@ def authorDashboardLogic(mysql, mysql2, years_list, yearInput):
     author_article_list = []
     author_doi_list = []
 
-    # Initialize our cursor to dr_bowman_doi_data_tables database
+    # Initialize our cursor to doidata database
     cursor = mysql.connection.cursor()
 
     #global mysql2
@@ -35,11 +35,11 @@ def authorDashboardLogic(mysql, mysql2, years_list, yearInput):
     # fetch the query parameter author_id from the searchResults page
     author_id = str(flask.request.args.get("author_id"))
 
-    author_sql = "SELECT name FROM dr_bowman_doi_data_tables.author where id ="+author_id+";"
+    author_sql = "SELECT name FROM doidata.author where id ="+author_id+";"
     cursor.execute(author_sql)
     author_name = cursor.fetchone()
 
-    author_sql = "SELECT fk FROM dr_bowman_doi_data_tables.author where name = '" + \
+    author_sql = "SELECT fk FROM doidata.author where name = '" + \
         author_name['name'] + "';"
     cursor.execute(author_sql)
     author_resultset = cursor.fetchall()

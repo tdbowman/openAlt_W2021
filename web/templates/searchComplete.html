@@ -1,0 +1,32 @@
+{% extends 'template.html' %}
+
+<!-- Anything you put here will be in the HTML head tags-->
+{% block head %}
+<script class="jsbin" src="https://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
+<script src="../static/js/upload.js"></script>
+
+{% endblock %}
+
+<!-- Anything you put here will be in the body-->
+{% block body %}
+<br>
+<br>
+<body style="background-image: url('../static/images/library.jpg'); background-repeat: no-repeat; background-size:cover;">
+  <div class="col-sm-3">
+    <!-- Empty column of size 3. Left of search bar -->
+  </div>
+
+  <div class = "center-screen col-sm-6">
+    <div style="border-radius: 25px; padding: 10px; background-color: rgba(60, 65, 70, 0.8); " >
+      <h1 style="text-align: center; color: aliceblue;">Thank You for using OpenAlt!</h1>
+      <h1 style="text-align: center; color: aliceblue;">Your results will be emailed to you shortly!</h1>
+    </div>  
+  </div>
+
+  <div class="col-sm-3">
+    <!-- Empty column of size 3. Left of search bar -->
+  </div>
+</body>
+
+
+{% endblock %}
