@@ -1,0 +1,44 @@
+{
+    "DOI-Database": {
+        "name": "doidata",
+        "username": "root",
+        "password": "",
+        "address": "127.0.0.1"
+    },
+    "Crossref-Event-Database": {
+        "name": "crossrefeventdatamain",
+        "username": "root",
+        "password": "",
+        "address": "127.0.0.1"
+    },
+    "OpenCitations": {
+        "name": "opencitations",
+        "username": "root",
+        "password": "",
+        "address": "127.0.0.1"
+    },
+    "Crossref-Event-API": {
+        "name": "crossrefEventAPI",
+        "url": "https://api.eventdata.crossref.org/v1/events?mailto=GroovyBib@example.org&obj-id="
+    },
+    "Crossref-Metadata-API": {
+        "name": "crossrefMetadataAPI",
+        "url": "https://api.crossref.org/works/"
+    },
+    "OpenCitations-Citation-API": {
+        "name": "openCitationsCitationAPI",
+        "url": "https://w3id.org/oc/index/coci/api/v1/citations/"
+    },
+    "OpenCitations-Citation-Count-API": {
+        "name": "openCitationsCitationCountAPI",
+        "url": "https://w3id.org/oc/index/coci/api/v1/citation-count/"
+    },
+    "OpenCitations-Reference-API": {
+        "name": "openCitationsReferenceAPI",
+        "url": "https://w3id.org/oc/index/coci/api/v1/references/"
+    },
+    "OpenCitations-Reference-Count-API": {
+        "name": "openCitationsReferenceCountAPI",
+        "url": "https://w3id.org/oc/index/coci/api/v1/reference-count/"
+    }
+}
