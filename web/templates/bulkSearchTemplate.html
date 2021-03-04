@@ -53,13 +53,12 @@
 					
 					<!-- Right aligned Drop-down menu logo -->
 					<ul style="margin-top:15px;" class="nav navbar-nav navbar-right">
-					<li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">Menu<span class="caret"></span></a>
+						<li style="font-size: large;"class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#"><b style="color: aliceblue; font-size: large;">Menu</b><span class="caret"></span></a>
 						<ul class="dropdown-menu">
+						<li><a href="{{ url_for('searchByOptions') }}">Search by CSV</a></li>
 						<li><a href="{{ url_for('team') }}">Meet the team</a></li>
 						<li><a href="{{ url_for('about') }}">Learn about the project</a></li>
 						<li><a href="{{ url_for('licenses') }}">License and Dependency Info</a></li>
-
-						<li><a href="{{ url_for('searchByOptions') }}">Search by CSV</a></li>
 						</ul>
 					</li>
 					</ul>

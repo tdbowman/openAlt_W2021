@@ -39,19 +39,22 @@
           <ul class="nav navbar-nav navbar-right">
             <li><a style="margin-top:10px;" href="https://github.com/tdbowman-CompSci-F2020/crossrefEventData" rel="noopener noreferrer" target="_blank"><img alt="GitHub Logo" src="../static/images/GitHub logos/GitHub-Mark-Light-64px.png" height="30px"></a></li>
           </ul>
+
+         
           <!-- Right aligned Drop-down menu logo -->
           <ul class="nav navbar-nav navbar-right">
-            <li style="margin-top:15px;"class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#"><b>Menu</b><span class="caret"></span></a>
+            <li style="margin-top:15px; font-size: large;"class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#"><b style="color: aliceblue; font-size: large;">Menu</b><span class="caret"></span></a>
               <ul class="dropdown-menu">
+                <!-- Salsabil's code commit (line 51) -->
+                <li><a href="{{ url_for('searchByOptions') }}">Search by CSV</a></li>
                 <li><a href="{{ url_for('team') }}">Meet the Team</a></li>
                 <li><a href="{{ url_for('about') }}">About the Project</a></li>
                 <li><a href="{{ url_for('licenses') }}">License and Dependency Info</a></li>
-
-                <!-- Salsabil's code commit (line 51) -->
-                <li><a href="{{ url_for('searchByOptions') }}">Search by CSV</a></li>
               </ul>
             </li>
           </div>
+
+          
         </nav>
     </header>
     {% block body %}
