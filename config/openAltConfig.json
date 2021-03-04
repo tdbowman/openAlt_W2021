@@ -40,5 +40,9 @@
     "OpenCitations-Reference-Count-API": {
         "name": "openCitationsReferenceCountAPI",
         "url": "https://w3id.org/oc/index/coci/api/v1/reference-count/"
+    },
+    "SciELO-Metadata-API": {
+        "name": "sciEloMetadataAPI",
+        "url": "https://api.crossref.org/works/10.1590/"
     }
 }
