@@ -39,7 +39,12 @@ def storeinmysql(DOI, coll):
     return
 
 if __name__=='__main__':
-    # DOI value holds placeholder string
-    DOI="10.1093/jn/128.10.1731"
-    DOI=storeMetaDatainMongoDB(DOI)
-    retrieveFromMongoDB(DOI)
+    client = pymongo.MongoClient('mongodb://localhost:27017/')
+    db=client["MetadataDatabase"]
+    coll=db["MetaData"]
+    for i in coll.find({}):
+        # DOI value holds placeholder string
+        #DOI="10.1093/jn/128.10.1731"
+        DOI=i.get("DOI")
+        DOI=storeMetaDatainMongoDB(DOI)
+        retrieveFromMongoDB(DOI)

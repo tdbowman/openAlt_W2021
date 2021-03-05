@@ -17,21 +17,10 @@ def storeMetaDatainMongoDB(DOI):
     coll=dbs["MetaData"]
     data=r.json()
     if data.get("message-type")=="work":
-        check(coll, data.get("message"))
+        coll.insert_one(data)
     else:
         print("Invalid data")
     return DOI
-
-def check(coll, li):
-    dupe=False
-    x=coll.find({})
-    for y in x:
-        if li.get("DOI")==y.get("DOI"):
-            # If data exists in Mongo, it will not be inserted
-            dupe=True
-    if dupe==False:
-        coll.insert_one(i)
-    return
 
 if __name__=='__main__':
     # Contains placeholder string
