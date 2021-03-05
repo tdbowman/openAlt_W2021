@@ -1201,3 +1201,134 @@
 04-Mar-21 18:33:52 - 127.0.0.1 - - [04/Mar/2021 18:33:52] "[37mGET /searchByOptions HTTP/1.1[0m" 200 -
 04-Mar-21 18:33:52 - 127.0.0.1 - - [04/Mar/2021 18:33:52] "[33mGET /static/js/list.js HTTP/1.1[0m" 404 -
 04-Mar-21 18:33:58 - 127.0.0.1 - - [04/Mar/2021 18:33:58] "[37mGET / HTTP/1.1[0m" 200 -
+05-Mar-21 14:56:27 - 127.0.0.1 - - [05/Mar/2021 14:56:27] "[37mGET / HTTP/1.1[0m" 200 -
+05-Mar-21 14:56:27 - 127.0.0.1 - - [05/Mar/2021 14:56:27] "[36mGET /static/css/bootstrap-3.3.7-dist/js/bootstrap.min.js HTTP/1.1[0m" 304 -
+05-Mar-21 14:56:27 - 127.0.0.1 - - [05/Mar/2021 14:56:27] "[37mGET /static/css/bootstrap-3.3.7-dist/css/bootstrap.min.css HTTP/1.1[0m" 200 -
+05-Mar-21 14:56:27 - 127.0.0.1 - - [05/Mar/2021 14:56:27] "[37mGET /static/css/style.css HTTP/1.1[0m" 200 -
+05-Mar-21 14:56:27 - 127.0.0.1 - - [05/Mar/2021 14:56:27] "[36mGET /static/images/logos/negative/Logo_NEGATIVE_300x300.png HTTP/1.1[0m" 304 -
+05-Mar-21 14:56:27 - 127.0.0.1 - - [05/Mar/2021 14:56:27] "[36mGET /static/images/104448.jpg HTTP/1.1[0m" 304 -
+05-Mar-21 14:59:48 - 127.0.0.1 - - [05/Mar/2021 14:59:48] "[37mGET /searchByOptions HTTP/1.1[0m" 200 -
+05-Mar-21 14:59:48 - 127.0.0.1 - - [05/Mar/2021 14:59:48] "[33mGET /static/js/list.js HTTP/1.1[0m" 404 -
+05-Mar-21 14:59:48 - 127.0.0.1 - - [05/Mar/2021 14:59:48] "[36mGET /static/images/books.jpg HTTP/1.1[0m" 304 -
+05-Mar-21 14:59:51 - 127.0.0.1 - - [05/Mar/2021 14:59:51] "[37mGET / HTTP/1.1[0m" 200 -
+05-Mar-21 15:00:01 - 127.0.0.1 - - [05/Mar/2021 15:00:01] "[37mGET /searchByOptions HTTP/1.1[0m" 200 -
+05-Mar-21 15:00:01 - 127.0.0.1 - - [05/Mar/2021 15:00:01] "[33mGET /static/js/list.js HTTP/1.1[0m" 404 -
+05-Mar-21 15:00:05 - 127.0.0.1 - - [05/Mar/2021 15:00:05] "[32mPOST /searchByOptions HTTP/1.1[0m" 302 -
+05-Mar-21 15:00:05 - 127.0.0.1 - - [05/Mar/2021 15:00:05] "[37mGET /uploadDOI HTTP/1.1[0m" 200 -
+05-Mar-21 15:00:05 - 127.0.0.1 - - [05/Mar/2021 15:00:05] "[36mGET /static/js/upload.js HTTP/1.1[0m" 304 -
+05-Mar-21 15:00:05 - 127.0.0.1 - - [05/Mar/2021 15:00:05] "[36mGET /static/images/doiTemplate.jpg HTTP/1.1[0m" 304 -
+05-Mar-21 15:00:05 - 127.0.0.1 - - [05/Mar/2021 15:00:05] "[36mGET /static/images/library.jpg HTTP/1.1[0m" 304 -
+05-Mar-21 15:00:37 - 127.0.0.1 - - [05/Mar/2021 15:00:37] "[37mPOST /uploadDOI HTTP/1.1[0m" 200 -
+05-Mar-21 15:01:38 - ({'increment': 14105, 'objectID': 'https://doi.org/10.1001/archinte.159.10.1082', 'totalEvents': 370, 'totalCambiaEvents': None, 'firstCambiaEvent': None, 'lastCambiaEvent': None, 'totalCrossrefEvents': None, 'firstCrossrefEvent': None, 'lastCrossrefEvent': None, 'totalDataciteEvents': None, 'firstDataciteEvent': None, 'lastDataciteEvent': None, 'totalF1000Events': None, 'firstF1000Event': None, 'lastF1000Event': None, 'totalHypothesisEvents': None, 'firstHypothesisEvent': None, 'lastHypothesisEvent': None, 'totalNewsfeedEvents': None, 'firstNewsfeedEvent': None, 'lastNewsfeedEvent': None, 'totalRedditEvents': None, 'firstRedditEvent': None, 'lastRedditEvent': None, 'totalRedditLinksEvents': None, 'firstRedditLinksEvent': None, 'lastRedditLinksEvent': None, 'totalStackExchangeEvents': None, 'firstStackExchangeEvent': None, 'lastStackExchangeEvent': None, 'totalTwitterEvents': 3, 'firstTwitterEvent': datetime.datetime(2020, 10, 15, 3, 21, 7), 'lastTwitterEvent': datetime.datetime(2020, 10, 15, 3, 21, 7), 'totalWebEvents': None, 'firstWebEvent': None, 'lastWebEvent': None, 'totalWikipediaEvents': 367, 'firstWikipediaEvent': datetime.datetime(2017, 8, 29, 16, 27, 25), 'lastWikipediaEvent': datetime.datetime(2021, 2, 19, 9, 42, 51), 'totalWordpressEvents': None, 'firstWordpressEvent': None, 'lastWordPressEvent': None},)
+05-Mar-21 15:01:43 - ()
+05-Mar-21 15:01:43 - DOI INFO NOT FOUND: 10.1001/archinte.159.10.1082
+05-Mar-21 15:01:43 - ()
+05-Mar-21 15:01:43 - DOI EVENT NOT FOUND: fake/doi
+05-Mar-21 15:01:43 - ()
+05-Mar-21 15:01:43 - DOI INFO NOT FOUND: fake/doi
+05-Mar-21 15:01:47 - 127.0.0.1 - - [05/Mar/2021 15:01:47] "[32mPOST /downloadDOI HTTP/1.1[0m" 302 -
+05-Mar-21 15:01:47 - 127.0.0.1 - - [05/Mar/2021 15:01:47] "[37mGET /searchComplete HTTP/1.1[0m" 200 -
+05-Mar-21 15:04:13 - 127.0.0.1 - - [05/Mar/2021 15:04:13] "[37mGET /searchByOptions HTTP/1.1[0m" 200 -
+05-Mar-21 15:04:13 - 127.0.0.1 - - [05/Mar/2021 15:04:13] "[33mGET /static/js/list.js HTTP/1.1[0m" 404 -
+05-Mar-21 15:04:14 - 127.0.0.1 - - [05/Mar/2021 15:04:14] "[32mPOST /searchByOptions HTTP/1.1[0m" 302 -
+05-Mar-21 15:04:14 - 127.0.0.1 - - [05/Mar/2021 15:04:14] "[37mGET /uploadDOI HTTP/1.1[0m" 200 -
+05-Mar-21 15:04:38 - 127.0.0.1 - - [05/Mar/2021 15:04:38] "[37mGET /uploadDOI HTTP/1.1[0m" 200 -
+05-Mar-21 15:04:39 - 127.0.0.1 - - [05/Mar/2021 15:04:39] "[37mGET /static/favicon.ico HTTP/1.1[0m" 200 -
+05-Mar-21 15:06:32 - 127.0.0.1 - - [05/Mar/2021 15:06:32] "[37mPOST /uploadDOI HTTP/1.1[0m" 200 -
+05-Mar-21 15:06:49 - ({'increment': 14105, 'objectID': 'https://doi.org/10.1001/archinte.159.10.1082', 'totalEvents': 370, 'totalCambiaEvents': None, 'firstCambiaEvent': None, 'lastCambiaEvent': None, 'totalCrossrefEvents': None, 'firstCrossrefEvent': None, 'lastCrossrefEvent': None, 'totalDataciteEvents': None, 'firstDataciteEvent': None, 'lastDataciteEvent': None, 'totalF1000Events': None, 'firstF1000Event': None, 'lastF1000Event': None, 'totalHypothesisEvents': None, 'firstHypothesisEvent': None, 'lastHypothesisEvent': None, 'totalNewsfeedEvents': None, 'firstNewsfeedEvent': None, 'lastNewsfeedEvent': None, 'totalRedditEvents': None, 'firstRedditEvent': None, 'lastRedditEvent': None, 'totalRedditLinksEvents': None, 'firstRedditLinksEvent': None, 'lastRedditLinksEvent': None, 'totalStackExchangeEvents': None, 'firstStackExchangeEvent': None, 'lastStackExchangeEvent': None, 'totalTwitterEvents': 3, 'firstTwitterEvent': datetime.datetime(2020, 10, 15, 3, 21, 7), 'lastTwitterEvent': datetime.datetime(2020, 10, 15, 3, 21, 7), 'totalWebEvents': None, 'firstWebEvent': None, 'lastWebEvent': None, 'totalWikipediaEvents': 367, 'firstWikipediaEvent': datetime.datetime(2017, 8, 29, 16, 27, 25), 'lastWikipediaEvent': datetime.datetime(2021, 2, 19, 9, 42, 51), 'totalWordpressEvents': None, 'firstWordpressEvent': None, 'lastWordPressEvent': None},)
+05-Mar-21 15:06:54 - ()
+05-Mar-21 15:06:54 - DOI INFO NOT FOUND: 10.1001/archinte.159.10.1082
+05-Mar-21 15:06:54 - ()
+05-Mar-21 15:06:54 - DOI EVENT NOT FOUND: fake/doi
+05-Mar-21 15:06:54 - ()
+05-Mar-21 15:06:54 - DOI INFO NOT FOUND: fake/doi
+05-Mar-21 15:06:58 - 127.0.0.1 - - [05/Mar/2021 15:06:58] "[32mPOST /downloadDOI HTTP/1.1[0m" 302 -
+05-Mar-21 15:06:58 - 127.0.0.1 - - [05/Mar/2021 15:06:58] "[37mGET /searchComplete HTTP/1.1[0m" 200 -
+05-Mar-21 15:11:14 - 127.0.0.1 - - [05/Mar/2021 15:11:14] "[37mGET /searchByOptions HTTP/1.1[0m" 200 -
+05-Mar-21 15:11:14 - 127.0.0.1 - - [05/Mar/2021 15:11:14] "[33mGET /static/js/list.js HTTP/1.1[0m" 404 -
+05-Mar-21 15:11:52 - 127.0.0.1 - - [05/Mar/2021 15:11:52] "[32mPOST /searchByOptions HTTP/1.1[0m" 302 -
+05-Mar-21 15:11:53 - 127.0.0.1 - - [05/Mar/2021 15:11:53] "[37mGET /uploadDOI HTTP/1.1[0m" 200 -
+05-Mar-21 15:12:34 - 127.0.0.1 - - [05/Mar/2021 15:12:34] "[37mGET / HTTP/1.1[0m" 200 -
+05-Mar-21 15:14:23 - 127.0.0.1 - - [05/Mar/2021 15:14:23] "[37mPOST /searchResultsPage HTTP/1.1[0m" 200 -
+05-Mar-21 15:14:33 - 127.0.0.1 - - [05/Mar/2021 15:14:33] "[37mGET /articleDashboard?DOI=10.1093/oxfordjournals.molbev.a003798 HTTP/1.1[0m" 200 -
+05-Mar-21 15:14:33 - 127.0.0.1 - - [05/Mar/2021 15:14:33] "[36mGET /static/js/libraries/c3-0.7.20/c3.css HTTP/1.1[0m" 304 -
+05-Mar-21 15:14:33 - 127.0.0.1 - - [05/Mar/2021 15:14:33] "[36mGET /static/js/libraries/d3.v5/d3.v5.min.js HTTP/1.1[0m" 304 -
+05-Mar-21 15:14:33 - 127.0.0.1 - - [05/Mar/2021 15:14:33] "[36mGET /static/js/libraries/c3-0.7.20/c3.min.js HTTP/1.1[0m" 304 -
+05-Mar-21 15:14:33 - 127.0.0.1 - - [05/Mar/2021 15:14:33] "[36mGET /static/js/test.js HTTP/1.1[0m" 304 -
+05-Mar-21 15:14:33 - 127.0.0.1 - - [05/Mar/2021 15:14:33] "[36mGET /static/js/chartScript.js HTTP/1.1[0m" 304 -
+05-Mar-21 15:15:03 - 127.0.0.1 - - [05/Mar/2021 15:15:03] "[37mGET /articleDashboard?DOI=10.1093/oxfordjournals.molbev.a003964 HTTP/1.1[0m" 200 -
+05-Mar-21 15:16:19 - 127.0.0.1 - - [05/Mar/2021 15:16:19] "[37mGET / HTTP/1.1[0m" 200 -
+05-Mar-21 17:05:38 - 127.0.0.1 - - [05/Mar/2021 17:05:38] "[37mGET /searchByOptions HTTP/1.1[0m" 200 -
+05-Mar-21 17:05:38 - 127.0.0.1 - - [05/Mar/2021 17:05:38] "[33mGET /static/js/list.js HTTP/1.1[0m" 404 -
+05-Mar-21 17:05:40 - 127.0.0.1 - - [05/Mar/2021 17:05:40] "[32mPOST /searchByOptions HTTP/1.1[0m" 302 -
+05-Mar-21 17:05:40 - 127.0.0.1 - - [05/Mar/2021 17:05:40] "[37mGET /uploadDOI HTTP/1.1[0m" 200 -
+05-Mar-21 17:05:48 - 127.0.0.1 - - [05/Mar/2021 17:05:48] "[37mGET /downloadDOI HTTP/1.1[0m" 200 -
+05-Mar-21 17:06:33 - 127.0.0.1 - - [05/Mar/2021 17:06:33] "[37mGET /downloadDOI HTTP/1.1[0m" 200 -
+05-Mar-21 17:06:33 - 127.0.0.1 - - [05/Mar/2021 17:06:33] "[37mGET /static/favicon.ico HTTP/1.1[0m" 200 -
+05-Mar-21 17:06:36 - 127.0.0.1 - - [05/Mar/2021 17:06:36] "[37mGET /downloadDOI HTTP/1.1[0m" 200 -
+05-Mar-21 17:06:37 - 127.0.0.1 - - [05/Mar/2021 17:06:37] "[37mGET /static/favicon.ico HTTP/1.1[0m" 200 -
+05-Mar-21 17:06:50 - 127.0.0.1 - - [05/Mar/2021 17:06:50] "[37mGET /downloadDOI HTTP/1.1[0m" 200 -
+05-Mar-21 17:06:50 - 127.0.0.1 - - [05/Mar/2021 17:06:50] "[37mGET /static/favicon.ico HTTP/1.1[0m" 200 -
+05-Mar-21 17:07:14 - 127.0.0.1 - - [05/Mar/2021 17:07:14] "[37mGET /downloadDOI HTTP/1.1[0m" 200 -
+05-Mar-21 17:07:14 - 127.0.0.1 - - [05/Mar/2021 17:07:14] "[37mGET /static/favicon.ico HTTP/1.1[0m" 200 -
+05-Mar-21 17:07:37 - 127.0.0.1 - - [05/Mar/2021 17:07:37] "[37mGET /downloadDOI HTTP/1.1[0m" 200 -
+05-Mar-21 17:07:37 - 127.0.0.1 - - [05/Mar/2021 17:07:37] "[37mGET /static/favicon.ico HTTP/1.1[0m" 200 -
+05-Mar-21 17:08:16 - 127.0.0.1 - - [05/Mar/2021 17:08:16] "[37mGET /downloadDOI HTTP/1.1[0m" 200 -
+05-Mar-21 17:08:17 - 127.0.0.1 - - [05/Mar/2021 17:08:17] "[37mGET /static/favicon.ico HTTP/1.1[0m" 200 -
+05-Mar-21 17:08:31 - 127.0.0.1 - - [05/Mar/2021 17:08:31] "[37mGET /downloadDOI HTTP/1.1[0m" 200 -
+05-Mar-21 17:08:32 - 127.0.0.1 - - [05/Mar/2021 17:08:32] "[37mGET /static/favicon.ico HTTP/1.1[0m" 200 -
+05-Mar-21 17:08:33 - 127.0.0.1 - - [05/Mar/2021 17:08:33] "[37mGET /downloadDOI HTTP/1.1[0m" 200 -
+05-Mar-21 17:08:33 - 127.0.0.1 - - [05/Mar/2021 17:08:33] "[37mGET /static/favicon.ico HTTP/1.1[0m" 200 -
+05-Mar-21 17:08:56 - 127.0.0.1 - - [05/Mar/2021 17:08:56] "[37mGET /downloadDOI HTTP/1.1[0m" 200 -
+05-Mar-21 17:08:56 - 127.0.0.1 - - [05/Mar/2021 17:08:56] "[37mGET /static/favicon.ico HTTP/1.1[0m" 200 -
+05-Mar-21 17:09:11 - 127.0.0.1 - - [05/Mar/2021 17:09:11] "[37mGET /downloadDOI HTTP/1.1[0m" 200 -
+05-Mar-21 17:09:11 - 127.0.0.1 - - [05/Mar/2021 17:09:11] "[37mGET /static/favicon.ico HTTP/1.1[0m" 200 -
+05-Mar-21 17:09:58 - 127.0.0.1 - - [05/Mar/2021 17:09:58] "[37mGET /downloadAuthors HTTP/1.1[0m" 200 -
+05-Mar-21 17:10:00 - 127.0.0.1 - - [05/Mar/2021 17:10:00] "[37mGET /downloadAuthors HTTP/1.1[0m" 200 -
+05-Mar-21 17:10:00 - 127.0.0.1 - - [05/Mar/2021 17:10:00] "[37mGET /static/favicon.ico HTTP/1.1[0m" 200 -
+05-Mar-21 17:10:34 - 127.0.0.1 - - [05/Mar/2021 17:10:34] "[37mGET /downloadAuthors HTTP/1.1[0m" 200 -
+05-Mar-21 17:10:35 - 127.0.0.1 - - [05/Mar/2021 17:10:35] "[37mGET /static/favicon.ico HTTP/1.1[0m" 200 -
+05-Mar-21 17:10:46 - 127.0.0.1 - - [05/Mar/2021 17:10:46] "[37mGET /downloadAuthors HTTP/1.1[0m" 200 -
+05-Mar-21 17:10:46 - 127.0.0.1 - - [05/Mar/2021 17:10:46] "[37mGET /static/favicon.ico HTTP/1.1[0m" 200 -
+05-Mar-21 17:10:51 - 127.0.0.1 - - [05/Mar/2021 17:10:51] "[37mGET /downloadDOI HTTP/1.1[0m" 200 -
+05-Mar-21 17:10:57 - 127.0.0.1 - - [05/Mar/2021 17:10:57] "[37mGET /downloadAuthors HTTP/1.1[0m" 200 -
+05-Mar-21 17:20:42 - 127.0.0.1 - - [05/Mar/2021 17:20:42] "[37mGET /downloadAuthors HTTP/1.1[0m" 200 -
+05-Mar-21 17:20:42 - 127.0.0.1 - - [05/Mar/2021 17:20:42] "[37mGET /static/favicon.ico HTTP/1.1[0m" 200 -
+05-Mar-21 17:21:11 - 127.0.0.1 - - [05/Mar/2021 17:21:11] "[37mGET /downloadAuthors HTTP/1.1[0m" 200 -
+05-Mar-21 17:21:11 - 127.0.0.1 - - [05/Mar/2021 17:21:11] "[37mGET /static/favicon.ico HTTP/1.1[0m" 200 -
+05-Mar-21 17:21:12 - 127.0.0.1 - - [05/Mar/2021 17:21:12] "[37mGET /downloadAuthors HTTP/1.1[0m" 200 -
+05-Mar-21 17:21:12 - 127.0.0.1 - - [05/Mar/2021 17:21:12] "[37mGET /static/favicon.ico HTTP/1.1[0m" 200 -
+05-Mar-21 17:21:13 - 127.0.0.1 - - [05/Mar/2021 17:21:13] "[37mGET /downloadAuthors HTTP/1.1[0m" 200 -
+05-Mar-21 17:21:13 - 127.0.0.1 - - [05/Mar/2021 17:21:13] "[37mGET /static/favicon.ico HTTP/1.1[0m" 200 -
+05-Mar-21 17:21:57 - 127.0.0.1 - - [05/Mar/2021 17:21:57] "[37mGET /downloadAuthors HTTP/1.1[0m" 200 -
+05-Mar-21 17:21:57 - 127.0.0.1 - - [05/Mar/2021 17:21:57] "[37mGET /static/favicon.ico HTTP/1.1[0m" 200 -
+05-Mar-21 17:21:58 - 127.0.0.1 - - [05/Mar/2021 17:21:58] "[37mGET /downloadAuthors HTTP/1.1[0m" 200 -
+05-Mar-21 17:21:58 - 127.0.0.1 - - [05/Mar/2021 17:21:58] "[37mGET /static/favicon.ico HTTP/1.1[0m" 200 -
+05-Mar-21 17:21:59 - 127.0.0.1 - - [05/Mar/2021 17:21:59] "[37mGET /downloadAuthors HTTP/1.1[0m" 200 -
+05-Mar-21 17:21:59 - 127.0.0.1 - - [05/Mar/2021 17:21:59] "[37mGET /static/favicon.ico HTTP/1.1[0m" 200 -
+05-Mar-21 17:21:59 - 127.0.0.1 - - [05/Mar/2021 17:21:59] "[37mGET /downloadAuthors HTTP/1.1[0m" 200 -
+05-Mar-21 17:22:00 - 127.0.0.1 - - [05/Mar/2021 17:22:00] "[37mGET /static/favicon.ico HTTP/1.1[0m" 200 -
+05-Mar-21 17:22:01 - 127.0.0.1 - - [05/Mar/2021 17:22:01] "[37mGET /downloadAuthors HTTP/1.1[0m" 200 -
+05-Mar-21 17:22:01 - 127.0.0.1 - - [05/Mar/2021 17:22:01] "[37mGET /static/favicon.ico HTTP/1.1[0m" 200 -
+05-Mar-21 17:22:07 - 127.0.0.1 - - [05/Mar/2021 17:22:07] "[37mGET /downloadAuthors HTTP/1.1[0m" 200 -
+05-Mar-21 17:22:07 - 127.0.0.1 - - [05/Mar/2021 17:22:07] "[37mGET /static/favicon.ico HTTP/1.1[0m" 200 -
+05-Mar-21 17:22:08 - 127.0.0.1 - - [05/Mar/2021 17:22:08] "[37mGET /downloadAuthors HTTP/1.1[0m" 200 -
+05-Mar-21 17:22:08 - 127.0.0.1 - - [05/Mar/2021 17:22:08] "[37mGET /static/favicon.ico HTTP/1.1[0m" 200 -
+05-Mar-21 17:22:28 - 127.0.0.1 - - [05/Mar/2021 17:22:28] "[37mGET /downloadAuthors HTTP/1.1[0m" 200 -
+05-Mar-21 17:22:28 - 127.0.0.1 - - [05/Mar/2021 17:22:28] "[37mGET /static/favicon.ico HTTP/1.1[0m" 200 -
+05-Mar-21 17:22:46 - 127.0.0.1 - - [05/Mar/2021 17:22:46] "[37mGET /downloadAuthors HTTP/1.1[0m" 200 -
+05-Mar-21 17:22:46 - 127.0.0.1 - - [05/Mar/2021 17:22:46] "[37mGET /static/favicon.ico HTTP/1.1[0m" 200 -
+05-Mar-21 17:23:27 - 127.0.0.1 - - [05/Mar/2021 17:23:27] "[37mGET /downloadAuthors HTTP/1.1[0m" 200 -
+05-Mar-21 17:23:27 - 127.0.0.1 - - [05/Mar/2021 17:23:27] "[37mGET /static/favicon.ico HTTP/1.1[0m" 200 -
+05-Mar-21 17:23:40 - 127.0.0.1 - - [05/Mar/2021 17:23:40] "[37mGET /downloadAuthors HTTP/1.1[0m" 200 -
+05-Mar-21 17:23:40 - 127.0.0.1 - - [05/Mar/2021 17:23:40] "[37mGET /static/favicon.ico HTTP/1.1[0m" 200 -
+05-Mar-21 17:24:03 - 127.0.0.1 - - [05/Mar/2021 17:24:03] "[37mGET /searchByOptions HTTP/1.1[0m" 200 -
+05-Mar-21 17:24:04 - 127.0.0.1 - - [05/Mar/2021 17:24:04] "[33mGET /static/js/list.js HTTP/1.1[0m" 404 -
+05-Mar-21 17:24:05 - 127.0.0.1 - - [05/Mar/2021 17:24:05] "[32mPOST /searchByOptions HTTP/1.1[0m" 302 -
+05-Mar-21 17:24:05 - 127.0.0.1 - - [05/Mar/2021 17:24:05] "[37mGET /uploadDOI HTTP/1.1[0m" 200 -
+05-Mar-21 17:24:20 - 127.0.0.1 - - [05/Mar/2021 17:24:20] "[37mPOST /uploadDOI HTTP/1.1[0m" 200 -
+05-Mar-21 17:24:45 - 127.0.0.1 - - [05/Mar/2021 17:24:45] "[37mPOST /uploadDOI HTTP/1.1[0m" 200 -
+05-Mar-21 17:24:45 - 127.0.0.1 - - [05/Mar/2021 17:24:45] "[37mGET /static/favicon.ico HTTP/1.1[0m" 200 -
+05-Mar-21 17:26:22 - 127.0.0.1 - - [05/Mar/2021 17:26:22] "[37mGET /downloadUni HTTP/1.1[0m" 200 -
+05-Mar-21 17:26:35 - 127.0.0.1 - - [05/Mar/2021 17:26:35] "[37mGET /downloadUni HTTP/1.1[0m" 200 -
+05-Mar-21 17:26:35 - 127.0.0.1 - - [05/Mar/2021 17:26:35] "[37mGET /static/favicon.ico HTTP/1.1[0m" 200 -
