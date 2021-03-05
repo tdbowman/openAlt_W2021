@@ -10,3 +10,4 @@ passwd.txt*
 .zip
 /eventData
 json_info.csv*
+*.log
