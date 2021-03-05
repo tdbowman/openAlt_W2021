@@ -570,6 +570,7 @@ table.table-bordered{
 
 .statsContainer{
   display: flex;
+  background-color: rgba(0, 3, 5, 0.8); ;
 }
 .statsContainer > div {
   flex:1;
