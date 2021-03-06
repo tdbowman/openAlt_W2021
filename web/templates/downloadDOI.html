@@ -41,29 +41,11 @@
 {% block body %}
 
 <body
-    style="background-image: url('../static/images/library.jpg'); background-repeat: no-repeat; background-size:cover;">
-    
-    <div class="center-screen">
-        <div style="width: 550px; border-radius: 25px; padding: 0px; background-color: rgba(60, 65, 70, 0.8); "
-            class="center-screen">
-            <h3 style="text-align: center; color: aliceblue;"><b>Instructions</b></h3>
-            <p1 style="text-align:left; color: aliceblue;">
-                <ol>
-                    <li>Enter your email address in the box labeled "Email Address".</li>
-                    <li style="padding-top: 5px;">Select whether you want your results in CSV or JSON format.</li>
-                    <li style="padding-top: 5px;">Click the "Get Results!" button and the results will be sent to you in an email when we retrieve
-                        all the data!</li>
-                </ol>
-            </p1>
-            <br>
-        </div>
-    </div>
+    style="background-image: url('../static/images/library.jpg'); background-repeat: repeat-y; background-size:cover;">
 
-    <br><br>
+    <div class="center-screen" style="padding-top: 15px;">
 
-    <div class="center-screen">
-        <div
-            style="width: 550px; border-radius: 25px; padding: 10px; background-color: rgba(60, 65, 70, 0.8); text-align: center;">
+        <div style="width: 550px; border-radius: 25px; padding: 10px; background-color: rgba(60, 65, 70, 0.9); text-align: center;">
 
             <h1 style="text-align: center; color: aliceblue; padding-bottom: 10px;"><b>Retreive DOI Results</b></h1>
 
@@ -83,15 +65,32 @@
             </form>
         </div>
 
+        <div class="center-screen" style="padding-top: 50px;">
+            <div style="width: 550px; border-radius: 25px; padding: 0px; background-color: rgba(60, 65, 70, 0.9); "
+                class="center-screen">
+                <h3 style="text-align: center; color: aliceblue;"><b>Instructions</b></h3>
+                <p1 style="text-align:left; color: aliceblue;">
+                    <ol>
+                        <li>Enter your email address in the box labeled "Email Address".</li>
+                        <li style="padding-top: 5px;">Select whether you want your results in CSV or JSON format.</li>
+                        <li style="padding-top: 5px;">Click the "Get Results!" button and the results will be sent to
+                            you in an email when we retrieve
+                            all the data!</li>
+                    </ol>
+                </p1>
+                <br>
+            </div>
+        </div>
 
-        <br><br><br><br><br><br>
 
-        <div class="center-screen">
-            <div style="width: 550px; border-radius: 25px; padding: 0px; background-color: rgba(60, 65, 70, 0.8); "
+        <div class="center-screen" style="padding-top: 100px;">
+            <div style="width: 550px; border-radius: 25px; padding: 0px; background-color: rgba(60, 65, 70, 0.9); "
                 class="center-screen col-sm-6">
                 <h3 style="text-align: center; color: aliceblue; font-size: large;">Privacy Statement</h3>
-                <p1 style="text-align: center; color: aliceblue; font-size: small;"><i>OpenAlt does not store your email
-                        information and is strictly only used to send your results.</i></p1>
+                <p1 style="text-align: center; color: aliceblue; font-size: small;"><i>OpenAlt may collect your email
+                        information as a mean to keep track of analytics with search results and email you analytics
+                        based on your searches. However, we here at OpenAlt respect your privacy and you may opt out of
+                        this feature via email.</i></p1>
                 <br>
             </div>
         </div>
