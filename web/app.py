@@ -1,5 +1,3 @@
-# Author: Darpan (Lines 231-251, 273-280)
-
 import os
 import flask
 from flask import Flask
@@ -7,6 +5,7 @@ from flask import send_file
 from flask_mysqldb import MySQL
 from flask import request, jsonify, redirect, flash
 from datetime import datetime
+from email_validator import validate_email, EmailNotValidError
 
 # Import our functions for other pages
 from searchLogic import searchLogic
@@ -20,6 +19,7 @@ from uploadDOI import searchByDOI, getZipEvents
 from uploadAuthor import searchByAuthor, getZipAuthor
 from uploadUni import searchByUni, getZipUni
 from emailError import emailError
+from singleDOIEmailLogic import articleLandingEmail
 
 from getPassword import getPassword
 
@@ -29,6 +29,8 @@ mysql_password = getPassword()
 
 # Instantiate an object of class Flask
 app = flask.Flask(__name__)
+app.secret_key = "OpenAlt"
+
 # Database connection settings
 app.config['MYSQL_USER'] = mysql_username
 app.config['MYSQL_PASSWORD'] = mysql_password
@@ -118,7 +120,7 @@ def articleDashboard():
 
         # If a HTTPS POST Request is received...
         # Author: Mohammad Tahmid
-        #Lines: 113-127
+        #Lines: 118-158
         # Description: Gets the DOI from the article landing page and downloads the information to the users computer
 
     # If a HTTPS POST Request is received...
@@ -127,12 +129,30 @@ def articleDashboard():
         if request.form.get('articleDLChoice') is not None:
             # File type user wants the information dowloaded as
             fileChoice = str(request.form.get("articleDLChoice"))
-
+            
             # The DOI of the aritcle that the user was viewing and wants the information of
-            #fileDOI = str(request.form.get("articleDLDOI"))
+            fileDOI = str(request.form.get("articleDLDOI"))
+        
+            # The email the user entered is retreived and stored
+            fileEmail = str(request.form.get("email_input"))
 
+            try:
+                valid = validate_email(fileEmail)
+                valid = valid.email
+                print(valid)
+
+                # Zipped up contents of the data from the database
+                articleLandingEmail(mysql, fileDOI, fileChoice, valid)
+
+                return flask.render_template('searchComplete.html')
+
+            except EmailNotValidError as e:
+                print(e)
+                flash("You have entered an invalid email address. Please try again.")
+                #session.pop('_flashes', None)
+                
             # Zipped up contents of the data from the database
-            #zipEvents = articleLandingDownload(fileDOI, fileChoice, mysql)
+            #zipEvents = articleLandingDownload(mysql, fileDOI, fileChoice, fileEmail)
 
             # The zipped up files are downloaded onto the user's desktop
             # return send_file(zipEvents, as_attachment=True)
