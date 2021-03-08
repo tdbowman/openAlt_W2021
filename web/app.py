@@ -120,7 +120,7 @@ def articleDashboard():
 
         # If a HTTPS POST Request is received...
         # Author: Mohammad Tahmid
-        #Lines: 118-158
+        #Lines: 113-127
         # Description: Gets the DOI from the article landing page and downloads the information to the users computer
 
     # If a HTTPS POST Request is received...
@@ -141,14 +141,16 @@ def articleDashboard():
                 valid = valid.email
                 print(valid)
 
+                flash("Your results will be emailed to you shortly. Thank You.", "valid")
+
                 # Zipped up contents of the data from the database
                 articleLandingEmail(mysql, fileDOI, fileChoice, valid)
 
-                return flask.render_template('searchComplete.html')
+                #return flask.render_template('searchComplete.html')
 
             except EmailNotValidError as e:
                 print(e)
-                flash("You have entered an invalid email address. Please try again.")
+                flash("You have entered an invalid email address. Please try again.", "danger")
                 #session.pop('_flashes', None)
                 
             # Zipped up contents of the data from the database

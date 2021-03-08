@@ -226,10 +226,18 @@
                             <br><br>
                             <button name="articleDLDOI" type="submit" value="{{ article_detail.objectID }}" class="file-upload-btn" id="resultsButton" style="width: 250px;">Get Results!</button></a>
                             <br></br>
-                            {% with messages = get_flashed_messages() %}
+                            {% with messages = get_flashed_messages(category_filter=["danger"]) %}
                                 {% if messages %}
                                     {% for message in messages %}
                                         <span style="color:red">{{ message }}</span>
+                                    {% endfor %}
+                                {% endif %}
+                            {% endwith %}
+
+                            {% with messages = get_flashed_messages(category_filter=["valid"]) %}
+                                {% if messages %}
+                                    {% for message in messages %}
+                                        <span style="color:green">{{ message }}</span>
                                     {% endfor %}
                                 {% endif %}
                             {% endwith %}
