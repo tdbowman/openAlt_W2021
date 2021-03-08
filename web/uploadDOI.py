@@ -259,7 +259,7 @@ def downloadDOI(mysql, dir_csv, type, email):
     # Time taken to execute script
     print("--- %s seconds ---" % (time.time() - start_time))
 
-    return zipEvents
+    #return zipEvents
 
 ###### Darpan End ######
 

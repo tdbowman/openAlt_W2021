@@ -70,4 +70,4 @@ def emailResults(zipPath, recipient, type):
 
     print("Email sent!")
 
-    #os.remove(zipPath)
+    os.remove(zipPath)
