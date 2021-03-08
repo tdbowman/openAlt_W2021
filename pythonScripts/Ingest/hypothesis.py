@@ -80,20 +80,18 @@ def hypothesisIngest(uniqueEvent, cursor, connection):
             t_relation_type_id = value
 
 
-    # author: Rihat Rahman
-    #--------------------------------------------------------------------------------------------------------------------------------------------
+    # Author: Salsabil Bakth
+    # Checks to see if the eventID exists in the table (since it is a unique value)
+    # If it exists, exit from the ingest function
 
-    table = 'hypothesisevent'
-    
-    # checks if duplicate event exists, returns [(1,)] if true
-    cursor.execute ("SELECT 1 FROM crossrefeventdatamain." + table + " WHERE subjectID = '" + t_subj_id + "' AND objectID = '" + t_obj_id + "'")
+    # ---- Beginning of code -----
+    cursor.execute ("SELECT 1 FROM crossrefeventdatamain.hypothesisevent WHERE eventID = '" + t_id + "'")
     exists = cursor.fetchall()
 
-    # return to the main program if
-    if exists == [(1,)]:
+    if exists != None:
         return
 
-    #--------------------------------------------------------------------------------------------------------------------------------------------
+    # ---- End of code ----
 
     try:
         if(len(t_obj_id) < 100 or t_obj_id is None):
