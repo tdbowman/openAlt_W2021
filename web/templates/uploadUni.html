@@ -20,7 +20,7 @@
 
       // If size is greater than 1 MB
       if (size > 1) {
-        alert("File is too large!")
+        alert("File size exceeds 1 MB! Please upload a file that is less than 1 MB.")
         location.reload();
         return false;
       }
@@ -47,7 +47,7 @@
 
       // If file does not have the correct file extension, reload page
       if ($.inArray($fileName.val().split('.').pop().toLowerCase(), fileExtension) == -1) {
-        alert("Only formats are allowed : " + fileExtension.join(', '));
+        alert("File must be a CSV file! Please upload a CSV file.");
         location.reload();
         return false;
       }
