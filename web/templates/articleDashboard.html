@@ -160,7 +160,6 @@
             <br>
         </div>
     </div>
-
     <div class="row">
         <!-- This is the left column - Information box-->
         <div class = "col-md-5">
@@ -193,19 +192,33 @@
                         <strong>DOI:</strong> <a href="https://doi.org/{{ article_detail.objectID }}"target="_blank">{{ article_detail.objectID }} &#8599;</a>
                     </div>
 					<!--Author: Mohammad Tahmid
-						Lines: 196-211
+						Lines: 197-223
 						Description: This is the addition to display the citation information from the database and the button to download info about a DOI-->
 					<div class="AD_citations">
                         <strong>Citation(s):</strong> {{ citationCount.count }}
                     </div>
-					<form method="POST" action="{{ url_for('articleDashboard') }}?DOI={{ article_detail.objectID }}" class="form-inline">
-                        <div class="form-group" style="text-align: center">          
+					<form method="POST" action="{{ url_for('articleDashboard') }}?DOI={{ article_detail.objectID }}" class="center-screen">
+                        <br><br>
+                        <div class="form-group" style="text-align: center">
+
+                            <input type="text" id="email_input" name="email_input" placeholder="Email Address:"
+                            style="width: 250px;" class="form-control">
                             <!-- Drop Down Search -->
-                            <select name="articleDLChoice" id="form-control" class="form-control">
-                              <option value="CSV">CSV</option>
-                              <option value="JSON">JSON</option>
+                            <select name="articleDLChoice" id="form-control" class="form-control" style="width: 250px;">
+                              <option value="doi">CSV</option>
+                              <option value="json">JSON</option>
                             </select>
-                            <button type="submit" name="articleDLDOI" value="{{ article_detail.objectID }}" class="form-control" id="form-control">
+                            <!--<button type="submit" name="articleDLDOI" value="{{ article_detail.objectID }}" class="form-control" id="form-control">-->
+                            <br><br>
+                            <button name="articleDLDOI" type="submit" value="{{ article_detail.objectID }}" class="file-upload-btn" id="resultsButton" style="width: 250px;">Get Results!</button></a>
+                            <br></br>
+                            {% with messages = get_flashed_messages() %}
+                                {% if messages %}
+                                    {% for message in messages %}
+                                        <span style="color:red">{{ message }}</span>
+                                    {% endfor %}
+                                {% endif %}
+                            {% endwith %}
                         </div>
                     </form>
                     <br>
