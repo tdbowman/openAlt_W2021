@@ -20,6 +20,20 @@
 <script src="../static/js/libraries/c3-0.7.20/c3.min.js"></script>
 <!-- END CHART SECTION -->
 
+<!--{% with messages = get_flashed_messages() %}
+    {% if messages %}
+            {% for message in messages %}
+                <div class="alert alert-primary alert-dismissible fade show" role="alert">
+                    <h3>{{ message }}</h3>
+                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+            {% endfor %}
+        {% endif %}
+    {% endwith %}
+            -->
+
 <script>
     $(function(){
 
@@ -192,7 +206,7 @@
                         <strong>DOI:</strong> <a href="https://doi.org/{{ article_detail.objectID }}"target="_blank">{{ article_detail.objectID }} &#8599;</a>
                     </div>
 					<!--Author: Mohammad Tahmid
-						Lines: 197-223
+						Lines: 196-211
 						Description: This is the addition to display the citation information from the database and the button to download info about a DOI-->
 					<div class="AD_citations">
                         <strong>Citation(s):</strong> {{ citationCount.count }}
@@ -259,15 +273,15 @@
         -->
     </div>
 
-    <div class="row">
+   <!-- <div class="row">
         <div class="col-md-12">
             <h1 id="LatestEvents">Latest Events</h1>
             <hr>
             <h4 style="text-align: center;">Some events obtained from the Crossref API have generic links e.g. "https://twitter.com". <br>
             Events of this kind have been hidden below, but still appear and are counted in the chart.</h4>
 
-            <!-- Table - Latest Events -->
-            {% for e in events %}
+            <!-- Table - Latest Events --> <!--
+            {% for e in events %} 
 
             <div class="row row-bordered eventItem" id="{{e.sourceID}}">
 
@@ -288,7 +302,7 @@
 
             {% endfor %}
         </div>
-    </div> <!-- End the row -->
+    </div> <!-- End the row --> 
 </div> <!-- end container wrapping entire page-->
 <br>
 <br>
