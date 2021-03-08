@@ -1,5 +1,9 @@
 # Author: Darpan (Lines 231-251, 273-280)
 
+# Author: Salsabil Bakth
+# Functions to redirect to appropriate pages
+# Lines: 209-336
+
 import os
 import flask
 from flask import Flask
@@ -202,7 +206,6 @@ def team():
 @ app.route('/licenses', methods=["GET", "POST"])
 def licenses():
     return flask.render_template('licenses.html')
-
 
 @ app.route('/searchByOptions', methods=["GET", "POST"])
 def searchByOptions():

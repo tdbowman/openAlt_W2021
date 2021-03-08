@@ -7,14 +7,20 @@
 <script class="jsbin" src="https://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
 <script src="../static/js/upload.js"></script>
 
+<!-- Author: Salsabil Bakth -->
+<!-- Function to check to file size and whether it is larger than 1MB -->
+<!-- Beginning of code -->
 <script>
   $(function () {
     let $uploadButton = $("#uploadButton");
 
     $uploadButton.click(function () {
       var size = $("#fileUpload")[0].files[0].size;
+
+      // Check the size to see it in MB
       size = size / 1048576;
 
+      // If size is greater than 1 MB
       if (size > 1) {
         alert("File is too large!")
         location.reload();
@@ -26,7 +32,11 @@
 
   });
 </script>
+<!-- End of code -->
 
+<!-- Author: Salsabil Bakth -->
+<!-- Function to check only csv files are being uploaded -->
+<!-- Beginning of code -->
 <script>
   $(function () {
     let $uploadButton = $("#uploadButton");
@@ -34,8 +44,10 @@
     $uploadButton.click(function () {
       let $fileName = $("#fileUpload");
 
+      // Only file extension allowed
       var fileExtension = ['csv'];
 
+      // If file does not have the correct file extension, reload page
       if ($.inArray($fileName.val().split('.').pop().toLowerCase(), fileExtension) == -1) {
         alert("Only formats are allowed : " + fileExtension.join(', '));
         location.reload();
@@ -47,6 +59,7 @@
 
   });
 </script>
+<!-- End of code -->
 
 {% endblock %}
 
@@ -74,7 +87,7 @@
         <div class="file-upload-content">
           <div class="image-title-wrap">
             <!-- Display message after clicking submit -->
-            <button type="submit" id="uploadButton" style="width: 350px;" onclick="uploadMessage()" class="file-upload-btn">Upload
+            <button type="submit" id="uploadButton" style="width: 350px;" class="file-upload-btn">Upload
               File</button>
           </div>
         </div>

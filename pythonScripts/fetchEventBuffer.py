@@ -43,7 +43,8 @@ def fetch_events():
 
 
     # loops for each DOI (for all articles use len(articles))
-    for i in range(200):
+    for i in range(500):
+        
         article = articles[i]
 
         # access the DOI from set
@@ -56,243 +57,171 @@ def fetch_events():
         # fetching event data for this particular DOI
         response = requests.get("https://api.eventdata.crossref.org/v1/events?mailto=YOUR_EMAIL_HERE&obj-id=" + articleDOI)
         
-        # check to see if the API is responding with a code 200
-        # print(response.status_code)
-
-        # display info on console
-        # print(response.json())
-
         # Retrieve the dict with events
         print("Test!")
         data = response.json()
-        # print(data)
         
-        events = data.get("message").get("events")
-        # print(type(uniqueEvents))
-        print("Print event: ", events)
+        if (data != []):
+            events = data.get("message").get("events")
+            
+            print("Print event: ", events)
 
-        transfer_buffer(events)
+            transfer_buffer(events)
 
     
 
 def transfer_buffer(events):
-     # check to see if events are empty
-     # if (events != []):
 
-        # # setup localization
-        # myclient = pymongo.MongoClient("mongodb://localhost:27017/")
+    # setup localization
+    myclient = pymongo.MongoClient("mongodb://localhost:27017/")
 
-        # # reference MongoDB database
-        # eventDatabase = myclient["EventDatabase"]
+    # reference MongoDB database
+    eventDatabase = myclient["EventDatabase"]
 
-        # # reference MongoDB collection
-        # events = eventDatabase["Event"]
-
-        # # insert data
-        # events.insert_many(uniqueEvents)    
+    # count = 0
         
-        for info in events: 
+    for info in events: 
 
-            for key, value in list(info.items()):
+        for key, value in list(info.items()):
 
-                if (key == "source_id" and value == "cambia-lens"):
-                    print("Cambia-Lens")
+            if (key == "source_id" and value == "cambia-lens"):
+                print("Cambia-Lens")
 
-                    # setup localization
-                    myclient = pymongo.MongoClient("mongodb://localhost:27017/")
+                # reference MongoDB collection
+                cambiaLens = eventDatabase["Cambia-Lens"]
 
-                    # reference MongoDB database
-                    eventDatabase = myclient["EventDatabase"]
+                # insert data
+                insertCollection(cambiaLens, info)
+                break
+            
+            elif (key == "source_id" and value == "crossref"):
+                print("Crossref")
 
-                    # reference MongoDB collection
-                    cambiaLens = eventDatabase["Cambia-Lens"]
+                # reference MongoDB collection
+                crossref = eventDatabase["Crossref"]
 
-                    # insert data
-                    insertCollection(cambiaLens, info)
-                
-                elif (key == "source_id" and value == "crossref"):
-                    print("Crossref")
+                # insert data
+                insertCollection(crossref, info)
+                break
 
-                    # setup localization
-                    myclient = pymongo.MongoClient("mongodb://localhost:27017/")
+            elif (key == "source_id" and value == "datacite"):
+                print("Datacite")
 
-                    # reference MongoDB database
-                    eventDatabase = myclient["EventDatabase"]
+                # reference MongoDB collection
+                datacite = eventDatabase["Datacite"]
 
-                    # reference MongoDB collection
-                    crossref = eventDatabase["Crossref"]
+                # insert data
+                insertCollection(datacite, info)
+                break
 
-                    # insert data
-                    insertCollection(crossref, info)
+            elif (key == "source_id" and value == "f1000"):
+                print("F1000")
 
-                elif (key == "source_id" and value == "datacite"):
-                    print("Datacite")
+                # reference MongoDB collection
+                f1000 = eventDatabase["F1000"]
 
-                    # setup localization
-                    myclient = pymongo.MongoClient("mongodb://localhost:27017/")
+                # insert data
+                insertCollection(f1000, info)
+                break
 
-                    # reference MongoDB database
-                    eventDatabase = myclient["EventDatabase"]
+            elif (key == "source_id" and value == "hypothesis"):
+                print("Hypothesis")
 
-                    # reference MongoDB collection
-                    datacite = eventDatabase["Datacite"]
+                # reference MongoDB collection
+                hypothesis = eventDatabase["Hypothesis"]
 
-                    # insert data
-                    insertCollection(datacite, info)
+                # insert data
+                insertCollection(hypothesis, info)
+                break
 
-                elif (key == "source_id" and value == "f1000"):
-                    print("F1000")
+            elif (key == "source_id" and value == "newsfeed"):
+                print("Newsfeed")
 
-                    # setup localization
-                    myclient = pymongo.MongoClient("mongodb://localhost:27017/")
+                # reference MongoDB collection
+                newsfeed = eventDatabase["Newsfeed"]
 
-                    # reference MongoDB database
-                    eventDatabase = myclient["EventDatabase"]
+                # insert data
+                insertCollection(newsfeed, info)
+                break
 
-                    # reference MongoDB collection
-                    f1000 = eventDatabase["F1000"]
+            elif (key == "source_id" and value == "reddit"):
+                print("Reddit")
 
-                    # insert data
-                    insertCollection(f1000, info)
+                # reference MongoDB collection
+                reddit = eventDatabase["Reddit"]
 
-                elif (key == "source_id" and value == "hypothesis"):
-                    print("Hypothesis")
+                # insert data
+                insertCollection(reddit, info)
+                break
 
-                    # setup localization
-                    myclient = pymongo.MongoClient("mongodb://localhost:27017/")
+            elif (key == "source_id" and value == "reddit-links"):
+                print("Reddit-links")
 
-                    # reference MongoDB database
-                    eventDatabase = myclient["EventDatabase"]
+                # reference MongoDB collection
+                redditLinks = eventDatabase["Reddit-Links"]
 
-                    # reference MongoDB collection
-                    hypothesis = eventDatabase["Hypothesis"]
+                # insert data
+                insertCollection(redditLinks, info)
+                break
 
-                    # insert data
-                    insertCollection(hypothesis, info)
+            elif (key == "source_id" and value == "stackexchange"):
+                print("Stack Exchange")
 
-                elif (key == "source_id" and value == "newsfeed"):
-                    print("Newsfeed")
+                # reference MongoDB collection
+                stackexchange = eventDatabase["Stackexchange"]
 
-                    # setup localization
-                    myclient = pymongo.MongoClient("mongodb://localhost:27017/")
+                # insert data
+                insertCollection(stackexchange, info)
+                break
 
-                    # reference MongoDB database
-                    eventDatabase = myclient["EventDatabase"]
+            elif (key == "source_id" and value == "twitter"):
+                print("Twitter")
+                # count = count + 1
 
-                    # reference MongoDB collection
-                    newsfeed = eventDatabase["Newsfeed"]
+                # reference MongoDB collection
+                twitter = eventDatabase["Twitter"]
 
-                    # insert data
-                    insertCollection(newsfeed, info)
+                # insert data
+                insertCollection(twitter, info)
+                break
 
-                elif (key == "source_id" and value == "reddit"):
-                    print("Reddit")
+            elif (key == "source_id" and value == "web"):
+                print("Web")
 
-                    # setup localization
-                    myclient = pymongo.MongoClient("mongodb://localhost:27017/")
+                # reference MongoDB collection
+                web = eventDatabase["Web"]
 
-                    # reference MongoDB database
-                    eventDatabase = myclient["EventDatabase"]
+                # insert data
+                insertCollection(web, info)
+                break
 
-                    # reference MongoDB collection
-                    reddit = eventDatabase["Reddit"]
+            elif (key == "source_id" and value == "wikipedia"):
+                print("Wikipedia")
 
-                    # insert data
-                    insertCollection(reddit, info)
+                # count = count + 1
 
-                elif (key == "source_id" and value == "reddit-links"):
-                    print("Reddit-links")
+                # reference MongoDB collection
+                wikipedia = eventDatabase["Wikipedia"]
 
-                    # setup localization
-                    myclient = pymongo.MongoClient("mongodb://localhost:27017/")
+                # insert data
+                insertCollection(wikipedia, info)
+                break
 
-                    # reference MongoDB database
-                    eventDatabase = myclient["EventDatabase"]
+            elif (key == "source_id" and value == "wordpressdotcom"):
+                print("Wordpress.com")
 
-                    # reference MongoDB collection
-                    redditLinks = eventDatabase["Reddit-Links"]
+                # reference MongoDB collection
+                wordpressdotcom = eventDatabase["WordPressDotCom"]
 
-                    # insert data
-                    insertCollection(redditLinks, info)
+                # insert data
+                insertCollection(wordpressdotcom, info)
+                break
 
-                elif (key == "source_id" and value == "stackexchange"):
-                    print("Stack Exchange")
+    # print("Count: ", count)
 
-                    # setup localization
-                    myclient = pymongo.MongoClient("mongodb://localhost:27017/")
-
-                    # reference MongoDB database
-                    eventDatabase = myclient["EventDatabase"]
-
-                    # reference MongoDB collection
-                    stackexchange = eventDatabase["Stackexchange"]
-
-                    # insert data
-                    insertCollection(stackexchange, info)
-
-                elif (key == "source_id" and value == "twitter"):
-                    print("Twitter")
-
-                    # setup localization
-                    myclient = pymongo.MongoClient("mongodb://localhost:27017/")
-
-                    # reference MongoDB database
-                    eventDatabase = myclient["EventDatabase"]
-
-                    # reference MongoDB collection
-                    twitter = eventDatabase["Twitter"]
-
-                    # insert data
-                    insertCollection(twitter, info)
-
-                elif (key == "source_id" and value == "web"):
-                    print("Web")
-
-                    # setup localization
-                    myclient = pymongo.MongoClient("mongodb://localhost:27017/")
-
-                    # reference MongoDB database
-                    eventDatabase = myclient["EventDatabase"]
-
-                    # reference MongoDB collection
-                    web = eventDatabase["Web"]
-
-                    # insert data
-                    insertCollection(web, info)
-
-                elif (key == "source_id" and value == "wikipedia"):
-                    print("Wikipedia")
-
-                    # setup localization
-                    myclient = pymongo.MongoClient("mongodb://localhost:27017/")
-
-                    # reference MongoDB database
-                    eventDatabase = myclient["EventDatabase"]
-
-                    # reference MongoDB collection
-                    wikipedia = eventDatabase["Wikipedia"]
-
-                    # insert data
-                    insertCollection(wikipedia, info)
-
-                elif (key == "source_id" and value == "wordpressdotcom"):
-                    print("Wordpress.com")
-
-                    # setup localization
-                    myclient = pymongo.MongoClient("mongodb://localhost:27017/")
-
-                    # reference MongoDB database
-                    eventDatabase = myclient["EventDatabase"]
-
-                    # reference MongoDB collection
-                    wordpressdotcom = eventDatabase["WordPressDotCom"]
-
-                    # insert data
-                    insertCollection(wordpressdotcom, info)
-
-                else:
-                    print("Pass!")
-                    pass   
+    #         # else:
+    #         #     print("Pass!")
+    #         #     pass
 
 
 def insertCollection(collection, info):
