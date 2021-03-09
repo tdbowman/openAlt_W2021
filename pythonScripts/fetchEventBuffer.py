@@ -43,34 +43,38 @@ def fetch_events():
 
 
     # loops for each DOI (for all articles use len(articles))
-    for i in range(500):
+    # for i in range(5):
         
-        article = articles[i]
+    #     article = articles[i]
 
-        # access the DOI from set
-        articleDOI = article[0]
+    #     # access the DOI from set
+    #     articleDOI = article[0]
 
-        print(articleDOI)
+    #     print(articleDOI)
 
-        print("API Call!")
+    #     print("API Call!")
         
-        # fetching event data for this particular DOI
-        response = requests.get("https://api.eventdata.crossref.org/v1/events?mailto=YOUR_EMAIL_HERE&obj-id=" + articleDOI)
+    articleDOI = "10.1001/archneur.56.1.116"
+    # fetching event data for this particular DOI
+    response = requests.get("https://api.eventdata.crossref.org/v1/events?mailto=YOUR_EMAIL_HERE&obj-id=" + articleDOI)
+    
+    # Retrieve the dict with events
+    print("Test!")
+    data = response.json()
+    
+    if (data != []):
+        events = data.get("message").get("events")
         
-        # Retrieve the dict with events
-        print("Test!")
-        data = response.json()
-        
-        if (data != []):
-            events = data.get("message").get("events")
-            
-            print("Print event: ", events)
+        print("Print event: ", events)
 
-            transfer_buffer(events)
+        transfer_buffer(events, articleDOI)
 
     
 
-def transfer_buffer(events):
+def transfer_buffer(events, articleDOI):
+
+    objectID = "https://doi.org/" + articleDOI
+    print(objectID)
 
     # setup localization
     myclient = pymongo.MongoClient("mongodb://localhost:27017/")
@@ -83,7 +87,7 @@ def transfer_buffer(events):
     for info in events: 
 
         for key, value in list(info.items()):
-
+                
             if (key == "source_id" and value == "cambia-lens"):
                 print("Cambia-Lens")
 
@@ -175,14 +179,53 @@ def transfer_buffer(events):
                 break
 
             elif (key == "source_id" and value == "twitter"):
+                
+                # if (key == "obj_id"):
+                #     objectID = value
+                    
+                print("obj_id:" + objectID)
+
                 print("Twitter")
                 # count = count + 1
 
-                # reference MongoDB collection
-                twitter = eventDatabase["Twitter"]
+                try:
+                    # connect to doidata database
+                    mysql_username = "root"
+                    mysql_password = "pass1234"
 
-                # insert data
-                insertCollection(twitter, info)
+                    drBowmanDatabase = mysql.connector.connect(host = "localhost", user = mysql_username, passwd = mysql_password, database = "crossrefeventdatamain")
+
+
+                except:
+                    print("Error: Invalid MySQL credentials")
+                    return
+
+                print ("Connected to the database...")
+
+                drBowmanDatabaseCursor = drBowmanDatabase.cursor()
+
+                drBowmanDatabaseCursor.execute("Select eventID FROM twitterevent WHERE objectID='" + objectID + "'")
+
+                # store DOIs 
+                eventIDs = drBowmanDatabaseCursor.fetchall()
+
+                print(eventIDs)
+
+                listEventIDs= {}
+
+                for uniqueEventID in eventIDs:
+                    listEventIDs[uniqueEventID[0]] = None
+
+                for eventID in listEventIDs:
+                    print(eventID)
+                    if (key == "id" and value==eventID):
+                        print("Duplicate!")
+
+                # # reference MongoDB collection
+                # twitter = eventDatabase["Twitter"]
+
+                # # insert data
+                # insertCollection(twitter, info)
                 break
 
             elif (key == "source_id" and value == "web"):
@@ -227,6 +270,9 @@ def transfer_buffer(events):
 def insertCollection(collection, info):
 
     collection.insert_one(info) 
+
+# def hashMap():
+
 
 if __name__ == '__main__':
     fetch_events()
