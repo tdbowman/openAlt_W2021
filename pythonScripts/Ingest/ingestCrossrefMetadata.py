@@ -49,7 +49,7 @@ def crossrefMetadataIngest(data, cursor, connection):
         elif (key == "source"):
             t_source = value
         elif (key == "title"):
-            t_title = str(value[0])
+            t_title = str(value)
         elif (key == "type"):
             t_type = value
         elif (key == "_id"):
