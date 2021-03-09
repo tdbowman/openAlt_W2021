@@ -16,7 +16,6 @@ from ingestReferences import ingestReferences
 
 def fetchDOICitations ():
 
-
     # mysql credentials
     mysql_username ='root'
     mysql_password = 'Dsus1209.'

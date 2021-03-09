@@ -717,3 +717,11 @@ body {
   border: 0;
   transition: all .2s ease;
 }
+
+
+.clear-filter-btn {
+  width: 100px;
+  height: 50px;
+  float: right;
+
+}
