@@ -4,20 +4,36 @@
 
 <!-- Anything you put here will be in the HTML head tags-->
 {% block head %}
-<script class="jsbin" src="https://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
+<!-- <script class="jsbin" src="https://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script> -->
 <script src="../static/js/upload.js"></script>
 
+<!-- Author: Salsabil Bakth -->
+<!-- Function to check to file size and whether it is larger than 1MB -->
+<!-- Beginning of code -->
 <script>
   $(function () {
     let $uploadButton = $("#uploadButton");
 
     $uploadButton.click(function () {
       var size = $("#fileUpload")[0].files[0].size;
+
+      // Check the size to see it in MB
       size = size / 1048576;
 
+      // If size is greater than 1 MB
       if (size > 1) {
-        alert("File is too large!")
-        location.reload();
+        $("#invalid_file_size").dialog({
+          title: "ERROR",
+          modal: true,
+          minWidth: 700,
+          minHeight: 200,
+          buttons: {
+              Ok: function () {
+                  $(this).dialog("close");
+              }
+          }
+        });
+        setTimeout(reload, 2500);
         return false;
       }
 
@@ -25,6 +41,16 @@
     });
 
   });
+</script>
+<!-- End of code -->
+
+<!-- Author: Salsabil Bakth -->
+<!-- Function to check only csv files are being uploaded -->
+<!-- Beginning of code -->
+<script>
+  function reload(){
+    location.reload();
+  }
 </script>
 
 <script>
@@ -34,19 +60,31 @@
     $uploadButton.click(function () {
       let $fileName = $("#fileUpload");
 
+      // Only file extension allowed
       var fileExtension = ['csv'];
 
+      // If file does not have the correct file extension, reload page
       if ($.inArray($fileName.val().split('.').pop().toLowerCase(), fileExtension) == -1) {
-        alert("Only formats are allowed : " + fileExtension.join(', '));
-        location.reload();
+        $("#invalid_file_type").dialog({
+          title: "ERROR",
+          modal: true,
+          minWidth: 700,
+          minHeight: 200,
+          buttons: {
+              Ok: function () {
+                  $(this).dialog("close");
+              }
+          }
+        });
+        setTimeout(reload, 2500);
         return false;
       }
-
       return (true);
     });
 
   });
 </script>
+<!-- End of code -->
 
 {% endblock %}
 
@@ -65,18 +103,30 @@
             <input class="file-upload-input" id="fileUpload" name="csv/json" type='file' onchange="readURL(this);"
               accept=".csv" />
             <div class="drag-text">
-              <h3 style="color:aliceblue;">Drag and drop a file or Select Box</h3>
+              <h3 style="color:aliceblue;">Drag and drop a file or Click Box</h3>
             </div>
           </div>
 
           <div class="file-upload-content">
             <div class="image-title-wrap">
               <!-- Display message after clicking submit -->
-              <button type="submit" id="uploadButton" style="width: 350px;" input onchange="uploadMessage()" class="file-upload-btn"
+              <button type="submit" id="uploadButton" style="width: 350px;" class="file-upload-btn"
                 type="file">Upload File</button>
             </div>
           </div>
         </form>
+      </div>
+
+      <div id="invalid_file_type" style="display: none;">
+        <p style="font-family: 'Lucida Sans'; font-size: x-large; color: red;"><b>You have submitted an invalid file!</b> </p>
+        <br>
+        <p style="font-family: 'Lucida Sans'; font-size: large;">File must be a CSV file. Please upload a CSV file.</p>
+      </div>
+
+      <div id="invalid_file_size" style="display: none;">
+        <p style="font-family: 'Lucida Sans'; font-size: x-large; color: red;"><b>File size exceeds 1 MB!</b> </p>
+        <br>
+        <p style="font-family: 'Lucida Sans'; font-size: large;">Please upload a file that is less than 1 MB.</p>
       </div>
 
       <br>
@@ -98,9 +148,6 @@
           <br>
         </div>
       </div>
-
-
-      
 
     </div>
 
