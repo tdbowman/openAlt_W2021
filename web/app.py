@@ -129,10 +129,10 @@ def articleDashboard():
         if request.form.get('articleDLChoice') is not None:
             # File type user wants the information dowloaded as
             fileChoice = str(request.form.get("articleDLChoice"))
-            
+
             # The DOI of the aritcle that the user was viewing and wants the information of
             fileDOI = str(request.form.get("articleDLDOI"))
-        
+
             # The email the user entered is retreived and stored
             fileEmail = str(request.form.get("email_input"))
 
@@ -146,13 +146,14 @@ def articleDashboard():
                 # Zipped up contents of the data from the database
                 articleLandingEmail(mysql, fileDOI, fileChoice, valid)
 
-                #return flask.render_template('searchComplete.html')
+                # return flask.render_template('searchComplete.html')
 
             except EmailNotValidError as e:
                 print(e)
-                flash("You have entered an invalid email address. Please try again.", "danger")
+                flash(
+                    "You have entered an invalid email address. Please try again.", "danger")
                 #session.pop('_flashes', None)
-                
+
             # Zipped up contents of the data from the database
             #zipEvents = articleLandingDownload(mysql, fileDOI, fileChoice, fileEmail)
 
@@ -303,12 +304,12 @@ def downloadDOI():
 
         try:
             searchByDOI(mysql, filepath, dropdownValue, emailVal)
+            return redirect('/searchComplete')
         except Exception as e:
             print(e)
             emailError(emailVal, 'doi')
             return redirect('/searchError')
 
-        return redirect('/searchComplete')
         # return flask.render_template('searchComplete.html')
 
     return flask.render_template('downloadDOI.html')
