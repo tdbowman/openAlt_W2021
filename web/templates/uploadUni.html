@@ -2,7 +2,7 @@
 <!-- Author: Darpan (whole file)-->
 <!-- Anything you put here will be in the HTML head tags-->
 {% block head %}
-<!-- <script class="jsbin" src="https://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script> -->
+<script class="jsbin" src="https://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
 <script src="../static/js/upload.js"></script>
 
 <!-- Author: Salsabil Bakth -->
@@ -20,6 +20,7 @@
 
       // If size is greater than 1 MB
       if (size > 1) {
+<<<<<<< HEAD
         $("#invalid_file_size").dialog({
           title: "ERROR",
           modal: true,
@@ -33,6 +34,10 @@
           }
         });
         //setTimeout(reload, 2500);
+=======
+        alert("File size exceeds 1 MB! Please upload a file that is less than 1 MB.")
+        location.reload();
+>>>>>>> parent of 551fc75 (Merge branch 'master' into rihatDev)
         return false;
       }
 
@@ -47,12 +52,6 @@
 <!-- Function to check only csv files are being uploaded -->
 <!-- Beginning of code -->
 <script>
-  function reload(){
-    location.reload();
-  }
-</script>
-
-<script>
   $(function () {
     let $uploadButton = $("#uploadButton");
 
@@ -64,6 +63,7 @@
 
       // If file does not have the correct file extension, reload page
       if ($.inArray($fileName.val().split('.').pop().toLowerCase(), fileExtension) == -1) {
+<<<<<<< HEAD
         $("#invalid_file_type").dialog({
           title: "ERROR",
           modal: true,
@@ -77,8 +77,13 @@
           }
         });
         //setTimeout(reload, 2500);
+=======
+        alert("File must be a CSV file! Please upload a CSV file.");
+        location.reload();
+>>>>>>> parent of 551fc75 (Merge branch 'master' into rihatDev)
         return false;
       }
+
       return (true);
     });
 
@@ -99,7 +104,7 @@
         <h1 style="text-align: center; color: aliceblue;"><b>Upload List of Universities</b></h1>
           <form action="{{ url_for('uploadUni') }}" method="POST" enctype="multipart/form-data">
             <div style="color:black;" class="image-upload-wrap">
-              <input class="file-upload-input"  id="fileUpload" name="csv/json" type='file' onchange="readURL(this);" accept=".csv" />
+              <input class="file-upload-input" name="csv/json" type='file' onchange="readURL(this);" accept=".csv" />
               <div class="drag-text">
                 <h3 style="color:aliceblue;">Drag and drop a file or Click Box</h3>
               </div>
@@ -107,24 +112,12 @@
             
             <div class="file-upload-content">
               <div class="image-title-wrap">
-                <button type="submit"  id="uploadButton" style="width: 350px;" class="file-upload-btn">Upload File</button>
+                <button type="submit" style="width: 350px;" class="file-upload-btn">Upload File</button>
               </div>
             </div>
   
           </form>
       </div>
-    </div>
-
-    <div id="invalid_file_type" style="display: none;">
-      <p style="font-family: 'Lucida Sans'; font-size: x-large; color: red;"><b>You have submitted an invalid file!</b> </p>
-      <br>
-      <p style="font-family: 'Lucida Sans'; font-size: large;">File must be a CSV file. Please upload a CSV file.</p>
-    </div>
-
-    <div id="invalid_file_size" style="display: none;">
-      <p style="font-family: 'Lucida Sans'; font-size: x-large; color: red;"><b>File size exceeds 1 MB!</b> </p>
-      <br>
-      <p style="font-family: 'Lucida Sans'; font-size: large;">Please upload a file that is less than 1 MB.</p>
     </div>
 
     <br>
