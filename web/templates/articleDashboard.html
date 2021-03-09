@@ -35,10 +35,10 @@
             -->
 
 <script>
-    $(function(){
+    $(function () {
 
         // Change positioning of X-axis label. Will look into Bootstrap 4.0+ for row padding/margin manipulation to give more room for the X-axis label.
-        $(".c3-axis-x-label").attr("dy","36");
+        $(".c3-axis-x-label").attr("dy", "36");
 
         // Create jQuery variables to reference the text box and the submit button.
         let $yearInput = $("#yearBox");
@@ -50,10 +50,10 @@
 
         // Grab the publication year and slice it to remove the month portion.
         let pubYear = '{{ article_detail.articleDate }}';
-        pubYear = pubYear.slice(0,4);
+        pubYear = pubYear.slice(0, 4);
 
         // If there are no events, hide the form.
-        if('{{totalEventsSum}}' === '0'){
+        if ('{{totalEventsSum}}' === '0') {
             $(".form-inline").hide();
             $("#LatestEvents").hide();
         }
@@ -62,10 +62,10 @@
         let x = document.getElementsByTagName("tspan");
         for (let i = 0; i < x.length; i++) {
             // If the value of the text is equal to the input submitted by the user, change the color to red, increase the size and bold the label.
-            if(x[i].innerHTML === '{{yearInput}}'){
+            if (x[i].innerHTML === '{{yearInput}}') {
                 x[i].style.fill = "#A15951";
                 x[i].style.font = "bold 18px sans-serif";
-            }     
+            }
         }
 
         // Grabs all elements (g) from the class ".c3-axis-y" and stores them as objects in $yAxis.
@@ -82,77 +82,135 @@
         $yAxis = $(".c3-axis-y");
         $yAxisTicks = $yAxis.children(".tick");
         // Loop through each tick object..
-        $yAxisTicks.each(function(){
+        $yAxisTicks.each(function () {
             // Store the label text of the tick into $tickText. 
             let $tickText = $(this).children("text").text();
 
             // If the label text is an empty string, remove the line associated with it.
-            if($tickText === ''){
+            if ($tickText === '') {
                 $(this).children("line").remove();
             }
         });
 
         // When you click on any of the platforms within the legend.
-        $legendItems.click(function(){
+        $legendItems.click(function () {
 
             // setTimeout(function,x) executes a function after x milliseconds.
-            setTimeout(function(){
+            setTimeout(function () {
                 // Grabs the tick elements after the page loads with the new chart data.
                 $yAxis = $(".c3-axis-y");
                 $yAxisTicks = $yAxis.children(".tick");
                 // Loop through each tick object..
-                $yAxisTicks.each(function(){
+                $yAxisTicks.each(function () {
                     // Store the label text of the tick into $tickText. 
                     let $tickText = $(this).children("text").text();
 
                     // If the label text is an empty string, remove the line associated with it.
-                    if($tickText === ''){
+                    if ($tickText === '') {
                         $(this).children("line").remove();
                     }
                 });
             }, 500);
-                
+
         });
 
         // When the user clicks on the submit button..
-        $submitButton.click(function(){
+        $submitButton.click(function () {
             // If the year text box is empty, send an alert and don't allow the user to submit the form.
-            if(document.forms['YearRange'].year.value == ""){
+            if (document.forms['YearRange'].year.value == "") {
                 alert("Please enter a year.");
                 return false;
             }
             // If the year input is greater than the current year, send an alert and don't allow the user to submit the form.
-            else if(document.forms['YearRange'].year.value > String(year)){
+            else if (document.forms['YearRange'].year.value > String(year)) {
                 alert("Please enter a year before " + year + ".");
                 return false;
             }
             // If the year input is less than the publication year, send an alert and don't allow the user to submit the form.
-            else if(document.forms['YearRange'].year.value < pubYear){
+            else if (document.forms['YearRange'].year.value < pubYear) {
                 alert("Please enter a year after " + pubYear + ".");
                 return false;
             }
         });
 
         // When the focus is inside the year text box...
-        $yearInput.keydown(function(event){
+        $yearInput.keydown(function (event) {
             // Allow numbers from the top row of the keyboard and numpad.
-            if(event.keyCode >= 48 && event.keyCode <= 57 || event.keyCode >= 96 && event.keyCode <= 105){
+            if (event.keyCode >= 48 && event.keyCode <= 57 || event.keyCode >= 96 && event.keyCode <= 105) {
                 return true;
             }
             // Allow backspace, tab or enter button.
-            else if(event.keyCode == 8 || event.keyCode == 9 || event.keyCode == 13){
+            else if (event.keyCode == 8 || event.keyCode == 9 || event.keyCode == 13) {
                 return true;
             }
             // Disable shift key to stop special characters from entering text box.
-            else if(event.shiftKey == true){
+            else if (event.shiftKey == true) {
                 return false;
             }
-            else{
+            else {
                 return false;
             }
         });
 
-        
+        // Initialize variables and reference to the resultsButton and the current value of the email box
+        let $resultsButton = $("#resultsButton");
+
+        // If the email box is empty, prompt the user to enter a query.
+        $resultsButton.click(function () {
+            let $emailValue = $("#email_input").val();
+
+            // check if email field is empty
+            if ($emailValue === '') {
+
+                $("#no_email").dialog({
+                    title: "ERROR",
+                    modal: true,
+                    minWidth: 700,
+                    minHeight: 200,
+                    buttons: {
+                        Ok: function () {
+                            $(this).dialog("close");
+                        }
+                    }
+                });
+                return false;
+            }
+            // check if entered email is valid       
+            else if (/^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/.test($emailValue)) {
+
+                $("#success").dialog({
+                    title: "Retrieving Data",
+                    modal: true,
+                    minWidth: 700,
+                    minHeight: 200,
+                    buttons: {
+                        Ok: function () {
+                            //$(location).attr('href', "/");
+                            $(this).dialog("close");
+                        }
+                    }
+
+                });
+                return (true)
+            }
+
+            $("#invalid_email").dialog({
+                title: "ERROR",
+                modal: true,
+                minWidth: 700,
+                minHeight: 200,
+                buttons: {
+                    Ok: function () {
+                        $(this).dialog("close");
+                    }
+                }
+            });
+            return (false)
+
+
+        });
+
+
     });
 </script>
 {% endblock %}
@@ -162,71 +220,115 @@
 
 
 <!--Heading -->
-<div class = "container">
+<div class="container">
     <div class="row">
-    <div class = "col-md-11">
-        <h1>Article Dashboard</h1>
-    </div>
-    <div class = "statsContainer">
-        <div style="width:180px; border-radius: 25px; padding: 10px; background-color: rgba(208, 218, 230, 0.5); " class = "center-screen col-sm-6">
-            <h2 style="text-align: center; color: black;">{{totalEventsSum}}</h2>
-            <p2><strong>Events</strong> <a style="text-decoration: none;" href="https://www.crossref.org/services/event-data/"target="_blank">(?)</a></p2>
-            <br>
+        <div class="col-md-11">
+            <h1>Article Dashboard</h1>
         </div>
-    </div>
-    <div class="row">
-        <!-- This is the left column - Information box-->
-        <div class = "col-md-5">
-            <div class="col">
-                <br><br><br>
-                <table id="noBorders">
-                    <tr>
-                    <td class='item-data'>
-                    <div class="AD_articleTitle">
-                        {{ article_detail.articleTitle }}
-                    </div>
-                    <br>
-                    <div class="AD_journalName">
-                        <strong>Journal:</strong> <a href="{{ url_for('journalDashboard') }}?journalName={{ article_detail.journalName }}">{{ article_detail.journalName }}</a>
-                    </div>
-                    <div class="AD_articleDate">
-                        <strong>Date Published:</strong> {{ article_detail.articleDate }}
-                    </div>
-                    <div class="AD_authors">
-                        <strong>Author(s):</strong>
-                            {% for auth in article_detail.author_list %}
-                                {% if auth == article_detail.author_list[-1] %}
-                                    <a href="{{ url_for('authorDashboard') }}?author_id={{ auth.id }}">{{ auth.name }}</a>
+        <div class="statsContainer">
+            <div style="width:180px; border-radius: 25px; padding: 10px; background-color: rgba(208, 218, 230, 0.5); "
+                class="center-screen col-sm-6">
+                <h2 style="text-align: center; color: black;">{{totalEventsSum}}</h2>
+                <p2><strong>Events</strong> <a style="text-decoration: none;"
+                        href="https://www.crossref.org/services/event-data/" target="_blank">(?)</a></p2>
+                <br>
+            </div>
+        </div>
+        <div class="row">
+            <!-- This is the left column - Information box-->
+            <div class="col-md-5">
+                <div class="col">
+                    <br><br><br>
+                    <table id="noBorders">
+                        <tr>
+                            <td class='item-data'>
+                                <div class="AD_articleTitle">
+                                    {{ article_detail.articleTitle }}
+                                </div>
+                                <br>
+                                <div class="AD_journalName">
+                                    <strong>Journal:</strong> <a
+                                        href="{{ url_for('journalDashboard') }}?journalName={{ article_detail.journalName }}">{{
+                                        article_detail.journalName }}</a>
+                                </div>
+                                <div class="AD_articleDate">
+                                    <strong>Date Published:</strong> {{ article_detail.articleDate }}
+                                </div>
+                                <div class="AD_authors">
+                                    <strong>Author(s):</strong>
+                                    {% for auth in article_detail.author_list %}
+                                    {% if auth == article_detail.author_list[-1] %}
+                                    <a href="{{ url_for('authorDashboard') }}?author_id={{ auth.id }}">{{ auth.name
+                                        }}</a>
                                     {% else %}
-                                        <a href="{{ url_for('authorDashboard') }}?author_id={{ auth.id }}">{{ auth.name }}</a>,
+                                    <a href="{{ url_for('authorDashboard') }}?author_id={{ auth.id }}">{{ auth.name
+                                        }}</a>,
                                     {% endif %}
-                            {% endfor %}
-                    </div>
-                    <div class="AD_DOI">
-                        <strong>DOI:</strong> <a href="https://doi.org/{{ article_detail.objectID }}"target="_blank">{{ article_detail.objectID }} &#8599;</a>
-                    </div>
-					<!--Author: Mohammad Tahmid
+                                    {% endfor %}
+                                </div>
+                                <div class="AD_DOI">
+                                    <strong>DOI:</strong> <a href="https://doi.org/{{ article_detail.objectID }}"
+                                        target="_blank">{{ article_detail.objectID }} &#8599;</a>
+                                </div>
+                                <!--Author: Mohammad Tahmid
 						Lines: 196-211
 						Description: This is the addition to display the citation information from the database and the button to download info about a DOI-->
-					<div class="AD_citations">
-                        <strong>Citation(s):</strong> {{ citationCount.count }}
-                    </div>
-					<form method="POST" action="{{ url_for('articleDashboard') }}?DOI={{ article_detail.objectID }}" class="center-screen">
-                        <br><br>
-                        <div class="form-group" style="text-align: center">
-                            <h3 style="color: black;"><b>Get DOI Info Emailed To You!</b></h3>
-                            <input type="text" id="email_input" name="email_input" placeholder="Email Address:"
-                            style="width: 250px;" class="form-control">
-                            <!-- Drop Down Search -->
-                            <select name="articleDLChoice" id="form-control" class="form-control" style="width: 250px;">
-                              <option value="doi">CSV</option>
-                              <option value="json">JSON</option>
-                            </select>
-                            <!--<button type="submit" name="articleDLDOI" value="{{ article_detail.objectID }}" class="form-control" id="form-control">-->
-                            <br><br>
-                            <button name="articleDLDOI" type="submit" value="{{ article_detail.objectID }}" class="file-upload-btn" id="resultsButton" style="width: 250px;">Get Info!</button></a>
-                            <br></br>
-                            {% with messages = get_flashed_messages(category_filter=["danger"]) %}
+                                <div class="AD_citations">
+                                    <strong>Citation(s):</strong> {{ citationCount.count }}
+                                </div>
+                                <form method="POST"
+                                    action="{{ url_for('articleDashboard') }}?DOI={{ article_detail.objectID }}"
+                                    class="center-screen">
+                                    <br><br>
+                                    <div class="form-group" style="text-align: center">
+                                        <h3 style="color: black;"><b>Get DOI Info Emailed To You!</b></h3>
+                                        <input type="text" id="email_input" name="email_input"
+                                            placeholder="Email Address:" style="width: 250px;" class="form-control">
+                                        <!-- Drop Down Search -->
+                                        <select name="articleDLChoice" id="form-control" class="form-control"
+                                            style="width: 250px;">
+                                            <option value="doi">CSV</option>
+                                            <option value="json">JSON</option>
+                                        </select>
+                                        <!--<button type="submit" name="articleDLDOI" value="{{ article_detail.objectID }}" class="form-control" id="form-control">-->
+                                        <br><br>
+                                        <button name="articleDLDOI" type="submit" value="{{ article_detail.objectID }}"
+                                            class="file-upload-btn" id="resultsButton" style="width: 250px;">Get
+                                            Info!</button></a>
+                                        <br></br>
+
+                                        <div id="no_email" style="display: none;">
+                                            <p style="font-family: 'Lucida Sans'; font-size: x-large; color: red;">
+                                                <b>You have not entered an email
+                                                    address.</b> </p>
+                                            <br>
+                                            <p style="font-family: 'Lucida Sans'; font-size: large;">Please enter an
+                                                email address in standard email
+                                                address format.</p>
+                                        </div>
+
+                                        <div id="invalid_email" style="display: none;">
+                                            <p style="font-family: 'Lucida Sans'; font-size: x-large; color: red;">
+                                                <b>You have entered an invalid email
+                                                    address.</b> </p>
+                                            <br>
+                                            <p style="font-family: 'Lucida Sans'; font-size: large;">Please enter an
+                                                email address in standard email
+                                                address format.</p>
+                                        </div>
+
+                                        <div id="success" style="display: none;">
+                                            <p style="font-family: 'Lucida Sans'; font-size: x-large; color: green;">
+                                                <b>SUCCESS! </b></p>
+                                            <br>
+                                            <p style="font-family: 'Lucida Sans'; font-size: large;">Thank You for Using
+                                                OpenAlt! </p>
+                                            <br>
+                                            <p style="font-family: 'Lucida Sans'; font-size: large;"> Your results will
+                                                be emailed to you once we're
+                                                done retrieving the data.</p>
+                                        </div>
+                                        <!-- {% with messages = get_flashed_messages(category_filter=["danger"]) %}
                                 {% if messages %}
                                     {% for message in messages %}
                                         <span style="color:red">{{ message }}</span>
@@ -240,35 +342,37 @@
                                         <span style="color:green">{{ message }}</span>
                                     {% endfor %}
                                 {% endif %}
-                            {% endwith %}
-                        </div>
-                    </form>
-                    <br>
-                    <br>
-                    <br>
-                    </td>
-                    </tr>
-                </table>
-            </div> 
-        </div><!-- End column on the left -->
+                            {% endwith %} -->
+                                    </div>
+                                </form>
+                                <br>
+                                <br>
+                                <br>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+            </div><!-- End column on the left -->
 
-        <!-- This is the right column, first row containing the chart -->
-        <br><br>
-        <div class="col-sm-7" id="changeAfterChart">
-            <h3 style="text-align: center;">Events for this article over {{years_list[0]}} - {{years_list[-1]}} </h3>
-            <div id="chart"></div>
-            <div id="yearFilter" style="text-align: center;">
-                <form method="post" action="{{ url_for('articleDashboard') }}?DOI={{ article_detail.objectID }}" class="form-inline" name="YearRange">
-                    <label for="yearBox">Select a year (YYYY):</label>
-                    <input type="text" name="year" id="yearBox" size="4" maxlength="4" pattern="\d{4}">
-                    <input width="40%" type="submit" value="Update" class="form-control">
-                </form>
+            <!-- This is the right column, first row containing the chart -->
+            <br><br>
+            <div class="col-sm-7" id="changeAfterChart">
+                <h3 style="text-align: center;">Events for this article over {{years_list[0]}} - {{years_list[-1]}}
+                </h3>
+                <div id="chart"></div>
+                <div id="yearFilter" style="text-align: center;">
+                    <form method="post" action="{{ url_for('articleDashboard') }}?DOI={{ article_detail.objectID }}"
+                        class="form-inline" name="YearRange">
+                        <label for="yearBox">Select a year (YYYY):</label>
+                        <input type="text" name="year" id="yearBox" size="4" maxlength="4" pattern="\d{4}">
+                        <input width="40%" type="submit" value="Update" class="form-control">
+                    </form>
+                </div>
             </div>
-        </div>
-    </div> <!-- end of row -->
-    <div class="row">
-        <div class="col-md-6"></div>
-        <!--
+        </div> <!-- end of row -->
+        <div class="row">
+            <div class="col-md-6"></div>
+            <!--
         <div class="col-md-6" id="yearFilter">
 
             <form method="post" action="{{ url_for('articleDashboard') }}?DOI={{ article_detail.objectID }}" class="form-inline" name="YearRange">
@@ -279,16 +383,17 @@
 
         </div>
         -->
-    </div>
+        </div>
 
-   <!-- <div class="row">
+        <!-- <div class="row">
         <div class="col-md-12">
             <h1 id="LatestEvents">Latest Events</h1>
             <hr>
             <h4 style="text-align: center;">Some events obtained from the Crossref API have generic links e.g. "https://twitter.com". <br>
             Events of this kind have been hidden below, but still appear and are counted in the chart.</h4>
 
-            <!-- Table - Latest Events --> <!--
+            <!-- Table - Latest Events -->
+        <!--
             {% for e in events %} 
 
             <div class="row row-bordered eventItem" id="{{e.sourceID}}">
@@ -310,114 +415,114 @@
 
             {% endfor %}
         </div>
-    </div> <!-- End the row --> 
-</div> <!-- end container wrapping entire page-->
-<br>
-<br>
-<br>
+    </div> <!-- End the row -->
+    </div> <!-- end container wrapping entire page-->
+    <br>
+    <br>
+    <br>
 
-<!-- Initialize the arrays as empty arrays -->
-<script>
-    cambiaevent=[]
-    crossrefevent = [];
-    dataciteevent = [];
-    f1000event = [];
-    hypothesisevent = [];
-    newsfeedevent = [];
-    redditevent = [];
-    redditlinksevent = [];
-    stackexchangeevent = [];
-    twitterevent = [];
-    webevent = [];
-    wikipediaevent = [];
-    wordpressevent = [];
-    years_list = [];
-</script>
+    <!-- Initialize the arrays as empty arrays -->
+    <script>
+        cambiaevent = []
+        crossrefevent = [];
+        dataciteevent = [];
+        f1000event = [];
+        hypothesisevent = [];
+        newsfeedevent = [];
+        redditevent = [];
+        redditlinksevent = [];
+        stackexchangeevent = [];
+        twitterevent = [];
+        webevent = [];
+        wikipediaevent = [];
+        wordpressevent = [];
+        years_list = [];
+    </script>
 
-{% for year in years_list %}
-<script>
-    years_list.push("{{ year }}")
-</script>
-{% endfor %}
+    {% for year in years_list %}
+    <script>
+        years_list.push("{{ year }}")
+    </script>
+    {% endfor %}
 
-{% for index in cambiaEventData %}   
-<script>
-    cambiaevent.push("{{ index }}");
-</script>
-{% endfor %}
+    {% for index in cambiaEventData %}
+    <script>
+        cambiaevent.push("{{ index }}");
+    </script>
+    {% endfor %}
 
 
-{% for index in crossrefEventData %}
-<script>
-    crossrefevent.push("{{ index }}");
-</script>
-{% endfor %}
+    {% for index in crossrefEventData %}
+    <script>
+        crossrefevent.push("{{ index }}");
+    </script>
+    {% endfor %}
 
-{% for index in dataciteEventData %}
-<script>
-    dataciteevent.push("{{ index }}");
-</script>
-{% endfor %}
+    {% for index in dataciteEventData %}
+    <script>
+        dataciteevent.push("{{ index }}");
+    </script>
+    {% endfor %}
 
-{% for index in f1000eventData %}
-<script>
-    f1000event.push("{{ index }}");
-</script>
-{% endfor %}
+    {% for index in f1000eventData %}
+    <script>
+        f1000event.push("{{ index }}");
+    </script>
+    {% endfor %}
 
-{% for index in hypothesisEventData %}
-<script>
-    hypothesisevent.push("{{ index }}");
-</script>
-{% endfor %}
+    {% for index in hypothesisEventData %}
+    <script>
+        hypothesisevent.push("{{ index }}");
+    </script>
+    {% endfor %}
 
-{% for index in newsfeedEventData %}
-<script>
-    newsfeedevent.push("{{ index }}");
-</script>
-{% endfor %}
+    {% for index in newsfeedEventData %}
+    <script>
+        newsfeedevent.push("{{ index }}");
+    </script>
+    {% endfor %}
 
-{% for index in redditEventData %}
-<script>
-    redditevent.push("{{ index }}");
-</script>
-{% endfor %}
+    {% for index in redditEventData %}
+    <script>
+        redditevent.push("{{ index }}");
+    </script>
+    {% endfor %}
 
-{% for index in redditlinksEventData %}
-<script>
-    redditlinksevent.push("{{ index }}");
-</script>
-{% endfor %}
+    {% for index in redditlinksEventData %}
+    <script>
+        redditlinksevent.push("{{ index }}");
+    </script>
+    {% endfor %}
 
-{% for index in stackexchangeEventData %}
-<script>
-    stackexchangeevent.push("{{ index }}");
-</script>
-{% endfor %}
+    {% for index in stackexchangeEventData %}
+    <script>
+        stackexchangeevent.push("{{ index }}");
+    </script>
+    {% endfor %}
 
-{% for index in twitterEventData %}
-<script>
-    twitterevent.push("{{ index }}");
-</script>
-{% endfor %}
+    {% for index in twitterEventData %}
+    <script>
+        twitterevent.push("{{ index }}");
+    </script>
+    {% endfor %}
 
-{% for index in webEventData %}
-<script>
-    webevent.push("{{ index }}");
-</script>
-{% endfor %}
+    {% for index in webEventData %}
+    <script>
+        webevent.push("{{ index }}");
+    </script>
+    {% endfor %}
 
-{% for index in wikipediaEventData %}
-<script>
-    wikipediaevent.push("{{ index }}");
-</script>
-{% endfor %}
+    {% for index in wikipediaEventData %}
+    <script>
+        wikipediaevent.push("{{ index }}");
+    </script>
+    {% endfor %}
 
-{% for index in wordpressEventData %}
-<script>
-    wordpressevent.push("{{ index }}");
-</script>
-{% endfor %}
+    {% for index in wordpressEventData %}
+    <script>
+        wordpressevent.push("{{ index }}");
+    </script>
+    {% endfor %}
 
-<script src="../static/js/chartScript.js"></script>
-{% endblock %}
+    <script src="../static/js/chartScript.js"></script>
+    {% endblock %}
