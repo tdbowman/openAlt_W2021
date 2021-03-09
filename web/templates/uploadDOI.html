@@ -4,7 +4,7 @@
 
 <!-- Anything you put here will be in the HTML head tags-->
 {% block head %}
-<script class="jsbin" src="https://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
+<!-- <script class="jsbin" src="https://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script> -->
 <script src="../static/js/upload.js"></script>
 
 <!-- Author: Salsabil Bakth -->
@@ -22,8 +22,18 @@
 
       // If size is greater than 1 MB
       if (size > 1) {
-        alert("File size exceeds 1 MB! Please upload a file that is less than 1 MB.")
-        location.reload();
+        $("#invalid_file_size").dialog({
+          title: "ERROR",
+          modal: true,
+          minWidth: 700,
+          minHeight: 200,
+          buttons: {
+              Ok: function () {
+                  $(this).dialog("close");
+              }
+          }
+        });
+        setTimeout(reload, 2500);
         return false;
       }
 
@@ -38,6 +48,12 @@
 <!-- Function to check only csv files are being uploaded -->
 <!-- Beginning of code -->
 <script>
+  function reload(){
+    location.reload();
+  }
+</script>
+
+<script>
   $(function () {
     let $uploadButton = $("#uploadButton");
 
@@ -49,11 +65,20 @@
 
       // If file does not have the correct file extension, reload page
       if ($.inArray($fileName.val().split('.').pop().toLowerCase(), fileExtension) == -1) {
-        alert("File must be a CSV file! Please upload a CSV file.");
-        location.reload();
+        $("#invalid_file_type").dialog({
+          title: "ERROR",
+          modal: true,
+          minWidth: 700,
+          minHeight: 200,
+          buttons: {
+              Ok: function () {
+                  $(this).dialog("close");
+              }
+          }
+        });
+        setTimeout(reload, 2500);
         return false;
       }
-
       return (true);
     });
 
@@ -92,6 +117,18 @@
         </form>
       </div>
 
+      <div id="invalid_file_type" style="display: none;">
+        <p style="font-family: 'Lucida Sans'; font-size: x-large; color: red;"><b>You have submitted an invalid file!</b> </p>
+        <br>
+        <p style="font-family: 'Lucida Sans'; font-size: large;">File must be a CSV file. Please upload a CSV file.</p>
+      </div>
+
+      <div id="invalid_file_size" style="display: none;">
+        <p style="font-family: 'Lucida Sans'; font-size: x-large; color: red;"><b>File size exceeds 1 MB!</b> </p>
+        <br>
+        <p style="font-family: 'Lucida Sans'; font-size: large;">Please upload a file that is less than 1 MB.</p>
+      </div>
+
       <br>
 
       <div class="center-screen;">
@@ -111,9 +148,6 @@
           <br>
         </div>
       </div>
-
-
-      
 
     </div>
 
