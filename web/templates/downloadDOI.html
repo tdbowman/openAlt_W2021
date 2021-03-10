@@ -45,22 +45,22 @@
                             //$(this).dialog("close");
                         }
                     }
-                    
+
                 });
                 return (true)
             }
 
             $("#invalid_email").dialog({
-                    title: "ERROR",
-                    modal: true,
-                    minWidth: 700,
-                    minHeight: 200,
-                    buttons: {
-                        Ok: function () {
-                            $(this).dialog("close");
-                        }
+                title: "ERROR",
+                modal: true,
+                minWidth: 700,
+                minHeight: 200,
+                buttons: {
+                    Ok: function () {
+                        $(this).dialog("close");
                     }
-                });
+                }
+            });
             return (false)
 
 
@@ -118,6 +118,18 @@
         </div>
 
 
+        <div class="center-screen" style="padding-top: 100px;">
+            <div style="width: 550px; border-radius: 25px; padding: 0px; background-color: rgba(60, 65, 70, 0.9); "
+                class="center-screen col-sm-6">
+                <h3 style="text-align: center; color: aliceblue; font-size: large;">Privacy Statement</h3>
+                <p1 style="text-align: center; color: aliceblue; font-size: small;"><i>OpenAlt may collect your email
+                        information as a mean to keep track of analytics with search results and email you analytics
+                        based on your searches. However, we here at OpenAlt respect your privacy and you may opt out of
+                        this feature via email.</i></p1>
+                <br>
+            </div>
+        </div>
+
         <div id="no_email" style="display: none;">
             <p style="font-family: 'Lucida Sans'; font-size: x-large; color: red;"><b>You have not entered an email
                     address.</b> </p>
@@ -141,19 +153,45 @@
             <br>
             <p style="font-family: 'Lucida Sans'; font-size: large;"> Your results will be emailed to you once we're
                 done retrieving the data.</p>
-        </div>
+            <br>
+            <table class="table table-condensed">
+                <thead>
+                    <tr>
+                        <th>Number of DOIs</th>
+                        <th>Estimated Time</th>
+                        <th>Estimated Size CSV</th>
+                        <th>Estimated Size JSON</th>
 
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>25</td>
+                        <td>1 min</td>
+                        <td>175 KB</td>
+                        <td>200 KB</td>
 
-        <div class="center-screen" style="padding-top: 100px;">
-            <div style="width: 550px; border-radius: 25px; padding: 0px; background-color: rgba(60, 65, 70, 0.9); "
-                class="center-screen col-sm-6">
-                <h3 style="text-align: center; color: aliceblue; font-size: large;">Privacy Statement</h3>
-                <p1 style="text-align: center; color: aliceblue; font-size: small;"><i>OpenAlt may collect your email
-                        information as a mean to keep track of analytics with search results and email you analytics
-                        based on your searches. However, we here at OpenAlt respect your privacy and you may opt out of
-                        this feature via email.</i></p1>
-                <br>
-            </div>
+                    </tr>
+                    <tr>
+                        <td>100</td>
+                        <td>5 min</td>
+                        <td>700 KB</td>
+                        <td>800 KB</td>
+                    </tr>
+                    <tr>
+                        <td>500</td>
+                        <td>20 min</td>
+                        <td>3 MB</td>
+                        <td>5 MB</td>
+                    </tr>
+                    <tr>
+                        <td>1000</td>
+                        <td>30 min</td>
+                        <td>7 MB</td>
+                        <td>10 MB</td>
+                    </tr>
+                </tbody>
+            </table>
         </div>
 
     </div>
