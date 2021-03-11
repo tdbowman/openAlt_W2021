@@ -48,12 +48,6 @@
         "name": "openCitationsReferenceCountAPI",
         "url": "https://w3id.org/oc/index/coci/api/v1/reference-count/"
     },
-<<<<<<< Updated upstream
-    "SciELO-Data-API": {
-        "name": "sciEloMetadataAPI",
-        "url": "https://api.crossref.org/works/",
-	"url-code": "10.1590"
-=======
     "SciELO-Brazil-Data-API": {
         "name": "sciEloMetadataAPI",
         "url": "https://api.crossref.org/works/",
@@ -61,6 +55,5 @@
     },
     "SciELO-Brazil-Log": {
         "file_limit": "100"
->>>>>>> Stashed changes
     }
 }
