@@ -9,6 +9,7 @@
 		let $searchFilter = $("#dropdownSearchBy");
 		$searchFilter.val("{{dropdownValue}}");
 
+
 		// sessionStorage is a property of the Web Storage API that creates an instance of a  Storage object. Storage objects are simple key-value stores but stay intact through page loads. The key and values are always strings.
 		// sessionStorage allows us to store data in the browser until the browser(or tab) is closed.
 
@@ -22,10 +23,27 @@
 		let $perPageDropdown = $("#perPage");
 
 		// jQuery statement that references the submit button.
-		let $submitButton = $("button[type='submit']");
+		let $submitButton = $("button[name='submit-button']");
 
 		// jQuery statement that references the year text boxes.
 		let $yearRangeBoxes = $(".yearRange");
+
+		// Author: Rihat Rahman
+		// Lines: 31 - 45
+		// -----------------------------------------------------------------------
+		// jQuery statement that references the domain text box
+		let $domainBox = $("#domain");
+
+		// jQuery statement that references the country dropdown menu
+		let $countryBox = $("#country")
+
+		// jQuery statement that references the university text box
+		let $universityBox = $("#university")
+
+		// jQuery statement that references the clear filter button.
+		let $clearButton = $("button[name='clear-button']");
+		// -----------------------------------------------------------------------
+
 
 
 		// Grabs the oldest publication year from searchLogic.py.
@@ -34,7 +52,6 @@
 		// Grabs the year from currentTime.
 		let currentTime = new Date()
 		let year = currentTime.getFullYear()
-
 
 		// Initialize variables and reference to the searchButton and the current value of the search box
 		let $searchButton = $("#searchButton");
@@ -52,12 +69,96 @@
 			}
 		});
 
+		
 		// Grab the values from the keys in sessionStorage.
-		let selectedValue = JSON.parse(sessionStorage.getItem('selected')) || "PublicationYearDescending";
-		let selectedValuePerPage = JSON.parse(sessionStorage.getItem('selectedPerPage')) || "10";
 
-		let startYear = JSON.parse(sessionStorage.getItem('startYear')) || "";
-		let endYear = JSON.parse(sessionStorage.getItem('endYear')) || "";
+		// let selectedValue = JSON.parse(sessionStorage.getItem('selected')) || "PublicationYearDescending";
+		// let selectedValuePerPage = JSON.parse(sessionStorage.getItem('selectedPerPage')) || "10";
+
+		// let startYear = JSON.parse(sessionStorage.getItem('startYear')) || "";
+		// let endYear = JSON.parse(sessionStorage.getItem('endYear')) || "";
+
+		// let domain =  JSON.parse(sessionStorage.getItem('domain')) || "";
+		// let country =  JSON.parse(sessionStorage.getItem('country')) || "";
+		// let university =  JSON.parse(sessionStorage.getItem('university')) || "";
+
+		
+
+		// Author: Rihat Rahman
+		// Lines: 87 - 160
+		// -----------------------------------------------------------------------
+		// To retrieve selected value (PublicationYearDescending / PublicationYearAscending) from session storage
+		if ((sessionStorage.getItem('selected') !== 'null') && (sessionStorage.getItem('selected') !== 'undefined')) {
+			selectedValue = JSON.parse(sessionStorage.getItem('selected'));
+		} 
+
+		else {
+			// default selected value
+			selectedValue = "PublicationYearDescending"
+		}
+
+
+		// To retrieve number of publications selected per page from session storage
+		if ((sessionStorage.getItem('selectedperPage') !== 'null') && (sessionStorage.getItem('selectedPerPage') !== 'undefined')){
+			selectedValuePerPage = JSON.parse(sessionStorage.getItem('selectedPerPage'));
+		} 
+
+		else {
+			// default number of publications per page
+			selectedValuePerPage = "10"
+		}
+
+
+		// To retrieve start year from session storage
+		if (sessionStorage.getItem('startYear') == 'undefined') {
+			startYear = ''
+		} 
+
+		else {
+			startYear = JSON.parse(sessionStorage.getItem('startYear'));
+		}
+
+
+		// To retrieve end year from session storage
+		if (sessionStorage.getItem('endYear') == 'undefined') {
+			endYear = ''
+		} 
+
+		else {
+			endYear = JSON.parse(sessionStorage.getItem('endYear'));
+		}
+
+
+		// To retrieve country from session storage
+		if (sessionStorage.getItem('country') == 'undefined') {
+			country = ''
+		} 
+
+		else {
+			country = JSON.parse(sessionStorage.getItem('country'));
+		}
+
+
+		// To retrieve domain year from session storage
+		if (sessionStorage.getItem('domain') == 'undefined') {
+			domain = ''
+		} 
+
+		else {
+			domain = JSON.parse(sessionStorage.getItem('domain'));
+		}
+
+
+		// To retrieve university from session storage
+		if (sessionStorage.getItem('university') == 'undefined') {
+			university = ''
+		} 
+
+		else {
+			university = JSON.parse(sessionStorage.getItem('university'));
+		}
+		// -----------------------------------------------------------------------
+
 
 		// When the focus is inside either of the year text boxes
 		$yearRangeBoxes.keydown(function(event){
@@ -80,6 +181,7 @@
 		});
 
 		$submitButton.click(function(){
+			
 			// Grab the current value of the startYear and endYear text boxes
 			let $startYearCurrentValue = $startYearBox.val();
 			$startYearCurrentValue = parseInt($startYearCurrentValue,10);
@@ -89,6 +191,16 @@
 
 			let $sortDropdownCurrentValue = $sortDropdown.val();
 			let $perPageDropdownCurrentValue = $perPageDropdown.val();
+
+
+			// Author: Rihat Rahman
+			// Lines: 202 - 205
+			// -----------------------------------------------------------------------
+			let $domainValue = $domainBox.val();
+			let $countryValue = $countryBox.val();
+			let $universityValue = $universityBox.val();
+			// -----------------------------------------------------------------------
+
 
 			// If the current values of both text boxes are not empty....
 			// NaN = Not A Number = An empty text box
@@ -107,8 +219,8 @@
 					return false;
 				}
 
-
 			}
+
 			// If either of the year text boxes aren't empty.....
 			// NaN = Not A Number = An empty text box
 			else if(!(isNaN($startYearCurrentValue)) || !(isNaN($endYearCurrentValue))){
@@ -130,13 +242,23 @@
 					}
 				}
 			}
-
+		
 			// Stringify all values and set them to their respective keys in session storage.
 			sessionStorage.setItem("startYear", JSON.stringify($startYearCurrentValue));
 			sessionStorage.setItem("endYear", JSON.stringify($endYearCurrentValue));
 			sessionStorage.setItem("selected", JSON.stringify($sortDropdownCurrentValue));
 			sessionStorage.setItem("selectedPerPage", JSON.stringify($perPageDropdownCurrentValue));
+
+
+			// Author: Rihat Rahman
+			// Lines: 253 - 332
+			// -----------------------------------------------------------------------
+			sessionStorage.setItem("domain", JSON.stringify($domainValue));
+			sessionStorage.setItem("country", JSON.stringify($countryValue));
+			sessionStorage.setItem("university", JSON.stringify($universityValue));
+			
 		});
+
 
 		// If the "From" year box isn't empty, set the current value to startYear.
 		if(startYear !== ''){
@@ -154,7 +276,62 @@
 		// Display the value of selectedValuePerPage in the "Per Page:" Dropdown window.
 		$perPageDropdown.val(selectedValuePerPage);
 
+
+		// Display value of domain
+		if(domain !== ''){
+			$domainBox.val(domain);
+		}
+
+		// Display value of country
+		if(country !== ''){
+			$countryBox.val(country);
+		}
+
+		// Display value of university
+		if(university !== ''){
+			$universityBox.val(university);
+		}
+
+		
+		$clearButton.click(function(){
+
+			// Grab the current value of the startYear and endYear text boxes
+			let $startYearCurrentValue = $startYearBox.val();
+			$startYearCurrentValue = parseInt($startYearCurrentValue,10);
+
+			let $endYearCurrentValue = $endYearBox.val();
+			$endYearCurrentValue = parseInt($endYearCurrentValue,10);
+
+			let $sortDropdownCurrentValue = $sortDropdown.val();
+			let $perPageDropdownCurrentValue = $perPageDropdown.val();
+
+			let $domainValue = $domainBox.val();
+			let $countryValue = $countryBox.val();
+			let $universityValue = $universityBox.val();
+
+
+			sessionStorage.setItem("startYear", JSON.stringify());
+			sessionStorage.setItem("endYear", JSON.stringify());
+			sessionStorage.setItem("selected", JSON.stringify());
+			sessionStorage.setItem("selectedPerPage", JSON.stringify());
+			sessionStorage.setItem("domain", JSON.stringify());
+			sessionStorage.setItem("country", JSON.stringify());
+			sessionStorage.setItem("university", JSON.stringify());
+
+			startYear = ''
+			endYear = ''
+			selectedValue = 'PublicationYearDescending' 
+			selectedValuePerPage = '10'
+			domain = ''
+			country = ''
+			university = ''
+
+		});
+
 	});
+	// -----------------------------------------------------------------------
+
+
 </script>
 {% endblock %}
 
@@ -192,10 +369,19 @@
 					<option value="50">50</option>
 					<option value="100">100</option>
 					</select>
-				<button type="submit" class=" resizedTextbox btn btn-default">Apply</button>
-			</form>
+				<button type="submit" class=" resizedTextbox btn btn-default" name = "submit-button" style = "background-color: #2B2D2F; color: #ffffff;">Apply Filters</button>
+			
 		</div>
+
+
+		<!-- Author: Rihat Rahman -->
+		<!-- Lines: 377 - 646 -->
+		<!---------------------------------------------------------------------------------------->
+			
+	<!---------------------------------------------------------------------------------------->
 	</div> <!-- End the row -->
+
+
 	<div class="row">
 		<div class="col-sm-12">
 			<br>
