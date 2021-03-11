@@ -83,7 +83,7 @@ if __name__=='__main__':
     client = pymongo.MongoClient('mongodb://localhost:27017/')
     dbs=client["MetadataDatabase"]
     coll=dbs["MetaData"]
-    r = requests.get('https://api.crossref.org/works?sample=10')
+    r = requests.get('https://api.crossref.org/works?sample=100')
     data=r.json()
     for i in data.get("message").get("items"):
         DOI=i.get("DOI")
