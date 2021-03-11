@@ -7,27 +7,34 @@ import requests
 import mysql.connector
 from ingestCrossrefMetadata import crossrefMetadataIngest
 
-def checkmysql(DOI):
-    # Check MySQL database for the specified DOI
+def hashmap():
+    listofDOIs = {}
+    # Connect to MySQL database
     mysql_username = "root"
     mysql_password = "pass"
     try:
-        db = mysql.connector.connect( host = "localhost",
-                                        user = mysql_username,
-                                        passwd = mysql_password,
-                                        database = "doidata")
+        db = mysql.connector.connect(host = "localhost", user = mysql_username, passwd = mysql_password, database = "doidata")
     except:
         print("Could not connect to MySQL")
         return
     myCursor=db.cursor(buffered=True)
-    myCursor.execute("SELECT * FROM _metadata_ WHERE DOI LIKE '%" + (str(DOI)) + "%'")
-    if myCursor.fetchone() == None:
-        # If the DOI is not in the database, retrieve from API and store in MongoDB
-        storeMetaDatainMongoDB(DOI)
-    else:
-        # Retrieve from MySQL
-        print("Data is already in MySQL database")
-        return
+    myCursor.execute("SELECT DOI FROM _metadata_")
+    # Fetch all rows of column DOI from the _metadata_ table
+    DOIs = myCursor.fetchall()
+    # Store all DOIs in a dictionary
+    for i in DOIs:
+        listofDOIs[i[0]]=None
+    # Return dictionary
+    return listofDOIs
+
+def checkdictionary(listofDOIs, DOI):
+    # Check dictionary for DOI
+    for key in listofDOIs:
+        if key == DOI:
+            print(DOI+" is already in the database")
+            return
+    # If the DOI is not in the database, retrieve from API and store in MongoDB
+    storeMetaDatainMongoDB(DOI)
     return
 
 def storeMetaDatainMongoDB(DOI):
@@ -57,15 +64,12 @@ def storeinmysql(DOI, coll):
     mysql_username = "root"
     mysql_password = "pass"
     try:
-        db = mysql.connector.connect( host = "localhost",
-                                        user = mysql_username,
-                                        passwd = mysql_password,
-                                        database = "doidata")
+        db = mysql.connector.connect(host = "localhost", user = mysql_username, passwd = mysql_password, database = "doidata")
     except:
         print("Could not connect to MySQL")
         return
     myCursor=db.cursor(buffered=True)
-    myCursor.execute("SELECT DOI FROM _metadata_")
+    myCursor.execute("SELECT * FROM _metadata_")
     for data in coll.find({},{"_id":1,"DOI":1, "URL":1, "abstract":1, "created":1, "language":1, "author":1, "subject":1, "publisher":1,
     "reference-count":1, "is-referenced-by-count":1, "references-count":1, "score":1, "source":1, "title":1, "type":1}):
         crossrefMetadataIngest(data, myCursor, db)
@@ -78,13 +82,12 @@ def storeinmysql(DOI, coll):
     return
 
 if __name__=='__main__':
-    # This is only for testing
-    # Call checkmysql() function with the DOI as the argument to ingest metadata
-    client = pymongo.MongoClient('mongodb://localhost:27017/')
-    dbs=client["MetadataDatabase"]
-    coll=dbs["MetaData"]
+    # This main block is only for testing; implementation instructions below
+    # First call hashmap() to create first argument for the checkdictionary() function
+    # Next call checkdictionary() function with the dictionary from hashmap() and the DOI as arguments
+    listofDOIs = hashmap()
     r = requests.get('https://api.crossref.org/works?sample=100')
     data=r.json()
     for i in data.get("message").get("items"):
         DOI=i.get("DOI")
-        checkmysql(DOI)
+        checkdictionary(listofDOIs, DOI)
