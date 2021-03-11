@@ -68,18 +68,18 @@ def storeinmysql(DOI, coll):
     myCursor.execute("SELECT DOI FROM _metadata_")
     for data in coll.find({},{"_id":1,"DOI":1, "URL":1, "abstract":1, "created":1, "language":1, "author":1, "subject":1, "publisher":1,
     "reference-count":1, "is-referenced-by-count":1, "references-count":1, "score":1, "source":1, "title":1, "type":1}):
-        #print(data.get("message"))
         crossrefMetadataIngest(data, myCursor, db)
     # End the connection to the MySQL database
     myCursor.close()
     db.close()
     print("Data stored")
+    # Delete all contents of collection; delete_many used just to be safe
+    coll.delete_many({})
     return
 
 if __name__=='__main__':
     # This is only for testing
-    # Call checkmysql() function to ingest metadata
-    # Delete contents of Mongo collection after ingesting all metadata
+    # Call checkmysql() function with the DOI as the argument to ingest metadata
     client = pymongo.MongoClient('mongodb://localhost:27017/')
     dbs=client["MetadataDatabase"]
     coll=dbs["MetaData"]
@@ -88,4 +88,3 @@ if __name__=='__main__':
     for i in data.get("message").get("items"):
         DOI=i.get("DOI")
         checkmysql(DOI)
-    coll.delete_many({})
