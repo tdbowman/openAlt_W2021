@@ -11,14 +11,16 @@
 {% block body %}
 <br>
 <br>
-<body style="background-image: url('../static/images/books.jpg'); background-repeat: repeat-y; background-size:cover;">
+<body style="background-image: url('../static/images/books.jpg'); background-repeat: no-repeat; background-size:cover;">
   
-  
+  <div class="col-sm-3">
+    <!-- Empty column of size 3. Left of form. -->
+  </div>
 
-  <div class = "center-screen">
-    <div style="width:500px; border-radius: 25px; padding: 10px; background-color: rgba(60, 65, 70, 0.9); " >
-      <h1 style="text-align: center; color: aliceblue;"><b>Search By CSV</b></h1>
-      <p2 style="text-align: center; color: aliceblue;">Search for scholarly publications by uploading a CSV file containing a list of DOIs, Authors, or Universities.</p2>
+  <div class = "center-screen col-sm-6">
+    <div style="border-radius: 25px; padding: 10px; background-color: rgba(60, 65, 70, 0.8); " >
+      <h1 style="text-align: center; color: aliceblue;">OpenAlt</h1>
+      <p2 style="text-align: center; color: aliceblue;">Search for scholarly publications by uploading a list of Authors or a list of DOIs</p2>
       <br><br>
 
       <!-- Form to indicate choice of user -->
@@ -38,7 +40,9 @@
       <br>
     </div>
 
-    
+    <div class="col-sm-3">
+      <!-- Empty column of size 3. Right of form. -->
+    </div>
 </body>
 
 {% endblock %}

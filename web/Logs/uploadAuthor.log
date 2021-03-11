@@ -41,6 +41,7 @@
 03-Mar-21 14:06:51 - 127.0.0.1 - - [03/Mar/2021 14:06:51] "[32mPOST /downloadAuthors HTTP/1.1[0m" 302 -
 03-Mar-21 14:06:51 - 127.0.0.1 - - [03/Mar/2021 14:06:51] "[37mGET /searchComplete HTTP/1.1[0m" 200 -
 03-Mar-21 14:07:32 -  * Detected change in 'C:\\Users\\darpa\\Desktop\\openAlt_W2021\\web\\app.py', reloading
+<<<<<<< HEAD
 03-Mar-21 18:59:56 - ()
 03-Mar-21 18:59:56 - AUTHOR NOT FOUND: jane doe
 
@@ -56,3 +57,5 @@
 03-Mar-21 18:59:58 - 127.0.0.1 - - [03/Mar/2021 18:59:58] "[32mPOST /downloadAuthors HTTP/1.1[0m" 302 -
 03-Mar-21 18:59:58 - 127.0.0.1 - - [03/Mar/2021 18:59:58] "[37mGET /searchComplete HTTP/1.1[0m" 200 -
 03-Mar-21 19:00:13 - 127.0.0.1 - - [03/Mar/2021 19:00:13] "[37mGET / HTTP/1.1[0m" 200 -
+=======
+>>>>>>> parent of 602bf31 (Merge branch 'master' into tabishDev)
