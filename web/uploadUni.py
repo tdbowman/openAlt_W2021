@@ -87,7 +87,8 @@ def downloadUni(mysql, dir_csv, type, email):
     uni_arr = list(dict.fromkeys(uni_arr))
 
     # Set up cursor to run SQL query
-    cursor = mysql.connection.cursor()
+    db = mysql.connection
+    cursor = db.cursor()
 
     # Creating text file with API instructions
     f = open(dir_results + '\\API_Instructions.txt', 'w+')
@@ -189,6 +190,9 @@ def downloadUni(mysql, dir_csv, type, email):
     
     # Send Results via email
     er.emailResults(zipUni, email, 'uni')
+
+    # Insert User to Table
+    dbQuery.bulkSearchUserInsert(email, 'uni', cursor, db)
 
     # Time taken to execute script
     print("--- %s seconds ---" % (time.time() - start_time))

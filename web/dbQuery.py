@@ -164,6 +164,15 @@ def getUniArticles(uni, cursor):
     
     return resultSet
 
+# insert user stats into bulksearchstats table
+def bulkSearchUserInsert(email, type, cursor, db):
+    query = "INSERT INTO bulksearchStats.bulksearch (email, type) VALUES ('" + email + "', '" + type + "');" 
+    cursor.execute(query)
+    db.commit()
+
+    
+    print("User Stat Inserted")
+
 
 
 

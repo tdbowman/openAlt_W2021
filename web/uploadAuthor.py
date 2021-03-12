@@ -84,7 +84,8 @@ def downloadAuthor(mysql, dir_csv, type, email):
     author_arr = list(dict.fromkeys(author_arr))
 
     # Set up cursor to run SQL query
-    cursor = mysql.connection.cursor()  
+    db = mysql.connection
+    cursor = db.cursor()  
 
     # Creating text file with API instructions
     f = open(dir_results + '\\API_Instructions.txt','w+')
@@ -191,6 +192,9 @@ def downloadAuthor(mysql, dir_csv, type, email):
 
     # Send Results via email
     er.emailResults(zipAuthor, email, 'author')
+
+    # Insert User to Table
+    dbQuery.bulkSearchUserInsert(email, 'author', cursor, db)
 
     # Time taken to execute script
     print("--- %s seconds ---" % (time.time() - start_time))

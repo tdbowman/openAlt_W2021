@@ -14,11 +14,7 @@ CREATE TABLE IF NOT EXISTS bulkSearch
     
     -- Timestamp to check how many times they have used in x amount of time
     time 			datetime default current_timestamp,
-    
-    -- UNIX time stamp
-    timestamp 		timestamp default current_timestamp,
-    
-    
-    
+     
+        
     PRIMARY KEY(id)
 );
