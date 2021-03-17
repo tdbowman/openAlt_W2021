@@ -29,6 +29,8 @@ def hashmap():
 
 def checkdictionary(listofDOIs, DOI):
     # Check dictionary for DOI
+    if DOI=='None':
+        return
     for key in listofDOIs:
         if key == DOI:
             print(DOI+" is already in the database")
@@ -50,11 +52,16 @@ def storeMetaDatainMongoDB(DOI):
     dbs=client["MetadataDatabase"]
     # cursor to specified collection; create if it doesn't exist
     coll=dbs["MetaData"]
-    data=r.json()
+    try:
+         data=r.json()
+    except:
+        print("Invalid data")
+        return
     if data.get("message-type")=="work":
         coll.insert_one(data.get("message"))
     else:
         print("Invalid data")
+        return
     storeinmysql(DOI, coll)
     return
 
@@ -85,9 +92,11 @@ if __name__=='__main__':
     # This main block is only for testing; implementation instructions below
     # First call hashmap() to create first argument for the checkdictionary() function
     # Next call checkdictionary() function with the dictionary from hashmap() and the DOI as arguments
+    mysql_username = "root"
+    mysql_password = "pass"
+    db = mysql.connector.connect(host = "localhost", user = mysql_username, passwd = mysql_password, database = "dr_bowman_doi_data_tables")
+    myCursor=db.cursor(buffered=True)
+    myCursor.execute("SELECT DOI FROM _main_")
     listofDOIs = hashmap()
-    r = requests.get('https://api.crossref.org/works?sample=100')
-    data=r.json()
-    for i in data.get("message").get("items"):
-        DOI=i.get("DOI")
-        checkdictionary(listofDOIs, DOI)
+    for i in myCursor:
+        checkdictionary(listofDOIs, str(i[0]))

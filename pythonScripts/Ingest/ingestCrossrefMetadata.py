@@ -17,7 +17,6 @@ def crossrefMetadataIngest(data, cursor, connection):
     t_source=None
     t_title=None
     t_type=None
-    t_id=None
     # Enter the objects with the values of the fields in the JSON file.
     for key, value in data.items():
         if (key == "DOI"):
@@ -52,18 +51,16 @@ def crossrefMetadataIngest(data, cursor, connection):
             t_title = str(value)
         elif (key == "type"):
             t_type = value
-        elif (key == "_id"):
-            t_id = value
     # SQL query to insert data into tobles
     add_event = ("INSERT IGNORE INTO _metadata_ "
     "(DOI, URL, abstract, datetimeCreated, language, primaryAuthor, primarySubject, publisher, "
-    "referenceCount, referencedByCount, referencesCount, score, source, title, type, _id) "
-    "VALUES (%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s)")
+    "referenceCount, referencedByCount, referencesCount, score, source, title, type) "
+    "VALUES (%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s)")
     # Values to insert into _metadata_ event table
     data_event = (t_DOI, t_URL, t_abstract, t_created, t_lang,
                     t_primaryAuthor, t_primarySubject, t_publisher, t_ref_count,
                     t_refby_count, t_rs_count, t_score, t_source,
-                    t_title, t_type,str(t_id))
+                    t_title, t_type)
 
     # Execute query to add information to _metadata_ event table
     cursor.execute(add_event, data_event)
