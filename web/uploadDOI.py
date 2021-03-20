@@ -100,7 +100,8 @@ def downloadDOI(mysql, dir_csv, type, email):
 
    
     # Cursor makes connection with the db
-    cursor = mysql.connection.cursor()
+    db = mysql.connection
+    cursor = db.cursor()
 
     # Creating text file with API instructions
     f = open(dir_results + '\\API_Instructions.txt','w+')
@@ -255,6 +256,9 @@ def downloadDOI(mysql, dir_csv, type, email):
 
     # Send Results via email
     er.emailResults(zipEvents, email, 'doi')
+
+    # Insert User to Table
+    dbQuery.bulkSearchUserInsert(email, 'doi', cursor, db)
 
     # Time taken to execute script
     print("--- %s seconds ---" % (time.time() - start_time))
