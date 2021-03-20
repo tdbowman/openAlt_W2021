@@ -4,6 +4,10 @@
 # The script runs so that it retrieves all of the DOIs from the MySQL database and 
 # looks for the corresponding events. Once the events are found, they are inserted 
 # into MongoDB. 
+# Incorporated a hash map to check for duplication from MySQL. Checks for eventID
+# and stores them into a dictionary. The hashmap is then used to compare the eventID
+# of the new events. If it does not exist in the MySQL table, then it is inserted into
+# MongoDB.
 
 import mysql.connector
 import os
@@ -25,18 +29,18 @@ def fetch_events():
 
 
     # loops for each DOI (for all articles use len(articles))
-    # for i in range(5):
+    for i in range(50):
         
-    #     article = articles[i]
+        article = articles[i]
 
-    #     # access the DOI from set
-    #     articleDOI = article[0]
+        # access the DOI from set
+        articleDOI = article[0]
 
-    #     print(articleDOI)
+        print(articleDOI)
 
-    #     print("API Call!")
+        print("API Call!")
         
-    articleDOI = "10.1016/s0377-2217(02)00134-0"
+    # articleDOI = "10.1001/jama.280.23.1995"
     # fetching event data for this particular DOI
     response = requests.get("https://api.eventdata.crossref.org/v1/events?mailto=YOUR_EMAIL_HERE&obj-id=" + articleDOI)
     
@@ -45,7 +49,7 @@ def fetch_events():
     
     if (data != []):
         events = data.get("message").get("events")
-
+        # print("Events:", events)
         transfer_buffer(events, articleDOI)
 
     
@@ -58,7 +62,7 @@ def transfer_buffer(events, articleDOI):
     myclient = pymongo.MongoClient("mongodb://localhost:27017/")
 
     # reference MongoDB database
-    eventDatabase = myclient["EventDatabase"]
+    eventDatabase = myclient["EventDatabaseTest"]
         
     for info in events: 
 
@@ -77,39 +81,37 @@ def transfer_buffer(events, articleDOI):
 
                 # store DOIs 
                 eventIDs = drBowmanDatabaseCursor.fetchall()
-
-                print(eventIDs)
-
                 listEventIDs= {}
-
-                if (listEventIDs != []):
+                
+                if (eventIDs != []):
                     # store eventID as a key in listEventID dictionary 
                     for uniqueEventID in eventIDs:
                         listEventIDs[uniqueEventID[0]] = None
 
-                    # for each key in the dictionary, check for duplication or else insert into MongoDB
                     for eventID in listEventIDs:
-                        print(eventID)
-
                         # checks to see if an eventID in the database matches with an API eventID 
                         if (eventID == mongoEventID):
-                            print("Duplicate!")
+                            print("Duplicate Cambia-Lens Event!")
+                            break
 
                         else: 
+                            print("Cambia-Lens Ingest!")
                             # reference MongoDB collection
-                            cambiaLens = eventDatabase["Cambia-Lens"]
+                            cambia = eventDatabase["Cambia-Lens"]
 
-                            # insert data
-                            insertCollection(cambiaLens, info)
+                            cambia.insert_one(info)
+                            print("Success!")
+                            break
                 else:
-                    print("Ingest Cambia!")
+                    print("Cambia-Lens Ingest!")
                     # reference MongoDB collection
-                    cambiaLens = eventDatabase["Cambia-Lens"]
+                    cambia = eventDatabase["Cambia-Lens"]
 
-                    # insert data
-                    insertCollection(cambiaLens, info)
+                    cambia.insert_one(info)
+                    print("Success!")
+                    break
                 break
-            
+
             elif (key == "source_id" and value == "crossref"):
                 print("Crossref")
 
@@ -119,38 +121,35 @@ def transfer_buffer(events, articleDOI):
 
                 # store DOIs 
                 eventIDs = drBowmanDatabaseCursor.fetchall()
-
-                print(eventIDs)
-
                 listEventIDs= {}
-
+                
                 if (eventIDs != []):
                     # store eventID as a key in listEventID dictionary 
                     for uniqueEventID in eventIDs:
                         listEventIDs[uniqueEventID[0]] = None
 
-                    # for each key in the dictionary, check for duplication or else insert into MongoDB
                     for eventID in listEventIDs:
-                        print(eventID)
-
                         # checks to see if an eventID in the database matches with an API eventID 
                         if (eventID == mongoEventID):
-                            print("Duplicate!")
+                            print("Duplicate Crossref Event!")
+                            break
 
                         else: 
-                            print("Ingest!")
+                            print("Crossref Ingest!")
                             # reference MongoDB collection
-                            crossref = eventDatabase["Crossref"]
+                            crossref = eventDatabase["CrossrefTest"]
 
-                            # insert data
-                            insertCollection(crossref, info)
+                            crossref.insert_one(info)
+                            print("Success!")
+                            break
                 else:
                     print("Crossref Ingest!")
                     # reference MongoDB collection
-                    crossref = eventDatabase["Crossref"]
+                    crossref = eventDatabase["CrossrefTest"]
 
-                    # insert data
-                    insertCollection(crossref, info)
+                    crossref.insert_one(info)
+                    print("Success!")
+                    break
                 break
 
             elif (key == "source_id" and value == "datacite"):
@@ -162,89 +161,281 @@ def transfer_buffer(events, articleDOI):
 
                 # store DOIs 
                 eventIDs = drBowmanDatabaseCursor.fetchall()
-
-                print(eventIDs)
-
                 listEventIDs= {}
+                
+                if (eventIDs != []):
+                    # store eventID as a key in listEventID dictionary 
+                    for uniqueEventID in eventIDs:
+                        listEventIDs[uniqueEventID[0]] = None
 
-                # store eventID as a key in listEventID dictionary 
-                for uniqueEventID in eventIDs:
-                    listEventIDs[uniqueEventID[0]] = None
+                    for eventID in listEventIDs:
+                        # checks to see if an eventID in the database matches with an API eventID 
+                        if (eventID == mongoEventID):
+                            print("Duplicate Datacite Event!")
+                            break
 
-                # for each key in the dictionary, check for duplication or else insert into MongoDB
-                for eventID in listEventIDs:
-                    print(eventID)
+                        else: 
+                            print("Datacite Ingest!")
+                            # reference MongoDB collection
+                            datacite = eventDatabase["Datacite"]
 
-                    # checks to see if an eventID in the database matches with an API eventID 
-                    if (eventID == mongoEventID):
-                        print("Duplicate!")
+                            datacite.insert_one(info)
+                            print("Success!")
+                            break
 
-                    else: 
-                        # reference MongoDB collection
-                        datacite = eventDatabase["Datacite"]
+                else:
+                    print("Datacite Ingest!")
+                    # reference MongoDB collection
+                    datacite = eventDatabase["Datacite"]
 
-                        # insert data
-                        insertCollection(datacite, info)
+                    # insert data
+                    datacite.insert_one(info)
+                    print("Success!")
+                    break
                 break
 
             elif (key == "source_id" and value == "f1000"):
                 print("F1000")
+                drBowmanDatabase = databaseConnection()
+                drBowmanDatabaseCursor = drBowmanDatabase.cursor()
+                drBowmanDatabaseCursor.execute("Select eventID FROM f1000event WHERE objectID='" + objectID + "'")
 
-                # reference MongoDB collection
-                f1000 = eventDatabase["F1000"]
+                # store DOIs 
+                eventIDs = drBowmanDatabaseCursor.fetchall()
+                listEventIDs= {}
+                
+                if (eventIDs != []):
+                    # store eventID as a key in listEventID dictionary 
+                    for uniqueEventID in eventIDs:
+                        listEventIDs[uniqueEventID[0]] = None
 
-                # insert data
-                insertCollection(f1000, info)
+                    for eventID in listEventIDs:
+                        # checks to see if an eventID in the database matches with an API eventID 
+                        if (eventID == mongoEventID):
+                            print("Duplicate F1000 Event!")
+                            break
+
+                        else: 
+                            print("F1000 Ingest!")
+                            # reference MongoDB collection
+                            f1000 = eventDatabase["F1000"]
+
+                            f1000.insert_one(info)
+                            print("Success!")
+                            break
+
+                else:
+                    print("F1000 Ingest!")
+                    # reference MongoDB collection
+                    f1000 = eventDatabase["F1000"]
+
+                    f1000.insert_one(info)
+                    print("Success!")
+                    break
                 break
 
             elif (key == "source_id" and value == "hypothesis"):
                 print("Hypothesis")
 
-                # reference MongoDB collection
-                hypothesis = eventDatabase["Hypothesis"]
+                drBowmanDatabase = databaseConnection()
+                drBowmanDatabaseCursor = drBowmanDatabase.cursor()
+                drBowmanDatabaseCursor.execute("Select eventID FROM hypothesisevent WHERE objectID='" + objectID + "'")
 
-                # insert data
-                insertCollection(hypothesis, info)
+                # store DOIs 
+                eventIDs = drBowmanDatabaseCursor.fetchall()
+                listEventIDs= {}
+                
+                if (eventIDs != []):
+                    # store eventID as a key in listEventID dictionary 
+                    for uniqueEventID in eventIDs:
+                        listEventIDs[uniqueEventID[0]] = None
+
+                    for eventID in listEventIDs:
+                        # checks to see if an eventID in the database matches with an API eventID 
+                        if (eventID == mongoEventID):
+                            print("Duplicate Hypothesis Event!")
+                            break
+
+                        else: 
+                            print("Hypothesis Ingest!")
+                            # reference MongoDB collection
+                            hypothesis = eventDatabase["Hypothesis"]
+
+                            hypothesis.insert_one(info)
+                            print("Success!")
+                            break
+
+                else:
+                    print("Hypothesis Ingest!")
+                    # reference MongoDB collection
+                    hypothesis = eventDatabase["Hypothesis"]
+
+                    hypothesis.insert_one(info)
+                    print("Success!")
+                    break
                 break
 
             elif (key == "source_id" and value == "newsfeed"):
                 print("Newsfeed")
 
-                # reference MongoDB collection
-                newsfeed = eventDatabase["Newsfeed"]
+                drBowmanDatabase = databaseConnection()
+                drBowmanDatabaseCursor = drBowmanDatabase.cursor()
+                drBowmanDatabaseCursor.execute("Select eventID FROM newsfeedevent WHERE objectID='" + objectID + "'")
 
-                # insert data
-                insertCollection(newsfeed, info)
+                # store DOIs 
+                eventIDs = drBowmanDatabaseCursor.fetchall()
+                listEventIDs= {}
+                
+                if (eventIDs != []):
+                    # store eventID as a key in listEventID dictionary 
+                    for uniqueEventID in eventIDs:
+                        listEventIDs[uniqueEventID[0]] = None
+
+                    for eventID in listEventIDs:
+                        # checks to see if an eventID in the database matches with an API eventID 
+                        if (eventID == mongoEventID):
+                            print("Duplicate Newsfeed Event!")
+                            break
+
+                        else: 
+                            print("Newsfeed Ingest!")
+                            # reference MongoDB collection
+                            newsfeed = eventDatabase["Newsfeed"]
+
+                            newsfeed.insert_one(info)
+                            print("Success!")
+                            break
+
+                else:
+                    print("Newsfeed Ingest!")
+                    # reference MongoDB collection
+                    newsfeed = eventDatabase["Newsfeed"]
+
+                    newsfeed.insert_one(info)
+                    print("Success!")
+                    break
                 break
 
             elif (key == "source_id" and value == "reddit"):
                 print("Reddit")
 
-                # reference MongoDB collection
-                reddit = eventDatabase["Reddit"]
+                drBowmanDatabase = databaseConnection()
+                drBowmanDatabaseCursor = drBowmanDatabase.cursor()
+                drBowmanDatabaseCursor.execute("Select eventID FROM redditevent WHERE objectID='" + objectID + "'")
 
-                # insert data
-                insertCollection(reddit, info)
+                # store DOIs 
+                eventIDs = drBowmanDatabaseCursor.fetchall()
+                listEventIDs= {}
+                
+                if (eventIDs != []):
+                    # store eventID as a key in listEventID dictionary 
+                    for uniqueEventID in eventIDs:
+                        listEventIDs[uniqueEventID[0]] = None
+
+                    for eventID in listEventIDs:
+                        # checks to see if an eventID in the database matches with an API eventID 
+                        if (eventID == mongoEventID):
+                            print("Duplicate Reddit Event!")
+                            break
+
+                        else: 
+                            print("Reddit Ingest!")
+                            # reference MongoDB collection
+                            reddit = eventDatabase["Reddit"]
+
+                            reddit.insert_one(info)
+                            print("Success!")
+                            break
+
+                else:
+                    print("Reddit Ingest!")
+                    # reference MongoDB collection
+                    reddit = eventDatabase["Reddit"]
+
+                    reddit.insert_one(info)
+                    print("Success!")
+                    break
                 break
 
             elif (key == "source_id" and value == "reddit-links"):
-                print("Reddit-links")
+                print("Reddit-Links")
 
-                # reference MongoDB collection
-                redditLinks = eventDatabase["Reddit-Links"]
+                drBowmanDatabase = databaseConnection()
+                drBowmanDatabaseCursor = drBowmanDatabase.cursor()
+                drBowmanDatabaseCursor.execute("Select eventID FROM redditlinksevent WHERE objectID='" + objectID + "'")
 
-                # insert data
-                insertCollection(redditLinks, info)
+                # store DOIs 
+                eventIDs = drBowmanDatabaseCursor.fetchall()
+                listEventIDs= {}
+                
+                if (eventIDs != []):
+                    # store eventID as a key in listEventID dictionary 
+                    for uniqueEventID in eventIDs:
+                        listEventIDs[uniqueEventID[0]] = None
+
+                    for eventID in listEventIDs:
+                        # checks to see if an eventID in the database matches with an API eventID 
+                        if (eventID == mongoEventID):
+                            print("Duplicate Reddit-Links Event!")
+                            break
+
+                        else: 
+                            print("Reddit-Links Ingest!")
+                            # reference MongoDB collection
+                            redditlinks = eventDatabase["Reddit-Links"]
+
+                            redditlinks.insert_one(info)
+                            print("Success!")
+                            break
+
+                else:
+                    print("Reddit-Links Ingest!")
+                    # reference MongoDB collection
+                    redditlinks = eventDatabase["Reddit-Links"]
+
+                    redditlinks.insert_one(info)
+                    print("Success!")
+                    break
                 break
 
             elif (key == "source_id" and value == "stackexchange"):
                 print("Stack Exchange")
 
-                # reference MongoDB collection
-                stackexchange = eventDatabase["Stackexchange"]
+                drBowmanDatabase = databaseConnection()
+                drBowmanDatabaseCursor = drBowmanDatabase.cursor()
+                drBowmanDatabaseCursor.execute("Select eventID FROM stackexchangeevent WHERE objectID='" + objectID + "'")
 
-                # insert data
-                insertCollection(stackexchange, info)
+                # store DOIs 
+                eventIDs = drBowmanDatabaseCursor.fetchall()
+                listEventIDs= {}
+                
+                if (eventIDs != []):
+                    # store eventID as a key in listEventID dictionary 
+                    for uniqueEventID in eventIDs:
+                        listEventIDs[uniqueEventID[0]] = None
+
+                    for eventID in listEventIDs:
+                        # checks to see if an eventID in the database matches with an API eventID 
+                        if (eventID == mongoEventID):
+                            print("Duplicate Stack Exchange Event!")
+                            break
+
+                        else: 
+                            print("Stack Exchange Ingest!")
+                            # reference MongoDB collection
+                            stackexchange = eventDatabase["StackExchange"]
+
+                            stackexchange.insert_one(info)
+                            print("Success!")
+                            break
+                else:
+                    print("Stack Exchange Ingest!")
+                    # reference MongoDB collection
+                    stackexchange = eventDatabase["StackExchange"]
+
+                    stackexchange.insert_one(info)
+                    print("Success!")
+                    break
                 break
 
             elif (key == "source_id" and value == "twitter"):
@@ -257,39 +448,75 @@ def transfer_buffer(events, articleDOI):
 
                 # store DOIs 
                 eventIDs = drBowmanDatabaseCursor.fetchall()
-
-                print(eventIDs)
-
                 listEventIDs= {}
+                
+                if (eventIDs != []):
+                    # store eventID as a key in listEventID dictionary 
+                    for uniqueEventID in eventIDs:
+                        listEventIDs[uniqueEventID[0]] = None
 
-                # store eventID as a key in listEventID dictionary 
-                for uniqueEventID in eventIDs:
-                    listEventIDs[uniqueEventID[0]] = None
+                    for eventID in listEventIDs:
+                        # checks to see if an eventID in the database matches with an API eventID 
+                        if (eventID == mongoEventID):
+                            print("Duplicate Twitter Event!")
+                            break
 
-                # for each key in the dictionary, check for duplication or else insert into MongoDB
-                for eventID in listEventIDs:
-                    print(eventID)
+                        else: 
+                            print("Twitter Ingest!")
+                            # reference MongoDB collection
+                            twitter = eventDatabase["Twitter"]
 
-                    # checks to see if an eventID in the database matches with an API eventID 
-                    if (eventID == mongoEventID):
-                        print("Duplicate!")
+                            twitter.insert_one(info)
+                            print("Success!")
+                            break
+                else:
+                    print("Twitter Ingest!")
+                    # reference MongoDB collection
+                    twitter = eventDatabase["Twitter"]
 
-                    else: 
-                        # reference MongoDB collection
-                        twitter = eventDatabase["Twitter"]
-
-                        # insert data
-                        insertCollection(twitter, info)
+                    twitter.insert_one(info)
+                    print("Success!")
+                    break
                 break
 
             elif (key == "source_id" and value == "web"):
                 print("Web")
 
-                # reference MongoDB collection
-                web = eventDatabase["Web"]
+                drBowmanDatabase = databaseConnection()
+                drBowmanDatabaseCursor = drBowmanDatabase.cursor()
+                drBowmanDatabaseCursor.execute("Select eventID FROM webevent WHERE objectID='" + objectID + "'")
 
-                # insert data
-                insertCollection(web, info)
+                # store DOIs 
+                eventIDs = drBowmanDatabaseCursor.fetchall()
+                listEventIDs= {}
+                
+                if (eventIDs != []):
+                    # store eventID as a key in listEventID dictionary 
+                    for uniqueEventID in eventIDs:
+                        listEventIDs[uniqueEventID[0]] = None
+
+                    for eventID in listEventIDs:
+                        # checks to see if an eventID in the database matches with an API eventID 
+                        if (eventID == mongoEventID):
+                            print("Duplicate Web Event!")
+                            break
+
+                        else: 
+                            print("Web Ingest!")
+                            # reference MongoDB collection
+                            web = eventDatabase["Web"]
+
+                            web.insert_one(info)
+                            print("Success!")
+                            break
+                else:
+                    print("Web Ingest!")
+                    # reference MongoDB collection
+                    web = eventDatabase["Web"]
+
+                    web.insert_one(info)
+                    print("Success!")
+                    break
                 break
 
             elif (key == "source_id" and value == "wikipedia"):
@@ -301,49 +528,97 @@ def transfer_buffer(events, articleDOI):
 
                 # store DOIs 
                 eventIDs = drBowmanDatabaseCursor.fetchall()
-
-                print(eventIDs)
-
                 listEventIDs= {}
+                
+                if (eventIDs != []):
+                    # store eventID as a key in listEventID dictionary 
+                    for uniqueEventID in eventIDs:
+                        listEventIDs[uniqueEventID[0]] = None
 
-                # store eventID as a key in listEventID dictionary 
-                for uniqueEventID in eventIDs:
-                    listEventIDs[uniqueEventID[0]] = None
+                    for eventID in listEventIDs:
+                        # checks to see if an eventID in the database matches with an API eventID 
+                        if (eventID == mongoEventID):
+                            print("Duplicate Wikipedia Event!")
+                            break
 
-                # for each key in the dictionary, check for duplication or else insert into MongoDB
-                for eventID in listEventIDs:
-                    print(eventID)
+                        else: 
+                            print("Wikipedia Ingest!")
+                            # reference MongoDB collection
+                            wikipedia = eventDatabase["Wikipedia"]
 
-                    # checks to see if an eventID in the database matches with an API eventID 
-                    if (eventID == mongoEventID):
-                        print("Duplicate!")
+                            wikipedia.insert_one(info)
+                            print("Success!")
+                            break
+                else:
+                    print("Wikipedia Ingest!")
+                    # reference MongoDB collection
+                    wikipedia = eventDatabase["Wikipedia"]
 
-                    else: 
-                        # reference MongoDB collection
-                        wikipedia = eventDatabase["Wikipedia"]
-
-                        # insert data
-                        insertCollection(wikipedia, info)
+                    wikipedia.insert_one(info)
+                    print("Success!")
+                    break
                 break
 
             elif (key == "source_id" and value == "wordpressdotcom"):
                 print("Wordpress.com")
 
-                # reference MongoDB collection
-                wordpressdotcom = eventDatabase["WordPressDotCom"]
+                drBowmanDatabase = databaseConnection()
+                drBowmanDatabaseCursor = drBowmanDatabase.cursor()
+                drBowmanDatabaseCursor.execute("Select eventID FROM wordpressevent WHERE objectID='" + objectID + "'")
 
-                # insert data
-                insertCollection(wordpressdotcom, info)
+                # store DOIs 
+                eventIDs = drBowmanDatabaseCursor.fetchall()
+                listEventIDs= {}
+                
+                if (eventIDs != []):
+                    # store eventID as a key in listEventID dictionary 
+                    for uniqueEventID in eventIDs:
+                        listEventIDs[uniqueEventID[0]] = None
+
+                    for eventID in listEventIDs:
+                        # checks to see if an eventID in the database matches with an API eventID 
+                        if (eventID == mongoEventID):
+                            print("Duplicate Wordpress.com Event!")
+                            break
+
+                        else: 
+                            print("Wordpress.com Ingest!")
+                            # reference MongoDB collection
+                            wordpress = eventDatabase["WordPressDotCom"]
+
+                            wordpress.insert_one(info)
+                            print("Success!")
+                            break
+                else:
+                    print("Wordpress.com Ingest!")
+                    # reference MongoDB collection
+                    wordpress = eventDatabase["WordPressDotCom"]
+
+                    wordpress.insert_one(info)
+                    print("Success!")
+                    break
                 break
 
 
 def insertCollection(collection, info):
-    for documents in collection.find({}):
-        for events in documents:
-            if (info == events):
-                break
-            else:
-                collection.insert_one(info) 
+    # print(info)
+    # collection.insert_one(info) 
+    result = collection.find()
+    for documents in result:
+        print("List:" , list(result))
+        if (documents != info):
+            try:
+                print("Data: ", info)
+                collection.insert_one(info)
+            except pymongo.errors.DuplicateKeyError:
+                continue
+            
+        else:
+            print("Pass!")
+        # except pymongo.errors.DuplicateKeyError:
+        # # skip document because it already exists in new collection
+        #     continue
+            
 
 # def hashMap():
 
