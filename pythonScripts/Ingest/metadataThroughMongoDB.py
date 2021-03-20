@@ -94,7 +94,7 @@ if __name__=='__main__':
     # Next call checkdictionary() function with the dictionary from hashmap() and the DOI as arguments
     mysql_username = "root"
     mysql_password = "pass"
-    db = mysql.connector.connect(host = "localhost", user = mysql_username, passwd = mysql_password, database = "dr_bowman_doi_data_tables")
+    db = mysql.connector.connect(host = "localhost", user = mysql_username, passwd = mysql_password, database = "doidata")
     myCursor=db.cursor(buffered=True)
     myCursor.execute("SELECT DOI FROM _main_")
     listofDOIs = hashmap()
