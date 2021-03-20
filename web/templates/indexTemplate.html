@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html>
-<<<<<<< HEAD
 
 <head>
   <meta charset="UTF-8">
@@ -13,6 +12,11 @@
 
   <!-- jQuery CDN -->
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+	<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+
+	<link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+	<link rel="stylesheet" href="/resources/demos/style.css">
 
   <!-- Local Bootstrap JS -->
   <script src="{{ url_for('static', filename = 'css/bootstrap-3.3.7-dist/js/bootstrap.min.js')}}"></script>
@@ -43,10 +47,10 @@
           <li><a style="margin-top:0px; " href=><img alt="GitHub Logo"
                 src="../static/images/logos/negative/Logo_NEGATIVE_300x300.png" height="50px"></a></li>
                 <li><a href="{{ url_for('index') }}" style="margin-top:15px; color: white;">OpenAlt</a></li>
-                <li><a href="{{ url_for('searchByOptions') }}" style="margin-top:15px; ">Search By CSV</a></li>  
+                <li><a href="{{ url_for('searchByOptions') }}" style="margin-top:15px; ">Search By CSV</a></li>
         </ul>
 
-        
+
         <!-- Right aligned Drop-down menu logo -->
         <ul class="nav navbar-nav navbar-right" >
           <li style="margin-top:15px; margin-right: 25px; font-size: large;" class="dropdown"><a class="dropdown-toggle"
@@ -71,65 +75,4 @@
   </footer>
 </body>
 
-=======
-  <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <meta name="viewport" content="width=device-width,initial-scale=1">
-    <meta name="author" content="name">
-    <meta name="description" content="description here">
-    <meta name="keywords" content="keywords,here">
-    <link rel="shortcut icon" href="{{ url_for('static', filename='favicon.ico') }}">
-    
-    <!-- jQuery CDN -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    
-    <!-- Local Bootstrap JS -->
-    <script src="{{ url_for('static', filename = 'css/bootstrap-3.3.7-dist/js/bootstrap.min.js')}}"></script>
-
-    <!-- Local Bootstrap CSS -->
-    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename = 'css/bootstrap-3.3.7-dist/css/bootstrap.min.css')}}">
-    
-    <!-- Our CSS -->
-    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename = 'css/style.css')}}">
-    
-    {% block head %}
-    <!-- This sets up the Jinja template head section so other pages can have their own head code -->
-    {% endblock %}
-  </head>
-  <body style="background-image: url('../static/images/104448.jpg'); background-repeat: no-repeat; background-size:cover;">
-    <header>
-        <nav class="navbar navbar-inverse">
-          <div class="container-fluid">
-
-          <!-- Website Title -->
-          <ul class="nav navbar-nav navbar">
-            <li><a style="margin-top:0px;" href= ><img alt = "GitHub Logo" src="../static/images/logos/negative/Logo_NEGATIVE_300x300.png" height="50px"></a></li>
-          </ul>
-
-          <!-- Right aligned GitHub logo -->
-          <ul class="nav navbar-nav navbar-right">
-            <li><a style="margin-top:10px;" href="https://github.com/tdbowman-CompSci-F2020/crossrefEventData" rel="noopener noreferrer" target="_blank"><img alt="GitHub Logo" src="../static/images/GitHub logos/GitHub-Mark-Light-64px.png" height="30px"></a></li>
-          </ul>
-          <!-- Right aligned Drop-down menu logo -->
-          <ul class="nav navbar-nav navbar-right">
-            <li style="margin-top:15px;"class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">Menu<span class="caret"></span></a>
-              <ul class="dropdown-menu">
-                <li><a href="{{ url_for('team') }}">Meet the Team</a></li>
-                <li><a href="{{ url_for('about') }}">About the Project</a></li>
-                <li><a href="{{ url_for('licenses') }}">License and Dependency Info</a></li>
-                <li><a href="{{ url_for('searchByOptions') }}">Search by CSV</a></li>
-              </ul>
-            </li>
-          </div>
-        </nav>
-    </header>
-    {% block body %}
-    <!-- This sets up the body block so pages using this template can have their own body code -->
-    {% endblock %}
-    <footer>
-      <!-- Empty footer for now -->
-    </footer>
-  </body>
->>>>>>> parent of 602bf31 (Merge branch 'master' into tabishDev)
 </html>
