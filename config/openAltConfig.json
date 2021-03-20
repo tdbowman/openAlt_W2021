@@ -2,7 +2,7 @@
     "DOI-Database": {
         "name": "doidata",
         "username": "root",
-        "password": "",
+        "password": "Hamtramck#1999",
         "address": "127.0.0.1"
     },
     "Crossref-Event-Database": {
@@ -16,6 +16,13 @@
         "username": "root",
         "password": "",
         "address": "127.0.0.1"
+    },
+    "MongoDB-SciELO-Database": {
+        "name": "SciELOData",
+        "collection": "SciELODOI",
+        "username": "root",
+        "password": "",
+        "address": "mongodb://localhost:27017/"
     },
     "Crossref-Event-API": {
         "name": "crossrefEventAPI",
@@ -41,8 +48,12 @@
         "name": "openCitationsReferenceCountAPI",
         "url": "https://w3id.org/oc/index/coci/api/v1/reference-count/"
     },
-    "SciELO-Metadata-API": {
+    "SciELO-Brazil-Data-API": {
         "name": "sciEloMetadataAPI",
-        "url": "https://api.crossref.org/works/10.1590/"
+        "url": "https://api.crossref.org/works/",
+	    "url-code": "10.1590"
+    },
+    "SciELO-Brazil-Log": {
+        "file_limit": "100"
     }
 }
