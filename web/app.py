@@ -1,4 +1,5 @@
 import os
+import json
 import flask
 from flask import Flask
 from flask import send_file
@@ -20,11 +21,23 @@ from uploadAuthor import searchByAuthor, getZipAuthor
 from uploadUni import searchByUni, getZipUni
 from emailError import emailError
 from singleDOIEmailLogic import articleLandingEmail
+import dbQuery
 
 from getPassword import getPassword, SECRET_KEY, SITE_KEY
 
 from resultsForm import ResultForm
 from flask_bootstrap import Bootstrap
+
+# current directory
+path = os.getcwd()
+
+# parent directory
+parent = os.path.dirname(path)
+config_path = os.path.join(parent, "config", "openAltConfig.json")
+
+# config file
+f = open(config_path)
+config = json.load(f)
 
 
 # get the users password from crossrefeventdata/web/passwd.txt
@@ -46,11 +59,10 @@ app.config['MYSQL_CURSORCLASS'] = 'DictCursor'
 mysql = MySQL(app)
 
 
-#for reCAPTCHA
+# for reCAPTCHA
 app.config['SECRET_KEY'] = os.urandom(32)
 app.config['RECAPTCHA_PUBLIC_KEY'] = SITE_KEY
 app.config['RECAPTCHA_PUBLIC_KEY'] = SECRET_KEY
-
 
 
 # Instantiate a second object of class Flask
@@ -100,7 +112,7 @@ def index():
 
     # Go to landingPageJournals.py
     totalSumJournals = landingPageJournals(mysql)
-
+    
     return flask.render_template('index.html', totalSum=totalSum, totalSumArticles=totalSumArticles, totalSumJournals=totalSumJournals)
 
 
@@ -415,7 +427,10 @@ def downloadUni():
         print("Recipient: ", emailVal)
 
         try:
-            searchByUni(mysql, filepath, dropdownValue, emailVal)
+            if dbQuery.checkUser(emailVal, 'uni', mysql.connection.cursor()) is True:
+                searchByUni(mysql, filepath, dropdownValue, emailVal)
+            else:
+                return redirect('/limitReached')
         except Exception as e:
             print(e)
             emailError(emailVal, 'uni')
@@ -436,12 +451,21 @@ def searchComplete():
 def searchError():
     return flask.render_template('searchError.html')
 
+
+@ app.route('/limitReached', methods=["GET", "POST"])
+def limitReached():
+    limit = config['User-Result-Limit']['limit']
+    interval = config['User-Result-Limit']['dayInterval']
+    print(flask.request.remote_addr)
+    return flask.render_template('limitReached.html', limit=limit, interval=interval)
+
+
 @ app.route('/captchaTest', methods=["GET", "POST"])
 def captchaTest():
     form = ResultForm()
     if form.validate_on_submit():
         return flask.render_template('searchComplete.html')
-    
+
     return flask.render_template('captchaTest.html', form=form)
 
 
