@@ -20,6 +20,7 @@ def stackExchangeIngest(uniqueEvent, cursor, connection):
     t_subj_pid = None
     t_subj_title = None
     t_subj_type = None
+    t_subj_issued = None
     t_source_id = None
     t_obj_pid = None
     t_obj_url = None
@@ -87,11 +88,11 @@ def stackExchangeIngest(uniqueEvent, cursor, connection):
     # If it exists, exit from the ingest function
 
     # ---- Beginning of code -----
-    cursor.execute ("SELECT 1 FROM crossrefeventdatamain.stackexchangeevent WHERE eventID = '" + t_id + "'")
-    exists = cursor.fetchall()
+    # cursor.execute ("SELECT 1 FROM crossrefeventdatamain.stackexchangeevent WHERE eventID = '" + t_id + "'")
+    # exists = cursor.fetchall()
 
-    if exists != None:
-        return
+    # if exists != None:
+    #     return
 
     # ---- End of code ----
 

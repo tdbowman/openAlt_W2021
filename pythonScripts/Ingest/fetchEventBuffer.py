@@ -16,20 +16,21 @@ import csv
 import requests
 import pymongo
 import json
+from ingestMongoEvents import ingestMongoEvents
 
 
 def fetch_events():
 
-    drBowmanDatabase = databaseConnection()
-    drBowmanDatabaseCursor = drBowmanDatabase.cursor()
-    drBowmanDatabaseCursor.execute("Select DOI FROM doidata._main_ WHERE DOI IS NOT NULL")
+    crossRefEventDatabaseConnection = databaseConnection()
+    crossRefEventDatabaseCursor = crossRefEventDatabaseConnection.cursor()
+    crossRefEventDatabaseCursor.execute("Select DOI FROM doidata._main_ WHERE DOI IS NOT NULL")
 
     # store DOIs 
-    articles = drBowmanDatabaseCursor.fetchall()
+    articles = crossRefEventDatabaseCursor.fetchall()
 
 
     # loops for each DOI (for all articles use len(articles))
-    for i in range(50):
+    for i in range(5):
         
         article = articles[i]
 
@@ -39,22 +40,24 @@ def fetch_events():
         print(articleDOI)
 
         print("API Call!")
+
+        # fetching event data for this particular DOI
+        response = requests.get("https://api.eventdata.crossref.org/v1/events?mailto=YOUR_EMAIL_HERE&obj-id=" + articleDOI)
         
-    # articleDOI = "10.1001/jama.280.23.1995"
-    # fetching event data for this particular DOI
-    response = requests.get("https://api.eventdata.crossref.org/v1/events?mailto=YOUR_EMAIL_HERE&obj-id=" + articleDOI)
+        # Retrieve the dict with events
+        data = response.json()
+        
+        if (data != []):
+            events = data.get("message").get("events")
+            # print("Events:", events)
+            transfer_buffer(events, articleDOI, crossRefEventDatabaseCursor, crossRefEventDatabaseConnection)
     
-    # Retrieve the dict with events
-    data = response.json()
-    
-    if (data != []):
-        events = data.get("message").get("events")
-        # print("Events:", events)
-        transfer_buffer(events, articleDOI)
+    print("\nIngest to MySQL:")
+    ingestMongoEvents()
 
     
 
-def transfer_buffer(events, articleDOI):
+def transfer_buffer(events, articleDOI, crossRefEventDatabaseCursor, crossRefEventDatabaseConnection):
 
     objectID = "https://doi.org/" + articleDOI
 
@@ -62,7 +65,7 @@ def transfer_buffer(events, articleDOI):
     myclient = pymongo.MongoClient("mongodb://localhost:27017/")
 
     # reference MongoDB database
-    eventDatabase = myclient["EventDatabaseTest"]
+    eventDatabase = myclient["EventDatabase"]
         
     for info in events: 
 
@@ -74,13 +77,10 @@ def transfer_buffer(events, articleDOI):
 
             if (key == "source_id" and value == "cambia-lens"):
                 print("Cambia-Lens")
-
-                drBowmanDatabase = databaseConnection()
-                drBowmanDatabaseCursor = drBowmanDatabase.cursor()
-                drBowmanDatabaseCursor.execute("Select eventID FROM cambiaevent WHERE objectID='" + objectID + "'")
+                crossRefEventDatabaseCursor.execute("Select eventID FROM cambiaevent WHERE objectID='" + objectID + "'")
 
                 # store DOIs 
-                eventIDs = drBowmanDatabaseCursor.fetchall()
+                eventIDs = crossRefEventDatabaseCursor.fetchall()
                 listEventIDs= {}
                 
                 if (eventIDs != []):
@@ -114,13 +114,10 @@ def transfer_buffer(events, articleDOI):
 
             elif (key == "source_id" and value == "crossref"):
                 print("Crossref")
-
-                drBowmanDatabase = databaseConnection()
-                drBowmanDatabaseCursor = drBowmanDatabase.cursor()
-                drBowmanDatabaseCursor.execute("Select eventID FROM crossrefevent WHERE objectID='" + objectID + "'")
+                crossRefEventDatabaseCursor.execute("Select eventID FROM crossrefevent WHERE objectID='" + objectID + "'")
 
                 # store DOIs 
-                eventIDs = drBowmanDatabaseCursor.fetchall()
+                eventIDs = crossRefEventDatabaseCursor.fetchall()
                 listEventIDs= {}
                 
                 if (eventIDs != []):
@@ -137,7 +134,7 @@ def transfer_buffer(events, articleDOI):
                         else: 
                             print("Crossref Ingest!")
                             # reference MongoDB collection
-                            crossref = eventDatabase["CrossrefTest"]
+                            crossref = eventDatabase["Crossref"]
 
                             crossref.insert_one(info)
                             print("Success!")
@@ -145,7 +142,7 @@ def transfer_buffer(events, articleDOI):
                 else:
                     print("Crossref Ingest!")
                     # reference MongoDB collection
-                    crossref = eventDatabase["CrossrefTest"]
+                    crossref = eventDatabase["Crossref"]
 
                     crossref.insert_one(info)
                     print("Success!")
@@ -154,13 +151,10 @@ def transfer_buffer(events, articleDOI):
 
             elif (key == "source_id" and value == "datacite"):
                 print("Datacite")
-
-                drBowmanDatabase = databaseConnection()
-                drBowmanDatabaseCursor = drBowmanDatabase.cursor()
-                drBowmanDatabaseCursor.execute("Select eventID FROM dataciteevent WHERE objectID='" + objectID + "'")
+                crossRefEventDatabaseCursor.execute("Select eventID FROM dataciteevent WHERE objectID='" + objectID + "'")
 
                 # store DOIs 
-                eventIDs = drBowmanDatabaseCursor.fetchall()
+                eventIDs = crossRefEventDatabaseCursor.fetchall()
                 listEventIDs= {}
                 
                 if (eventIDs != []):
@@ -196,12 +190,10 @@ def transfer_buffer(events, articleDOI):
 
             elif (key == "source_id" and value == "f1000"):
                 print("F1000")
-                drBowmanDatabase = databaseConnection()
-                drBowmanDatabaseCursor = drBowmanDatabase.cursor()
-                drBowmanDatabaseCursor.execute("Select eventID FROM f1000event WHERE objectID='" + objectID + "'")
+                crossRefEventDatabaseCursor.execute("Select eventID FROM f1000event WHERE objectID='" + objectID + "'")
 
                 # store DOIs 
-                eventIDs = drBowmanDatabaseCursor.fetchall()
+                eventIDs = crossRefEventDatabaseCursor.fetchall()
                 listEventIDs= {}
                 
                 if (eventIDs != []):
@@ -236,13 +228,10 @@ def transfer_buffer(events, articleDOI):
 
             elif (key == "source_id" and value == "hypothesis"):
                 print("Hypothesis")
-
-                drBowmanDatabase = databaseConnection()
-                drBowmanDatabaseCursor = drBowmanDatabase.cursor()
-                drBowmanDatabaseCursor.execute("Select eventID FROM hypothesisevent WHERE objectID='" + objectID + "'")
+                crossRefEventDatabaseCursor.execute("Select eventID FROM hypothesisevent WHERE objectID='" + objectID + "'")
 
                 # store DOIs 
-                eventIDs = drBowmanDatabaseCursor.fetchall()
+                eventIDs = crossRefEventDatabaseCursor.fetchall()
                 listEventIDs= {}
                 
                 if (eventIDs != []):
@@ -277,13 +266,10 @@ def transfer_buffer(events, articleDOI):
 
             elif (key == "source_id" and value == "newsfeed"):
                 print("Newsfeed")
-
-                drBowmanDatabase = databaseConnection()
-                drBowmanDatabaseCursor = drBowmanDatabase.cursor()
-                drBowmanDatabaseCursor.execute("Select eventID FROM newsfeedevent WHERE objectID='" + objectID + "'")
+                crossRefEventDatabaseCursor.execute("Select eventID FROM newsfeedevent WHERE objectID='" + objectID + "'")
 
                 # store DOIs 
-                eventIDs = drBowmanDatabaseCursor.fetchall()
+                eventIDs = crossRefEventDatabaseCursor.fetchall()
                 listEventIDs= {}
                 
                 if (eventIDs != []):
@@ -318,13 +304,10 @@ def transfer_buffer(events, articleDOI):
 
             elif (key == "source_id" and value == "reddit"):
                 print("Reddit")
-
-                drBowmanDatabase = databaseConnection()
-                drBowmanDatabaseCursor = drBowmanDatabase.cursor()
-                drBowmanDatabaseCursor.execute("Select eventID FROM redditevent WHERE objectID='" + objectID + "'")
+                crossRefEventDatabaseCursor.execute("Select eventID FROM redditevent WHERE objectID='" + objectID + "'")
 
                 # store DOIs 
-                eventIDs = drBowmanDatabaseCursor.fetchall()
+                eventIDs = crossRefEventDatabaseCursor.fetchall()
                 listEventIDs= {}
                 
                 if (eventIDs != []):
@@ -359,13 +342,10 @@ def transfer_buffer(events, articleDOI):
 
             elif (key == "source_id" and value == "reddit-links"):
                 print("Reddit-Links")
-
-                drBowmanDatabase = databaseConnection()
-                drBowmanDatabaseCursor = drBowmanDatabase.cursor()
-                drBowmanDatabaseCursor.execute("Select eventID FROM redditlinksevent WHERE objectID='" + objectID + "'")
+                crossRefEventDatabaseCursor.execute("Select eventID FROM redditlinksevent WHERE objectID='" + objectID + "'")
 
                 # store DOIs 
-                eventIDs = drBowmanDatabaseCursor.fetchall()
+                eventIDs = crossRefEventDatabaseCursor.fetchall()
                 listEventIDs= {}
                 
                 if (eventIDs != []):
@@ -400,13 +380,10 @@ def transfer_buffer(events, articleDOI):
 
             elif (key == "source_id" and value == "stackexchange"):
                 print("Stack Exchange")
-
-                drBowmanDatabase = databaseConnection()
-                drBowmanDatabaseCursor = drBowmanDatabase.cursor()
-                drBowmanDatabaseCursor.execute("Select eventID FROM stackexchangeevent WHERE objectID='" + objectID + "'")
+                crossRefEventDatabaseCursor.execute("Select eventID FROM stackexchangeevent WHERE objectID='" + objectID + "'")
 
                 # store DOIs 
-                eventIDs = drBowmanDatabaseCursor.fetchall()
+                eventIDs = crossRefEventDatabaseCursor.fetchall()
                 listEventIDs= {}
                 
                 if (eventIDs != []):
@@ -439,15 +416,11 @@ def transfer_buffer(events, articleDOI):
                 break
 
             elif (key == "source_id" and value == "twitter"):
-
                 print("Twitter")
-
-                drBowmanDatabase = databaseConnection()
-                drBowmanDatabaseCursor = drBowmanDatabase.cursor()
-                drBowmanDatabaseCursor.execute("Select eventID FROM twitterevent WHERE objectID='" + objectID + "'")
+                crossRefEventDatabaseCursor.execute("Select eventID FROM twitterevent WHERE objectID='" + objectID + "'")
 
                 # store DOIs 
-                eventIDs = drBowmanDatabaseCursor.fetchall()
+                eventIDs = crossRefEventDatabaseCursor.fetchall()
                 listEventIDs= {}
                 
                 if (eventIDs != []):
@@ -481,13 +454,10 @@ def transfer_buffer(events, articleDOI):
 
             elif (key == "source_id" and value == "web"):
                 print("Web")
-
-                drBowmanDatabase = databaseConnection()
-                drBowmanDatabaseCursor = drBowmanDatabase.cursor()
-                drBowmanDatabaseCursor.execute("Select eventID FROM webevent WHERE objectID='" + objectID + "'")
+                crossRefEventDatabaseCursor.execute("Select eventID FROM webevent WHERE objectID='" + objectID + "'")
 
                 # store DOIs 
-                eventIDs = drBowmanDatabaseCursor.fetchall()
+                eventIDs = crossRefEventDatabaseCursor.fetchall()
                 listEventIDs= {}
                 
                 if (eventIDs != []):
@@ -521,13 +491,10 @@ def transfer_buffer(events, articleDOI):
 
             elif (key == "source_id" and value == "wikipedia"):
                 print("Wikipedia")
-                
-                drBowmanDatabase = databaseConnection()
-                drBowmanDatabaseCursor = drBowmanDatabase.cursor()
-                drBowmanDatabaseCursor.execute("Select eventID FROM wikipediaevent WHERE objectID='" + objectID + "'")
+                crossRefEventDatabaseCursor.execute("Select eventID FROM wikipediaevent WHERE objectID='" + objectID + "'")
 
                 # store DOIs 
-                eventIDs = drBowmanDatabaseCursor.fetchall()
+                eventIDs = crossRefEventDatabaseCursor.fetchall()
                 listEventIDs= {}
                 
                 if (eventIDs != []):
@@ -561,13 +528,10 @@ def transfer_buffer(events, articleDOI):
 
             elif (key == "source_id" and value == "wordpressdotcom"):
                 print("Wordpress.com")
-
-                drBowmanDatabase = databaseConnection()
-                drBowmanDatabaseCursor = drBowmanDatabase.cursor()
-                drBowmanDatabaseCursor.execute("Select eventID FROM wordpressevent WHERE objectID='" + objectID + "'")
+                crossRefEventDatabaseCursor.execute("Select eventID FROM wordpressevent WHERE objectID='" + objectID + "'")
 
                 # store DOIs 
-                eventIDs = drBowmanDatabaseCursor.fetchall()
+                eventIDs = crossRefEventDatabaseCursor.fetchall()
                 listEventIDs= {}
                 
                 if (eventIDs != []):
@@ -600,37 +564,36 @@ def transfer_buffer(events, articleDOI):
                 break
 
 
-def insertCollection(collection, info):
-    # print(info)
-    # collection.insert_one(info) 
-    result = collection.find()
-    for documents in result:
-        print("List:" , list(result))
-        if (documents != info):
-            try:
-                print("Data: ", info)
-                collection.insert_one(info)
-            except pymongo.errors.DuplicateKeyError:
-                continue
+# def insertCollection(collection, info):
+#     # print(info)
+#     # collection.insert_one(info) 
+#     result = collection.find()
+#     for documents in result:
+#         print("List:" , list(result))
+#         if (documents != info):
+#             try:
+#                 print("Data: ", info)
+#                 collection.insert_one(info)
+#             except pymongo.errors.DuplicateKeyError:
+#                 continue
             
-        else:
-            print("Pass!")
-        # except pymongo.errors.DuplicateKeyError:
-        # # skip document because it already exists in new collection
-        #     continue
+#         else:
+#             print("Pass!")
+#         # except pymongo.errors.DuplicateKeyError:
+#         # # skip document because it already exists in new collection
+#         #     continue
             
-
-# def hashMap():
 
 def databaseConnection():
     try:
         # connect to doidata database
-        mysql_username = "root"
-        mysql_password = "pass1234"
+        print("MySQL Credentials")
+        mysql_username = input("Username: ")
+        mysql_password = input("Password: ")
 
-        drBowmanDatabase = mysql.connector.connect(host = "localhost", user = mysql_username, passwd = mysql_password, database = "crossrefeventdatamain")
+        crossRefEventDatabase = mysql.connector.connect(host = "localhost", user = mysql_username, passwd = mysql_password, database = "crossrefeventdatamain")
 
-        return drBowmanDatabase
+        return crossRefEventDatabase
 
 
     except:
