@@ -4,6 +4,8 @@
 
 import sys
 
+SITE_KEY = ''
+SECRET_KEY = ''
 
 def getPassword():
     try:

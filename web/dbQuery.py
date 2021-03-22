@@ -77,6 +77,27 @@ def getDOIEvents(doi, cursor):
     
     return(result,header)
 
+# Gets citation data for DOI
+def getDOICitations(doi, cursor):
+
+    # DOI Info Query
+    query = "SELECT citing, cited from opencitations.citations where citing = '" + doi + "' or cited = '" + doi + "'"
+    
+    print("Retrieving Citations: " + doi)
+    #print('\n',query)
+
+    cursor.execute(query)
+    resultSet = cursor.fetchall()
+
+    #print('\nRESULT SET:',resultSet)
+    if len(resultSet) == 0:
+        print("Citations Not Found\n")
+    else:
+        print("Citations Recieved!\n")
+    
+    return resultSet
+
+
 
 # Gets author information
 def getAuthorMetadata(author,cursor):

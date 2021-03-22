@@ -21,7 +21,11 @@ from uploadUni import searchByUni, getZipUni
 from emailError import emailError
 from singleDOIEmailLogic import articleLandingEmail
 
-from getPassword import getPassword
+from getPassword import getPassword, SECRET_KEY, SITE_KEY
+
+from resultsForm import ResultForm
+from flask_bootstrap import Bootstrap
+
 
 # get the users password from crossrefeventdata/web/passwd.txt
 mysql_username = 'root'
@@ -40,6 +44,14 @@ app.config['MYSQL_CURSORCLASS'] = 'DictCursor'
 
 # Database initialization and cursor
 mysql = MySQL(app)
+
+
+#for reCAPTCHA
+app.config['SECRET_KEY'] = os.urandom(32)
+app.config['RECAPTCHA_PUBLIC_KEY'] = SITE_KEY
+app.config['RECAPTCHA_PUBLIC_KEY'] = SECRET_KEY
+
+
 
 # Instantiate a second object of class Flask
 app2 = flask.Flask(__name__)
@@ -423,6 +435,14 @@ def searchComplete():
 @ app.route('/searchError', methods=["GET", "POST"])
 def searchError():
     return flask.render_template('searchError.html')
+
+@ app.route('/captchaTest', methods=["GET", "POST"])
+def captchaTest():
+    form = ResultForm()
+    if form.validate_on_submit():
+        return flask.render_template('searchComplete.html')
+    
+    return flask.render_template('captchaTest.html', form=form)
 
 
 # If this is the main module or main program being run (app.py)......
