@@ -46,7 +46,7 @@
         "url": "https://api.crossref.org/works/10.1590/"
     },
 	"User-Result-Limit": {
-		"limit": 5,
+		"limit": 2,
 		"dayInterval": 1
 	}
 	

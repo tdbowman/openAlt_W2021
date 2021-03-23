@@ -327,8 +327,11 @@ def downloadDOI():
         print("Recipient: ", emailVal)
 
         try:
-            searchByDOI(mysql, filepath, dropdownValue, emailVal)
-            return redirect('/searchComplete')
+            if dbQuery.checkUser(emailVal, 'doi', mysql.connection.cursor()) is True:
+                searchByDOI(mysql, filepath, dropdownValue, emailVal)
+                return redirect('/searchComplete')
+            else:
+                return redirect('/limitReached')
         except Exception as e:
             print(e)
             emailError(emailVal, 'doi')
@@ -377,7 +380,11 @@ def downloadAuthors():
         print("Recipient: ", emailVal)
 
         try:
-            searchByAuthor(mysql, filepath, dropdownValue, emailVal)
+            if dbQuery.checkUser(emailVal, 'author', mysql.connection.cursor()) is True:
+                searchByAuthor(mysql, filepath, dropdownValue, emailVal)
+                return redirect('/searchComplete')
+            else:
+                return redirect('/limitReached')
         except Exception as e:
             print(e)
             emailError(emailVal, 'author')
@@ -429,6 +436,7 @@ def downloadUni():
         try:
             if dbQuery.checkUser(emailVal, 'uni', mysql.connection.cursor()) is True:
                 searchByUni(mysql, filepath, dropdownValue, emailVal)
+                return redirect('/searchComplete')
             else:
                 return redirect('/limitReached')
         except Exception as e:
