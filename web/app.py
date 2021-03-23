@@ -50,8 +50,8 @@ app2.config['MYSQL_CURSORCLASS'] = 'DictCursor'
 # Database initialization and cursor
 mysql2 = MySQL(app2)
 
-#Author: 
-    #Name: Mohammad Tahmid 
+#Author:
+    #Name: Mohammad Tahmid
     #Lines 57-69, 123
     #---------------------
 #Date: 02/23/2021
@@ -119,20 +119,20 @@ def articleDashboard():
 	#Author: Mohammad Tahmid
 	#Lines: 113-127
 	#Description: Gets the DOI from the article landing page and downloads the information to the users computer
-    		
+
     # If a HTTPS POST Request is received...
     if request.method == "POST":
 
         if request.form.get('articleDLChoice') is not None:
 		    #File type user wants the information dowloaded as
             fileChoice = str(request.form.get("articleDLChoice"))
-			
+
 		    #The DOI of the aritcle that the user was viewing and wants the information of
             #fileDOI = str(request.form.get("articleDLDOI"))
-			
+
 		    #Zipped up contents of the data from the database
             #zipEvents = articleLandingDownload(fileDOI, fileChoice, mysql)
-			
+
 		    #The zipped up files are downloaded onto the user's desktop
             #return send_file(zipEvents, as_attachment=True)
 
@@ -187,6 +187,11 @@ def authorDashboard():
 
     # Go to authorDashboardLogic.py
     return authorDashboardLogic(mysql, mysql2, years_list, yearInput)
+
+
+@ app.route('/admin', methods=["GET", "POST"])
+def adminlogin():
+    return flask.render_template('admin.html')
 
 
 @ app.route('/about', methods=["GET", "POST"])
@@ -305,19 +310,19 @@ def uploadAuthors():
             print("File saved.")
 
             session['authorPath'] = fileName
-        
+
         return flask.render_template('downloadAuthors.html')
 
     return flask.render_template('uploadAuthors.html')
 
 
-                
+
 
 
 @ app.route('/downloadAuthors', methods=["GET", "POST"])
 def downloadAuthors():
     if request.method=="POST":
-        
+
         filepath = session.get('authorPath')
 
         dropdownValue = request.form.get('dropdownSearchBy')
@@ -325,7 +330,7 @@ def downloadAuthors():
 
         emailVal = request.form.get('email_input')
         print("Recipient: ", emailVal)
-        
+
         searchByAuthor(mysql, filepath, dropdownValue, emailVal)
 
         return redirect('/searchComplete')
@@ -353,7 +358,7 @@ def uploadUni():
             print("File saved.")
 
             session['uniPath'] = fileName
-        
+
         return flask.render_template('downloadUni.html')
 
     return flask.render_template('uploadUni.html')
@@ -362,9 +367,9 @@ def uploadUni():
 @ app.route('/downloadUni', methods=["GET", "POST"])
 def downloadUni():
     if request.method=="POST":
-        
+
         filepath = session.get('uniPath')
-        
+
         dropdownValue = request.form.get('dropdownSearchBy')
         print("Download Type:",dropdownValue)
 
@@ -372,7 +377,7 @@ def downloadUni():
         print("Recipient: ", emailVal)
 
         searchByUni(mysql, filepath, dropdownValue, emailVal)
-        
+
         return redirect('/searchComplete')
         # return flask.render_template('searchComplete.html')
 
@@ -382,17 +387,17 @@ def downloadUni():
 
 @ app.route('/searchComplete', methods=["GET", "POST"])
 def searchComplete():
-    # redirect('/searchComplete')    
+    # redirect('/searchComplete')
 
     # if session['type'] == 'doi':
     #     filepath = session.get('doiPath')
     #     searchByDOI(mysql, filepath)
-    
+
     return flask.render_template('searchComplete.html')
 
-         
 
-        
+
+
 # If this is the main module or main program being run (app.py)......
 if __name__ == "__main__":
     app.run(host='localhost', port=5000, debug=True)
