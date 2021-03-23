@@ -1,6 +1,21 @@
 # Author: Darpan
 ######## Darpan Start ########
 
+import os
+import json
+
+# current directory 
+path = os.getcwd() 
+  
+# parent directory 
+parent = os.path.dirname(path) 
+config_path = os.path.join(parent, "config", "openAltConfig.json")
+
+# config file
+f = open(config_path)
+config = json.load(f)
+
+
 # Gets DOI event counts
 def getDOIEventCounts(doi, cursor):
     query = "SELECT objectID, totalEvents, totalCrossrefEvents, totalDataciteEvents, totalF1000Events, totalHypothesisEvents, totalNewsfeedEvents, totalRedditEvents, totalRedditLinksEvents, totalStackExchangeEvents, totalTwitterEvents, totalWebEvents, totalWikipediaEvents, totalWordpressEvents FROM crossrefeventdatamain.main WHERE objectID LIKE '%" + doi + "%'"
@@ -76,6 +91,27 @@ def getDOIEvents(doi, cursor):
     #print('\nRESULT SET:',result)
     
     return(result,header)
+
+# Gets citation data for DOI
+def getDOICitations(doi, cursor):
+
+    # DOI Info Query
+    query = "SELECT citing, cited from opencitations.citations where citing = '" + doi + "' or cited = '" + doi + "'"
+    
+    print("Retrieving Citations: " + doi)
+    #print('\n',query)
+
+    cursor.execute(query)
+    resultSet = cursor.fetchall()
+
+    #print('\nRESULT SET:',resultSet)
+    if len(resultSet) == 0:
+        print("Citations Not Found\n")
+    else:
+        print("Citations Recieved!\n")
+    
+    return resultSet
+
 
 
 # Gets author information
@@ -163,6 +199,36 @@ def getUniArticles(uni, cursor):
         print("University DOIs Recieved!\n")
     
     return resultSet
+
+# insert user stats into bulksearchstats table
+def bulkSearchUserInsert(email, type, cursor, db):
+    query = "INSERT INTO bulksearchStats.bulksearch (email, type) VALUES ('" + email + "', '" + type + "');" 
+    cursor.execute(query)
+    db.commit()
+
+    
+    print("User Stat Inserted")
+
+
+# User Limit Check
+def checkUser(email, type, cursor):
+
+    limit = config['User-Result-Limit']['limit']
+    interval = config['User-Result-Limit']['dayInterval']
+
+    query = "SELECT count(*) as count FROM bulksearchstats.bulksearch where time >=  NOW() - INTERVAL " + str(interval) + " DAY and email = '" + email + "' and type = '" + type + "'"
+    cursor.execute(query)
+    resultSet = cursor.fetchone()
+
+    #print(resultSet['count'])
+
+    if resultSet['count'] >= limit:
+        print("false:", resultSet['count'])
+        return False
+    else:
+        return True
+    
+
 
 
 
