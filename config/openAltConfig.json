@@ -23,7 +23,9 @@
     },
     "Crossref-Metadata-API": {
         "name": "crossrefMetadataAPI",
-        "url": "https://api.crossref.org/works/"
+        "doi_url": "https://api.crossref.org/works/",
+		"author_url": "https://api.crossref.org/works?query.author=",
+		"uni_url": "https://api.crossref.org/works?query.affiliation="
     },
     "OpenCitations-Citation-API": {
         "name": "openCitationsCitationAPI",

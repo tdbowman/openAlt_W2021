@@ -37,7 +37,7 @@ config_path = os.path.join(parent, "config", "openAltConfig.json")
 
 # config file
 f = open(config_path)
-config = json.load(f)
+APP_CONFIG = json.load(f)
 
 
 # get the users password from crossrefeventdata/web/passwd.txt
@@ -462,8 +462,8 @@ def searchError():
 
 @ app.route('/limitReached', methods=["GET", "POST"])
 def limitReached():
-    limit = config['User-Result-Limit']['limit']
-    interval = config['User-Result-Limit']['dayInterval']
+    limit = APP_CONFIG['User-Result-Limit']['limit']
+    interval = APP_CONFIG['User-Result-Limit']['dayInterval']
     print(flask.request.remote_addr)
     return flask.render_template('limitReached.html', limit=limit, interval=interval)
 
