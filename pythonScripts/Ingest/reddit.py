@@ -82,20 +82,18 @@ def redditIngest(uniqueEvent, cursor, connection):
 
 
 
-    # author: Rihat Rahman
-    #--------------------------------------------------------------------------------------------------------------------------------------------
+    # Author: Salsabil Bakth
+    # Checks to see if the eventID exists in the table (since it is a unique value)
+    # If it exists, exit from the ingest function
 
-    table = 'redditevent'
-    
-    # checks if duplicate event exists, returns [(1,)] if true
-    cursor.execute ("SELECT 1 FROM crossrefeventdatamain." + table + " WHERE subjectID = '" + t_subj_id + "' AND objectID = '" + t_obj_id + "'")
-    exists = cursor.fetchall()
+    # # ---- Beginning of code -----
+    # cursor.execute ("SELECT 1 FROM crossrefeventdatamain.redditevent WHERE eventID = '" + t_id + "'")
+    # exists = cursor.fetchall()
 
-    # return to the main program if
-    if exists == [(1,)]:
-        return
+    # if exists != None:
+    #     return
 
-    #--------------------------------------------------------------------------------------------------------------------------------------------
+    # # ---- End of code ----
 
 
 

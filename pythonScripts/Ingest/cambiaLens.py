@@ -77,18 +77,15 @@ def cambiaLensIngest(uniqueEvent, cursor, connection):
     # author: Rihat Rahman
     #--------------------------------------------------------------------------------------------------------------------------------------------
 
-    table = 'cambiaevent'
-    
-    # checks if duplicate event exists, returns [(1,)] if true
-    cursor.execute ("SELECT 1 FROM crossrefeventdatamain." + table + " WHERE subjectID = '" + t_subj_id + "' AND objectID = '" + t_obj_id + "'")
-    exists = cursor.fetchall()
+    # ---- Beginning of code -----
+    # cursor.execute ("SELECT 1 FROM crossrefeventdatamain.cambiaevent WHERE eventID = '" + t_id + "'")
+    # exists = cursor.fetchall()
 
-    # return to the main program if
-    if exists == [(1,)]:
-        return
+    # if exists != None:
+    #     return
 
     #--------------------------------------------------------------------------------------------------------------------------------------------
-    
+
 
     if(len(t_obj_id) < 100):
         # Insert t_obj_id from the event of the JSON file into the main table

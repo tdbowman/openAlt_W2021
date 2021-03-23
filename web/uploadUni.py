@@ -188,6 +188,8 @@ def downloadUni(mysql, dir_csv, type, email):
     # Insert User to Table
     dbQuery.bulkSearchUserInsert(email, 'uni', cursor, db)
 
+    dbQuery.checkUser(email, 'uni', cursor)
+
     # Time taken to execute script
     print("--- %s seconds ---" % (time.time() - start_time))
 

@@ -205,7 +205,7 @@ def downloadDOI(mysql, dir_csv, type, email):
             metadataFound = metadataFound + 1
             # Write associated DOI info to file.
             df = pandas.DataFrame(resultSet)
-            #df = df.drop_duplicates()
+            df = df.drop_duplicates()
             df.columns = [i[0] for i in cursor.description]
 
             # Create folder to hold results
@@ -233,7 +233,31 @@ def downloadDOI(mysql, dir_csv, type, email):
             # emptyResult = open(dir_doi + '\\doiInfo_NotFound.txt','w+')
             # emptyResult.write("DOI: " + doi + "\nDOI Information Not Found\n")
             # emptyResult.close()
-        
+
+        # DOI Citations Query
+        resultSet = dbQuery.getDOICitations(doi, cursor)
+        logging.info(resultSet)
+
+        # if results not empty
+        if len(resultSet) > 0:
+            # Write associated DOI info to file.
+            df = pandas.DataFrame(resultSet)
+            df = df.drop_duplicates()
+            df.columns = [i[0] for i in cursor.description]
+
+            # Create folder to hold results
+            dir_doi = dir_results + '\\' + str(file_id)
+            if not os.path.exists(dir_doi):
+                os.mkdir(dir_doi)
+
+            # Writing CSV/JSON containing DOI metadata
+            if type == 'csv':
+                resultPath = dir_doi + '\\citations_' + str(file_id) + '.csv'
+                df.to_csv(resultPath,index=False)
+            elif type == 'json':
+                resultPath = dir_doi + '\\citations_' + str(file_id) + '.json'
+                df.to_json(resultPath, orient='index', indent=2)
+
 
     # Close API_Instructions.txt
     f.close()
@@ -244,7 +268,7 @@ def downloadDOI(mysql, dir_csv, type, email):
     setMetadataStats(metadataFound, len(doi_arr))
 
     # Zip folder containing the CSV files=
-    shutil.make_archive(str(dir_results),'zip',dir_results)
+    shutil.make_archive(str(dir_results),'zip', dir_results)
 
     # Delete unzipped folder
     if os.path.exists(dir_results):

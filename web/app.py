@@ -1,6 +1,7 @@
 # Author: Darpan (Lines 231-251, 273-280)
 
 import os
+import json
 import flask
 from flask import Flask
 from flask import send_file
@@ -19,8 +20,26 @@ from landingPageJournals import landingPageJournals
 from uploadDOI import searchByDOI, getZipEvents
 from uploadAuthor import searchByAuthor, getZipAuthor
 from uploadUni import searchByUni, getZipUni
+from emailError import emailError
+from singleDOIEmailLogic import articleLandingEmail
+import dbQuery
 
-from getPassword import getPassword
+from getPassword import getPassword, SECRET_KEY, SITE_KEY
+
+from resultsForm import ResultForm
+from flask_bootstrap import Bootstrap
+
+# current directory
+path = os.getcwd()
+
+# parent directory
+parent = os.path.dirname(path)
+config_path = os.path.join(parent, "config", "openAltConfig.json")
+
+# config file
+f = open(config_path)
+config = json.load(f)
+
 
 # get the users password from crossrefeventdata/web/passwd.txt
 mysql_username = 'root'
@@ -37,6 +56,13 @@ app.config['MYSQL_CURSORCLASS'] = 'DictCursor'
 
 # Database initialization and cursor
 mysql = MySQL(app)
+
+
+# for reCAPTCHA
+app.config['SECRET_KEY'] = os.urandom(32)
+app.config['RECAPTCHA_PUBLIC_KEY'] = SITE_KEY
+app.config['RECAPTCHA_PUBLIC_KEY'] = SECRET_KEY
+
 
 # Instantiate a second object of class Flask
 app2 = flask.Flask(__name__)
@@ -283,7 +309,16 @@ def downloadDOI():
         emailVal = request.form.get('email_input')
         print("Recipient: ", emailVal)
 
-        searchByDOI(mysql, filepath, dropdownValue, emailVal)
+        try:
+            if dbQuery.checkUser(emailVal, 'doi', mysql.connection.cursor()) is True:
+                searchByDOI(mysql, filepath, dropdownValue, emailVal)
+                return redirect('/searchComplete')
+            else:
+                return redirect('/limitReached')
+        except Exception as e:
+            print(e)
+            emailError(emailVal, 'doi')
+            return redirect('/searchError')
 
         return redirect('/searchComplete')
         # return flask.render_template('searchComplete.html')
@@ -331,7 +366,16 @@ def downloadAuthors():
         emailVal = request.form.get('email_input')
         print("Recipient: ", emailVal)
 
-        searchByAuthor(mysql, filepath, dropdownValue, emailVal)
+        try:
+            if dbQuery.checkUser(emailVal, 'author', mysql.connection.cursor()) is True:
+                searchByAuthor(mysql, filepath, dropdownValue, emailVal)
+                return redirect('/searchComplete')
+            else:
+                return redirect('/limitReached')
+        except Exception as e:
+            print(e)
+            emailError(emailVal, 'author')
+            return redirect('/searchError')
 
         return redirect('/searchComplete')
         # return flask.render_template('searchComplete.html')
@@ -376,7 +420,16 @@ def downloadUni():
         emailVal = request.form.get('email_input')
         print("Recipient: ", emailVal)
 
-        searchByUni(mysql, filepath, dropdownValue, emailVal)
+        try:
+            if dbQuery.checkUser(emailVal, 'uni', mysql.connection.cursor()) is True:
+                searchByUni(mysql, filepath, dropdownValue, emailVal)
+                return redirect('/searchComplete')
+            else:
+                return redirect('/limitReached')
+        except Exception as e:
+            print(e)
+            emailError(emailVal, 'uni')
+            return redirect('/searchError')
 
         return redirect('/searchComplete')
         # return flask.render_template('searchComplete.html')
@@ -396,6 +449,23 @@ def searchComplete():
     return flask.render_template('searchComplete.html')
 
 
+
+
+@ app.route('/limitReached', methods=["GET", "POST"])
+def limitReached():
+    limit = config['User-Result-Limit']['limit']
+    interval = config['User-Result-Limit']['dayInterval']
+    print(flask.request.remote_addr)
+    return flask.render_template('limitReached.html', limit=limit, interval=interval)
+
+
+@ app.route('/captchaTest', methods=["GET", "POST"])
+def captchaTest():
+    form = ResultForm()
+    if form.validate_on_submit():
+        return flask.render_template('searchComplete.html')
+
+    return flask.render_template('captchaTest.html', form=form)
 
 
 # If this is the main module or main program being run (app.py)......

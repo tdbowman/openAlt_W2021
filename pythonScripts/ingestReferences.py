@@ -41,7 +41,7 @@ def ingestReferences (doi, openCitationsCursor, referenceCollections, openCitati
                 journal_sc = value
 
 
-        query = ("Insert IGNORE INTO ref " " (oci, citing, cited, creation, timespan, journal_sc, author_sc) " " VALUES (%s,%s,%s,%s,%s,%s,%s)")
+        query = ("Insert IGNORE INTO opencitations.ref " " (oci, citing, cited, creation, timespan, journal_sc, author_sc) " " VALUES (%s,%s,%s,%s,%s,%s,%s)")
         data = (oci, citing, cited, creation, timespan, journal_sc, author_sc)
 
         openCitationsCursor.execute(query, data)

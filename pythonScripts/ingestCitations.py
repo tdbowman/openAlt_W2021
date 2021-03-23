@@ -46,7 +46,7 @@ def ingestCitations(doi, openCitationsCursor, citationCollections, openCitations
                 journal_sc = value
 
         # query to insert citation data into MySQL
-        query = ("Insert IGNORE INTO citations " " (oci, citing, cited, creation, timespan, journal_sc, author_sc) " " VALUES (%s,%s,%s,%s,%s,%s,%s)")
+        query = ("Insert IGNORE INTO opencitations.citations " " (oci, citing, cited, creation, timespan, journal_sc, author_sc) " " VALUES (%s,%s,%s,%s,%s,%s,%s)")
         data = (oci, citing, cited, creation, timespan, journal_sc, author_sc)
 
         openCitationsCursor.execute(query, data)

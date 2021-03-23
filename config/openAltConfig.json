@@ -50,10 +50,11 @@
     },
     "SciELO-Brazil-Data-API": {
         "name": "sciEloMetadataAPI",
-        "url": "https://api.crossref.org/works/",
-	    "url-code": "10.1590"
+        "url": "https://api.crossref.org/works/10.1590/"
     },
-    "SciELO-Brazil-Log": {
-        "file_limit": "100"
-    }
+	"User-Result-Limit": {
+		"limit": 2,
+		"dayInterval": 1
+	}
+
 }

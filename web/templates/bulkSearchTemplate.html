@@ -11,6 +11,14 @@
 	<meta name="keywords" content="keywords,here">
 	<link rel="shortcut icon" href="{{ url_for('static', filename='favicon.ico') }}">
 
+	<!-- jQuery CDN -->
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+	<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+	<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+
+	<link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+	<link rel="stylesheet" href="/resources/demos/style.css">
+
 	<!-- Local Bootstrap JS -->
 	<script src="{{ url_for('static', filename = 'css/bootstrap-3.3.7-dist/js/bootstrap.min.js')}}"></script>
 
@@ -21,14 +29,15 @@
 	<!-- Our CSS -->
 	<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename = 'css/style.css')}}">
 
-
-	<!-- jQuery CDN -->
+	<!-- jQuery CDN (This is added again so dialog 'X' shows up. If we only keep this then menu won't work)-->
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 	<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
 	<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 
 	<link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
 	<link rel="stylesheet" href="/resources/demos/style.css">
+
+
 
 
 	{% block head %}

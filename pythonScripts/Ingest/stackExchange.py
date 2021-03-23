@@ -20,6 +20,7 @@ def stackExchangeIngest(uniqueEvent, cursor, connection):
     t_subj_pid = None
     t_subj_title = None
     t_subj_type = None
+    t_subj_issued = None
     t_source_id = None
     t_obj_pid = None
     t_obj_url = None
@@ -82,20 +83,18 @@ def stackExchangeIngest(uniqueEvent, cursor, connection):
             t_relation_type_id = value
 
 
-    # author: Rihat Rahman
-    #--------------------------------------------------------------------------------------------------------------------------------------------
+    # Author: Salsabil Bakth
+    # Checks to see if the eventID exists in the table (since it is a unique value)
+    # If it exists, exit from the ingest function
 
-    table = 'stackexchangeevent'
-    
-    # checks if duplicate event exists, returns [(1,)] if true
-    cursor.execute ("SELECT 1 FROM crossrefeventdatamain." + table + " WHERE subjectID = '" + t_subj_id + "' AND objectID = '" + t_obj_id + "'")
-    exists = cursor.fetchall()
+    # ---- Beginning of code -----
+    # cursor.execute ("SELECT 1 FROM crossrefeventdatamain.stackexchangeevent WHERE eventID = '" + t_id + "'")
+    # exists = cursor.fetchall()
 
-    # return to the main program if
-    if exists == [(1,)]:
-        return
+    # if exists != None:
+    #     return
 
-    #--------------------------------------------------------------------------------------------------------------------------------------------
+    # ---- End of code ----
 
 
     if(len(t_obj_id) < 100):

@@ -97,19 +97,18 @@ def twitterIngest(uniqueEvent, cursor, connection):
 
 
 
-    # author: Rihat Rahman
-    # Lines 100-112
-    #--------------------------------------------------------------------------------------------------------------------------------------------
-    table = 'twitterevent'
-    
-    # checks if duplicate event exists, returns [(1,)] if true
-    cursor.execute ("SELECT 1 FROM crossrefeventdatamain." + table + " WHERE subjectID = '" + t_subj_id + "' AND objectID = '" + t_obj_id + "'")
-    exists = cursor.fetchall()
+    # Author: Salsabil Bakth
+    # Checks to see if the eventID exists in the table (since it is a unique value)
+    # If it exists, exit from the ingest function
 
-    # return to the main program if
-    if exists == [(1,)]:
-        return
-    #--------------------------------------------------------------------------------------------------------------------------------------------
+    # # ---- Beginning of code -----
+    # cursor.execute ("SELECT 1 FROM crossrefeventdatamain.twitterevent WHERE eventID = '" + t_id + "'")
+    # exists = cursor.fetchall()
+
+    # if exists != None:
+    #     return
+
+    # # ---- End of code ----
 
 
     if(len(t_obj_id) < 100):
