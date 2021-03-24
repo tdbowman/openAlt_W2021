@@ -89,12 +89,12 @@
 {% block body %}
 <title>Upload University List</title>
 
-<body style="background-image: url('../static/images/library.jpg'); background-repeat: no-repeat; background-size:cover;">
+<body style="background-image: url('../static/images/library.jpg'); background-repeat: repeat-y; background-size:cover;">
   
   <div class="center-screen">
 
-    <div class = "center-screen">
-      <div style="width: 750px; border-radius: 25px; padding: 15px; background-color: rgba(60, 65, 70, 0.8); " >
+    <div class = "center-screen" style="padding-top: 15px;">
+      <div style="width: 750px; border-radius: 25px; padding: 15px; background-color: rgba(60, 65, 70, 0.9); " >
         <h1 style="text-align: center; color: aliceblue;"><b>Upload List of Universities</b></h1>
           <form action="{{ url_for('uploadUni') }}" method="POST" enctype="multipart/form-data">
             <div style="color:black;" class="image-upload-wrap">
@@ -129,7 +129,7 @@
     <br>
 
     <div class="center-screen;">
-      <div style="width: 750px; border-radius: 25px; padding: 0px; background-color: rgba(60, 65, 70, 0.8); "
+      <div style="width: 750px; border-radius: 25px; padding: 0px; background-color: rgba(60, 65, 70, 0.9); "
         class="center-screen">
         <h3 style="text-align: center; color: aliceblue;"><b>Instructions</b></h3>
         <p1 style="text-align:left; color: aliceblue;">

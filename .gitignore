@@ -8,3 +8,6 @@ passwd.txt*
 /web/venv
 .log
 .zip
+/eventData
+json_info.csv*
+*.log
