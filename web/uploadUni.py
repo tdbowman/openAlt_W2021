@@ -1,5 +1,6 @@
 ###### Darpan Start ######
 import os
+import json
 import csv
 import pandas
 import logging
@@ -13,8 +14,13 @@ import dbQuery
 from flask import redirect
 import emailResults as er
 
-# importing download function to download zip folder containing results CSV file
-from downloadResultsCSV import downloadResultsAsCSV
+# Importing app config file
+path = os.getcwd() 
+parent = os.path.dirname(path) 
+config_path = os.path.join(parent, "config", "openAltConfig.json")
+f = open(config_path)
+
+APP_CONFIG = json.load(f)
 
 ### SAMPLE AUTHOR API INFO ###
 ### https://api.crossref.org/works?query=renear+ontologies ###
@@ -108,7 +114,7 @@ def downloadUni(mysql, dir_csv, type, email):
 
         # Writing API query to API_Instructions.txt
         uni_api = uni.replace(' ','+')
-        f.write("https://api.crossref.org/works?query.affiliation=" + uni_api + "\n")
+        f.write(APP_CONFIG['Crossref-Metadata-API']['uni_url'] + uni_api + "\n")
 
         # Write result to file.
         df = pandas.DataFrame(resultSet)
