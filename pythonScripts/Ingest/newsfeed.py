@@ -86,11 +86,11 @@ def newsfeedIngest(uniqueEvent, cursor, connection):
     # If it exists, exit from the ingest function
 
     # ---- Beginning of code -----
-    cursor.execute ("SELECT 1 FROM crossrefeventdatamain.newsfeedevent WHERE eventID = '" + t_id + "'")
-    exists = cursor.fetchall()
+    # cursor.execute ("SELECT 1 FROM crossrefeventdatamain.newsfeedevent WHERE eventID = '" + t_id + "'")
+    # exists = cursor.fetchall()
 
-    if exists != None:
-        return
+    # if exists != None:
+    #     return
 
     # ---- End of code ----
 
