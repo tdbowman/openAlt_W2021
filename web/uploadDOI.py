@@ -1,5 +1,6 @@
 ###### Darpan Start ######
 import os
+import json
 import csv
 import pandas
 import logging
@@ -13,8 +14,13 @@ import dbQuery
 from flask import redirect
 import emailResults as er
 
-# importing download function to download zip folder containing results CSV file
-from downloadResultsCSV import downloadResultsAsCSV
+# Importing app config file
+path = os.getcwd() 
+parent = os.path.dirname(path) 
+config_path = os.path.join(parent, "config", "openAltConfig.json")
+f = open(config_path)
+
+APP_CONFIG = json.load(f)
 
 # Setter for zip directory
 def setZipEvents(path):
@@ -130,8 +136,8 @@ def downloadDOI(mysql, dir_csv, type, email):
         progress = progress + 1
         print("PROGRESS: " + str(progress) + "/" + str(len(doi_arr)))
         
-        # Writing API query to API_Instructions.txt
-        f.write("https://api.crossref.org/works/" + doi + "\n")
+        # Writing API query to API_Instructions.txt --> APP_CONFIG referenced from app.py
+        f.write(APP_CONFIG['Crossref-Metadata-API']['doi_url'] + doi + "\n")
 
         # Replace invalid chars for file name
         invalid_chars = ['/','.','(',')',':','<','>','?','|','\"','*']

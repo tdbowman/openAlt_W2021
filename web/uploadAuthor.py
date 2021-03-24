@@ -1,5 +1,6 @@
 ###### Darpan Start ######
 import os
+import json
 import csv
 import pandas
 import logging
@@ -13,8 +14,13 @@ import datetime as dt
 from flask import redirect
 import emailResults as er
 
-# importing download function to download zip folder containing results CSV file
-from downloadResultsCSV import downloadResultsAsCSV
+# Importing app config file
+path = os.getcwd() 
+parent = os.path.dirname(path) 
+config_path = os.path.join(parent, "config", "openAltConfig.json")
+f = open(config_path)
+
+APP_CONFIG = json.load(f)
 
 ### SAMPLE AUTHOR API INFO ###
 ### https://api.crossref.org/works?query=renear+ontologies ###
@@ -107,9 +113,8 @@ def downloadAuthor(mysql, dir_csv, type, email):
 
         # Writing API query to API_Instructions.txt
         author_api = author.replace(' ','+')
-        f.write("https://api.crossref.org/works?query.author=" + author_api + "\n")
-
-        
+        f.write(APP_CONFIG['Crossref-Metadata-API']['author_url'] + author_api + "\n")
+            
 
         # If query outputs no results, then author not in database
         if len(resultSet) == 0:
