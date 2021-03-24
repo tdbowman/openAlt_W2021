@@ -175,7 +175,7 @@ def downloadDOI(mysql, dir_csv, type, email):
 
             df.columns = [i[0] for i in cursor.description]  ###### CAUSED ISSUE ON SALSBILS MACHINE #######
 
-            if type == 'doi':
+            if type == 'csv':
                 resultPath = dir_doi + '\\eventCounts_' + str(file_id) + '.csv'
                 df.to_csv(resultPath,index=False)
             elif type == 'json':
@@ -194,7 +194,7 @@ def downloadDOI(mysql, dir_csv, type, email):
                     df.columns = headers[table]
 
                     # Writing CSV containing DOI metadata
-                    if type == 'doi':
+                    if type == 'csv':
                         resultPath = dir_doi + '\\' + table + '_' + str(file_id) + '.csv'
                         df.to_csv(resultPath,index=False)
                     elif type == 'json':
@@ -220,7 +220,7 @@ def downloadDOI(mysql, dir_csv, type, email):
                 os.mkdir(dir_doi)
 
             # Writing CSV/JSON containing DOI metadata
-            if type == 'doi':
+            if type == 'csv':
                 resultPath = dir_doi + '\\doiInfo_' + str(file_id) + '.csv'
                 df.to_csv(resultPath,index=False)
             elif type == 'json':

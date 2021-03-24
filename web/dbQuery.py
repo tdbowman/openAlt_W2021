@@ -18,7 +18,7 @@ APP_CONFIG = json.load(f)
 
 # Gets DOI event counts
 def getDOIEventCounts(doi, cursor):
-    query = "SELECT * FROM crossrefeventdatamain.main WHERE objectID LIKE '%" + doi + "%'"
+    query = "SELECT objectID, totalEvents, totalCrossrefEvents, totalDataciteEvents, totalF1000Events, totalHypothesisEvents, totalNewsfeedEvents, totalRedditEvents, totalRedditLinksEvents, totalStackExchangeEvents, totalTwitterEvents, totalWebEvents, totalWikipediaEvents, totalWordpressEvents FROM crossrefeventdatamain.main WHERE objectID LIKE '%" + doi + "%'"
     
     print('\n',"Retrieving Event Counts: " + doi)
     #print('\n',query)
