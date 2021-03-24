@@ -1,5 +1,3 @@
-# Author: Darpan (Lines 231-251, 273-280)
-
 import os
 import json
 import flask
@@ -8,6 +6,7 @@ from flask import send_file
 from flask_mysqldb import MySQL
 from flask import request, jsonify, redirect, flash
 from datetime import datetime
+from email_validator import validate_email, EmailNotValidError
 
 # Import our functions for other pages
 from searchLogic import searchLogic
@@ -47,6 +46,8 @@ mysql_password = getPassword()
 
 # Instantiate an object of class Flask
 app = flask.Flask(__name__)
+app.secret_key = "OpenAlt"
+
 # Database connection settings
 app.config['MYSQL_USER'] = mysql_username
 app.config['MYSQL_PASSWORD'] = mysql_password
@@ -76,13 +77,13 @@ app2.config['MYSQL_CURSORCLASS'] = 'DictCursor'
 # Database initialization and cursor
 mysql2 = MySQL(app2)
 
-#Author:
-    #Name: Mohammad Tahmid
-    #Lines 57-69, 123
-    #---------------------
-#Date: 02/23/2021
-#Description: Passes a connection for a opencitations database
-#-----------------------------------------------------------
+# Author:
+# Name: Mohammad Tahmid
+# Lines 57-69, 123
+# ---------------------
+# Date: 02/23/2021
+# Description: Passes a connection for a opencitations database
+# -----------------------------------------------------------
 # Instantiate a third object of class Flask
 app3 = flask.Flask(__name__)
 # Database connection settings
@@ -94,7 +95,7 @@ app3.config['MYSQL_DB'] = 'opencitations'
 app3.config['MYSQL_CURSORCLASS'] = 'DictCursor'
 # Database initialization and cursor
 mysql3 = MySQL(app3)
-#-----------------------------------------------------------
+# -----------------------------------------------------------
 
 
 # Pass on vars between pages
@@ -111,7 +112,7 @@ def index():
 
     # Go to landingPageJournals.py
     totalSumJournals = landingPageJournals(mysql)
-
+    
     return flask.render_template('index.html', totalSum=totalSum, totalSumArticles=totalSumArticles, totalSumJournals=totalSumJournals)
 
 
@@ -141,26 +142,47 @@ def articleDashboard():
     for i in range(currentYear - 4, currentYear + 1):
         years_list.append(i)
 
-	# If a HTTPS POST Request is received...
-	#Author: Mohammad Tahmid
-	#Lines: 113-127
-	#Description: Gets the DOI from the article landing page and downloads the information to the users computer
+        # If a HTTPS POST Request is received...
+        # Author: Mohammad Tahmid
+        #Lines: 113-127
+        # Description: Gets the DOI from the article landing page and downloads the information to the users computer
 
     # If a HTTPS POST Request is received...
     if request.method == "POST":
 
         if request.form.get('articleDLChoice') is not None:
-		    #File type user wants the information dowloaded as
+            # File type user wants the information dowloaded as
             fileChoice = str(request.form.get("articleDLChoice"))
 
-		    #The DOI of the aritcle that the user was viewing and wants the information of
-            #fileDOI = str(request.form.get("articleDLDOI"))
+            # The DOI of the aritcle that the user was viewing and wants the information of
+            fileDOI = str(request.form.get("articleDLDOI"))
 
-		    #Zipped up contents of the data from the database
-            #zipEvents = articleLandingDownload(fileDOI, fileChoice, mysql)
+            # The email the user entered is retreived and stored
+            fileEmail = str(request.form.get("email_input"))
 
-		    #The zipped up files are downloaded onto the user's desktop
-            #return send_file(zipEvents, as_attachment=True)
+            try:
+                valid = validate_email(fileEmail)
+                valid = valid.email
+                print(valid)
+
+                flash("Your results will be emailed to you shortly. Thank You.", "valid")
+
+                # Zipped up contents of the data from the database
+                articleLandingEmail(mysql, fileDOI, fileChoice, valid)
+
+                # return flask.render_template('searchComplete.html')
+
+            except EmailNotValidError as e:
+                print(e)
+                flash(
+                    "You have entered an invalid email address. Please try again.", "danger")
+                #session.pop('_flashes', None)
+
+            # Zipped up contents of the data from the database
+            #zipEvents = articleLandingDownload(mysql, fileDOI, fileChoice, fileEmail)
+
+            # The zipped up files are downloaded onto the user's desktop
+            # return send_file(zipEvents, as_attachment=True)
 
         # Grab the year value from the year filter of the bar chart.
         if request.form.get('year') is not None:
@@ -213,11 +235,6 @@ def authorDashboard():
 
     # Go to authorDashboardLogic.py
     return authorDashboardLogic(mysql, mysql2, years_list, yearInput)
-
-
-@ app.route('/admin', methods=["GET", "POST"])
-def adminlogin():
-    return flask.render_template('admin.html')
 
 
 @ app.route('/about', methods=["GET", "POST"])
@@ -320,7 +337,6 @@ def downloadDOI():
             emailError(emailVal, 'doi')
             return redirect('/searchError')
 
-        return redirect('/searchComplete')
         # return flask.render_template('searchComplete.html')
 
     return flask.render_template('downloadDOI.html')
@@ -335,7 +351,7 @@ def uploadAuthors():
     if not os.path.isdir(destination):
         os.mkdir(destination)
 
-    if request.method=="POST":
+    if request.method == "POST":
         if request.files:
             uploadFiles = request.files["csv/json"]
             print(uploadFiles)
@@ -351,17 +367,14 @@ def uploadAuthors():
     return flask.render_template('uploadAuthors.html')
 
 
-
-
-
 @ app.route('/downloadAuthors', methods=["GET", "POST"])
 def downloadAuthors():
-    if request.method=="POST":
+    if request.method == "POST":
 
         filepath = session.get('authorPath')
 
         dropdownValue = request.form.get('dropdownSearchBy')
-        print("Download Type:",dropdownValue)
+        print("Download Type:", dropdownValue)
 
         emailVal = request.form.get('email_input')
         print("Recipient: ", emailVal)
@@ -392,7 +405,7 @@ def uploadUni():
     if not os.path.isdir(destination):
         os.mkdir(destination)
 
-    if request.method=="POST":
+    if request.method == "POST":
         if request.files:
             uploadFiles = request.files["csv/json"]
             print(uploadFiles)
@@ -410,12 +423,12 @@ def uploadUni():
 
 @ app.route('/downloadUni', methods=["GET", "POST"])
 def downloadUni():
-    if request.method=="POST":
+    if request.method == "POST":
 
         filepath = session.get('uniPath')
 
         dropdownValue = request.form.get('dropdownSearchBy')
-        print("Download Type:",dropdownValue)
+        print("Download Type:", dropdownValue)
 
         emailVal = request.form.get('email_input')
         print("Recipient: ", emailVal)
@@ -434,21 +447,17 @@ def downloadUni():
         return redirect('/searchComplete')
         # return flask.render_template('searchComplete.html')
 
-
-
     return flask.render_template('downloadUni.html')
+
 
 @ app.route('/searchComplete', methods=["GET", "POST"])
 def searchComplete():
-    # redirect('/searchComplete')
-
-    # if session['type'] == 'doi':
-    #     filepath = session.get('doiPath')
-    #     searchByDOI(mysql, filepath)
-
     return flask.render_template('searchComplete.html')
 
 
+@ app.route('/searchError', methods=["GET", "POST"])
+def searchError():
+    return flask.render_template('searchError.html')
 
 
 @ app.route('/limitReached', methods=["GET", "POST"])

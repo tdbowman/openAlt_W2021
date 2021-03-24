@@ -4,7 +4,7 @@
 <!-- Anything you put here will be in the HTML head tags-->
 {% block head %}
 <script>
-
+    
     $(function () {
 
         // Initialize variables and reference to the resultsButton and the current value of the email box
@@ -31,7 +31,7 @@
                 });
                 return false;
             }
-            // check if entered email is valid
+            // check if entered email is valid       
             else if (/^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/.test($emailValue)) {
 
                 $("#success").dialog({
@@ -45,7 +45,7 @@
                             //$(this).dialog("close");
                         }
                     }
-
+                    
                 });
                 return (true)
             }
@@ -164,7 +164,7 @@
                             <th>Estimated Time</th>
                             <th>Estimated Size CSV</th>
                             <th>Estimated Size JSON</th>
-
+    
                         </tr>
                     </thead>
                     <tbody>
@@ -173,7 +173,7 @@
                             <td>10 seconds</td>
                             <td>15 KB</td>
                             <td>40 KB</td>
-
+    
                         </tr>
                         <tr>
                             <td>100</td>

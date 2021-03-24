@@ -5207,6 +5207,7 @@ a.thumbnail.active, a.thumbnail:focus, a.thumbnail:hover {
     margin-bottom: 20px;
     border: 1px solid transparent;
     border-radius: 4px
+    
 }
 
 .alert h4 {

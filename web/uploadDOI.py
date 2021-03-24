@@ -66,6 +66,9 @@ def downloadDOI(mysql, dir_csv, type, email):
     dir_config = dir_file + '\\uploadDOI_config.txt'
 
     # path of file to print results to
+    if not os.path.exists(dir_file + '\\Results'):
+        os.mkdir(dir_file + '\\Results')
+
     dir_results = dir_file  + '\\Results\\doiEvents_' + str(dt.datetime.now().strftime("%Y-%m-%d_%H-%M-%S"))
 
     # Create folder to hold results
@@ -73,6 +76,8 @@ def downloadDOI(mysql, dir_csv, type, email):
         os.mkdir(dir_results)
 
     # Set the logging parameters
+    if not os.path.exists(dir_file + '\\Logs'):
+        os.mkdir(dir_file + '\\Logs')
     logging.basicConfig(filename= dir_file + '\\Logs\\uploadDOI.log', filemode='a', level=logging.INFO,
         format='%(asctime)s - %(message)s', datefmt='%d-%b-%y %H:%M:%S')
 
@@ -293,7 +298,7 @@ def downloadDOI(mysql, dir_csv, type, email):
     # Time taken to execute script
     print("--- %s seconds ---" % (time.time() - start_time))
 
-    return zipEvents
+    #return zipEvents
 
 ###### Darpan End ######
 

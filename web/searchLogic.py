@@ -23,6 +23,9 @@ def searchLogic(mysql, mysql2, dropdownValue):
     sortSelector = None
     returnedQueries = []
     selected_years = []
+    domain = None
+    country = None
+    university = None
 
     # sort by descending by default, change to asc if user wants
     descending_or_ascending = " desc;"
@@ -42,6 +45,10 @@ def searchLogic(mysql, mysql2, dropdownValue):
     endYear = flask.request.form.get("endYear")
     sortSelector = flask.request.form.get('sortSelector')
     perPage = str(flask.request.form.get("perPage"))
+    country = flask.request.form.get('country')
+    domain = flask.request.form.get("domain")
+    university = flask.request.form.get("university")
+
 
     if flask.request.form.get("search") is None:
         search = str(flask.request.args.get("search"))
@@ -58,6 +65,16 @@ def searchLogic(mysql, mysql2, dropdownValue):
             perPage = "10"
         else:
             perPage = str(flask.request.args.get("perPage"))
+
+    if flask.request.form.get("domain") is None:
+        domain = flask.request.args.get("domain")
+
+    if flask.request.form.get("country") is None:
+        domain = flask.request.args.get("country")
+
+    if flask.request.form.get("university") is None:
+        domain = flask.request.args.get("university")
+        
 
     # Now that we have checked the form and URL for how the user would like to search, we can set it
     if (sortSelector == "PublicationYearAscending"):
@@ -97,19 +114,79 @@ def searchLogic(mysql, mysql2, dropdownValue):
     #   Select which SQL to execute, based on the drop-down selection,
     #   the search term, and the years selected, if any
 
+
+    # Author: Rihat Rahman
+    # Lines: 119 - 170
+    # ---------------------------------------------------------------------------------------------------
+    if (country == None) | (country == 'Select'):
+        country = ''
+        country_query = ''
+
+    else:
+        country_query = country_query =  " country like '" + country +"'"
+
+
+    if domain == None:
+        domain = ''
+        domain_query = ''
+
+    else:
+        domain_query = "(select fk from doidata.content_domain where domain like '" + domain + "')"
+
+
+    if (university == None) | (university == '') :
+        university = ''
+        university_query = ''
+
+    else:
+        university_query = " university like '" + university + "'"
+
+    advanced_query = ''
+
+    if (country != '') | (university != '') | (domain != ''):
+
+        prefix = ' and id in '
+
+        if (country == '') & (university == '') & (domain != ''):
+            advanced_query = prefix + domain_query
+
+        else:
+
+            if (country != '') & (university != ''):
+                
+                if domain != '':
+                    advanced_query = prefix + ' (select fk from doidata.author where ' + country_query + 'and' + university_query + ' and fk in ' + domain_query + ') '
+
+                else:
+                    advanced_query = prefix + ' (select fk from doidata.author where ' + country_query + 'and' + university_query + ') '
+
+            else:
+
+                if domain != '':
+                    advanced_query = prefix + ' (select fk from doidata.author where ' + country_query + university_query + ' and fk in ' + domain_query + ') '
+
+                else:
+                    advanced_query = prefix + ' (select fk from doidata.author where ' + country_query + university_query + ') '
+    # ---------------------------------------------------------------------------------------------------
+
+
+
     # Search by DOI
     if (selection == "DOI"):
+
 
         if not selected_years:
             # no year filter
             sql = "Select doi, title, container_title, published_print_date_parts, fk from _main_ where doi like '%" + \
-                search + "%\' order by published_print_date_parts" + descending_or_ascending + ";"
+                search + advanced_query + "%\' order by published_print_date_parts" + descending_or_ascending + ";"
         else:
             # with year filter
             sql = "Select doi, title, container_title, published_print_date_parts, fk from _main_ where doi like '%" + \
                 search + \
                 "%\' and substr(published_print_date_parts, 1,4) in " + \
-                s_years + " order by published_print_date_parts" + descending_or_ascending + ";"
+                s_years + advanced_query + " order by published_print_date_parts" + descending_or_ascending + ";"
+
+        
 
         cursor.execute(sql)
         result_set = cursor.fetchall()
@@ -173,13 +250,13 @@ def searchLogic(mysql, mysql2, dropdownValue):
             if not selected_years:
                 # no year filter
                 sql = "Select doi, title, container_title, published_print_date_parts, fk from _main_ where fk in " + \
-                    given_author + " order by published_print_date_parts" + descending_or_ascending + ";"
+                    given_author + advanced_query + " order by published_print_date_parts" + descending_or_ascending + ";"
             else:
                 # with year filter
                 sql = "Select doi, title, container_title, published_print_date_parts, fk from _main_ where fk in " + \
                     given_author + \
                     " and substr(published_print_date_parts, 1,4) in" + \
-                    s_years + " order by published_print_date_parts" + descending_or_ascending + ";"
+                    s_years + advanced_query + " order by published_print_date_parts" + descending_or_ascending + ";"
 
             try:
                 cursor.execute(sql)
@@ -228,13 +305,13 @@ def searchLogic(mysql, mysql2, dropdownValue):
         if not selected_years:
             # no year filter
             sql = "Select doi, title, container_title, published_print_date_parts, fk from _main_ where container_title like '%" + \
-                search + "%\' order by published_print_date_parts" + descending_or_ascending + ";"
+                search + advanced_query + "%\' order by published_print_date_parts" + descending_or_ascending + ";"
         else:
             # with year filter
             sql = "Select doi, title, container_title, published_print_date_parts, fk from _main_ where container_title like '%" + \
                 search + \
                 "%\' and substr(published_print_date_parts, 1,4) in" + \
-                s_years+" order by published_print_date_parts" + descending_or_ascending + ";"
+                s_years + advanced_query +" order by published_print_date_parts" + descending_or_ascending + ";"
 
         cursor.execute(sql)
         result_set = cursor.fetchall()
@@ -280,14 +357,15 @@ def searchLogic(mysql, mysql2, dropdownValue):
         if not selected_years:
             # no year filter
             sql = "Select doi, title, container_title, published_print_date_parts, fk from _main_ where title like '%" + \
-                search + "%\' order by published_print_date_parts" + descending_or_ascending + ";"
+                search +  "%\'" + advanced_query + " order by published_print_date_parts" + descending_or_ascending + ";"
         else:
             # with year filter
             sql = "Select doi, title, container_title, published_print_date_parts, fk from _main_ where title like '%" + \
                 search + \
                 "%\' and substr(published_print_date_parts, 1,4) in" + \
-                s_years + " order by published_print_date_parts" + descending_or_ascending + ";"
+                s_years + advanced_query + " order by published_print_date_parts" + descending_or_ascending + ";"
 
+        print(sql)
         cursor.execute(sql)
         result_set = cursor.fetchall()
 

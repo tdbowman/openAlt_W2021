@@ -60,6 +60,9 @@ def downloadUni(mysql, dir_csv, type, email):
     dir_template = dir_csv
 
     # Path of results folde with current time
+    if not os.path.exists(dir_file + '\\Results'):
+        os.mkdir(dir_file + '\\Results')
+
     dir_results = dir_file + '\\Results\\universityEvents_' + \
         str(dt.datetime.now().strftime("%Y-%m-%d_%H-%M-%S"))
 
@@ -67,7 +70,10 @@ def downloadUni(mysql, dir_csv, type, email):
     if not os.path.exists(dir_results):
         os.mkdir(dir_results)
 
+    
     # Set the logging parameters
+    if not os.path.exists(dir_file + '\\Logs'):
+        os.mkdir(dir_file + '\\Logs')
     logging.basicConfig(filename=dir_file + '\\Logs\\uploadUniversity.log', filemode='a', level=logging.INFO,
                         format='%(asctime)s - %(message)s', datefmt='%d-%b-%y %H:%M:%S')
 
