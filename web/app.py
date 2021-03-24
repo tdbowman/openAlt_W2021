@@ -112,6 +112,8 @@ def index():
 
     # Go to landingPageJournals.py
     totalSumJournals = landingPageJournals(mysql)
+
+    print("IP ADDRESS:", request.remote_addr) #OR request.environ['REMOTE_ADDR']
     
     return flask.render_template('index.html', totalSum=totalSum, totalSumArticles=totalSumArticles, totalSumJournals=totalSumJournals)
 
