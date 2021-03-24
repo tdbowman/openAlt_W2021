@@ -13,7 +13,7 @@ config_path = os.path.join(parent, "config", "openAltConfig.json")
 
 # config file
 f = open(config_path)
-APP_CONFIG = json.load(f)
+config = json.load(f)
 
 
 # Gets DOI event counts
@@ -213,8 +213,8 @@ def bulkSearchUserInsert(email, type, cursor, db):
 # User Limit Check
 def checkUser(email, type, cursor):
 
-    limit = APP_CONFIG['User-Result-Limit']['limit']
-    interval = APP_CONFIG['User-Result-Limit']['dayInterval']
+    limit = config['User-Result-Limit']['limit']
+    interval = config['User-Result-Limit']['dayInterval']
 
     query = "SELECT count(*) as count FROM bulksearchstats.bulksearch where time >=  NOW() - INTERVAL " + str(interval) + " DAY and email = '" + email + "' and type = '" + type + "'"
     cursor.execute(query)
