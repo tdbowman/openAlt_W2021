@@ -20,6 +20,7 @@ from uploadAuthor import searchByAuthor, getZipAuthor
 from uploadUni import searchByUni, getZipUni
 from emailError import emailError
 from singleDOIEmailLogic import articleLandingEmail
+from getCount import uploadDOIList, getStats
 
 from getPassword import getPassword
 
@@ -284,7 +285,9 @@ def uploadDOI():
 
             session['doiPath'] = fileName
 
-        return flask.render_template('downloadDOI.html')
+            uploadDOIList(mysql, fileName)
+
+        return flask.render_template('downloadDOI.html', results = getStats())
 
     return flask.render_template('uploadDOI.html')
 

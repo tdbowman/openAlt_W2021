@@ -65,7 +65,7 @@ def transfer_buffer(events, articleDOI, crossRefEventDatabaseCursor, crossRefEve
     myclient = pymongo.MongoClient("mongodb://localhost:27017/")
 
     # reference MongoDB database
-    eventDatabase = myclient["EventDatabase"]
+    eventDatabase = myclient["EventDatabaseTest"]
         
     for info in events: 
 
@@ -588,8 +588,10 @@ def databaseConnection():
     try:
         # connect to doidata database
         print("MySQL Credentials")
-        mysql_username = input("Username: ")
-        mysql_password = input("Password: ")
+        # mysql_username = input("Username: ")
+        # mysql_password = input("Password: ")
+        mysql_username = "root"
+        mysql_password = "pass1234"
 
         crossRefEventDatabase = mysql.connector.connect(host = "localhost", user = mysql_username, passwd = mysql_password, database = "crossrefeventdatamain")
 

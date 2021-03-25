@@ -23,8 +23,10 @@ import crossref
 def ingestMongoEvents():
     # MySQL credentials
     print("MySQL Credentials")
-    mysql_username = input("Username: ")
-    mysql_password = input("Password: ")
+    # mysql_username = input("Username: ")
+    # mysql_password = input("Password: ")
+    mysql_username = "root"
+    mysql_password = "pass1234"
 
     # Setup MySQL connection
     connection = mysql.connector.connect(user=str(mysql_username), password=str(
@@ -33,7 +35,7 @@ def ingestMongoEvents():
 
     myclient = pymongo.MongoClient("mongodb://localhost:27017/")
 
-    database = myclient['EventDatabase']
+    database = myclient['EventDatabaseTest']
 
     # collNames = {"Cambia-Lens", "Crossref", "Datacite", "F1000", "Hypothesis", "Newsfeed", "Reddit", "Reddit-Links", "StackExchange",
     # "Twitter", "Web", "Wikipedia", "WordPressDotCom"}

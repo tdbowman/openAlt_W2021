@@ -11,3 +11,4 @@ passwd.txt*
 /eventData
 json_info.csv*
 *.log
+*.csv
