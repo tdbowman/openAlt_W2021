@@ -7,7 +7,7 @@ import flask
 #Date: 02/23/2021
 #Description: Fetches data from database per every article in the article landing page
 
-def articleDashboardLogic(mysql, mysql2, mysql3, years_list, yearInput):
+def articleDashboardLogic(mysql, mysql2, mysql3, years_list, yearInput, citation_years_list, citationYearInput):
 
     # connect to Dr Bowman's database
     cursor = mysql.connection.cursor()
@@ -394,6 +394,7 @@ def articleDashboardLogic(mysql, mysql2, mysql3, years_list, yearInput):
         wikipediaevent = []
         wordpressevent = []
 
+
     '''
 	citationCountquery ="""SELECT count FROM opencitations.citation_count WHERE doi = '%s'""" % (search)
     cursor3 = mysql3.connection.cursor()
@@ -405,7 +406,24 @@ def articleDashboardLogic(mysql, mysql2, mysql3, years_list, yearInput):
     cursor3.execute(citationCountquery)
     citationCountResult = cursor3.fetchone()
 
-    return flask.render_template('articleDashboard.html', years_list=years_list, yearInput=yearInput, article_detail=article, events=eventsForArticle, totalEventsSum=totalEventsSum,
+
+
+    citationChartResults = []
+
+    for year in citation_years_list:
+
+        citationChartquery = "SELECT COUNT(*) count FROM opencitations.citations WHERE cited = '" + article_result['doi'] + "' and substr(creation,1,4)= '" +  str(year) + "';"
+        cursor3 = mysql3.connection.cursor()
+        cursor3.execute(citationChartquery)
+        citationCount = cursor3.fetchone()
+        citationChartResults.append(citationCount['count'])
+        
+
+    print(citationChartResults)
+
+
+
+    return flask.render_template('articleDashboard.html', years_list=years_list, citation_years_list= citation_years_list, citationYearInput = citationYearInput, yearInput=yearInput, article_detail=article, events=eventsForArticle, totalEventsSum=totalEventsSum,
                                  cambiaEventData=cambiaevent,
                                  crossrefEventData=crossrefevent,
                                  dataciteEventData=dataciteevent,
@@ -419,4 +437,5 @@ def articleDashboardLogic(mysql, mysql2, mysql3, years_list, yearInput):
                                  webEventData=webevent,
                                  wikipediaEventData=wikipediaevent,
                                  wordpressEventData=wordpressevent,
-								 citationCount=citationCountResult)
+								 citationCount=citationCountResult,
+                                 citationChartData = citationChartResults)
