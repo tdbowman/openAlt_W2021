@@ -96,7 +96,7 @@ def getDOIEvents(doi, cursor):
 def getDOICitations(doi, cursor):
 
     # DOI Info Query
-    query = "SELECT citing, cited from opencitations.citations where citing = '" + doi + "' or cited = '" + doi + "'"
+    query = "SELECT cited as publication, citing as citation from opencitations.citations where citing = '" + doi + "' or cited = '" + doi + "'"
     
     print("Retrieving Citations: " + doi)
     #print('\n',query)
