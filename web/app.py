@@ -20,7 +20,7 @@ from uploadAuthor import searchByAuthor, getZipAuthor
 from uploadUni import searchByUni, getZipUni
 from emailError import emailError
 from singleDOIEmailLogic import articleLandingEmail
-from getCount import uploadDOIList, getStats
+from getCount import uploadDOIList, getStats, uploadAuthorList, uploadUniList
 
 from getPassword import getPassword
 
@@ -338,7 +338,9 @@ def uploadAuthors():
 
             session['authorPath'] = fileName
 
-        return flask.render_template('downloadAuthors.html')
+            uploadAuthorList(mysql, fileName)
+
+        return flask.render_template('downloadAuthors.html', results = getStats())
 
     return flask.render_template('uploadAuthors.html')
 
@@ -363,7 +365,6 @@ def downloadAuthors():
             return redirect('/searchError')
 
         return redirect('/searchComplete')
-        # return flask.render_template('searchComplete.html')
 
     return flask.render_template('downloadAuthors.html')
 
@@ -388,7 +389,9 @@ def uploadUni():
 
             session['uniPath'] = fileName
 
-        return flask.render_template('downloadUni.html')
+            uploadUniList(mysql, fileName)
+
+        return flask.render_template('downloadUni.html', results = getStats())
 
     return flask.render_template('uploadUni.html')
 
