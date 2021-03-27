@@ -27,7 +27,7 @@ def emailAdmin(pw):
     msg = MIMEMultipart()
     msg['From'] = 'OpenAlt v2.0'
     msg['To'] = 'darpanshah7@gmail.com'
-    msg['Subject'] = 'OpenAlt v2.0: Admin Login'
+    msg['Subject'] = 'Admin Login'
 
     
 
