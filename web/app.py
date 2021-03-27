@@ -21,6 +21,7 @@ from uploadAuthor import searchByAuthor, getZipAuthor
 from uploadUni import searchByUni, getZipUni
 from emailError import emailError
 from singleDOIEmailLogic import articleLandingEmail
+from editconf import editconfigfile
 import dbQuery
 
 from getPassword import getPassword, SECRET_KEY, SITE_KEY
@@ -112,7 +113,7 @@ def index():
 
     # Go to landingPageJournals.py
     totalSumJournals = landingPageJournals(mysql)
-    
+
     return flask.render_template('index.html', totalSum=totalSum, totalSumArticles=totalSumArticles, totalSumJournals=totalSumJournals)
 
 
@@ -236,6 +237,10 @@ def authorDashboard():
     # Go to authorDashboardLogic.py
     return authorDashboardLogic(mysql, mysql2, years_list, yearInput)
 
+
+@ app.route('/adminloginsuccess', methods=["GET", "POST"])
+def admin():
+    return editconfigfile()
 
 @ app.route('/about', methods=["GET", "POST"])
 def about():
