@@ -8,6 +8,10 @@ from flask import request, jsonify, redirect, flash
 from datetime import datetime
 from email_validator import validate_email, EmailNotValidError
 
+# Import for password creation
+import random
+import string
+
 # Import our functions for other pages
 from searchLogic import searchLogic
 from articleDashboardLogic import articleDashboardLogic
@@ -20,6 +24,7 @@ from uploadDOI import searchByDOI, getZipEvents
 from uploadAuthor import searchByAuthor, getZipAuthor
 from uploadUni import searchByUni, getZipUni
 from emailError import emailError
+from emailAdmin import emailAdmin
 from singleDOIEmailLogic import articleLandingEmail
 from editconf import editconfigfile
 import dbQuery
@@ -113,6 +118,8 @@ def index():
 
     # Go to landingPageJournals.py
     totalSumJournals = landingPageJournals(mysql)
+
+    print("IP ADDRESS:", request.remote_addr) #OR request.environ['REMOTE_ADDR']
 
     return flask.render_template('index.html', totalSum=totalSum, totalSumArticles=totalSumArticles, totalSumJournals=totalSumJournals)
 
@@ -480,6 +487,17 @@ def captchaTest():
         return flask.render_template('searchComplete.html')
 
     return flask.render_template('captchaTest.html', form=form)
+
+@ app.route('/adminLogin', methods=["GET", "POST"])
+def adminLogin():
+
+    # Password creation
+    source = string.ascii_letters + string.digits
+    pw = ''.join((random.choice(source) for i in range(10)))
+
+    emailAdmin(pw)
+
+    return flask.render_template('adminLogin.html')
 
 
 # If this is the main module or main program being run (app.py)......
