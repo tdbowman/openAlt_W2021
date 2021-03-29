@@ -26,7 +26,7 @@ from uploadUni import searchByUni, getZipUni
 from emailError import emailError
 from emailAdmin import emailAdmin
 from singleDOIEmailLogic import articleLandingEmail
-from getCount import uploadDOIList, getStats
+from getCount import uploadDOIList, getStats, getCount, uploadAuthorList, uploadUniList
 import dbQuery
 
 from getPassword import getPassword, SECRET_KEY, SITE_KEY
@@ -305,8 +305,6 @@ def uploadDOI():
     # Allowed extensions of file
     ALLOWED_EXTENSIONS = {'csv'}
 
-    destination = app.config["UPLOAD_FILES"]
-
     # Limit of the file size to 1 GB
     app.config['MAX_CONTENT_LENGTH'] = 1 * 1024 * 1024
 
@@ -337,7 +335,12 @@ def uploadDOI():
 
             uploadDOIList(mysql, fileName)
 
-        return flask.render_template('downloadDOI.html', results = getStats())
+            count = getCount()
+
+            if count == "0":
+                return flask.render_template('noResultsPage.html')
+            else:
+                return flask.render_template('downloadDOI.html', results = getStats())
 
     return flask.render_template('uploadDOI.html')
 
@@ -391,7 +394,14 @@ def uploadAuthors():
 
             session['authorPath'] = fileName
 
-        return flask.render_template('downloadAuthors.html')
+            uploadAuthorList(mysql, fileName)
+
+            count = getCount()
+
+            if count == "0":
+                return flask.render_template('noResultsPage.html')
+            else:
+                return flask.render_template('downloadDOI.html', results = getStats())
 
     return flask.render_template('uploadAuthors.html')
 
@@ -420,7 +430,6 @@ def downloadAuthors():
             return redirect('/searchError')
 
         return redirect('/searchComplete')
-        # return flask.render_template('searchComplete.html')
 
     return flask.render_template('downloadAuthors.html')
 
@@ -445,7 +454,14 @@ def uploadUni():
 
             session['uniPath'] = fileName
 
-        return flask.render_template('downloadUni.html')
+            uploadUniList(mysql, fileName)
+
+            count = getCount()
+
+            if count == "0":
+                return flask.render_template('noResultsPage.html')
+            else:
+                return flask.render_template('downloadDOI.html', results = getStats())
 
     return flask.render_template('uploadUni.html')
 
