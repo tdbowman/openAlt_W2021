@@ -26,7 +26,7 @@ from uploadUni import searchByUni, getZipUni
 from emailError import emailError
 from emailAdmin import emailAdmin
 from singleDOIEmailLogic import articleLandingEmail
-from getCount import uploadDOIList, getStats
+from getCount import uploadDOIList, getStats, getCount, uploadAuthorList, uploadUniList
 import dbQuery
 
 from getPassword import getPassword, SECRET_KEY, SITE_KEY
@@ -40,7 +40,7 @@ path = os.getcwd()
 
 # parent directory
 parent = os.path.dirname(path)
-config_path = os.path.join(parent, "openAlt_W2021\\config", "openAltConfig.json")
+config_path = os.path.join(parent, "config", "openAltConfig.json")
 
 # config file
 f = open(config_path)
@@ -299,13 +299,11 @@ def searchByOptions():
 def uploadDOI():
 
     # Directory of where to put the uploaded file
-    app.config["UPLOAD_FILES"] = "./web/uploadFiles"
+    app.config["UPLOAD_FILES"] = "../web/uploadFiles"
     target = app.config["UPLOAD_FILES"]
 
     # Allowed extensions of file
     ALLOWED_EXTENSIONS = {'csv'}
-
-    destination = app.config["UPLOAD_FILES"]
 
     # Limit of the file size to 1 GB
     app.config['MAX_CONTENT_LENGTH'] = 1 * 1024 * 1024
@@ -337,7 +335,12 @@ def uploadDOI():
 
             uploadDOIList(mysql, fileName)
 
-        return flask.render_template('downloadDOI.html', results = getStats())
+            count = getCount()
+
+            if count == "0":
+                return flask.render_template('noResultsPage.html')
+            else:
+                return flask.render_template('downloadDOI.html', results = getStats())
 
     return flask.render_template('uploadDOI.html')
 
@@ -374,7 +377,7 @@ def downloadDOI():
 @ app.route('/uploadAuthors', methods=["GET", "POST"])
 def uploadAuthors():
 
-    app.config["UPLOAD_FILES"] = "./web/uploadFiles"
+    app.config["UPLOAD_FILES"] = "../web/uploadFiles"
     destination = app.config["UPLOAD_FILES"]
 
     if not os.path.isdir(destination):
@@ -391,7 +394,14 @@ def uploadAuthors():
 
             session['authorPath'] = fileName
 
-        return flask.render_template('downloadAuthors.html')
+            uploadAuthorList(mysql, fileName)
+
+            count = getCount()
+
+            if count == "0":
+                return flask.render_template('noResultsPage.html')
+            else:
+                return flask.render_template('downloadDOI.html', results = getStats())
 
     return flask.render_template('uploadAuthors.html')
 
@@ -420,7 +430,6 @@ def downloadAuthors():
             return redirect('/searchError')
 
         return redirect('/searchComplete')
-        # return flask.render_template('searchComplete.html')
 
     return flask.render_template('downloadAuthors.html')
 
@@ -428,7 +437,7 @@ def downloadAuthors():
 @ app.route('/uploadUni', methods=["GET", "POST"])
 def uploadUni():
 
-    app.config["UPLOAD_FILES"] = "./web/uploadFiles"
+    app.config["UPLOAD_FILES"] = "../web/uploadFiles"
     destination = app.config["UPLOAD_FILES"]
 
     if not os.path.isdir(destination):
@@ -445,7 +454,14 @@ def uploadUni():
 
             session['uniPath'] = fileName
 
-        return flask.render_template('downloadUni.html')
+            uploadUniList(mysql, fileName)
+
+            count = getCount()
+
+            if count == "0":
+                return flask.render_template('noResultsPage.html')
+            else:
+                return flask.render_template('downloadDOI.html', results = getStats())
 
     return flask.render_template('uploadUni.html')
 
