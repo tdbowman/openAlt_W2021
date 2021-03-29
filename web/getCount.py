@@ -17,7 +17,7 @@ import datetime as dt
 # Setter for stats
 def setStats(x,y):
     global stats
-    stats = str(x) + ' out of ' + str(y) + ' results found!'
+    stats = str(x) + ' records found!'
     print(stats)
 
 # Getter for stats
@@ -143,14 +143,23 @@ def getAuthorCount(mysql, dir_csv):
         author_arr.append(author_list.values[x][0].lower())
 
     # Remove duplicates from author array
-    author_arr = list(dict.fromkeys(author_arr))
+    # author_arr = list(dict.fromkeys(author_arr))
 
-    joinedAuthorArr = "\'" + "','".join(author_arr) + "\'"
+    # joinedAuthorArr = "\'" + "','".join(author_arr) + "\'"
+    
+    query = "SELECT count(*) FROM doidata.author where name like \'%" + author_arr[0] + "%\'"
+
+    for author in author_arr[1:]:
+        print("Author List: ", author)
+        query = query + " OR name like \'%" + author + "%\'"
+
+    print("Test query: ", query)
+    
 
     # Set up cursor to run SQL query
     cursor = mysql.connection.cursor()  
 
-    query = "SELECT count(*) FROM doidata.author where name in (" + joinedAuthorArr + ")"
+    # query = "SELECT count(*) FROM doidata.author where name in (" + joinedAuthorArr + ")"
     cursor.execute(query)
     resultSet = cursor.fetchone()
     
@@ -198,7 +207,6 @@ def getUniCount(mysql, dir_csv):
     # Array containing universities listed in uploaded file
     uni_arr = []
 
-
     # Pandas library reads doi list
     uni_list = pandas.read_csv(dir_template, header=None)
 
@@ -209,14 +217,20 @@ def getUniCount(mysql, dir_csv):
     # Remove duplicates from author array
     uni_arr = list(dict.fromkeys(uni_arr))
 
-    joinedUniArr = "\'" + "','".join(uni_arr) + "\'"
+    # joinedUniArr = "\'" + "','".join(uni_arr) + "\'"
 
-    # Set up cursor to run SQL query
-    cursor = mysql.connection.cursor()  
+    testquery = "SELECT count(distinct university) FROM doidata.author where affiliation like \'%" + uni_arr[0] + "%\'"
 
-    query = query = "SELECT count(*) FROM doidata.author where affiliation in (" + joinedUniArr + ")"
+    for university in uni_arr[1:]:
+        print("University List: ", university)
+        testquery = testquery + " OR affiliation like \'%" + university + "%\'"
 
-    cursor.execute(query)
+    print("Test query: ", testquery)
+
+    #Cursor makes connection with the db
+    cursor = mysql.connection.cursor() 
+
+    cursor.execute(testquery)
     resultSet = cursor.fetchone()
-    
-    setStats(resultSet["count(*)"], len(uni_arr))
+
+    setStats(resultSet["count(distinct university)"], len(uni_arr))
