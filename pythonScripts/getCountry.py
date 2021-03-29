@@ -25,8 +25,8 @@ def extract_country(affiliation):
             return country_name
 
 
-        elif "USA" in location.upper():
-            return "United States"
+        elif ("USA" in location.upper()) or ("United States" in location.upper()):
+            return "United States of America"
 
 
         elif "UK" in location.upper():

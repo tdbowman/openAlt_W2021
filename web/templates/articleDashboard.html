@@ -1,11 +1,13 @@
 {% extends 'template.html' %}
 
-<!--#Author: 
+<!--
+    #Author: 
     #Name: Mohammad Tahmid 
     #Lines 195-197
     #---------------------
-#Date: 02/23/2021
-#Description: Displays citations section onto the website on the article landing page.-->
+    #Date: 02/23/2021
+    #Description: Displays citations section onto the website on the article landing page.
+-->
 
 <!-- Anything you put here will be in the HTML head tags-->
 {% block head %}
@@ -18,6 +20,9 @@
 
 <!-- Load c3 last (because it depends on d3) -->
 <script src="../static/js/libraries/c3-0.7.20/c3.min.js"></script>
+
+<!-- Load Ajax library to let webpage run asynchronus functions -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <!-- END CHART SECTION -->
 
 <!--{% with messages = get_flashed_messages() %}
@@ -270,9 +275,11 @@
                                     <strong>DOI:</strong> <a href="https://doi.org/{{ article_detail.objectID }}"
                                         target="_blank">{{ article_detail.objectID }} &#8599;</a>
                                 </div>
-                                <!--Author: Mohammad Tahmid
-						Lines: 196-211
-						Description: This is the addition to display the citation information from the database and the button to download info about a DOI-->
+                                <!--
+                                    Author: Mohammad Tahmid
+						            Lines: 196-211
+						            Description: This is the addition to display the citation information from the database and the button to download info about a DOI
+                                -->
                                 <div class="AD_citations">
                                     <strong>Citation(s):</strong> {{ citationCount.count }}
                                 </div>
@@ -328,6 +335,15 @@
                                                 be emailed to you once we're
                                                 done retrieving the data.</p>
                                         </div>
+
+                                        <!--
+                                            #Author: 
+                                            #Name: Mohammad Tahmid 
+                                            #Lines 347-361
+                                            #---------------------
+                                            #Date: 03/19/2021
+                                            #Description: Displays errors when entering in the incorrect email address
+                                        -->
                                         <!-- {% with messages = get_flashed_messages(category_filter=["danger"]) %}
                                 {% if messages %}
                                     {% for message in messages %}
@@ -335,7 +351,6 @@
                                     {% endfor %}
                                 {% endif %}
                             {% endwith %}
-
                             {% with messages = get_flashed_messages(category_filter=["valid"]) %}
                                 {% if messages %}
                                     {% for message in messages %}
@@ -374,13 +389,11 @@
             <div class="col-md-6"></div>
             <!--
         <div class="col-md-6" id="yearFilter">
-
             <form method="post" action="{{ url_for('articleDashboard') }}?DOI={{ article_detail.objectID }}" class="form-inline" name="YearRange">
                 <label for="yearBox">Select a year (YYYY):</label>
                 <input type="text" name="year" id="yearBox" size="4" maxlength="4" pattern="\d{4}">
                 <input width="40%" type="submit" value="Update" class="form-control">
             </form>
-
         </div>
         -->
         </div>
@@ -391,13 +404,10 @@
             <hr>
             <h4 style="text-align: center;">Some events obtained from the Crossref API have generic links e.g. "https://twitter.com". <br>
             Events of this kind have been hidden below, but still appear and are counted in the chart.</h4>
-
             <!-- Table - Latest Events -->
         <!--
             {% for e in events %} 
-
             <div class="row row-bordered eventItem" id="{{e.sourceID}}">
-
                 <table id ="noBorders" style="margin-bottom: 0px; margin-top: 0px; width:1170px;">
                     <tr class="row row-bordered eventItem" id="{{e.sourceID}}">
                         <td class="articleEventData">
@@ -412,7 +422,6 @@
                     </tr>
                 </table>
             </div>
-
             {% endfor %}
         </div>
     </div> <!-- End the row -->
@@ -524,5 +533,25 @@
     </script>
     {% endfor %}
 
-    <script src="../static/js/chartScript.js"></script>
+    <!--
+        #Author: 
+        #Name: Mohammad Tahmid 
+        #Lines 551-561
+        #---------------------
+        #Date: 03/23/2021
+        #Description: Calls an ajax fucntion to handle loading all the information for the chart on the website. This makes it so
+                        only the webpage with some of the metadata is loaded and displayed to the user instead waiting till the graph is loaded
+                        with all the events in the database. 
+    -->
+    <script>
+        $(document).ready(function(){
+            $.ajax({
+                url: "../static/js/chartScript.js",
+                dataType: "script",
+                success: success
+            });
+        });
+
+        e.preventDefault();
+    </script>
     {% endblock %}
