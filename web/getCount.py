@@ -15,7 +15,7 @@ import time
 import datetime as dt
 
 # Setter for stats
-def setStats(x,y):
+def setStats(x):
     global stats
     stats = str(x) + ' records found!'
     print(stats)
@@ -23,6 +23,16 @@ def setStats(x,y):
 # Getter for stats
 def getStats():
     return stats
+
+def setCount(x):
+    global count
+    count = str(x)
+    print(count)
+    setStats(x)
+
+# Getter for stats
+def getCount():
+    return count
 
 def uploadDOIList(mysql, fileName):
 
@@ -36,8 +46,16 @@ def uploadDOIList(mysql, fileName):
     if os.path.exists(dir):
         os.remove(dir)
 
+    count = getCount()
+    # print("Count: ", count)
+
+    if count == 0:
+        return flask.render_template('index.html')
+    else:
+        return flask.render_template('downloadDOI.html', results = getCount())
+    
     #return flask.render_template('searchComplete.html', mysql, dir, type, email, type = 'doi')
-    return flask.render_template('downloadDOI.html', results = getStats())
+    # return flask.render_template('downloadDOI.html', results = getCount())
 
 def getDOICount(mysql, dir_csv):
 
@@ -92,7 +110,7 @@ def getDOICount(mysql, dir_csv):
     cursor.execute(query)
     resultSet = cursor.fetchone()
     
-    setStats(resultSet["count(*)"], len(doi_arr))
+    setCount(resultSet["count(*)"])
 
 def uploadAuthorList (mysql, fileName):
 
@@ -163,7 +181,7 @@ def getAuthorCount(mysql, dir_csv):
     cursor.execute(query)
     resultSet = cursor.fetchone()
     
-    setStats(resultSet["count(*)"], len(author_arr))
+    setCount(resultSet["count(*)"])
 
 def uploadUniList(mysql, fileName):
 
@@ -233,4 +251,4 @@ def getUniCount(mysql, dir_csv):
     cursor.execute(testquery)
     resultSet = cursor.fetchone()
 
-    setStats(resultSet["count(distinct university)"], len(uni_arr))
+    setCount(resultSet["count(distinct university)"])

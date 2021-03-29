@@ -44,5 +44,8 @@
     "SciELO-Metadata-API": {
         "name": "sciEloMetadataAPI",
         "url": "https://api.crossref.org/works/10.1590/"
+    },
+    "File-Size-Maximum-Limit": {
+        "max_size": 1
     }
 }

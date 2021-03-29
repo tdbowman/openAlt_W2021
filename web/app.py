@@ -20,7 +20,7 @@ from uploadAuthor import searchByAuthor, getZipAuthor
 from uploadUni import searchByUni, getZipUni
 from emailError import emailError
 from singleDOIEmailLogic import articleLandingEmail
-from getCount import uploadDOIList, getStats, uploadAuthorList, uploadUniList
+from getCount import uploadDOIList, getStats, getCount, uploadAuthorList, uploadUniList
 
 from getPassword import getPassword
 
@@ -255,8 +255,6 @@ def uploadDOI():
     # Allowed extensions of file
     ALLOWED_EXTENSIONS = {'csv'}
 
-    destination = app.config["UPLOAD_FILES"]
-
     # Limit of the file size to 1 GB
     app.config['MAX_CONTENT_LENGTH'] = 1 * 1024 * 1024
 
@@ -287,7 +285,12 @@ def uploadDOI():
 
             uploadDOIList(mysql, fileName)
 
-        return flask.render_template('downloadDOI.html', results = getStats())
+            count = getCount()
+
+            if count == "0":
+                return flask.render_template('noResultsPage.html')
+            else:
+                return flask.render_template('downloadDOI.html', results = getStats())
 
     return flask.render_template('uploadDOI.html')
 
@@ -340,7 +343,12 @@ def uploadAuthors():
 
             uploadAuthorList(mysql, fileName)
 
-        return flask.render_template('downloadAuthors.html', results = getStats())
+            count = getCount()
+
+            if count == "0":
+                return flask.render_template('noResultsPage.html')
+            else:
+                return flask.render_template('downloadDOI.html', results = getStats())
 
     return flask.render_template('uploadAuthors.html')
 
@@ -391,7 +399,12 @@ def uploadUni():
 
             uploadUniList(mysql, fileName)
 
-        return flask.render_template('downloadUni.html', results = getStats())
+            count = getCount()
+
+            if count == "0":
+                return flask.render_template('noResultsPage.html')
+            else:
+                return flask.render_template('downloadDOI.html', results = getStats())
 
     return flask.render_template('uploadUni.html')
 
