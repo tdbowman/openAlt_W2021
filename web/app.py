@@ -40,7 +40,7 @@ path = os.getcwd()
 
 # parent directory
 parent = os.path.dirname(path)
-config_path = os.path.join(parent, "openAlt_W2021\\config", "openAltConfig.json")
+config_path = os.path.join(parent, "config", "openAltConfig.json")
 
 # config file
 f = open(config_path)
@@ -299,7 +299,7 @@ def searchByOptions():
 def uploadDOI():
 
     # Directory of where to put the uploaded file
-    app.config["UPLOAD_FILES"] = "./web/uploadFiles"
+    app.config["UPLOAD_FILES"] = "../web/uploadFiles"
     target = app.config["UPLOAD_FILES"]
 
     # Allowed extensions of file
@@ -377,7 +377,7 @@ def downloadDOI():
 @ app.route('/uploadAuthors', methods=["GET", "POST"])
 def uploadAuthors():
 
-    app.config["UPLOAD_FILES"] = "./web/uploadFiles"
+    app.config["UPLOAD_FILES"] = "../web/uploadFiles"
     destination = app.config["UPLOAD_FILES"]
 
     if not os.path.isdir(destination):
@@ -437,7 +437,7 @@ def downloadAuthors():
 @ app.route('/uploadUni', methods=["GET", "POST"])
 def uploadUni():
 
-    app.config["UPLOAD_FILES"] = "./web/uploadFiles"
+    app.config["UPLOAD_FILES"] = "../web/uploadFiles"
     destination = app.config["UPLOAD_FILES"]
 
     if not os.path.isdir(destination):

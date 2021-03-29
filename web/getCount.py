@@ -65,6 +65,8 @@ def getDOICount(mysql, dir_csv):
     dir_config = dir_file + '\\uploadDOI_config.txt'
 
     # Set the logging parameters
+    if not os.path.exists(dir_file + '\\Logs'):
+        os.mkdir(dir_file + '\\Logs')
     logging.basicConfig(filename= dir_file + '\\Logs\\uploadDOI.log', filemode='a', level=logging.INFO,
         format='%(asctime)s - %(message)s', datefmt='%d-%b-%y %H:%M:%S')  
 
