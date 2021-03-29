@@ -522,7 +522,7 @@ def admin():
         return flask.render_template('adminLogin.html', pw = pw)
     elif request.method=="POST":
         if request.form['pw_input']==glpass:
-            
+
             logged = True
             return redirect('/adminConfigUpdate')
         else:
@@ -539,6 +539,8 @@ def adminConfigUpdate():
     elif request.method == "GET":
         return flask.render_template('adminConfigUpdate.html', confOA=APP_CONFIG)
     elif request.method == "POST":
+        dict01 = request.form['key0.1']
+        APP_CONFIG["Admin"]["email"] = dict01
         dict11 = request.form['key1.1']
         dict12 = request.form['key1.2']
         dict13 = request.form['key1.3']
@@ -609,7 +611,6 @@ def adminConfigUpdate():
         dict122 = request.form['key12.2']
         APP_CONFIG["User-Result-Limit"]["limit"] = dict121
         APP_CONFIG["User-Result-Limit"]["dayInterval"] = dict122
-        print(APP_CONFIG)
         with open("../config/openAltConfig.json", "w") as f:
             json.dump(APP_CONFIG, f, indent=4)
         f.close()

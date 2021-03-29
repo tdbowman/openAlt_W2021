@@ -16,6 +16,9 @@
           <div class="center-screen">
             <form action="{{ url_for('adminConfigUpdate') }}" method="POST" style= "width:400px;" style="text-align: center; align-items: center;">
               <div class="center-screen">
+                <h1 style="text-align: center;"><b>Admin</b></h1><br>
+                <label>email</label>
+                <input type="text" style= "width:400px;" name="key0.1" value="{{ confOA['Admin']['email'] }}"><br><br>
                 <h1 style="text-align: center;"><b>DOI-Database</b></h1><br>
                 <label>name</label>
                 <input type="text" style= "width:400px;" name="key1.1" value="{{ confOA['DOI-Database']['name'] }}"><br><br>
@@ -98,7 +101,7 @@
                 <input type="text" style= "width:400px;" name="key12.1" value="{{ confOA['User-Result-Limit']['limit'] }}"><br><br>
                 <label>dayInterval</label>
                 <input type="text" style= "width:400px;" name="key12.2" value="{{ confOA['User-Result-Limit']['dayInterval'] }}"><br><br>
-                
+
                 <div class="image-title-wrap">
                   <button class="file-upload-btn" id="loginButton" style="width: 350px;">Update Configuration</button></a>
               </div>
