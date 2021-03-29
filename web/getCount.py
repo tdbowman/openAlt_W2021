@@ -42,10 +42,6 @@ def uploadDOIList(mysql, fileName):
     # downloadDOI(mysql, dir, type, email)
     getDOICount(mysql, dir)
 
-    # Delete uploaded files
-    if os.path.exists(dir):
-        os.remove(dir)
-
     count = getCount()
 
     if count == "0":
@@ -117,10 +113,6 @@ def uploadAuthorList (mysql, fileName):
 
     getAuthorCount(mysql, dir)
 
-    # Delete uploaded file
-    if os.path.exists(dir):
-        os.remove(dir)
-
     return flask.render_template('downloadAuthors.html', results = getStats())
 
 def getAuthorCount(mysql, dir_csv):
@@ -180,10 +172,6 @@ def uploadUniList(mysql, fileName):
     dir = '../web/uploadFiles/' + fileName
 
     getUniCount(mysql, dir)
-
-    # Delete uploaded file
-    if os.path.exists(dir):
-        os.remove(dir)
 
     return flask.render_template('downloadUni.html', results=getStats())
 

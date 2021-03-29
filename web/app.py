@@ -332,6 +332,7 @@ def uploadDOI():
                 uploadFiles.save(os.path.join(target, fileName))
 
             session['doiPath'] = fileName
+            print("UPLOAD FILE PATH:", session['doiPath'])
 
             uploadDOIList(mysql, fileName)
 
