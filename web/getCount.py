@@ -47,15 +47,11 @@ def uploadDOIList(mysql, fileName):
         os.remove(dir)
 
     count = getCount()
-    # print("Count: ", count)
 
-    if count == 0:
-        return flask.render_template('index.html')
+    if count == "0":
+        return flask.render_template('noResultsPage.html')
     else:
-        return flask.render_template('downloadDOI.html', results = getCount())
-    
-    #return flask.render_template('searchComplete.html', mysql, dir, type, email, type = 'doi')
-    # return flask.render_template('downloadDOI.html', results = getCount())
+        return flask.render_template('downloadDOI.html', results = getStats())
 
 def getDOICount(mysql, dir_csv):
 
@@ -161,23 +157,16 @@ def getAuthorCount(mysql, dir_csv):
         author_arr.append(author_list.values[x][0].lower())
 
     # Remove duplicates from author array
-    # author_arr = list(dict.fromkeys(author_arr))
-
-    # joinedAuthorArr = "\'" + "','".join(author_arr) + "\'"
+    author_arr = list(dict.fromkeys(author_arr))
     
     query = "SELECT count(*) FROM doidata.author where name like \'%" + author_arr[0] + "%\'"
 
     for author in author_arr[1:]:
-        print("Author List: ", author)
-        query = query + " OR name like \'%" + author + "%\'"
-
-    print("Test query: ", query)
-    
+        query = query + " OR name like \'%" + author + "%\'"  
 
     # Set up cursor to run SQL query
     cursor = mysql.connection.cursor()  
 
-    # query = "SELECT count(*) FROM doidata.author where name in (" + joinedAuthorArr + ")"
     cursor.execute(query)
     resultSet = cursor.fetchone()
     
@@ -235,20 +224,15 @@ def getUniCount(mysql, dir_csv):
     # Remove duplicates from author array
     uni_arr = list(dict.fromkeys(uni_arr))
 
-    # joinedUniArr = "\'" + "','".join(uni_arr) + "\'"
-
-    testquery = "SELECT count(distinct university) FROM doidata.author where affiliation like \'%" + uni_arr[0] + "%\'"
+    query = "SELECT count(distinct university) FROM doidata.author where affiliation like \'%" + uni_arr[0] + "%\'"
 
     for university in uni_arr[1:]:
-        print("University List: ", university)
-        testquery = testquery + " OR affiliation like \'%" + university + "%\'"
-
-    print("Test query: ", testquery)
+        query = query + " OR affiliation like \'%" + university + "%\'"
 
     #Cursor makes connection with the db
     cursor = mysql.connection.cursor() 
 
-    cursor.execute(testquery)
+    cursor.execute(query)
     resultSet = cursor.fetchone()
 
     setCount(resultSet["count(distinct university)"])
