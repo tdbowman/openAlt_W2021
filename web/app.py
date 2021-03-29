@@ -611,7 +611,7 @@ def adminConfigUpdate():
         APP_CONFIG["User-Result-Limit"]["dayInterval"] = dict122
         print(APP_CONFIG)
         with open("../config/openAltConfig.json", "w") as f:
-            json.dump(APP_CONFIG, f)
+            json.dump(APP_CONFIG, f, indent=4)
         f.close()
         logged = False
         return flask.render_template('adminUpdateComplete.html')
