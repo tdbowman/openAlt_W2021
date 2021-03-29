@@ -222,7 +222,7 @@ def checkUser(email, type, cursor):
 
     #print(resultSet['count'])
 
-    if resultSet['count'] >= limit:
+    if str(resultSet['count']) >= limit:
         print("false:", resultSet['count'])
         return False
     else:
@@ -241,7 +241,7 @@ def checkIP(ip, type, cursor):
 
     #print(resultSet['count'])
 
-    if resultSet['count'] >= limit:
+    if str(resultSet['count']) >= limit:
         print("false:", resultSet['count'])
         return False
     else:
