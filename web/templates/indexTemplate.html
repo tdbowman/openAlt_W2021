@@ -12,6 +12,11 @@
 
   <!-- jQuery CDN -->
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+	<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+	
+	<link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+	<link rel="stylesheet" href="/resources/demos/style.css">
 
   <!-- Local Bootstrap JS -->
   <script src="{{ url_for('static', filename = 'css/bootstrap-3.3.7-dist/js/bootstrap.min.js')}}"></script>
@@ -57,6 +62,7 @@
               <li><a href="{{ url_for('about') }}">About the Project</a></li>
               <li><a href="{{ url_for('licenses') }}">License and Dependency Info</a></li>
               <li><a href="https://github.com/tdbowman-CompSci-F2020/crossrefEventData" target="_blank">GitHub</a></li>
+              <li><a href="{{ url_for('admin') }}">Admin</a></li>
             </ul>
           </li>
       </div>

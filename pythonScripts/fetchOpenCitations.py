@@ -16,6 +16,7 @@ from ingestReferences import ingestReferences
 
 def fetchDOICitations ():
 
+
     # mysql credentials
     mysql_username ='root'
     mysql_password = 'pass'
@@ -29,8 +30,9 @@ def fetchDOICitations ():
     openCitationsCursor = openCitationsDatabase.cursor()
 
     # get list of DOIs from doi database
-    drBowmanDatabaseCursor.execute("Select DOI FROM _main_ WHERE DOI IS NOT NULL")
+    drBowmanDatabaseCursor.execute("Select DOI FROM doidata._main_ WHERE DOI IS NOT NULL")
     articles = drBowmanDatabaseCursor.fetchall()
+    # articles = drBowmanDatabaseCursor.fetchmany(5)
     
     # connect to MongoDB
     myclient = pymongo.MongoClient("mongodb://localhost:27017/")
@@ -38,13 +40,18 @@ def fetchDOICitations ():
     # MongoDB database to store citation and reference information
     citationsDatabase = myclient["OpenCitations"]
 
+    count = 0
+
     for article in articles:
+        count = count + 1
+        print(str(count) + "/" + str(len(articles)))
 
         # fetch citation data into MongoDB (one article at a time)
         fetchCitationData(article[0], openCitationsCursor, citationsDatabase, openCitationsDatabase)
 
         # fetch reference data into MongoDB (one article at a time)
         fetchReferenceData(article[0], openCitationsCursor, citationsDatabase, openCitationsDatabase)
+
         
 
 
@@ -65,7 +72,7 @@ def fetchCitationData (doi, openCitationsCursor, citationsDatabase, openCitation
         return
 
     # get list of citations that already exist in MySQL
-    openCitationsCursor.execute("Select oci FROM citations WHERE cited = 'coci => " + doi + "'")
+    openCitationsCursor.execute("Select oci FROM opencitations.citations WHERE cited = 'coci => " + doi + "'")
     citationsOCI = openCitationsCursor.fetchall()
 
     # dictionary
@@ -123,7 +130,7 @@ def fetchReferenceData (doi, openCitationsCursor, citationsDatabase, openCitatio
 
 
     # get list of references that already exist in MySQL
-    openCitationsCursor.execute("Select oci FROM ref WHERE citing = 'coci => " + doi + "'")
+    openCitationsCursor.execute("Select oci FROM opencitations.ref WHERE citing = 'coci => " + doi + "'")
     referencesOCI = openCitationsCursor.fetchall()
 
     # dictionary

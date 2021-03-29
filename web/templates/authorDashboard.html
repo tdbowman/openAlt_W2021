@@ -14,6 +14,10 @@
 
 <!-- More Javascript Mohammad wrote to adjust the chart after it loads -->
 <script src="../static/js/adjustAuthorDashboard.js"></script>
+
+<!-- Load Ajax library to let webpage run asynchronus functions -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
 <script>
   $(function(){
     // Grab the tspan elements and search through the array.
@@ -239,5 +243,23 @@
 {% endfor %}
 
 <!-- Load our Javascript for the bar chart -->
-<script src="../static/js/chartScript.js"></script>
+<!--
+  #Author: 
+  #Name: Mohammad Tahmid 
+  #Lines 256-264
+  #---------------------
+  #Date: 03/23/2021
+  #Description: Calls an ajax fucntion to handle loading all the information for the chart on the website. This makes it so
+                only the webpage with some of the metadata is loaded and displayed to the user instead waiting till the graph is loaded
+                with all the events in the database. 
+-->
+<script>
+  $(document).ready(function(){
+    $.ajaxSetup({
+      cache: true
+    });
+
+    $.getScript("../static/js/chartScript.js");
+  });
+</script>
 {% endblock %}

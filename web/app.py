@@ -1,4 +1,5 @@
 import os
+import json
 import flask
 from flask import Flask
 from flask import send_file
@@ -6,6 +7,10 @@ from flask_mysqldb import MySQL
 from flask import request, jsonify, redirect, flash
 from datetime import datetime
 from email_validator import validate_email, EmailNotValidError
+
+# Import for password creation
+import random
+import string
 
 # Import our functions for other pages
 from searchLogic import searchLogic
@@ -19,9 +24,28 @@ from uploadDOI import searchByDOI, getZipEvents
 from uploadAuthor import searchByAuthor, getZipAuthor
 from uploadUni import searchByUni, getZipUni
 from emailError import emailError
+from emailAdmin import emailAdmin
 from singleDOIEmailLogic import articleLandingEmail
+from getCount import uploadDOIList, getStats
+import dbQuery
 
-from getPassword import getPassword
+from getPassword import getPassword, SECRET_KEY, SITE_KEY
+
+from resultsForm import ResultForm
+from flask_bootstrap import Bootstrap
+
+
+# current directory
+path = os.getcwd()
+
+# parent directory
+parent = os.path.dirname(path)
+config_path = os.path.join(parent, "config", "openAltConfig.json")
+
+# config file
+f = open(config_path)
+APP_CONFIG = json.load(f)
+
 
 # get the users password from crossrefeventdata/web/passwd.txt
 mysql_username = 'root'
@@ -40,6 +64,18 @@ app.config['MYSQL_CURSORCLASS'] = 'DictCursor'
 
 # Database initialization and cursor
 mysql = MySQL(app)
+
+# global variable to store admin password
+glpass = ""
+
+# test
+logged = False
+
+# for reCAPTCHA
+app.config['SECRET_KEY'] = os.urandom(32)
+app.config['RECAPTCHA_PUBLIC_KEY'] = SITE_KEY
+app.config['RECAPTCHA_PUBLIC_KEY'] = SECRET_KEY
+
 
 # Instantiate a second object of class Flask
 app2 = flask.Flask(__name__)
@@ -89,6 +125,9 @@ def index():
     # Go to landingPageJournals.py
     totalSumJournals = landingPageJournals(mysql)
 
+    # OR request.environ['REMOTE_ADDR']
+    print("IP ADDRESS:", request.remote_addr)
+
     return flask.render_template('index.html', totalSum=totalSum, totalSumArticles=totalSumArticles, totalSumJournals=totalSumJournals)
 
 
@@ -124,7 +163,7 @@ def articleDashboard():
 
         # If a HTTPS POST Request is received...
         # Author: Mohammad Tahmid
-        #Lines: 113-127
+        # Lines: 113-127
         # Description: Gets the DOI from the article landing page and downloads the information to the users computer
 
     # If a HTTPS POST Request is received...
@@ -156,10 +195,10 @@ def articleDashboard():
                 print(e)
                 flash(
                     "You have entered an invalid email address. Please try again.", "danger")
-                #session.pop('_flashes', None)
+                # session.pop('_flashes', None)
 
             # Zipped up contents of the data from the database
-            #zipEvents = articleLandingDownload(mysql, fileDOI, fileChoice, fileEmail)
+            # zipEvents = articleLandingDownload(mysql, fileDOI, fileChoice, fileEmail)
 
             # The zipped up files are downloaded onto the user's desktop
             # return send_file(zipEvents, as_attachment=True)
@@ -296,7 +335,9 @@ def uploadDOI():
 
             session['doiPath'] = fileName
 
-        return flask.render_template('downloadDOI.html')
+            uploadDOIList(mysql, fileName)
+
+        return flask.render_template('downloadDOI.html', results = getStats())
 
     return flask.render_template('uploadDOI.html')
 
@@ -315,8 +356,11 @@ def downloadDOI():
         print("Recipient: ", emailVal)
 
         try:
-            searchByDOI(mysql, filepath, dropdownValue, emailVal)
-            return redirect('/searchComplete')
+            if dbQuery.checkUser(emailVal, 'doi', mysql.connection.cursor()) is True:
+                searchByDOI(mysql, filepath, dropdownValue, emailVal)
+                return redirect('/searchComplete')
+            else:
+                return redirect('/limitReached')
         except Exception as e:
             print(e)
             emailError(emailVal, 'doi')
@@ -365,7 +409,11 @@ def downloadAuthors():
         print("Recipient: ", emailVal)
 
         try:
-            searchByAuthor(mysql, filepath, dropdownValue, emailVal)
+            if dbQuery.checkUser(emailVal, 'author', mysql.connection.cursor()) is True:
+                searchByAuthor(mysql, filepath, dropdownValue, emailVal)
+                return redirect('/searchComplete')
+            else:
+                return redirect('/limitReached')
         except Exception as e:
             print(e)
             emailError(emailVal, 'author')
@@ -415,7 +463,11 @@ def downloadUni():
         print("Recipient: ", emailVal)
 
         try:
-            searchByUni(mysql, filepath, dropdownValue, emailVal)
+            if dbQuery.checkUser(emailVal, 'uni', mysql.connection.cursor()) is True:
+                searchByUni(mysql, filepath, dropdownValue, emailVal)
+                return redirect('/searchComplete')
+            else:
+                return redirect('/limitReached')
         except Exception as e:
             print(e)
             emailError(emailVal, 'uni')
@@ -435,6 +487,136 @@ def searchComplete():
 @ app.route('/searchError', methods=["GET", "POST"])
 def searchError():
     return flask.render_template('searchError.html')
+
+
+@ app.route('/limitReached', methods=["GET", "POST"])
+def limitReached():
+    limit = APP_CONFIG['User-Result-Limit']['limit']
+    interval = APP_CONFIG['User-Result-Limit']['dayInterval']
+    print(flask.request.remote_addr)
+    return flask.render_template('limitReached.html', limit=limit, interval=interval)
+
+
+@ app.route('/captchaTest', methods=["GET", "POST"])
+def captchaTest():
+    form = ResultForm()
+    if form.validate_on_submit():
+        return flask.render_template('searchComplete.html')
+
+    return flask.render_template('captchaTest.html', form=form)
+
+
+@ app.route('/admin', methods=["GET", "POST"])
+def admin():
+    if request.method=="GET":
+        global logged
+        logged = False
+
+        # Password creation
+        source = string.ascii_letters + string.digits
+        pw = ''.join((random.choice(source) for i in range(10)))
+
+        emailAdmin(pw)
+        global glpass
+        glpass = pw
+        return flask.render_template('adminLogin.html', pw = pw)
+    elif request.method=="POST":
+        if request.form['pw_input']==glpass:
+            
+            logged = True
+            return redirect('/adminConfigUpdate')
+        else:
+            return redirect('/admin')
+    else:
+        return redirect('/admin')
+
+
+@ app.route('/adminConfigUpdate', methods=["GET", "POST"])
+def adminConfigUpdate():
+    global logged
+    if logged == False:
+        return redirect('/admin')
+    elif request.method == "GET":
+        return flask.render_template('adminConfigUpdate.html', confOA=APP_CONFIG)
+    elif request.method == "POST":
+        dict11 = request.form['key1.1']
+        dict12 = request.form['key1.2']
+        dict13 = request.form['key1.3']
+        dict14 = request.form['key1.4']
+        APP_CONFIG["DOI-Database"]["name"] = dict11
+        APP_CONFIG["DOI-Database"]["username"] = dict12
+        APP_CONFIG["DOI-Database"]["password"] = dict13
+        APP_CONFIG["DOI-Database"]["address"] = dict14
+        dict21 = request.form['key2.1']
+        dict22 = request.form['key2.2']
+        dict23 = request.form['key2.3']
+        dict24 = request.form['key2.4']
+        APP_CONFIG["Crossref-Event-Database"]["name"] = dict21
+        APP_CONFIG["Crossref-Event-Database"]["username"] = dict22
+        APP_CONFIG["Crossref-Event-Database"]["password"] = dict23
+        APP_CONFIG["Crossref-Event-Database"]["address"] = dict24
+        dict31 = request.form['key3.1']
+        dict32 = request.form['key3.2']
+        dict33 = request.form['key3.3']
+        dict34 = request.form['key3.4']
+        APP_CONFIG["OpenCitations"]["name"] = dict31
+        APP_CONFIG["OpenCitations"]["username"] = dict32
+        APP_CONFIG["OpenCitations"]["password"] = dict33
+        APP_CONFIG["OpenCitations"]["address"] = dict34
+        dict41 = request.form['key4.1']
+        dict42 = request.form['key4.2']
+        dict43 = request.form['key4.3']
+        dict44 = request.form['key4.4']
+        dict45 = request.form['key4.5']
+        APP_CONFIG["MongoDB-SciELO-Database"]["name"] = dict41
+        APP_CONFIG["MongoDB-SciELO-Database"]["collection"] = dict42
+        APP_CONFIG["MongoDB-SciELO-Database"]["username"] = dict43
+        APP_CONFIG["MongoDB-SciELO-Database"]["password"] = dict44
+        APP_CONFIG["MongoDB-SciELO-Database"]["address"] = dict45
+        dict51 = request.form['key5.1']
+        dict52 = request.form['key5.2']
+        APP_CONFIG["Crossref-Event-API"]["name"] = dict51
+        APP_CONFIG["Crossref-Event-API"]["url"] = dict52
+        dict61 = request.form['key6.1']
+        dict62 = request.form['key6.2']
+        dict63 = request.form['key6.3']
+        dict64 = request.form['key6.4']
+        APP_CONFIG["Crossref-Metadata-API"]["name"] = dict61
+        APP_CONFIG["Crossref-Metadata-API"]["doi_url"] = dict62
+        APP_CONFIG["Crossref-Metadata-API"]["author_url"] = dict63
+        APP_CONFIG["Crossref-Metadata-API"]["uni_url"] = dict64
+        dict71 = request.form['key7.1']
+        dict72 = request.form['key7.2']
+        APP_CONFIG["OpenCitations-Citation-API"]["name"] = dict71
+        APP_CONFIG["OpenCitations-Citation-API"]["url"] = dict72
+        dict81 = request.form['key8.1']
+        dict82 = request.form['key8.2']
+        APP_CONFIG["OpenCitations-Citation-Count-API"]["name"] = dict81
+        APP_CONFIG["OpenCitations-Citation-Count-API"]["url"] = dict82
+        dict91 = request.form['key9.1']
+        dict92 = request.form['key9.2']
+        APP_CONFIG["OpenCitations-Reference-API"]["name"] = dict91
+        APP_CONFIG["OpenCitations-Reference-API"]["url"] = dict92
+        dict101 = request.form['key10.1']
+        dict102 = request.form['key10.2']
+        APP_CONFIG["OpenCitations-Reference-Count-API"]["name"] = dict101
+        APP_CONFIG["OpenCitations-Reference-Count-API"]["url"] = dict102
+        dict111 = request.form['key11.1']
+        dict112 = request.form['key11.2']
+        APP_CONFIG["SciELO-Brazil-Data-API"]["name"] = dict111
+        APP_CONFIG["SciELO-Brazil-Data-API"]["url"] = dict112
+        dict121 = request.form['key12.1']
+        dict122 = request.form['key12.2']
+        APP_CONFIG["User-Result-Limit"]["limit"] = dict121
+        APP_CONFIG["User-Result-Limit"]["dayInterval"] = dict122
+        print(APP_CONFIG)
+        with open("../config/openAltConfig.json", "w") as f:
+            json.dump(APP_CONFIG, f, indent=4)
+        f.close()
+        logged = False
+        return flask.render_template('adminUpdateComplete.html')
+    else:
+        return redirect('/admin')
 
 
 # If this is the main module or main program being run (app.py)......

@@ -1,4 +1,3 @@
--- Darpan (changed schema name)
 create database doidata;
 use doidata;
 
@@ -74,8 +73,6 @@ CREATE TABLE `assertion` (
 CREATE TABLE `author` (
   `id` int unsigned NOT NULL AUTO_INCREMENT,
   `affiliation` text CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci,
-  `country` text CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci,
-  `university` text CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci,
   `authenticated_orcid` varchar(500) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL,
   `family` varchar(500) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL,
   `given` varchar(500) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL,

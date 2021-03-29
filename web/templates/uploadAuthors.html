@@ -29,11 +29,12 @@
           minHeight: 200,
           buttons: {
               Ok: function () {
-                  $(this).dialog("close");
+                $(location).attr('href', "/uploadDOI");  
+                //$(this).dialog("close");
               }
           }
         });
-        setTimeout(reload, 2500);
+        //setTimeout(reload, 2500);
         return false;
       }
 
@@ -72,11 +73,12 @@
           minHeight: 200,
           buttons: {
               Ok: function () {
-                  $(this).dialog("close");
+                $(location).attr('href', "/uploadDOI");  
+                //$(this).dialog("close");
               }
           }
         });
-        setTimeout(reload, 2500);
+        //setTimeout(reload, 2500);
         return false;
       }
       return (true);
@@ -89,7 +91,7 @@
 
 <!-- Anything you put here will be in the body-->
 {% block body %}
-
+<title>Upload Author List</title>
 <body
   style="background-image: url('../static/images/library.jpg'); background-repeat: repeat-y; background-size:cover;">
 

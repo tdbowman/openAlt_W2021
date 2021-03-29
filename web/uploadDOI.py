@@ -1,5 +1,6 @@
 ###### Darpan Start ######
 import os
+import json
 import csv
 import pandas
 import logging
@@ -13,8 +14,13 @@ import dbQuery
 from flask import redirect
 import emailResults as er
 
-# importing download function to download zip folder containing results CSV file
-from downloadResultsCSV import downloadResultsAsCSV
+# Importing app config file
+path = os.getcwd() 
+parent = os.path.dirname(path) 
+config_path = os.path.join(parent, "config", "openAltConfig.json")
+f = open(config_path)
+
+APP_CONFIG = json.load(f)
 
 # Setter for zip directory
 def setZipEvents(path):
@@ -105,7 +111,8 @@ def downloadDOI(mysql, dir_csv, type, email):
 
    
     # Cursor makes connection with the db
-    cursor = mysql.connection.cursor()
+    db = mysql.connection
+    cursor = db.cursor()
 
     # Creating text file with API instructions
     f = open(dir_results + '\\API_Instructions.txt','w+')
@@ -134,8 +141,8 @@ def downloadDOI(mysql, dir_csv, type, email):
         progress = progress + 1
         print("PROGRESS: " + str(progress) + "/" + str(len(doi_arr)))
         
-        # Writing API query to API_Instructions.txt
-        f.write("https://api.crossref.org/works/" + doi + "\n")
+        # Writing API query to API_Instructions.txt --> APP_CONFIG referenced from app.py
+        f.write(APP_CONFIG['Crossref-Metadata-API']['doi_url'] + doi + "\n")
 
         # Replace invalid chars for file name
         invalid_chars = ['/','.','(',')',':','<','>','?','|','\"','*']
@@ -173,7 +180,7 @@ def downloadDOI(mysql, dir_csv, type, email):
 
             df.columns = [i[0] for i in cursor.description]  ###### CAUSED ISSUE ON SALSBILS MACHINE #######
 
-            if type == 'doi':
+            if type == 'csv':
                 resultPath = dir_doi + '\\eventCounts_' + str(file_id) + '.csv'
                 df.to_csv(resultPath,index=False)
             elif type == 'json':
@@ -192,7 +199,7 @@ def downloadDOI(mysql, dir_csv, type, email):
                     df.columns = headers[table]
 
                     # Writing CSV containing DOI metadata
-                    if type == 'doi':
+                    if type == 'csv':
                         resultPath = dir_doi + '\\' + table + '_' + str(file_id) + '.csv'
                         df.to_csv(resultPath,index=False)
                     elif type == 'json':
@@ -209,7 +216,7 @@ def downloadDOI(mysql, dir_csv, type, email):
             metadataFound = metadataFound + 1
             # Write associated DOI info to file.
             df = pandas.DataFrame(resultSet)
-            #df = df.drop_duplicates()
+            df = df.drop_duplicates()
             df.columns = [i[0] for i in cursor.description]
 
             # Create folder to hold results
@@ -218,7 +225,7 @@ def downloadDOI(mysql, dir_csv, type, email):
                 os.mkdir(dir_doi)
 
             # Writing CSV/JSON containing DOI metadata
-            if type == 'doi':
+            if type == 'csv':
                 resultPath = dir_doi + '\\doiInfo_' + str(file_id) + '.csv'
                 df.to_csv(resultPath,index=False)
             elif type == 'json':
@@ -237,7 +244,31 @@ def downloadDOI(mysql, dir_csv, type, email):
             # emptyResult = open(dir_doi + '\\doiInfo_NotFound.txt','w+')
             # emptyResult.write("DOI: " + doi + "\nDOI Information Not Found\n")
             # emptyResult.close()
-        
+
+        # DOI Citations Query
+        resultSet = dbQuery.getDOICitations(doi, cursor)
+        logging.info(resultSet)
+
+        # if results not empty
+        if len(resultSet) > 0:
+            # Write associated DOI info to file.
+            df = pandas.DataFrame(resultSet)
+            df = df.drop_duplicates()
+            df.columns = [i[0] for i in cursor.description]
+
+            # Create folder to hold results
+            dir_doi = dir_results + '\\' + str(file_id)
+            if not os.path.exists(dir_doi):
+                os.mkdir(dir_doi)
+
+            # Writing CSV/JSON containing DOI metadata
+            if type == 'csv':
+                resultPath = dir_doi + '\\citations_' + str(file_id) + '.csv'
+                df.to_csv(resultPath,index=False)
+            elif type == 'json':
+                resultPath = dir_doi + '\\citations_' + str(file_id) + '.json'
+                df.to_json(resultPath, orient='index', indent=2)
+
 
     # Close API_Instructions.txt
     f.close()
@@ -248,7 +279,7 @@ def downloadDOI(mysql, dir_csv, type, email):
     setMetadataStats(metadataFound, len(doi_arr))
 
     # Zip folder containing the CSV files=
-    shutil.make_archive(str(dir_results),'zip',dir_results)
+    shutil.make_archive(str(dir_results),'zip', dir_results)
 
     # Delete unzipped folder
     if os.path.exists(dir_results):
@@ -260,6 +291,9 @@ def downloadDOI(mysql, dir_csv, type, email):
 
     # Send Results via email
     er.emailResults(zipEvents, email, 'doi')
+
+    # Insert User to Table
+    dbQuery.bulkSearchUserInsert(email, 'doi', cursor, db)
 
     # Time taken to execute script
     print("--- %s seconds ---" % (time.time() - start_time))

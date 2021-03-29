@@ -23,30 +23,30 @@ def ingestCitations(doi, openCitationsCursor, citationCollections, openCitations
 
         for key, value in citation.items():
 
-            if key == 'oci':
-                oci = value[8:]
+            if key == 'creation':
+                creation = value
+
+            elif key == 'oci':
+                oci = value
+
+            elif key == 'author_sc':
+                author_sc = value
 
             elif key == 'citing':
-                citing = value[8:]
-
-            elif key == 'cited':
-                cited = value[8:]
-
-            elif key == 'creation':
-                creation = value [8:]
+                citing = value
 
             # TODO: change time format
             elif timespan == 'timespan':
-                timespan = value[8:]
+                timespan = value
+
+            elif key == 'cited':
+                cited = value
 
             elif journal_sc == 'journal_sc':
-                journal_sc = value[8:]
-
-            elif key == 'author_sc':
-                author_sc = value[8:]
+                journal_sc = value
 
         # query to insert citation data into MySQL
-        query = ("Insert IGNORE INTO citations " " (oci, citing, cited, creation, timespan, journal_sc, author_sc) " " VALUES (%s,%s,%s,%s,%s,%s,%s)")
+        query = ("Insert IGNORE INTO opencitations.citations " " (oci, citing, cited, creation, timespan, journal_sc, author_sc) " " VALUES (%s,%s,%s,%s,%s,%s,%s)")
         data = (oci, citing, cited, creation, timespan, journal_sc, author_sc)
 
         openCitationsCursor.execute(query, data)

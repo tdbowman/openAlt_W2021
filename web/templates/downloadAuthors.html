@@ -74,6 +74,7 @@
 
 <!-- Anything you put here will be in the body-->
 {% block body %}
+<title>Retreive Author Results</title>
 
 <body
     style="background-image: url('../static/images/library.jpg'); background-repeat: repeat-y; background-size:cover;">
@@ -119,7 +120,18 @@
                 <br>
             </div>
         </div>
-
+    
+        <div class="center-screen" style="padding-top: 100px;">
+            <div style="width: 550px; border-radius: 25px; padding: 0px; background-color: rgba(60, 65, 70, 0.9); "
+                class="center-screen col-sm-6">
+                <h3 style="text-align: center; color: aliceblue; font-size: large;">Privacy Statement</h3>
+                <p1 style="text-align: center; color: aliceblue; font-size: small;"><i>OpenAlt may collect your email
+                        information as a mean to keep track of analytics with search results and email you analytics
+                        based on your searches. However, we here at OpenAlt respect your privacy and you may opt out of
+                        this feature via email.</i></p1>
+                <br>
+            </div>
+        </div>
 
         <div id="no_email" style="display: none;">
             <p style="font-family: 'Lucida Sans'; font-size: x-large; color: red;"><b>You have not entered an email
@@ -144,19 +156,45 @@
             <br>
             <p style="font-family: 'Lucida Sans'; font-size: large;"> Your results will be emailed to you once we're
                 done retrieving the data.</p>
-        </div>
-
-    
-        <div class="center-screen" style="padding-top: 100px;">
-            <div style="width: 550px; border-radius: 25px; padding: 0px; background-color: rgba(60, 65, 70, 0.9); "
-                class="center-screen col-sm-6">
-                <h3 style="text-align: center; color: aliceblue; font-size: large;">Privacy Statement</h3>
-                <p1 style="text-align: center; color: aliceblue; font-size: small;"><i>OpenAlt may collect your email
-                        information as a mean to keep track of analytics with search results and email you analytics
-                        based on your searches. However, we here at OpenAlt respect your privacy and you may opt out of
-                        this feature via email.</i></p1>
                 <br>
-            </div>
+                <table class="table table-condensed">
+                    <thead>
+                        <tr>
+                            <th>Number of Authors</th>
+                            <th>Estimated Time</th>
+                            <th>Estimated Size CSV</th>
+                            <th>Estimated Size JSON</th>
+    
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>25</td>
+                            <td>10 seconds</td>
+                            <td>10 KB</td>
+                            <td>25 KB</td>
+    
+                        </tr>
+                        <tr>
+                            <td>100</td>
+                            <td>40 seconds</td>
+                            <td>40 KB</td>
+                            <td>100 KB</td>
+                        </tr>
+                        <tr>
+                            <td>500</td>
+                            <td>4 mins</td>
+                            <td>200 KB</td>
+                            <td>500 KB</td>
+                        </tr>
+                        <tr>
+                            <td>1000</td>
+                            <td>8 min</td>
+                            <td>400 KB</td>
+                            <td>1 MB</td>
+                        </tr>
+                    </tbody>
+                </table>
         </div>
 
     </div>

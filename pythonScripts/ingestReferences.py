@@ -19,30 +19,29 @@ def ingestReferences (doi, openCitationsCursor, referenceCollections, openCitati
 
         for key, value in citation.items():
 
-            if key == 'oci':
-                oci = value[8:]
+            if key == 'creation':
+                creation = value
 
-            elif key == 'citing':
-                citing = value[8:]
-
-            elif key == 'cited':
-                cited = value[8:]
-
-            elif key == 'creation':
-                creation = value [8:]
-
-            # TODO: change time format
-            elif timespan == 'timespan':
-                timespan = value[8:]
-
-            elif journal_sc == 'journal_sc':
-                journal_sc = value[8:]
+            elif key == 'oci':
+                oci = value
 
             elif key == 'author_sc':
-                author_sc = value[8:]
+                author_sc = value
+
+            elif key == 'citing':
+                citing = value
+
+            elif timespan == 'timespan':
+                timespan = value
+
+            elif key == 'cited':
+                cited = value
+
+            elif journal_sc == 'journal_sc':
+                journal_sc = value
 
 
-        query = ("Insert IGNORE INTO ref " " (oci, citing, cited, creation, timespan, journal_sc, author_sc) " " VALUES (%s,%s,%s,%s,%s,%s,%s)")
+        query = ("Insert IGNORE INTO opencitations.ref " " (oci, citing, cited, creation, timespan, journal_sc, author_sc) " " VALUES (%s,%s,%s,%s,%s,%s,%s)")
         data = (oci, citing, cited, creation, timespan, journal_sc, author_sc)
 
         openCitationsCursor.execute(query, data)

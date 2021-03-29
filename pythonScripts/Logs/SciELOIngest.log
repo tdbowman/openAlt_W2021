@@ -1,0 +1,18 @@
+04-Mar-21 01:49:19 - Problem retreiving value for DOI: 10.1590/S0100-879X1998000800006 Issue: 'language'
+04-Mar-21 01:50:57 - Problem retreiving value for DOI: 10.1590/S0100-879X1998000800006 Issue: 'language'
+04-Mar-21 01:51:12 - Problem retreiving value for DOI: 10.1590/S0100-879X1998000800006 Issue: 'language'
+04-Mar-21 02:03:14 - Problem retreiving value for DOI: 10.1590/S0100-879X1998000800006 Issue: get expected at most 2 arguments, got 3
+04-Mar-21 02:03:22 - Problem retreiving value for DOI: 10.1590/S0100-879X1998000800006 Issue: get expected at most 2 arguments, got 3
+04-Mar-21 02:06:40 - Problem retreiving value for DOI: 10.1590/S0100-879X1998000800006 Issue: 'tuple' object has no attribute 'get'
+04-Mar-21 02:06:54 - Problem retreiving value for DOI: 10.1590/S0100-879X1998000800006 Issue: 'tuple' object has no attribute 'get'
+04-Mar-21 02:07:24 - Problem retreiving value for DOI: 10.1590/S0100-879X1998000800006 Issue: 'list' object has no attribute 'get'
+04-Mar-21 02:07:28 - Problem retreiving value for DOI: 10.1590/S0100-879X1998000800006 Issue: 'list' object has no attribute 'get'
+04-Mar-21 02:21:29 - Problem retreiving value for DOI: 10.1590/S0100-879X1998000800006 Issue: 'published-print]'
+04-Mar-21 02:21:42 - Problem retreiving value for DOI: 10.1590/S0100-879X1998000800006 Issue: 'published-print]'
+04-Mar-21 02:22:04 - Problem retreiving value for DOI: 10.1590/S0100-879X1998000800006 Issue: 'published-print]'
+04-Mar-21 02:22:15 - Problem retreiving value for DOI: 10.1590/S0100-879X1998000800006 Issue: 'published-print]'
+04-Mar-21 02:55:15 - Problem retreiving value for DOI: 10.1590/S0100-879X1998000800006 Issue: Python type list cannot be converted
+04-Mar-21 02:57:16 - Problem retreiving value for DOI: 10.1590/S0100-879X1998000800006 Issue: 
+04-Mar-21 03:04:39 - Added DOI: 10.1590/s0100-879x1998000800006
+04-Mar-21 03:06:11 - Added DOI: 10.1590/s0100-879x1998000800006
+04-Mar-21 03:06:22 - Added DOI: 10.1590/s0100-879x1998000800006
