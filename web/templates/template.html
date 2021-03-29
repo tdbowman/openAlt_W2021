@@ -15,7 +15,7 @@
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 	<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
 	<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
-	
+
 	<link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
 	<link rel="stylesheet" href="/resources/demos/style.css">
 
@@ -29,6 +29,7 @@
 	<!-- Our CSS -->
 	<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename = 'css/style.css')}}">
 
+
 	<script>
 		$(function () {
 
@@ -37,14 +38,28 @@
 
 			// If the search box is empty, prompt the user to enter a query.
 			$searchButton.click(function () {
-
 				let $searchBoxValue = $("#search_input").val();
 
+
+
 				if ($searchBoxValue === '') {
-					alert("Please enter a query.");
+
+					$("#blank_field").dialog({
+						title: "ERROR",
+						modal: true,
+						minWidth: 700,
+						minHeight: 200,
+						buttons: {
+							Ok: function () {
+								$(this).dialog("close");
+							}
+						}
+					});
+					//alert("Please enter a query.");
 					return false;
 				}
 			});
+
 		});
 	</script>
 	{% block head %}
@@ -72,7 +87,8 @@
 
 				<!-- Search By CSV -->
 				<div class="navbar-header">
-					<a style="margin-top:15px;" class="navbar-brand" href="{{ url_for('searchByOptions') }}">Search By
+					<a style="margin-top:15px;" class="navbar-brand" href="{{ url_for('searchByOptions') }}">Search
+						By
 						CSV</a>
 				</div>
 
@@ -90,27 +106,33 @@
 					</div>
 					<button type="submit" class="btn btn-default" id="searchButton">&#128269</button>
 				</form>
-			
 
 
 
 				<!-- Right aligned Drop-down menu logo -->
-				<ul style="margin-top:15px;" class="nav navbar-nav navbar-right">
-					<li style="font-size: large; margin-right: 25px;" class="dropdown"><a class="dropdown-toggle"
-							data-toggle="dropdown" href="#"><b style="color: aliceblue; font-size: large;">Menu</b><span
-								class="caret"></span></a>
+				<ul class="nav navbar-nav navbar-right">
+					<li style="margin-top:15px; margin-right: 25px; font-size: large;" class="dropdown"><a
+							class="dropdown-toggle" data-toggle="dropdown" href="#"><b
+								style="font-size: large; color: white;">Menu</b><span class="caret"></span></a>
 						<ul class="dropdown-menu">
-							<!-- Salsabil's code commit (line 93) -->
-							<li><a href="{{ url_for('team') }}">Meet the team</a></li>
-							<li><a href="{{ url_for('about') }}">Learn about the project</a></li>
+							<!-- Salsabil's code commit (line 51) -->
+							<li><a href="{{ url_for('team') }}">Meet the Team</a></li>
+							<li><a href="{{ url_for('about') }}">About the Project</a></li>
 							<li><a href="{{ url_for('licenses') }}">License and Dependency Info</a></li>
 							<li><a href="https://github.com/tdbowman-CompSci-F2020/crossrefEventData"
 									target="_blank">GitHub</a></li>
 						</ul>
 					</li>
-				</ul>
 			</div>
 		</nav>
+
+		<div id="blank_field" style="display: none;">
+			<p style="font-family: 'Lucida Sans'; font-size: x-large; color: red;"><b>Search Empty!</b>
+			</p>
+			<br>
+			<p style="font-family: 'Lucida Sans'; font-size: large;">Please enter a search query.</p>
+		</div>
+
 
 	</header>
 

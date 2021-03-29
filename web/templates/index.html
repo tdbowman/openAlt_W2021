@@ -2,71 +2,103 @@
 <!-- Anything you put here will be in the HTML head tags-->
 {% block head %}
 <script>
-    $(function(){
+  $(function () {
 
-        // Initialize variables and reference to the searchButton and the current value of the search box
-        let $searchButton = $("#searchButton");
+    // Initialize variables and reference to the searchButton and the current value of the search box
+    let $searchButton = $("#searchButton");
 
-        // If the search box is empty, prompt the user to enter a query.
-        $searchButton.click(function(){
-            let $searchBoxValue = $("#search_input").val();
+    // If the search box is empty, prompt the user to enter a query.
+    $searchButton.click(function () {
+      let $searchBoxValue = $("#search_input").val();
 
-            if($searchBoxValue === ''){
-                alert("Please enter a query.");
-                return false;
+
+
+      if ($searchBoxValue === '') {
+
+        $("#blank_field").dialog({
+          title: "ERROR",
+          modal: true,
+          minWidth: 700,
+          minHeight: 200,
+          buttons: {
+            Ok: function () {
+              $(this).dialog("close");
             }
+          }
         });
-
+        //alert("Please enter a query.");
+        return false;
+      }
     });
+
+  });
 </script>
 {% endblock %}
 <!-- Anything you put here will be in the body-->
 {% block body %}
+<title>OpenAlt v2.0</title>
 <br>
 <br>
 
 
-<div class = "center-screen">
-  <div style="border-radius: 25px; padding: 10px; background-color: rgba(60, 65, 70, 0.9); " >
+<div class="center-screen">
+  <div style="border-radius: 25px; padding: 10px; background-color: rgba(60, 65, 70, 0.9); ">
     <h1 style="text-align: center; color: aliceblue;"><b>OpenAlt</b></h1>
-    <p2 style="text-align: center; color: aliceblue;">Search for scholarly publications by the <a style="color: aliceblue; text-decoration: underline;" href="https://www.doi.org/doi_handbook/1_Introduction.html#1.6.1"target="_blank">Document Object Identifier (DOI) &#8599;</a>, journal, author, or article name</p2>
+    <p2 style="text-align: center; color: aliceblue;">Search for scholarly publications by the <a
+        style="color: aliceblue; text-decoration: underline;"
+        href="https://www.doi.org/doi_handbook/1_Introduction.html#1.6.1" target="_blank">Document Object Identifier
+        (DOI) &#8599;</a>, journal, author, or article name</p2>
     <br><br>
     <form method="post" action="{{ url_for('search') }}" class="form-inline">
-    <div class="form-group" style="text-align: center">          
+      <div class="form-group" style="text-align: center">
         <!-- Drop Down Search -->
         <select name="dropdownSearchBy" id="dropdownSearchBy" class="form-control">
-            <option selected="selected" value="DOI">DOI</option>
-            <option value="Author">Author</option>
-            <option value="Journal">Journal</option>
-            <option value="Article">Article</option>
+          <option selected="selected" value="DOI">DOI</option>
+          <option value="Author">Author</option>
+          <option value="Journal">Journal</option>
+          <option value="Article">Article</option>
         </select>
         <!-- Search bar - input text -->
         <input type="text" id="search_input" name="search" placeholder="Search" class="form-control">
         <input type="submit" value="&#128269" class="form-control" id="searchButton">
-    </div>
+      </div>
     </form>
     <br>
   </div>
-    
+
   <br><br>
-    
-  <div class = "statsContainer">
-    <div style="margin-right: 85px; width:180px; border-radius: 25px; padding: 10px; background-color: rgba(60, 65, 70, 0.9); " class = "center-screen col-sm-6">
-    <h2 style="text-align: center; color: aliceblue;">{{totalSum}}</h2>
-    <p1 style="text-align: center; color: aliceblue;">Events <a style="color:aliceblue; text-decoration: none;" href="https://www.crossref.org/services/event-data/"target="_blank">(?)</a></p1>
-    <br>
+
+  <div class="statsContainer">
+    <div
+      style="margin-right: 85px; width:180px; border-radius: 25px; padding: 10px; background-color: rgba(60, 65, 70, 0.9); "
+      class="center-screen col-sm-6">
+      <h2 style="text-align: center; color: aliceblue;">{{totalSum}}</h2>
+      <p1 style="text-align: center; color: aliceblue;">Events <a style="color:aliceblue; text-decoration: none;"
+          href="https://www.crossref.org/services/event-data/" target="_blank">(?)</a></p1>
+      <br>
     </div>
-    <div style="margin-right:85px; width:180px; border-radius: 25px; padding: 10px; background-color: rgba(60, 65, 70, 0.9); " class = "center-screen col-sm-6">
-    <h2 style="text-align: center; color: aliceblue;">{{totalSumArticles}}</h2>
-    <p1 style="text-align: center; color: aliceblue;">Articles</p1>
-    <br>
+    <div
+      style="margin-right:85px; width:180px; border-radius: 25px; padding: 10px; background-color: rgba(60, 65, 70, 0.9); "
+      class="center-screen col-sm-6">
+      <h2 style="text-align: center; color: aliceblue;">{{totalSumArticles}}</h2>
+      <p1 style="text-align: center; color: aliceblue;">Articles</p1>
+      <br>
     </div>
-    <div style="width:180px; border-radius: 25px; padding: 10px; background-color: rgba(60, 65, 70, 0.9); " class = "center-screen col-sm-6">
-    <h2 style="text-align: center; color: aliceblue;">{{totalSumJournals}}</h2>
-    <p1 style="text-align: center; color: aliceblue;">Journals</p1>
-    <br>
+    <div style="width:180px; border-radius: 25px; padding: 10px; background-color: rgba(60, 65, 70, 0.9); "
+      class="center-screen col-sm-6">
+      <h2 style="text-align: center; color: aliceblue;">{{totalSumJournals}}</h2>
+      <p1 style="text-align: center; color: aliceblue;">Journals</p1>
+      <br>
     </div>
   </div>
+
+  <div id="blank_field" style="display: none;">
+    <p style="font-family: 'Lucida Sans'; font-size: x-large; color: red;"><b>Search Empty!</b>
+    </p>
+    <br>
+    <p style="font-family: 'Lucida Sans'; font-size: large;">Please enter a search query.</p>
+  </div>
+
 </div>
 
 <br>

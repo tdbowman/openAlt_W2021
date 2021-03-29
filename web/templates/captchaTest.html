@@ -1,3 +1,9 @@
+<html>
+
+<head>
+    <title>Captcha Test</title>
+</head>
+
 <!--Author: Darpan (Lines 6-25, 32-37)-->
 {% extends 'bulkSearchTemplate.html' %}
 
@@ -73,24 +79,16 @@
 
 <!-- Anything you put here will be in the body-->
 {% block body %}
-<title>Retreive DOI Results</title>
 
-<body style="background-image: url('../static/images/library.jpg'); background-repeat: repeat-y; background-size:cover;">
+<body
+    style="background-image: url('../static/images/library.jpg'); background-repeat: repeat-y; background-size:cover;">
 
     <div class="center-screen" style="padding-top: 15px;">
 
-        <div class="center-screen" style="padding-top: 0px; padding-bottom: 15px;">
-            <div style="width: 550px; border-radius: 25px; padding: 0px; background-color: rgba(0, 68, 45, 0.9); "
-                    class="center-screen">
-                <h3 style="text-align: center; color: aliceblue;"><b>{{ results }}</b></h3>
-            </div>
-        </div>
-
-        
         <div
             style="width: 550px; border-radius: 25px; padding: 10px; background-color: rgba(60, 65, 70, 0.9); text-align: center;">
 
-            <h1 style="text-align: center; color: aliceblue; padding-bottom: 10px;"><b>Retreive DOI Results</b></h1>
+            <h1 style="text-align: center; color: aliceblue; padding-bottom: 10px;"><b>Captcha Test</b></h1>
 
             <form action="{{ url_for('downloadDOI') }}" method="POST" style="text-align: center; align-items: center;">
                 <input type="text" id="email_input" name="email_input" placeholder="Email Address:"
@@ -103,6 +101,7 @@
                         <option value="json" style="text-align: center; align-items: center;">JSON</option>
                     </select>
                     <br><br>
+                    {{ form.recaptcha }}
                     <button class="file-upload-btn" id="resultsButton" style="width: 350px;">Get Results!</button></a>
                 </div>
             </form>
@@ -209,3 +208,22 @@
 
 
 {% endblock %}
+
+<!-- <body>
+    <h1>Register form</h1>
+    <form methods="POST" action="{{ url_for('captchaTest') }}">
+        </ul>
+        {{ form.email.label }}
+        {{ form.email }}
+        <ul>
+            {% for error in form.email.error %}
+            <li style="color:red;">{{ error }}</li>
+            {% endfor %}
+        </ul>
+        {{ form.recaptcha }}
+        <input type="submit" value="submit">
+    </form>
+</body> -->
+
+
+</html>
