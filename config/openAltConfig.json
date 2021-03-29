@@ -1,1 +1,55 @@
-{"DOI-Database": {"name": "doidata", "username": "root", "password": "pass", "address": "127.0.0.1"}, "Crossref-Event-Database": {"name": "crossrefeventdatamain", "username": "root", "password": "", "address": "127.0.0.1"}, "OpenCitations": {"name": "opencitations", "username": "root", "password": "", "address": "127.0.0.1"}, "MongoDB-SciELO-Database": {"name": "SciELOData", "collection": "SciELODOI", "username": "root", "password": "", "address": "mongodb://localhost:27017/"}, "Crossref-Event-API": {"name": "crossrefEventAPI", "url": "https://api.eventdata.crossref.org/v1/events?mailto=GroovyBib@example.org&obj-id="}, "Crossref-Metadata-API": {"name": "crossrefMetadataAPI", "doi_url": "https://api.crossref.org/works/", "author_url": "https://api.crossref.org/works?query.author=", "uni_url": "https://api.crossref.org/works?query.affiliation="}, "OpenCitations-Citation-API": {"name": "openCitationsCitationAPI", "url": "https://w3id.org/oc/index/coci/api/v1/citations/"}, "OpenCitations-Citation-Count-API": {"name": "openCitationsCitationCountAPI", "url": "https://w3id.org/oc/index/coci/api/v1/citation-count/"}, "OpenCitations-Reference-API": {"name": "openCitationsReferenceAPI", "url": "https://w3id.org/oc/index/coci/api/v1/references/"}, "OpenCitations-Reference-Count-API": {"name": "openCitationsReferenceCountAPI", "url": "https://w3id.org/oc/index/coci/api/v1/reference-count/"}, "SciELO-Brazil-Data-API": {"name": "sciEloMetadataAPI", "url": "https://api.crossref.org/works/10.1590/"}, "User-Result-Limit": {"limit": "2", "dayInterval": "1"}, "Admin": {"email": "darpanshah7@gmail.com"}}
+{
+    "DOI-Database": {
+        "name": "doidata",
+        "username": "root",
+        "password": "",
+        "address": "127.0.0.1"
+    },
+    "Crossref-Event-Database": {
+        "name": "crossrefeventdatamain",
+        "username": "root",
+        "password": "",
+        "address": "127.0.0.1"
+    },
+    "OpenCitations": {
+        "name": "opencitations",
+        "username": "root",
+        "password": "",
+        "address": "127.0.0.1"
+    },
+    "Crossref-Event-API": {
+        "name": "crossrefEventAPI",
+        "url": "https://api.eventdata.crossref.org/v1/events?mailto=GroovyBib@example.org&obj-id="
+    },
+    "Crossref-Metadata-API": {
+        "name": "crossrefMetadataAPI",
+        "doi_url": "https://api.crossref.org/works/",
+		"author_url": "https://api.crossref.org/works?query.author=",
+		"uni_url": "https://api.crossref.org/works?query.affiliation="
+    },
+    "OpenCitations-Citation-API": {
+        "name": "openCitationsCitationAPI",
+        "url": "https://w3id.org/oc/index/coci/api/v1/citations/"
+    },
+    "OpenCitations-Citation-Count-API": {
+        "name": "openCitationsCitationCountAPI",
+        "url": "https://w3id.org/oc/index/coci/api/v1/citation-count/"
+    },
+    "OpenCitations-Reference-API": {
+        "name": "openCitationsReferenceAPI",
+        "url": "https://w3id.org/oc/index/coci/api/v1/references/"
+    },
+    "OpenCitations-Reference-Count-API": {
+        "name": "openCitationsReferenceCountAPI",
+        "url": "https://w3id.org/oc/index/coci/api/v1/reference-count/"
+    },
+    "SciELO-Metadata-API": {
+        "name": "sciEloMetadataAPI",
+        "url": "https://api.crossref.org/works/10.1590/"
+    },
+	"User-Result-Limit": {
+		"limit": 2,
+		"dayInterval": 1
+	}
+
+}
