@@ -19,7 +19,7 @@ def fetchDOICitations ():
 
     # mysql credentials
     mysql_username ='root'
-    mysql_password = 'Dsus1209.'
+    mysql_password = 'pass'
 
     # connect to doi database
     drBowmanDatabase = mysql.connector.connect(host = "localhost", user = mysql_username, passwd = mysql_password, database = "doidata")
@@ -32,6 +32,7 @@ def fetchDOICitations ():
     # get list of DOIs from doi database
     drBowmanDatabaseCursor.execute("Select DOI FROM doidata._main_ WHERE DOI IS NOT NULL")
     articles = drBowmanDatabaseCursor.fetchall()
+    # articles = drBowmanDatabaseCursor.fetchmany(5)
     
     # connect to MongoDB
     myclient = pymongo.MongoClient("mongodb://localhost:27017/")

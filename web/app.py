@@ -26,12 +26,14 @@ from uploadUni import searchByUni, getZipUni
 from emailError import emailError
 from emailAdmin import emailAdmin
 from singleDOIEmailLogic import articleLandingEmail
+from getCount import uploadDOIList, getStats
 import dbQuery
 
 from getPassword import getPassword, SECRET_KEY, SITE_KEY
 
 from resultsForm import ResultForm
 from flask_bootstrap import Bootstrap
+
 
 # current directory
 path = os.getcwd()
@@ -321,7 +323,9 @@ def uploadDOI():
 
             session['doiPath'] = fileName
 
-        return flask.render_template('downloadDOI.html')
+            uploadDOIList(mysql, fileName)
+
+        return flask.render_template('downloadDOI.html', results = getStats())
 
     return flask.render_template('uploadDOI.html')
 
