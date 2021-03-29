@@ -177,17 +177,17 @@ def searchLogic(mysql, mysql2, dropdownValue):
 
         if not selected_years:
             # no year filter
-            sql = "Select doi, title, container_title, published_print_date_parts, fk from _main_ where doi like '%" + \
-                search + advanced_query + "%\' order by published_print_date_parts" + descending_or_ascending + ";"
+            sql = "Select doi, title, container_title, published_print_date_parts, fk from doidata._main_ where doi like '%" + \
+                search + "%'" + advanced_query + " order by published_print_date_parts" + descending_or_ascending 
         else:
             # with year filter
-            sql = "Select doi, title, container_title, published_print_date_parts, fk from _main_ where doi like '%" + \
+            sql = "Select doi, title, container_title, published_print_date_parts, fk from doidata._main_ where doi like '%" + \
                 search + \
                 "%\' and substr(published_print_date_parts, 1,4) in " + \
-                s_years + advanced_query + " order by published_print_date_parts" + descending_or_ascending + ";"
+                s_years + advanced_query + " order by published_print_date_parts" + descending_or_ascending
 
         
-
+        print(sql)
         cursor.execute(sql)
         result_set = cursor.fetchall()
 
@@ -199,7 +199,7 @@ def searchLogic(mysql, mysql2, dropdownValue):
             author_list = []
             if fk is not None:
                 # look up author table by fk
-                author_sql = "select id, name from author where fk = " + \
+                author_sql = "select id, name from doidata.author where fk = " + \
                     str(fk) + ";"
                 cursor.execute(author_sql)
                 # get list of authors for given fk

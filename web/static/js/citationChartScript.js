@@ -8,7 +8,7 @@ citationEvent.unshift('Citation');
 let citationElements = document.getElementsByClassName("citationItem");
 
 
-for (var i = 0; i < elements.length; i++) {
+for (var i = 0; i < citationElements.length; i++) {
 	citationElements[i].style.display = "initial";
 }
 
