@@ -151,11 +151,15 @@ def articleDashboard():
     years_list = []
     yearInput = ''
 
+    citation_years_list = []
+    citationYearInput = ''
+
     # Based on the current year, initialize the years_list list year range(5 years).
     # This is the default year range.
     currentYear = datetime.now().year
     for i in range(currentYear - 4, currentYear + 1):
         years_list.append(i)
+        citation_years_list.append(i)
 
         # If a HTTPS POST Request is received...
         # Author: Mohammad Tahmid
@@ -207,8 +211,16 @@ def articleDashboard():
             for i in range(yearInput - 2, yearInput + 3):
                 years_list.append(i)
 
+
+        if request.form.get('citationYear') is not None:
+            citationYearInput = request.form.get('citationYear')
+            citationYearInput = int(citationYearInput)
+            citation_years_list = []
+            for i in range(citationYearInput - 2, citationYearInput + 3):
+                citation_years_list.append(i)
+
     # Go to articleDashboardLogic.py
-    return articleDashboardLogic(mysql, mysql2, mysql3, years_list, yearInput)
+    return articleDashboardLogic(mysql, mysql2, mysql3, years_list, yearInput, citation_years_list, citationYearInput)
 
 
 @ app.route('/journalDashboard', methods=["GET", "POST"])
@@ -287,7 +299,7 @@ def searchByOptions():
 def uploadDOI():
 
     # Directory of where to put the uploaded file
-    app.config["UPLOAD_FILES"] = "../web/uploadFiles"
+    app.config["UPLOAD_FILES"] = "./web/uploadFiles"
     target = app.config["UPLOAD_FILES"]
 
     # Allowed extensions of file
@@ -362,7 +374,7 @@ def downloadDOI():
 @ app.route('/uploadAuthors', methods=["GET", "POST"])
 def uploadAuthors():
 
-    app.config["UPLOAD_FILES"] = "../web/uploadFiles"
+    app.config["UPLOAD_FILES"] = "./web/uploadFiles"
     destination = app.config["UPLOAD_FILES"]
 
     if not os.path.isdir(destination):
@@ -416,7 +428,7 @@ def downloadAuthors():
 @ app.route('/uploadUni', methods=["GET", "POST"])
 def uploadUni():
 
-    app.config["UPLOAD_FILES"] = "../web/uploadFiles"
+    app.config["UPLOAD_FILES"] = "./web/uploadFiles"
     destination = app.config["UPLOAD_FILES"]
 
     if not os.path.isdir(destination):

@@ -687,3 +687,61 @@ p:empty{
   border: 0;
   transition: all .2s ease;
 }
+
+
+
+
+
+.btn-group {
+
+  padding-top: 25px;
+  display: flex;
+  justify-content: center;
+}
+
+.btn-group input {
+  background-color: #000000;
+  color: #FFFFFF;
+  border: 1px solid #000000;
+  padding: 10px 24px;
+  cursor: pointer;
+  float: left;
+}
+
+
+.btn-group button:not(:last-child) {
+  border-right: none;
+}
+
+
+.btn-group:after {
+  content: "";
+  clear: both;
+  display: table;
+}
+
+
+.btn-group input:hover {
+  background-color: #1DA1F2;
+}
+
+
+
+#eventTable{
+  text-align: center;
+}
+
+#eventTable td{
+  width: 15%;
+}
+
+
+#citationTable{
+  margin-top: 25px;
+  text-align: center;
+}
+
+
+#citationTable td{
+  width: 15%;
+}
