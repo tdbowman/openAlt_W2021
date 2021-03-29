@@ -1,4 +1,4 @@
-{% extends 'template.html' %}
+{% extends 'bulkSearchTemplate.html' %}
 <!-- Anything you put here will be in the HTML head tags-->
 {% block head %}
 <style>
@@ -9,96 +9,99 @@
 <!-- Anything you put here will be in the body-->
 {% block body %}
 <title>Admin Login Success</title>
-<body style="background-image: url('../static/images/library.jpg'); background-repeat: repeat-y; background-size:cover;">
+<body style="background-image: url('../static/images/wsu.jpg'); background-repeat: repeat;">
   <div class="center-screen">
     <div class="center-screen" style="padding-top: 15px;">
-      <div style="width:625px; border-radius: 25px; padding: 15px; background-color: rgba(60, 65, 70, 0.9); ">
-          <div class="container">
-            <form action="#">
-              <div class="col-sm-6">
-                <h1 style="text-align: center;"><b>DOI-Database</b></h1>
-                <label>name</label><br>
-                <input type="text" name="key1.1" value="{{ confOA['DOI-Database']['name'] }}"><br><br>
-                <label>username</label><br>
-                <input type="text" name="key1.2" value="{{ confOA['DOI-Database']['username'] }}"><br><br>
-                <label>password</label><br>
-                <input type="text" name="key1.3" value="{{ confOA['DOI-Database']['password'] }}"><br><br>
-                <label>address</label><br>
-                <input type="text" name="key1.4" value="{{ confOA['DOI-Database']['address'] }}"><br><br>
+      <div style="width: 625px; border-radius: 25px; padding: 15px; background-color: rgba(60, 65, 70, 0.9); ">
+          <div class="center-screen">
+            <form action="{{ url_for('adminConfigUpdate') }}" method="POST" style= "width:400px;" style="text-align: center; align-items: center;">
+              <div class="center-screen">
+                <h1 style="text-align: center;"><b>DOI-Database</b></h1><br>
+                <label>name</label>
+                <input type="text" style= "width:400px;" name="key1.1" value="{{ confOA['DOI-Database']['name'] }}"><br><br>
+                <label>username</label>
+                <input type="text" style= "width:400px;" name="key1.2" value="{{ confOA['DOI-Database']['username'] }}"><br><br>
+                <label>password</label>
+                <input type="text" style= "width:400px;" name="key1.3" value="{{ confOA['DOI-Database']['password'] }}"><br><br>
+                <label>address</label>
+                <input type="text" style= "width:400px;" name="key1.4" value="{{ confOA['DOI-Database']['address'] }}"><br><br>
                 <h1 style="text-align: center;"><b>Crossref-Event-Database</b></h1>
-                <label>name</label><br>
-                <input type="text" name="key2.1" value="{{ confOA['Crossref-Event-Database']['name'] }}"><br><br>
-                <label>username</label><br>
-                <input type="text" name="key2.2" value="{{ confOA['Crossref-Event-Database']['username'] }}"><br><br>
-                <label>password</label><br>
-                <input type="text" name="key2.3" value="{{ confOA['Crossref-Event-Database']['password'] }}"><br><br>
-                <label>address</label><br>
-                <input type="text" name="key2.4" value="{{ confOA['Crossref-Event-Database']['address'] }}"><br><br>
+                <label>name</label>
+                <input type="text" style= "width:400px;" name="key2.1" value="{{ confOA['Crossref-Event-Database']['name'] }}"><br><br>
+                <label>username</label>
+                <input type="text" style= "width:400px;" name="key2.2" value="{{ confOA['Crossref-Event-Database']['username'] }}"><br><br>
+                <label>password</label>
+                <input type="text" style= "width:400px;" name="key2.3" value="{{ confOA['Crossref-Event-Database']['password'] }}"><br><br>
+                <label>address</label>
+                <input type="text" style= "width:400px;" name="key2.4" value="{{ confOA['Crossref-Event-Database']['address'] }}"><br><br>
                 <h1 style="text-align: center;"><b>OpenCitations</b></h1>
-                <label>name</label><br>
-                <input type="text" name="key3.1" value="{{ confOA['OpenCitations']['name'] }}"><br><br>
-                <label>username</label><br>
-                <input type="text" name="key3.2" value="{{ confOA['OpenCitations']['username'] }}"><br><br>
-                <label>password</label><br>
-                <input type="text" name="key3.3" value="{{ confOA['OpenCitations']['password'] }}"><br><br>
-                <label>address</label><br>
-                <input type="text" name="key3.4" value="{{ confOA['OpenCitations']['address'] }}"><br><br>
+                <label>name</label>
+                <input type="text" style= "width:400px;" name="key3.1" value="{{ confOA['OpenCitations']['name'] }}"><br><br>
+                <label>username</label>
+                <input type="text" style= "width:400px;" name="key3.2" value="{{ confOA['OpenCitations']['username'] }}"><br><br>
+                <label>password</label>
+                <input type="text" style= "width:400px;" name="key3.3" value="{{ confOA['OpenCitations']['password'] }}"><br><br>
+                <label>address</label>
+                <input type="text" style= "width:400px;" name="key3.4" value="{{ confOA['OpenCitations']['address'] }}"><br><br>
                 <h1 style="text-align: center;"><b>MongoDB-SciELO-Database</b></h1>
-                <label>name</label><br>
-                <input type="text" name="key4.1" value="{{ confOA['MongoDB-SciELO-Database']['name'] }}"><br><br>
-                <label>collection</label><br>
-                <input type="text" name="key4.2" value="{{ confOA['MongoDB-SciELO-Database']['collection'] }}"><br><br>
-                <label>username</label><br>
-                <input type="text" name="key4.3" value="{{ confOA['MongoDB-SciELO-Database']['username'] }}"><br><br>
-                <label>password</label><br>
-                <input type="text" name="key4.4" value="{{ confOA['MongoDB-SciELO-Database']['password'] }}"><br><br>
-                <label>address</label><br>
-                <input type="text" name="key4.5" value="{{ confOA['MongoDB-SciELO-Database']['address'] }}"><br><br>
+                <label>name</label>
+                <input type="text" style= "width:400px;" name="key4.1" value="{{ confOA['MongoDB-SciELO-Database']['name'] }}"><br><br>
+                <label>collection</label>
+                <input type="text" style= "width:400px;" name="key4.2" value="{{ confOA['MongoDB-SciELO-Database']['collection'] }}"><br><br>
+                <label>username</label>
+                <input type="text" style= "width:400px;" name="key4.3" value="{{ confOA['MongoDB-SciELO-Database']['username'] }}"><br><br>
+                <label>password</label>
+                <input type="text" style= "width:400px;" name="key4.4" value="{{ confOA['MongoDB-SciELO-Database']['password'] }}"><br><br>
+                <label>address</label>
+                <input type="text" style= "width:400px;" name="key4.5" value="{{ confOA['MongoDB-SciELO-Database']['address'] }}"><br><br>
                 <h1 style="text-align: center;"><b>Crossref-Event-API</b></h1>
-                <label>name</label><br>
-                <input type="text" name="key5.1" value="{{ confOA['Crossref-Event-API']['name'] }}"><br><br>
-                <label>url</label><br>
-                <input type="text" name="key5.2" value="{{ confOA['Crossref-Event-API']['url'] }}"><br><br>
+                <label>name</label>
+                <input type="text" style= "width:400px;" name="key5.1" value="{{ confOA['Crossref-Event-API']['name'] }}"><br><br>
+                <label>url</label>
+                <input type="text" style= "width:400px;" name="key5.2" value="{{ confOA['Crossref-Event-API']['url'] }}"><br><br>
                 <h1 style="text-align: center;"><b>Crossref-Metadata-API</b></h1>
-                <label>name</label><br>
-                <input type="text" name="key6.1" value="{{ confOA['Crossref-Metadata-API']['name'] }}"><br><br>
-                <label>doi_url</label><br>
-                <input type="text" name="key6.2" value="{{ confOA['Crossref-Metadata-API']['doi_url'] }}"><br><br>
-                <label>author_url</label><br>
-                <input type="text" name="key6.3" value="{{ confOA['Crossref-Metadata-API']['author_url'] }}"><br><br>
-                <label>uni_url</label><br>
-                <input type="text" name="key6.4" value="{{ confOA['Crossref-Metadata-API']['uni_url'] }}"><br><br>
+                <label>name</label>
+                <input type="text" style= "width:400px;" name="key6.1" value="{{ confOA['Crossref-Metadata-API']['name'] }}"><br><br>
+                <label>doi_url</label>
+                <input type="text" style= "width:400px;" name="key6.2" value="{{ confOA['Crossref-Metadata-API']['doi_url'] }}"><br><br>
+                <label>author_url</label>
+                <input type="text" style= "width:400px;" name="key6.3" value="{{ confOA['Crossref-Metadata-API']['author_url'] }}"><br><br>
+                <label>uni_url</label>
+                <input type="text" style= "width:400px;" name="key6.4" value="{{ confOA['Crossref-Metadata-API']['uni_url'] }}"><br><br>
                 <h1 style="text-align: center;"><b>OpenCitations-Citation-API</b></h1>
-                <label>name</label><br>
-                <input type="text" name="key7.1" value="{{ confOA['OpenCitations-Citation-API']['name'] }}"><br><br>
-                <label>url</label><br>
-                <input type="text" name="key7.2" value="{{ confOA['OpenCitations-Citation-API']['url'] }}"><br><br>
+                <label>name</label>
+                <input type="text" style= "width:400px;" name="key7.1" value="{{ confOA['OpenCitations-Citation-API']['name'] }}"><br><br>
+                <label>url</label>
+                <input type="text" style= "width:400px;" name="key7.2" value="{{ confOA['OpenCitations-Citation-API']['url'] }}"><br><br>
                 <h1 style="text-align: center;"><b>OpenCitations-Citation-Count-API</b></h1>
-                <label>name</label><br>
-                <input type="text" name="key8.1" value="{{ confOA['OpenCitations-Citation-Count-API']['name'] }}"><br><br>
-                <label>url</label><br>
-                <input type="text" name="key8.2" value="{{ confOA['OpenCitations-Citation-Count-API']['url'] }}"><br><br>
+                <label>name</label>
+                <input type="text" style= "width:400px;" name="key8.1" value="{{ confOA['OpenCitations-Citation-Count-API']['name'] }}"><br><br>
+                <label>url</label>
+                <input type="text" style= "width:400px;" name="key8.2" value="{{ confOA['OpenCitations-Citation-Count-API']['url'] }}"><br><br>
                 <h1 style="text-align: center;"><b>OpenCitations-Reference-API</b></h1>
-                <label>name</label><br>
-                <input type="text" name="key9.1" value="{{ confOA['OpenCitations-Reference-API']['name'] }}"><br><br>
-                <label>url</label><br>
-                <input type="text" name="key9.2" value="{{ confOA['OpenCitations-Reference-API']['url'] }}"><br><br>
+                <label>name</label>
+                <input type="text" style= "width:400px;" name="key9.1" value="{{ confOA['OpenCitations-Reference-API']['name'] }}"><br><br>
+                <label>url</label>
+                <input type="text" style= "width:400px;" name="key9.2" value="{{ confOA['OpenCitations-Reference-API']['url'] }}"><br><br>
                 <h1 style="text-align: center;"><b>OpenCitations-Reference-Count-API</b></h1>
-                <label>name</label><br>
-                <input type="text" name="key10.1" value="{{ confOA['OpenCitations-Reference-Count-API']['name'] }}"><br><br>
-                <label>url</label><br>
-                <input type="text" name="key10.2" value="{{ confOA['OpenCitations-Reference-Count-API']['url'] }}"><br><br>
+                <label>name</label>
+                <input type="text" style= "width:400px;" name="key10.1" value="{{ confOA['OpenCitations-Reference-Count-API']['name'] }}"><br><br>
+                <label>url</label>
+                <input type="text" style= "width:400px;" name="key10.2" value="{{ confOA['OpenCitations-Reference-Count-API']['url'] }}"><br><br>
                 <h1 style="text-align: center;"><b>SciELO-Brazil-Data-API</b></h1>
-                <label>name</label><br>
-                <input type="text" name="key11.1" value="{{ confOA['SciELO-Brazil-Data-API']['name'] }}"><br><br>
-                <label>url</label><br>
-                <input type="text" name="key11.2" value="{{ confOA['SciELO-Brazil-Data-API']['url'] }}"><br><br>
+                <label>name</label>
+                <input type="text" style= "width:400px;" name="key11.1" value="{{ confOA['SciELO-Brazil-Data-API']['name'] }}"><br><br>
+                <label>url</label>
+                <input type="text" style= "width:400px;" name="key11.2" value="{{ confOA['SciELO-Brazil-Data-API']['url'] }}"><br><br>
                 <h1 style="text-align: center;"><b>User-Result-Limit</b></h1>
-                <label>limit</label><br>
-                <input type="text" name="key12.1" value="{{ confOA['User-Result-Limit']['limit'] }}"><br><br>
-                <label>dayInterval</label><br>
-                <input type="text" name="key12.2" value="{{ confOA['User-Result-Limit']['dayInterval'] }}"><br><br>
-                <input type="submit" formmethod="post" value="Update">
+                <label>limit</label>
+                <input type="text" style= "width:400px;" name="key12.1" value="{{ confOA['User-Result-Limit']['limit'] }}"><br><br>
+                <label>dayInterval</label>
+                <input type="text" style= "width:400px;" name="key12.2" value="{{ confOA['User-Result-Limit']['dayInterval'] }}"><br><br>
+                
+                <div class="image-title-wrap">
+                  <button class="file-upload-btn" id="loginButton" style="width: 350px;">Update Configuration</button></a>
+              </div>
               </div>
             </form>
           </div>

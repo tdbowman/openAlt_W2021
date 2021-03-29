@@ -1,5 +1,8 @@
 # Author: Darpan (whole file)
 
+# Import for config file
+import os
+import json
 
 # Import smtplib for the actual sending function
 import smtplib
@@ -12,6 +15,13 @@ from email.message import EmailMessage
 from email.mime.multipart import MIMEMultipart
 from email.mime.application import MIMEApplication as ma
 from email.mime.text import MIMEText
+
+# config file
+path = os.getcwd()
+parent = os.path.dirname(path)
+config_path = os.path.join(parent, "config", "openAltConfig.json")
+f = open(config_path)
+APP_CONFIG = json.load(f)
 
 
 ## For SMTP Info -> https://support.google.com/mail/answer/7126229?hl=en
@@ -26,7 +36,7 @@ def emailAdmin(pw):
 
     msg = MIMEMultipart()
     msg['From'] = 'OpenAlt v2.0'
-    msg['To'] = 'tabishshaikh97@gmail.com'
+    msg['To'] = APP_CONFIG['Admin']['email']
     msg['Subject'] = 'Admin Login'
 
 

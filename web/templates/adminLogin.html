@@ -7,6 +7,8 @@
 
         // Initialize variables and reference to the resultsButton and the current value of the email box
         let $loginButton = $("#loginButton");
+        let pw = "{{ pw }}"
+        
 
 
         // If the email box is empty, prompt the user to enter a query.
@@ -23,6 +25,24 @@
                     minHeight: 200,
                     buttons: {
                         'Send New Password': function () {
+                            $(location).attr('href', "/admin");
+                        },
+                        Ok: function () {
+                            $(this).dialog("close");
+                        }
+                    }
+                });
+                return false;
+            }
+            else if ($pwValue != pw) {
+
+                $("#invalid_pass").dialog({
+                    title: "ERROR",
+                    modal: true,
+                    minWidth: 700,
+                    minHeight: 200,
+                    buttons: {
+                        'Send New Password': function () {
                             $(location).attr('href', "/adminLogin");
                         },
                         Ok: function () {
@@ -32,6 +52,7 @@
                 });
                 return false;
             }
+
         });
 
     });
@@ -41,9 +62,10 @@
 <!-- Anything you put here will be in the body-->
 {% block body %}
 <title>Admin Login</title>
-<body>
+
+<body style="background-image: url('../static/images/wsu.jpg'); background-repeat: repeat;">
     <div class="center-screen" style="padding-top: 15px;">
-<div class="center-screen" style="padding: 10px;">
+        <div class="center-screen" style="padding: 10px;">
             <div style="width: 550px; border-radius: 25px; padding: 0px; background-color: rgba(60, 65, 70, 0.9); "
                 class="center-screen">
                 <h3 style="text-align: center; color: aliceblue;"><b>Instructions</b></h3>
@@ -54,17 +76,20 @@
                     </ol>
                 </p1>
                 <br>
+
+
             </div>
+
         </div>
-       <br>
+        <br>
         <div
             style="width: 550px; border-radius: 25px; padding: 10px; background-color: rgba(60, 65, 70, 0.9); text-align: center;">
 
             <h1 style="text-align: center; color: aliceblue; padding-bottom: 10px;"><b>Enter Password:</b></h1>
 
-            <form action="{{ url_for('adminLogin') }}" method="POST" style="text-align: center; align-items: center;">
-                <input type="password" id="pw_input" name="pw_input" placeholder="Password"
-                    style="width: 350px;" class="form-control">
+            <form action="{{ url_for('admin') }}" method="POST" style="text-align: center; align-items: center;">
+                <input type="password" id="pw_input" name="pw_input" placeholder="Password" style="width: 350px;"
+                    class="form-control">
                 <br><br>
 
                 <div class="image-title-wrap">
@@ -75,10 +100,22 @@
 
 
         <div id="no_pass" style="display: none;">
-            <p style="font-family: 'Lucida Sans'; font-size: x-large; color: red;"><b>You have not entered a password!</b> </p>
+            <p style="font-family: 'Lucida Sans'; font-size: x-large; color: red;"><b>You have not entered a
+                    password!</b> </p>
             <br>
-            <p style="font-family: 'Lucida Sans'; font-size: large;">Please enter the password sent to the admin email.</p>
+            <p style="font-family: 'Lucida Sans'; font-size: large;">Please enter the password sent to the admin email.
+            </p>
         </div>
+
+        <div id="invalid_pass" style="display: none;">
+            <p style="font-family: 'Lucida Sans'; font-size: x-large; color: red;"><b>Incorrect
+                    password!</b> </p>
+            <br>
+            <p style="font-family: 'Lucida Sans'; font-size: large;">Please enter the password sent to the admin email.
+            </p>
+        </div>
+
+
 
 
 
