@@ -7,6 +7,8 @@ from flask_mysqldb import MySQL
 from flask import request, jsonify, redirect, flash
 from datetime import datetime
 from email_validator import validate_email, EmailNotValidError
+import traceback
+import sys
 
 # Import for password creation
 import random
@@ -211,7 +213,6 @@ def articleDashboard():
             for i in range(yearInput - 2, yearInput + 3):
                 years_list.append(i)
 
-
         if request.form.get('citationYear') is not None:
             citationYearInput = request.form.get('citationYear')
             citationYearInput = int(citationYearInput)
@@ -341,7 +342,7 @@ def uploadDOI():
             if count == "0":
                 return flask.render_template('noResultsPage.html')
             else:
-                return flask.render_template('downloadDOI.html', results = getStats())
+                return flask.render_template('downloadDOI.html', results=getStats())
 
     return flask.render_template('uploadDOI.html')
 
@@ -402,7 +403,7 @@ def uploadAuthors():
             if count == "0":
                 return flask.render_template('noResultsPage.html')
             else:
-                return flask.render_template('downloadDOI.html', results = getStats())
+                return flask.render_template('downloadAuthors.html', results=getStats())
 
     return flask.render_template('uploadAuthors.html')
 
@@ -427,6 +428,7 @@ def downloadAuthors():
                 return redirect('/limitReached')
         except Exception as e:
             print(e)
+            exception_type, exception_object, exception_traceback = sys.exc_info()
             emailError(emailVal, 'author')
             return redirect('/searchError')
 
@@ -462,7 +464,7 @@ def uploadUni():
             if count == "0":
                 return flask.render_template('noResultsPage.html')
             else:
-                return flask.render_template('downloadDOI.html', results = getStats())
+                return flask.render_template('downloadUni.html', results = getStats())
 
     return flask.render_template('uploadUni.html')
 

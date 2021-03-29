@@ -220,7 +220,7 @@ def checkUser(email, type, cursor):
     cursor.execute(query)
     resultSet = cursor.fetchone()
 
-    #print(resultSet['count'])
+    print(resultSet['count'])
 
     if str(resultSet['count']) >= limit:
         print("false:", resultSet['count'])
@@ -239,7 +239,7 @@ def checkIP(ip, type, cursor):
     cursor.execute(query)
     resultSet = cursor.fetchone()
 
-    #print(resultSet['count'])
+    print(resultSet['count'])
 
     if str(resultSet['count']) >= limit:
         print("false:", resultSet['count'])
