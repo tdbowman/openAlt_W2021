@@ -9,7 +9,7 @@ import ssl
 from email.message import EmailMessage
 
 # Import for attachments
-from email.mime.multipart import MIMEMultipart 
+from email.mime.multipart import MIMEMultipart
 from email.mime.application import MIMEApplication as ma
 from email.mime.text import MIMEText
 
@@ -26,10 +26,10 @@ def emailAdmin(pw):
 
     msg = MIMEMultipart()
     msg['From'] = 'OpenAlt v2.0'
-    msg['To'] = 'darpanshah7@gmail.com'
+    msg['To'] = 'tabishshaikh97@gmail.com'
     msg['Subject'] = 'Admin Login'
 
-    
+
 
     body = """\
     <html>
@@ -39,7 +39,7 @@ def emailAdmin(pw):
     </body>
     </html>
     """
-                
+
     body_part = MIMEText(body, 'html')
     msg.attach(body_part)
 

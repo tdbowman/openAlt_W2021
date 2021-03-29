@@ -64,6 +64,11 @@ app.config['MYSQL_CURSORCLASS'] = 'DictCursor'
 # Database initialization and cursor
 mysql = MySQL(app)
 
+# global variable to store admin password
+glpass=""
+
+# test
+logged=False
 
 # for reCAPTCHA
 app.config['SECRET_KEY'] = os.urandom(32)
@@ -244,10 +249,6 @@ def authorDashboard():
     # Go to authorDashboardLogic.py
     return authorDashboardLogic(mysql, mysql2, years_list, yearInput)
 
-
-@ app.route('/adminloginsuccess', methods=["GET", "POST"])
-def admin():
-    return editconfigfile()
 
 @ app.route('/about', methods=["GET", "POST"])
 def about():
@@ -490,15 +491,112 @@ def captchaTest():
 
 @ app.route('/adminLogin', methods=["GET", "POST"])
 def adminLogin():
+    if request.method=="GET":
 
-    # Password creation
-    source = string.ascii_letters + string.digits
-    pw = ''.join((random.choice(source) for i in range(10)))
+        # Password creation
+        source = string.ascii_letters + string.digits
+        pw = ''.join((random.choice(source) for i in range(10)))
 
-    emailAdmin(pw)
+        emailAdmin(pw)
+        global glpass
+        glpass=pw
+        return flask.render_template('adminLogin.html')
+    elif request.method=="POST":
+        if request.form['pw_input']==glpass:
+            global logged
+            logged = True
+            return redirect('/adminConfigUpdate')
+        else:
+            return redirect('/')
+    else:
+        return redirect('/')
 
-    return flask.render_template('adminLogin.html')
-
+@ app.route('/adminConfigUpdate', methods=["GET", "POST"])
+def adminConfigUpdate():
+    global logged
+    if logged == False:
+        return redirect('/')
+    elif request.method=="GET":
+        return flask.render_template('adminConfigUpdate.html', confOA = APP_CONFIG)
+    elif request.method=="POST":
+        dict11=request.form['key1.1']
+        dict12=request.form['key1.2']
+        dict13=request.form['key1.3']
+        dict14=request.form['key1.4']
+        APP_CONFIG["DOI-Database"]["name"]=dict11
+        APP_CONFIG["DOI-Database"]["username"]=dict12
+        APP_CONFIG["DOI-Database"]["password"]=dict13
+        APP_CONFIG["DOI-Database"]["address"]=dict14
+        dict21=request.form['key2.1']
+        dict22=request.form['key2.2']
+        dict23=request.form['key2.3']
+        dict24=request.form['key2.4']
+        APP_CONFIG["Crossref-Event-Database"]["name"]=dict21
+        APP_CONFIG["Crossref-Event-Database"]["username"]=dict22
+        APP_CONFIG["Crossref-Event-Database"]["password"]=dict23
+        APP_CONFIG["Crossref-Event-Database"]["address"]=dict24
+        dict31=request.form['key3.1']
+        dict32=request.form['key3.2']
+        dict33=request.form['key3.3']
+        dict34=request.form['key3.4']
+        APP_CONFIG["OpenCitations"]["name"]=dict31
+        APP_CONFIG["OpenCitations"]["username"]=dict32
+        APP_CONFIG["OpenCitations"]["password"]=dict33
+        APP_CONFIG["OpenCitations"]["address"]=dict34
+        dict41=request.form['key4.1']
+        dict42=request.form['key4.2']
+        dict43=request.form['key4.3']
+        dict44=request.form['key4.4']
+        dict45=request.form['key4.5']
+        APP_CONFIG["MongoDB-SciELO-Database"]["name"]=dict41
+        APP_CONFIG["MongoDB-SciELO-Database"]["collection"]=dict42
+        APP_CONFIG["MongoDB-SciELO-Database"]["username"]=dict43
+        APP_CONFIG["MongoDB-SciELO-Database"]["password"]=dict44
+        APP_CONFIG["MongoDB-SciELO-Database"]["address"]=dict45
+        dict51=request.form['key5.1']
+        dict52=request.form['key5.2']
+        APP_CONFIG["Crossref-Event-API"]["name"]=dict51
+        APP_CONFIG["Crossref-Event-API"]["url"]=dict52
+        dict61=request.form['key6.1']
+        dict62=request.form['key6.2']
+        dict63=request.form['key6.3']
+        dict64=request.form['key6.4']
+        APP_CONFIG["Crossref-Metadata-API"]["name"]=dict61
+        APP_CONFIG["Crossref-Metadata-API"]["doi_url"]=dict62
+        APP_CONFIG["Crossref-Metadata-API"]["author_url"]=dict63
+        APP_CONFIG["Crossref-Metadata-API"]["uni_url"]=dict64
+        dict71=request.form['key7.1']
+        dict72=request.form['key7.2']
+        APP_CONFIG["OpenCitations-Citation-API"]["name"]=dict71
+        APP_CONFIG["OpenCitations-Citation-API"]["url"]=dict72
+        dict81=request.form['key8.1']
+        dict82=request.form['key8.2']
+        APP_CONFIG["OpenCitations-Citation-Count-API"]["name"]=dict81
+        APP_CONFIG["OpenCitations-Citation-Count-API"]["url"]=dict82
+        dict91=request.form['key9.1']
+        dict92=request.form['key9.2']
+        APP_CONFIG["OpenCitations-Reference-API"]["name"]=dict91
+        APP_CONFIG["OpenCitations-Reference-API"]["url"]=dict92
+        dict101=request.form['key10.1']
+        dict102=request.form['key10.2']
+        APP_CONFIG["OpenCitations-Reference-Count-API"]["name"]=dict101
+        APP_CONFIG["OpenCitations-Reference-Count-API"]["url"]=dict102
+        dict111=request.form['key11.1']
+        dict112=request.form['key11.2']
+        APP_CONFIG["SciELO-Brazil-Data-API"]["name"]=dict111
+        APP_CONFIG["SciELO-Brazil-Data-API"]["url"]=dict112
+        dict121=request.form['key12.1']
+        dict122=request.form['key12.2']
+        APP_CONFIG["User-Result-Limit"]["limit"]=dict121
+        APP_CONFIG["User-Result-Limit"]["dayInterval"]=dict122
+        print(APP_CONFIG)
+        with open("../config/openAltConfig.json","w") as f:
+            json.dump(APP_CONFIG,f)
+        f.close()
+        logged = False
+        return flask.render_template('adminUpdateComplete.html')
+    else:
+        return redirect('/')
 
 # If this is the main module or main program being run (app.py)......
 if __name__ == "__main__":
