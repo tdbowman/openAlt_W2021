@@ -178,16 +178,12 @@
         }
 
 
-        cell1.innerHTML = 'Number of Citations';
-        cell2.innerHTML = citationData[2];
-        cell3.innerHTML = citationData[3];
-        cell4.innerHTML = citationData[4];
-        cell5.innerHTML = citationData[5];
-        cell6.innerHTML = citationData[6];
-        
-
-
-        
+        cell1.innerHTML = 'Citations';
+        cell2.innerHTML = citationData[1];
+        cell3.innerHTML = citationData[2];
+        cell4.innerHTML = citationData[3];
+        cell5.innerHTML = citationData[4];
+        cell6.innerHTML = citationData[5];
 
 
 
@@ -305,7 +301,7 @@
         $tableButton.click(function () {
 
             $tableButton.css("backgroundColor", "#1DA1F2")
-            $barButton.css("backgroundColor", "#000000")
+            $barButton.css("backgroundColor", "#313131")
             $graph.hide();
             $tables.show();
 
@@ -315,7 +311,7 @@
         $barButton.click(function () {
 
             $barButton.css("backgroundColor", "#1DA1F2")
-            $tableButton.css("backgroundColor", "#000000")
+            $tableButton.css("backgroundColor", "#313131")
             $tables.hide();
             $graph.show();
             
@@ -414,16 +410,7 @@
 <div class="container">
     <div class="row">
         <div class="col-md-11">
-            <h1>Article Dashboard</h1>
-        </div>
-        <div class="statsContainer">
-            <div style="width:180px; border-radius: 25px; padding: 10px; background-color: rgba(208, 218, 230, 0.5); "
-                class="center-screen col-sm-6">
-                <h2 style="text-align: center; color: black;">{{totalEventsSum}}</h2>
-                <p2><strong>Events</strong> <a style="text-decoration: none;"
-                        href="https://www.crossref.org/services/event-data/" target="_blank">(?)</a></p2>
-                <br>
-            </div>
+            <h1 style = "color: #000000"><b>Article Dashboard</b></h1>
         </div>
         <div class="row">
             <!-- This is the left column - Information box-->
@@ -460,6 +447,12 @@
                                 <div class="AD_DOI">
                                     <strong>DOI:</strong> <a href="https://doi.org/{{ article_detail.objectID }}"
                                         target="_blank">{{ article_detail.objectID }} &#8599;</a>
+                                </div>
+                                <div class="AD_events">
+                                    <strong>Events(s) :</strong> {{totalEventsSum}} <span id = "eventToolTip">&#128712; <span class="tooltiptext">Event Data shows the 
+                                        influence of a publication by showing how many times it was mentioned in an online platform. <a href="https://www.crossref.org/services/event-data/" 
+                                        target="_blank" style = "color: #03a9f4"> More info </a>
+                                    </span> </span>
                                 </div>
                                 <!--Author: Mohammad Tahmid
 						Lines: 196-211
@@ -556,7 +549,7 @@
                     <div id="yearFilter" style="text-align: center;">
                         <form method="post" action="{{ url_for('articleDashboard') }}?DOI={{ article_detail.objectID }}"
                             class="form-inline" name="YearRange">
-                            <label for="yearBox">Select a year (YYYY):</label>
+                            <label for="yearBox">Select a median year (YYYY):</label>
                             <input type="text" name="year" id="yearBox" size="4" maxlength="4" pattern="\d{4}">
                             <input width="40%" name= "eventYearButton" type="submit" value="Update" class="form-control">
                         </form>
@@ -568,7 +561,7 @@
                     <div id="citationYearFilter" style="text-align: center;">
                         <form method="post" action="{{ url_for('articleDashboard') }}?DOI={{ article_detail.objectID }}"
                             class="form-inline" name="CitationYearRange">
-                            <label for="citationYearBox">Select a year (YYYY):</label>
+                            <label for="citationYearBox">Select a median year (YYYY):</label>
                             <input type="text" name="citationYear" id="citationYearBox" size="4" maxlength="4" pattern="\d{4}">
                             <input width="40%"  name= "citationYearButton" type="submit" value="Update" class="form-control">
                         </form>
@@ -578,16 +571,20 @@
 
 
                 <div id= "tables">
+                    <h3 style="text-align: center; padding-bottom: 15px;">Events for this article over {{years_list[0]}} - {{years_list[-1]}}
+                    </h3>
                     <table id= "eventTable">
                     </table>
 
+                    <h3 style="text-align: center; padding-bottom: 15px;">Citations for this article over {{citation_years_list[0]}} - {{citation_years_list[-1]}}
+                    </h3>
                     <table id= "citationTable">
                     </table>
                 </div>
 
                 <div class="btn-group">
-                    <input name= "barButton" type= "submit" value = "Bar Graph">
-                    <input name= "tableButton" type= "submit" value = "Table">
+                    <input name= "barButton" type= "submit" value = "Bar Graph" style="border-radius:20px 0 0 20px; outline: none;">
+                    <input name= "tableButton" type= "submit" value = "Table" style="border-radius:0 20px 20px 0; outline: none;" >
                 </div>
 
 
@@ -670,7 +667,7 @@
     </script>
     {% endfor %}
 
-    {% for year in years_list %}
+    {% for year in citation_years_list %}
     <script>
         citation_years_list.push("{{ year }}")
     </script>
