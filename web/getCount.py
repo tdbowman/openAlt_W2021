@@ -13,17 +13,26 @@ import mysql
 import shutil
 import time
 import datetime as dt
-from flask import redirect
 
 # Setter for stats
-def setStats(x,y):
+def setStats(x):
     global stats
-    stats = 'Records Found: ' + str(x) + '/' + str(y)
+    stats = str(x) + ' records found!'
     print(stats)
 
 # Getter for stats
 def getStats():
     return stats
+
+def setCount(x):
+    global count
+    count = str(x)
+    print(count)
+    setStats(x)
+
+# Getter for stats
+def getCount():
+    return count
 
 def uploadDOIList(mysql, fileName):
 
@@ -33,12 +42,12 @@ def uploadDOIList(mysql, fileName):
     # downloadDOI(mysql, dir, type, email)
     getDOICount(mysql, dir)
 
-    # Delete uploaded files
-    if os.path.exists(dir):
-        os.remove(dir)
+    count = getCount()
 
-    #return flask.render_template('searchComplete.html', mysql, dir, type, email, type = 'doi')
-    return flask.render_template('downloadDOI.html', results = getStats())
+    if count == "0":
+        return flask.render_template('noResultsPage.html')
+    else:
+        return flask.render_template('downloadDOI.html', results = getStats())
 
 def getDOICount(mysql, dir_csv):
 
@@ -51,14 +60,9 @@ def getDOICount(mysql, dir_csv):
     # path of config file
     dir_config = dir_file + '\\uploadDOI_config.txt'
 
-    # # path of file to print results to
-    # dir_results = dir_file  + '\\Results\\doiEvents_' + str(dt.datetime.now().strftime("%Y-%m-%d_%H-%M-%S"))
-
-    # # Create folder to hold results
-    # if not os.path.exists(dir_results):
-    #     os.mkdir(dir_results)
-
     # Set the logging parameters
+    if not os.path.exists(dir_file + '\\Logs'):
+        os.mkdir(dir_file + '\\Logs')
     logging.basicConfig(filename= dir_file + '\\Logs\\uploadDOI.log', filemode='a', level=logging.INFO,
         format='%(asctime)s - %(message)s', datefmt='%d-%b-%y %H:%M:%S')  
 
@@ -91,47 +95,134 @@ def getDOICount(mysql, dir_csv):
     doi_arr = list(dict.fromkeys(doi_arr))
 
     # # Join array for sql query
-    # joinedArr = "\'" + "','".join(doi_arr) + "\'"
+    joinedArr = "\'" + "','".join(doi_arr) + "\'"
 
     #Cursor makes connection with the db
     cursor = mysql.connection.cursor() 
 
-    # Count of DOIs found in database
-    count = 0
+    query = "SELECT count(*) FROM doidata._main_ WHERE DOI in (" + joinedArr + ")"
+    cursor.execute(query)
+    resultSet = cursor.fetchone()
+    
+    setCount(resultSet["count(*)"])
 
-    # Execution of query and output of result + log
-    for doi in doi_arr:
-        query = "SELECT * FROM doidata._main_ WHERE DOI LIKE '%" + doi + "%'"
-        cursor.execute(query)
-        resultSet = cursor.fetchall()
+def uploadAuthorList (mysql, fileName):
 
-        # Print queries and results in console and log
-        # print('\n',query)
-        # logging.info(query)
-        # print('RESULT SET:', resultSet)
-        # logging.info(resultSet)   
+    # Directory of doi list
+    dir = '../web/uploadFiles/' + fileName
 
-       
-        # Write result to file.
-        df = pandas.DataFrame(resultSet)
+    getAuthorCount(mysql, dir)
 
-        
-        # If query outputs no results, add to not found csv, else write
-        if df.empty:
-            print("DOI NOT FOUND:", doi)
-            # logging.info("DOI NOT FOUND: " + doi)
+    return flask.render_template('downloadAuthors.html', results = getStats())
 
-        else:
-            # Replace invalid chars for file name
-            # file_id = doi.replace('/','-')
-            # file_id = file_id.replace('.','-')
-            # print('FILE ID:', file_id)
+def getAuthorCount(mysql, dir_csv):
+    # Directories 
+    dir_file = str(os.path.dirname(os.path.realpath(__file__)))
 
-            # resultPath = dir_results + '\\doiEvent_' + str(file_id) + '.csv'
-            # df.columns = [i[0] for i in cursor.description]  ###### CAUSED ISSUE ON SALSBILS MACHINE #######
-            # df.to_csv(resultPath,index=False)
-            count = count + 1
-            
-    # Stats of query
-    print('\n')
-    setStats(count, len(doi_arr))
+    # Path of uploaded file
+    dir_template = dir_csv
+
+    # Path of results folde with current time
+    if not os.path.exists(dir_file + '\\Results'):
+        os.mkdir(dir_file + '\\Results')
+
+    dir_results = dir_file + '\\Results\\authorEvents_' + str(dt.datetime.now().strftime("%Y-%m-%d_%H-%M-%S"))
+
+    # Create folder to hold results
+    if not os.path.exists(dir_results):
+        os.mkdir(dir_results)
+
+    # Set the logging parameters
+    if not os.path.exists(dir_file + '\\Logs'):
+        os.mkdir(dir_file + '\\Logs')
+
+    logging.basicConfig(filename=dir_file + '\\Logs\\uploadAuthor.log', filemode='a', level=logging.INFO,
+        format='%(asctime)s - %(message)s', datefmt='%d-%b-%y %H:%M:%S')  
+
+    # Array containing authors listed in uploaded file
+    author_arr = []
+
+    # Pandas library reads doi list
+    author_list = pandas.read_csv(dir_template, header=None)
+
+
+    # Adds doi values into array and prints the array
+    for x in range(len(author_list)):
+        author_arr.append(author_list.values[x][0].lower())
+
+    # Remove duplicates from author array
+    author_arr = list(dict.fromkeys(author_arr))
+    
+    query = "SELECT count(*) FROM doidata.author where name like \'%" + author_arr[0] + "%\'"
+
+    for author in author_arr[1:]:
+        query = query + " OR name like \'%" + author + "%\'"  
+
+    # Set up cursor to run SQL query
+    cursor = mysql.connection.cursor()  
+
+    cursor.execute(query)
+    resultSet = cursor.fetchone()
+    
+    setCount(resultSet["count(*)"])
+
+def uploadUniList(mysql, fileName):
+
+    # Directory of doi list
+    dir = '../web/uploadFiles/' + fileName
+
+    getUniCount(mysql, dir)
+
+    return flask.render_template('downloadUni.html', results=getStats())
+
+def getUniCount(mysql, dir_csv):
+
+    # Directories
+    dir_file = str(os.path.dirname(os.path.realpath(__file__)))
+
+    # Path of uploaded file
+    dir_template = dir_csv
+
+    # Path of results folde with current time
+    if not os.path.exists(dir_file + '\\Results'):
+        os.mkdir(dir_file + '\\Results')
+
+    dir_results = dir_file + '\\Results\\universityEvents_' + \
+        str(dt.datetime.now().strftime("%Y-%m-%d_%H-%M-%S"))
+
+    # Create folder to hold results
+    if not os.path.exists(dir_results):
+        os.mkdir(dir_results)
+
+    
+    # Set the logging parameters
+    if not os.path.exists(dir_file + '\\Logs'):
+        os.mkdir(dir_file + '\\Logs')
+    logging.basicConfig(filename=dir_file + '\\Logs\\uploadUniversity.log', filemode='a', level=logging.INFO,
+                        format='%(asctime)s - %(message)s', datefmt='%d-%b-%y %H:%M:%S')
+
+    # Array containing universities listed in uploaded file
+    uni_arr = []
+
+    # Pandas library reads doi list
+    uni_list = pandas.read_csv(dir_template, header=None)
+
+    # Adds doi values into array and prints the array
+    for x in range(len(uni_list)):
+        uni_arr.append(uni_list.values[x][0].lower())
+
+    # Remove duplicates from author array
+    uni_arr = list(dict.fromkeys(uni_arr))
+
+    query = "SELECT count(distinct university) FROM doidata.author where affiliation like \'%" + uni_arr[0] + "%\'"
+
+    for university in uni_arr[1:]:
+        query = query + " OR affiliation like \'%" + university + "%\'"
+
+    #Cursor makes connection with the db
+    cursor = mysql.connection.cursor() 
+
+    cursor.execute(query)
+    resultSet = cursor.fetchone()
+
+    setCount(resultSet["count(distinct university)"])

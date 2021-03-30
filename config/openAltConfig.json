@@ -2,7 +2,7 @@
     "DOI-Database": {
         "name": "doidata",
         "username": "root",
-        "password": "",
+        "password": "pass",
         "address": "127.0.0.1"
     },
     "Crossref-Event-Database": {
@@ -17,6 +17,13 @@
         "password": "",
         "address": "127.0.0.1"
     },
+    "MongoDB-SciELO-Database": {
+        "name": "SciELOData",
+        "collection": "SciELODOI",
+        "username": "root",
+        "password": "",
+        "address": "mongodb://localhost:27017/"
+    },
     "Crossref-Event-API": {
         "name": "crossrefEventAPI",
         "url": "https://api.eventdata.crossref.org/v1/events?mailto=GroovyBib@example.org&obj-id="
@@ -24,8 +31,8 @@
     "Crossref-Metadata-API": {
         "name": "crossrefMetadataAPI",
         "doi_url": "https://api.crossref.org/works/",
-		"author_url": "https://api.crossref.org/works?query.author=",
-		"uni_url": "https://api.crossref.org/works?query.affiliation="
+        "author_url": "https://api.crossref.org/works?query.author=",
+        "uni_url": "https://api.crossref.org/works?query.affiliation="
     },
     "OpenCitations-Citation-API": {
         "name": "openCitationsCitationAPI",
@@ -43,13 +50,15 @@
         "name": "openCitationsReferenceCountAPI",
         "url": "https://w3id.org/oc/index/coci/api/v1/reference-count/"
     },
-    "SciELO-Metadata-API": {
+    "SciELO-Brazil-Data-API": {
         "name": "sciEloMetadataAPI",
         "url": "https://api.crossref.org/works/10.1590/"
     },
-	"User-Result-Limit": {
-		"limit": 2,
-		"dayInterval": 1
-	}
-
+    "User-Result-Limit": {
+        "limit": "5",
+        "dayInterval": "1"
+    },
+    "Admin": {
+        "email": "darpanshah8@gmail.com"
+    }
 }

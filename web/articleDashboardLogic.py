@@ -419,7 +419,7 @@ def articleDashboardLogic(mysql, mysql2, mysql3, years_list, yearInput, citation
         citationChartResults.append(citationCount['count'])
         
 
-    print(citationChartResults)
+    print(citation_years_list)
 
 
 

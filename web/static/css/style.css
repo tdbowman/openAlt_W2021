@@ -154,6 +154,16 @@ table.table-bordered{
     font-size: 110%;
 }
 
+
+.SR_university {
+  font-size: 110%;
+}
+
+
+.SR_country {
+  font-size: 110%;
+}
+
 .SR_articleDate {
     font-size: 110%;
 }
@@ -244,6 +254,10 @@ table.table-bordered{
     font-size: 20px;
     font-style: normal;}
 
+.AD_events {
+  font-size: 20px;
+  font-style: normal;}
+
 #score{
     width: 50px;
     height: 50px;
@@ -298,6 +312,13 @@ table.table-bordered{
 }
 
 #graph{
+  padding-top: 45px;
+  padding-right: 0;
+  padding-left: 0;
+}
+
+#tables{
+  padding-top: 50px;
   padding-right: 0;
   padding-left: 0;
 }
@@ -700,9 +721,9 @@ p:empty{
 }
 
 .btn-group input {
-  background-color: #000000;
+  background-color: #313131;
   color: #FFFFFF;
-  border: 1px solid #000000;
+  border: 1px solid #313131;
   padding: 10px 24px;
   cursor: pointer;
   float: left;
@@ -729,19 +750,112 @@ p:empty{
 
 #eventTable{
   text-align: center;
+  width: 100%;
+  margin-bottom: 80px;
 }
 
 #eventTable td{
-  width: 15%;
+  float: center;
+  width: 80px;
+  height: 30px;
 }
 
-
-#citationTable{
-  margin-top: 25px;
+#eventTable th{
+  float: center;
+  width: 95px;
+  height: 60px;
+  background-color: #313131;
+  color: #ffffff;
   text-align: center;
 }
 
 
+#eventTable th:first-child{
+  border-radius:10px 0 0 0;
+}
+
+#eventTable th:last-child{
+  border-radius:0 10px 0 0;
+}
+
+#eventTable tr:nth-child(even) {background: #ececec}
+#eventTable tr:nth-child(odd) {background: #ffffff}
+
+#eventTable tr:last-child td:first-child {
+  border-radius:0 0 0 10px;
+}
+
+#eventTable tr:last-child td:last-child {
+  border-radius:0 0 10px 0;
+}
+
+
+#citationTable{
+  width: 100%;
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+
 #citationTable td{
-  width: 15%;
+  float: center;
+  width: 80px;
+  height: 40px;
+}
+
+
+#citationTable th{
+  float: center;
+  width: 80px;
+  height: 60px;
+  background-color: #313131;
+  color: #ffffff;
+  text-align: center;
+}
+
+#citationTable th:first-child{
+  border-radius:10px 0 0 0;
+}
+
+#citationTable th:last-child{
+  border-radius:0 10px 0 0;
+}
+
+#citationTable tr:last-child td:first-child {
+  border-radius:0 0 0 10px;
+}
+
+#citationTable tr:last-child td:last-child {
+  border-radius:0 0 10px 0;
+}
+
+#citationTable td:nth-child(1) {  
+  background-color: #313131;
+  color:#ffffff;
+}
+
+#citationTable tr:nth-child(even) {background: #ececec}
+
+
+
+#eventToolTip {
+  position: relative;
+  display: inline-block;
+}
+
+#eventToolTip .tooltiptext {
+  font-size: small;
+  visibility: hidden;
+  width: 300px;
+  height: 80px;
+  background-color: #000000;
+  color: #ffffff;
+  text-align: center;
+  border-radius: 5px;
+  padding: 10px 10px;
+  position: absolute;
+}
+
+#eventToolTip:hover .tooltiptext {
+  visibility: visible;
 }
