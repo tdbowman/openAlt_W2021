@@ -139,7 +139,7 @@ def searchLogic(mysql, mysql2, dropdownValue):
         university_query = ''
 
     else:
-        university_query = " university like '" + university + "'"
+        university_query = " university like '%" + university + "%'"
 
     advanced_query = ''
 

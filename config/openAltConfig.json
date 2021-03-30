@@ -55,10 +55,10 @@
         "url": "https://api.crossref.org/works/10.1590/"
     },
     "User-Result-Limit": {
-        "limit": "3",
+        "limit": "5",
         "dayInterval": "1"
     },
     "Admin": {
-        "email": "darpanshah7@gmail.com"
+        "email": "darpanshah8@gmail.com"
     }
 }
