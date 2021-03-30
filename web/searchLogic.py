@@ -221,7 +221,9 @@ def searchLogic(mysql, mysql2, dropdownValue):
                        'journalName': row['container_title'],
                        'articleDate': row['published_print_date_parts'],
                        'author_list': author_list,
-                       'totalEventsSum': totalEventsSum}
+                       'totalEventsSum': totalEventsSum,
+                       'country': country,
+                       'university': university}
             # append article dict to returnedQueries list
             returnedQueries.append(article)
 
@@ -290,7 +292,9 @@ def searchLogic(mysql, mysql2, dropdownValue):
                                'journalName': row['container_title'],
                                'articleDate': row['published_print_date_parts'],
                                'author_list': author_list,
-                               'totalEventsSum': totalEventsSum}
+                               'totalEventsSum': totalEventsSum,
+                               'country': country,
+                                'university': university}
                     # append article dict to returnedQueries list
                     returnedQueries.append(article)
 
@@ -345,7 +349,9 @@ def searchLogic(mysql, mysql2, dropdownValue):
                        'journalName': row['container_title'],
                        'articleDate': row['published_print_date_parts'],
                        'author_list': author_list,
-                       'totalEventsSum': totalEventsSum}
+                       'totalEventsSum': totalEventsSum,
+                       'country': country,
+                       'university': university}
             returnedQueries.append(article)
 
         returnedQueries.append(None)
@@ -397,7 +403,9 @@ def searchLogic(mysql, mysql2, dropdownValue):
             article = {'objectID': row['doi'], 'articleTitle': row['title'],
                        'journalName': row['container_title'],
                        'articleDate': row['published_print_date_parts'],
-                       'author_list': author_list, 'totalEventsSum': totalEventsSum}
+                       'author_list': author_list, 'totalEventsSum': totalEventsSum,
+                       'country': country,
+                       'university': university}
             returnedQueries.append(article)
 
         returnedQueries.append(None)
