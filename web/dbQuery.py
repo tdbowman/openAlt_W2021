@@ -213,7 +213,7 @@ def bulkSearchUserInsert(email, type, cursor, db):
 # User Limit Check
 def checkUser(email, type, cursor):
 
-    limit = APP_CONFIG['User-Result-Limit']['limit']
+    limit = int(APP_CONFIG['User-Result-Limit']['limit'])
     interval = APP_CONFIG['User-Result-Limit']['dayInterval']
 
     query = "SELECT count(*) as count FROM bulksearchstats.bulksearch where time >=  NOW() - INTERVAL " + str(interval) + " DAY and email = '" + email + "' and type = '" + type + "'"
@@ -222,7 +222,7 @@ def checkUser(email, type, cursor):
 
     print(resultSet['count'])
 
-    if str(resultSet['count']) >= limit:
+    if resultSet['count'] >= limit:
         print("false:", resultSet['count'])
         return False
     else:
@@ -231,7 +231,7 @@ def checkUser(email, type, cursor):
 
 ### Check IP Address (Not in use currently) ###
 def checkIP(ip, type, cursor):
-    limit = APP_CONFIG['User-Result-Limit']['limit']
+    limit = int(APP_CONFIG['User-Result-Limit']['limit'])
     interval = APP_CONFIG['User-Result-Limit']['dayInterval']
 
     ### IP address not included in table
@@ -241,7 +241,7 @@ def checkIP(ip, type, cursor):
 
     print(resultSet['count'])
 
-    if str(resultSet['count']) >= limit:
+    if resultSet['count'] >= limit:
         print("false:", resultSet['count'])
         return False
     else:
