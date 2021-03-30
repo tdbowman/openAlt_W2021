@@ -7,6 +7,8 @@ from flask_mysqldb import MySQL
 from flask import request, jsonify, redirect, flash
 from datetime import datetime
 from email_validator import validate_email, EmailNotValidError
+import traceback
+import sys
 
 # Import for password creation
 import random
@@ -26,7 +28,7 @@ from uploadUni import searchByUni, getZipUni
 from emailError import emailError
 from emailAdmin import emailAdmin
 from singleDOIEmailLogic import articleLandingEmail
-from getCount import uploadDOIList, getStats
+from getCount import uploadDOIList, getStats, getCount, uploadAuthorList, uploadUniList
 import dbQuery
 
 from getPassword import getPassword, SECRET_KEY, SITE_KEY
@@ -40,7 +42,7 @@ path = os.getcwd()
 
 # parent directory
 parent = os.path.dirname(path)
-config_path = os.path.join(parent, "openAlt_W2021\\config", "openAltConfig.json")
+config_path = os.path.join(parent, "config", "openAltConfig.json")
 
 # config file
 f = open(config_path)
@@ -211,7 +213,6 @@ def articleDashboard():
             for i in range(yearInput - 2, yearInput + 3):
                 years_list.append(i)
 
-
         if request.form.get('citationYear') is not None:
             citationYearInput = request.form.get('citationYear')
             citationYearInput = int(citationYearInput)
@@ -299,13 +300,11 @@ def searchByOptions():
 def uploadDOI():
 
     # Directory of where to put the uploaded file
-    app.config["UPLOAD_FILES"] = "./web/uploadFiles"
+    app.config["UPLOAD_FILES"] = "../web/uploadFiles"
     target = app.config["UPLOAD_FILES"]
 
     # Allowed extensions of file
     ALLOWED_EXTENSIONS = {'csv'}
-
-    destination = app.config["UPLOAD_FILES"]
 
     # Limit of the file size to 1 GB
     app.config['MAX_CONTENT_LENGTH'] = 1 * 1024 * 1024
@@ -334,10 +333,16 @@ def uploadDOI():
                 uploadFiles.save(os.path.join(target, fileName))
 
             session['doiPath'] = fileName
+            print("UPLOAD FILE PATH:", session['doiPath'])
 
             uploadDOIList(mysql, fileName)
 
-        return flask.render_template('downloadDOI.html', results = getStats())
+            count = getCount()
+
+            if count == "0":
+                return flask.render_template('noResultsPage.html')
+            else:
+                return flask.render_template('downloadDOI.html', results=getStats())
 
     return flask.render_template('uploadDOI.html')
 
@@ -374,7 +379,7 @@ def downloadDOI():
 @ app.route('/uploadAuthors', methods=["GET", "POST"])
 def uploadAuthors():
 
-    app.config["UPLOAD_FILES"] = "./web/uploadFiles"
+    app.config["UPLOAD_FILES"] = "../web/uploadFiles"
     destination = app.config["UPLOAD_FILES"]
 
     if not os.path.isdir(destination):
@@ -391,7 +396,14 @@ def uploadAuthors():
 
             session['authorPath'] = fileName
 
-        return flask.render_template('downloadAuthors.html')
+            uploadAuthorList(mysql, fileName)
+
+            count = getCount()
+
+            if count == "0":
+                return flask.render_template('noResultsPage.html')
+            else:
+                return flask.render_template('downloadAuthors.html', results=getStats())
 
     return flask.render_template('uploadAuthors.html')
 
@@ -420,7 +432,6 @@ def downloadAuthors():
             return redirect('/searchError')
 
         return redirect('/searchComplete')
-        # return flask.render_template('searchComplete.html')
 
     return flask.render_template('downloadAuthors.html')
 
@@ -428,7 +439,7 @@ def downloadAuthors():
 @ app.route('/uploadUni', methods=["GET", "POST"])
 def uploadUni():
 
-    app.config["UPLOAD_FILES"] = "./web/uploadFiles"
+    app.config["UPLOAD_FILES"] = "../web/uploadFiles"
     destination = app.config["UPLOAD_FILES"]
 
     if not os.path.isdir(destination):
@@ -445,7 +456,14 @@ def uploadUni():
 
             session['uniPath'] = fileName
 
-        return flask.render_template('downloadUni.html')
+            uploadUniList(mysql, fileName)
+
+            count = getCount()
+
+            if count == "0":
+                return flask.render_template('noResultsPage.html')
+            else:
+                return flask.render_template('downloadUni.html', results = getStats())
 
     return flask.render_template('uploadUni.html')
 
@@ -522,7 +540,7 @@ def admin():
         return flask.render_template('adminLogin.html', pw = pw)
     elif request.method=="POST":
         if request.form['pw_input']==glpass:
-            
+
             logged = True
             return redirect('/adminConfigUpdate')
         else:
@@ -539,6 +557,8 @@ def adminConfigUpdate():
     elif request.method == "GET":
         return flask.render_template('adminConfigUpdate.html', confOA=APP_CONFIG)
     elif request.method == "POST":
+        dict01 = request.form['key0.1']
+        APP_CONFIG["Admin"]["email"] = dict01
         dict11 = request.form['key1.1']
         dict12 = request.form['key1.2']
         dict13 = request.form['key1.3']
@@ -609,7 +629,6 @@ def adminConfigUpdate():
         dict122 = request.form['key12.2']
         APP_CONFIG["User-Result-Limit"]["limit"] = dict121
         APP_CONFIG["User-Result-Limit"]["dayInterval"] = dict122
-        print(APP_CONFIG)
         with open("../config/openAltConfig.json", "w") as f:
             json.dump(APP_CONFIG, f, indent=4)
         f.close()

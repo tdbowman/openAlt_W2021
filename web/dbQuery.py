@@ -8,9 +8,8 @@ import json
 path = os.getcwd() 
   
 # parent directory 
-parent = os.path.dirname(path)
-
-config_path = os.path.join(path, "config", "openAltConfig.json")
+parent = os.path.dirname(path) 
+config_path = os.path.join(parent, "config", "openAltConfig.json")
 
 # config file
 f = open(config_path)
@@ -97,7 +96,7 @@ def getDOIEvents(doi, cursor):
 def getDOICitations(doi, cursor):
 
     # DOI Info Query
-    query = "SELECT cited as publication, citing as citation from opencitations.citations where citing = '" + doi + "' or cited = '" + doi + "'"
+    query = "SELECT citing as citations from opencitations.citations where citing = '" + doi + "' or cited = '" + doi + "'"
     
     print("Retrieving Citations: " + doi)
     #print('\n',query)
@@ -214,16 +213,16 @@ def bulkSearchUserInsert(email, type, cursor, db):
 # User Limit Check
 def checkUser(email, type, cursor):
 
-    limit = APP_CONFIG['User-Result-Limit']['limit']
+    limit = int(APP_CONFIG['User-Result-Limit']['limit'])
     interval = APP_CONFIG['User-Result-Limit']['dayInterval']
 
     query = "SELECT count(*) as count FROM bulksearchstats.bulksearch where time >=  NOW() - INTERVAL " + str(interval) + " DAY and email = '" + email + "' and type = '" + type + "'"
     cursor.execute(query)
     resultSet = cursor.fetchone()
 
-    #print(resultSet['count'])
+    print(resultSet['count'])
 
-    if resultSet['count'] >= limit:
+    if int(resultSet['count']) >= limit:
         print("false:", resultSet['count'])
         return False
     else:
@@ -232,7 +231,7 @@ def checkUser(email, type, cursor):
 
 ### Check IP Address (Not in use currently) ###
 def checkIP(ip, type, cursor):
-    limit = APP_CONFIG['User-Result-Limit']['limit']
+    limit = int(APP_CONFIG['User-Result-Limit']['limit'])
     interval = APP_CONFIG['User-Result-Limit']['dayInterval']
 
     ### IP address not included in table
@@ -240,7 +239,7 @@ def checkIP(ip, type, cursor):
     cursor.execute(query)
     resultSet = cursor.fetchone()
 
-    #print(resultSet['count'])
+    print(resultSet['count'])
 
     if resultSet['count'] >= limit:
         print("false:", resultSet['count'])
