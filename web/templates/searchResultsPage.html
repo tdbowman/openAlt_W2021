@@ -82,6 +82,9 @@
 		// let country =  JSON.parse(sessionStorage.getItem('country')) || "";
 		// let university =  JSON.parse(sessionStorage.getItem('university')) || "";
 
+
+
+
 		
 
 		// Author: Rihat Rahman
@@ -707,16 +710,85 @@
 						<a href="https://doi.org/{{ result.objectID }}"target="_blank">{{ result.objectID }} &#8599;</a>
 					</div>
 
-					<div style="font-weight: bold;"class="SR_country">
-						Country:
-						<a style="font-weight: initial;">{{ result.country }}</a>
+
+
+
+					<div class="SR_country">
+						<strong>Country:</strong>
+						<!--For articles that have no authors in the database-->
+						{% if not result.author_list %}
+						Unknown
+						{% endif %}
+
+
+						{% for author in result.author_list %}
+							{% if author == result.author_list[0] %}
+								{{ author.country }}
+							{% endif %}
+						{% endfor %}
+
+
+
+						
+						<!--
+							{% for author in result.author_list %}
+							{% if author == result.author_list[-1] %}
+								{% if author.country is not none %}
+									{{ author.country }}
+								{% endif %}
+							{% else %}
+								{% if author.country is not none %}
+									{{ author.country }} ,
+								{% endif %}
+							{% endif %}
+						{% endfor %}
+						
+						-->
+
+						
+							
+					</div>
+
+					<div class="SR_university">
+						<strong>University:</strong>
+						
+
+
+						<!--
+							
+
+						{% for author in result.author_list %}
+							{% if author == result.author_list[-1] %}
+								{% if author.university is not none %}
+									{{ author.university }}
+								{% endif %}
+							{% else %}
+								{% if author.university is not none %}
+									{{ author.university }} ,
+								{% endif %} ,
+							{% endif %}
+						{% endfor %}
+					-->
+
+					{% if not result.author_list %}
+						Unknown
+					{% endif %}
+
+
+					{% for author in result.author_list %}
+					{% if author == result.author_list[0] %}
+						{{ author.university }}
+					{% endif %}
+					{% endfor %}
+						
 					</div>
 
 
-					<div style="font-weight: bold;"class="SR_university">
-						University:
-						<a style="font-weight: initial;">{{ result.university }}</a>
-					</div>
+
+						
+
+
+
 
 
 					<div class="SR_articleDate">

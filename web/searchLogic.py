@@ -199,7 +199,7 @@ def searchLogic(mysql, mysql2, dropdownValue):
             author_list = []
             if fk is not None:
                 # look up author table by fk
-                author_sql = "select id, name from doidata.author where fk = " + \
+                author_sql = "select id, name, university, country from doidata.author where fk = " + \
                     str(fk) + ";"
                 cursor.execute(author_sql)
                 # get list of authors for given fk
@@ -221,9 +221,7 @@ def searchLogic(mysql, mysql2, dropdownValue):
                        'journalName': row['container_title'],
                        'articleDate': row['published_print_date_parts'],
                        'author_list': author_list,
-                       'totalEventsSum': totalEventsSum,
-                       'country': country,
-                       'university': university}
+                       'totalEventsSum': totalEventsSum}
             # append article dict to returnedQueries list
             returnedQueries.append(article)
 
@@ -236,7 +234,7 @@ def searchLogic(mysql, mysql2, dropdownValue):
         # get fk and name for searched author name
         given_author = []
         given_author = '( '
-        auth_sql = "SELECT fk, name FROM doidata.author where name like'%" + search + "%';"
+        auth_sql = "SELECT fk, name, university, country FROM doidata.author where name like'%" + search + "%';"
         cursor.execute(auth_sql)
         result_set = cursor.fetchall()
         # form a list of fk for the where statement (ex.) ('2005','2006')
@@ -270,7 +268,7 @@ def searchLogic(mysql, mysql2, dropdownValue):
                     author_list = []
                     if fk is not None:
                         # look up author table by fk
-                        author_sql = "select id, name from author where fk = " + \
+                        author_sql = "select id, name, author, country from author where fk = " + \
                             str(fk) + ";"
                         cursor.execute(author_sql)
                         # get list of authors for given fk
@@ -292,9 +290,7 @@ def searchLogic(mysql, mysql2, dropdownValue):
                                'journalName': row['container_title'],
                                'articleDate': row['published_print_date_parts'],
                                'author_list': author_list,
-                               'totalEventsSum': totalEventsSum,
-                               'country': country,
-                                'university': university}
+                               'totalEventsSum': totalEventsSum}
                     # append article dict to returnedQueries list
                     returnedQueries.append(article)
 
@@ -327,7 +323,7 @@ def searchLogic(mysql, mysql2, dropdownValue):
             author_list = []
             if fk is not None:
                 # look up author table by fk
-                author_sql = "select id, name from author where fk = " + \
+                author_sql = "select id, name, country, university from author where fk = " + \
                     str(fk) + ";"
                 cursor.execute(author_sql)
                 # get list of authors for given fk
@@ -349,9 +345,7 @@ def searchLogic(mysql, mysql2, dropdownValue):
                        'journalName': row['container_title'],
                        'articleDate': row['published_print_date_parts'],
                        'author_list': author_list,
-                       'totalEventsSum': totalEventsSum,
-                       'country': country,
-                       'university': university}
+                       'totalEventsSum': totalEventsSum}
             returnedQueries.append(article)
 
         returnedQueries.append(None)
@@ -382,7 +376,7 @@ def searchLogic(mysql, mysql2, dropdownValue):
             author_list = []
             if fk is not None:
                 # look up author table by fk
-                author_sql = "select id, name from author where fk = " + \
+                author_sql = "select id, name, university, country from author where fk = " + \
                     str(fk) + ";"
                 cursor.execute(author_sql)
                 # get list of authors for given fk
@@ -403,10 +397,10 @@ def searchLogic(mysql, mysql2, dropdownValue):
             article = {'objectID': row['doi'], 'articleTitle': row['title'],
                        'journalName': row['container_title'],
                        'articleDate': row['published_print_date_parts'],
-                       'author_list': author_list, 'totalEventsSum': totalEventsSum,
-                       'country': country,
-                       'university': university}
+                       'author_list': author_list, 'totalEventsSum': totalEventsSum}
             returnedQueries.append(article)
+
+            print(article)
 
         returnedQueries.append(None)
         cursor.close()
