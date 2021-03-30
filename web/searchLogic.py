@@ -145,7 +145,7 @@ def searchLogic(mysql, mysql2, dropdownValue):
 
     if (country != '') | (university != '') | (domain != ''):
 
-        prefix = ' and id in '
+        prefix = ' and fk in '
 
         if (country == '') & (university == '') & (domain != ''):
             advanced_query = prefix + domain_query
