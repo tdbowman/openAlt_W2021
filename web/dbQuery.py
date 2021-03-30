@@ -8,8 +8,9 @@ import json
 path = os.getcwd() 
   
 # parent directory 
-parent = os.path.dirname(path) 
-config_path = os.path.join(parent, "openAlt_W2021\\config", "openAltConfig.json")
+parent = os.path.dirname(path)
+
+config_path = os.path.join(path, "config", "openAltConfig.json")
 
 # config file
 f = open(config_path)
