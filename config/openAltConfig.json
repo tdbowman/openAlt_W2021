@@ -56,7 +56,8 @@
     },
     "User-Result-Limit": {
         "limit": "3",
-        "dayInterval": "1"
+        "dayInterval": "1",
+        "maxSize": "1"
     },
     "Admin": {
         "email": "darpanshah7@gmail.com"

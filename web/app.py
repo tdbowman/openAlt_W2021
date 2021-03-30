@@ -302,12 +302,10 @@ def uploadDOI():
     # Directory of where to put the uploaded file
     app.config["UPLOAD_FILES"] = "../web/uploadFiles"
     target = app.config["UPLOAD_FILES"]
+    maxSize = APP_CONFIG['User-Result-Limit']['maxSize']
 
     # Allowed extensions of file
     ALLOWED_EXTENSIONS = {'csv'}
-
-    # Limit of the file size to 1 GB
-    app.config['MAX_CONTENT_LENGTH'] = 1 * 1024 * 1024
 
     # If directory does not exist, create it
     if not os.path.isdir(target):
@@ -344,7 +342,7 @@ def uploadDOI():
             else:
                 return flask.render_template('downloadDOI.html', results=getStats())
 
-    return flask.render_template('uploadDOI.html')
+    return flask.render_template('uploadDOI.html', maxSize = maxSize)
 
 
 @ app.route('/downloadDOI', methods=["GET", "POST"])
@@ -381,6 +379,7 @@ def uploadAuthors():
 
     app.config["UPLOAD_FILES"] = "../web/uploadFiles"
     destination = app.config["UPLOAD_FILES"]
+    maxSize = APP_CONFIG['User-Result-Limit']['maxSize']
 
     if not os.path.isdir(destination):
         os.mkdir(destination)
@@ -405,7 +404,7 @@ def uploadAuthors():
             else:
                 return flask.render_template('downloadAuthors.html', results=getStats())
 
-    return flask.render_template('uploadAuthors.html')
+    return flask.render_template('uploadAuthors.html', maxSize = maxSize)
 
 
 @ app.route('/downloadAuthors', methods=["GET", "POST"])
@@ -442,6 +441,7 @@ def uploadUni():
 
     app.config["UPLOAD_FILES"] = "../web/uploadFiles"
     destination = app.config["UPLOAD_FILES"]
+    maxSize = APP_CONFIG['User-Result-Limit']['maxSize']
 
     if not os.path.isdir(destination):
         os.mkdir(destination)
@@ -466,7 +466,7 @@ def uploadUni():
             else:
                 return flask.render_template('downloadUni.html', results = getStats())
 
-    return flask.render_template('uploadUni.html')
+    return flask.render_template('uploadUni.html', maxSize = maxSize)
 
 
 @ app.route('/downloadUni', methods=["GET", "POST"])

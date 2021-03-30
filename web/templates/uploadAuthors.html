@@ -13,6 +13,7 @@
 <script>
   $(function () {
     let $uploadButton = $("#uploadButton");
+    let $maxSize = '{{ maxSize }}'
 
     $uploadButton.click(function () {
       var size = $("#fileUpload")[0].files[0].size;
@@ -21,7 +22,7 @@
       size = size / 1048576;
 
       // If size is greater than 1 MB
-      if (size > 1) {
+      if (size > $maxSize) {
         $("#invalid_file_size").dialog({
           title: "ERROR",
           modal: true,
@@ -29,7 +30,7 @@
           minHeight: 200,
           buttons: {
               Ok: function () {
-                $(location).attr('href', "/uploadDOI");  
+                $(location).attr('href', "/uploadAuthors");  
                 //$(this).dialog("close");
               }
           }
@@ -73,7 +74,7 @@
           minHeight: 200,
           buttons: {
               Ok: function () {
-                $(location).attr('href', "/uploadDOI");  
+                $(location).attr('href', "/uploadAuthors");  
                 //$(this).dialog("close");
               }
           }
@@ -128,9 +129,9 @@
     </div>
 
     <div id="invalid_file_size" style="display: none;">
-      <p style="font-family: 'Lucida Sans'; font-size: x-large; color: red;"><b>File size exceeds 1 MB!</b> </p>
+      <p style="font-family: 'Lucida Sans'; font-size: x-large; color: red;"><b>File size exceeds {{ maxSize }} MB!</b> </p>
       <br>
-      <p style="font-family: 'Lucida Sans'; font-size: large;">Please upload a file that is less than 1 MB.</p>
+      <p style="font-family: 'Lucida Sans'; font-size: large;">Please upload a file that is less than {{ maxSize }} MB.</p>
     </div>
 
   </div>
