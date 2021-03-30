@@ -222,7 +222,7 @@ def checkUser(email, type, cursor):
 
     print(resultSet['count'])
 
-    if resultSet['count'] >= limit:
+    if int(resultSet['count']) >= limit:
         print("false:", resultSet['count'])
         return False
     else:
