@@ -34,34 +34,40 @@
             // check if entered email is valid       
             else if (/^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/.test($emailValue)) {
 
-                $("#success").dialog({
-                    title: "Retrieving Data",
+                setTimeout(() => {
+
+                    $("#success").dialog({
+                        title: "Retrieving Data",
+                        modal: true,
+                        minWidth: 700,
+                        minHeight: 200,
+                        buttons: {
+                            Ok: function () {
+                                $(location).attr('href', "/");
+                                //$(this).dialog("close");
+                            }
+                        }
+
+                    });
+                    return (true)
+
+                }, 500);
+            }
+            else {
+
+                $("#invalid_email").dialog({
+                    title: "ERROR",
                     modal: true,
                     minWidth: 700,
                     minHeight: 200,
                     buttons: {
                         Ok: function () {
-                            $(location).attr('href', "/");
-                            //$(this).dialog("close");
+                            $(this).dialog("close");
                         }
                     }
-
                 });
-                return (true)
+                return (false)
             }
-
-            $("#invalid_email").dialog({
-                title: "ERROR",
-                modal: true,
-                minWidth: 700,
-                minHeight: 200,
-                buttons: {
-                    Ok: function () {
-                        $(this).dialog("close");
-                    }
-                }
-            });
-            return (false)
 
 
         });
@@ -75,18 +81,19 @@
 {% block body %}
 <title>Retreive DOI Results</title>
 
-<body style="background-image: url('../static/images/library.jpg'); background-repeat: repeat-y; background-size:cover;">
+<body
+    style="background-image: url('../static/images/library.jpg'); background-repeat: repeat-y; background-size:cover;">
 
     <div class="center-screen" style="padding-top: 15px;">
 
         <div class="center-screen" style="padding-top: 0px; padding-bottom: 15px;">
             <div style="width: 550px; border-radius: 25px; padding: 0px; background-color: rgba(0, 68, 45, 0.9); "
-                    class="center-screen">
+                class="center-screen">
                 <h3 style="text-align: center; color: aliceblue;"><b>{{ results }}</b></h3>
             </div>
         </div>
 
-        
+
         <div
             style="width: 550px; border-radius: 25px; padding: 10px; background-color: rgba(60, 65, 70, 0.9); text-align: center;">
 

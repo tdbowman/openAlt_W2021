@@ -428,7 +428,6 @@ def downloadAuthors():
                 return redirect('/limitReached')
         except Exception as e:
             print(e)
-            exception_type, exception_object, exception_traceback = sys.exc_info()
             emailError(emailVal, 'author')
             return redirect('/searchError')
 
