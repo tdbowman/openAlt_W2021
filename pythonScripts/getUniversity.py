@@ -9,7 +9,7 @@ import pandas as pd
 
 def extract_university(affiliation):
 
-    df = pd.read_csv('universities.csv')
+    df = pd.read_csv('pythonScripts/world-universities.csv')
 
     affiliation_attributes = affiliation.split(",")
 
