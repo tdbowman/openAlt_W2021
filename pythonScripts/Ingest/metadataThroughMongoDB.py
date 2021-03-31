@@ -23,6 +23,22 @@ def hashmap(listoffks):
         listoffks[i]=j
     return listoffks
 
+def checkhash(listofingestedfks):
+    mysql_username = "root"
+    mysql_password = "pass"
+    try:
+        db = mysql.connector.connect(host = "localhost", user = mysql_username, passwd = mysql_password, database = "doidata")
+    except:
+        print("Could not connect to MySQL.")
+        return
+    myCursor=db.cursor(buffered=True)
+    myCursor.execute("SELECT fk FROM author")
+    fks=myCursor.fetchall()
+    for i in fks:
+        listofingestedfks[i[0]]=None
+    return listofingestedfks
+
+
 def storeMetaDatainMongoDB(DOI, fk):
     # retrieve metadata from api
     r = requests.get('https://api.crossref.org/works/'+ DOI)
@@ -70,21 +86,25 @@ def storeinmysql(coll, DOI, fk):
             for i in data["author"]:
                 crossrefMetadataIngest(i, myCursor, db, fk)
         else:
-            print("Invalid data. Author data not found.")
+            print("Invalid data. Author metadata not found.")
             return
     # End the connection to the MySQL database
     myCursor.close()
     db.close()
-    print("Data stored.")
+    print("Metadata stored.")
     # Delete all contents of collection
     coll.delete_many({})
     return
 
 def main():
     listoffks = hashmap({})
+    listofingestedfks=checkhash({})
     for key,value in listoffks.items():
         print(value)
-        storeMetaDatainMongoDB(key, value)
+        if value in listofingestedfks:
+            print("Metadata already stored.")
+        else:
+            storeMetaDatainMongoDB(key, value)
 
 if __name__=='__main__':
     # This main block is only for testing
