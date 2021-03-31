@@ -16,11 +16,11 @@ def hashmap(listoffks):
     except:
         print("Could not connect to MySQL.")
         return
-    myCursor=db.cursor(buffered=True)
+    myCursor = db.cursor(buffered=True)
     myCursor.execute("SELECT DOI,fk FROM _main_ WHERE DOI IS NOT NULL")
-    fks=myCursor.fetchall()
+    fks = myCursor.fetchall()
     for i,j in fks:
-        listoffks[i]=j
+        listoffks[i] = j
     return listoffks
 
 def checkhash(listofingestedfks):
@@ -31,11 +31,11 @@ def checkhash(listofingestedfks):
     except:
         print("Could not connect to MySQL.")
         return
-    myCursor=db.cursor(buffered=True)
+    myCursor = db.cursor(buffered=True)
     myCursor.execute("SELECT fk FROM author")
-    fks=myCursor.fetchall()
+    fks = myCursor.fetchall()
     for i in fks:
-        listofingestedfks[i[0]]=None
+        listofingestedfks[i[0]] = None
     return listofingestedfks
 
 
@@ -49,19 +49,19 @@ def storeMetaDatainMongoDB(DOI, fk):
         print("Could not connect to MongoDB.")
         return
     # cursor to spcified database; create if it doesn't exist
-    dbs=client["MetadataDatabase"]
+    dbs = client["MetadataDatabase"]
     # cursor to specified collection; create if it doesn't exist
-    coll=dbs["MetaData"]
+    coll = dbs["MetaData"]
     # Make sure collection is empty
     coll.delete_many({})
     # Try to convert httpresponse to JSON
     try:
-         data=r.json()
+         data = r.json()
     except:
         print("Invalid data. Data could not be converted to JSON.")
         return
     # Insert JSON data in MongoDB
-    if data.get("message-type")=="work":
+    if data.get("message-type") == "work":
         coll.insert_one(data.get("message"))
     else:
         print("Invalid data. Use message-type = work.")
@@ -79,8 +79,7 @@ def storeinmysql(coll, DOI, fk):
     except:
         print("Could not connect to MySQL.")
         return
-    myCursor=db.cursor(buffered=True)
-    #myCursor.execute("SELECT * FROM author")
+    myCursor = db.cursor(buffered=True)
     for data in coll.find({},{"author":1}):
         if "author" in data.keys():
             for i in data["author"]:
@@ -98,7 +97,7 @@ def storeinmysql(coll, DOI, fk):
 
 def main():
     listoffks = hashmap({})
-    listofingestedfks=checkhash({})
+    listofingestedfks = checkhash({})
     for key,value in listoffks.items():
         print(value)
         if value in listofingestedfks:
@@ -106,6 +105,6 @@ def main():
         else:
             storeMetaDatainMongoDB(key, value)
 
-if __name__=='__main__':
+if __name__ == '__main__':
     # This main block is only for testing
     main()
