@@ -1,13 +1,11 @@
 {% extends 'template.html' %}
 
-<!--
-    #Author: 
+<!--#Author: 
     #Name: Mohammad Tahmid 
     #Lines 195-197
     #---------------------
-    #Date: 02/23/2021
-    #Description: Displays citations section onto the website on the article landing page.
--->
+#Date: 02/23/2021
+#Description: Displays citations section onto the website on the article landing page.-->
 
 <!-- Anything you put here will be in the HTML head tags-->
 {% block head %}
@@ -20,9 +18,6 @@
 
 <!-- Load c3 last (because it depends on d3) -->
 <script src="../static/js/libraries/c3-0.7.20/c3.min.js"></script>
-
-<!-- Load Ajax library to let webpage run asynchronus functions -->
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <!-- END CHART SECTION -->
 
 <!--{% with messages = get_flashed_messages() %}
@@ -47,7 +42,150 @@
 
         // Create jQuery variables to reference the text box and the submit button.
         let $yearInput = $("#yearBox");
-        let $submitButton = $("input[type='submit']");
+        let $submitButton = $("input[name='eventYearButton']");
+
+        let $citationYearInput = $('#citationYearBox');
+        let $citationSubmitButton = $("input[name='citationYearButton']");
+ 
+
+        let $barButton = $("[name='barButton']");
+        let $tableButton = $("[name='tableButton']");
+        
+        $barButton.css("backgroundColor", "#1DA1F2");
+
+        let $graph = $("#graph");
+        let $tables = $("#tables");
+
+        $tables.hide();
+
+    
+        console.log(twitterevent)
+
+        var table = document.getElementById("eventTable");
+
+
+        var row = table.insertRow(0);
+
+        columns = ['Type of Event', years_list[0], years_list[1], years_list[2], years_list[3], years_list[4]];
+
+        var i;
+        for (i = 0; i < columns.length; i++) {
+            var header = document.createElement("TH");
+            header.innerHTML = columns[i];
+            row.appendChild(header);
+        }
+
+  
+
+
+        let dataToInsert = []
+        dataToInsert.push(cambiaevent)
+        dataToInsert.push(crossrefevent)
+        dataToInsert.push(dataciteevent)
+        dataToInsert.push(f1000event)
+        dataToInsert.push(hypothesisevent)
+        dataToInsert.push(newsfeedevent)
+        dataToInsert.push(redditevent)
+        dataToInsert.push(redditlinksevent)
+        dataToInsert.push(stackexchangeevent)
+        dataToInsert.push(twitterevent)
+        dataToInsert.push(webevent)
+        dataToInsert.push(wikipediaevent)
+        dataToInsert.push(wordpressevent)
+        
+
+        insertRows(dataToInsert)
+
+
+
+        function insertRows(data) {
+
+            var i;
+            var x = 1;
+
+            for (i = 0; i < data.length; i++){
+
+                var row = table.insertRow(x);
+
+                x++;
+
+
+                var cell1 = row.insertCell(0);
+                var cell2 = row.insertCell(1);
+                var cell3 = row.insertCell(2);
+                var cell4 = row.insertCell(3);
+                var cell5 = row.insertCell(4);
+                var cell6 = row.insertCell(5);
+
+                var j;
+
+                for (j = 0; j < 7; j++){
+
+                    if (data[i][j] == undefined){
+
+                        data[i].push('0')
+                    }
+                }
+
+
+                cell1.innerHTML = data[i][0];
+                cell2.innerHTML = data[i][2];
+                cell3.innerHTML = data[i][3];
+                cell4.innerHTML = data[i][4];
+                cell5.innerHTML = data[i][5];
+                cell6.innerHTML = data[i][6];
+            }
+        }
+
+
+
+        var citationTable = document.getElementById("citationTable");
+
+        var row = citationTable.insertRow(0);
+
+
+
+
+        columns = ['Year', citation_years_list[0], citation_years_list[1], citation_years_list[2], citation_years_list[3], citation_years_list[4]];
+
+        var i;
+        for (i = 0; i < columns.length; i++) {
+            var header = document.createElement("TH");
+            header.innerHTML = columns[i];
+            row.appendChild(header);
+        }
+
+        citationData = citationEvent
+
+        var row = citationTable.insertRow(1);
+
+
+        var cell1 = row.insertCell(0);
+        var cell2 = row.insertCell(1);
+        var cell3 = row.insertCell(2);
+        var cell4 = row.insertCell(3);
+        var cell5 = row.insertCell(4);
+        var cell6 = row.insertCell(5);
+
+        var j;
+
+        for (j = 0; j < 7; j++){
+
+            if (citationData[j] == undefined){
+
+                citationData.push('0')
+            }
+        }
+
+
+        cell1.innerHTML = 'Citations';
+        cell2.innerHTML = citationData[1];
+        cell3.innerHTML = citationData[2];
+        cell4.innerHTML = citationData[3];
+        cell5.innerHTML = citationData[4];
+        cell6.innerHTML = citationData[5];
+
+
 
         // Creates in instance of the currentTime and grabs the year from it.
         let currentTime = new Date()
@@ -62,6 +200,7 @@
             $(".form-inline").hide();
             $("#LatestEvents").hide();
         }
+
 
         // Grab the tspan elements and search through the array.
         let x = document.getElementsByTagName("tspan");
@@ -137,6 +276,49 @@
                 return false;
             }
         });
+
+
+
+        $citationSubmitButton.click(function () {
+            // If the year text box is empty, send an alert and don't allow the user to submit the form.
+            if (document.forms['CitationYearRange'].citationYear.value == "") {
+                alert("Please enter a year.");
+                return false;
+            }
+            // If the year input is greater than the current year, send an alert and don't allow the user to submit the form.
+            else if (document.forms['CitationYearRange'].citationYear.value > String(year)) {
+                alert("Please enter a year before " + year + ".");
+                return false;
+            }
+            // If the year input is less than the publication year, send an alert and don't allow the user to submit the form.
+            else if (document.forms['CitationYearRange'].citationYear.value < pubYear) {
+                alert("Please enter a year after " + pubYear + ".");
+                return false;
+            }
+        });
+
+
+        $tableButton.click(function () {
+
+            $tableButton.css("backgroundColor", "#1DA1F2")
+            $barButton.css("backgroundColor", "#313131")
+            $graph.hide();
+            $tables.show();
+
+        });
+
+
+        $barButton.click(function () {
+
+            $barButton.css("backgroundColor", "#1DA1F2")
+            $tableButton.css("backgroundColor", "#313131")
+            $tables.hide();
+            $graph.show();
+            
+            
+        });
+
+
 
         // When the focus is inside the year text box...
         $yearInput.keydown(function (event) {
@@ -228,16 +410,7 @@
 <div class="container">
     <div class="row">
         <div class="col-md-11">
-            <h1>Article Dashboard</h1>
-        </div>
-        <div class="statsContainer">
-            <div style="width:180px; border-radius: 25px; padding: 10px; background-color: rgba(208, 218, 230, 0.5); "
-                class="center-screen col-sm-6">
-                <h2 style="text-align: center; color: black;">{{totalEventsSum}}</h2>
-                <p2><strong>Events</strong> <a style="text-decoration: none;"
-                        href="https://www.crossref.org/services/event-data/" target="_blank">(?)</a></p2>
-                <br>
-            </div>
+            <h1 style = "color: #000000"><b>Article Dashboard</b></h1>
         </div>
         <div class="row">
             <!-- This is the left column - Information box-->
@@ -275,11 +448,15 @@
                                     <strong>DOI:</strong> <a href="https://doi.org/{{ article_detail.objectID }}"
                                         target="_blank">{{ article_detail.objectID }} &#8599;</a>
                                 </div>
-                                <!--
-                                    Author: Mohammad Tahmid
-						            Lines: 196-211
-						            Description: This is the addition to display the citation information from the database and the button to download info about a DOI
-                                -->
+                                <div class="AD_events">
+                                    <strong>Events(s) :</strong> {{totalEventsSum}} <span id = "eventToolTip">&#9432; <span class="tooltiptext">Event Data shows the 
+                                        influence of a publication by showing how many times it was mentioned in an online platform. <a href="https://www.crossref.org/services/event-data/" 
+                                        target="_blank" style = "color: #03a9f4"> More info </a>
+                                    </span> </span>
+                                </div>
+                                <!--Author: Mohammad Tahmid
+						Lines: 196-211
+						Description: This is the addition to display the citation information from the database and the button to download info about a DOI-->
                                 <div class="AD_citations">
                                     <strong>Citation(s):</strong> {{ citationCount.count }}
                                 </div>
@@ -294,7 +471,7 @@
                                         <!-- Drop Down Search -->
                                         <select name="articleDLChoice" id="form-control" class="form-control"
                                             style="width: 250px;">
-                                            <option value="doi">CSV</option>
+                                            <option value="csv">CSV</option>
                                             <option value="json">JSON</option>
                                         </select>
                                         <!--<button type="submit" name="articleDLDOI" value="{{ article_detail.objectID }}" class="form-control" id="form-control">-->
@@ -335,15 +512,6 @@
                                                 be emailed to you once we're
                                                 done retrieving the data.</p>
                                         </div>
-
-                                        <!--
-                                            #Author: 
-                                            #Name: Mohammad Tahmid 
-                                            #Lines 347-361
-                                            #---------------------
-                                            #Date: 03/19/2021
-                                            #Description: Displays errors when entering in the incorrect email address
-                                        -->
                                         <!-- {% with messages = get_flashed_messages(category_filter=["danger"]) %}
                                 {% if messages %}
                                     {% for message in messages %}
@@ -351,6 +519,7 @@
                                     {% endfor %}
                                 {% endif %}
                             {% endwith %}
+
                             {% with messages = get_flashed_messages(category_filter=["valid"]) %}
                                 {% if messages %}
                                     {% for message in messages %}
@@ -372,28 +541,66 @@
             <!-- This is the right column, first row containing the chart -->
             <br><br>
             <div class="col-sm-7" id="changeAfterChart">
-                <h3 style="text-align: center;">Events for this article over {{years_list[0]}} - {{years_list[-1]}}
-                </h3>
-                <div id="chart"></div>
-                <div id="yearFilter" style="text-align: center;">
-                    <form method="post" action="{{ url_for('articleDashboard') }}?DOI={{ article_detail.objectID }}"
-                        class="form-inline" name="YearRange">
-                        <label for="yearBox">Select a year (YYYY):</label>
-                        <input type="text" name="year" id="yearBox" size="4" maxlength="4" pattern="\d{4}">
-                        <input width="40%" type="submit" value="Update" class="form-control">
-                    </form>
+
+                <div id= "graph">
+                    <h3 style="text-align: center;">Events for this article over {{years_list[0]}} - {{years_list[-1]}}
+                    </h3>
+                    <div id="chart"></div>
+                    <div id="yearFilter" style="text-align: center;">
+                        <form method="post" action="{{ url_for('articleDashboard') }}?DOI={{ article_detail.objectID }}"
+                            class="form-inline" name="YearRange">
+                            <label for="yearBox">Select a median year (YYYY):</label>
+                            <input type="text" name="year" id="yearBox" size="4" maxlength="4" pattern="\d{4}">
+                            <input width="40%" name= "eventYearButton" type="submit" value="Update" class="form-control">
+                        </form>
+                    </div>
+
+                    <h3 style="text-align: center;">Citations for this article over {{citation_years_list[0]}} - {{citation_years_list[-1]}}
+                    </h3>
+                    <div id="citationChart"></div>
+                    <div id="citationYearFilter" style="text-align: center;">
+                        <form method="post" action="{{ url_for('articleDashboard') }}?DOI={{ article_detail.objectID }}"
+                            class="form-inline" name="CitationYearRange">
+                            <label for="citationYearBox">Select a median year (YYYY):</label>
+                            <input type="text" name="citationYear" id="citationYearBox" size="4" maxlength="4" pattern="\d{4}">
+                            <input width="40%"  name= "citationYearButton" type="submit" value="Update" class="form-control">
+                        </form>
+                    </div>
+
                 </div>
+
+
+                <div id= "tables">
+                    <h3 style="text-align: center; padding-bottom: 15px;">Events for this article over {{years_list[0]}} - {{years_list[-1]}}
+                    </h3>
+                    <table id= "eventTable">
+                    </table>
+
+                    <h3 style="text-align: center; padding-bottom: 15px;">Citations for this article over {{citation_years_list[0]}} - {{citation_years_list[-1]}}
+                    </h3>
+                    <table id= "citationTable">
+                    </table>
+                </div>
+
+                <div class="btn-group">
+                    <input name= "barButton" type= "submit" value = "Bar Graph" style="border-radius:20px 0 0 20px; outline: none;">
+                    <input name= "tableButton" type= "submit" value = "Table" style="border-radius:0 20px 20px 0; outline: none;" >
+                </div>
+
+
             </div>
         </div> <!-- end of row -->
         <div class="row">
             <div class="col-md-6"></div>
             <!--
         <div class="col-md-6" id="yearFilter">
+
             <form method="post" action="{{ url_for('articleDashboard') }}?DOI={{ article_detail.objectID }}" class="form-inline" name="YearRange">
                 <label for="yearBox">Select a year (YYYY):</label>
                 <input type="text" name="year" id="yearBox" size="4" maxlength="4" pattern="\d{4}">
                 <input width="40%" type="submit" value="Update" class="form-control">
             </form>
+
         </div>
         -->
         </div>
@@ -404,10 +611,13 @@
             <hr>
             <h4 style="text-align: center;">Some events obtained from the Crossref API have generic links e.g. "https://twitter.com". <br>
             Events of this kind have been hidden below, but still appear and are counted in the chart.</h4>
+
             <!-- Table - Latest Events -->
         <!--
             {% for e in events %} 
+
             <div class="row row-bordered eventItem" id="{{e.sourceID}}">
+
                 <table id ="noBorders" style="margin-bottom: 0px; margin-top: 0px; width:1170px;">
                     <tr class="row row-bordered eventItem" id="{{e.sourceID}}">
                         <td class="articleEventData">
@@ -422,6 +632,7 @@
                     </tr>
                 </table>
             </div>
+
             {% endfor %}
         </div>
     </div> <!-- End the row -->
@@ -446,11 +657,25 @@
         wikipediaevent = [];
         wordpressevent = [];
         years_list = [];
+        citationEvent = [];
+        citation_years_list = [];
     </script>
 
     {% for year in years_list %}
     <script>
         years_list.push("{{ year }}")
+    </script>
+    {% endfor %}
+
+    {% for year in citation_years_list %}
+    <script>
+        citation_years_list.push("{{ year }}")
+    </script>
+    {% endfor %}
+
+    {% for index in citationChartData %}
+    <script>
+        citationEvent.push("{{ index }}");
     </script>
     {% endfor %}
 
@@ -533,25 +758,7 @@
     </script>
     {% endfor %}
 
-    <!--
-        #Author: 
-        #Name: Mohammad Tahmid 
-        #Lines 551-561
-        #---------------------
-        #Date: 03/23/2021
-        #Description: Calls an ajax fucntion to handle loading all the information for the chart on the website. This makes it so
-                        only the webpage with some of the metadata is loaded and displayed to the user instead waiting till the graph is loaded
-                        with all the events in the database. 
-    -->
-    <script>
-        $(document).ready(function(){
-            $.ajax({
-                url: "../static/js/chartScript.js",
-                dataType: "script",
-                success: success
-            });
-        });
-
-        e.preventDefault();
-    </script>
+    <script src="../static/js/table.js"></script>
+    <script src="../static/js/chartScript.js"></script>
+    <script src="../static/js/citationChartScript.js"></script>
     {% endblock %}

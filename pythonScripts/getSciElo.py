@@ -5,6 +5,7 @@ import pymongo
 import mysql.connector 
 import logging
 import pandas as pd
+import numpy as np
 
 #Author: Mohammad Tahmid
 #Date: 03/10/2021
@@ -127,38 +128,143 @@ def PIDtoDOICheck(connection, cursor, sciEloDatabase, pidFile, doiURL, doiCode):
         #csvHeader = next(csvLine)
         csvHeader = csvLine
 
+        limitFileCount = 10
+        maxfileCount = sum(1 for row in pointer)
+        currentFileCount = 0
+        currentLimitFileCount = 0
+
+        pointer.seek(0)
+
+        rowArray = {}
+        rowArray2 = {}
+        
+        listToSearch = ""
+
         if csvHeader is not None:
             for aRow in csvLine:
 
-                DOINum = str(doiCode) + "/" + str(aRow[0])
-                print(DOINum)
+                rowArray[aRow[0]] = ""
+                #DOINum = str(doiCode) + "/" + str(aRow[0])
+                DOINum = str(aRow[0])
+                #print(rowArray)
 
-                query = "Select DOI FROM doidata._main_ WHERE DOI=" + "'" + str(DOINum) + "'"
-                cursor.execute(query)
-                resultSet = cursor.fetchall()
+                if (currentLimitFileCount == 0):
+                    listToSearch = "\"" + DOINum + "\"" 
+                else:
+                    listToSearch = listToSearch + ", " + "\"" + DOINum + "\""
 
-                if not resultSet:
-                    PIDtoDOIInsertMongoDB(connection, cursor, sciEloDatabase, DOINum)
+                currentFileCount += 1
+                currentLimitFileCount += 1
 
-def PIDtoDOIInsertMongoDB(connection, cursor, sciEloDatabase, DOINum):
+                #query = "Select DOI FROM doidata._main_ WHERE DOI=" + "'" + str(DOINum) + "'"
+                if (currentLimitFileCount == limitFileCount) or (currentFileCount == maxfileCount):
+                    query = "Select alternative_id FROM doidata._main_ WHERE alternative_id IN (" + listToSearch + ")"
+                    #query = "Select alternative_id FROM doidata._main_ WHERE alternative_id = \"S0100-879X1998000800006\""
+                    cursor.execute(query)
+                    resultSet = cursor.fetchall()
+                    #print(resultSet)
+                    
+
+                    for rowValue in resultSet:
+                        #rowArray2[rowValue[0]] = ""
+                        #print(rowArray)
+                        #print(rowArray2)
+
+                        for key, value in rowArray2.items():
+                            if key in rowArray:
+                                del rowArray[key]
+
+                    PIDtoDOIInsertMongoDB(connection, cursor, sciEloDatabase, rowArray, doiCode)
+                    
+                    #currentFileCount = 0
+                    currentLimitFileCount = 0
+                    rowArray.clear()
+                    rowArray2.clear()
+    
+    sciEloDatabase.drop()
+
+                #if not resultSet:
+                    #PIDtoDOIInsertMongoDB(connection, cursor, sciEloDatabase, "10.1590/S0100-879X1998000800006")
+                    #print("")
+
+def PIDtoDOIInsertMongoDB(connection, cursor, sciEloDatabase, rowArray, doiCode):
+                                                     
+    mongoInfo = []
+    doiInfo = ""
+    mongoID = []
+    mongoID2 = []
+    sqlInfo = []
+
+    for key, value in rowArray.items():
+
+        DOINum = str(doiCode) + "/" + str(key)
+        #print(DOINum)
+        #mongoInfo = []
+        #doiInfo = ""
+
+        try:
+            works = Works()
+            doiInfo = works.doi(DOINum)
+            #print(doiInfo)
+            mongoInfo.append(doiInfo)
+            #print(doiInfo)
+            logging.info("Crossref Metadata API for DOI: " + DOINum + " found")
+        except:
+            logging.info("Error occured retreiving information from Crossref Metadata API for DOI: " + DOINum)
+            #print("Error occured retreiving information from Crossref Metadata API for PID")        
+
+        try:
+            #mongoDBInsertResult = sciEloDatabase.insert_one(doiInfo)
+            #mongoDBInsertResult = sciEloDatabase.insert_many(mongoInfo)
+            logging.info("DOI: " + DOINum + " inserted into MongoDB")
+            #dataFiltered = sciEloDatabase.find_one(mongoDBInsertResult.inserted_id)
+            #print(dataFiltered)
+            #PIDtoDOIInsertSQL(connection, cursor, dataFiltered, logging)
+        except:
+            logging.info("Error occured inserting info for DOI: " + DOINum + " into MongoDB collection")
+            #print("Error occured inserting Crossref Metadata for ") 
 
     try:
-        works = Works()
-        doiInfo = works.doi(DOINum)
+        #print(mongoInfo)
+        mongoID = (sciEloDatabase.insert_many(mongoInfo))
+        #print(mongoID.inserted_ids)
         logging.info("Crossref Metadata API for DOI: " + DOINum + " found")
+        #for x in mongoID.inserted_ids:
     except:
-        logging.info("Error occured retreiving information from Crossref Metadata API for DOI: " + DOINum)
-        #print("Error occured retreiving information from Crossref Metadata API for PID")        
+        logging.info("Error occured inserting info into MongoDB collection")
 
-    try:
-        mongoDBInsertResult = sciEloDatabase.insert_one(doiInfo)
-        logging.info("DOI: " + DOINum + " inserted into MongoDB")
-        dataFiltered = sciEloDatabase.find_one(mongoDBInsertResult.inserted_id)
-        print(dataFiltered)
-        PIDtoDOIInsertSQL(connection, cursor, dataFiltered, logging)
+    try:  
+        #mongoID2 = []
+        mongoID2 = sciEloDatabase.find({"_id": {"$in": mongoID.inserted_ids}})
+        #mongoID2 = sciEloDatabase.find({"_id": {mongoID}})
+        #print(mongoID2)
+        #print(mongoID2)
+        for mongoDocs in mongoID2:
+            sqlInfo.append(PIDtoDOIInsertSQL(connection, cursor, mongoDocs, logging))
+        
+        #mongoID2 = sciEloDatabase.find({"_id": {mongoID}})
+        #print(mongoID.inserted_id)\
+    
+        query = """INSERT IGNORE INTO doidata._main_(DOI, URL, alternative_id, container_title, created_date_parts, created_date_time, 
+                created_timestamp, deposited_date_parts, deposited_date_time, deposited_timestamp, 
+                indexed_date_parts, indexed_date_time, indexed_timestamp, is_referenced_by_count, issue, 
+                issued_date_parts, language, member, original_title, page, prefix, published_print_date_parts,
+                publisher, reference_count, references_count, score, short_container_title, short_title, source, subtitle, title, 
+                type, volume, fk) VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, 
+                %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s)"""
+
+
+        cursor.executemany(query, sqlInfo)
+        connection.commit() 
     except:
-        logging.info("Error occured inserting info for DOI: " + DOINum + " into MongoDB collection")
-        #print("Error occured inserting Crossref Metadata for ")  
+       logging.info("Error occured inserting info into SQL table")
+    
+    mongoInfo.clear()
+    doiInfo.clear()
+    del mongoID
+    del mongoID2
+    del sqlInfo
+    print("finished")
  
 if __name__ == "__main__":
     getSciELOPID()

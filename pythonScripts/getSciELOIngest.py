@@ -1,6 +1,6 @@
 import os 
 import logging
-import mysql.connector '
+import mysql.connector 
 
 #Author: Mohammad Tahmid
 #Date: 03/10/2021
@@ -210,8 +210,13 @@ def PIDtoDOIInsertSQL(connection, cursor, doiInfo, logging):
         foundMember, foundOriginalTitle, foundPage, foundPrefix, foundPublishedPrintDatePart, foundPublisher,foundReferenceCount, 
         foundReferencesCount, foundScore, foundShortContainerTitle, foundShortTitle, foundSource, foundSubtitle, foundTitle, foundType, 
         foundVolume, foundfk)
+
+    #print(foundDOI)
         
-    cursor.execute(query, queryValues)
-    connection.commit()
+    #cursor.execute(query, queryValues)
+    #connection.commit()
 
     logging.info("Added DOI: " + foundDOI)  
+
+
+    return queryValues

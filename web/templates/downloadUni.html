@@ -4,7 +4,7 @@
 <!-- Anything you put here will be in the HTML head tags-->
 {% block head %}
 <script>
-    
+
     $(function () {
 
         // Initialize variables and reference to the resultsButton and the current value of the email box
@@ -34,23 +34,28 @@
             // check if entered email is valid       
             else if (/^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/.test($emailValue)) {
 
-                $("#success").dialog({
-                    title: "Retrieving Data",
-                    modal: true,
-                    minWidth: 700,
-                    minHeight: 200,
-                    buttons: {
-                        Ok: function () {
-                            $(location).attr('href', "/");
-                            //$(this).dialog("close");
-                        }
-                    }
-                    
-                });
-                return (true)
-            }
+                setTimeout(() => {
 
-            $("#invalid_email").dialog({
+                    $("#success").dialog({
+                        title: "Retrieving Data",
+                        modal: true,
+                        minWidth: 700,
+                        minHeight: 200,
+                        buttons: {
+                            Ok: function () {
+                                $(location).attr('href', "/");
+                                //$(this).dialog("close");
+                            }
+                        }
+
+                    });
+                    return (true)
+
+                }, 500);
+            }
+            else {
+                
+                $("#invalid_email").dialog({
                     title: "ERROR",
                     modal: true,
                     minWidth: 700,
@@ -61,7 +66,9 @@
                         }
                     }
                 });
-            return (false)
+                return (false)
+            }
+
 
 
         });
@@ -81,13 +88,20 @@
 
     <div class="center-screen" style="padding-top: 15px;">
 
+        <div class="center-screen" style="padding-top: 0px; padding-bottom: 15px;">
+            <div style="width: 550px; border-radius: 25px; padding: 0px; background-color: rgba(0, 68, 45, 0.9); "
+                class="center-screen">
+                <h3 style="text-align: center; color: aliceblue;"><b>{{ results }}</b></h3>
+            </div>
+        </div>
+
         <div
             style="width: 550px; border-radius: 25px; padding: 10px; background-color: rgba(60, 65, 70, 0.9); text-align: center;">
 
-            <h1 style="text-align: center; color: aliceblue; padding-bottom: 10px;"><b>Retreive University Results</b></h1>
+            <h1 style="text-align: center; color: aliceblue; padding-bottom: 10px;"><b>Retreive University Results</b>
+            </h1>
 
-            <form action="{{ url_for('downloadUni') }}" method="POST"
-                style="text-align: center; align-items: center;">
+            <form action="{{ url_for('downloadUni') }}" method="POST" style="text-align: center; align-items: center;">
                 <input type="text" id="email_input" name="email_input" placeholder="Email Address:"
                     style="width: 350px;" class="form-control">
                 <br><br>
@@ -156,45 +170,45 @@
             <br>
             <p style="font-family: 'Lucida Sans'; font-size: large;"> Your results will be emailed to you once we're
                 done retrieving the data.</p>
-                <br>
-                <table class="table table-condensed">
-                    <thead>
-                        <tr>
-                            <th>Number of Universities</th>
-                            <th>Estimated Time</th>
-                            <th>Estimated Size CSV</th>
-                            <th>Estimated Size JSON</th>
-    
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td>25</td>
-                            <td>10 seconds</td>
-                            <td>15 KB</td>
-                            <td>40 KB</td>
-    
-                        </tr>
-                        <tr>
-                            <td>100</td>
-                            <td>40 seconds</td>
-                            <td>45 KB</td>
-                            <td>640 KB</td>
-                        </tr>
-                        <tr>
-                            <td>500</td>
-                            <td>4 mins</td>
-                            <td>225 KB</td>
-                            <td>3.5 MB</td>
-                        </tr>
-                        <tr>
-                            <td>1000</td>
-                            <td>8 min</td>
-                            <td>450 KB</td>
-                            <td>7 MB</td>
-                        </tr>
-                    </tbody>
-                </table>
+            <br>
+            <table class="table table-condensed">
+                <thead>
+                    <tr>
+                        <th>Number of Universities</th>
+                        <th>Estimated Time</th>
+                        <th>Estimated Size CSV</th>
+                        <th>Estimated Size JSON</th>
+
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>25</td>
+                        <td>10 seconds</td>
+                        <td>15 KB</td>
+                        <td>40 KB</td>
+
+                    </tr>
+                    <tr>
+                        <td>100</td>
+                        <td>40 seconds</td>
+                        <td>45 KB</td>
+                        <td>640 KB</td>
+                    </tr>
+                    <tr>
+                        <td>500</td>
+                        <td>4 mins</td>
+                        <td>225 KB</td>
+                        <td>3.5 MB</td>
+                    </tr>
+                    <tr>
+                        <td>1000</td>
+                        <td>8 min</td>
+                        <td>450 KB</td>
+                        <td>7 MB</td>
+                    </tr>
+                </tbody>
+            </table>
         </div>
 
     </div>
