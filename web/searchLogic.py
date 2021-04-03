@@ -382,6 +382,21 @@ def searchLogic(mysql, mysql2, dropdownValue):
                 # get list of authors for given fk
                 author_list = cursor.fetchall()
 
+            list_of_countries = []
+            list_of_universities = []
+
+            for author in author_list:
+                if author['country'] not in list_of_countries:
+                    if author['country'] != None:
+                        list_of_countries.append(author['country'])
+
+                if author['university'] not in list_of_universities:
+                    if author['university'] != None:
+                        list_of_universities.append(author['university'])
+                
+
+
+
             TotalEventsQuerySum = "SELECT totalEvents AS sumCount FROM crossrefeventdatamain.main WHERE objectID ='https://doi.org/" + \
                 row['doi'] + "';"
             cursor3.execute(TotalEventsQuerySum)
@@ -393,11 +408,14 @@ def searchLogic(mysql, mysql2, dropdownValue):
             else:
                 totalEventsSum = totalEventsSum['sumCount']
 
+
             # create dict with _main_ table row and author list
             article = {'objectID': row['doi'], 'articleTitle': row['title'],
                        'journalName': row['container_title'],
                        'articleDate': row['published_print_date_parts'],
-                       'author_list': author_list, 'totalEventsSum': totalEventsSum}
+                       'author_list': author_list, 'totalEventsSum': totalEventsSum,
+                       'list_of_countries': list_of_countries,
+                       'list_of_universities': list_of_universities}
             returnedQueries.append(article)
 
             print(article)
@@ -439,5 +457,6 @@ def searchLogic(mysql, mysql2, dropdownValue):
     # Instantiate a pagination object
     pagination = Pagination(page=page, per_page=per_page, href=search_url_param,
                             total=len(returnedQueries), css_framework='bootstrap3')
+
 
     return flask.render_template('searchResultsPage.html', totalEventsSum=totalEventsSum, listedSearchResults=returnedQueries, dropdownSearchBy=selection, article_start=article_start, article_end=article_end, search=search, pagination=pagination, oldestPubYear=oldestPubYear, dropdownValue=dropdownValue)

@@ -7,6 +7,21 @@ import requests
 import json
 from OpenCitationsCitationIngest import OCCitationIngest
 from OpenCitationsReferenceIngest import OCReferenceIngest
+import os
+import json
+
+
+# current directory 
+path = os.getcwd() 
+  
+# parent directory 
+parent = os.path.dirname(path) 
+config_path = os.path.join(parent, "openAlt_W2021\\config", "openAltConfig.json")
+
+# config file
+f = open(config_path)
+APP_CONFIG = json.load(f)
+
 
 def getCitationData(mysql_username, mysql_password):
 

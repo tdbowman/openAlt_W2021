@@ -352,6 +352,9 @@ function hideElements(elements) {
 		else if (elements[i].id === "stackexchange" && stackExchangeBool === false) {
 			elements[i].style.display = "none";
 		}
+		else if (elements[i].id === "cambia" && cambiaBool === false) {
+			elements[i].style.display = "none";
+		}
 		else if (elements[i].id === "web" && webBool === false) {
 			elements[i].style.display = "none";
 		}

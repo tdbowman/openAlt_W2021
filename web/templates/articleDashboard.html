@@ -519,7 +519,6 @@
                                     {% endfor %}
                                 {% endif %}
                             {% endwith %}
-
                             {% with messages = get_flashed_messages(category_filter=["valid"]) %}
                                 {% if messages %}
                                     {% for message in messages %}
@@ -594,13 +593,11 @@
             <div class="col-md-6"></div>
             <!--
         <div class="col-md-6" id="yearFilter">
-
             <form method="post" action="{{ url_for('articleDashboard') }}?DOI={{ article_detail.objectID }}" class="form-inline" name="YearRange">
                 <label for="yearBox">Select a year (YYYY):</label>
                 <input type="text" name="year" id="yearBox" size="4" maxlength="4" pattern="\d{4}">
                 <input width="40%" type="submit" value="Update" class="form-control">
             </form>
-
         </div>
         -->
         </div>
@@ -611,13 +608,10 @@
             <hr>
             <h4 style="text-align: center;">Some events obtained from the Crossref API have generic links e.g. "https://twitter.com". <br>
             Events of this kind have been hidden below, but still appear and are counted in the chart.</h4>
-
             <!-- Table - Latest Events -->
         <!--
             {% for e in events %} 
-
             <div class="row row-bordered eventItem" id="{{e.sourceID}}">
-
                 <table id ="noBorders" style="margin-bottom: 0px; margin-top: 0px; width:1170px;">
                     <tr class="row row-bordered eventItem" id="{{e.sourceID}}">
                         <td class="articleEventData">
@@ -632,7 +626,6 @@
                     </tr>
                 </table>
             </div>
-
             {% endfor %}
         </div>
     </div> <!-- End the row -->
