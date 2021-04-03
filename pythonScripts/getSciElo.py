@@ -143,9 +143,18 @@ def PIDtoDOICheck(connection, cursor, sciEloDatabase, pidFile, doiURL, doiCode):
         if csvHeader is not None:
             for aRow in csvLine:
 
-                rowArray[aRow[0]] = ""
+                aPID = ""
+                
+                try:
+                    aPID = aRow[0]
+                except Exception:
+                    pass
+
+                print(aPID.upper())
+
+                rowArray[aPID.upper()] = ""
                 #DOINum = str(doiCode) + "/" + str(aRow[0])
-                DOINum = str(aRow[0])
+                DOINum = str(aPID.upper())
                 #print(rowArray)
 
                 if (currentLimitFileCount == 0):
@@ -206,7 +215,8 @@ def PIDtoDOIInsertMongoDB(connection, cursor, sciEloDatabase, rowArray, doiCode)
             works = Works()
             doiInfo = works.doi(DOINum)
             #print(doiInfo)
-            mongoInfo.append(doiInfo)
+            if doiInfo is not None:
+                mongoInfo.append(doiInfo)
             #print(doiInfo)
             logging.info("Crossref Metadata API for DOI: " + DOINum + " found")
         except:
@@ -259,8 +269,8 @@ def PIDtoDOIInsertMongoDB(connection, cursor, sciEloDatabase, rowArray, doiCode)
     except:
        logging.info("Error occured inserting info into SQL table")
     
-    mongoInfo.clear()
-    doiInfo.clear()
+    #mongoInfo.clear()
+    #doiInfo.clear()
     del mongoID
     del mongoID2
     del sqlInfo
