@@ -96,7 +96,7 @@ def wikipediaIngest(uniqueEvent, cursor, connection):
 
     if(len(t_obj_id) < 100):
         # Insert t_obj_id from the event of the JSON file into the main table
-        objectIDInsertionQuery = "INSERT IGNORE INTO main (objectID) VALUES(\'" + \
+        objectIDInsertionQuery = "INSERT IGNORE INTO crossrefeventdatamain.main (objectID) VALUES(\'" + \
             t_obj_id + "\');"
         cursor.execute(objectIDInsertionQuery)
         connection.commit()

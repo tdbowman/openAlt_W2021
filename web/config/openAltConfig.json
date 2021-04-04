@@ -8,7 +8,7 @@
     "Crossref-Event-Database": {
         "name": "crossrefeventdatamain",
         "username": "root",
-        "password": "",
+        "password": "pass1234",
         "address": "127.0.0.1"
     },
     "OpenCitations": {
@@ -24,9 +24,13 @@
         "password": "",
         "address": "mongodb://localhost:27017/"
     },
+    "MongoDB-Event-Database": {
+        "name": "EventDatabase",
+        "address": "mongodb://localhost:27017/"
+    },
     "Crossref-Event-API": {
         "name": "crossrefEventAPI",
-        "url": "https://api.eventdata.crossref.org/v1/events?mailto=GroovyBib@example.org&obj-id="
+        "url": "https://api.eventdata.crossref.org/v1/events?mailto=YOUR_EMAIL_HERE&obj-id="
     },
     "Crossref-Metadata-API": {
         "name": "crossrefMetadataAPI",

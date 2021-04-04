@@ -19,7 +19,7 @@ def fetchDOICitations ():
 
     # mysql credentials
     mysql_username ='root'
-    mysql_password = 'pass'
+    mysql_password = 'pass1234'
 
     # connect to doi database
     drBowmanDatabase = mysql.connector.connect(host = "localhost", user = mysql_username, passwd = mysql_password, database = "doidata")
