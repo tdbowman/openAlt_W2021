@@ -531,7 +531,7 @@ def admin():
         logged = False
 
         # Password creation
-        source = string.ascii_letters + string.digits
+        source = string.ascii_letters + string.digits + '!@#$%^&*()!@#$%^&*()'
         pw = ''.join((random.choice(source) for i in range(10)))
 
         emailAdmin(pw)
