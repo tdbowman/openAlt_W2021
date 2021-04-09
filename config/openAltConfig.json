@@ -52,17 +52,13 @@
     },
     "SciELO-Brazil-Data-API": {
         "name": "sciEloMetadataAPI",
-        "url": "https://api.crossref.org/works/",
-        "url-code": "10.1590"
+        "url": "https://api.crossref.org/works/10.1590/"
     },
     "User-Result-Limit": {
-        "limit": "5",
+        "limit": "1000",
         "dayInterval": "1"
     },
     "Admin": {
         "email": "darpanshah8@gmail.com"
-    },
-    "SciELO-Brazil-Log": {
-        "file_limit": "100"
     }
 }
