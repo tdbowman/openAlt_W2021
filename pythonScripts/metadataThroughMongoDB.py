@@ -9,6 +9,8 @@ import mysql.connector
 from ingestCrossrefMetadata import crossrefMetadataIngest
 
 def hashmap(listoffks):
+    # Takes every DOI and their associated foreign key
+    # from the _main_ table and stores them in a dictionary
     mysql_username = "root"
     mysql_password = "pass"
     try:
@@ -24,6 +26,8 @@ def hashmap(listoffks):
     return listoffks
 
 def checkhash(listofingestedfks):
+    # Takes all foreign keys stored in the author table
+    # and stores them in a dictionary
     mysql_username = "root"
     mysql_password = "pass"
     try:
@@ -40,17 +44,17 @@ def checkhash(listofingestedfks):
 
 
 def storeMetaDatainMongoDB(DOI, fk):
-    # retrieve metadata from api
+    # Retrieve metadata from api
     r = requests.get('https://api.crossref.org/works/'+ DOI)
-    # connect to localhost MongoDB
+    # Connect to localhost MongoDB
     try:
         client = pymongo.MongoClient('mongodb://localhost:27017/')
     except:
         print("Could not connect to MongoDB.")
         return
-    # cursor to spcified database; create if it doesn't exist
+    # Cursor to spcified database; create if it doesn't exist
     dbs = client["MetadataDatabase"]
-    # cursor to specified collection; create if it doesn't exist
+    # Cursor to specified collection; create if it doesn't exist
     coll = dbs["MetaData"]
     # Make sure collection is empty
     coll.delete_many({})
@@ -100,11 +104,14 @@ def main():
     listofingestedfks = checkhash({})
     for key,value in listoffks.items():
         print(value)
+        # For each DOI retrieved from the _main_ table, check to see if its
+        # associated foreign key is already stored in the author table
         if value in listofingestedfks:
             print("Metadata already stored.")
+        # If the foreign key is not found in the author table,
+        # the metadata of the given DOI will be stored in the author table
         else:
             storeMetaDatainMongoDB(key, value)
 
 if __name__ == '__main__':
-    # This main block is only for testing
     main()
