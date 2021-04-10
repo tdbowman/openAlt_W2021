@@ -25,6 +25,7 @@ def fetchDOICitations (APP_CONFIG):
     mysql_password = APP_CONFIG['DOI-Database']['password']
     doi_database_name = APP_CONFIG['DOI-Database']['name']
     opencitations_name = APP_CONFIG['OpenCitations']['name']
+    mongodb_opencitations_name = APP_CONFIG['MongoDB-OpenCitations-Database']['name']
     MongoDBClient = APP_CONFIG['OpenCitations']['address']
 
 
@@ -45,7 +46,7 @@ def fetchDOICitations (APP_CONFIG):
     myclient = pymongo.MongoClient(MongoDBClient)
 
     # MongoDB database to store citation and reference information
-    citationsDatabase = myclient[opencitations_name]
+    citationsDatabase = myclient[mongodb_opencitations_name]
 
     count = 0
 
@@ -54,13 +55,9 @@ def fetchDOICitations (APP_CONFIG):
     startTime = time.time()
 
     for article in articles:
-
-        
         
         count = count + 1
         print(str(count) + "/" + str(len(articles)))
-
-
 
         # fetch citation data into MongoDB (one article at a time)
         fetchCitationData(article[0], openCitationsCursor, citationsDatabase, openCitationsDatabase, APP_CONFIG)
@@ -91,34 +88,43 @@ def fetchCitationData (doi, openCitationsCursor, citationsDatabase, openCitation
     # collection to store citations
     citationCollections = citationsDatabase[citation_collections]
 
-
+   
     openCitationsCitationCountAPI = APP_CONFIG['OpenCitations-Citation-Count-API']['url']
 
+    need_to_update_citations = False
 
     try:
     
         # citation count (total number of publications that cited this DOI)
         citationCountsResponse = requests.get(openCitationsCitationCountAPI + doi)
         citationCountsJSON = citationCountsResponse.json()
+        need_to_update_citations = ingestCitationCounts(doi, openCitationsCursor, citationCountsJSON, openCitationsDatabase)
 
     except:
         print('OpenCitations Citation Count API call unsuccessful...')
 
     # ingest citation count data into MySQL
-    need_to_update_citations = ingestCitationCounts(doi, openCitationsCursor, citationCountsJSON, openCitationsDatabase)
+    
 
-    if need_to_update_citations == False:
-        return
+    # if need_to_update_citations == False:
+    #     return
 
     # get list of citations that already exist in MySQL
-    openCitationsCursor.execute("Select oci FROM opencitations.citations WHERE cited = 'coci => " + doi + "'")
+    openCitationsCursor.execute("Select oci FROM opencitations.citations WHERE cited = '" + doi + "'")
     citationsOCI = openCitationsCursor.fetchall()
+
+
+
+    print(len(citationsOCI))
+    
+
 
     # dictionary
     listOfOCIs = {}
 
     for oci in citationsOCI:
         listOfOCIs[oci[0]] = None
+
 
 
     openCitationsCitationAPI = APP_CONFIG['OpenCitations-Citation-API']['url']
@@ -151,9 +157,11 @@ def fetchCitationData (doi, openCitationsCursor, citationsDatabase, openCitation
         if cJSON != []:
             citationCollections.delete_many({})
             citationCollections.insert_many(cJSON)
+            # print(x)
+            
 
     except:
-        print(cJSON)
+        # print(cJSON)
         print('ERROR: DOI: ' + doi + ' citation data was not inserted')
 
     # filter citation data and ingest into MySQL
@@ -229,7 +237,7 @@ if __name__ == '__main__':
     
     # parent directory 
     parent = os.path.dirname(path) 
-    config_path = os.path.join(parent, "openAlt_W2021\\config", "openAltConfig.json")
+    config_path = os.path.join(parent, "GitHub\\openAlt_W2021\\config", "openAltConfig.json")
 
     # config file
     f = open(config_path)

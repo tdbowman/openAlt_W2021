@@ -16,10 +16,65 @@ import csv
 import requests
 import pymongo
 import json
+import time
 from ingestMongoEvents import ingestMongoEvents
 
+# current directory 
+path = os.getcwd() 
+  
+# parent directory 
+parent = os.path.dirname(path) 
+config_path = os.path.join(path, "config", "openAltConfig.json")
+
+# config file
+f = open(config_path)
+APP_CONFIG = json.load(f)
+
+def databaseConnection():
+    try:
+        # connect to doidata database
+        mysql_username = APP_CONFIG['Crossref-Event-Database']['username']
+        mysql_password = APP_CONFIG['Crossref-Event-Database']['password']
+        crossRefEventDatabase = mysql.connector.connect(host = "localhost", user = mysql_username, passwd = mysql_password, database = "crossrefeventdatamain")
+        return crossRefEventDatabase
+
+    except:
+        print("Error: Cannot connect to MySQL database.")
+        return
+
+def mongoDBConnection():
+    try:
+        # use config file for connection url and database name
+        connection = APP_CONFIG['MongoDB-Event-Database']['address']
+        databaseName = APP_CONFIG['MongoDB-Event-Database']['name']
+
+        # setup localization
+        myclient = pymongo.MongoClient(connection)
+
+        # reference MongoDB database
+        eventDatabase = myclient[databaseName]
+
+        return eventDatabase
+
+    except:
+        print("Error: Cannot connect to MongoDB.")
+        return
+
+def storeHashMap(eventIDs):
+    # create dictionary to hold unique eventIDs
+    listEventIDs= {}
+                
+    if (eventIDs != []):
+        # store eventID as a key in listEventID dictionary 
+        for uniqueEventID in eventIDs:
+            listEventIDs[uniqueEventID[0]] = None
+
+    return listEventIDs
 
 def fetch_events():
+
+    # for coll in eventDatabaseMongoDB.list_collection_names():
+    #     print("Collection: ", coll)
 
     crossRefEventDatabaseConnection = databaseConnection()
     crossRefEventDatabaseCursor = crossRefEventDatabaseConnection.cursor()
@@ -28,44 +83,71 @@ def fetch_events():
     # store DOIs 
     articles = crossRefEventDatabaseCursor.fetchall()
 
-
-    # loops for each DOI (for all articles use len(articles))
-    for i in range(5):
-        
-        article = articles[i]
-
-        # access the DOI from set
-        articleDOI = article[0]
-
-        print(articleDOI)
-
-        print("API Call!")
-
-        # fetching event data for this particular DOI
-        response = requests.get("https://api.eventdata.crossref.org/v1/events?mailto=YOUR_EMAIL_HERE&obj-id=" + articleDOI)
-        
-        # Retrieve the dict with events
-        data = response.json()
-        
-        if (data != []):
-            events = data.get("message").get("events")
-            # print("Events:", events)
-            transfer_buffer(events, articleDOI, crossRefEventDatabaseCursor, crossRefEventDatabaseConnection)
+    f = open("eventLogFile.txt", "a")
+    count = 0
+    startTime = time.time()
     
-    print("\nIngest to MySQL:")
-    ingestMongoEvents()
+    # articleTest = "10.1001/jama.279.15.1200"
+    # loops for each DOI (for all articles use len(articles))
+    for i in range(len(articles)):
+        print(articles[i])
+        count = count + 1
+        print("Count DOIs: " + str(count) + "/" + str(len(articles)))
+        
+        if count == 10:
+            executionTime = (time.time() - startTime)
+            f.write('Number of DOIs: ' + str(count) + '      Time: ' + str(executionTime) + '\n')
 
+        if count % 100 == 0:
+            executionTime = (time.time() - startTime)
+            f.write('Number of DOIs: ' + str(count) + '      Time: ' + str(executionTime) + '\n')
+
+        eventDatabaseMongoDB = mongoDBConnection()
+        for coll in eventDatabaseMongoDB.list_collection_names():
+            print("\nExisting Collection: ", coll)
+            eventDatabaseMongoDB.drop_collection(coll)
+        
+        # access the DOI from the list
+        article = articles[i]
+        articleDOI = article[0]
+        #print(articleDOI)
+
+        crossrefURL = APP_CONFIG['Crossref-Event-API']['url']
+
+        try:
+            # fetching event data for this particular DOI
+            response = requests.get(crossrefURL + articleDOI)
+            
+            # Retrieve the dict with events
+            data = response.json()
+            #print(data)
+
+            if (data != []):
+                events = data.get("message").get("events")
+                transfer_buffer(events, articleDOI, crossRefEventDatabaseCursor, crossRefEventDatabaseConnection)
+                
+                print("\nIngest to MySQL:")
+                ingestMongoEvents()
+        except:
+            print("Error: Unable to connect to API")
+            pass
+
+    f.close()
     
 
 def transfer_buffer(events, articleDOI, crossRefEventDatabaseCursor, crossRefEventDatabaseConnection):
 
     objectID = "https://doi.org/" + articleDOI
 
+    connection = APP_CONFIG['MongoDB-Event-Database']['address']
+    databaseName = APP_CONFIG['MongoDB-Event-Database']['name']
+
     # setup localization
-    myclient = pymongo.MongoClient("mongodb://localhost:27017/")
+    myclient = pymongo.MongoClient(connection)
 
     # reference MongoDB database
-    eventDatabase = myclient["EventDatabaseTest"]
+    eventDatabase = myclient[databaseName]
+
         
     for info in events: 
 
@@ -73,7 +155,7 @@ def transfer_buffer(events, articleDOI, crossRefEventDatabaseCursor, crossRefEve
 
             if (key=="id"):
                 mongoEventID = value
-                print("MongoEventID:", mongoEventID)
+                # print("\nMongoEventID:", mongoEventID)
 
             if (key == "source_id" and value == "cambia-lens"):
                 print("Cambia-Lens")
@@ -81,36 +163,21 @@ def transfer_buffer(events, articleDOI, crossRefEventDatabaseCursor, crossRefEve
 
                 # store DOIs 
                 eventIDs = crossRefEventDatabaseCursor.fetchall()
-                listEventIDs= {}
-                
-                if (eventIDs != []):
-                    # store eventID as a key in listEventID dictionary 
-                    for uniqueEventID in eventIDs:
-                        listEventIDs[uniqueEventID[0]] = None
 
-                    for eventID in listEventIDs:
-                        # checks to see if an eventID in the database matches with an API eventID 
-                        if (eventID == mongoEventID):
-                            print("Duplicate Cambia-Lens Event!")
-                            break
+                # retrieve the hashmap
+                listEventIDs = storeHashMap(eventIDs)
 
-                        else: 
-                            print("Cambia-Lens Ingest!")
-                            # reference MongoDB collection
-                            cambia = eventDatabase["Cambia-Lens"]
+                try:
+                    # check if the event exists in the hashmap
+                    if mongoEventID not in listEventIDs:
+                        print("Cambia-Lens Ingest!")
+                        cambia = eventDatabase["Cambia-Lens"]
+                        cambia.insert_one(info)
+                    else:
+                        print("Duplicate event!")
 
-                            cambia.insert_one(info)
-                            print("Success!")
-                            break
-                else:
-                    print("Cambia-Lens Ingest!")
-                    # reference MongoDB collection
-                    cambia = eventDatabase["Cambia-Lens"]
-
-                    cambia.insert_one(info)
-                    print("Success!")
-                    break
-                break
+                except:
+                    print("Event ID (" + mongoEventID + ") fetch failed.")
 
             elif (key == "source_id" and value == "crossref"):
                 print("Crossref")
@@ -118,36 +185,21 @@ def transfer_buffer(events, articleDOI, crossRefEventDatabaseCursor, crossRefEve
 
                 # store DOIs 
                 eventIDs = crossRefEventDatabaseCursor.fetchall()
-                listEventIDs= {}
-                
-                if (eventIDs != []):
-                    # store eventID as a key in listEventID dictionary 
-                    for uniqueEventID in eventIDs:
-                        listEventIDs[uniqueEventID[0]] = None
 
-                    for eventID in listEventIDs:
-                        # checks to see if an eventID in the database matches with an API eventID 
-                        if (eventID == mongoEventID):
-                            print("Duplicate Crossref Event!")
-                            break
+                 # retrieve the hashmap
+                listEventIDs = storeHashMap(eventIDs)
 
-                        else: 
-                            print("Crossref Ingest!")
-                            # reference MongoDB collection
-                            crossref = eventDatabase["Crossref"]
+                try:
+                    # check if the event exists in the hashmap
+                    if mongoEventID not in listEventIDs:
+                        print("Crossref Ingest!")
+                        crossref = eventDatabase["Crossref"]
+                        crossref.insert_one(info)
+                    else:
+                        print("Duplicate event!")
 
-                            crossref.insert_one(info)
-                            print("Success!")
-                            break
-                else:
-                    print("Crossref Ingest!")
-                    # reference MongoDB collection
-                    crossref = eventDatabase["Crossref"]
-
-                    crossref.insert_one(info)
-                    print("Success!")
-                    break
-                break
+                except:
+                    print("Event ID (" + mongoEventID + ") fetch failed.")
 
             elif (key == "source_id" and value == "datacite"):
                 print("Datacite")
@@ -155,38 +207,21 @@ def transfer_buffer(events, articleDOI, crossRefEventDatabaseCursor, crossRefEve
 
                 # store DOIs 
                 eventIDs = crossRefEventDatabaseCursor.fetchall()
-                listEventIDs= {}
-                
-                if (eventIDs != []):
-                    # store eventID as a key in listEventID dictionary 
-                    for uniqueEventID in eventIDs:
-                        listEventIDs[uniqueEventID[0]] = None
 
-                    for eventID in listEventIDs:
-                        # checks to see if an eventID in the database matches with an API eventID 
-                        if (eventID == mongoEventID):
-                            print("Duplicate Datacite Event!")
-                            break
+                # retrieve the hashmap
+                listEventIDs = storeHashMap(eventIDs)
 
-                        else: 
-                            print("Datacite Ingest!")
-                            # reference MongoDB collection
-                            datacite = eventDatabase["Datacite"]
+                try:
+                    # check if the event exists in the hashmap
+                    if mongoEventID not in listEventIDs:
+                        print("Datacite Ingest!")
+                        datacite = eventDatabase["Datacite"]
+                        datacite.insert_one(info)
+                    else:
+                        print("Duplicate event!")
 
-                            datacite.insert_one(info)
-                            print("Success!")
-                            break
-
-                else:
-                    print("Datacite Ingest!")
-                    # reference MongoDB collection
-                    datacite = eventDatabase["Datacite"]
-
-                    # insert data
-                    datacite.insert_one(info)
-                    print("Success!")
-                    break
-                break
+                except:
+                    print("Event ID (" + mongoEventID + ") fetch failed.")
 
             elif (key == "source_id" and value == "f1000"):
                 print("F1000")
@@ -194,75 +229,43 @@ def transfer_buffer(events, articleDOI, crossRefEventDatabaseCursor, crossRefEve
 
                 # store DOIs 
                 eventIDs = crossRefEventDatabaseCursor.fetchall()
-                listEventIDs= {}
-                
-                if (eventIDs != []):
-                    # store eventID as a key in listEventID dictionary 
-                    for uniqueEventID in eventIDs:
-                        listEventIDs[uniqueEventID[0]] = None
 
-                    for eventID in listEventIDs:
-                        # checks to see if an eventID in the database matches with an API eventID 
-                        if (eventID == mongoEventID):
-                            print("Duplicate F1000 Event!")
-                            break
+                # retrieve the hashmap
+                listEventIDs = storeHashMap(eventIDs)
 
-                        else: 
-                            print("F1000 Ingest!")
-                            # reference MongoDB collection
-                            f1000 = eventDatabase["F1000"]
+                try:
+                    # check if the event exists in the hashmap
+                    if mongoEventID not in listEventIDs:
+                        print("F1000 Ingest!")
+                        f1000 = eventDatabase["F1000"]
+                        f1000.insert_one(info)
+                    else:
+                        print("Duplicate event!")
 
-                            f1000.insert_one(info)
-                            print("Success!")
-                            break
-
-                else:
-                    print("F1000 Ingest!")
-                    # reference MongoDB collection
-                    f1000 = eventDatabase["F1000"]
-
-                    f1000.insert_one(info)
-                    print("Success!")
-                    break
-                break
-
+                except:
+                    print("Event ID (" + mongoEventID + ") fetch failed.")
+            
             elif (key == "source_id" and value == "hypothesis"):
                 print("Hypothesis")
                 crossRefEventDatabaseCursor.execute("Select eventID FROM hypothesisevent WHERE objectID='" + objectID + "'")
 
                 # store DOIs 
                 eventIDs = crossRefEventDatabaseCursor.fetchall()
-                listEventIDs= {}
-                
-                if (eventIDs != []):
-                    # store eventID as a key in listEventID dictionary 
-                    for uniqueEventID in eventIDs:
-                        listEventIDs[uniqueEventID[0]] = None
 
-                    for eventID in listEventIDs:
-                        # checks to see if an eventID in the database matches with an API eventID 
-                        if (eventID == mongoEventID):
-                            print("Duplicate Hypothesis Event!")
-                            break
+                # retrieve the hashmap
+                listEventIDs = storeHashMap(eventIDs)
 
-                        else: 
-                            print("Hypothesis Ingest!")
-                            # reference MongoDB collection
-                            hypothesis = eventDatabase["Hypothesis"]
+                try:
+                    # check if the event exists in the hashmap
+                    if mongoEventID not in listEventIDs:
+                        print("Hypothesis Ingest!")
+                        hypothesis = eventDatabase["Hypothesis"]
+                        hypothesis.insert_one(info)
+                    else:
+                        print("Duplicate event!")
 
-                            hypothesis.insert_one(info)
-                            print("Success!")
-                            break
-
-                else:
-                    print("Hypothesis Ingest!")
-                    # reference MongoDB collection
-                    hypothesis = eventDatabase["Hypothesis"]
-
-                    hypothesis.insert_one(info)
-                    print("Success!")
-                    break
-                break
+                except:
+                    print("Event ID (" + mongoEventID + ") fetch failed.")
 
             elif (key == "source_id" and value == "newsfeed"):
                 print("Newsfeed")
@@ -270,37 +273,21 @@ def transfer_buffer(events, articleDOI, crossRefEventDatabaseCursor, crossRefEve
 
                 # store DOIs 
                 eventIDs = crossRefEventDatabaseCursor.fetchall()
-                listEventIDs= {}
-                
-                if (eventIDs != []):
-                    # store eventID as a key in listEventID dictionary 
-                    for uniqueEventID in eventIDs:
-                        listEventIDs[uniqueEventID[0]] = None
 
-                    for eventID in listEventIDs:
-                        # checks to see if an eventID in the database matches with an API eventID 
-                        if (eventID == mongoEventID):
-                            print("Duplicate Newsfeed Event!")
-                            break
+                # retrieve the hashmap
+                listEventIDs = storeHashMap(eventIDs)
 
-                        else: 
-                            print("Newsfeed Ingest!")
-                            # reference MongoDB collection
-                            newsfeed = eventDatabase["Newsfeed"]
+                try:
+                    # check if the event exists in the hashmap
+                    if mongoEventID not in listEventIDs:
+                        print("Newsfeed Ingest!")
+                        newsfeed = eventDatabase["Newsfeed"]
+                        newsfeed.insert_one(info)
+                    else:
+                        print("Duplicate event!")
 
-                            newsfeed.insert_one(info)
-                            print("Success!")
-                            break
-
-                else:
-                    print("Newsfeed Ingest!")
-                    # reference MongoDB collection
-                    newsfeed = eventDatabase["Newsfeed"]
-
-                    newsfeed.insert_one(info)
-                    print("Success!")
-                    break
-                break
+                except:
+                    print("Event ID (" + mongoEventID + ") fetch failed.")
 
             elif (key == "source_id" and value == "reddit"):
                 print("Reddit")
@@ -308,37 +295,21 @@ def transfer_buffer(events, articleDOI, crossRefEventDatabaseCursor, crossRefEve
 
                 # store DOIs 
                 eventIDs = crossRefEventDatabaseCursor.fetchall()
-                listEventIDs= {}
-                
-                if (eventIDs != []):
-                    # store eventID as a key in listEventID dictionary 
-                    for uniqueEventID in eventIDs:
-                        listEventIDs[uniqueEventID[0]] = None
 
-                    for eventID in listEventIDs:
-                        # checks to see if an eventID in the database matches with an API eventID 
-                        if (eventID == mongoEventID):
-                            print("Duplicate Reddit Event!")
-                            break
+                # retrieve the hashmap
+                listEventIDs = storeHashMap(eventIDs)
 
-                        else: 
-                            print("Reddit Ingest!")
-                            # reference MongoDB collection
-                            reddit = eventDatabase["Reddit"]
+                try:
+                    # check if the event exists in the hashmap
+                    if mongoEventID not in listEventIDs:
+                        print("Reddit Ingest!")
+                        reddit = eventDatabase["Reddit"]
+                        reddit.insert_one(info)
+                    else:
+                        print("Duplicate event!")
 
-                            reddit.insert_one(info)
-                            print("Success!")
-                            break
-
-                else:
-                    print("Reddit Ingest!")
-                    # reference MongoDB collection
-                    reddit = eventDatabase["Reddit"]
-
-                    reddit.insert_one(info)
-                    print("Success!")
-                    break
-                break
+                except:
+                    print("Event ID (" + mongoEventID + ") fetch failed.")
 
             elif (key == "source_id" and value == "reddit-links"):
                 print("Reddit-Links")
@@ -346,37 +317,21 @@ def transfer_buffer(events, articleDOI, crossRefEventDatabaseCursor, crossRefEve
 
                 # store DOIs 
                 eventIDs = crossRefEventDatabaseCursor.fetchall()
-                listEventIDs= {}
-                
-                if (eventIDs != []):
-                    # store eventID as a key in listEventID dictionary 
-                    for uniqueEventID in eventIDs:
-                        listEventIDs[uniqueEventID[0]] = None
 
-                    for eventID in listEventIDs:
-                        # checks to see if an eventID in the database matches with an API eventID 
-                        if (eventID == mongoEventID):
-                            print("Duplicate Reddit-Links Event!")
-                            break
+                # retrieve the hashmap
+                listEventIDs = storeHashMap(eventIDs)
 
-                        else: 
-                            print("Reddit-Links Ingest!")
-                            # reference MongoDB collection
-                            redditlinks = eventDatabase["Reddit-Links"]
+                try:
+                    # check if the event exists in the hashmap
+                    if mongoEventID not in listEventIDs:
+                        print("Reddit-Links Ingest!")
+                        redditlinks = eventDatabase["Reddit-Links"]
+                        redditlinks.insert_one(info)
+                    else:
+                        print("Duplicate event!")
 
-                            redditlinks.insert_one(info)
-                            print("Success!")
-                            break
-
-                else:
-                    print("Reddit-Links Ingest!")
-                    # reference MongoDB collection
-                    redditlinks = eventDatabase["Reddit-Links"]
-
-                    redditlinks.insert_one(info)
-                    print("Success!")
-                    break
-                break
+                except:
+                    print("Event ID (" + mongoEventID + ") fetch failed.")
 
             elif (key == "source_id" and value == "stackexchange"):
                 print("Stack Exchange")
@@ -384,36 +339,21 @@ def transfer_buffer(events, articleDOI, crossRefEventDatabaseCursor, crossRefEve
 
                 # store DOIs 
                 eventIDs = crossRefEventDatabaseCursor.fetchall()
-                listEventIDs= {}
-                
-                if (eventIDs != []):
-                    # store eventID as a key in listEventID dictionary 
-                    for uniqueEventID in eventIDs:
-                        listEventIDs[uniqueEventID[0]] = None
 
-                    for eventID in listEventIDs:
-                        # checks to see if an eventID in the database matches with an API eventID 
-                        if (eventID == mongoEventID):
-                            print("Duplicate Stack Exchange Event!")
-                            break
+                # retrieve the hashmap
+                listEventIDs = storeHashMap(eventIDs)
 
-                        else: 
-                            print("Stack Exchange Ingest!")
-                            # reference MongoDB collection
-                            stackexchange = eventDatabase["StackExchange"]
+                try:
+                    # check if the event exists in the hashmap
+                    if mongoEventID not in listEventIDs:
+                        print("Stack Exchange Ingest!")
+                        stackexchange = eventDatabase["StackExchange"]
+                        stackexchange.insert_one(info)
+                    else:
+                        print("Duplicate event!")
 
-                            stackexchange.insert_one(info)
-                            print("Success!")
-                            break
-                else:
-                    print("Stack Exchange Ingest!")
-                    # reference MongoDB collection
-                    stackexchange = eventDatabase["StackExchange"]
-
-                    stackexchange.insert_one(info)
-                    print("Success!")
-                    break
-                break
+                except:
+                    print("Event ID (" + mongoEventID + ") fetch failed.")
 
             elif (key == "source_id" and value == "twitter"):
                 print("Twitter")
@@ -421,36 +361,21 @@ def transfer_buffer(events, articleDOI, crossRefEventDatabaseCursor, crossRefEve
 
                 # store DOIs 
                 eventIDs = crossRefEventDatabaseCursor.fetchall()
-                listEventIDs= {}
-                
-                if (eventIDs != []):
-                    # store eventID as a key in listEventID dictionary 
-                    for uniqueEventID in eventIDs:
-                        listEventIDs[uniqueEventID[0]] = None
 
-                    for eventID in listEventIDs:
-                        # checks to see if an eventID in the database matches with an API eventID 
-                        if (eventID == mongoEventID):
-                            print("Duplicate Twitter Event!")
-                            break
+                # retrieve the hashmap
+                listEventIDs = storeHashMap(eventIDs)
 
-                        else: 
-                            print("Twitter Ingest!")
-                            # reference MongoDB collection
-                            twitter = eventDatabase["Twitter"]
+                try:
+                    # check if the event exists in the hashmap
+                    if mongoEventID not in listEventIDs:
+                        print("Twitter Ingest!")
+                        twitter = eventDatabase["Twitter"]
+                        twitter.insert_one(info)
+                    else:
+                        print("Duplicate event!")
 
-                            twitter.insert_one(info)
-                            print("Success!")
-                            break
-                else:
-                    print("Twitter Ingest!")
-                    # reference MongoDB collection
-                    twitter = eventDatabase["Twitter"]
-
-                    twitter.insert_one(info)
-                    print("Success!")
-                    break
-                break
+                except:
+                    print("Event ID (" + mongoEventID + ") fetch failed.")
 
             elif (key == "source_id" and value == "web"):
                 print("Web")
@@ -458,73 +383,44 @@ def transfer_buffer(events, articleDOI, crossRefEventDatabaseCursor, crossRefEve
 
                 # store DOIs 
                 eventIDs = crossRefEventDatabaseCursor.fetchall()
-                listEventIDs= {}
-                
-                if (eventIDs != []):
-                    # store eventID as a key in listEventID dictionary 
-                    for uniqueEventID in eventIDs:
-                        listEventIDs[uniqueEventID[0]] = None
 
-                    for eventID in listEventIDs:
-                        # checks to see if an eventID in the database matches with an API eventID 
-                        if (eventID == mongoEventID):
-                            print("Duplicate Web Event!")
-                            break
+                # retrieve the hashmap
+                listEventIDs = storeHashMap(eventIDs)
 
-                        else: 
-                            print("Web Ingest!")
-                            # reference MongoDB collection
-                            web = eventDatabase["Web"]
+                try:
+                    # check if the event exists in the hashmap
+                    if mongoEventID not in listEventIDs:
+                        print("Web Ingest!")
+                        web = eventDatabase["Web"]
+                        web.insert_one(info)
+                    else:
+                        print("Duplicate event!")
 
-                            web.insert_one(info)
-                            print("Success!")
-                            break
-                else:
-                    print("Web Ingest!")
-                    # reference MongoDB collection
-                    web = eventDatabase["Web"]
-
-                    web.insert_one(info)
-                    print("Success!")
-                    break
-                break
+                except:
+                    print("Event ID (" + mongoEventID + ") fetch failed.")
 
             elif (key == "source_id" and value == "wikipedia"):
-                print("Wikipedia")
+                # print("Wikipedia")
                 crossRefEventDatabaseCursor.execute("Select eventID FROM wikipediaevent WHERE objectID='" + objectID + "'")
 
                 # store DOIs 
                 eventIDs = crossRefEventDatabaseCursor.fetchall()
-                listEventIDs= {}
-                
-                if (eventIDs != []):
-                    # store eventID as a key in listEventID dictionary 
-                    for uniqueEventID in eventIDs:
-                        listEventIDs[uniqueEventID[0]] = None
 
-                    for eventID in listEventIDs:
-                        # checks to see if an eventID in the database matches with an API eventID 
-                        if (eventID == mongoEventID):
-                            print("Duplicate Wikipedia Event!")
-                            break
+                # retrieve the hashmap
+                listEventIDs = storeHashMap(eventIDs)
 
-                        else: 
-                            print("Wikipedia Ingest!")
-                            # reference MongoDB collection
-                            wikipedia = eventDatabase["Wikipedia"]
+                try:
+                    # check if the event exists in the hashmap
+                    if mongoEventID not in listEventIDs:
+                        # print("Wikipedia Ingest!")
+                        print(articleDOI)
+                        wikipedia = eventDatabase["Wikipedia"]
+                        wikipedia.insert_one(info)
+                    else:
+                        print("Duplicate event!")
 
-                            wikipedia.insert_one(info)
-                            print("Success!")
-                            break
-                else:
-                    print("Wikipedia Ingest!")
-                    # reference MongoDB collection
-                    wikipedia = eventDatabase["Wikipedia"]
-
-                    wikipedia.insert_one(info)
-                    print("Success!")
-                    break
-                break
+                except:
+                    print("Event ID (" + mongoEventID + ") fetch failed.")
 
             elif (key == "source_id" and value == "wordpressdotcom"):
                 print("Wordpress.com")
@@ -532,78 +428,21 @@ def transfer_buffer(events, articleDOI, crossRefEventDatabaseCursor, crossRefEve
 
                 # store DOIs 
                 eventIDs = crossRefEventDatabaseCursor.fetchall()
-                listEventIDs= {}
-                
-                if (eventIDs != []):
-                    # store eventID as a key in listEventID dictionary 
-                    for uniqueEventID in eventIDs:
-                        listEventIDs[uniqueEventID[0]] = None
 
-                    for eventID in listEventIDs:
-                        # checks to see if an eventID in the database matches with an API eventID 
-                        if (eventID == mongoEventID):
-                            print("Duplicate Wordpress.com Event!")
-                            break
+                # retrieve the hashmap
+                listEventIDs = storeHashMap(eventIDs)
 
-                        else: 
-                            print("Wordpress.com Ingest!")
-                            # reference MongoDB collection
-                            wordpress = eventDatabase["WordPressDotCom"]
+                try:
+                    # check if the event exists in the hashmap
+                    if mongoEventID not in listEventIDs:
+                        print("Wordpress.com Ingest!")
+                        wordpress = eventDatabase["WordPressDotCom"]
+                        wordpress.insert_one(info)
+                    else:
+                        print("Duplicate event!")
 
-                            wordpress.insert_one(info)
-                            print("Success!")
-                            break
-                else:
-                    print("Wordpress.com Ingest!")
-                    # reference MongoDB collection
-                    wordpress = eventDatabase["WordPressDotCom"]
-
-                    wordpress.insert_one(info)
-                    print("Success!")
-                    break
-                break
-
-
-# def insertCollection(collection, info):
-#     # print(info)
-#     # collection.insert_one(info) 
-#     result = collection.find()
-#     for documents in result:
-#         print("List:" , list(result))
-#         if (documents != info):
-#             try:
-#                 print("Data: ", info)
-#                 collection.insert_one(info)
-#             except pymongo.errors.DuplicateKeyError:
-#                 continue
-            
-#         else:
-#             print("Pass!")
-#         # except pymongo.errors.DuplicateKeyError:
-#         # # skip document because it already exists in new collection
-#         #     continue
-            
-
-def databaseConnection():
-    try:
-        # connect to doidata database
-        print("MySQL Credentials")
-        # mysql_username = input("Username: ")
-        # mysql_password = input("Password: ")
-        mysql_username = "root"
-        mysql_password = "pass1234"
-
-        crossRefEventDatabase = mysql.connector.connect(host = "localhost", user = mysql_username, passwd = mysql_password, database = "crossrefeventdatamain")
-
-        return crossRefEventDatabase
-
-
-    except:
-        print("Error: Invalid MySQL credentials")
-        return
-
-    print ("Connected to the database...")
-
+                except:
+                    print("Event ID (" + mongoEventID + ") fetch failed.")
 
 if __name__ == '__main__':
     fetch_events()

@@ -70,10 +70,10 @@ def searchLogic(mysql, mysql2, dropdownValue):
         domain = flask.request.args.get("domain")
 
     if flask.request.form.get("country") is None:
-        domain = flask.request.args.get("country")
+        country = flask.request.args.get("country")
 
     if flask.request.form.get("university") is None:
-        domain = flask.request.args.get("university")
+        university = flask.request.args.get("university")
         
 
     # Now that we have checked the form and URL for how the user would like to search, we can set it
@@ -115,6 +115,7 @@ def searchLogic(mysql, mysql2, dropdownValue):
     #   the search term, and the years selected, if any
 
 
+    print(domain)
     # Author: Rihat Rahman
     # Lines: 119 - 170
     # ---------------------------------------------------------------------------------------------------
@@ -418,7 +419,7 @@ def searchLogic(mysql, mysql2, dropdownValue):
                        'list_of_universities': list_of_universities}
             returnedQueries.append(article)
 
-            print(article)
+            # print(article)
 
         returnedQueries.append(None)
         cursor.close()
