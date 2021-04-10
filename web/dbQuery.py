@@ -40,7 +40,7 @@ def getDOIMetadata(doi, cursor):
     # DOI Info Query
     query = "SELECT DOI, URL, title, container_title, name as authors, page, publisher, language, alternative_id, created_date_time, " \
                 "deposited_date_time, is_referenced_by_count, issue, issued_date_parts, prefix, published_online_date_parts, published_print_date_parts " \
-            "FROM doidata._main_ JOIN doidata.author ON doidata._main_.id = doidata.author.fk " \
+            "FROM doidata._main_ JOIN doidata.author ON doidata._main_.fk = doidata.author.fk " \
             "WHERE DOI = '" + doi + "'"
     
     print("Retrieving Metadata: " + doi)
@@ -141,7 +141,7 @@ def getAuthorArticles(author, cursor):
     # Author Associated DOIs Query
     query = "SELECT DOI, URL, title, container_title, name as author, page, publisher, language, alternative_id, created_date_time, " \
                 "deposited_date_time, is_referenced_by_count, issue, issued_date_parts, prefix, published_online_date_parts, published_print_date_parts " \
-            "FROM doidata._main_ JOIN doidata.author ON doidata._main_.id = doidata.author.fk WHERE doidata.author.name  LIKE " \
+            "FROM doidata._main_ JOIN doidata.author ON doidata._main_.fk = doidata.author.fk WHERE doidata.author.name  LIKE " \
                 "\'%" + author + "%\'" + ';'
 
     print("Retrieving Articles: " + author)
@@ -184,7 +184,7 @@ def getUniAuthors(uni, cursor):
 def getUniArticles(uni, cursor):
     query = "SELECT DOI, URL, title, container_title, name as authors, affiliation, page, publisher, language, alternative_id, created_date_time, " \
                 "deposited_date_time, is_referenced_by_count, issue, issued_date_parts, prefix, published_online_date_parts, published_print_date_parts " \
-            "FROM doidata._main_ JOIN doidata.author ON doidata._main_.id = doidata.author.fk WHERE doidata.author.affiliation  LIKE " \
+            "FROM doidata._main_ JOIN doidata.author ON doidata._main_.fk = doidata.author.fk WHERE doidata.author.affiliation  LIKE " \
                 "\'%" + uni + "%\'" + ';'
     
     print("Retrieving University DOIs: " + uni)
