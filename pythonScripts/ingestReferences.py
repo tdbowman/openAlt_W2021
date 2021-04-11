@@ -1,5 +1,5 @@
 # author: Rihat Rahman
-# Lines: 1-54
+# Lines: 1-49
 # script to ingest references from MongoDB to MySQL
 #-------------------------------------------------------------
 

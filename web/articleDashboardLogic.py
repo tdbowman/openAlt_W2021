@@ -407,7 +407,9 @@ def articleDashboardLogic(mysql, mysql2, mysql3, years_list, yearInput, citation
     citationCountResult = cursor3.fetchone()
 
 
-
+    # Author: Rihat Rahman
+    # Lines: 413 - 467
+    #---------------------------------------------------------------------------------------------
     citationChartResults = []
 
     for year in citation_years_list:
@@ -419,7 +421,19 @@ def articleDashboardLogic(mysql, mysql2, mysql3, years_list, yearInput, citation
         citationChartResults.append(citationCount['count'])
         
 
-    print(citation_years_list)
+    cambiaevent = organizeEventData(cambiaevent)
+    crossrefevent = organizeEventData(crossrefevent)
+    dataciteevent = organizeEventData(dataciteevent)
+    f1000event = organizeEventData(f1000event)
+    hypothesisevent = organizeEventData(hypothesisevent)
+    newsfeedevent = organizeEventData(newsfeedevent)
+    redditevent = organizeEventData(redditevent)
+    redditlinksevent = organizeEventData(redditlinksevent)
+    stackexchangeevent = organizeEventData(stackexchangeevent)
+    twitterevent = organizeEventData(twitterevent)
+    webevent = organizeEventData(webevent)
+    wikipediaevent = organizeEventData(wikipediaevent)
+    wordpressevent = organizeEventData(wordpressevent)
 
 
 
@@ -439,3 +453,16 @@ def articleDashboardLogic(mysql, mysql2, mysql3, years_list, yearInput, citation
                                  wordpressEventData=wordpressevent,
 								 citationCount=citationCountResult,
                                  citationChartData = citationChartResults)
+
+
+def organizeEventData (eventData):
+
+    cleanEventData = [None] * 5
+
+    for i in range(len(eventData)):
+
+        if eventData[i] != 0:
+            cleanEventData[i] = eventData[i]
+
+    return cleanEventData
+#---------------------------------------------------------------------------------------------

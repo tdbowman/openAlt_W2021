@@ -77,11 +77,11 @@ def main():
                     doiMetaData = works.doi(csvLineString)
 
                     #If author information is found in the "works" obejct then it passed to the "authorMetaDataIngest.py" for processing
-                    if (doiMetaData['author']):
+                    # if (doiMetaData['author']):
 
-                        authorInfo = doiMetaData['author']
-                        print("Author information for DOI: " + csvLineString + " found") 
-                        authorMetaDataIngest.authorIngest(connection, cursor, csvLineString, authorInfo)
+                    #     authorInfo = doiMetaData['author']
+                    #     print("Author information for DOI: " + csvLineString + " found") 
+                    #     authorMetaDataIngest.authorIngest(connection, cursor, csvLineString, authorInfo)
 
                     if (doiMetaData['content-domain']):
 
