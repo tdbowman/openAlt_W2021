@@ -1,6 +1,6 @@
 # This script will fetch citation data from OpenCitations API and call ingest scripts to ingest data into MySQL
 # author: Rihat Rahman
-# Lines 1-63
+# Lines 1-82
 #-------------------------------------------------------------
 import mysql.connector
 import requests

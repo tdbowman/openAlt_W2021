@@ -1,5 +1,5 @@
 # Author: Rihat Rahman
-# Lines: 1 - 27
+# Lines: 1 - 35
 # This script will run with the CRON job to get an updated list of countries and store them in a CSV file.
 # The list of countries in search results home page will load from this script.
 

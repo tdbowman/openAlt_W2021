@@ -1,4 +1,5 @@
 # Author: Rihat Rahman
+# Lines: 1 - 86
 # This scripts fetches events for papers from doidata database and stores event information 
 # in JSON files. It also creates a CSV filecontaining information about which JSON file belongs to what DOI.
 # After running this script, change dataDirectory of IngestJSONMain.py to eventData folder and run that script 
