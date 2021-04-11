@@ -2,37 +2,47 @@
     "DOI-Database": {
         "name": "doidata",
         "username": "root",
-        "password": "pass",
+        "password": "Dsus1209.",
         "address": "127.0.0.1"
     },
     "Crossref-Event-Database": {
         "name": "crossrefeventdatamain",
         "username": "root",
-        "password": "",
+        "password": "Dsus1209.",
         "address": "127.0.0.1"
     },
     "OpenCitations": {
         "name": "opencitations",
         "username": "root",
-        "password": "",
+        "password": "Dsus1209.",
         "address": "127.0.0.1"
     },
     "MongoDB-SciELO-Database": {
         "name": "SciELOData",
         "collection": "SciELODOI",
         "username": "root",
-        "password": "",
+        "password": "Dsus1209.",
+        "address": "mongodb://localhost:27017/"
+    },
+    "MongoDB-OpenCitations-Database": {
+        "name": "OpenCitations",
+        "citation_collection": "citations",
+        "reference_collection": "references",
         "address": "mongodb://localhost:27017/"
     },
     "Crossref-Event-API": {
         "name": "crossrefEventAPI",
-        "url": "https://api.eventdata.crossref.org/v1/events?mailto=GroovyBib@example.org&obj-id="
+        "url": "https://api.eventdata.crossref.org/v1/events?mailto=YOUR_EMAIL_HERE&obj-id="
     },
     "Crossref-Metadata-API": {
         "name": "crossrefMetadataAPI",
         "doi_url": "https://api.crossref.org/works/",
         "author_url": "https://api.crossref.org/works?query.author=",
         "uni_url": "https://api.crossref.org/works?query.affiliation="
+    },
+    "MongoDB-Event-Database": {
+        "name": "EventDatabase",
+        "address": "mongodb://localhost:27017/"
     },
     "OpenCitations-Citation-API": {
         "name": "openCitationsCitationAPI",
@@ -52,7 +62,8 @@
     },
     "SciELO-Brazil-Data-API": {
         "name": "sciEloMetadataAPI",
-        "url": "https://api.crossref.org/works/10.1590/"
+        "url": "https://api.crossref.org/works/",
+        "url-code": "10.1590"
     },
     "User-Result-Limit": {
         "limit": "1000",
@@ -60,5 +71,8 @@
     },
     "Admin": {
         "email": "darpanshah8@gmail.com"
+    },
+    "SciELO-Brazil-Log": {
+        "file_limit": "100"
     }
 }
