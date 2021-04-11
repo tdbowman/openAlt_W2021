@@ -29,7 +29,7 @@
 		let $yearRangeBoxes = $(".yearRange");
 
 		// Author: Rihat Rahman
-		// Lines: 31 - 45
+		// Lines: 35 - 44
 		// -----------------------------------------------------------------------
 		// jQuery statement that references the domain text box
 		let $domainBox = $("#domain");
@@ -43,8 +43,6 @@
 		// jQuery statement that references the clear filter button.
 		let $clearButton = $("button[name='clear-button']");
 		// -----------------------------------------------------------------------
-
-
 
 		// Grabs the oldest publication year from searchLogic.py.
 		let oldPubYear = parseInt("{{ oldestPubYear }}", 10);
@@ -69,27 +67,7 @@
 			}
 		});
 
-
-		// Grab the values from the keys in sessionStorage.
-
-		// let selectedValue = JSON.parse(sessionStorage.getItem('selected')) || "PublicationYearDescending";
-		// let selectedValuePerPage = JSON.parse(sessionStorage.getItem('selectedPerPage')) || "10";
-
-		// let startYear = JSON.parse(sessionStorage.getItem('startYear')) || "";
-		// let endYear = JSON.parse(sessionStorage.getItem('endYear')) || "";
-
-		// let domain =  JSON.parse(sessionStorage.getItem('domain')) || "";
-		// let country =  JSON.parse(sessionStorage.getItem('country')) || "";
-		// let university =  JSON.parse(sessionStorage.getItem('university')) || "";
-
-
-
-
-
-
-		// Author: Rihat Rahman
-		// Lines: 87 - 160
-		// -----------------------------------------------------------------------
+		
 		// To retrieve selected value (PublicationYearDescending / PublicationYearAscending) from session storage
 		if ((sessionStorage.getItem('selected') !== 'null') && (sessionStorage.getItem('selected') !== 'undefined')) {
 			selectedValue = JSON.parse(sessionStorage.getItem('selected'));
@@ -99,7 +77,6 @@
 			// default selected value
 			selectedValue = "PublicationYearDescending"
 		}
-
 
 		// To retrieve number of publications selected per page from session storage
 		if ((sessionStorage.getItem('selectedperPage') !== 'null') && (sessionStorage.getItem('selectedPerPage') !== 'undefined')) {
@@ -132,6 +109,9 @@
 		}
 
 
+		// Author: Rihat Rahman
+		// Lines: 115 - 140
+		// -----------------------------------------------------------------------
 		// To retrieve country from session storage
 		if (sessionStorage.getItem('country') == 'undefined') {
 			country = ''
@@ -140,7 +120,6 @@
 		else {
 			country = JSON.parse(sessionStorage.getItem('country'));
 		}
-
 
 		// To retrieve domain year from session storage
 		if (sessionStorage.getItem('domain') == 'undefined') {
@@ -151,7 +130,6 @@
 			domain = JSON.parse(sessionStorage.getItem('domain'));
 		}
 
-
 		// To retrieve university from session storage
 		if (sessionStorage.getItem('university') == 'undefined') {
 			university = ''
@@ -160,8 +138,6 @@
 		else {
 			university = JSON.parse(sessionStorage.getItem('university'));
 		}
-
-		console.log(domain)
 		// -----------------------------------------------------------------------
 
 
@@ -199,13 +175,12 @@
 
 
 			// Author: Rihat Rahman
-			// Lines: 202 - 205
+			// Lines: 180 - 182
 			// -----------------------------------------------------------------------
 			let $domainValue = $domainBox.val();
 			let $countryValue = $countryBox.val();
 			let $universityValue = $universityBox.val();
 			// -----------------------------------------------------------------------
-
 
 			// If the current values of both text boxes are not empty....
 			// NaN = Not A Number = An empty text box
@@ -256,11 +231,12 @@
 
 
 			// Author: Rihat Rahman
-			// Lines: 253 - 332
+			// Lines: 236 - 238
 			// -----------------------------------------------------------------------
 			sessionStorage.setItem("domain", JSON.stringify($domainValue));
 			sessionStorage.setItem("country", JSON.stringify($countryValue));
 			sessionStorage.setItem("university", JSON.stringify($universityValue));
+			// -----------------------------------------------------------------------
 
 		});
 
@@ -282,6 +258,9 @@
 		$perPageDropdown.val(selectedValuePerPage);
 
 
+		// Author: Rihat Rahman
+		// Lines: 265 - 292
+		// -----------------------------------------------------------------------
 		// Display value of domain
 		if (domain !== '') {
 			$domainBox.val(domain);
@@ -298,45 +277,14 @@
 		}
 
 
+		// Button to clear all fields and reload page
 		$clearButton.click(function () {
-
-			// Grab the current value of the startYear and endYear text boxes
-			// let $startYearCurrentValue = $startYearBox.val();
-			// $startYearCurrentValue = parseInt($startYearCurrentValue, 10);
-
-			// let $endYearCurrentValue = $endYearBox.val();
-			// $endYearCurrentValue = parseInt($endYearCurrentValue, 10);
-
-			// let $sortDropdownCurrentValue = $sortDropdown.val();
-			// let $perPageDropdownCurrentValue = $perPageDropdown.val();
-
-			// let $domainValue = $domainBox.val();
-			// let $countryValue = $countryBox.val();
-			// let $universityValue = $universityBox.val();
-
-
-			// sessionStorage.setItem("startYear", JSON.stringify());
-			// sessionStorage.setItem("endYear", JSON.stringify());
-			// sessionStorage.setItem("selected", JSON.stringify());
-			// sessionStorage.setItem("selectedPerPage", JSON.stringify());
-			// sessionStorage.setItem("domain", JSON.stringify());
-			// sessionStorage.setItem("country", JSON.stringify());
-			// sessionStorage.setItem("university", JSON.stringify());
-
-			// startYear = ''
-			// endYear = ''
-			// selectedValue = 'PublicationYearDescending'
-			// selectedValuePerPage = '10'
-			// domain = ''
-			// country = ''
-			// university = ''
 
 			document.getElementById("university").value = "";
 			document.getElementById("country").value = "Select";
 			document.getElementById("domain").value = "";
 
-
-
+			// Reload page
 			$($submitButton).click();
 
 		});
@@ -391,7 +339,7 @@
 
 
 		<!-- Author: Rihat Rahman -->
-		<!-- Lines: 377 - 646 -->
+		<!-- Lines: 344 - 616 -->
 		<!---------------------------------------------------------------------------------------->
 		<div class="col-sm-4">
 			<h3 id="searchFil1">Country:</h3>
@@ -733,13 +681,14 @@
 						</div>
 
 
-
-
+						<!--Author: Rihat Rahman-->
+						<!--Lines: 687 - 719 -->
+						<!--------------------------------------------------------------->
 						<div class="SR_country">
 							<strong>Country:</strong>
-							<!--For articles that have no authors in the database-->
 							
-							{% if not result.author_list %}
+							<!--If no countries are listed-->
+							{% if not result.list_of_countries %}
 							Unknown
 							{% endif %}
 
@@ -755,11 +704,11 @@
 						<div class="SR_university">
 							<strong>University:</strong>
 
-
-							{% if not result.author_list %}
+							{% if not result.list_of_universities %}
 							Unknown
 							{% endif %}
 
+							<!--If no universities are listed-->
 							{% for university in result.list_of_universities %}
 
 								{{ university }}{% if not loop.last %},
@@ -767,8 +716,8 @@
 
 							{% endfor %}
 
-
 						</div>
+						<!--------------------------------------------------------------->
 
 
 						<div class="SR_articleDate">

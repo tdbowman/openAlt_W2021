@@ -96,8 +96,6 @@ def searchLogic(mysql, mysql2, dropdownValue):
         while (temp_year < endYear + 1):
             selected_years.append(temp_year)
             temp_year += 1
-        print(selected_years[0])
-        print(selected_years[1])
     except:
         selected_years = []
 
@@ -115,16 +113,16 @@ def searchLogic(mysql, mysql2, dropdownValue):
     #   the search term, and the years selected, if any
 
 
-    print(domain)
     # Author: Rihat Rahman
-    # Lines: 119 - 170
+    # Lines: 120 - 168
+    # create part of the query for advanced search and add it to the regular search query
     # ---------------------------------------------------------------------------------------------------
     if (country == None) | (country == 'Select'):
         country = ''
         country_query = ''
 
     else:
-        country_query = country_query =  " country like '" + country +"'"
+        country_query = country_query =  " country like '%" + country + "%'"
 
 
     if domain == None:
@@ -171,7 +169,6 @@ def searchLogic(mysql, mysql2, dropdownValue):
     # ---------------------------------------------------------------------------------------------------
 
 
-
     # Search by DOI
     if (selection == "DOI"):
 
@@ -188,7 +185,6 @@ def searchLogic(mysql, mysql2, dropdownValue):
                 s_years + advanced_query + " order by published_print_date_parts" + descending_or_ascending
 
         
-        print(sql)
         cursor.execute(sql)
         result_set = cursor.fetchall()
 
@@ -206,6 +202,28 @@ def searchLogic(mysql, mysql2, dropdownValue):
                 # get list of authors for given fk
                 author_list = cursor.fetchall()
 
+            # Author: Rihat Rahman
+            # Lines: 210 - 224
+            # arrays to store country and university information and display in on search results page
+            # ---------------------------------------------------------------------------------------------------
+            list_of_countries = []
+            list_of_universities = []
+
+            for author in author_list:
+
+                if author['country'] not in list_of_countries:
+                    if author['country'] != None:
+                        if author['country'] != '':
+                            list_of_countries.append(author['country'])
+
+
+                if author['university'] not in list_of_universities:
+                    if author['university'] != None:
+                        if author['university'] != '':
+                            list_of_universities.append(author['university'])
+            # ---------------------------------------------------------------------------------------------------
+
+
             TotalEventsQuerySum = "SELECT totalEvents AS sumCount FROM crossrefeventdatamain.main WHERE objectID = 'https://doi.org/" + \
                 row['doi'] + "';"
             cursor6.execute(TotalEventsQuerySum)
@@ -222,7 +240,9 @@ def searchLogic(mysql, mysql2, dropdownValue):
                        'journalName': row['container_title'],
                        'articleDate': row['published_print_date_parts'],
                        'author_list': author_list,
-                       'totalEventsSum': totalEventsSum}
+                       'totalEventsSum': totalEventsSum,
+                       'list_of_countries': list_of_countries,
+                       'list_of_universities': list_of_universities}
             # append article dict to returnedQueries list
             returnedQueries.append(article)
 
@@ -269,11 +289,31 @@ def searchLogic(mysql, mysql2, dropdownValue):
                     author_list = []
                     if fk is not None:
                         # look up author table by fk
-                        author_sql = "select id, name, author, country from author where fk = " + \
+                        author_sql = "select id, name, university, country from doidata.author where fk = " + \
                             str(fk) + ";"
                         cursor.execute(author_sql)
                         # get list of authors for given fk
                         author_list = cursor.fetchall()
+
+                    # Author: Rihat Rahman
+                    # Lines: 302 - 315
+                    # arrays to store country and university information and display in on search results page
+                    # ---------------------------------------------------------------------------------------------------
+                    list_of_countries = []
+                    list_of_universities = []
+
+                    for author in author_list:
+                        if author['country'] not in list_of_countries:
+                            if author['country'] != None:
+                                if author['country'] != '':
+                                    list_of_countries.append(author['country'])
+
+
+                        if author['university'] not in list_of_universities:
+                            if author['university'] != None:
+                                if author['university'] != '':
+                                    list_of_universities.append(author['university'])
+                    # ---------------------------------------------------------------------------------------------------
 
                     TotalEventsQuerySum = "SELECT totalEvents AS sumCount FROM crossrefeventdatamain.main WHERE objectID = 'https://doi.org/" + \
                         row['doi'] + "';"
@@ -291,7 +331,9 @@ def searchLogic(mysql, mysql2, dropdownValue):
                                'journalName': row['container_title'],
                                'articleDate': row['published_print_date_parts'],
                                'author_list': author_list,
-                               'totalEventsSum': totalEventsSum}
+                               'totalEventsSum': totalEventsSum,
+                               'list_of_countries': list_of_countries,
+                                'list_of_universities': list_of_universities}
                     # append article dict to returnedQueries list
                     returnedQueries.append(article)
 
@@ -306,7 +348,7 @@ def searchLogic(mysql, mysql2, dropdownValue):
         if not selected_years:
             # no year filter
             sql = "Select doi, title, container_title, published_print_date_parts, fk from _main_ where container_title like '%" + \
-                search + advanced_query + "%\' order by published_print_date_parts" + descending_or_ascending + ";"
+                search + "%\'" +  advanced_query + " order by published_print_date_parts" + descending_or_ascending + ";"
         else:
             # with year filter
             sql = "Select doi, title, container_title, published_print_date_parts, fk from _main_ where container_title like '%" + \
@@ -330,6 +372,27 @@ def searchLogic(mysql, mysql2, dropdownValue):
                 # get list of authors for given fk
                 author_list = cursor.fetchall()
 
+
+            # Author: Rihat Rahman
+            # Lines: 380 - 393
+            # arrays to store country and university information and display in on search results page
+            # ---------------------------------------------------------------------------------------------------
+            list_of_countries = []
+            list_of_universities = []
+
+            for author in author_list:
+                if author['country'] not in list_of_countries:
+                    if author['country'] != None:
+                        if author['country'] != '':
+                            list_of_countries.append(author['country'])
+
+
+                if author['university'] not in list_of_universities:
+                    if author['university'] != None:
+                        if author['university'] != '':
+                            list_of_universities.append(author['university'])
+             # ---------------------------------------------------------------------------------------------------
+
             TotalEventsQuerySum = "SELECT totalEvents AS sumCount FROM crossrefeventdatamain.main WHERE objectID = 'https://doi.org/" + \
                 row['doi'] + "';"
             cursor4.execute(TotalEventsQuerySum)
@@ -346,7 +409,9 @@ def searchLogic(mysql, mysql2, dropdownValue):
                        'journalName': row['container_title'],
                        'articleDate': row['published_print_date_parts'],
                        'author_list': author_list,
-                       'totalEventsSum': totalEventsSum}
+                       'totalEventsSum': totalEventsSum,
+                       'list_of_countries': list_of_countries,
+                        'list_of_universities': list_of_universities}
             returnedQueries.append(article)
 
         returnedQueries.append(None)
@@ -366,7 +431,7 @@ def searchLogic(mysql, mysql2, dropdownValue):
                 "%\' and substr(published_print_date_parts, 1,4) in" + \
                 s_years + advanced_query + " order by published_print_date_parts" + descending_or_ascending + ";"
 
-        print(sql)
+
         cursor.execute(sql)
         result_set = cursor.fetchall()
 
@@ -377,26 +442,32 @@ def searchLogic(mysql, mysql2, dropdownValue):
             author_list = []
             if fk is not None:
                 # look up author table by fk
-                author_sql = "select id, name, university, country from author where fk = " + \
+                author_sql = "select id, name, university, country from doidata.author where fk = " + \
                     str(fk) + ";"
                 cursor.execute(author_sql)
                 # get list of authors for given fk
                 author_list = cursor.fetchall()
 
+
+            # Author: Rihat Rahman
+            # Lines: 456 - 469
+            # arrays to store country and university information and display in on search results page
+            # ---------------------------------------------------------------------------------------------------
             list_of_countries = []
             list_of_universities = []
 
             for author in author_list:
                 if author['country'] not in list_of_countries:
                     if author['country'] != None:
-                        list_of_countries.append(author['country'])
+                        if author['country'] != '':
+                            list_of_countries.append(author['country'])
+
 
                 if author['university'] not in list_of_universities:
                     if author['university'] != None:
-                        list_of_universities.append(author['university'])
-                
-
-
+                        if author['university'] != '':
+                            list_of_universities.append(author['university'])
+            # ---------------------------------------------------------------------------------------------------
 
             TotalEventsQuerySum = "SELECT totalEvents AS sumCount FROM crossrefeventdatamain.main WHERE objectID ='https://doi.org/" + \
                 row['doi'] + "';"
@@ -419,7 +490,6 @@ def searchLogic(mysql, mysql2, dropdownValue):
                        'list_of_universities': list_of_universities}
             returnedQueries.append(article)
 
-            # print(article)
 
         returnedQueries.append(None)
         cursor.close()

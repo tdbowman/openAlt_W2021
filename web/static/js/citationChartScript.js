@@ -1,4 +1,7 @@
-
+// Author: Rihat Rahman
+// Lines 1 - 78
+// This script generates citation bar graph
+//-------------------------------------------------------------------------------------------
 const citationColor = '#FF4500';
 
 let citationBool = true;
@@ -12,7 +15,6 @@ for (var i = 0; i < citationElements.length; i++) {
 	citationElements[i].style.display = "initial";
 }
 
-
 var citationChart = c3.generate({
     bindto: '#citationChart',
     data: {
@@ -25,8 +27,6 @@ var citationChart = c3.generate({
         colors: {
             [citationEvent[0]]: citationColor
         },
-
-        
     },
 
     legend: {
@@ -71,9 +71,8 @@ var citationChart = c3.generate({
 	size: {
 		width: 670
 	}
-
-
 });
 
 var loader = document.getElementById("changeAfterChart");
 loader.className = "col-sm-7";
+//-------------------------------------------------------------------------------------------

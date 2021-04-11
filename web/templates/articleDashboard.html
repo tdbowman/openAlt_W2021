@@ -48,6 +48,9 @@
         let $citationSubmitButton = $("input[name='citationYearButton']");
  
 
+        // Author: Rihat Rahman
+        // Lines: 54 - 166
+        // ------------------------------------------------------------------------------------------------
         let $barButton = $("[name='barButton']");
         let $tableButton = $("[name='tableButton']");
         
@@ -58,14 +61,10 @@
 
         $tables.hide();
 
-    
-        console.log(twitterevent)
 
+        // table to Display events
         var table = document.getElementById("eventTable");
-
-
         var row = table.insertRow(0);
-
         columns = ['Type of Event', years_list[0], years_list[1], years_list[2], years_list[3], years_list[4]];
 
         var i;
@@ -74,10 +73,7 @@
             header.innerHTML = columns[i];
             row.appendChild(header);
         }
-
   
-
-
         let dataToInsert = []
         dataToInsert.push(cambiaevent)
         dataToInsert.push(crossrefevent)
@@ -93,10 +89,7 @@
         dataToInsert.push(wikipediaevent)
         dataToInsert.push(wordpressevent)
         
-
         insertRows(dataToInsert)
-
-
 
         function insertRows(data) {
 
@@ -109,7 +102,6 @@
 
                 x++;
 
-
                 var cell1 = row.insertCell(0);
                 var cell2 = row.insertCell(1);
                 var cell3 = row.insertCell(2);
@@ -120,13 +112,10 @@
                 var j;
 
                 for (j = 0; j < 7; j++){
-
                     if (data[i][j] == undefined){
-
                         data[i].push('0')
                     }
                 }
-
 
                 cell1.innerHTML = data[i][0];
                 cell2.innerHTML = data[i][2];
@@ -138,14 +127,9 @@
         }
 
 
-
+        // Table to display citations
         var citationTable = document.getElementById("citationTable");
-
         var row = citationTable.insertRow(0);
-
-
-
-
         columns = ['Year', citation_years_list[0], citation_years_list[1], citation_years_list[2], citation_years_list[3], citation_years_list[4]];
 
         var i;
@@ -159,7 +143,6 @@
 
         var row = citationTable.insertRow(1);
 
-
         var cell1 = row.insertCell(0);
         var cell2 = row.insertCell(1);
         var cell3 = row.insertCell(2);
@@ -168,15 +151,11 @@
         var cell6 = row.insertCell(5);
 
         var j;
-
         for (j = 0; j < 7; j++){
-
             if (citationData[j] == undefined){
-
                 citationData.push('0')
             }
         }
-
 
         cell1.innerHTML = 'Citations';
         cell2.innerHTML = citationData[1];
@@ -184,7 +163,7 @@
         cell4.innerHTML = citationData[3];
         cell5.innerHTML = citationData[4];
         cell6.innerHTML = citationData[5];
-
+        // ------------------------------------------------------------------------------------------------
 
 
         // Creates in instance of the currentTime and grabs the year from it.
@@ -197,20 +176,19 @@
 
         // If there are no events, hide the form.
         if ('{{totalEventsSum}}' === '0') {
-            $(".form-inline").hide();
+            // $(".form-inline").hide();
             $("#LatestEvents").hide();
         }
 
-
         // Grab the tspan elements and search through the array.
-        let x = document.getElementsByTagName("tspan");
-        for (let i = 0; i < x.length; i++) {
-            // If the value of the text is equal to the input submitted by the user, change the color to red, increase the size and bold the label.
-            if (x[i].innerHTML === '{{yearInput}}') {
-                x[i].style.fill = "#A15951";
-                x[i].style.font = "bold 18px sans-serif";
-            }
-        }
+        // let x = document.getElementsByTagName("tspan");
+        // for (let i = 0; i < x.length; i++) {
+        //     // If the value of the text is equal to the input submitted by the user, change the color to red, increase the size and bold the label.
+        //     if (x[i].innerHTML === '{{yearInput}}') {
+        //         x[i].style.fill = "#A15951";
+        //         x[i].style.font = "bold 18px sans-serif";
+        //     }
+        // }
 
         // Grabs all elements (g) from the class ".c3-axis-y" and stores them as objects in $yAxis.
         let $yAxis = $(".c3-axis-y");
@@ -279,6 +257,9 @@
 
 
 
+        // Author: Rihat Rahman
+        // Lines: 263 - 297
+        // ------------------------------------------------------------------------------------------------
         $citationSubmitButton.click(function () {
             // If the year text box is empty, send an alert and don't allow the user to submit the form.
             if (document.forms['CitationYearRange'].citationYear.value == "") {
@@ -297,27 +278,24 @@
             }
         });
 
-
+        // Button to switch from graph to table
         $tableButton.click(function () {
 
             $tableButton.css("backgroundColor", "#1DA1F2")
             $barButton.css("backgroundColor", "#313131")
             $graph.hide();
             $tables.show();
-
         });
 
-
+        // button to switch from table to graph
         $barButton.click(function () {
 
             $barButton.css("backgroundColor", "#1DA1F2")
             $tableButton.css("backgroundColor", "#313131")
             $tables.hide();
             $graph.show();
-            
-            
         });
-
+        // ------------------------------------------------------------------------------------------------
 
 
         // When the focus is inside the year text box...
@@ -554,6 +532,10 @@
                         </form>
                     </div>
 
+                    <!--Author: Rihat Rahman-->
+                    <!--Lines: 539 - 571-->
+                    <!----------------------------------------------------------------------------------------------------------------------->
+                    <!--Citatoin bar graph-->
                     <h3 style="text-align: center;">Citations for this article over {{citation_years_list[0]}} - {{citation_years_list[-1]}}
                     </h3>
                     <div id="citationChart"></div>
@@ -570,11 +552,13 @@
 
 
                 <div id= "tables">
+                    <!--Event Table-->
                     <h3 style="text-align: center; padding-bottom: 15px;">Events for this article over {{years_list[0]}} - {{years_list[-1]}}
                     </h3>
                     <table id= "eventTable">
                     </table>
 
+                    <!--Citation Table-->
                     <h3 style="text-align: center; padding-bottom: 15px;">Citations for this article over {{citation_years_list[0]}} - {{citation_years_list[-1]}}
                     </h3>
                     <table id= "citationTable">
@@ -585,6 +569,7 @@
                     <input name= "barButton" type= "submit" value = "Bar Graph" style="border-radius:20px 0 0 20px; outline: none;">
                     <input name= "tableButton" type= "submit" value = "Table" style="border-radius:0 20px 20px 0; outline: none;" >
                 </div>
+                <!----------------------------------------------------------------------------------------------------------------------->
 
 
             </div>
