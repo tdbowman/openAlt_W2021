@@ -67,10 +67,10 @@ app.config['MYSQL_CURSORCLASS'] = 'DictCursor'
 # Database initialization and cursor
 mysql = MySQL(app)
 
-# global variable to store admin password
+# Global variable to store admin password
 glpass = ""
 
-# test
+# Initalize global variable to check admin login
 logged = False
 
 # for reCAPTCHA
@@ -531,16 +531,17 @@ def admin():
         logged = False
 
         # Password creation
-        source = string.ascii_letters + string.digits
+        source = string.ascii_letters + string.digits #+ '!@#$%^&*()!@#$%^&*()'
         pw = ''.join((random.choice(source) for i in range(10)))
 
         emailAdmin(pw)
         global glpass
+        # Stores randomly generated password in a global variable
         glpass = pw
         return flask.render_template('adminLogin.html', pw = pw)
     elif request.method=="POST":
         if request.form['pw_input']==glpass:
-
+            # If input password matches the global variable, login as admin changed to True
             logged = True
             return redirect('/adminConfigUpdate')
         else:
@@ -553,10 +554,15 @@ def admin():
 def adminConfigUpdate():
     global logged
     if logged == False:
+        # Prevent user from accessing this page without logging in
         return redirect('/admin')
     elif request.method == "GET":
+        # Pass the variable pointing to the config file to the HTML page
         return flask.render_template('adminConfigUpdate.html', confOA=APP_CONFIG)
     elif request.method == "POST":
+        # Update the config file with the changes made by the admin
+        # This is not dynamic and must be modified if the anything is added to the config file
+        # Otherwise the config file will be overwritten every time this page is loaded
         dict01 = request.form['key0.1']
         APP_CONFIG["Admin"]["email"] = dict01
         dict11 = request.form['key1.1']
