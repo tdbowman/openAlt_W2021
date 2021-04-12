@@ -251,15 +251,4 @@ def checkIP(ip, type, cursor):
 
 
 
-
-
-
-
-
-
-
-
-
-
-
 ######## Darpan End ########

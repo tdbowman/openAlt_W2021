@@ -1,4 +1,4 @@
-###### Darpan Start ######
+#Author: Darpan
 import os
 import json
 import csv
@@ -300,7 +300,6 @@ def downloadDOI(mysql, dir_csv, type, email):
 
     #return zipEvents
 
-###### Darpan End ######
 
 def searchByDOI(mysql, fileName, type, email):
 

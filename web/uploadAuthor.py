@@ -1,4 +1,4 @@
-###### Darpan Start ######
+#Author: Darpan
 import os
 import json
 import csv
@@ -207,9 +207,6 @@ def downloadAuthor(mysql, dir_csv, type, email):
     return zipAuthor
     
     
-
-###### Darpan End ######
-
 def searchByAuthor(mysql, fileName, type, email):
 
     # Directory of doi list

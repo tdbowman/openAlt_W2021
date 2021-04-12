@@ -2,26 +2,26 @@
     "DOI-Database": {
         "name": "doidata",
         "username": "root",
-        "password": "Dsus1209.",
+        "password": "pass",
         "address": "127.0.0.1"
     },
     "Crossref-Event-Database": {
         "name": "crossrefeventdatamain",
         "username": "root",
-        "password": "Dsus1209.",
+        "password": "pass",
         "address": "127.0.0.1"
     },
     "OpenCitations": {
         "name": "opencitations",
         "username": "root",
-        "password": "Dsus1209.",
+        "password": "pass",
         "address": "127.0.0.1"
     },
     "MongoDB-SciELO-Database": {
         "name": "SciELOData",
         "collection": "SciELODOI",
         "username": "root",
-        "password": "Dsus1209.",
+        "password": "pass",
         "address": "mongodb://localhost:27017/"
     },
     "MongoDB-OpenCitations-Database": {
