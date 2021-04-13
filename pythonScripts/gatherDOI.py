@@ -7,7 +7,9 @@ import getpass
 
 #Author: Mohammad Tahmid
 #Date: 01/28/2021
+#Lines: 1-68
 #Description: Gathers a list of all DOI's in the database and saves it to a .csv in the same directory as this script
+#UPDATE: This is during the beginning of version 2.0 of the project that was replaced later on in the development of this project. This placed data in directly into the MySQL database instead of filtering into MongoDB first
 
 #Establlish a connection to the MySQL server to the correct database
 print("MySQL Credentials")

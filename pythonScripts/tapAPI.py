@@ -99,7 +99,10 @@ def beautifyJSON():
 =======
 >>>>>>> origin/rihatDev
         
-        #Added 1/24/2021 for run command for OS type
+        #Author: Mohammad Tahmid
+		#Date: 1/24/2021
+		#Lines: 102-109
+		#Description: Takes PID's and converts it into a DOI to check with Crossref to get data from. THe date is then taken and inserted into the doidata database.
         if (platform.system() == 'Linux'):
             os.system("cat " + tempFileName + " | python3 -mjson.tool > " + fileName)
         elif(platform.system() == 'Windows'):

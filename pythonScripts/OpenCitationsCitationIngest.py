@@ -7,10 +7,11 @@ import getpass
 
 #Author: 
     #Name: Mohammad Tahmid 
-    #Lines 1-113
+    #Lines 1-114
     #---------------------
 #Date: 01/31/2021
 #Description: Takes in citation JSON from the OPenCitations API to be filtered and then later inserted into the citations database.
+#UPDATE: This is during the beginning of version 2.0 of the project that was replaced later on in the development of this project. This placed data in directly into the MySQL database instead of filtering into MongoDB first
 
 def OCCitationIngest(connection, cursor, doi, citationData, citationCount):
 
