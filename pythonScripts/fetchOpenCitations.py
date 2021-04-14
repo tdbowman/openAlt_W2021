@@ -227,7 +227,7 @@ if __name__ == '__main__':
     
     # parent directory 
     parent = os.path.dirname(path) 
-    config_path = os.path.join(parent, "openAlt_W2021\\config", "openAltConfig.json")
+    config_path = os.path.join(parent, "config", "openAltConfig.json")
 
     # config file
     f = open(config_path)

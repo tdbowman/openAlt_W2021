@@ -7,10 +7,11 @@ import uploadDOI
 
 #Author: 
     #Name: Mohammad Tahmid 
-    #Lines 1-62
+    #Lines 1-63
     #---------------------
 #Date: 02/24/2021
 #Description: Handles the fetching the data from the download feature of the bulk upload and then placing a zip file of the contents onto the users computer.
+#UPDATE: This is during the beginning of version 2.0 of the project that was replaced later on in the development of this project. This placed data in directly into the MySQL database instead of filtering into MongoDB first
 
 def articleLandingDownload(DOI, fileChoice, mysql):
 

@@ -44,7 +44,7 @@ path = os.getcwd()
 
 # parent directory
 parent = os.path.dirname(path)
-config_path = os.path.join(parent, "openAlt_W2021\\config", "openAltConfig.json")
+config_path = os.path.join(parent, "config", "openAltConfig.json")
 
 # config file
 f = open(config_path)
@@ -80,7 +80,6 @@ app.config['SECRET_KEY'] = os.urandom(32)
 app.config['RECAPTCHA_PUBLIC_KEY'] = SITE_KEY
 app.config['RECAPTCHA_PUBLIC_KEY'] = SECRET_KEY
 
-
 # Instantiate a second object of class Flask
 app2 = flask.Flask(__name__)
 # Database connection settings
@@ -95,7 +94,7 @@ mysql2 = MySQL(app2)
 
 # Author:
 # Name: Mohammad Tahmid
-# Lines 57-69, 123
+# Lines 95-113
 # ---------------------
 # Date: 02/23/2021
 # Description: Passes a connection for a opencitations database
@@ -165,13 +164,13 @@ def articleDashboard():
         years_list.append(i)
         citation_years_list.append(i)
 
-        # If a HTTPS POST Request is received...
-        # Author: Mohammad Tahmid
-        # Lines: 113-127
-        # Description: Gets the DOI from the article landing page and downloads the information to the users computer
-
     # If a HTTPS POST Request is received...
     if request.method == "POST":
+	
+		# If a HTTPS POST Request is received...
+        # Author: Mohammad Tahmid
+        # Lines: 170-199
+        # Description: Gets the DOI from the article landing page and downloads the information to the users computer
 
         if request.form.get('articleDLChoice') is not None:
             # File type user wants the information dowloaded as
@@ -193,19 +192,11 @@ def articleDashboard():
                 # Zipped up contents of the data from the database
                 articleLandingEmail(mysql, fileDOI, fileChoice, valid)
 
-                # return flask.render_template('searchComplete.html')
-
             except EmailNotValidError as e:
                 print(e)
                 flash(
                     "You have entered an invalid email address. Please try again.", "danger")
                 # session.pop('_flashes', None)
-
-            # Zipped up contents of the data from the database
-            # zipEvents = articleLandingDownload(mysql, fileDOI, fileChoice, fileEmail)
-
-            # The zipped up files are downloaded onto the user's desktop
-            # return send_file(zipEvents, as_attachment=True)
 
         # Grab the year value from the year filter of the bar chart.
         if request.form.get('year') is not None:

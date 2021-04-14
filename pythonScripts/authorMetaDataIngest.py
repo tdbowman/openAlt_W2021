@@ -10,7 +10,9 @@ import logging
 
 #Author: Mohammad Tahmid
 #Date: 01/31/2021
-#Description: Takes "works" object metadata about author information and inserts it into the author table in the databaase
+#Lines: 1-86
+#Description: Takes "works" object metadata about author information and inserts it into the author table in the database. 
+#UPDATE: This is during the beginning of version 2.0 of the author metadata insertion that was replaced later on in the development of this project. This took the metadata and later placed in directly into the MySQL database instead of filtering into MongoDB first
 
 given_name = ""
 family_name = ""

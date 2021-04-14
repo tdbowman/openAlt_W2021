@@ -4,11 +4,12 @@ import mysql.connector
 
 #Author: Mohammad Tahmid
 #Date: 03/10/2021
-#Lines: 1-217
-#Description: This python script takes document info from MongoDB and fitlers and places it into the MySQL database.
+#Lines: 1-292
+#Description: This python script takes document info from MongoDB and fitlers it into a list of values to be returned and later inserted into the MySQL database
 
 def PIDtoDOIInsertSQL(connection, cursor, doiInfo, logging):
     
+	#Variables to hold the data for the MySQL query that is inserted later on
     foundDOI = ""
     foundURL = ""
     foundAlternateID = ""
@@ -44,166 +45,241 @@ def PIDtoDOIInsertSQL(connection, cursor, doiInfo, logging):
     foundVolume = ""
     foundfk = ""
 
+	#The value for "DOI is saved
     foundDOI = doiInfo['DOI']
+	
+	#----------------------------------------------------------------------
+	
+	#The value for "URL" is saved
     foundURL = doiInfo['URL']
-    #foundAlternateID = doiInfo['alternative-id'][0]
-
+	
+	#----------------------------------------------------------------------
+	
+	#The value for "alternative-id" is saved if it is not a NULL value
     if not doiInfo['alternative-id'][0]:
         foundAlternateID = ""
     else:
         foundAlternateID = doiInfo['alternative-id'][0]
-
+	
+	#----------------------------------------------------------------------
+	
+	#The value for "container-title" is saved if it is not a NULL value
     foundContainerTitle = doiInfo['container-title'][0]
+	
+	#----------------------------------------------------------------------
 
-
-    #foundCreatedDatePart = str(doiInfo['created']['date-parts'][0][0])
-    #foundCreatedDatePart = foundCreatedDatePart + "/" + str(doiInfo['created']['date-parts'][0][1])
-    #foundCreatedDatePart = foundCreatedDatePart + "/" + str(doiInfo['created']['date-parts'][0][2])
-
+	#The range for "created_date_parts" is found to see if the month, day, and year is found 
     listLength = len(doiInfo['created']['date-parts'][0])
-    for x in (range(listLength)):
+    
+	#Creates a string with the whole date
+	for x in (range(listLength)):
         if (x == listLength - 1):
             foundCreatedDatePart = foundCreatedDatePart + str(doiInfo['created']['date-parts'][0][x])
         else:
             foundCreatedDatePart = foundCreatedDatePart + str(doiInfo['created']['date-parts'][0][x]) + "/"
+	
+	#----------------------------------------------------------------------
 
+	#Take the 'date-time" value and replaces some of the letters in the string from Crossref with spaces so it can be inserted into the MySQL database
     foundCreatedDateTime = doiInfo['created']['date-time']
     foundCreatedDateTime = foundCreatedDateTime.replace("T", " ")
     foundCreatedDateTime = foundCreatedDateTime.replace("Z", "")
+	
+	#----------------------------------------------------------------------
+	
+	#The value for "timestamp" is saved
     foundCreatedDateTimestamp = doiInfo['created']['timestamp']
+	
+	#----------------------------------------------------------------------
 
-
-    #foundDepositedDatePart = str(doiInfo['deposited']['date-parts'][0][0])
-    #foundDepositedDatePart = foundDepositedDatePart + "/" + str(doiInfo['deposited']['date-parts'][0][1])
-    #foundDepositedDatePart = foundDepositedDatePart + "/" + str(doiInfo['deposited']['date-parts'][0][2])
-
+	#The range for "deposited_date_parts" is found to see if the month, day, and year is found
     listLength = len(doiInfo['deposited']['date-parts'][0])
+	
+	#Creates a string with the whole date
     for x in (range(listLength)):
         if (x == listLength - 1):
             foundDepositedDatePart = foundDepositedDatePart + str(doiInfo['deposited']['date-parts'][0][x])
         else:
             foundDepositedDatePart = foundDepositedDatePart + str(doiInfo['deposited']['date-parts'][0][x]) + "/"
+			
+	#----------------------------------------------------------------------
 
+	#Take the 'deposited_date-time" value and replaces some of the letters in the string from Crossref with spaces so it can be inserted into the MySQL database
     foundDepositedDateTime = doiInfo['deposited']['date-time']
     foundDepositedDateTime = foundDepositedDateTime.replace("T", " ")
     foundDepositedDateTime = foundDepositedDateTime.replace("Z", "")
+	
+	#----------------------------------------------------------------------
+	
+	#The value for "timestamp" is saved
     foundDepositedTimestamp = doiInfo['deposited']['timestamp']
 
+	#----------------------------------------------------------------------
 
-    #foundIndexedDatePart = str(doiInfo['indexed']['date-parts'][0][0])
-    #foundIndexedDatePart = foundIndexedDatePart + "/" + str(doiInfo['indexed']['date-parts'][0][1])
-    #foundIndexedDatePart = foundIndexedDatePart + "/" + str(doiInfo['indexed']['date-parts'][0][2])
-
+	#The range for "indexed_date_parts" is found to see if the month, day, and year is found
     listLength = len(doiInfo['indexed']['date-parts'][0])
+	
+	#Creates a string with the whole date
     for x in (range(listLength)):
         if (x == listLength - 1):
             foundIndexedDatePart = foundIndexedDatePart + str(doiInfo['indexed']['date-parts'][0][x])
         else:
             foundIndexedDatePart = foundIndexedDatePart + str(doiInfo['indexed']['date-parts'][0][x]) + "/"
+	
+	#----------------------------------------------------------------------
 
+	#Take the 'deposited_date-time" value and replaces some of the letters in the string from Crossref with spaces so it can be inserted into the MySQL database
     foundIndexedDateTime = doiInfo['indexed']['date-time']
     foundIndexedDateTime = foundIndexedDateTime.replace("T", " ")
     foundIndexedDateTime = foundIndexedDateTime.replace("Z", "")
+	
+	#----------------------------------------------------------------------
+	
+	#The value for "timestamp" is saved
     foundIndexedTimestamp = doiInfo['indexed']['timestamp']
+	
+	#----------------------------------------------------------------------
 
+	#The value for "is_referenced_count" is saved
     foundIsReferencedByCount = doiInfo['is-referenced-by-count']
+	
+	#----------------------------------------------------------------------
+	
+	#The value for "issue" is saved
     foundIssue = doiInfo['issue']
+	
+	#----------------------------------------------------------------------
 
+	#The range for "indexed_date_parts" is found to see if the month, day, and year is found
     listLength = len(doiInfo['issued']['date-parts'][0])
+	
+	#Creates a string with the whole date
     for x in (range(listLength)):
         if (x == listLength - 1):
             foundIssuedDatePart = foundIssuedDatePart + str(doiInfo['issued']['date-parts'][0][x])
         else:
             foundIssuedDatePart = foundIssuedDatePart + str(doiInfo['issued']['date-parts'][0][x]) + "/"
 
-    default = ""
+    #----------------------------------------------------------------------
+	
+	default = ""
     foundLanguage = doiInfo.get("language", default)
 
+	#----------------------------------------------------------------------
+	
+	#The value for "member" is saved
     foundMember = doiInfo['member']
 
+	#----------------------------------------------------------------------
+	
+	#The value for "issue" is saved
     if not doiInfo['original-title']:
         foundOriginalTitle = "None"
     else:
         foundOriginalTitle = doiInfo['original-title']
+		
+	#----------------------------------------------------------------------
     
+	#The value for "ipage" is saved if not empty
     if not doiInfo['page']:
         foundPage = ""
     else:
         foundPage = doiInfo['page']
+		
+	#----------------------------------------------------------------------
     
+	#The value for "prefix" is saved
     foundPrefix = doiInfo['prefix']
+	
+	#----------------------------------------------------------------------
 
+	#The value for "published_date_parts" is saved
     if doiInfo['published-print']['date-parts'][0]:
         foundPublishedPrintDatePart = ""
     else:
+		
+		#The range is found to see if month, day, and year exist and make the string accordingly
         listLength = len(doiInfo['published-print']['date-parts'][0])
         for x in (range(listLength)):
             if (x == listLength - 1):
                 foundPublishedPrintDatePart = foundPublishedPrintDatePart + str(doiInfo['published-print']['date-parts'][0][x])
             else:
                 foundPublishedPrintDatePart = foundPublishedPrintDatePart + str(doiInfo['published-print']['date-parts'][0][x]) + "/"
+	
+	#----------------------------------------------------------------------
 
+	#The value for "publisher" is saved
     foundPublisher = doiInfo['publisher']
-
+	
+	#----------------------------------------------------------------------
+	
+	#The value for "reference_count" is saved
     foundReferenceCount = doiInfo['reference-count']
+	
+	#----------------------------------------------------------------------
 
+	#The value for "references_count" is saved
+	#"Reference" and "References" two different values
     foundReferencesCount = doiInfo['references-count']
+	
+	#----------------------------------------------------------------------
 
+	#The value for "score" is saved
     foundScore = doiInfo['score']
+	
+	#----------------------------------------------------------------------
 
+	#The value for "short_container_title" is saved if not empty
     if not doiInfo['short-container-title'][0]:
         foundShortContainerTitle = "None"
     else:
         foundShortContainerTitle = doiInfo['short-container-title'][0]
-
+		
+	#----------------------------------------------------------------------
+	
+	#The value for "short_title" is saved if not empty
     if not doiInfo['short-title']:
         foundShortTitle = "None"
     else:
         foundShortTitle = doiInfo['short-title']
-    
-    foundSource = doiInfo['source']
+		
+	#----------------------------------------------------------------------
 
+	#The value for "source" is saved if not empty
+    foundSource = doiInfo['source']
+	
+	#----------------------------------------------------------------------
+
+	#The value for "subtitle" is saved if not empty
     if not doiInfo['subtitle']:
         foundSubtitle = "None"
     else:
         foundSubtitle = doiInfo['subtitle']
+		
+	#----------------------------------------------------------------------
 
+	#The value for "title" is saved if not empty
     if not doiInfo['title'][0]:
         foundTitle = "None"
     else:
         foundTitle = doiInfo['title'][0]
+		
+	#----------------------------------------------------------------------
 
+	#The value for type" is saved
     foundType = doiInfo['type']
+	
+	#----------------------------------------------------------------------
 
+	#The value for "svolume" is saved if not empty
     if not doiInfo['volume']:
         foundVolume = ""
     else:
         foundVolume = doiInfo['volume']
+		
+	#----------------------------------------------------------------------
 
-    query = """SELECT MAX(fk) FROM doidata._main_;"""
-    cursor.execute(query)
-    resultSet = cursor.fetchall()
-    count = int(resultSet[0][0])
-    
-    foundfk = count + 1
-
-    '''
-    print(foundDOI, foundURL, foundAlternateID, foundContainerTitle, foundCreatedDatePart, foundCreatedDateTime, 
-        foundCreatedDateTimestamp, foundDepositedDatePart, foundDepositedDateTime, foundDepositedTimestamp, foundIndexedDatePart,
-        foundIndexedDateTime, foundIndexedTimestamp, foundIsReferencedByCount, foundIssue, foundIssuedDatePart, foundLanguage,
-        foundMember, foundOriginalTitle, foundPage, foundPrefix, foundPublishedPrintDatePart, foundPublisher,foundReferenceCount, 
-        foundReferencesCount, foundScore, foundShortContainerTitle, foundShortTitle, foundSource, foundSubtitle, foundTitle, foundType, 
-        foundVolume, foundfk)
-    '''
-    
-    query = """INSERT IGNORE INTO doidata._main_(DOI, URL, alternative_id, container_title, created_date_parts, created_date_time, 
-            created_timestamp, deposited_date_parts, deposited_date_time, deposited_timestamp, 
-            indexed_date_parts, indexed_date_time, indexed_timestamp, is_referenced_by_count, issue, 
-            issued_date_parts, language, member, original_title, page, prefix, published_print_date_parts,
-            publisher, reference_count, references_count, score, short_container_title, short_title, source, subtitle, title, 
-            type, volume, fk) VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, 
-            %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s)"""
-
+	#A list of all the value is prepared and returned
     queryValues = (foundDOI, foundURL, foundAlternateID, foundContainerTitle, foundCreatedDatePart, foundCreatedDateTime, 
         foundCreatedDateTimestamp, foundDepositedDatePart, foundDepositedDateTime, foundDepositedTimestamp, foundIndexedDatePart,
         foundIndexedDateTime, foundIndexedTimestamp, foundIsReferencedByCount, foundIssue, foundIssuedDatePart, foundLanguage,
@@ -211,12 +287,6 @@ def PIDtoDOIInsertSQL(connection, cursor, doiInfo, logging):
         foundReferencesCount, foundScore, foundShortContainerTitle, foundShortTitle, foundSource, foundSubtitle, foundTitle, foundType, 
         foundVolume, foundfk)
 
-    #print(foundDOI)
-        
-    #cursor.execute(query, queryValues)
-    #connection.commit()
-
     logging.info("Added DOI: " + foundDOI)  
-
 
     return queryValues
