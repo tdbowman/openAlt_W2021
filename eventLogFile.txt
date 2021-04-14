@@ -26,3 +26,17 @@ Number of DOIs: 600      Time: 972.037867307663
 Number of DOIs: 700      Time: 1128.8602967262268
 Number of DOIs: 800      Time: 1291.5343198776245
 Number of DOIs: 900      Time: 1431.263536453247
+Number of DOIs: 10      Time: 11.539424896240234
+Number of DOIs: 10      Time: 8.561747550964355
+Number of DOIs: 10      Time: 8.581101894378662
+Number of DOIs: 10      Time: 8.068839311599731
+Number of DOIs: 10      Time: 13.428882360458374
+Number of DOIs: 100      Time: 386.3501682281494
+Number of DOIs: 200      Time: 873.0476293563843
+Number of DOIs: 300      Time: 1392.947934627533
+Number of DOIs: 400      Time: 2100.98451423645
+Number of DOIs: 500      Time: 2417.1853041648865
+Number of DOIs: 600      Time: 3218.3601698875427
+Number of DOIs: 700      Time: 3653.4757947921753
+Number of DOIs: 800      Time: 4015.4112293720245
+Number of DOIs: 900      Time: 4244.781357288361
