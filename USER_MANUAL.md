@@ -7,6 +7,7 @@ This document details how to get set-up if you would like to clone the repositor
   * Install MySQL using the [Windows Installer](https://dev.mysql.com/downloads/installer/). Be sure to install the Python connector and workbench.
   * Use pip to install the needed Python modules. This command will install them all at once:    
     `pip install schedule crossrefapi flask virtualenv python-dateutil flask-paginate pytz`
+  * Install version 4.4 or higher of MongoDB community edition by by following the instructions in this [link](https://docs.mongodb.com/manual/tutorial/install-mongodb-on-windows/). 
 ### 1.2 Ubuntu
   * Install Python 3:  
   `sudo apt install Python3`
@@ -41,10 +42,12 @@ The `OpenCitations` database can be created using the opencitationsSchema.sql th
 
 The 'BulkSearchStats' database is necessary for the bulk search limitation to avoid user abuse of the system. The schema to create this database can be found [here](https://github.com/darpanshah-wsu/openAlt_W2021/tree/master/SQL/BulkSearchStats).
 
-## 3. Collecting and Ingesting the Events 🏷️
-Before we can run the web server, we need to collect the data from the Crossref API. This will take some time, as there are millions of events to collect. We highly recommend reading Crossref's [guide](https://www.eventdata.crossref.org/guide/) before continuing.  
+## 3. Collecting and Ingesting the Events, Metadata, and Citations 🏷️
+Before we can run the web server, we also need to collect the data from the Crossref API. This will take some time, as there are millions of events to collect. We highly recommend reading Crossref's [guide](https://www.eventdata.crossref.org/guide/) before continuing.  
 
 Our Python script `openAlt/pythonScripts/fetchEventBuffer.py` grabs new Event data from the Crossref API. This data is retrieved in a JSON format and then ingest into `crossrefeventdatamain` database.
+
+Author metadata for publications are also retrieved from the Crossref API. Metada can be fetched and ingested by running the `metadataThroughMongoDB.py` script which can be found [here](https://github.com/darpanshah-wsu/openAlt_W2021/blob/master/pythonScripts/metadataThroughMongoDB.py).
 
 Citation data is retrieved from the OpenCitations API. This takes a longer duration than fetching the event data as a publication can have upwards of thosands of citations. We also recommend the reading the manual for OpenCitations API [here](https://opencitations.net/index/coci/api/v1).
 
