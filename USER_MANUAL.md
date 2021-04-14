@@ -109,6 +109,7 @@ These actions should be performed inside the `openAlt/web/` folder.
     - Open the file and type only your MySQL user password.
     - Save and close.
     - This file is ignored by git but used by app.py to access your local MySQL server.
-6) If you are not using the root MySQL user account, you will need to change the user on line 19 in `app.py`.
-6) Start the web server using `python app.py`.
-7) When the web server starts, navigate to [127.0.0.1:5000](127.0.0.1:5000).
+6) Navigate to config folder and locate `OpenAltConfig.json`. Change MySQL username and password to suit your device.
+7) If you are not using the root MySQL user account, you will need to change the user on line 19 in `app.py`.
+8) Start the web server using `python app.py`.
+9) When the web server starts, navigate to [127.0.0.1:5000](127.0.0.1:5000).
