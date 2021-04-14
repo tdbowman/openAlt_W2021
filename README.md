@@ -8,6 +8,10 @@ Platforms such as Google Scholar and Web of Science allow users to search for au
 Crossref is an official agency responsible for assigning DOIs (Document Object Identifier) to published research. They scrape the web across 13 different platforms (Twitter, Reddit, Wikipedia, and others) looking for interactions with scientific papers.
 These interactions can be in the form of tweets, reddit posts, or wikipedia references. See the Crossref [documentation](https://www.eventdata.crossref.org/guide/data/about-the-data/) to learn about the platforms. 
 
+OpenCitations is an organization dedicated to publication of citation and bibliographic data. To learn more about OpenCitations data, click [here] (https://opencitations.net/about)
+
+We also have been given data from our friends at SciELO to add foreign publications to our records. To learn more about SciELO data, click [here](https://scielo.org/en/about-scielo/scielo-data-en/about-scielo-data/) 
+
 ## The Website 
 We are developing a website which will allow users to search our databases for DOI's, authors, paper titles, or journals. Users will be able to see how many Events, and of which type, a given paper or author has generated. The number of papers published per year for a given journal will also be shown.
 
@@ -25,6 +29,12 @@ Here are some screenshots taken with a small slice of the total data.
 
 ### Author Dashboard Page
 <img src="./screenshots/authorDashboard.png" alt="Author Dashboard Page"/> <br>
+
+### Bulk Search Pages ###
+<img src="./screenshots/bulksearchUpload.png" alt="Bulk Search Upload"/> <br>
+
+### Bulk Search Pages ###
+<img src="./screenshots/bulksearchDownload.png" alt="Retrieve Bulk Search Results "/> <br>
 
 ## Dependencies and their Licenses 
 
@@ -57,5 +67,5 @@ Here are some screenshots taken with a small slice of the total data.
 ## 	Acknowledgements 
 We would like to thank:  
 * Dr. Timothy Bowman for the project idea and guidance! 💡  
-* Minh Nguyen for assisting us with technical questions 💬 
+* Saeid Mofrad and Minh Nguyen for assisting us with technical questions 💬 
 * Seyed Ziae Mousavi Mojab for teaching the class, of which this project was a part 🍎
