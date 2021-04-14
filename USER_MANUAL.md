@@ -33,14 +33,22 @@ This document details how to get set-up if you would like to clone the repositor
 ## 2. Setting up the Databases 📊
 The Event data will be ingested into a MySQL database titled `crossRefEventDataMain`. The script to create it can be found [here](https://github.com/tdbowman-CompSci-F2020/openAlt/blob/master/SQL/CrossrefeventdataWithMain/crossrefeventdataWithMain.sql).  
   
-The journal, publisher, author, title, and date information is stored in a seperate MySQL database titled `doidata`. The script to create it can be found [here](https://github.com/tdbowman-CompSci-F2020/openAlt/blob/master/SQL/DOI_Author_Database/doidata.sql).
+The journal, publisher, author, title, and date information is stored in a seperate MySQL database titled `doidata`. The script to create it can be found [here](https://github.com/darpanshah-wsu/openAlt_W2021/blob/darpanDev/SQL/DOI_Author_Database/doidataSchema.sql).
 
 Anyone can use our scripts and database schemas to create and fill in `crossRefEventDataMain`, but you will need to use other methods to fill in the needed fields for `doidata`. This [GitHub repository](https://github.com/fabiobatalha/crossrefapi) is a good place to start.
 
-## 3. Collecting and Organizing the Events 🏷️
+The `OpenCitations` database can be created using the opencitationsSchema.sql that can be found [here] (https://github.com/darpanshah-wsu/openAlt_W2021/blob/master/SQL/OpenCitations/opencitationsSchema.sql).
+
+The 'BulkSearchStats' database is necessary for the bulk search limitation to avoid user abuse of the system. The schema to create this database can be found [here] (https://github.com/darpanshah-wsu/openAlt_W2021/tree/master/SQL/BulkSearchStats).
+
+## 3. Collecting and Ingesting the Events 🏷️
 Before we can run the web server, we need to collect the data from the Crossref API. This will take some time, as there are millions of events to collect. We highly recommend reading Crossref's [guide](https://www.eventdata.crossref.org/guide/) before continuing.  
 
-Our Python script `openAlt/pythonScripts/tapAPI.py` grabs new Event data from the Crossref API on a schedule. This data is stored as a dated JSON file, where each file contains 10,000 Events. You will need to enter your email on line 19, and can modify the schedule on line 35.
+Our Python script `openAlt/pythonScripts/fetchEventBuffer.py` grabs new Event data from the Crossref API. This data is retrieved in a JSON format and then ingest into `crossrefeventdatamain` database.
+
+Citation data is retrieved from the OpenCitations API. This takes a longer duration than fetching the event data as a publication can have upwards of thosands of citations. We also recommend the reading the manual for OpenCitations API [here] (https://opencitations.net/index/coci/api/v1).
+
+`openAlt/pythonScripts/fetchOpenCitations.py` script can be run to fetch citation data for all of the publications of doidata database and store them in OpenCitations database.
 
 ### 3.1 Example JSON Format:
 Downloaded JSON files will look similar to this. Each of the 13 Event types has a unique format.  
@@ -80,7 +88,7 @@ These files will need to be ingested into the database by the following script: 
 2. Run `python ingestJSONMain.py` in your preferred terminal.
 
 ### 4.2 Ingesting from PaperBuzz Data
-We were fortunate enough to be given a dump of Crossref JSON data from the nice folks at [Paperbuzz](http://paperbuzz.org/). This one time dump we recieved is simply Crossref Event data stored in a slighly different way. Here we document how we ingested this data, but can not provide a means for others to aquire this data. While the first 10,000 of such records are located in `openAlt/SQL/DOI_Author_Database/doi_json_dump_10k.csv`, we are not making the remaining data public at this time. Anyone cloning the repository will need to use see section 2.1 and ingest JSON data which they gather themselves.
+We were fortunate enough to be given a dump of Crossref JSON data from the nice folks at [Paperbuzz](http://paperbuzz.org/). This one time dump we recieved is simply Crossref Event data stored in a slighly different way. Here we document how we ingested this data, but can not provide a means for others to aquire this data. While the first 10,000 of such records are located in `https://github.com/darpanshah-wsu/openAlt_W2021/blob/darpanDev/SQL/DOI_Author_Database/doi_mainTable_10k_V2.0.csv`, we are not making the remaining data public at this time. Anyone cloning the repository will need to use see section 2.1 and ingest JSON data which they gather themselves.
 
 #### Step By Step Guide:
 1. Open up MySQL Workbench.
