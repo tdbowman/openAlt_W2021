@@ -7,7 +7,9 @@ import getpass
 
 #Author: Mohammad Tahmid
 #Date: 01/31/2021
+#Lines: 1-65
 #Description: Takes in JSON from the OPenCitations API to be filtered and then later inserted into the citations database.
+#UPDATE: This is during the beginning of version 2.0 of the project that was replaced later on in the development of this project. This placed data in directly into the MySQL database instead of filtering into MongoDB first
 
 def OCIngest(connection, cursor, doi, jsonData):
 

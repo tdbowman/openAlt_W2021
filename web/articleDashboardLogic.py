@@ -1,12 +1,5 @@
 import flask
 
-#Author: 
-    #Name: Mohammad Tahmid 
-    #Lines 391-395, 417
-    #---------------------
-#Date: 02/23/2021
-#Description: Fetches data from database per every article in the article landing page
-
 def articleDashboardLogic(mysql, mysql2, mysql3, years_list, yearInput, citation_years_list, citationYearInput):
 
     # connect to Dr Bowman's database
@@ -394,18 +387,18 @@ def articleDashboardLogic(mysql, mysql2, mysql3, years_list, yearInput, citation
         wikipediaevent = []
         wordpressevent = []
 
-
-    '''
-	citationCountquery ="""SELECT count FROM opencitations.citation_count WHERE doi = '%s'""" % (search)
-    cursor3 = mysql3.connection.cursor()
-    cursor3.execute(citationCountquery)
-    citationCountResult = cursor3.fetchone()
-	'''
+	
+	#Author: 
+    #Name: Mohammad Tahmid 
+    #Lines 391-401, 446
+    #---------------------
+	#Date: 02/23/2021
+	#Description: Fetches data from database per every article in the article landing page
+	
     citationCountquery = """SELECT count FROM opencitations.citation_count WHERE doi = '%s'""" % (search)
     cursor3 = mysql3.connection.cursor()
     cursor3.execute(citationCountquery)
     citationCountResult = cursor3.fetchone()
-
 
     # Author: Rihat Rahman
     # Lines: 413 - 467
@@ -435,8 +428,6 @@ def articleDashboardLogic(mysql, mysql2, mysql3, years_list, yearInput, citation
     wikipediaevent = organizeEventData(wikipediaevent)
     wordpressevent = organizeEventData(wordpressevent)
 
-
-
     return flask.render_template('articleDashboard.html', years_list=years_list, citation_years_list= citation_years_list, citationYearInput = citationYearInput, yearInput=yearInput, article_detail=article, events=eventsForArticle, totalEventsSum=totalEventsSum,
                                  cambiaEventData=cambiaevent,
                                  crossrefEventData=crossrefevent,
@@ -453,7 +444,6 @@ def articleDashboardLogic(mysql, mysql2, mysql3, years_list, yearInput, citation
                                  wordpressEventData=wordpressevent,
 								 citationCount=citationCountResult,
                                  citationChartData = citationChartResults)
-
 
 def organizeEventData (eventData):
 

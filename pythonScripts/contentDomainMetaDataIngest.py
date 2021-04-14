@@ -10,7 +10,9 @@ import logging
 
 #Author: Mohammad Tahmid
 #Date: 02/03/2021
+#Lines: 1-75
 #Description: Takes "works" object metadata about content domain information and inserts it into content_domain in the databaase
+#UPDATE: This is during the beginning of version 2.0 of the content domain information insertion that was replaced later on in the development of this project. This placed data into MySQL directly instead of using MongoDB.
 
 crossmark_restriction = ""
 domain = ""

@@ -1,12 +1,5 @@
 {% extends 'template.html' %}
 
-<!--#Author: 
-    #Name: Mohammad Tahmid 
-    #Lines 195-197
-    #---------------------
-#Date: 02/23/2021
-#Description: Displays citations section onto the website on the article landing page.-->
-
 <!-- Anything you put here will be in the HTML head tags-->
 {% block head %}
 <!-- FOR CHART -->
@@ -433,8 +426,8 @@
                                     </span> </span>
                                 </div>
                                 <!--Author: Mohammad Tahmid
-						Lines: 196-211
-						Description: This is the addition to display the citation information from the database and the button to download info about a DOI-->
+									Lines: 428-453, 743-747
+									Description: This is the addition to display the citation information from the database and the button to download info about a DOI-->
                                 <div class="AD_citations">
                                     <strong>Citation(s):</strong> {{ citationCount.count }}
                                 </div>
@@ -739,6 +732,13 @@
     <script src="../static/js/table.js"></script>
     <script src="../static/js/chartScript.js"></script>
     <script src="../static/js/citationChartScript.js"></script>
+	
+	<!--#Author: 
+    #Name: Mohammad Tahmid 
+    #Lines 195-197
+    #---------------------
+	#Date: 02/23/2021
+	#Description: Displays citations section onto the website on the article landing page.-->
 	
 	<script>
         if ( window.history.replaceState ) {
