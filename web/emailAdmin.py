@@ -19,7 +19,8 @@ from email.mime.text import MIMEText
 # config file
 path = os.getcwd()
 parent = os.path.dirname(path)
-config_path = os.path.join(path, "config", "openAltConfig.json")
+#config_path = os.path.join(path, "config", "openAltConfig.json")
+config_path = "C:\\Users\\darpa\\Desktop\\openAlt_W2021\\config\\openAltConfig.json"
 f = open(config_path)
 APP_CONFIG = json.load(f)
 

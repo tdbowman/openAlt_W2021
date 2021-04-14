@@ -8,7 +8,7 @@
     "Crossref-Event-Database": {
         "name": "crossrefeventdatamain",
         "username": "root",
-        "password": "pass1234",
+        "password": "pass",
         "address": "127.0.0.1"
     },
     "OpenCitations": {
@@ -28,10 +28,6 @@
         "name": "OpenCitations",
         "citation_collection": "citations",
         "reference_collection": "references",
-        "address": "mongodb://localhost:27017/"
-    },
-    "MongoDB-Event-Database": {
-        "name": "EventDatabase",
         "address": "mongodb://localhost:27017/"
     },
     "Crossref-Event-API": {
@@ -70,9 +66,8 @@
         "url-code": "10.1590"
     },
     "User-Result-Limit": {
-        "limit": "3",
-        "dayInterval": "1",
-        "maxSize": "1"
+        "limit": "1000",
+        "dayInterval": "1"
     },
     "Admin": {
         "email": "darpanshah8@gmail.com"
