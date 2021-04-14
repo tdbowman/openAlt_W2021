@@ -412,6 +412,22 @@ def articleDashboardLogic(mysql, mysql2, mysql3, years_list, yearInput, citation
         cursor3.execute(citationChartquery)
         citationCount = cursor3.fetchone()
         citationChartResults.append(citationCount['count'])
+
+
+
+    cambiaeventForTable = cambiaevent
+    crossrefeventForTable = crossrefevent
+    dataciteeventForTable = dataciteevent
+    f1000eventForTable = f1000event
+    hypothesiseventForTable = hypothesisevent
+    newsfeedeventForTable = newsfeedevent
+    redditeventForTable =  redditevent
+    redditlinkseventForTable = redditlinksevent
+    stackexchangeeventForTable = stackexchangeevent
+    twittereventForTable = twitterevent
+    webeventForTable = webevent
+    wikipediaeventForTable = wikipediaevent
+    wordpresseventForTable = wordpressevent
         
 
     cambiaevent = organizeEventData(cambiaevent)
@@ -443,7 +459,20 @@ def articleDashboardLogic(mysql, mysql2, mysql3, years_list, yearInput, citation
                                  wikipediaEventData=wikipediaevent,
                                  wordpressEventData=wordpressevent,
 								 citationCount=citationCountResult,
-                                 citationChartData = citationChartResults)
+                                 citationChartData = citationChartResults,
+                                 cambiaeventForTable = cambiaeventForTable,
+                                 crossrefeventForTable = crossrefeventForTable,
+                                 dataciteeventForTable = dataciteeventForTable,
+                                 f1000eventForTable = f1000eventForTable,
+                                 hypothesiseventForTable = hypothesiseventForTable,
+                                 newsfeedeventForTable = newsfeedeventForTable,
+                                 redditeventForTable =  redditeventForTable,
+                                 redditlinkseventForTable = redditlinkseventForTable,
+                                 stackexchangeeventForTable = stackexchangeeventForTable,
+                                 twittereventForTable = twittereventForTable,
+                                 webeventForTable = webeventForTable,
+                                 wikipediaeventForTable = wikipediaeventForTable,
+                                 wordpresseventForTable = wordpresseventForTable)
 
 def organizeEventData (eventData):
 
