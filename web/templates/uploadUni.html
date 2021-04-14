@@ -1,3 +1,4 @@
+<!-- Authors: Salsabil (line 9-85, 118-128) and Darpan -->
 {% extends 'bulkSearchTemplate.html' %}
 <!-- Anything you put here will be in the HTML head tags-->
 {% block head %}
@@ -5,11 +6,12 @@
 <script src="../static/js/upload.js"></script>
 
 <!-- Author: Salsabil Bakth -->
-<!-- Function to check to file size and whether it is larger than 1MB -->
+<!-- Function to check to file size and whether it is larger than X MB -->
 <!-- Beginning of code -->
 <script>
   $(function () {
     let $uploadButton = $("#uploadButton");
+    let $maxSize = '{{ maxSize }}'
 
     $uploadButton.click(function () {
       var size = $("#fileUpload")[0].files[0].size;
@@ -17,8 +19,8 @@
       // Check the size to see it in MB
       size = size / 1048576;
 
-      // If size is greater than 1 MB
-      if (size > 1) {
+      // If size is greater than X MB
+      if (size > $maxSize) {
         $("#invalid_file_size").dialog({
           title: "ERROR",
           modal: true,
@@ -26,12 +28,10 @@
           minHeight: 200,
           buttons: {
               Ok: function () {
-                $(location).attr('href', "/uploadDOI");  
-                //$(this).dialog("close");
+                $(location).attr('href', "/uploadUni"); 
               }
           }
         });
-        //setTimeout(reload, 2500);
         return false;
       }
 
@@ -70,12 +70,10 @@
           minHeight: 200,
           buttons: {
               Ok: function () {
-                $(location).attr('href', "/uploadDOI");  
-                //$(this).dialog("close");
+                $(location).attr('href', "/uploadUni");
               }
           }
         });
-        //setTimeout(reload, 2500);
         return false;
       }
       return (true);
@@ -84,6 +82,7 @@
   });
 </script>
 <!-- End of code -->
+
 {% endblock %}
 
 <!-- Anything you put here will be in the body-->
@@ -122,9 +121,9 @@
     </div>
 
     <div id="invalid_file_size" style="display: none;">
-      <p style="font-family: 'Lucida Sans'; font-size: x-large; color: red;"><b>File size exceeds 1 MB!</b> </p>
+      <p style="font-family: 'Lucida Sans'; font-size: x-large; color: red;"><b>File size exceeds {{ maxSize }} MB!</b> </p>
       <br>
-      <p style="font-family: 'Lucida Sans'; font-size: large;">Please upload a file that is less than 1 MB.</p>
+      <p style="font-family: 'Lucida Sans'; font-size: large;">Please upload a file that is less than {{ maxSize }} MB.</p>
     </div>
 
     <br>
