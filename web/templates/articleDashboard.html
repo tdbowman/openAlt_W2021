@@ -66,22 +66,40 @@
             header.innerHTML = columns[i];
             row.appendChild(header);
         }
+
+        console.log(wikipediaevent)
+
+        cambiaeventForTable.unshift('Cambia');
+        crossrefeventForTable.unshift("Crossref");
+        dataciteeventForTable.unshift("DataCite");
+        hypothesiseventForTable.unshift("Hypothesis");
+        newsfeedeventForTable.unshift("Newsfeed");
+        redditeventForTable.unshift("Reddit");
+        redditlinkseventForTable.unshift("Reddit-Links");
+        stackexchangeeventForTable.unshift("Stack Exchange");
+        twittereventForTable.unshift("Twitter");
+        webeventForTable.unshift("Web");
+        wikipediaeventForTable.unshift("Wikipedia");
+        wordpresseventForTable.unshift("Wordpress");
+        f1000eventForTable.unshift("F1000");
   
         let dataToInsert = []
-        dataToInsert.push(cambiaevent)
-        dataToInsert.push(crossrefevent)
-        dataToInsert.push(dataciteevent)
-        dataToInsert.push(f1000event)
-        dataToInsert.push(hypothesisevent)
-        dataToInsert.push(newsfeedevent)
-        dataToInsert.push(redditevent)
-        dataToInsert.push(redditlinksevent)
-        dataToInsert.push(stackexchangeevent)
-        dataToInsert.push(twitterevent)
-        dataToInsert.push(webevent)
-        dataToInsert.push(wikipediaevent)
-        dataToInsert.push(wordpressevent)
+        dataToInsert.push(cambiaeventForTable)
+        dataToInsert.push(crossrefeventForTable)
+        dataToInsert.push(dataciteeventForTable)
+        dataToInsert.push(f1000eventForTable)
+        dataToInsert.push(hypothesiseventForTable)
+        dataToInsert.push(newsfeedeventForTable)
+        dataToInsert.push(redditeventForTable)
+        dataToInsert.push(redditlinkseventForTable)
+        dataToInsert.push(stackexchangeeventForTable)
+        dataToInsert.push(twittereventForTable)
+        dataToInsert.push(webeventForTable)
+        dataToInsert.push(wikipediaeventForTable)
+        dataToInsert.push(wordpresseventForTable)
         
+        console.log(dataToInsert)
+
         insertRows(dataToInsert)
 
         function insertRows(data) {
@@ -111,11 +129,11 @@
                 }
 
                 cell1.innerHTML = data[i][0];
-                cell2.innerHTML = data[i][2];
-                cell3.innerHTML = data[i][3];
-                cell4.innerHTML = data[i][4];
-                cell5.innerHTML = data[i][5];
-                cell6.innerHTML = data[i][6];
+                cell2.innerHTML = data[i][1];
+                cell3.innerHTML = data[i][2];
+                cell4.innerHTML = data[i][3];
+                cell5.innerHTML = data[i][4];
+                cell6.innerHTML = data[i][5];
             }
         }
 
@@ -630,6 +648,19 @@
         years_list = [];
         citationEvent = [];
         citation_years_list = [];
+        cambiaeventForTable = []
+        crossrefeventForTable = [];
+        dataciteeventForTable = [];
+        f1000eventForTable = [];
+        hypothesiseventForTable = [];
+        newsfeedeventForTable = [];
+        redditeventForTable = [];
+        redditlinkseventForTable = [];
+        stackexchangeeventForTable = [];
+        twittereventForTable = [];
+        webeventForTable = [];
+        wikipediaeventForTable = [];
+        wordpresseventForTable = [];
     </script>
 
     {% for year in years_list %}
@@ -728,6 +759,90 @@
         wordpressevent.push("{{ index }}");
     </script>
     {% endfor %}
+
+
+
+    <!--Author: Rihat Rahman-->
+    <!--Lines: 766-845 -->
+
+    {% for index in cambiaeventForTable %}
+    <script>
+        cambiaeventForTable.push("{{ index }}");
+    </script>
+    {% endfor %}
+
+    {% for index in crossrefeventForTable %}
+    <script>
+        crossrefeventForTable.push("{{ index }}");
+    </script>
+    {% endfor %}
+
+    {% for index in dataciteeventForTable %}
+    <script>
+        dataciteeventForTable.push("{{ index }}");
+    </script>
+    {% endfor %}
+
+    {% for index in f1000eventForTable %}
+    <script>
+        f1000eventForTable.push("{{ index }}");
+    </script>
+    {% endfor %}
+
+    {% for index in hypothesiseventForTable %}
+    <script>
+        hypothesiseventForTable.push("{{ index }}");
+    </script>
+    {% endfor %}
+
+    {% for index in newsfeedeventForTable %}
+    <script>
+        newsfeedeventForTable.push("{{ index }}");
+    </script>
+    {% endfor %}
+
+    {% for index in redditeventForTable %}
+    <script>
+        redditeventForTable.push("{{ index }}");
+    </script>
+    {% endfor %}
+
+    {% for index in redditlinkseventForTable %}
+    <script>
+        redditlinkseventForTable.push("{{ index }}");
+    </script>
+    {% endfor %}
+
+    {% for index in stackexchangeeventForTable %}
+    <script>
+        stackexchangeeventForTable.push("{{ index }}");
+    </script>
+    {% endfor %}
+
+    {% for index in twittereventForTable %}
+    <script>
+        twittereventForTable.push("{{ index }}");
+    </script>
+    {% endfor %}
+
+    {% for index in webeventForTable %}
+    <script>
+        webeventForTable.push("{{ index }}");
+    </script>
+    {% endfor %}
+
+    {% for index in wikipediaeventForTable %}
+    <script>
+        wikipediaeventForTable.push("{{ index }}");
+    </script>
+    {% endfor %}
+
+    {% for index in wordpresseventForTable %}
+    <script>
+        wordpresseventForTable.push("{{ index }}");
+    </script>
+    {% endfor %}
+    <!---------------------------------------------------->
 
     <script src="../static/js/table.js"></script>
     <script src="../static/js/chartScript.js"></script>
