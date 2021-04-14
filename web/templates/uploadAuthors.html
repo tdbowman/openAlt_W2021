@@ -1,4 +1,4 @@
-<!-- Salsabil's code from line 3 - 51 -->
+<!-- Salsabil's code from line 3 - 131 -->
 
 {% extends 'bulkSearchTemplate.html' %}
 
@@ -8,7 +8,7 @@
 <script src="../static/js/upload.js"></script>
 
 <!-- Author: Salsabil Bakth -->
-<!-- Function to check to file size and whether it is larger than 1MB -->
+<!-- Function to check to file size and whether it is larger than X MB -->
 <!-- Beginning of code -->
 <script>
   $(function () {
@@ -21,7 +21,7 @@
       // Check the size to see it in MB
       size = size / 1048576;
 
-      // If size is greater than 1 MB
+      // If size is greater than X MB
       if (size > $maxSize) {
         $("#invalid_file_size").dialog({
           title: "ERROR",
@@ -30,12 +30,10 @@
           minHeight: 200,
           buttons: {
               Ok: function () {
-                $(location).attr('href', "/uploadAuthors");  
-                //$(this).dialog("close");
+                $(location).attr('href', "/uploadAuthors"); 
               }
           }
         });
-        //setTimeout(reload, 2500);
         return false;
       }
 
@@ -75,11 +73,9 @@
           buttons: {
               Ok: function () {
                 $(location).attr('href', "/uploadAuthors");  
-                //$(this).dialog("close");
               }
           }
         });
-        //setTimeout(reload, 2500);
         return false;
       }
       return (true);

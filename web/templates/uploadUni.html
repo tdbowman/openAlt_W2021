@@ -1,12 +1,13 @@
+<!-- Authors: Salsabil (line 9-85, 118-128) and Darpan -->
 {% extends 'bulkSearchTemplate.html' %}
-<!-- Author: Darpan (whole file)-->
+
 <!-- Anything you put here will be in the HTML head tags-->
 {% block head %}
 <!-- <script class="jsbin" src="https://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script> -->
 <script src="../static/js/upload.js"></script>
 
 <!-- Author: Salsabil Bakth -->
-<!-- Function to check to file size and whether it is larger than 1MB -->
+<!-- Function to check to file size and whether it is larger than X MB -->
 <!-- Beginning of code -->
 <script>
   $(function () {
@@ -19,7 +20,7 @@
       // Check the size to see it in MB
       size = size / 1048576;
 
-      // If size is greater than 1 MB
+      // If size is greater than X MB
       if (size > $maxSize) {
         $("#invalid_file_size").dialog({
           title: "ERROR",
@@ -28,12 +29,10 @@
           minHeight: 200,
           buttons: {
               Ok: function () {
-                $(location).attr('href', "/uploadUni");  
-                //$(this).dialog("close");
+                $(location).attr('href', "/uploadUni"); 
               }
           }
         });
-        //setTimeout(reload, 2500);
         return false;
       }
 
@@ -72,12 +71,10 @@
           minHeight: 200,
           buttons: {
               Ok: function () {
-                $(location).attr('href', "/uploadUni");  
-                //$(this).dialog("close");
+                $(location).attr('href', "/uploadUni");
               }
           }
         });
-        //setTimeout(reload, 2500);
         return false;
       }
       return (true);
@@ -86,6 +83,7 @@
   });
 </script>
 <!-- End of code -->
+
 {% endblock %}
 
 <!-- Anything you put here will be in the body-->

@@ -74,18 +74,6 @@ def cambiaLensIngest(uniqueEvent, cursor, connection):
         elif (key == "relation_type_id"):
             t_relation_type_id = value
 
-    # author: Rihat Rahman
-    #--------------------------------------------------------------------------------------------------------------------------------------------
-
-    # ---- Beginning of code -----
-    # cursor.execute ("SELECT 1 FROM crossrefeventdatamain.cambiaevent WHERE eventID = '" + t_id + "'")
-    # exists = cursor.fetchall()
-
-    # if exists != None:
-    #     return
-
-    #--------------------------------------------------------------------------------------------------------------------------------------------
-
 
     if(len(t_obj_id) < 100):
         # Insert t_obj_id from the event of the JSON file into the main table

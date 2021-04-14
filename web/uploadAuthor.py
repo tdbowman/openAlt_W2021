@@ -210,6 +210,7 @@ def downloadAuthor(mysql, dir_csv, type, email):
 
 ###### Darpan End ######
 
+# Author: Salsabil (line 306-318)
 def searchByAuthor(mysql, fileName, type, email):
 
     # Directory of doi list

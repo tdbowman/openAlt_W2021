@@ -73,20 +73,6 @@ def F1000Ingest(uniqueEvent, cursor, connection):
         elif (key == "relation_type_id"):
             t_relation_type_id = value
 
-
-    # Author: Salsabil Bakth
-    # Checks to see if the eventID exists in the table (since it is a unique value)
-    # If it exists, exit from the ingest function
-
-    # ---- Beginning of code -----
-    # cursor.execute ("SELECT 1 FROM crossrefeventdatamain.f1000event WHERE eventID = '" + t_id + "'")
-    # exists = cursor.fetchall()
-
-    # if exists != None:
-    #     return
-
-    # ---- End of code ----
-
     if(len(t_obj_id) < 100):
         # Insert t_obj_id from the event of the JSON file into the main table
         objectIDInsertionQuery = "INSERT IGNORE INTO main (objectID) VALUES(\'" + \

@@ -70,20 +70,6 @@ def wordpressIngest(uniqueEvent, cursor, connection):
             t_relation_type_id = value
 
 
-    # Author: Salsabil Bakth
-    # Checks to see if the eventID exists in the table (since it is a unique value)
-    # If it exists, exit from the ingest function
-
-    # ---- Beginning of code -----
-    # cursor.execute ("SELECT 1 FROM crossrefeventdatamain.wordpressevent WHERE eventID = '" + t_id + "'")
-    # exists = cursor.fetchall()
-
-    # if exists != None:
-    #     return
-
-    # ---- End of code ----
-
-
     # Wordpress is unique - needs more work
     if (t_obj_id != None):
         if(len(t_obj_id) < 100):

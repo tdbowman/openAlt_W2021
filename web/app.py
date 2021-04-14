@@ -279,13 +279,14 @@ def team():
 def licenses():
     return flask.render_template('licenses.html')
 
-
+# Author: Salsabil (line 283-296)
 @ app.route('/searchByOptions', methods=["GET", "POST"])
 def searchByOptions():
 
     if request.method == "POST":
         select = request.form.get("uploadList")
 
+        # Redirect to appropriate html pages
         if select == "DOI":
             return redirect('/uploadDOI')
         elif select == "Author":
@@ -304,6 +305,7 @@ def uploadDOI():
     target = app.config["UPLOAD_FILES"]
     maxSize = APP_CONFIG['User-Result-Limit']['maxSize']
 
+    # Author: Salsabil (line 310-333)
     # Allowed extensions of file
     ALLOWED_EXTENSIONS = {'csv'}
 
@@ -333,10 +335,13 @@ def uploadDOI():
             session['doiPath'] = fileName
             print("UPLOAD FILE PATH:", session['doiPath'])
 
+            # Author: Salsabil (line 337-349)
             uploadDOIList(mysql, fileName)
 
+            # Retrieve count
             count = getCount()
 
+            # Redirect to appropriate page based on count result
             if count == "0":
                 return flask.render_template('noResultsPage.html')
             else:
@@ -377,28 +382,37 @@ def downloadDOI():
 @ app.route('/uploadAuthors', methods=["GET", "POST"])
 def uploadAuthors():
 
+    # Directory of where to put the uploaded file
     app.config["UPLOAD_FILES"] = "../web/uploadFiles"
     destination = app.config["UPLOAD_FILES"]
     maxSize = APP_CONFIG['User-Result-Limit']['maxSize']
 
+    # Author: Salsabil (line 392-421)
+    # If directory does not exist, create it
     if not os.path.isdir(destination):
         os.mkdir(destination)
 
     if request.method == "POST":
         if request.files:
+            # Retrieve the uploaded file
             uploadFiles = request.files["csv/json"]
             print(uploadFiles)
 
             fileName = uploadFiles.filename
+
+            # Save the file to the directory
             uploadFiles.save(os.path.join(destination, fileName))
             print("File saved.")
 
             session['authorPath'] = fileName
 
+            # Send file to be parsed and counted through
             uploadAuthorList(mysql, fileName)
 
+            # Retrieve count
             count = getCount()
 
+            # Redirect to appropriate page based on count result
             if count == "0":
                 return flask.render_template('noResultsPage.html')
             else:
@@ -457,10 +471,14 @@ def uploadUni():
 
             session['uniPath'] = fileName
 
+            # Author: Salsabil (line )
+            # Send file to be parsed and counted through
             uploadUniList(mysql, fileName)
 
+            # Retrieve count
             count = getCount()
 
+            # Redirect to appropriate page based on count result
             if count == "0":
                 return flask.render_template('noResultsPage.html')
             else:
