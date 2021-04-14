@@ -27,7 +27,6 @@ def fetchDOICitations (APP_CONFIG):
     mongodb_opencitations_name = APP_CONFIG['MongoDB-OpenCitations-Database']['name']
     MongoDBClient = APP_CONFIG['OpenCitations']['address']
 
-
     # connect to doi database
     drBowmanDatabase = mysql.connector.connect(host = "localhost", user = mysql_username, passwd = mysql_password, database = doi_database_name)
     drBowmanDatabaseCursor = drBowmanDatabase.cursor()

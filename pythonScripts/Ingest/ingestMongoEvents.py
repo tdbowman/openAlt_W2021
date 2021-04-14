@@ -19,108 +19,186 @@ import newsfeed
 import hypothesis
 import datacite
 import crossref
+import json
+
+# current directory 
+path = os.getcwd() 
+  
+# parent directory 
+parent = os.path.dirname(path) 
+config_path = os.path.join(path, "config", "openAltConfig.json")
+
+# config file
+f = open(config_path)
+APP_CONFIG = json.load(f)
+
+def databaseConnection():
+    try:
+        # connect to doidata database
+        mysql_username = APP_CONFIG['Crossref-Event-Database']['username']
+        mysql_password = APP_CONFIG['Crossref-Event-Database']['password']
+
+        crossRefEventDatabase = mysql.connector.connect(host = "localhost", user = mysql_username, passwd = mysql_password, database = "crossrefeventdatamain")
+
+        return crossRefEventDatabase
+
+
+    except:
+        print("Error: Cannot connect to database.")
+        return
+
+    print ("Connected to the database...")
 
 def ingestMongoEvents():
-    # MySQL credentials
-    print("MySQL Credentials")
-    # mysql_username = input("Username: ")
-    # mysql_password = input("Password: ")
-    mysql_username = "root"
-    mysql_password = "pass1234"
 
-    # Setup MySQL connection
-    connection = mysql.connector.connect(user=str(mysql_username), password=str(
-        mysql_password), host='127.0.0.1', database='crossrefeventdatamain')
-    cursor = connection.cursor() 
+    # Retrieve MongoDB info from config file
+    mongoConnection = APP_CONFIG['MongoDB-Event-Database']['address']
+    databaseName = APP_CONFIG['MongoDB-Event-Database']['name']
 
-    myclient = pymongo.MongoClient("mongodb://localhost:27017/")
+    # Retrieve the MySQL database curose 
+    connection = databaseConnection()
+    cursor = connection.cursor()
 
-    database = myclient['EventDatabaseTest']
+    # setup localization
+    myclient = pymongo.MongoClient(mongoConnection)
 
-    # collNames = {"Cambia-Lens", "Crossref", "Datacite", "F1000", "Hypothesis", "Newsfeed", "Reddit", "Reddit-Links", "StackExchange",
-    # "Twitter", "Web", "Wikipedia", "WordPressDotCom"}
+    # reference MongoDB database
+    database = myclient[databaseName]
 
-    # for names in collNames:
-    for coll in database.list_collection_names():
-        # if (names == coll):
-        #     print (coll)
-        if (coll == "Cambia-Lens"):
-            print("Cambia-Lens Ingest!")
-            events = database[coll]
-            for uniqueEvent in events.find({}):
-                cambiaLens.cambiaLensIngest(uniqueEvent, cursor, connection)
+    try:
+        # for names in collNames:
+        for coll in database.list_collection_names():
+            if (coll == "Cambia-Lens"):
+                print("Cambia-Lens Ingest!")
 
-        elif (coll == "Crossref"):
-            print("Crossref Ingest!")
-            events = database[coll]
-            for uniqueEvent in events.find({}):
-                crossref.crossrefIngest(uniqueEvent, cursor, connection)
+                # Match the event with the collection name
+                events = database[coll]
 
-        elif (coll == "Datacite"):
-            print("Datacite Ingest!")
-            events = database[coll]
-            for uniqueEvent in events.find({}):
-                datacite.dataciteIngest(uniqueEvent, cursor, connection)
+                # For all events in the collection, iterate through them and ingest them
+                for uniqueEvent in events.find({}):
+                    cambiaLens.cambiaLensIngest(uniqueEvent, cursor, connection)
 
-        elif (coll == "F1000"):
-            print("F1000 Ingest!")
-            events = database[coll]
-            for uniqueEvent in events.find({}):
-                f1000.F1000Ingest(uniqueEvent, cursor, connection)
+            elif (coll == "Crossref"):
+                print("Crossref Ingest!")
 
-        elif (coll == "Hypothesis"):
-            print("Hypothesis Ingest!")
-            events = database[coll]
-            for uniqueEvent in events.find({}):
-                hypothesis.hypothesisIngest(uniqueEvent, cursor, connection)
+                # Match the event with the collection name
+                events = database[coll]
 
-        elif (coll == "Newsfeed"):
-            print("Newsfeed Ingest!")
-            events = database[coll]
-            for uniqueEvent in events.find({}):
-                newsfeed.newsfeedIngest(uniqueEvent, cursor, connection)
+                # For all events in the collection, iterate through them and ingest them
+                for uniqueEvent in events.find({}):
+                    crossref.crossrefIngest(uniqueEvent, cursor, connection)
 
-        elif (coll == "Reddit"):
-            print("Reddit Ingest!")
-            events = database[coll]
-            for uniqueEvent in events.find({}):
-                reddit.redditIngest(uniqueEvent, cursor, connection)
+            elif (coll == "Datacite"):
+                print("Datacite Ingest!")
 
-        elif (coll == "Reddit-Links"):
-            print("Reddit-Links Ingest!")
-            events = database[coll]
-            for uniqueEvent in events.find({}):
-                redditLinks.redditLinksIngest(uniqueEvent, cursor, connection)
+                # Match the event with the collection name
+                events = database[coll]
 
-        elif (coll == "StackExchange"):
-            print("StackExchange Ingest!")
-            events = database[coll]
-            for uniqueEvent in events.find({}):
-                stackExchange.stackExchangeIngest(uniqueEvent, cursor, connection)
+                # For all events in the collection, iterate through them and ingest them
+                for uniqueEvent in events.find({}):
+                    datacite.dataciteIngest(uniqueEvent, cursor, connection)
 
-        elif (coll == "Twitter"):
-            print("Twitter Ingest!")
-            events = database[coll]
-            for uniqueEvent in events.find({}):
-                twitter.twitterIngest(uniqueEvent, cursor, connection)
+            elif (coll == "F1000"):
+                print("F1000 Ingest!")
 
-        elif (coll == "Web"):
-            print("Web Ingest!")
-            events = database[coll]
-            for uniqueEvent in events.find({}):
-                web.webIngest(uniqueEvent, cursor, connection)
+                # Match the event with the collection name
+                events = database[coll]
 
-        elif (coll == "Wikipedia"):
-            print("Wikipedia Ingest!")
-            events = database[coll]
-            for uniqueEvent in events.find({}):
-                wikipedia.wikipediaIngest(uniqueEvent, cursor, connection)
-                
-        elif (coll == "WordPressDotCom"):
-            print("WordPressDotCom Ingest!")
-            events = database[coll]
-            for uniqueEvent in events.find({}):
-                wordpress.wordpressIngest(uniqueEvent, cursor, connection)
+                # For all events in the collection, iterate through them and ingest them
+                for uniqueEvent in events.find({}):
+                    f1000.F1000Ingest(uniqueEvent, cursor, connection)
 
-        else:
-            print("Nothing!")
+            elif (coll == "Hypothesis"):
+                print("Hypothesis Ingest!")
+
+                # Match the event with the collection name
+                events = database[coll]
+
+                # For all events in the collection, iterate through them and ingest them
+                for uniqueEvent in events.find({}):
+                    hypothesis.hypothesisIngest(uniqueEvent, cursor, connection)
+
+            elif (coll == "Newsfeed"):
+                print("Newsfeed Ingest!")
+
+                # Match the event with the collection name
+                events = database[coll]
+
+                # For all events in the collection, iterate through them and ingest them
+                for uniqueEvent in events.find({}):
+                    newsfeed.newsfeedIngest(uniqueEvent, cursor, connection)
+
+            elif (coll == "Reddit"):
+                print("Reddit Ingest!")
+
+                # Match the event with the collection name
+                events = database[coll]
+
+                # For all events in the collection, iterate through them and ingest them
+                for uniqueEvent in events.find({}):
+                    reddit.redditIngest(uniqueEvent, cursor, connection)
+
+            elif (coll == "Reddit-Links"):
+                print("Reddit-Links Ingest!")
+
+                # Match the event with the collection name
+                events = database[coll]
+
+                # For all events in the collection, iterate through them and ingest them
+                for uniqueEvent in events.find({}):
+                    redditLinks.redditLinksIngest(uniqueEvent, cursor, connection)
+
+            elif (coll == "StackExchange"):
+                print("StackExchange Ingest!")
+
+                # Match the event with the collection name
+                events = database[coll]
+
+                # For all events in the collection, iterate through them and ingest them
+                for uniqueEvent in events.find({}):
+                    stackExchange.stackExchangeIngest(uniqueEvent, cursor, connection)
+
+            elif (coll == "Twitter"):
+                print("Twitter Ingest!")
+
+                # Match the event with the collection name
+                events = database[coll]
+
+                # For all events in the collection, iterate through them and ingest them
+                for uniqueEvent in events.find({}):
+                    twitter.twitterIngest(uniqueEvent, cursor, connection)
+
+            elif (coll == "Web"):
+                print("Web Ingest!")
+
+                # Match the event with the collection name
+                events = database[coll]
+
+                # For all events in the collection, iterate through them and ingest them
+                for uniqueEvent in events.find({}):
+                    web.webIngest(uniqueEvent, cursor, connection)
+
+            elif (coll == "Wikipedia"):
+                print("Wikipedia Ingest!")
+
+                # Match the event with the collection name
+                events = database[coll]
+
+                # For all events in the collection, iterate through them and ingest them
+                for uniqueEvent in events.find({}):
+                    wikipedia.wikipediaIngest(uniqueEvent, cursor, connection)
+                    
+            elif (coll == "WordPressDotCom"):
+                print("WordPressDotCom Ingest!")
+
+                # Match the event with the collection name
+                events = database[coll]
+
+                # For all events in the collection, iterate through them and ingest them
+                for uniqueEvent in events.find({}):
+                    wordpress.wordpressIngest(uniqueEvent, cursor, connection)
+
+    except:
+        print("Ingest failed!")
+        cursor.close()
+        connection.close()

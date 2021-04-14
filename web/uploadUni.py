@@ -17,7 +17,7 @@ import emailResults as er
 # Importing app config file
 path = os.getcwd() 
 parent = os.path.dirname(path) 
-config_path = os.path.join(parent, "config", "openAltConfig.json")
+config_path = os.path.join(path, "config", "openAltConfig.json")
 f = open(config_path)
 
 APP_CONFIG = json.load(f)
@@ -210,6 +210,7 @@ def downloadUni(mysql, dir_csv, type, email):
 
 ###### Darpan End ######
 
+# Author: Salsabil (line 306-318)
 def searchByUni(mysql, fileName, type, email):
 
     # Directory of doi list

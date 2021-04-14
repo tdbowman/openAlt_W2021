@@ -17,7 +17,7 @@ import emailResults as er
 # Importing app config file
 path = os.getcwd() 
 parent = os.path.dirname(path) 
-config_path = os.path.join(parent, "config", "openAltConfig.json")
+config_path = os.path.join(path, "config", "openAltConfig.json")
 f = open(config_path)
 
 APP_CONFIG = json.load(f)
@@ -207,6 +207,10 @@ def downloadAuthor(mysql, dir_csv, type, email):
     return zipAuthor
     
     
+
+###### Darpan End ######
+
+# Author: Salsabil (line 306-318)
 def searchByAuthor(mysql, fileName, type, email):
 
     # Directory of doi list

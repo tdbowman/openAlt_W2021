@@ -24,34 +24,29 @@ def setStats(x):
 def getStats():
     return stats
 
+# Setter for count 
 def setCount(x):
     global count
     count = str(x)
     print(count)
     setStats(x)
 
-# Getter for stats
+# Getter for count
 def getCount():
     return count
 
+# Bulk Search by DOI
 def uploadDOIList(mysql, fileName):
 
     # Directory of uploaded file
     dir = '../web/uploadFiles/' + fileName
 
-    # downloadDOI(mysql, dir, type, email)
+    # Go through the content of the file and count
     getDOICount(mysql, dir)
-
-    count = getCount()
-
-    if count == "0":
-        return flask.render_template('noResultsPage.html')
-    else:
-        return flask.render_template('downloadDOI.html', results = getStats())
 
 def getDOICount(mysql, dir_csv):
 
-     # directories
+    # directories
     dir_file = str(os.path.dirname(os.path.realpath(__file__)))
 
     # path of uploaded file
@@ -94,26 +89,31 @@ def getDOICount(mysql, dir_csv):
     # Remove duplicates from the doi array
     doi_arr = list(dict.fromkeys(doi_arr))
 
-    # # Join array for sql query
+    # Join array for sql query
     joinedArr = "\'" + "','".join(doi_arr) + "\'"
 
-    #Cursor makes connection with the db
+    # Cursor makes connection with the db
     cursor = mysql.connection.cursor() 
 
+    # Execute query to retrieve count from the list of DOIs in the array
     query = "SELECT count(*) FROM doidata._main_ WHERE DOI in (" + joinedArr + ")"
     cursor.execute(query)
+
+    # Store count result in var
     resultSet = cursor.fetchone()
     
+    # Pass query result to set the count function
     setCount(resultSet["count(*)"])
 
+
+# Bulk Search by Author
 def uploadAuthorList (mysql, fileName):
 
     # Directory of doi list
     dir = '../web/uploadFiles/' + fileName
 
+    # Go through the content of the file and count
     getAuthorCount(mysql, dir)
-
-    return flask.render_template('downloadAuthors.html', results = getStats())
 
 def getAuthorCount(mysql, dir_csv):
     # Directories 
@@ -145,7 +145,6 @@ def getAuthorCount(mysql, dir_csv):
     # Pandas library reads doi list
     author_list = pandas.read_csv(dir_template, header=None)
 
-
     # Adds doi values into array and prints the array
     for x in range(len(author_list)):
         author_arr.append(author_list.values[x][0].lower())
@@ -153,27 +152,31 @@ def getAuthorCount(mysql, dir_csv):
     # Remove duplicates from author array
     author_arr = list(dict.fromkeys(author_arr))
     
+    # Initialize the query statement
     query = "SELECT count(*) FROM doidata.author where name like \'%" + author_arr[0] + "%\'"
 
+    # Build the query statement by iterating through the array 
     for author in author_arr[1:]:
         query = query + " OR name like \'%" + author + "%\'"  
 
     # Set up cursor to run SQL query
     cursor = mysql.connection.cursor()  
 
+    # Executre the query and store the result in a var
     cursor.execute(query)
     resultSet = cursor.fetchone()
     
+    # Pass query result to set the count function
     setCount(resultSet["count(*)"])
 
+# Bulk Search by University
 def uploadUniList(mysql, fileName):
 
     # Directory of doi list
     dir = '../web/uploadFiles/' + fileName
 
+    # Go through the content of the file and count
     getUniCount(mysql, dir)
-
-    return flask.render_template('downloadUni.html', results=getStats())
 
 def getUniCount(mysql, dir_csv):
 
@@ -214,15 +217,19 @@ def getUniCount(mysql, dir_csv):
     # Remove duplicates from author array
     uni_arr = list(dict.fromkeys(uni_arr))
 
+    # Initialize the query statement
     query = "SELECT count(distinct university) FROM doidata.author where affiliation like \'%" + uni_arr[0] + "%\'"
 
+    # Build the query statement by iterating through the array 
     for university in uni_arr[1:]:
         query = query + " OR affiliation like \'%" + university + "%\'"
 
-    #Cursor makes connection with the db
+    # Cursor makes connection with the db
     cursor = mysql.connection.cursor() 
 
+    # Executre the query and store the result in a var
     cursor.execute(query)
     resultSet = cursor.fetchone()
 
+    # Pass query result to set the count function
     setCount(resultSet["count(distinct university)"])
