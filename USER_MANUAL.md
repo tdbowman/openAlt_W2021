@@ -39,7 +39,7 @@ Anyone can use our scripts and database schemas to create and fill in `crossRefE
 
 The `OpenCitations` database can be created using the opencitationsSchema.sql that can be found [here](https://github.com/darpanshah-wsu/openAlt_W2021/blob/master/SQL/OpenCitations/opencitationsSchema.sql).
 
-The 'BulkSearchStats' database is necessary for the bulk search limitation to avoid user abuse of the system. The schema to create this database can be found [here] (https://github.com/darpanshah-wsu/openAlt_W2021/tree/master/SQL/BulkSearchStats).
+The 'BulkSearchStats' database is necessary for the bulk search limitation to avoid user abuse of the system. The schema to create this database can be found [here](https://github.com/darpanshah-wsu/openAlt_W2021/tree/master/SQL/BulkSearchStats).
 
 ## 3. Collecting and Ingesting the Events 🏷️
 Before we can run the web server, we need to collect the data from the Crossref API. This will take some time, as there are millions of events to collect. We highly recommend reading Crossref's [guide](https://www.eventdata.crossref.org/guide/) before continuing.  
