@@ -33,14 +33,22 @@ This document details how to get set-up if you would like to clone the repositor
 ## 2. Setting up the Databases 📊
 The Event data will be ingested into a MySQL database titled `crossRefEventDataMain`. The script to create it can be found [here](https://github.com/tdbowman-CompSci-F2020/openAlt/blob/master/SQL/CrossrefeventdataWithMain/crossrefeventdataWithMain.sql).  
   
-The journal, publisher, author, title, and date information is stored in a seperate MySQL database titled `doidata`. The script to create it can be found [here](https://github.com/tdbowman-CompSci-F2020/openAlt/blob/master/SQL/DOI_Author_Database/doidata.sql).
+The journal, publisher, author, title, and date information is stored in a seperate MySQL database titled `doidata`. The script to create it can be found [here](https://github.com/darpanshah-wsu/openAlt_W2021/blob/darpanDev/SQL/DOI_Author_Database/doidataSchema.sql).
 
 Anyone can use our scripts and database schemas to create and fill in `crossRefEventDataMain`, but you will need to use other methods to fill in the needed fields for `doidata`. This [GitHub repository](https://github.com/fabiobatalha/crossrefapi) is a good place to start.
 
-## 3. Collecting and Organizing the Events 🏷️
+The `OpenCitations` database can be created using the opencitationsSchema.sql that can be found [here](https://github.com/darpanshah-wsu/openAlt_W2021/blob/master/SQL/OpenCitations/opencitationsSchema.sql).
+
+The 'BulkSearchStats' database is necessary for the bulk search limitation to avoid user abuse of the system. The schema to create this database can be found [here](https://github.com/darpanshah-wsu/openAlt_W2021/tree/master/SQL/BulkSearchStats).
+
+## 3. Collecting and Ingesting the Events 🏷️
 Before we can run the web server, we need to collect the data from the Crossref API. This will take some time, as there are millions of events to collect. We highly recommend reading Crossref's [guide](https://www.eventdata.crossref.org/guide/) before continuing.  
 
-Our Python script `openAlt/pythonScripts/tapAPI.py` grabs new Event data from the Crossref API on a schedule. This data is stored as a dated JSON file, where each file contains 10,000 Events. You will need to enter your email on line 19, and can modify the schedule on line 35.
+Our Python script `openAlt/pythonScripts/fetchEventBuffer.py` grabs new Event data from the Crossref API. This data is retrieved in a JSON format and then ingest into `crossrefeventdatamain` database.
+
+Citation data is retrieved from the OpenCitations API. This takes a longer duration than fetching the event data as a publication can have upwards of thosands of citations. We also recommend the reading the manual for OpenCitations API [here](https://opencitations.net/index/coci/api/v1).
+
+`openAlt/pythonScripts/fetchOpenCitations.py` script can be run to fetch citation data for all of the publications of doidata database and store them in OpenCitations database.
 
 ### 3.1 Example JSON Format:
 Downloaded JSON files will look similar to this. Each of the 13 Event types has a unique format.  
@@ -71,35 +79,6 @@ Downloaded JSON files will look similar to this. Each of the 13 Event types has 
 }
 ```
 
-## 4. Ingesting the Data 🗃️
-These files will need to be ingested into the database by the following script: `openAlt/pythonScripts/Ingest/main.py`. This script reads each JSON in the data directory, and inserts the events into the MySQL database. Again, the Event data does not contain the journal, publisher, authors, or titles for the DOI's. We utilized Dr. Bowman's database which was already populated with this data when we started this project. If you are cloning the repository, *you will need to source this data yourself*. This GitHub [repository](https://github.com/fabiobatalha/crossrefapi) is a good place to start.
-
-### 4.1 Ingesting from JSON files
-#### Step by step guide:
-1. Change the datadirectory for your JSON folder to suit your system (line 28). 
-2. Run `python ingestJSONMain.py` in your preferred terminal.
-
-### 4.2 Ingesting from PaperBuzz Data
-We were fortunate enough to be given a dump of Crossref JSON data from the nice folks at [Paperbuzz](http://paperbuzz.org/). This one time dump we recieved is simply Crossref Event data stored in a slighly different way. Here we document how we ingested this data, but can not provide a means for others to aquire this data. While the first 10,000 of such records are located in `openAlt/SQL/DOI_Author_Database/doi_json_dump_10k.csv`, we are not making the remaining data public at this time. Anyone cloning the repository will need to use see section 2.1 and ingest JSON data which they gather themselves.
-
-#### Step By Step Guide:
-1. Open up MySQL Workbench.
-    - Connect to your Local MySQL Connection.
-2. Create a new database within Workbench.
-    - File -> Open SQL Script.
-	    - Go to this directory: `openAlt/SQL/paperbuzz_dump/`.
-      - Open `paperbuzz.sql`.
-    - Execute the script(⚡).
-    - Organization Tip **(Recommendation but not required)**
-      - File -> New Query Tab(CTRL + T).
-      - This step is not required however it can be helpful. Any SQL commands that you want to execute for a database or table can be placed here in the new tab. It allows you to use the script purely for creating the database/table(s) while using another tab to execute commands for that database.
-    - Execute this SQL query `SELECT * FROM event_data_json;`.
-      - Import `json_dump_10k.csv` to the event_data_json table.
-3. Ignore steps 1 & 2 if you already have a database containing the Paperbuzz data dump.
-4. Execute this SQL command `DROP DATABASE crossrefeventdatawithmain`.
-5. Go to this directory: `openAlt\SQL\CrossrefeventdataWithMain`.
-    - Execute the SQL script `crossrefeventdataWithMain.sql` to create all 13 tables.
-6. Run `python ingestPaperBuzzMain.py` in your preferred terminal.
 
 ### 5. Quirks of the Crossref API ❓
 * Some Events give a DOI(objectID) of simply https://doi.org. For example, the event with ID: `5c83ca20-d4a1-471b-a23f-f21486cefb5c`
@@ -130,6 +109,7 @@ These actions should be performed inside the `openAlt/web/` folder.
     - Open the file and type only your MySQL user password.
     - Save and close.
     - This file is ignored by git but used by app.py to access your local MySQL server.
-6) If you are not using the root MySQL user account, you will need to change the user on line 19 in `app.py`.
-6) Start the web server using `python app.py`.
-7) When the web server starts, navigate to [127.0.0.1:5000](127.0.0.1:5000).
+6) Navigate to config folder and locate `OpenAltConfig.json`. Change MySQL username and password to suit your device.
+7) If you are not using the root MySQL user account, you will need to change the user on line 19 in `app.py`.
+8) Start the web server using `python app.py`.
+9) When the web server starts, navigate to [127.0.0.1:5000](127.0.0.1:5000).
