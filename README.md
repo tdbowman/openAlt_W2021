@@ -32,8 +32,6 @@ Here are some screenshots taken with a small slice of the total data.
 
 ### Bulk Search Pages ###
 <img src="./screenshots/bulkSearchUpload.png" alt="Bulk Search Upload"/> <br>
-
-### Bulk Search Pages ###
 <img src="./screenshots/bulkSearchDownload.png" alt="Retrieve Bulk Search Results "/> <br>
 
 ## Dependencies and their Licenses 
