@@ -31,10 +31,10 @@ Here are some screenshots taken with a small slice of the total data.
 <img src="./screenshots/authorDashboard.png" alt="Author Dashboard Page"/> <br>
 
 ### Bulk Search Pages ###
-<img src="./screenshots/bulksearchUpload.png" alt="Bulk Search Upload"/> <br>
+<img src="./screenshots/bulkSearchUpload.png" alt="Bulk Search Upload"/> <br>
 
 ### Bulk Search Pages ###
-<img src="./screenshots/bulksearchDownload.png" alt="Retrieve Bulk Search Results "/> <br>
+<img src="./screenshots/bulkSearchDownload.png" alt="Retrieve Bulk Search Results "/> <br>
 
 ## Dependencies and their Licenses 
 
