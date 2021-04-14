@@ -6,7 +6,7 @@ This document details how to get set-up if you would like to clone the repositor
   * Install [Python 3.8.6](https://www.python.org/downloads/) and add it to your PATH.
   * Install MySQL using the [Windows Installer](https://dev.mysql.com/downloads/installer/). Be sure to install the Python connector and workbench.
   * Use pip to install the needed Python modules. This command will install them all at once:    
-    `pip install schedule crossrefapi flask virtualenv python-dateutil flask-paginate pytz`
+    `pip install schedule crossrefapi flask virtualenv python-dateutil flask-paginate pytz email-validator pandas smtplib ssl EmailMessage MIMEMultipart MIMEApplication MIMEText`
   * Install version 4.4 or higher of MongoDB community edition by by following the instructions in this [link](https://docs.mongodb.com/manual/tutorial/install-mongodb-on-windows/). 
 ### 1.2 Ubuntu
   * Install Python 3:  
@@ -14,7 +14,7 @@ This document details how to get set-up if you would like to clone the repositor
   * Python for Windows includes pip3 but on Ubuntu we need to install it with:  
   `sudo apt install python3-pip`
   * Install the first set of needed Python modules:  
-  `pip3 install schedule crossrefapi flask virtualenv python-dateutil flask-paginate pytz`
+  `pip3 install schedule crossrefapi flask virtualenv python-dateutil flask-paginate pytz email-validator pandas smtplib ssl EmailMessage MIMEMultipart MIMEApplication MIMEText `
   * Add the [mysql apt repository](https://dev.mysql.com/downloads/repo/apt/) to your sources. You can use `dkpg -i` or just use Gnome Software Center to install it by double clicking it.
   * Update and install mysql-community-server:  
   `sudo apt update && sudo apt install mysql-community-server`
@@ -30,6 +30,7 @@ This document details how to get set-up if you would like to clone the repositor
   `sudo apt install mysql-shell`
   * Go into mysql shell by executing this command: `mysql --user root -p` and then execute  
   `SET GLOBAL sql_mode=(SELECT REPLACE(@@sql_mode,'ONLY_FULL_GROUP_BY',''));`
+  * Install version 4.4 or higher of MongoDB community edition by by following the instructions in this [link](https://docs.mongodb.com/manual/tutorial/install-mongodb-on-windows/).
 
 ## 2. Setting up the Databases 📊
 The Event data will be ingested into a MySQL database titled `crossRefEventDataMain`. The script to create it can be found [here](https://github.com/tdbowman-CompSci-F2020/openAlt/blob/master/SQL/CrossrefeventdataWithMain/crossrefeventdataWithMain.sql).  
@@ -81,7 +82,36 @@ Downloaded JSON files will look similar to this. Each of the 13 Event types has 
         "relation_type_id": "discusses"
 }
 ```
+## 4. Ingesting the Data 🗃️
+These files will need to be ingested into the database by the following script: `openAlt/pythonScripts/Ingest/main.py`. This script reads each JSON in the data directory, and inserts the events into the MySQL database. Again, the Event data does not contain the journal, publisher, authors, or titles for the DOI's. We utilized Dr. Bowman's database which was already populated with this data when we started this project. If you are cloning the repository, *you will need to source this data yourself*. This GitHub [repository](https://github.com/fabiobatalha/crossrefapi) is a good place to start.
 
+### 4.1 Ingesting from PaperBuzz Data
+We were fortunate enough to be given a dump of Crossref JSON data from the nice folks at [Paperbuzz](http://paperbuzz.org/). This one time dump we recieved is simply Crossref Event data stored in a slighly different way. Here we document how we ingested this data, but can not provide a means for others to aquire this data. While the first 10,000 of such records are located in `openAlt/SQL/DOI_Author_Database/doi_json_dump_10k.csv`, we are not making the remaining data public at this time. Anyone cloning the repository will need to use see section 2.1 and ingest JSON data which they gather themselves.
+
+#### Step By Step Guide:
+1. Open up MySQL Workbench.
+    - Connect to your Local MySQL Connection.
+2. Execute this SQL command `SELECT * FROM doidata._main_`.
+3. Go to this directory: `openAlt/SQL/DOI_Author_Database` in the project files and locate the `doi_json_dump_10k.csv` file .
+4. Inside of MySQL Workbench select `Import records from an external file` and import the contents of `doi_json_dump_10k.csv` into the `doidata._main_` table.
+5. Navigate to the `openAlt/config` folder and locate `OpenAltConfig.json`. Change MySQL username and password to suit your device.
+6. Run `python fetchEventBuffer.py` in your preferred terminal from `openAlt/pythonScripts` to ingest in event data for the articles.
+7. Run `python ` in your preferred terminal from `openAlt/pythonScripts` to ingest in metadata for the articles.
+8. Run `python ` in your preferred terminal from `openAlt/pythonScripts` to ingest in citation and reference data for the articles.
+
+### 4.2 Ingesting from SciELO
+We recevied a dump of data for articles from [SciELO](https://scielo.org/) that are from Brazil. This dump is located at `openAlt/pythonScripts/SciELOPID` and includes PIDs for over 400,000+ records. These records are not for the public at this time and wil take time to gather all the information for each of the articles. It is recommended to run the following steps for about 10,000 records instead of the full 400,000 to see how the data is ingested.
+
+#### Step By Step Guide:
+1. Open up MySQL Workbench.
+    - Connect to your Local MySQL Connection.
+2. Execute this SQL command `SELECT * FROM doidata._main_`.
+3. Go to this directory: `openAlt/pythonScripts` in the project files and locate the `getSciELO.py` file .
+4. Navigate to the `openAlt/config` folder and locate `OpenAltConfig.json`. Change MySQL username and password to suit your device.
+5. Run `python getSciELO.py` in your preferred terminal from `openAlt/pythonScripts` to ingest in data from Crossref for the SciELO articles.
+6. Run `python fetchEventBuffer.py` in your preferred terminal from `openAlt/pythonScripts` to ingest in event data for the articles.
+7. Run `python ` in your preferred terminal from `openAlt/pythonScripts` to ingest in metadata for the articles.
+8. Run `python ` in your preferred terminal from `openAlt/pythonScripts` to ingest in citation and reference data for the articles.
 
 ### 5. Quirks of the Crossref API ❓
 * Some Events give a DOI(objectID) of simply https://doi.org. For example, the event with ID: `5c83ca20-d4a1-471b-a23f-f21486cefb5c`
@@ -96,7 +126,7 @@ For example, the event with ID `5dd6719b-8981-4712-988c-8c01f7ad760b` has a DOI(
 ## 6. How to run the web server 🖥️
 
 ### 6.1 Before we Start ✋
-This guide assumes you are using Python 3.8, and have established the `crossrefeventdatamain` and `doidata` databases in MySQL. Check `openAlt/SQL/` for the relevant scripts.  
+This guide assumes you are using Python 3.8, and have established the `crossrefeventdatamain`, `doidata`, `opencitations`, and `bulksearchstats` databases in MySQL. Check `openAlt/SQL/` for the relevant scripts.  
 If you have Python 2 installed, you will need to substitute Python3 for Python below.  
 
 ### 6.2 Step by Step Guide 📝
