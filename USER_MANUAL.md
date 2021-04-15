@@ -43,21 +43,21 @@ The `OpenCitations` database can be created using the opencitationsSchema.sql th
 
 The 'BulkSearchStats' database is necessary for the bulk search limitation to avoid user abuse of the system. The schema to create this database can be found [here](https://github.com/darpanshah-wsu/openAlt_W2021/tree/master/SQL/BulkSearchStats).
 
-### 3. Update Configs 📝
-1) After creation of the SQL tables, edit the config file to match your database credentials. The config file can be found [here](https://github.com/darpanshah- wsu/openAlt_W2021/blob/master/config/openAltConfig.json)
+## 3. Update Configs 📝
+1) After creation of the SQL tables, edit the config file to match your database credentials. The config file can be found [here](https://github.com/darpanshah-wsu/openAlt_W2021/blob/master/config/openAltConfig.json). 
 
 2) In the project, update the "config_path" variable to match the directory of your config file. The variable can be found in the following files:
-      * [content_domain_ingest.py] (https://github.com/darpanshah-wsu/openAlt_W2021/blob/master/pythonScripts/content_domain_ingest.py)
-      * [fetchCitations.py] (https://github.com/darpanshah-wsu/openAlt_W2021/blob/master/pythonScripts/fetchCitations.py)
-      * [fetchOpenCitations.py] (https://github.com/darpanshah-wsu/openAlt_W2021/blob/master/pythonScripts/fetchOpenCitations.py)
-      * [fetchEventBuffer.py] (https://github.com/darpanshah-wsu/openAlt_W2021/blob/master/pythonScripts/Ingest/fetchEventBuffer.py)
-      * [ingestMongoEvents.py] (https://github.com/darpanshah-wsu/openAlt_W2021/blob/master/pythonScripts/Ingest/ingestMongoEvents.py)
-      * [app.py] (https://github.com/darpanshah-wsu/openAlt_W2021/blob/master/web/app.py)
-      * [dbQuery.py] (https://github.com/darpanshah-wsu/openAlt_W2021/blob/master/web/dbQuery.py)
-      * [emailAdmin.py] (https://github.com/darpanshah-wsu/openAlt_W2021/blob/master/web/emailAdmin.py)
-      * [uploadAuthor.py] (https://github.com/darpanshah-wsu/openAlt_W2021/blob/master/web/uploadAuthor.py)
-      * [uploadDOI.py] (https://github.com/darpanshah-wsu/openAlt_W2021/blob/master/web/uploadDOI.py)
-      * [uploadUni.py] (https://github.com/darpanshah-wsu/openAlt_W2021/blob/master/web/uploadUni.py)
+      * [content_domain_ingest.py](https://github.com/darpanshah-wsu/openAlt_W2021/blob/master/pythonScripts/content_domain_ingest.py)
+      * [fetchCitations.py](https://github.com/darpanshah-wsu/openAlt_W2021/blob/master/pythonScripts/fetchCitations.py)
+      * [fetchOpenCitations.py](https://github.com/darpanshah-wsu/openAlt_W2021/blob/master/pythonScripts/fetchOpenCitations.py)
+      * [fetchEventBuffer.py](https://github.com/darpanshah-wsu/openAlt_W2021/blob/master/pythonScripts/Ingest/fetchEventBuffer.py)
+      * [ingestMongoEvents.py](https://github.com/darpanshah-wsu/openAlt_W2021/blob/master/pythonScripts/Ingest/ingestMongoEvents.py)
+      * [app.py](https://github.com/darpanshah-wsu/openAlt_W2021/blob/master/web/app.py)
+      * [dbQuery.py](https://github.com/darpanshah-wsu/openAlt_W2021/blob/master/web/dbQuery.py)
+      * [emailAdmin.py](https://github.com/darpanshah-wsu/openAlt_W2021/blob/master/web/emailAdmin.py)
+      * [uploadAuthor.py](https://github.com/darpanshah-wsu/openAlt_W2021/blob/master/web/uploadAuthor.py)
+      * [uploadDOI.py](https://github.com/darpanshah-wsu/openAlt_W2021/blob/master/web/uploadDOI.py)
+      * [uploadUni.py](https://github.com/darpanshah-wsu/openAlt_W2021/blob/master/web/uploadUni.py)
 
 ## 4. Collecting and Ingesting the Events, Metadata, and Citations 🏷️
 Before we can run the web server, we also need to collect the data from the Crossref API. This will take some time, as there are millions of events to collect. We highly recommend reading Crossref's [guide](https://www.eventdata.crossref.org/guide/) before continuing.  
