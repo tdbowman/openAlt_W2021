@@ -96,8 +96,8 @@ We were fortunate enough to be given a dump of Crossref JSON data from the nice 
 4. Inside of MySQL Workbench select `Import records from an external file` and import the contents of `doi_json_dump_10k.csv` into the `doidata._main_` table.
 5. Navigate to the `openAlt/config` folder and locate `OpenAltConfig.json`. Change MySQL username and password to suit your device.
 6. Run `python fetchEventBuffer.py` in your preferred terminal from `openAlt/pythonScripts` to ingest in event data for the articles.
-7. Run `python ` in your preferred terminal from `openAlt/pythonScripts` to ingest in metadata for the articles.
-8. Run `python ` in your preferred terminal from `openAlt/pythonScripts` to ingest in citation and reference data for the articles.
+7. Run `python metadataThroughMongoDB.py` in your preferred terminal from `openAlt/pythonScripts` to ingest in metadata for the articles.
+8. Run `python fetchOpenCitations.py` in your preferred terminal from `openAlt/pythonScripts` to ingest in citation and reference data for the articles.
 
 ### 4.2 Ingesting from SciELO
 We recevied a dump of data for articles from [SciELO](https://scielo.org/) that are from Brazil. This dump is located at `openAlt/pythonScripts/SciELOPID` and includes PIDs for over 400,000+ records. These records are not for the public at this time and wil take time to gather all the information for each of the articles. It is recommended to run the following steps for about 10,000 records instead of the full 400,000 to see how the data is ingested.
@@ -110,8 +110,8 @@ We recevied a dump of data for articles from [SciELO](https://scielo.org/) that 
 4. Navigate to the `openAlt/config` folder and locate `OpenAltConfig.json`. Change MySQL username and password to suit your device.
 5. Run `python getSciELO.py` in your preferred terminal from `openAlt/pythonScripts` to ingest in data from Crossref for the SciELO articles.
 6. Run `python fetchEventBuffer.py` in your preferred terminal from `openAlt/pythonScripts` to ingest in event data for the articles.
-7. Run `python ` in your preferred terminal from `openAlt/pythonScripts` to ingest in metadata for the articles.
-8. Run `python ` in your preferred terminal from `openAlt/pythonScripts` to ingest in citation and reference data for the articles.
+7. Run `python python metadataThroughMongoDB.py` in your preferred terminal from `openAlt/pythonScripts` to ingest in metadata for the articles.
+8. Run `python fetchOpenCitations.py` in your preferred terminal from `openAlt/pythonScripts` to ingest in citation and reference data for the articles.
 
 ### 5. Quirks of the Crossref API ❓
 * Some Events give a DOI(objectID) of simply https://doi.org. For example, the event with ID: `5c83ca20-d4a1-471b-a23f-f21486cefb5c`

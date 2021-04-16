@@ -72,7 +72,7 @@ def PIDtoDOIInsertSQL(connection, cursor, doiInfo, logging):
     listLength = len(doiInfo['created']['date-parts'][0])
     
 	#Creates a string with the whole date
-	for x in (range(listLength)):
+    for x in (range(listLength)):
         if (x == listLength - 1):
             foundCreatedDatePart = foundCreatedDatePart + str(doiInfo['created']['date-parts'][0][x])
         else:
@@ -162,7 +162,7 @@ def PIDtoDOIInsertSQL(connection, cursor, doiInfo, logging):
 
     #----------------------------------------------------------------------
 	
-	default = ""
+    default = ""
     foundLanguage = doiInfo.get("language", default)
 
 	#----------------------------------------------------------------------
