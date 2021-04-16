@@ -43,7 +43,25 @@ The `OpenCitations` database can be created using the opencitationsSchema.sql th
 
 The 'BulkSearchStats' database is necessary for the bulk search limitation to avoid user abuse of the system. The schema to create this database can be found [here](https://github.com/darpanshah-wsu/openAlt_W2021/tree/master/SQL/BulkSearchStats).
 
-## 3. Collecting and Ingesting the Events, Metadata, and Citations 🏷️
+## 3. Update Configs 📝
+1) After creation of the SQL tables, edit the config file to match your database credentials. The config file can be found [here](https://github.com/darpanshah-wsu/openAlt_W2021/blob/master/config/openAltConfig.json). 
+
+2) In the project, update the `config_path` variable to match the directory of your config file. The variable can be found in the following files:
+      * [content_domain_ingest.py](https://github.com/darpanshah-wsu/openAlt_W2021/blob/master/pythonScripts/content_domain_ingest.py)
+      * [fetchCitations.py](https://github.com/darpanshah-wsu/openAlt_W2021/blob/master/pythonScripts/fetchCitations.py)
+      * [fetchOpenCitations.py](https://github.com/darpanshah-wsu/openAlt_W2021/blob/master/pythonScripts/fetchOpenCitations.py)
+      * [fetchEventBuffer.py](https://github.com/darpanshah-wsu/openAlt_W2021/blob/master/pythonScripts/Ingest/fetchEventBuffer.py)
+      * [ingestMongoEvents.py](https://github.com/darpanshah-wsu/openAlt_W2021/blob/master/pythonScripts/Ingest/ingestMongoEvents.py)
+      * [app.py](https://github.com/darpanshah-wsu/openAlt_W2021/blob/master/web/app.py)
+      * [dbQuery.py](https://github.com/darpanshah-wsu/openAlt_W2021/blob/master/web/dbQuery.py)
+      * [emailAdmin.py](https://github.com/darpanshah-wsu/openAlt_W2021/blob/master/web/emailAdmin.py)
+      * [uploadAuthor.py](https://github.com/darpanshah-wsu/openAlt_W2021/blob/master/web/uploadAuthor.py)
+      * [uploadDOI.py](https://github.com/darpanshah-wsu/openAlt_W2021/blob/master/web/uploadDOI.py)
+      * [uploadUni.py](https://github.com/darpanshah-wsu/openAlt_W2021/blob/master/web/uploadUni.py)
+
+      This can be easily done in VS Code by hitting `Ctrl + Shift + F` and searching and replacing the variable.
+
+## 4. Collecting and Ingesting the Events, Metadata, and Citations 🏷️
 Before we can run the web server, we also need to collect the data from the Crossref API. This will take some time, as there are millions of events to collect. We highly recommend reading Crossref's [guide](https://www.eventdata.crossref.org/guide/) before continuing.  
 
 Our Python script `openAlt/pythonScripts/fetchEventBuffer.py` grabs new Event data from the Crossref API. This data is retrieved in a JSON format and then ingest into `crossrefeventdatamain` database.
@@ -54,7 +72,7 @@ Citation data is retrieved from the OpenCitations API. This takes a longer durat
 
 `openAlt/pythonScripts/fetchOpenCitations.py` script can be run to fetch citation data for all of the publications of doidata database and store them in OpenCitations database.
 
-### 3.1 Example JSON Format:
+### 4.1 Example JSON Format:
 Downloaded JSON files will look similar to this. Each of the 13 Event types has a unique format.  
 ```JSON
 {
@@ -82,10 +100,10 @@ Downloaded JSON files will look similar to this. Each of the 13 Event types has 
         "relation_type_id": "discusses"
 }
 ```
-## 4. Ingesting the Data 🗃️
+## 5. Ingesting the Data 🗃️
 These files will need to be ingested into the database by the following script: `openAlt/pythonScripts/Ingest/main.py`. This script reads each JSON in the data directory, and inserts the events into the MySQL database. Again, the Event data does not contain the journal, publisher, authors, or titles for the DOI's. We utilized Dr. Bowman's database which was already populated with this data when we started this project. If you are cloning the repository, *you will need to source this data yourself*. This GitHub [repository](https://github.com/fabiobatalha/crossrefapi) is a good place to start.
 
-### 4.1 Ingesting from PaperBuzz Data
+### 5.1 Ingesting from PaperBuzz Data
 We were fortunate enough to be given a dump of Crossref JSON data from the nice folks at [Paperbuzz](http://paperbuzz.org/). This one time dump we recieved is simply Crossref Event data stored in a slighly different way. Here we document how we ingested this data, but can not provide a means for others to aquire this data. While the first 10,000 of such records are located in `openAlt/SQL/DOI_Author_Database/doi_json_dump_10k.csv`, we are not making the remaining data public at this time. Anyone cloning the repository will need to use see section 2.1 and ingest JSON data which they gather themselves.
 
 #### Step By Step Guide:
@@ -99,7 +117,7 @@ We were fortunate enough to be given a dump of Crossref JSON data from the nice 
 7. Run `python metadataThroughMongoDB.py` in your preferred terminal from `openAlt/pythonScripts` to ingest in metadata for the articles.
 8. Run `python fetchOpenCitations.py` in your preferred terminal from `openAlt/pythonScripts` to ingest in citation and reference data for the articles.
 
-### 4.2 Ingesting from SciELO
+### 5.2 Ingesting from SciELO
 We recevied a dump of data for articles from [SciELO](https://scielo.org/) that are from Brazil. This dump is located at `openAlt/pythonScripts/SciELOPID` and includes PIDs for over 400,000+ records. These records are not for the public at this time and wil take time to gather all the information for each of the articles. It is recommended to run the following steps for about 10,000 records instead of the full 400,000 to see how the data is ingested.
 
 #### Step By Step Guide:
@@ -113,7 +131,7 @@ We recevied a dump of data for articles from [SciELO](https://scielo.org/) that 
 7. Run `python python metadataThroughMongoDB.py` in your preferred terminal from `openAlt/pythonScripts` to ingest in metadata for the articles.
 8. Run `python fetchOpenCitations.py` in your preferred terminal from `openAlt/pythonScripts` to ingest in citation and reference data for the articles.
 
-### 5. Quirks of the Crossref API ❓
+### 6. Quirks of the Crossref API ❓
 * Some Events give a DOI(objectID) of simply https://doi.org. For example, the event with ID: `5c83ca20-d4a1-471b-a23f-f21486cefb5c`
 * Some DOI's in the Crossref Event data are malformed.  
 This appears to be an inability of the Crossref agent to process Arabic text. We have only observed this for Twitter events so far.  
@@ -123,13 +141,13 @@ For example, the event with ID `5dd6719b-8981-4712-988c-8c01f7ad760b` has a DOI(
  ```
 * Many Twitter Events do not provide a link to the tweet as their subjectID. Instead, they have only `http://twitter.com` as their link.  Since these events do not contain useful links, we have designed the website to hide these events from the "Latest Events" section on the article dashboard. These events are still counted towards the total number of events for the author/article.
 
-## 6. How to run the web server 🖥️
+## 7. How to run the web server 🖥️
 
-### 6.1 Before we Start ✋
+### 7.1 Before we Start ✋
 This guide assumes you are using Python 3.8, and have established the `crossrefeventdatamain`, `doidata`, `opencitations`, and `bulksearchstats` databases in MySQL. Check `openAlt/SQL/` for the relevant scripts.  
 If you have Python 2 installed, you will need to substitute Python3 for Python below.  
 
-### 6.2 Step by Step Guide 📝
+### 7.2 Step by Step Guide 📝
 These actions should be performed inside the `openAlt/web/` folder.
 1) Install virtualenv: `pip install virtualenv`.
 2) Create a virtual environment: `python -m virtualenv venv`.
@@ -146,3 +164,7 @@ These actions should be performed inside the `openAlt/web/` folder.
 7) If you are not using the root MySQL user account, you will need to change the user on line 19 in `app.py`.
 8) Start the web server using `python app.py`.
 9) When the web server starts, navigate to [127.0.0.1:5000](127.0.0.1:5000).
+
+
+
+
