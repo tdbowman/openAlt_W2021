@@ -1,3 +1,4 @@
+-- Author: Darpan
 CREATE DATABASE bulkSearchStats;
 USE bulkSearchStats;
 

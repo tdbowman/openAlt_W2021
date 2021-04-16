@@ -1,3 +1,4 @@
+-- Author: Darpan
 CREATE DATABASE opencitations;
 USE opencitations;
 
