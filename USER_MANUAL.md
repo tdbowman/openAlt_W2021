@@ -140,7 +140,7 @@ The purpose of the Cron Jobs is to gather new data and allow it to be fetched, s
 
 In addition to locating the path files of these files, you must also find the path file of the python library module. Without locating the python library, the Cron Jobs will not be able to execute the python scripts. Once these are found, you can begin to initiate the Cron Jobs. 
 
-The command to access the Cron Job scheduler through the Linux Terminal is: 'crontab -e'. This will allow you to set up the Cron Jobs. To do this, you must first indicate how frequently you would like to run the script, then you specify the path file of the python library module, and finally you specify the path file of the python script. After indicating the tasks to be run, you will initiate the Cron Jobs by entering this command: 'sudo cron'. To check if the Cron Jobs are running, you can check the status of it by entering this command on the terminal: 'sudo service cron status'.
+The command to access the Cron Job scheduler through the Linux Terminal is: `crontab -e`. This will allow you to set up the Cron Jobs. To do this, you must first indicate how frequently you would like to run the script, then you specify the path file of the python library module, and finally you specify the path file of the python script. After indicating the tasks to be run, you will initiate the Cron Jobs by entering this command: `sudo cron`. To check if the Cron Jobs are running, you can check the status of it by entering this command on the terminal: `sudo service cron status`.
 
 ## 8. How to run the web server 🖥️
 
