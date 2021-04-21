@@ -128,7 +128,7 @@ We recevied a dump of data for articles from [SciELO](https://scielo.org/) that 
 4. Navigate to the `openAlt/config` folder and locate `OpenAltConfig.json`. Change MySQL username and password to suit your device.
 5. Run `python getSciELO.py` in your preferred terminal from `openAlt/pythonScripts` to ingest in data from Crossref for the SciELO articles.
 6. Run `python fetchEventBuffer.py` in your preferred terminal from `openAlt/pythonScripts` to ingest in event data for the articles.
-7. Run `python python metadataThroughMongoDB.py` in your preferred terminal from `openAlt/pythonScripts` to ingest in metadata for the articles.
+7. Run `python metadataThroughMongoDB.py` in your preferred terminal from `openAlt/pythonScripts` to ingest in metadata for the articles.
 8. Run `python fetchOpenCitations.py` in your preferred terminal from `openAlt/pythonScripts` to ingest in citation and reference data for the articles.
 
 ### 6. Quirks of the Crossref API ❓
