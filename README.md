@@ -1,5 +1,5 @@
 # Building an Interface for Crossref Event Data 
-This is only an overview. Check the [manual](./USER_MANUAL.md) for more details. For a PDF version of the manual click [here](./OpenAlt_User_Manual.pdf)
+This is only an overview. Check the [manual](./USER_MANUAL.md) for more details. For a PDF version of the manual click [here](./OpenAlt_User_Manual.pdf).
 
 ## Overview 
 Platforms such as Google Scholar and Web of Science allow users to search for authors, search by paper/article, and see how many citations a given paper has. The goal of this project is to create a dashboard-style interface that displays activity and engagement surrounding scientific publications. Rather than focusing on numbers of citations, we will be displaying the number of interactions. The data describing these interactions is taken from the [Crossref API](https://www.eventdata.crossref.org/guide/service/quickstart/).  
