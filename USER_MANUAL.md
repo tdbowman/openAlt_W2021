@@ -132,13 +132,23 @@ For example, the event with ID `5dd6719b-8981-4712-988c-8c01f7ad760b` has a DOI(
  ```
 * Many Twitter Events do not provide a link to the tweet as their subjectID. Instead, they have only `http://twitter.com` as their link.  Since these events do not contain useful links, we have designed the website to hide these events from the "Latest Events" section on the article dashboard. These events are still counted towards the total number of events for the author/article.
 
-## 7. How to run the web server 🖥️
+### 7. Initiating Cron Jobs
+The purpose of the Cron Jobs is to gather new data and allow it to be fetched, sorted, and ingested from third-party APIs so that the databases are updated frequently. To setup the Cron Jobs, it must be run on Linux Terminal. To begin, you must first locate the path files of the following files: 
+ * fetchEventBuffer.py
+ * fetchOpenCitations.py
+ * metadataThroughMongoDB.py
 
-### 7.1 Before we Start ✋
+In addition to locating the path files of these files, you must also find the path file of the python library module. Without locating the python library, the Cron Jobs will not be able to execute the python scripts. Once these are found, you can begin to initiate the Cron Jobs. 
+
+The command to access the Cron Job scheduler through the Linux Terminal is: 'crontab -e'. This will allow you to setup the Cron Jobs. To do this, you must first indicate how frequently you would like to run the script, then you specify the path file of the python library module, and finally you specify the path file of the python script. After indicating the tasks to be run, you will intiate the Cron Jobs by entering this command: 'sudo cron'. To check if the Cron Jobs are running, you can check the status of it by entering this command on the terminal: 'sudo service cron status'.
+
+## 8. How to run the web server 🖥️
+
+### 8.1 Before we Start ✋
 This guide assumes you are using Python 3.8, and have established the `crossrefeventdatamain`, `doidata`, `opencitations`, and `bulksearchstats` databases in MySQL. Check `openAlt/SQL/` for the relevant scripts.  
 If you have Python 2 installed, you will need to substitute Python3 for Python below.  
 
-### 7.2 Step by Step Guide 📝
+### 8.2 Step by Step Guide 📝
 These actions should be performed inside the `openAlt/web/` folder.
 1) Install virtualenv: `pip install virtualenv`.
 2) Create a virtual environment: `python -m virtualenv venv`.
