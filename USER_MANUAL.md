@@ -33,31 +33,31 @@ This document details how to get set-up if you would like to clone the repositor
   * Install version 4.4 or higher of MongoDB community edition by by following the instructions in this [link](https://docs.mongodb.com/manual/tutorial/install-mongodb-on-windows/).
 
 ## 2. Setting up the Databases 📊
-The Event data will be ingested into a MySQL database titled `crossRefEventDataMain`. The script to create it can be found [here](https://github.com/darpanshah-wsu/openAlt_W2021/blob/master/SQL/CrossrefeventdataWithMain/crossrefeventdataWithMain.sql).  
+The Event data will be ingested into a MySQL database titled `crossRefEventDataMain`. The script to create it can be found [here](https://github.com/tdbowman/openAlt_W2021/blob/master/SQL/CrossrefeventdataWithMain/crossrefeventdataWithMain.sql).  
   
-The journal, publisher, author, title, and date information is stored in a seperate MySQL database titled `doidata`. The script to create it can be found [here](https://github.com/darpanshah-wsu/openAlt_W2021/blob/master/SQL/DOI_Author_Database/doidataSchema.sql).
+The journal, publisher, author, title, and date information is stored in a seperate MySQL database titled `doidata`. The script to create it can be found [here](https://github.com/tdbowman/openAlt_W2021/blob/master/SQL/DOI_Author_Database/doidataSchema.sql).
 
 Anyone can use our scripts and database schemas to create and fill in `crossRefEventDataMain`, but you will need to use other methods to fill in the needed fields for `doidata`. This [GitHub repository](https://github.com/fabiobatalha/crossrefapi) is a good place to start.
 
-The `OpenCitations` database can be created using the opencitationsSchema.sql that can be found [here](https://github.com/darpanshah-wsu/openAlt_W2021/blob/master/SQL/OpenCitations/opencitationsSchema.sql).
+The `OpenCitations` database can be created using the opencitationsSchema.sql that can be found [here](https://github.com/tdbowman/openAlt_W2021/blob/master/SQL/OpenCitations/opencitationsSchema.sql).
 
 The 'BulkSearchStats' database is necessary for the bulk search limitation to avoid user abuse of the system. The schema to create this database can be found [here](https://github.com/tdbowman/openAlt_W2021/tree/master/SQL/BulkSearchStats).
 
 ## 3. Update Configs 📝
-1) After creation of the SQL tables, edit the config file to match your database credentials. The config file can be found [here](https://github.com/darpanshah-wsu/openAlt_W2021/blob/master/config/openAltConfig.json). 
+1) After creation of the SQL tables, edit the config file to match your database credentials. The config file can be found [here](https://github.com/tdbowman/openAlt_W2021/blob/master/config/openAltConfig.json). 
 
 2) In the project, update the `config_path` variable to match the directory of your config file. The variable can be found in the following files:
-      * [content_domain_ingest.py](https://github.com/darpanshah-wsu/openAlt_W2021/blob/master/pythonScripts/content_domain_ingest.py)
-      * [fetchCitations.py](https://github.com/darpanshah-wsu/openAlt_W2021/blob/master/pythonScripts/fetchCitations.py)
-      * [fetchOpenCitations.py](https://github.com/darpanshah-wsu/openAlt_W2021/blob/master/pythonScripts/fetchOpenCitations.py)
-      * [fetchEventBuffer.py](https://github.com/darpanshah-wsu/openAlt_W2021/blob/master/pythonScripts/Ingest/fetchEventBuffer.py)
-      * [ingestMongoEvents.py](https://github.com/darpanshah-wsu/openAlt_W2021/blob/master/pythonScripts/Ingest/ingestMongoEvents.py)
-      * [app.py](https://github.com/darpanshah-wsu/openAlt_W2021/blob/master/web/app.py)
-      * [dbQuery.py](https://github.com/darpanshah-wsu/openAlt_W2021/blob/master/web/dbQuery.py)
-      * [emailAdmin.py](https://github.com/darpanshah-wsu/openAlt_W2021/blob/master/web/emailAdmin.py)
-      * [uploadAuthor.py](https://github.com/darpanshah-wsu/openAlt_W2021/blob/master/web/uploadAuthor.py)
-      * [uploadDOI.py](https://github.com/darpanshah-wsu/openAlt_W2021/blob/master/web/uploadDOI.py)
-      * [uploadUni.py](https://github.com/darpanshah-wsu/openAlt_W2021/blob/master/web/uploadUni.py)
+      * [content_domain_ingest.py](https://github.com/tdbowman/openAlt_W2021/blob/master/pythonScripts/content_domain_ingest.py)
+      * [fetchCitations.py](https://github.com/tdbowman/openAlt_W2021/blob/master/pythonScripts/fetchCitations.py)
+      * [fetchOpenCitations.py](https://github.com/tdbowman/openAlt_W2021/blob/master/pythonScripts/fetchOpenCitations.py)
+      * [fetchEventBuffer.py](https://github.com/tdbowman/openAlt_W2021/blob/master/pythonScripts/Ingest/fetchEventBuffer.py)
+      * [ingestMongoEvents.py](https://github.com/tdbowman/openAlt_W2021/blob/master/pythonScripts/Ingest/ingestMongoEvents.py)
+      * [app.py](https://github.com/tdbowman/openAlt_W2021/blob/master/web/app.py)
+      * [dbQuery.py](https://github.com/tdbowman/openAlt_W2021/blob/master/web/dbQuery.py)
+      * [emailAdmin.py](https://github.com/tdbowman/openAlt_W2021/blob/master/web/emailAdmin.py)
+      * [uploadAuthor.py](https://github.com/tdbowman/openAlt_W2021/blob/master/web/uploadAuthor.py)
+      * [uploadDOI.py](https://github.com/tdbowman/openAlt_W2021/blob/master/web/uploadDOI.py)
+      * [uploadUni.py](https://github.com/tdbowman/openAlt_W2021/blob/master/web/uploadUni.py)
 
       This can be easily done in VS Code by hitting `Ctrl + Shift + F` and searching and replacing the variable.
 
@@ -66,7 +66,7 @@ Before we can run the web server, we also need to collect the data from the Cros
 
 Our Python script `openAlt/pythonScripts/fetchEventBuffer.py` grabs new Event data from the Crossref API. This data is retrieved in a JSON format and then ingest into `crossrefeventdatamain` database.
 
-Author metadata for publications are also retrieved from the Crossref API. Metada can be fetched and ingested by running the `metadataThroughMongoDB.py` script which can be found [here](https://github.com/darpanshah-wsu/openAlt_W2021/blob/master/pythonScripts/metadataThroughMongoDB.py).
+Author metadata for publications are also retrieved from the Crossref API. Metada can be fetched and ingested by running the `metadataThroughMongoDB.py` script which can be found [here](https://github.com/tdbowman/openAlt_W2021/blob/master/pythonScripts/metadataThroughMongoDB.py).
 
 Citation data is retrieved from the OpenCitations API. This takes a longer duration than fetching the event data as a publication can have upwards of thosands of citations. We also recommend the reading the manual for OpenCitations API [here](https://opencitations.net/index/coci/api/v1).
 
