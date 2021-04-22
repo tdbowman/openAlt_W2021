@@ -67,7 +67,7 @@ Here are some screenshots taken with a small slice of the total data.
 ## Contact Info
 | Name                            | LinkedIn                                                              | Email                         |
 |:--------------------------------|:-----------------------------------|:-------------------------------- |
-| Darpan Shah                     | https://www.linkedin.com/in/darpan-shah-575159103/                    | darpanshah7@gmail.com         |
+| Darpan Shah                     | https://www.linkedin.com/in/darpanshah-/                              | darpanshah7@gmail.com         |
 | Rihat Rahman                    | https://www.linkedin.com/in/rihat-rahman/                             | rihat.rafi@gmail.com          |
 | Salsabil Bakth                  | https://www.linkedin.com/in/salsabil-bakth/                           | salsabilbakth@gmail.com       |
 | Mohammad Tahmid                 | https://www.linkedin.com/in/mtahmid/                                  | mtahmid745@gmail.com          |                               
