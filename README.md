@@ -66,7 +66,7 @@ Here are some screenshots taken with a small slice of the total data.
 ## Contact Info
 | Name                        | LinkedIn                            | Email                         |
 |:--------------------------------|:-----------------------------------|:--------------------------------|
-| Darpan Shah                           | GPL-2.0 License                    | 8.0.21                          |
+| Darpan Shah                           | https://www.linkedin.com/in/rihat-rahman/                    | gi3345@wayne.edu                          |
 | Rihat Rahman         | GPL-2.0 License                    | 8.0.21                          |
 | Salsabil Bakth                          | Python Software Foundation License | 3.8.0                           |
 | Mohammad Tahmid                       | MIT License                        | 3.3.7                           |
