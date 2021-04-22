@@ -70,8 +70,9 @@ Here are some screenshots taken with a small slice of the total data.
 | Darpan Shah                     | https://www.linkedin.com/in/darpan-shah-575159103/                    | darpanshah7@gmail.com         |
 | Rihat Rahman                    | https://www.linkedin.com/in/rihat-rahman/                             | rihat.rafi@gmail.com          |
 | Salsabil Bakth                  | https://www.linkedin.com/in/salsabil-bakth/                           | salsabilbakth@gmail.com       |
-| Mohammad Tahmid                 | MIT License                        | 3.3.7                            |                               |
-| Tabish Shaikh                   | MIT License                        | 2020.1                           |                               |
+| Mohammad Tahmid                 | https://www.linkedin.com/in/mtahmid/                                  | mtahmid745@gmail.com          |                               
+| Tabish Shaikh                   | https://www.linkedin.com/in/tabish-shaikh-0497011a4/                  | tabishshaikh97@gmail.com      |                               
+
 
 ## 	Acknowledgements 
 We would like to thank:  
