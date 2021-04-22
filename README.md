@@ -35,6 +35,7 @@ Here are some screenshots taken with a small slice of the total data.
 <img src="./screenshots/bulkSearchDownload.png" alt="Retrieve Bulk Search Results "/> <br>
 
 ## Dependencies and their Licenses 
+// One paragraph regarding the way we tested our application. for ex, testted with, ...OS, ....application, for ... many hours.
 
 | Software                        | License                            | Version                         |
 |:--------------------------------|:-----------------------------------|:--------------------------------|
@@ -61,7 +62,7 @@ Here are some screenshots taken with a small slice of the total data.
 | pytz                      | MIT License                | 2020.1                     |
 
 <br>
-
+// contact info
 ## 	Acknowledgements 
 We would like to thank:  
 * Dr. Timothy Bowman for the project idea and guidance! 💡  
