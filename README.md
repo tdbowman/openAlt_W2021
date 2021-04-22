@@ -64,13 +64,13 @@ Here are some screenshots taken with a small slice of the total data.
 <br>
 
 ## Contact Info
-| Name                        | LinkedIn                            | Email                         |
-|:--------------------------------|:-----------------------------------|:--------------------------------|
-| Darpan Shah                           | LinkedIN                    | @wayne.edu                          |
-| Rihat Rahman         | https://www.linkedin.com/in/rihat-rahman/                    | rihat.rafi@gmail.com                          |
-| Salsabil Bakth                           | LinkedIn | salsabilbakth@gmail.com                               |
-| Mohammad Tahmid                       | MIT License                        | 3.3.7                           |
-| Tabish Shaikh                      | MIT License                | 2020.1                     |
+| Name                            | LinkedIn                                                              | Email                         |
+|:--------------------------------|:-----------------------------------|:-------------------------------- |
+| Darpan Shah                     | https://www.linkedin.com/in/darpan-shah-575159103/                    | darpanshah7@gmail.com         |
+| Rihat Rahman                    | https://www.linkedin.com/in/rihat-rahman/                             | rihat.rafi@gmail.com          |
+| Salsabil Bakth                  | LinkedIn                                                              | salsabilbakth@gmail.com       |
+| Mohammad Tahmid                 | MIT License                        | 3.3.7                            |                               |
+| Tabish Shaikh                   | MIT License                        | 2020.1                           |                               |
 
 ## 	Acknowledgements 
 We would like to thank:  
