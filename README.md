@@ -8,9 +8,9 @@ Platforms such as Google Scholar and Web of Science allow users to search for au
 Crossref is an official agency responsible for assigning DOIs (Document Object Identifier) to published research. They scrape the web across 13 different platforms (Twitter, Reddit, Wikipedia, and others) looking for interactions with scientific papers.
 These interactions can be in the form of tweets, reddit posts, or wikipedia references. See the Crossref [documentation](https://www.eventdata.crossref.org/guide/data/about-the-data/) to learn about the platforms. 
 
-OpenCitations is an organization dedicated to publication of citation and bibliographic data. To learn more about OpenCitations data, click [here](https://opencitations.net/about)
+OpenCitations is an organization dedicated to publication of citation and bibliographic data. To learn more about OpenCitations data, click [here](https://opencitations.net/about).
 
-We also have been given data from our friends at SciELO to add foreign publications to our records. To learn more about SciELO data, click [here](https://scielo.org/en/about-scielo/scielo-data-en/about-scielo-data/) 
+We also have been given data from our friends at SciELO to add foreign publications to our records. To learn more about SciELO data, click [here](https://scielo.org/en/about-scielo/scielo-data-en/about-scielo-data/).
 
 ## The Website 
 We are developing a website which will allow users to search our databases for DOI's, authors, paper titles, or journals. Users will be able to see how many Events, and of which type, a given paper or author has generated. The number of papers published per year for a given journal will also be shown.
