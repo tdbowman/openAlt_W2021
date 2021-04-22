@@ -62,7 +62,16 @@ Here are some screenshots taken with a small slice of the total data.
 | pytz                      | MIT License                | 2020.1                     |
 
 <br>
-// contact info
+
+## Contact Info
+| Name                        | LinkedIn                            | Email                         |
+|:--------------------------------|:-----------------------------------|:--------------------------------|
+| Darpan Shah                           | GPL-2.0 License                    | 8.0.21                          |
+| Rihat Rahman         | GPL-2.0 License                    | 8.0.21                          |
+| Salsabil Bakth                          | Python Software Foundation License | 3.8.0                           |
+| Mohammad Tahmid                       | MIT License                        | 3.3.7                           |
+| Tabish Shaikh                      | MIT License                | 2020.1                     |
+
 ## 	Acknowledgements 
 We would like to thank:  
 * Dr. Timothy Bowman for the project idea and guidance! 💡  
