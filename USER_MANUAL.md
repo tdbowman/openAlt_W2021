@@ -41,7 +41,7 @@ Anyone can use our scripts and database schemas to create and fill in `crossRefE
 
 The `OpenCitations` database can be created using the opencitationsSchema.sql that can be found [here](https://github.com/darpanshah-wsu/openAlt_W2021/blob/master/SQL/OpenCitations/opencitationsSchema.sql).
 
-The 'BulkSearchStats' database is necessary for the bulk search limitation to avoid user abuse of the system. The schema to create this database can be found [here](https://github.com/darpanshah-wsu/openAlt_W2021/tree/master/SQL/BulkSearchStats).
+The 'BulkSearchStats' database is necessary for the bulk search limitation to avoid user abuse of the system. The schema to create this database can be found [here](https://github.com/tdbowman/openAlt_W2021/tree/master/SQL/BulkSearchStats).
 
 ## 3. Update Configs 📝
 1) After creation of the SQL tables, edit the config file to match your database credentials. The config file can be found [here](https://github.com/darpanshah-wsu/openAlt_W2021/blob/master/config/openAltConfig.json). 
