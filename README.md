@@ -68,7 +68,7 @@ Here are some screenshots taken with a small slice of the total data.
 |:--------------------------------|:-----------------------------------|:--------------------------------|
 | Darpan Shah                           | LinkedIN                    | @wayne.edu                          |
 | Rihat Rahman         | https://www.linkedin.com/in/rihat-rahman/                    | rihat.rafi@gmail.com                          |
-| Salsabil Bakth                          | Python Software Foundation License | 3.8.0                           |
+| Salsabil Bakth                           | LinkedIn | salsabilbakth@gmail.com                               |
 | Mohammad Tahmid                       | MIT License                        | 3.3.7                           |
 | Tabish Shaikh                      | MIT License                | 2020.1                     |
 
