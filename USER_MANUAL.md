@@ -161,7 +161,7 @@ These actions should be performed inside the `openAlt/web/` folder.
     - Windows: `./venv/scripts/activate`.
     - Linux/Mac: `./venv/bin/activate`.
 4) Install Flask and our dependencies to this virtual environment:
-    - `pip install flask mysql-connector-python flask-mysqldb python-dateutil flask-paginate`.
+    - `pip install flask mysql-connector-python flask-mysqldb python-dateutil flask-paginate pytz email-validator pandas smtplib ssl EmailMessage MIMEMultipart MIMEApplication MIMEText`.
 5) Create a new file named 'passwd.txt'.
     - Open the file and type only your MySQL user password.
     - Save and close.
