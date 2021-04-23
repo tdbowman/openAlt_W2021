@@ -1,3 +1,26 @@
+# -----------------------------------------------------------------------------------------
+
+# Copyright (c) 2020 tdbowman-CompSci-F2020
+# Permission is hereby granted, free of charge, to any person obtaining a copy
+# of this software and associated documentation files (the "Software"), to deal
+# in the Software without restriction, including without limitation the rights
+# to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+# copies of the Software, and to permit persons to whom the Software is
+# furnished to do so, subject to the following conditions:
+
+# The above copyright notice and this permission notice shall be included in all
+# copies or substantial portions of the Software.
+
+# THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+# IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+# FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+# AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+# LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+# OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+# SOFTWARE.
+
+# -----------------------------------------------------------------------------------------
+
 # Author: Salsabil Bakth
 # The purpose of this script is to retrieve all of the unique events per each DOI 
 # corresponding to the DOIs listed in doidata database.
@@ -7,7 +30,9 @@
 # Incorporated a hash map to check for duplication from MySQL. Checks for eventID
 # and stores them into a dictionary. The hashmap is then used to compare the eventID
 # of the new events. If it does not exist in the MySQL table, then it is inserted into
-# MongoDB.
+# MongoDB to be filtered and finally ingested into MySQL.
+
+# -----------------------------------------------------------------------------------------
 
 import mysql.connector
 import os
@@ -18,6 +43,8 @@ import pymongo
 import json
 import time
 from ingestMongoEvents import ingestMongoEvents
+
+# -----------------------------------------------------------------------------------------
 
 # current directory 
 path = os.getcwd() 
@@ -30,6 +57,8 @@ config_path = os.path.join(path, "config", "openAltConfig.json")
 f = open(config_path)
 APP_CONFIG = json.load(f)
 
+# -----------------------------------------------------------------------------------------
+
 def databaseConnection():
     try:
         # connect to doidata database
@@ -41,6 +70,8 @@ def databaseConnection():
     except:
         print("Error: Cannot connect to MySQL database.")
         return
+
+# -----------------------------------------------------------------------------------------
 
 def mongoDBConnection():
     try:
@@ -60,6 +91,8 @@ def mongoDBConnection():
         print("Error: Cannot connect to MongoDB.")
         return
 
+# -----------------------------------------------------------------------------------------
+
 def storeHashMap(eventIDs):
     # create dictionary to hold unique eventIDs
     listEventIDs= {}
@@ -70,6 +103,8 @@ def storeHashMap(eventIDs):
             listEventIDs[uniqueEventID[0]] = None
 
     return listEventIDs
+
+# -----------------------------------------------------------------------------------------
 
 def fetch_events():
 
@@ -85,9 +120,13 @@ def fetch_events():
     f = open("eventLogFile.txt", "a")
     count = 0
     startTime = time.time()
+
+    # -----------------------------------------------------------------------------------------
     
     # loops for each DOI (for all articles use len(articles))
     for i in range(len(articles)):
+
+        # -----------------------------------------------------------------------------------------
 
         # counter of DOI from the total
         count = count + 1
@@ -103,11 +142,16 @@ def fetch_events():
             executionTime = (time.time() - startTime)
             f.write('Number of DOIs: ' + str(count) + '      Time: ' + str(executionTime) + '\n')
 
+        # -----------------------------------------------------------------------------------------
+        
         # Connect to MongoDB and drop all existing collections 
         eventDatabaseMongoDB = mongoDBConnection()
+        
         for coll in eventDatabaseMongoDB.list_collection_names():
             print("\nExisting Collection: ", coll)
             eventDatabaseMongoDB.drop_collection(coll)
+
+        # -----------------------------------------------------------------------------------------
             
         # access the DOI from the list
         article = articles[i]
@@ -116,6 +160,8 @@ def fetch_events():
 
         # Crossref Event API connection
         crossrefURL = APP_CONFIG['Crossref-Event-API']['url']
+
+        # -----------------------------------------------------------------------------------------
 
         try:
             # fetching event data for this particular DOI
@@ -161,16 +207,23 @@ def fetch_events():
             print("\nIngest to MySQL:")
             ingestMongoEvents()
 
+        # -----------------------------------------------------------------------------------------
+
         except:
             print("Event information is not available.")
             pass
 
+        # -----------------------------------------------------------------------------------------
+
     # Close the log file
     f.close()
     
+# -----------------------------------------------------------------------------------------
 
 def transfer_buffer(events, articleDOI, crossRefEventDatabaseCursor, crossRefEventDatabaseConnection):
 
+    # -----------------------------------------------------------------------------------------
+    
     # create the objectID using the articleDOI
     objectID = "https://doi.org/" + articleDOI
 
@@ -184,15 +237,22 @@ def transfer_buffer(events, articleDOI, crossRefEventDatabaseCursor, crossRefEve
     # reference MongoDB database
     eventDatabase = myclient[databaseName]
 
+    # -----------------------------------------------------------------------------------------
+
     # Iterate through the events    
     for info in events: 
+
         # Iterate through the values of each event
         for key, value in list(info.items()):
             
+            # -----------------------------------------------------------------------------------------
+
             # Store the unique event ID as a value
             if (key=="id"):
                 mongoEventID = value
                 print("\nMongoEventID:", mongoEventID)
+
+            # -----------------------------------------------------------------------------------------
 
             if (key == "source_id" and value == "cambia-lens"):
                 print("Cambia-Lens")
@@ -217,6 +277,8 @@ def transfer_buffer(events, articleDOI, crossRefEventDatabaseCursor, crossRefEve
                 except:
                     print("Event ID (" + mongoEventID + ") fetch failed.")
 
+            # -----------------------------------------------------------------------------------------
+
             elif (key == "source_id" and value == "crossref"):
                 print("Crossref")
                 # Find all of the eventIDs for the DOI
@@ -239,6 +301,8 @@ def transfer_buffer(events, articleDOI, crossRefEventDatabaseCursor, crossRefEve
 
                 except:
                     print("Event ID (" + mongoEventID + ") fetch failed.")
+
+            # -----------------------------------------------------------------------------------------
 
             elif (key == "source_id" and value == "datacite"):
                 print("Datacite")
@@ -263,6 +327,8 @@ def transfer_buffer(events, articleDOI, crossRefEventDatabaseCursor, crossRefEve
                 except:
                     print("Event ID (" + mongoEventID + ") fetch failed.")
 
+            # -----------------------------------------------------------------------------------------
+
             elif (key == "source_id" and value == "f1000"):
                 print("F1000")
                 # Find all of the eventIDs for the DOI
@@ -285,6 +351,8 @@ def transfer_buffer(events, articleDOI, crossRefEventDatabaseCursor, crossRefEve
 
                 except:
                     print("Event ID (" + mongoEventID + ") fetch failed.")
+
+            # -----------------------------------------------------------------------------------------
             
             elif (key == "source_id" and value == "hypothesis"):
                 print("Hypothesis")
@@ -309,6 +377,8 @@ def transfer_buffer(events, articleDOI, crossRefEventDatabaseCursor, crossRefEve
                 except:
                     print("Event ID (" + mongoEventID + ") fetch failed.")
 
+            # -----------------------------------------------------------------------------------------
+
             elif (key == "source_id" and value == "newsfeed"):
                 print("Newsfeed")
                 # Find all of the eventIDs for the DOI
@@ -331,6 +401,8 @@ def transfer_buffer(events, articleDOI, crossRefEventDatabaseCursor, crossRefEve
 
                 except:
                     print("Event ID (" + mongoEventID + ") fetch failed.")
+
+            # -----------------------------------------------------------------------------------------
 
             elif (key == "source_id" and value == "reddit"):
                 print("Reddit")
@@ -355,6 +427,8 @@ def transfer_buffer(events, articleDOI, crossRefEventDatabaseCursor, crossRefEve
                 except:
                     print("Event ID (" + mongoEventID + ") fetch failed.")
 
+            # -----------------------------------------------------------------------------------------
+
             elif (key == "source_id" and value == "reddit-links"):
                 print("Reddit-Links")
                 # Find all of the eventIDs for the DOI
@@ -377,6 +451,8 @@ def transfer_buffer(events, articleDOI, crossRefEventDatabaseCursor, crossRefEve
 
                 except:
                     print("Event ID (" + mongoEventID + ") fetch failed.")
+
+            # -----------------------------------------------------------------------------------------
 
             elif (key == "source_id" and value == "stackexchange"):
                 print("Stack Exchange")
@@ -401,6 +477,8 @@ def transfer_buffer(events, articleDOI, crossRefEventDatabaseCursor, crossRefEve
                 except:
                     print("Event ID (" + mongoEventID + ") fetch failed.")
 
+            # -----------------------------------------------------------------------------------------
+
             elif (key == "source_id" and value == "twitter"):
                 print("Twitter")
                 # Find all of the eventIDs for the DOI
@@ -423,6 +501,8 @@ def transfer_buffer(events, articleDOI, crossRefEventDatabaseCursor, crossRefEve
 
                 except:
                     print("Event ID (" + mongoEventID + ") fetch failed.")
+
+            # -----------------------------------------------------------------------------------------
 
             elif (key == "source_id" and value == "web"):
                 print("Web")
@@ -447,6 +527,8 @@ def transfer_buffer(events, articleDOI, crossRefEventDatabaseCursor, crossRefEve
                 except:
                     print("Event ID (" + mongoEventID + ") fetch failed.")
 
+            # -----------------------------------------------------------------------------------------
+
             elif (key == "source_id" and value == "wikipedia"):
                 print("Wikipedia")
                 # Find all of the eventIDs for the DOI
@@ -469,6 +551,8 @@ def transfer_buffer(events, articleDOI, crossRefEventDatabaseCursor, crossRefEve
 
                 except:
                     print("Event ID (" + mongoEventID + ") fetch failed.")
+
+            # -----------------------------------------------------------------------------------------
 
             elif (key == "source_id" and value == "wordpressdotcom"):
                 print("Wordpress.com")
@@ -493,5 +577,9 @@ def transfer_buffer(events, articleDOI, crossRefEventDatabaseCursor, crossRefEve
                 except:
                     print("Event ID (" + mongoEventID + ") fetch failed.")
 
+# -----------------------------------------------------------------------------------------
+
 if __name__ == '__main__':
     fetch_events()
+
+# -----------------------------------------------------------------------------------------

@@ -115,7 +115,7 @@ def getSciELOPID():
     #Setup DOI code for Crossref Metadata API
 	
 	#This is the Crossred API URL 
-    doiURL = str(configFile["SciELO-Brazil-Data-API"]["url
+    doiURL = str(configFile["SciELO-Brazil-Data-API"]["url"]
 	
 	#This is the country code for the documents from Brazil from Crossref API
     doiCode = configFile["SciELO-Brazil-Data-API"]["url-code"]

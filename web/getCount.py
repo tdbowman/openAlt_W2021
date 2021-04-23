@@ -1,7 +1,32 @@
+# -----------------------------------------------------------------------------------------
+
+# Copyright (c) 2020 tdbowman-CompSci-F2020
+# Permission is hereby granted, free of charge, to any person obtaining a copy
+# of this software and associated documentation files (the "Software"), to deal
+# in the Software without restriction, including without limitation the rights
+# to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+# copies of the Software, and to permit persons to whom the Software is
+# furnished to do so, subject to the following conditions:
+
+# The above copyright notice and this permission notice shall be included in all
+# copies or substantial portions of the Software.
+
+# THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+# IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+# FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+# AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+# LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+# OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+# SOFTWARE.
+
+# -----------------------------------------------------------------------------------------
+
 # Author: Salsabil Bakth
 # The purpose of this file is to retrieve the total records found 
-# from the user's uploaded file in the doidata table. This result
-# will be displayed on the email page.
+# from the user's uploaded file in the bulk search. This result
+# will be previewed on the email/download page.
+
+# -----------------------------------------------------------------------------------------
 
 import os
 import csv
@@ -14,15 +39,21 @@ import shutil
 import time
 import datetime as dt
 
+# -----------------------------------------------------------------------------------------
+
 # Setter for stats
 def setStats(x):
     global stats
     stats = str(x) + ' records found!'
     print(stats)
 
+# -----------------------------------------------------------------------------------------
+
 # Getter for stats
 def getStats():
     return stats
+
+# -----------------------------------------------------------------------------------------
 
 # Setter for count 
 def setCount(x):
@@ -31,9 +62,13 @@ def setCount(x):
     print(count)
     setStats(x)
 
+# -----------------------------------------------------------------------------------------
+
 # Getter for count
 def getCount():
     return count
+
+# -----------------------------------------------------------------------------------------
 
 # Bulk Search by DOI
 def uploadDOIList(mysql, fileName):
@@ -43,6 +78,8 @@ def uploadDOIList(mysql, fileName):
 
     # Go through the content of the file and count
     getDOICount(mysql, dir)
+
+# -----------------------------------------------------------------------------------------
 
 def getDOICount(mysql, dir_csv):
 
@@ -105,6 +142,7 @@ def getDOICount(mysql, dir_csv):
     # Pass query result to set the count function
     setCount(resultSet["count(*)"])
 
+# -----------------------------------------------------------------------------------------
 
 # Bulk Search by Author
 def uploadAuthorList (mysql, fileName):
@@ -114,6 +152,8 @@ def uploadAuthorList (mysql, fileName):
 
     # Go through the content of the file and count
     getAuthorCount(mysql, dir)
+
+# -----------------------------------------------------------------------------------------
 
 def getAuthorCount(mysql, dir_csv):
     # Directories 
@@ -169,6 +209,8 @@ def getAuthorCount(mysql, dir_csv):
     # Pass query result to set the count function
     setCount(resultSet["count(*)"])
 
+# -----------------------------------------------------------------------------------------
+
 # Bulk Search by University
 def uploadUniList(mysql, fileName):
 
@@ -177,6 +219,8 @@ def uploadUniList(mysql, fileName):
 
     # Go through the content of the file and count
     getUniCount(mysql, dir)
+
+# -----------------------------------------------------------------------------------------
 
 def getUniCount(mysql, dir_csv):
 
@@ -197,7 +241,6 @@ def getUniCount(mysql, dir_csv):
     if not os.path.exists(dir_results):
         os.mkdir(dir_results)
 
-    
     # Set the logging parameters
     if not os.path.exists(dir_file + '\\Logs'):
         os.mkdir(dir_file + '\\Logs')
@@ -233,3 +276,5 @@ def getUniCount(mysql, dir_csv):
 
     # Pass query result to set the count function
     setCount(resultSet["count(distinct university)"])
+
+# -----------------------------------------------------------------------------------------

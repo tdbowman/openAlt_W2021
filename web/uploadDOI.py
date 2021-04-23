@@ -1,4 +1,27 @@
-#Author: Darpan
+# -----------------------------------------------------------------------------------------
+
+# Copyright (c) 2020 tdbowman-CompSci-F2020
+# Permission is hereby granted, free of charge, to any person obtaining a copy
+# of this software and associated documentation files (the "Software"), to deal
+# in the Software without restriction, including without limitation the rights
+# to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+# copies of the Software, and to permit persons to whom the Software is
+# furnished to do so, subject to the following conditions:
+
+# The above copyright notice and this permission notice shall be included in all
+# copies or substantial portions of the Software.
+
+# THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+# IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+# FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+# AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+# LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+# OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+# SOFTWARE.
+
+# -----------------------------------------------------------------------------------------
+
+# Author: Darpan
 import os
 import json
 import csv
@@ -18,7 +41,7 @@ import emailResults as er
 path = os.getcwd() 
 parent = os.path.dirname(path) 
 #config_path = os.path.join(path, "config", "openAltConfig.json")
-config_path = "C:\\Users\\darpa\\Desktop\\openAlt_W2021\\config\\openAltConfig.json"
+config_path = "C:\\Users\\salsa\\Documents\\GitHub\\openAlt_W2021\\config\\openAltConfig.json"
 f = open(config_path)
 
 APP_CONFIG = json.load(f)
@@ -302,7 +325,8 @@ def downloadDOI(mysql, dir_csv, type, email):
     #return zipEvents
 
 
-# Author: Salsabil (line 306-318)
+# ====================== Beginning of Salsabil's Code ======================
+
 def searchByDOI(mysql, fileName, type, email):
 
     # Directory of uploaded file
@@ -314,5 +338,6 @@ def searchByDOI(mysql, fileName, type, email):
     if os.path.exists(dir):
         os.remove(dir)
 
-    #return flask.render_template('searchComplete.html', mysql, dir, type, email, type = 'doi')
     return flask.render_template('downloadDOI.html')
+
+# ========================= End of Salsabil's Code =========================

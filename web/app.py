@@ -1,4 +1,27 @@
-#Author: Darpan (download pages, /admin, /limitreached, /searchComplete, /searchError)
+# -----------------------------------------------------------------------------------------
+
+# Copyright (c) 2020 tdbowman-CompSci-F2020
+# Permission is hereby granted, free of charge, to any person obtaining a copy
+# of this software and associated documentation files (the "Software"), to deal
+# in the Software without restriction, including without limitation the rights
+# to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+# copies of the Software, and to permit persons to whom the Software is
+# furnished to do so, subject to the following conditions:
+
+# The above copyright notice and this permission notice shall be included in all
+# copies or substantial portions of the Software.
+
+# THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+# IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+# FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+# AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+# LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+# OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+# SOFTWARE.
+
+# -----------------------------------------------------------------------------------------
+
+# Author: Darpan (download pages, /admin, /limitreached, /searchComplete, /searchError)
 
 import os
 import json
@@ -45,7 +68,7 @@ path = os.getcwd()
 # parent directory
 parent = os.path.dirname(path)
 #config_path = os.path.join(path, "config", "openAltConfig.json")
-config_path = "C:\\Users\\darpa\\Desktop\\openAlt_W2021\\config\\openAltConfig.json"
+config_path = "C:\\Users\\salsa\\Documents\\GitHub\\openAlt_W2021\\config\\openAltConfig.json"
 
 # config file
 f = open(config_path)
@@ -273,7 +296,8 @@ def team():
 def licenses():
     return flask.render_template('licenses.html')
 
-# Author: Salsabil (line 283-296)
+# ====================== Beginning of Salsabil's Code ======================
+
 @ app.route('/searchByOptions', methods=["GET", "POST"])
 def searchByOptions():
 
@@ -290,6 +314,8 @@ def searchByOptions():
 
     return flask.render_template('searchByOptions.html')
 
+# ========================= End of Salsabil's Code =========================
+
 
 @ app.route('/uploadDOI', methods=["GET", "POST"])
 def uploadDOI():
@@ -299,7 +325,8 @@ def uploadDOI():
     target = app.config["UPLOAD_FILES"]
     maxSize = APP_CONFIG['User-Result-Limit']['maxSize']
 
-    # Author: Salsabil (line 310-333)
+# ====================== Beginning of Salsabil's Code ======================
+
     # Allowed extensions of file
     ALLOWED_EXTENSIONS = {'csv'}
 
@@ -326,10 +353,13 @@ def uploadDOI():
                 # Save the file to the directory
                 uploadFiles.save(os.path.join(target, fileName))
 
+# ========================= End of Salsabil's Code =========================
+
             session['doiPath'] = fileName
             print("UPLOAD FILE PATH:", session['doiPath'])
 
-            # Author: Salsabil (line 337-349)
+# ====================== Beginning of Salsabil's Code ======================
+            
             uploadDOIList(mysql, fileName)
 
             # Retrieve count
@@ -343,13 +373,14 @@ def uploadDOI():
 
     return flask.render_template('uploadDOI.html', maxSize = maxSize)
 
+# ========================= End of Salsabil's Code =========================
+
 
 @ app.route('/downloadDOI', methods=["GET", "POST"])
 def downloadDOI():
     if request.method == "POST":
 
         filepath = session.get('doiPath')
-        # session['type'] = 'doi'
 
         dropdownValue = request.form.get('dropdownSearchBy')
         print("Download Type:", dropdownValue)
@@ -368,8 +399,6 @@ def downloadDOI():
             emailError(emailVal, 'doi')
             return redirect('/searchError')
 
-        # return flask.render_template('searchComplete.html')
-
     return flask.render_template('downloadDOI.html')
 
 
@@ -381,7 +410,8 @@ def uploadAuthors():
     destination = app.config["UPLOAD_FILES"]
     maxSize = APP_CONFIG['User-Result-Limit']['maxSize']
 
-    # Author: Salsabil (line 392-421)
+# ====================== Beginning of Salsabil's Code ======================
+
     # If directory does not exist, create it
     if not os.path.isdir(destination):
         os.mkdir(destination)
@@ -414,6 +444,7 @@ def uploadAuthors():
 
     return flask.render_template('uploadAuthors.html', maxSize = maxSize)
 
+# ========================= End of Salsabil's Code =========================
 
 @ app.route('/downloadAuthors', methods=["GET", "POST"])
 def downloadAuthors():
@@ -464,7 +495,8 @@ def uploadUni():
 
             session['uniPath'] = fileName
 
-            # Author: Salsabil (line )
+# ====================== Beginning of Salsabil's Code ======================
+
             # Send file to be parsed and counted through
             uploadUniList(mysql, fileName)
 
@@ -476,6 +508,8 @@ def uploadUni():
                 return flask.render_template('noResultsPage.html')
             else:
                 return flask.render_template('downloadUni.html', results = getStats())
+
+# ========================= End of Salsabil's Code =========================
 
     return flask.render_template('uploadUni.html', maxSize = maxSize)
 
@@ -504,7 +538,6 @@ def downloadUni():
             return redirect('/searchError')
 
         return redirect('/searchComplete')
-        # return flask.render_template('searchComplete.html')
 
     return flask.render_template('downloadUni.html')
 
