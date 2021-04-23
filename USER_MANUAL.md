@@ -107,8 +107,8 @@ Data retrieved from the third-party APIs will be retrieved as JSON format. Each 
 ### 5.1 Ingesting DOIs into main table
 1. Open up MySQL Workbench.
     - Connect to your Local MySQL Connection.
-2. Execute this SQL query `SELECT * FROM doidata.main;`.
-3. Import `openAlt_W2021/SQL/DOI_Author_Database/doi_mainTable_10k_V2.0.csv` to the doidata.main table.
+2. Execute this SQL query `SELECT * FROM doidata._main_;`.
+3. Import `openAlt_W2021/SQL/DOI_Author_Database/doi_mainTable_10k_V2.0.csv` to the doidata._main_ table.
 
 
 ### 5.2 Ingesting from SciELO
