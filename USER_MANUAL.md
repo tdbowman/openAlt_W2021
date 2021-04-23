@@ -64,11 +64,11 @@ The 'BulkSearchStats' database is necessary for the bulk search limitation to av
 ## 4. Collecting and Ingesting the Events, Metadata, and Citations 🏷️
 Before we can run the web server, we also need to collect the data from the Crossref API. This will take some time, as there are millions of events to collect. We highly recommend reading Crossref's [guide](https://www.eventdata.crossref.org/guide/) before continuing.  
 
-Our Python script `openAlt/pythonScripts/fetchEventBuffer.py` grabs new Event data from the Crossref API. This data is retrieved in a JSON format and then ingest into `crossrefeventdatamain` database.
+Our Python script `openAlt/pythonScripts/fetchEventBuffer.py` grabs new event data from the Crossref API. This data is retrieved in a JSON format into MongoDB, filtered and sorted through by the type of event it is, and then ingested into `crossrefeventdatamain` database. The retrieval of the data and ingestion may take time because there can be thousands of events related to one single publication. 
 
 Author metadata for publications are also retrieved from the Crossref API. Metada can be fetched and ingested by running the `metadataThroughMongoDB.py` script which can be found [here](https://github.com/tdbowman/openAlt_W2021/blob/master/pythonScripts/metadataThroughMongoDB.py).
 
-Citation data is retrieved from the OpenCitations API. This takes a longer duration than fetching the event data as a publication can have upwards of thosands of citations. We also recommend the reading the manual for OpenCitations API [here](https://opencitations.net/index/coci/api/v1).
+Citation data is retrieved from the OpenCitations API. This takes a long duration since a publication can have upwards of thousands of citations. We also recommend the reading the manual for OpenCitations API [here](https://opencitations.net/index/coci/api/v1).
 
 `openAlt/pythonScripts/fetchOpenCitations.py` script can be run to fetch citation data for all of the publications of doidata database and store them in OpenCitations database.
 
