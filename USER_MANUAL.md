@@ -1,6 +1,8 @@
 # User Manual
 This document details how to get set-up if you would like to clone the repository and run the web server yourself.  
 
+For video documentation, click [here](https://youtu.be/FStFargq8Uo).
+
 ## 1. Install the Dependencies
 ### 1.1 Windows
   * Install [Python 3.8.6](https://www.python.org/downloads/) and add it to your PATH.
@@ -101,11 +103,12 @@ Data retrieved from the third-party APIs will be retrieved as JSON format. Each 
 }
 ```
 ## 5. Ingesting the Data 🗃️
-These files will need to be ingested into the database by the following script: `openAlt/pythonScripts/Ingest/ingestJSONMain.py`. This script reads each JSON in the data directory, and inserts the events into the MySQL database. Again, the Event data does not contain the journal, publisher, authors, or titles for the DOI's. We utilized Dr. Bowman's database which was already populated with this data when we started this project. If you are cloning the repository, *you will need to source this data yourself*. This GitHub [repository](https://github.com/fabiobatalha/crossrefapi) is a good place to start.
 
-### 5.1 Ingesting from JSON Files
-1. Change the data directory for your JSON folder to suit your system (line 28).
-2. Run `python ingestJSONMain.py` in your preferred terminal.
+### 5.1 Ingesting DOIs into main table
+1. Open up MySQL Workbench.
+    - Connect to your Local MySQL Connection.
+2. Execute this SQL query `SELECT * FROM doidata._main_;`.
+3. Import `openAlt_W2021/SQL/DOI_Author_Database/doi_mainTable_10k_V2.0.csv` to the `doidata._main_` table.
 
 
 ### 5.2 Ingesting from SciELO
