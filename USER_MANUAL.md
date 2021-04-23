@@ -64,7 +64,7 @@ The 'BulkSearchStats' database is necessary for the bulk search limitation to av
 ## 4. Collecting and Ingesting the Events, Metadata, and Citations 🏷️
 Before we can run the web server, we also need to collect the data from the Crossref API. This will take some time, as there are millions of events to collect. We highly recommend reading Crossref's [guide](https://www.eventdata.crossref.org/guide/) before continuing.  
 
-Our Python script `openAlt/pythonScripts/fetchEventBuffer.py` grabs new event data from the Crossref API. This data is retrieved in a JSON format into MongoDB, filtered and sorted through by the type of event it is, and then ingested into `crossrefeventdatamain` database. The retrieval of the data and ingestion may take time because there can be thousands of events related to one single publication. 
+Our Python script `openAlt/pythonScripts/Ingest/fetchEventBuffer.py` grabs new event data from the Crossref API. This data is retrieved in a JSON format into MongoDB, filtered and sorted through by the type of event it is, and then ingested into `crossrefeventdatamain` database. The retrieval of the data and ingestion may take time because there can be thousands of events related to one single publication. 
 
 Author metadata for publications are also retrieved from the Crossref API. Metada can be fetched and ingested by running the `metadataThroughMongoDB.py` script which can be found [here](https://github.com/tdbowman/openAlt_W2021/blob/master/pythonScripts/metadataThroughMongoDB.py).
 
@@ -118,7 +118,7 @@ We recevied a dump of data for articles from [SciELO](https://scielo.org/) that 
 3. Go to this directory: `openAlt/pythonScripts` in the project files and locate the `getSciELO.py` file .
 4. Navigate to the `openAlt/config` folder and locate `OpenAltConfig.json`. Change MySQL username and password to suit your device.
 5. Run `python getSciELO.py` in your preferred terminal from `openAlt/pythonScripts` to ingest in data from Crossref for the SciELO articles.
-6. Run `python fetchEventBuffer.py` in your preferred terminal from `openAlt/pythonScripts` to ingest in event data for the articles.
+6. Run `python fetchEventBuffer.py` in your preferred terminal from `openAlt/pythonScripts/Ingest` to ingest in event data for the articles.
 7. Run `python metadataThroughMongoDB.py` in your preferred terminal from `openAlt/pythonScripts` to ingest in metadata for the articles.
 8. Run `python fetchOpenCitations.py` in your preferred terminal from `openAlt/pythonScripts` to ingest in citation and reference data for the articles.
 
