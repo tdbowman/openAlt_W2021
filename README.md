@@ -70,7 +70,7 @@ OS: Windows 10
 <br>
 Browser: Google Chrome, Microsoft Edge
 <br>
-Time taken to ingest Metadata (for 1000 DOIs): 
+Time taken to ingest Metadata (for 1000 DOIs): 40 minutes
 <br>
 Time taken to ingest Events (for 1000 DOIs): 1 hour
 <br>
