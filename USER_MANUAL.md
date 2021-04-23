@@ -72,8 +72,8 @@ Citation data is retrieved from the OpenCitations API. This takes a long duratio
 
 `openAlt/pythonScripts/fetchOpenCitations.py` script can be run to fetch citation data for all of the publications of doidata database and store them in OpenCitations database.
 
-### 4.1 Example JSON Format:
-Downloaded JSON files will look similar to this. Each of the 13 Event types has a unique format.  
+### 4.1 Example of JSON Format:
+Data retrieved from the third-party APIs will be retrieved as JSON format. Each API will have a unique format of the data. An example of data retrieved from the Crossref Event Data API will look like:
 ```JSON
 {
         "license": "https:\/\/creativecommons.org\/publicdomain\/zero\/1.0\/",
