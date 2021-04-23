@@ -122,8 +122,10 @@ We recevied a dump of data for articles from [SciELO](https://scielo.org/) that 
 7. Run `python metadataThroughMongoDB.py` in your preferred terminal from `openAlt/pythonScripts` to ingest in metadata for the articles.
 8. Run `python fetchOpenCitations.py` in your preferred terminal from `openAlt/pythonScripts` to ingest in citation and reference data for the articles.
 
-### 6. Quirks of the Crossref API ❓
-* Some Events give a DOI(objectID) of simply https://doi.org. For example, the event with ID: `5c83ca20-d4a1-471b-a23f-f21486cefb5c`
+### 6. Quirks of the Crossref Event API ❓
+* Some Events give a DOI(objectID) as https://doi.org. For example, the event with ID: `5c83ca20-d4a1-471b-a23f-f21486cefb5c` will follow that format. 
+* Event IDs are unique to each DOI.
+* The Crossref Event API defaults to only showing the first thousand events associated with each DOI. You must use the cursor provided to fetch the next set of data from the API until there are no more events to fetch.
 * Some DOI's in the Crossref Event data are malformed.  
 This appears to be an inability of the Crossref agent to process Arabic text. We have only observed this for Twitter events so far.  
 For example, the event with ID `5dd6719b-8981-4712-988c-8c01f7ad760b` has a DOI(objectID) of:  
