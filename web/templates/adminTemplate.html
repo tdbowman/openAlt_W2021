@@ -1,0 +1,112 @@
+<!--Author: Darpan (whole file)-->
+<!--
+MIT License
+
+Copyright (c) 2020 tdbowman-CompSci-F2020
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
+-->
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+	<meta name="viewport" content="width=device-width,initial-scale=1">
+	<meta name="author" content="name">
+	<meta name="description" content="description here">
+	<meta name="keywords" content="keywords,here">
+	<link rel="shortcut icon" href="{{ url_for('static', filename='favicon.ico') }}">
+
+	<!-- jQuery CDN -->
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+	<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+	<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+	
+	<link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+	<link rel="stylesheet" href="/resources/demos/style.css">
+
+	<!-- Local Bootstrap JS -->
+	<script src="{{ url_for('static', filename = 'css/bootstrap-3.3.7-dist/js/bootstrap.min.js')}}"></script>
+
+	<!-- Local Bootstrap CSS -->
+	<link rel="stylesheet" type="text/css"
+		href="{{ url_for('static', filename = 'css/bootstrap-3.3.7-dist/css/bootstrap.min.css')}}">
+
+	<!-- Our CSS -->
+	<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename = 'css/style.css')}}">
+
+	<!-- jQuery CDN (This is added again so dialog 'X' shows up. If we only keep this then menu won't work)-->
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+	<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+	<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+	
+	<link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+	<link rel="stylesheet" href="/resources/demos/style.css">
+
+
+
+
+	{% block head %}
+	{% endblock %}
+</head>
+
+<body>
+	<header>
+
+		<nav class="navbar-inverse">
+			<div class="container-fluid">
+
+
+				<ul class="nav navbar-nav navbar" style="font-size: large;">
+					<li><a style="margin-top:0px;" href= "{{ url_for('index') }}" ><img alt="GitHub Logo" src="../static/images/logos/negative/Logo_NEGATIVE_300x300.png" height="50px"></a></li>
+					<li><a href="{{ url_for('index') }}" style="margin-top:15px;">OpenAlt</a></li>
+					<li><a href="{{ url_for('searchByOptions') }}" style="margin-top:15px;">Search By CSV</a></li>
+					</li>
+				</ul>
+
+
+				<!-- Right aligned Drop-down menu logo -->
+				<ul style="margin-top:15px;" class="nav navbar-nav navbar-right">
+					<li style="font-size: large; margin-right: 25px;" class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown"
+							href="#"><b style="color: aliceblue; font-size: large;">Menu</b><span
+								class="caret"></span></a>
+						<ul class="dropdown-menu">
+							<li><a href="{{ url_for('team') }}">Meet the team</a></li>
+							<li><a href="{{ url_for('about') }}">Learn about the project</a></li>
+							<li><a href="{{ url_for('licenses') }}">License and Dependency Info</a></li>
+							<li><a href="https://github.com/tdbowman/openAlt_W2021" target="_blank">GitHub</a></li>
+							<li><a href="{{ url_for('admin') }}">Admin</a></li>
+						</ul>
+					</li>
+				</ul>
+			</div>
+		</nav>
+
+	</header>
+
+	{% block body %}{% endblock %}
+
+	<footer>
+		<!-- Empty footer for now -->
+	</footer>
+
+</body>
+
+</html>
