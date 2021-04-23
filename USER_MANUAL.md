@@ -1,7 +1,7 @@
 # User Manual
 This document details how to get set-up if you would like to clone the repository and run the web server yourself.  
 
-For video documentation, click [here](https://youtu.be/FStFargq8Uo)
+For video documentation, click [here](https://youtu.be/FStFargq8Uo).
 
 ## 1. Install the Dependencies
 ### 1.1 Windows
