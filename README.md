@@ -35,7 +35,6 @@ Here are some screenshots taken with a small slice of the total data.
 <img src="./screenshots/bulkSearchDownload.png" alt="Retrieve Bulk Search Results "/> <br>
 
 ## Dependencies and their Licenses 
-// One paragraph regarding the way we tested our application. for ex, testted with, ...OS, ....application, for ... many hours.
 
 | Software                        | License                            | Version                         |
 |:--------------------------------|:-----------------------------------|:--------------------------------|
@@ -46,6 +45,8 @@ Here are some screenshots taken with a small slice of the total data.
 | C3                              | MIT License                        | 3.5.1                           |
 | D3                              | BSD-3-Clause License               | 5.7.2                           |
 | jQuery                          | MIT License                        | 0.7.20                          |
+| MongoDB                         | SSPL v1.0 License                  | 4.4                             |
+
 
 <br>
 
@@ -60,7 +61,17 @@ Here are some screenshots taken with a small slice of the total data.
 | python-dateutil           | Apache-2.0 License         | 2.8.1                      |
 | flask-paginate            | BSD-3-Clause License       | 0.7.1                      |
 | pytz                      | MIT License                | 2020.1                     |
-| MongoDB                   | SSPL v1.0 License          | 4.4                        |
+
+
+<br>
+
+## Application Testing Configurations
+OS: Windows 10
+Browser: Google Chrome, Microsoft Edge
+Time taken to ingest Metadata (for 1000 DOIs): 
+Time taken to ingest Events (for 1000 DOIs): 1 hour
+Time taken to ingest Citations (for 1000 DOIs): 1 hour and 10 minutes
+
 
 <br>
 
