@@ -67,10 +67,15 @@ Here are some screenshots taken with a small slice of the total data.
 
 ## Application Testing Configurations
 OS: Windows 10
+<br>
 Browser: Google Chrome, Microsoft Edge
+<br>
 Time taken to ingest Metadata (for 1000 DOIs): 
+<br>
 Time taken to ingest Events (for 1000 DOIs): 1 hour
+<br>
 Time taken to ingest Citations (for 1000 DOIs): 1 hour and 10 minutes
+
 
 
 <br>
