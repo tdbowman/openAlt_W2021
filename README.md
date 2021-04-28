@@ -61,7 +61,14 @@ Here are some screenshots taken with a small slice of the total data.
 | python-dateutil           | Apache-2.0 License         | 2.8.1                      |
 | flask-paginate            | BSD-3-Clause License       | 0.7.1                      |
 | pytz                      | MIT License                | 2020.1                     |
-
+| email-validator           | CC0 1.0 Universal          | 1.1.2                      |
+| pandas                    | BSD-3-Clause License       | 1.2.4                      |
+| smtplib                   | PSF License Agreement      | Python v3.9                |
+| ssl                       | PSF License Agreement      | Python v3.9                |
+| EmailMessage              | PSF License Agreement      | Python v3.9                |
+| MIMEMultipart             | PSF License Agreement      | Python v3.9                |
+| MIMEApplication           | PSF License Agreement      | Python v3.9                |
+| MIMEText                  | PSF License Agreement      | Python v3.9                |
 
 <br>
 
