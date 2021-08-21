@@ -9,6 +9,7 @@ For video documentation, click [here](https://youtu.be/FStFargq8Uo).
   * Install MySQL using the [Windows Installer](https://dev.mysql.com/downloads/installer/). Be sure to install the Python connector and workbench.
   * Use pip to install the needed Python modules. This command will install them all at once:    
     `pip install schedule crossrefapi flask virtualenv python-dateutil flask-paginate pytz email-validator pandas smtplib ssl EmailMessage MIMEMultipart MIMEApplication MIMEText`
+    - `flask` did not installed completely, it asked for other submodules. ???
   * Install version 4.4 or higher of MongoDB community edition by by following the instructions in this [link](https://docs.mongodb.com/manual/tutorial/install-mongodb-on-windows/). 
 ### 1.2 Ubuntu
   * Install Python 3:  
@@ -35,6 +36,8 @@ For video documentation, click [here](https://youtu.be/FStFargq8Uo).
   * Install version 4.4 or higher of MongoDB community edition by by following the instructions in this [link](https://docs.mongodb.com/manual/tutorial/install-mongodb-on-windows/).
 
 ## 2. Setting up the Databases 📊
+Once MySQL is installed and running, create a user with access and write privileges on the server. Then create de databases using the `.sql` files as follows. The files can be executed in the command-line server or any graphical interface.
+
 The Event data will be ingested into a MySQL database titled `crossRefEventDataMain`. The script to create it can be found [here](https://github.com/tdbowman/openAlt_W2021/blob/master/SQL/CrossrefeventdataWithMain/crossrefeventdataWithMain.sql).  
   
 The journal, publisher, author, title, and date information is stored in a seperate MySQL database titled `doidata`. The script to create it can be found [here](https://github.com/tdbowman/openAlt_W2021/blob/master/SQL/DOI_Author_Database/doidataSchema.sql).
@@ -48,7 +51,10 @@ The 'BulkSearchStats' database is necessary for the bulk search limitation to av
 ## 3. Update Configs 📝
 1) After creation of the SQL tables, edit the config file to match your database credentials. The config file can be found [here](https://github.com/tdbowman/openAlt_W2021/blob/master/config/openAltConfig.json). 
 
-2) In the project, update the `config_path` variable to match the directory of your config file. The variable can be found in the following files:
+2) Inside the `pythonScripts/Ingest` folder of your project, create a file named `_db.py` and define a dictionary called `db` with your credentials for tthe database and its address. ???
+
+
+3) In the project, update the `config_path` variable to match the directory of your config file. The variable can be found in the following files:
       * [content_domain_ingest.py](https://github.com/tdbowman/openAlt_W2021/blob/master/pythonScripts/content_domain_ingest.py)
       * [fetchCitations.py](https://github.com/tdbowman/openAlt_W2021/blob/master/pythonScripts/fetchCitations.py)
       * [fetchOpenCitations.py](https://github.com/tdbowman/openAlt_W2021/blob/master/pythonScripts/fetchOpenCitations.py)
